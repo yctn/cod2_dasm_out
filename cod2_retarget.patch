@@ -1,0 +1,512 @@
+--- /tmp/cod4dasm/CoD4x_Server/tools/cod4_dasm/cod4_dasm.cc	2026-05-06 14:13:58
++++ /tmp/cod2_dasm_work/cod4_dasm.cc	2026-05-06 15:18:22
+@@ -42,6 +42,8 @@
+ #include <stdlib.h>
+ #include <string.h>
+ #include <sys/mman.h>
++#include <sys/stat.h>
++#include <sys/types.h>
+ #include <time.h>
+ #include <ucontext.h>
+ #include <unistd.h>
+@@ -968,8 +970,8 @@
+   ObjectMap objects[1000]; //All objectfiles
+   ObjectMap *currentobject;
+   int objectcount;
+-  SymbolSorted symbolssorted[20000]; //All symbols sorted by address
+-  Symbol symbols[20000]; //Stores all symbols with details - does not contain SYM_OBJECT
++  SymbolSorted symbolssorted[80000]; //All symbols sorted by address (bumped for CoD2)
++  Symbol symbols[80000]; //Stores all symbols with details - does not contain SYM_OBJECT (bumped for CoD2)
+   int symbolcount;
+ 
+ 
+@@ -1044,7 +1046,7 @@
+   struct ObjectMap
+   {
+     string objectname;
+-    Symbol *symbols[1800]; //List of symbols belong to this objectfile
++    Symbol *symbols[40000]; //List of symbols belong to this objectfile (bumped for CoD2; initobj alone is huge)
+     int symbolcount;
+   };
+   struct Symbol
+@@ -1085,25 +1087,27 @@
+   const char* sectionname(uint8_t section)
+   {
+     static char unknown[20];
++    // CoD2-Mac i386 section ordinals (1-based n_sect across all segments).
+     switch(section)
+     {
+-
+-  case 1: return "text";
+-  case 2: return "cstring"; //Constant strings
+-  case 3: return "text2";
+-  case 7: return "literal4"; //Constant most are float
+-  case 8: return "text3";
+-  case 9: return "const9"; //Constant stuff
+-  case 10: return "const_coal10"; //Discarded probably just debug info
+-  case 11: return "literal8"; //Constant maybe doubles?
+-  case 12: return "data"; //Data preinitialized variable data
+-  case 14: return "gcc_except_tab"; //Discard - no idea what to do with it
+-  case 15: return "cfstring";
+-  case 17: return "const_coal17"; //Discarded probably just debug info
+-  case 18: return "const18"; //Const stuff also vtables!
+-  case 19: return "bss"; //rw memory - zero initialized
+-  case 20: return "common"; //rw memory - zero initialized
+-  case 21: return "pointers";
++  case 1:  return "text";          // __TEXT.__text
++  case 4:  return "cstring";       // __TEXT.__cstring
++  case 5:  return "text_pic";      // __TEXT.__picsymbolstub2
++  case 6:  return "textcoal_nt";   // __TEXT.__textcoal_nt
++  case 7:  return "eh_frame";      // discarded
++  case 10: return "literal4";
++  case 11: return "const";         // __TEXT.__const
++  case 12: return "const_coal12";  // discarded
++  case 13: return "literal8";
++  case 14: return "data";          // __DATA.__data
++  case 18: return "gcc_except_tab";// discarded
++  case 19: return "cfstring";
++  case 22: return "const_coal22";  // discarded
++  case 23: return "const_data";    // __DATA.__const  (vtables here)
++  case 24: return "bss";
++  case 25: return "common";
++  case 26: return "jump_table";    // __IMPORT.__jump_table
++  case 27: return "pointers";      // __IMPORT.__pointers
+ 	default:
+         sprintf(unknown, "unknown: %d", section);
+         return unknown;
+@@ -1112,21 +1116,36 @@
+ 
+   bool discard(uint8_t section, uint8_t type, const char* name)
+   {
+-    if(section == 10 || section == 17) //const_coal - probably not needed
++    // CoD2-Mac i386 section ordinals.
++    // Discard sections we don't emit: const_coal (12, 22), eh_frame (7),
++    // gcc_except_tab (18), and the dyld/symbol-stub bookkeeping (15-17, 20-21).
++    if(section == 7 || section == 12 || section == 18 || section == 22)
+     {
+       return true;
+     }
+-    if(section == 14) //Exception table
++    if(section == 15 || section == 16 || section == 17 ||
++       section == 20 || section == 21)
+     {
+       return true;
+     }
+ 
+-    if(section == 3 && type == 0x1e)
++    // textcoal_nt is section 6 in CoD2 (was 3 in CoD4). Type 0x1e here means
++    // "external indirect symbol in coalesced text" — we want to keep these.
++    if(section == 6 && type == 0x1e)
+     {
+       return false;
+     }
+ 
+-    if((section == 1 || section == 3 || section == 8) && type != 0x22 && type != 0x24)
++    // CoD2 retarget: KEEP non-external (static) functions in text sections.
++    // The CoD4-Mac binary was relatively stripped and relied on the Windows
++    // shadow for static-function symbol names, so it discarded these. CoD2-
++    // Mac retains many static functions in its nlist (type 0x0e = N_SECT),
++    // and we need them as procedure boundaries — without them, a single
++    // "external" symbol's effective size extends across thousands of static
++    // functions that follow it, blowing the disassembler's per-proc buffer.
++    // Keep type 0x22 (N_SECT|N_EXT), 0x24 (N_PEXT|N_SECT), and 0x0e (N_SECT).
++    if((section == 1 || section == 5 || section == 6) &&
++       type != 0x22 && type != 0x24 && type != 0x0e && type != 0x1e)
+     {
+       return true;
+     }
+@@ -1142,7 +1161,9 @@
+ 	}
+ 	return true;
+     }
+-    if(section == 4)
++    // Sections 2 and 3 are zero-size __picsymbol_stub / __symbol_stub in CoD2;
++    // any symbol claiming to live there is bogus.
++    if(section == 2 || section == 3)
+     {
+ 	return true;
+     }
+@@ -1236,6 +1257,12 @@
+   };
+   static struct vtabaddrlist_s list[] =
+   {
++  // CoD4-specific typeinfo addresses removed for CoD2 retarget. CoD2's IW2
++  // engine has a different C++ class set; until a CoD2-derived list is
++  // populated, all __ZTI symbols will be skipped (handled by the 0xffffffff
++  // sentinel return in FindAddrForVITabName).
++  { 0, NULL }
++  #if 0
+   { 0x3b4660, "__ZTI9CDirect3D"},
+   { 0x3b4680, "__ZTI10IDirect3D9"},
+   { 0x3b46a0, "__ZTI8IUnknown"},
+@@ -1291,6 +1318,7 @@
+   { 0x3b4f80, "__ZTI15TextureInfoType"},
+   { 0x3b4fa0, "__ZTI14COpenGLTexture"},
+   { 0, NULL }
++  #endif
+   };
+     int i;
+     for(i = 0; list[i].addr; ++i)
+@@ -1314,20 +1342,12 @@
+     }
+     string initsr("initobj");
+     addsymbol(initsr, 0, 0, SYM_OBJECT);
+-    initsr.assign("__i686.get_pc_thunk.bx");
+-    addsymbol(initsr, 0x32e0a8, 3, SYM_PROC);
+-    initsr.assign("__i686.get_pc_thunk.cx");
+-    addsymbol(initsr, 0x33a02a, 3, SYM_PROC);
+-    initsr.assign("atexit_common");
+-    addsymbol(initsr, 0x3471, 1, SYM_PROC);
+-    initsr.assign("get_globals");
+-    addsymbol(initsr, 0x30de, 1, SYM_PROC);
+-    initsr.assign("add_routine");
+-    addsymbol(initsr, 0x324b, 1, SYM_PROC);
+-    initsr.assign("check_cxa_atexit");
+-    addsymbol(initsr, 0x3069, 1, SYM_PROC);
+-    initsr.assign("__cxa_atexit");
+-    addsymbol(initsr, 0x3607, 1, SYM_PROC);
++    // CoD4-specific hardcoded helper-function addresses removed for CoD2
++    // retarget. These pointed at __i686.get_pc_thunk.* in __textcoal_nt
++    // (CoD4 section 3) and at atexit/cxa helpers in __text (section 1).
++    // For CoD2 the same helpers exist but at completely different addresses
++    // — intentionally leaving them out for now; the disassembler will emit
++    // sub_<addr>-style names for them instead.
+ 
+ /*
+     for (size_t i = 0; i < mach.symbols().size(); i++)
+@@ -1381,13 +1401,18 @@
+           sprintf(unkstr, "unknown%d", objectcount +1);
+           sym.name.assign(unkstr);
+         }
+-      }else if((sym.type & 0x0e) == 0x0e && sym.section == 3){
++      }else if((sym.type & 0x0e) == 0x0e &&
++               (sym.section == 1 || sym.section == 5 || sym.section == 6)){
++          // CoD2 retarget: static functions (N_SECT, no N_EXT) in any text
++          // section. CoD4 only kept these for textcoal_nt (section 3); CoD2
++          // has many more static functions in __text (1) and picsymbolstub2 (5).
+           type = SYM_PROC;
+ 
+       }else if(sym.type == 0x22 || sym.type == 0x24){
+ 
+-        if(sym.section == 9)
++        if(sym.section == 11)
+         {
++          // CoD2: __TEXT.__const is section 11 (was 9 in CoD4).
+           type = SYM_GLOBCONST;
+         }else{
+           type = SYM_PROC;
+@@ -1398,21 +1423,28 @@
+           exit(1);
+         }
+ 
+-        if(sym.section == 3 && sym.addr >= 0x32e0a8 && sym.addr <= 0x33a02d)
++        // Validate that "external proc" symbols land in a text-like section.
++        // CoD2 text sections: __text=1 (0x23ec..0x240c72),
++        // __picsymbolstub2=5 (0x2eadbc..0x2eae06),
++        // __textcoal_nt=6 (0x2eae08..0x2f3447).
++        if(sym.section == 6 && sym.addr >= 0x002eae08 && sym.addr <= 0x002f3447)
+         {
+-          
+-        }else if(sym.section == 8 && sym.addr >= 0x374a3c && sym.addr <= 0x38203c){
+-
+-        }else if(sym.addr < 0x2f00 || sym.addr > 0x2e4f05){
+-          printf("Error not in __text\n");
++          // textcoal_nt
++        }else if(sym.section == 5 && sym.addr >= 0x002eadbc && sym.addr <= 0x002eae06){
++          // picsymbolstub2
++        }else if(sym.addr < 0x000023ec || sym.addr > 0x00240c72){
++          printf("Error not in __text: section=%u addr=0x%x name=%s\n",
++                 sym.section, sym.addr, sym.name.c_str());
+           exit(1);
+         }
+       }else if((sym.type & 0x0e) != 0x0e){
+         continue;
+-      }else if(sym.section == 2){
++      }else if(sym.section == 4){
++        // CoD2: __cstring is section 4 (was 2 in CoD4).
+         type = SYM_CSTRING;
+-      }else if(sym.section == 7 || sym.section == 9 || sym.section == 18){
+-        if(sym.section == 18)
++      }else if(sym.section == 10 || sym.section == 11 || sym.section == 23){
++        // CoD2: literal4=10, __const(TEXT)=11, __const(DATA)=23 (was 7,9,18).
++        if(sym.section == 23)
+         {
+           if(strncmp(sym.name.c_str(), "__ZTV", 5) == 0)
+           {
+@@ -1423,12 +1455,15 @@
+         }else{
+           type = SYM_CONSTVAR;
+         }
+-      }else if(sym.section == 12){
++      }else if(sym.section == 14){
++        // CoD2: __data is section 14 (was 12 in CoD4).
+         type = SYM_DATAVAR;
+-      }else if(sym.section == 19 || sym.section == 20){
++      }else if(sym.section == 24 || sym.section == 25){
++        // CoD2: __bss=24, __common=25 (was 19,20 in CoD4).
+         type = SYM_VAR;
+       }else{
+-        printf("Error: Bad symbol type\n");
++        printf("Error: Bad symbol type (section=%u type=0x%x name=%s)\n",
++               sym.section, sym.type, sym.name.c_str());
+         exit(1);
+       }
+ 
+@@ -1647,12 +1682,22 @@
+           {
+               return -1;
+           }
+-	  if(address >= 0x3b4044 && address < 0x3b4583)
++	  // CoD2-Mac __cfstring range: addresses here are anonymous CFString
++	  // entries for which we don't bother emitting a symbol — silently skip.
++	  if(address >= 0x00368fb8 && address < 0x003691c7)
+ 	  {
+ 		return -1;
+ 	  }
+-          printf("Out of range symbol: %s address 0x%x\n", s->name.c_str(), address);
+-          __asm("int $3");
++          // Soft fail for the CoD2 retarget: many addresses won't resolve
++          // perfectly until the CoD4-derived address tables are rebuilt for
++          // CoD2. Log once-per-address and return -1 instead of trapping.
++          static set<uint32_t> g_warned_addrs;
++          if(g_warned_addrs.insert(address).second)
++          {
++            fprintf(stderr,
++                    "warn: out of range symbol nearest='%s' address=0x%x\n",
++                    s->name.c_str(), address);
++          }
+ 
+           return -1;
+       }
+@@ -1665,13 +1710,39 @@
+   {
+     unsigned int i;
+ 
+-    static SectionData sectiondata[] = {{"JUNK", SYM_NONE, 0,0}, {"text", SYM_PROC, 0x2f00, 0x2e4f05}, {"cstring", SYM_CSTRING,0x2e4f08, 0x32e0a7},
+-       {"text", SYM_PROC, 0x32e0a8, 0x33a02d}, {"JUNK", SYM_NONE, 0, 0}, {"JUNK", SYM_NONE, 0 ,0}, {"JUNK", SYM_NONE, 0, 0}, 
+-       {"literal4", SYM_CONSTVAR4, 0x374440, 0x374a3b}, {"text", SYM_PROC, 0x374a3c, 0x382040}, {"const", SYM_CONSTVAR, 0x382060, 0x3a381f},
+-       {"JUNK", SYM_NONE, 0, 0}, {"literal8", SYM_CONSTVAR8, 0x3a3c10, 0x3a3fef}, {"data", SYM_DATAVAR, 0x3a4000, 0x3b0def},
+-       {"JUNK", SYM_NONE, 0, 0}, {"JUNK", SYM_NONE, 0, 0}, {"cfstring", SYM_CFSTRING, 0x3b4044, 0x3b4583}, {"JUNK", SYM_NONE, 0,0}, {"const_coal", SYM_CONSTVAR, 0x3b4660, 0x3b4fbf},
+-       {"const", SYM_CONSTVAR, 0x3b4fc0, 0x3bd573}, {"bss", SYM_VAR, 0x3bd580, 0xe6828b},{"common", SYM_VAR, 0xe68300, 0xd5cbd7f},
+-       {"pointers", SYM_POINTERS, 0xd5cc000, 0xd5ccef7}, {"jump_table", SYM_IMPORT, 0xd5ccef8,0xd5cdc6c}};
++    // CoD2 Multiplayer 1.3 (Mac, i386 slice) section table.
++    // Indices match the 1-based Mach-O n_sect ordinal across all segments.
++    // Layout extracted via `otool -l` on the i386 slice.
++    static SectionData sectiondata[] = {
++      /*  0 */ {"JUNK",      SYM_NONE,      0,         0         },
++      /*  1 */ {"text",      SYM_PROC,      0x000023ec,0x00240c72}, // __TEXT.__text
++      /*  2 */ {"JUNK",      SYM_NONE,      0,         0         }, // __TEXT.__picsymbol_stub (size 0)
++      /*  3 */ {"JUNK",      SYM_NONE,      0,         0         }, // __TEXT.__symbol_stub (size 0)
++      /*  4 */ {"cstring",   SYM_CSTRING,   0x00240c74,0x002eadbb}, // __TEXT.__cstring
++      /*  5 */ {"text",      SYM_PROC,      0x002eadbc,0x002eae06}, // __TEXT.__picsymbolstub2
++      /*  6 */ {"text",      SYM_PROC,      0x002eae08,0x002f3447}, // __TEXT.__textcoal_nt
++      /*  7 */ {"JUNK",      SYM_NONE,      0,         0         }, // __TEXT.__eh_frame (discarded)
++      /*  8 */ {"JUNK",      SYM_NONE,      0,         0         }, // __TEXT.__constructor (size 0)
++      /*  9 */ {"JUNK",      SYM_NONE,      0,         0         }, // __TEXT.__destructor (size 0)
++      /* 10 */ {"literal4",  SYM_CONSTVAR4, 0x0032617c,0x003266ab}, // __TEXT.__literal4
++      /* 11 */ {"const",     SYM_CONSTVAR,  0x003266c0,0x003405ff}, // __TEXT.__const
++      /* 12 */ {"JUNK",      SYM_NONE,      0,         0         }, // __TEXT.__const_coal (discarded)
++      /* 13 */ {"literal8",  SYM_CONSTVAR8, 0x00340bf0,0x00340fef}, // __TEXT.__literal8
++      /* 14 */ {"data",      SYM_DATAVAR,   0x00341000,0x003502e7}, // __DATA.__data
++      /* 15 */ {"nl_sym_ptr",SYM_IMPORT,    0x003502e8,0x003502f3}, // __DATA.__nl_symbol_ptr (bind targets)
++      /* 16 */ {"la_sym_ptr",SYM_IMPORT,    0x003502f4,0x003502ff}, // __DATA.__la_sym_ptr2 (bind targets)
++      /* 17 */ {"JUNK",      SYM_NONE,      0,         0         }, // __DATA.__dyld
++      /* 18 */ {"JUNK",      SYM_NONE,      0,         0         }, // __DATA.__gcc_except_tab (discarded)
++      /* 19 */ {"cfstring",  SYM_CFSTRING,  0x00368fb8,0x003691c7}, // __DATA.__cfstring
++      /* 20 */ {"JUNK",      SYM_NONE,      0,         0         }, // __DATA.__mod_init_func
++      /* 21 */ {"JUNK",      SYM_NONE,      0,         0         }, // __DATA.__mod_term_func
++      /* 22 */ {"JUNK",      SYM_NONE,      0,         0         }, // __DATA.__const_coal (discarded)
++      /* 23 */ {"const",     SYM_CONSTVAR,  0x00369f60,0x0036f6f3}, // __DATA.__const  (vtables live here)
++      /* 24 */ {"bss",       SYM_VAR,       0x0036f700,0x010cbb1f}, // __DATA.__bss
++      /* 25 */ {"common",    SYM_VAR,       0x010cbb80,0x01acb333}, // __DATA.__common
++      /* 26 */ {"jump_table",SYM_IMPORT,    0x01acc000,0x01accc5c}, // __IMPORT.__jump_table
++      /* 27 */ {"pointers",  SYM_POINTERS,  0x01accc5d,0x01acdb1c}, // __IMPORT.__pointers
++    };
+ 
+ 
+     for(i = 0; i < sizeof(sectiondata)/sizeof(sectiondata[0]); ++i)
+@@ -1777,7 +1848,10 @@
+         SectionData s;
+         if(!getSectionDetailsForAddress(symbolssorted[i].address, &s))
+         {
+-          printf("Error Address out of bounds of sections\n");
++          printf("Error Address 0x%x (section=%u name=%s) out of bounds of sections\n",
++                 symbolssorted[i].address,
++                 symbolssorted[i].symbol->section,
++                 symbolssorted[i].symbol->name.c_str());
+           exit(1);
+         }
+         size = s.end - symbolssorted[i].address;
+@@ -1839,11 +1913,22 @@
+         {
+           if(currentobject->symbols[i]->name.compare(name) == 0)
+           {
+-            printf("FATAL: different symbol with same name detected in current module\n");
+-            printf("module: %s ", currentobject->objectname.c_str());
+-            printf("name: %s ", currentobject->symbols[i]->name.c_str());
+-            printf("addresses: 0x%x 0x%x\n", currentobject->symbols[i]->address,  address);
+-            exit(-1);
++            // CoD2 retarget: GCC emits one
++            // __static_initialization_and_destruction_0 per translation unit,
++            // so a single .o can legitimately contain several. Uniquify by
++            // appending an address suffix instead of aborting.
++            char suffix[24];
++            snprintf(suffix, sizeof(suffix), "__addr_%x", address);
++            name.append(suffix);
++            fprintf(stderr,
++                    "info: duplicate symbol in module '%s' renamed: %s -> %s "
++                    "(addresses 0x%x 0x%x)\n",
++                    currentobject->objectname.c_str(),
++                    currentobject->symbols[i]->name.c_str(),
++                    name.c_str(),
++                    currentobject->symbols[i]->address,
++                    address);
++            break;
+           }
+         }
+     }
+@@ -1863,6 +1948,19 @@
+             }
+         }
+     }
++    // Bound check BEFORE writing — array indices are 0..N-1, so writing at
++    // index N is the overflow. (Pre-CoD2 code put this check after the writes
++    // and used >, which would corrupt one past the end.)
++    if(symbolcount >= 80000 ||
++       currentobject->symbolcount >= 40000)
++    {
++      printf("Error: Exceeded max symbols (symbolcount=%d, obj '%s' symbolcount=%d)\n",
++             symbolcount,
++             currentobject->objectname.c_str(),
++             currentobject->symbolcount);
++      exit(1);
++    }
++
+     symbols[symbolcount].name = aname;
+     symbols[symbolcount].address = address;
+     symbols[symbolcount].section = section;
+@@ -1878,11 +1976,6 @@
+     currentobject->symbolcount++;
+ 
+     symbolcount++;
+-    if(symbolcount > 20000 || currentobject->symbolcount > 1800)
+-    {
+-      printf("Error: Exceeded max symbols\n");
+-      exit(1);
+-    }
+   }
+ 
+   void addWatchDog(uintptr_t addr) {
+@@ -1927,8 +2020,8 @@
+   ObjectMap objects[1000]; //All objectfiles
+   ObjectMap *currentobject;
+   int objectcount;
+-  SymbolSorted symbolssorted[20000]; //All symbols sorted by address
+-  Symbol symbols[20000]; //Stores all symbols with details - does not contain SYM_OBJECT
++  SymbolSorted symbolssorted[80000]; //All symbols sorted by address (bumped for CoD2)
++  Symbol symbols[80000]; //Stores all symbols with details - does not contain SYM_OBJECT (bumped for CoD2)
+   int symbolcount;
+ 
+ 
+@@ -3958,8 +4051,8 @@
+   {
+     int numimports;
+     int numexports;
+-    impexp_t imports[2048];
+-    impexp_t exports[2048];
++    impexp_t imports[16384]; // bumped for CoD2
++    impexp_t exports[16384]; // bumped for CoD2
+   };
+ 
+ 
+@@ -3973,7 +4066,7 @@
+   struct stringTable_t
+   {
+     int numstrings;
+-    stringTableEntry_t strings[4096];
++    stringTableEntry_t strings[32768]; // bumped for CoD2 (~700KB __cstring)
+   };
+ 
+ 
+@@ -4044,7 +4137,7 @@
+     int size;
+   };
+ 
+-  dasmOutput_t dasmOutputBuffer[8000];
++  dasmOutput_t dasmOutputBuffer[200000]; // bumped for CoD2 (gap-driven oversized procs)
+   jumpTable_t jumptables[32];
+   uint32_t jumptableCount;
+   int jmplabelcounter;
+@@ -4713,9 +4806,9 @@
+     }
+ 
+ 
+-    if(dasm_ptr->impexp.numexports >= 2048)
++    if(dasm_ptr->impexp.numexports >= 16384)
+     {
+-      printf("Max Import/Export count exceeded\n");
++      printf("Max Export count exceeded\n");
+       exit(-1);
+     }
+     strncpy(dasm_ptr->impexp.exports[dasm_ptr->impexp.numexports].name, name, sizeof(dasm_ptr->impexp.exports[0].name));
+@@ -4737,9 +4830,9 @@
+       }
+     }
+     //Nope - Add it
+-    if(dasm_ptr->impexp.numimports >= 2048)
++    if(dasm_ptr->impexp.numimports >= 16384)
+     {
+-      printf("Max Import/Export count exceeded\n");
++      printf("Max Import count exceeded\n");
+       exit(-1);
+     }
+     strncpy(dasm_ptr->impexp.imports[dasm_ptr->impexp.numimports].name, name, sizeof(dasm_ptr->impexp.imports[0].name));
+@@ -5114,9 +5207,10 @@
+       dasmOutputBuffer[instructionCounter].label[0] = 0;
+       dasmOutputBuffer[instructionCounter].comment[0] = 0;
+       ++instructionCounter;
+-      if(instructionCounter >= 8000)
++      if(instructionCounter >= 200000)
+       {
+-        printf("instructionCounter exceeded\n");
++        printf("instructionCounter exceeded for symbol '%s' addr=0x%x size=0x%x\n",
++               s->name.c_str(), s->address, s->size);
+         exit(-1);
+       }
+     }
+@@ -5471,6 +5565,12 @@
+     }
+ 
+     snprintf(outputfilename, sizeof(outputfilename), "src/_%s.asm", o->objectname.c_str());
++
++    static bool srcdir_ensured = false;
++    if (!srcdir_ensured) {
++      mkdir("src", 0755);
++      srcdir_ensured = true;
++    }
+ 
+     outputFileHandle = fopen(outputfilename, "wb");
+ 
+@@ -5880,12 +5980,19 @@
+ int main(int argc, char* argv[]) {
+   g_timer.start();
+ 
+-  unique_ptr<MachO> mach(MachO::read("cod4_mac.bin", ARCH_NAME));
+-  unique_ptr<MachO> shadowmach(MachO::read("cod4_steam.bin", ARCH_NAME));
++  if (argc < 2) {
++    fprintf(stderr,
++            "Usage: %s <mach-o-binary>\n"
++            "Disassembles a 32-bit i386 Mach-O Call of Duty binary.\n"
++            "Output is written to src/_<objectname>.asm files.\n",
++            argv[0]);
++    return 1;
++  }
+ 
++  unique_ptr<MachO> mach(MachO::read(argv[1], ARCH_NAME));
++
+   MachOLoader loader;
+   g_loader = &loader;
+-  loader.loadShadowImage(*shadowmach);
+ 
+   loader.run(*mach);
+   g_loader = NULL;
