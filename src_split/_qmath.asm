@@ -2,716 +2,819 @@
 ;Symbols in this file: 71
 ;
 ;Imports (over-declared, NASM-safe):
-	extern __keymgr_dwarf2_register_sections
-	extern atexit
-	extern exit
-	extern AEDisposeDesc
-	extern AECreateDesc
-	extern __cxa_allocate_exception
-	extern __cxa_throw
-	extern _Unwind_Resume
 	extern AECoerceDesc
+	extern AECreateAppleEvent
+	extern AECreateDesc
+	extern AEDisposeDesc
 	extern AEGetDescData
 	extern AEGetDescDataSize
-	extern CreateObjSpecifier
-	extern AEPutParamDesc
-	extern AECreateAppleEvent
-	extern AESend
-	extern AEPutParamPtr
-	extern AEGetParamPtr
 	extern AEGetParamDesc
-	extern GetControlBounds
-	extern PtInRect
-	extern GetEventKind
-	extern GetEventClass
-	extern GetEventParameter
-	extern GetControlOwner
-	extern AdvanceKeyboardFocus
-	extern SetWRefCon
-	extern QuitAppModalLoopForWindow
-	extern HIViewGetRoot
-	extern HIViewGetViewForMouseEvent
-	extern GetControlKind
-	extern SetThemeCursor
-	extern CFBundleGetMainBundle
-	extern CreateNibReferenceWithCFBundle
-	extern CreateWindowFromNib
-	extern DisposeNibReference
-	extern GetWindowEventTarget
-	extern InstallEventHandler
-	extern GetWindowResizeLimits
-	extern SetWindowResizeLimits
-	extern InitCursor
-	extern ShowWindow
-	extern RunAppModalLoopForWindow
-	extern HideWindow
-	extern GetWRefCon
-	extern DisposeWindow
-	extern GetControlByID
-	extern GetControlMaximum
-	extern GetControlDataSize
-	extern SetControlData
-	extern HandleControlKey
-	extern GetControlReference
-	extern GetControlData
-	extern AlertSoundPlay
-	extern HITextViewGetTXNObject
-	extern TXNSetTypeAttributes
-	extern HideControl
-	extern ShowControl
-	extern DisableControl
-	extern EnableControl
-	extern SetControlFontStyle
-	extern SetKeyboardFocus
-	extern NewControlUserPaneDrawUPP
-	extern NewControlUserPaneHitTestUPP
-	extern NewControlUserPaneTrackingUPP
-	extern SetControlReference
-	extern SetControlMaximum
-	extern NewControlKeyFilterUPP
-	extern NewControlEditTextValidationUPP
-	extern GetWindowPort
-	extern CGDisplayBounds
-	extern DMGetFirstScreenDevice
-	extern EqualRect
-	extern DMGetNextScreenDevice
-	extern GetMainDevice
-	extern GetWindowPortBounds
-	extern CGDisplayFade
-	extern CGReleaseDisplayFadeReservation
-	extern CGAcquireDisplayFadeReservation
-	extern CGDisplayPixelsWide
-	extern CGDisplayPixelsHigh
-	extern CGDisplayBitsPerPixel
-	extern aglSwapBuffers
-	extern EndMediaEdits
-	extern GetMediaDuration
-	extern InsertMediaIntoTrack
-	extern AddMovieResource
-	extern CloseMovieFile
-	extern MoveWindow
-	extern GetAvailableWindowPositioningBounds
-	extern CreateNewWindow
-	extern SetPortWindowPort
-	extern SetWindowContentColor
-	extern SetWindowTitleWithCFString
-	extern gluCheckExtension
-	extern _Znam
-	extern CGSetDisplayTransferByTable
-	extern _ZdaPv
-	extern CGGetDisplayTransferByTable
-	extern QDLocalToGlobalPoint
-	extern QDGlobalToLocalPoint
-	extern _Znwm
-	extern _ZdlPv
-	extern _ZSt17__throw_bad_allocv
-	extern _ZSt20__throw_length_errorPKc
-	extern NormalizeThemeDrawingState
-	extern ForeColor
-	extern FrameRoundRect
-	extern RGBForeColor
-	extern PaintRoundRect
-	extern NewRgn
-	extern OpenRgn
-	extern CloseRgn
-	extern SetClip
-	extern DisposeRgn
-	extern ClipRect
-	extern DrawThemeMenuBarBackground
-	extern InsetRect
-	extern DrawThemeFocusRect
-	extern GetIconRefFromFileInfo
-	extern PlotIconRef
-	extern ReleaseIconRef
-	extern CGRectIsEmpty
-	extern CGRectUnion
-	extern CGRectGetWidth
-	extern CGRectGetHeight
-	extern OffsetRect
-	extern MapRect
-	extern glFinish
-	extern aglSetCurrentContext
-	extern aglSetDrawable
-	extern aglDestroyContext
-	extern ShowMenuBar
-	extern SetSystemUIMode
-	extern aglChoosePixelFormat
-	extern aglCreateContext
-	extern aglSetFullScreen
-	extern CGDisplayCurrentMode
-	extern aglSetInteger
-	extern HideMenuBar
-	extern aglDescribePixelFormat
-	extern aglDestroyPixelFormat
-	extern glEnable
-	extern glHint
-	extern aglGetDrawable
-	extern glDisable
-	extern IsWindowVisible
-	extern SizeWindow
-	extern PaintRect
-	extern _ZNSs6assignERKSs
-	extern CGDisplayIDToOpenGLDisplayMask
-	extern CGLQueryRendererInfo
-	extern CGLDescribeRenderer
-	extern CGLDestroyRendererInfo
-	extern CGDisplayAvailableModes
-	extern CFArrayGetCount
-	extern CGDisplayIOServicePort
-	extern CGLGetCurrentContext
-	extern CGLChoosePixelFormat
-	extern CGLCreateContext
-	extern CGLDestroyPixelFormat
-	extern CGLSetCurrentContext
-	extern glGetString
-	extern _ZNSs6assignEPKcm
-	extern glGetIntegerv
-	extern CGLDestroyContext
-	extern _ZNSsC1ERKSs
-	extern strstr
-	extern _ZNSsD1Ev
-	extern CFArrayGetValueAtIndex
-	extern IOObjectConformsTo
-	extern IORegistryEntryGetParentEntry
-	extern glGetFloatv
-	extern _ZN9__gnu_cxx18__exchange_and_addEPVii
-	extern _ZNSs4_Rep10_M_destroyERKSaIcE
-	extern __cxa_begin_catch
-	extern __cxa_rethrow
-	extern __cxa_end_catch
-	extern CGGetActiveDisplayList
-	extern NewMenu
-	extern InsertMenu
-	extern InvalMenuBar
-	extern GetCurrentKeyModifiers
-	extern CGRectEqualToRect
-	extern Gestalt
-	extern sysctl
-	extern FSOpenIterator
-	extern FSGetCatalogInfoBulk
-	extern FSCloseIterator
-	extern FSDeleteObject
-	extern FSSetCatalogInfo
-	extern FSPathMakeRef
-	extern access
-	extern CFBundleCopyExecutableURL
-	extern CFURLGetFSRef
-	extern CFRelease
-	extern FSGetCatalogInfo
-	extern GetCurrentProcess
-	extern strcat
-	extern GetProcessBundleLocation
-	extern FSRefMakePath
-	extern PBGetCatInfoSync
-	extern FSMakeFSSpec
-	extern FSpMakeFSRef
-	extern memcpy
-	extern CFStringCreateWithCString
-	extern CFPreferencesCopyAppValue
-	extern CFGetTypeID
-	extern CFStringGetTypeID
-	extern strcpy
-	extern CFStringGetCString
-	extern CFPreferencesSetAppValue
-	extern atoi
-	extern sprintf
-	extern CFPreferencesAppSynchronize
-	extern atof
-	extern CFBundleCopyLocalizedString
-	extern CFStringGetPascalString
-	extern StringToNum
-	extern CFStringCreateWithFormat
-	extern GetPort
-	extern SetPort
-	extern CFStringCreateWithCharacters
-	extern GetCursor
-	extern SetCursor
-	extern CGAssociateMouseAndMouseCursorPosition
-	extern CGWarpMouseCursorPosition
-	extern HideCursor
-	extern GetGlobalMouse
-	extern UpTime
+	extern AEGetParamPtr
+	extern AEInstallEventHandler
+	extern AEPutParamDesc
+	extern AEPutParamPtr
+	extern AESend
+	extern AUGraphConnectNodeInput
+	extern AUGraphGetCPULoad
+	extern AUGraphGetNodeInfo
+	extern AUGraphInitialize
+	extern AUGraphNewNode
+	extern AUGraphOpen
+	extern AUGraphStart
+	extern AUGraphStop
+	extern AUGraphUpdate
 	extern AddDurationToAbsolute
-	extern MPDelayUntil
-	extern GetNextProcess
-	extern GetProcessInformation
-	extern CFDictionaryGetValue
-	extern CFNumberGetValue
-	extern lround
-	extern IORegistryEntryCreateCFProperty
+	extern AddMovieResource
+	extern AdvanceKeyboardFocus
+	extern AlertSoundPlay
+	extern AppendMenuItemTextWithCFString
+	extern AudioConverterDispose
+	extern AudioConverterFillBuffer
+	extern AudioConverterFillComplexBuffer
+	extern AudioConverterNew
+	extern AudioConverterReset
+	extern AudioDeviceGetProperty
+	extern AudioDeviceGetPropertyInfo
+	extern AudioDeviceSetProperty
+	extern AudioHardwareGetProperty
+	extern AudioOutputUnitStart
+	extern AudioOutputUnitStop
+	extern AudioUnitAddRenderNotify
+	extern AudioUnitGetProperty
+	extern AudioUnitInitialize
+	extern AudioUnitRemoveRenderNotify
+	extern AudioUnitRender
+	extern AudioUnitSetParameter
+	extern AudioUnitSetProperty
+	extern AudioUnitUninitialize
+	extern CFArrayGetCount
+	extern CFArrayGetValueAtIndex
+	extern CFBundleCopyExecutableURL
+	extern CFBundleCopyLocalizedString
+	extern CFBundleGetMainBundle
 	extern CFDataGetBytePtr
-	extern CreateEvent
-	extern SetEventParameter
-	extern GetMainEventQueue
-	extern PostEventToQueue
-	extern ReleaseEvent
-	extern pthread_main_np
-	extern GetStandardAlertDefaultParams
-	extern CreateStandardAlert
-	extern RunStandardAlert
-	extern LSCopyItemInfoForRef
-	extern pthread_self
-	extern OTAtomicAdd32
-	extern OTCompareAndSwap32
-	extern calloc
-	extern free
-	extern strrchr
-	extern Microseconds
-	extern __udivdi3
-	extern memset
-	extern strncpy
-	extern getcwd
-	extern NewGWorld
-	extern GetGWorldPixMap
-	extern LockPixels
-	extern GetPixRowBytes
-	extern QDRegisterNamedPixMapCursor
-	extern DisposeGWorld
-	extern TickCount
-	extern QDSetNamedPixMapCursor
-	extern GetMainEventLoop
-	extern InstallEventLoopTimer
-	extern GetQDGlobalsArrow
-	extern ShowCursor
-	extern fopen
-	extern fseek
-	extern fclose
-	extern ftell
-	extern rewind
-	extern malloc
-	extern fread
-	extern _ZNKSs7compareEPKc
-	extern glStencilMask
-	extern glDepthMask
-	extern glFlushVertexArrayRangeAPPLE
-	extern glTexParameterfv
-	extern glLightfv
-	extern glColor4f
-	extern glMatrixMode
-	extern glLoadMatrixf
-	extern glTexParameteri
-	extern glGenTextures
-	extern _ZNSt15_List_node_base4hookEPS_
-	extern glTexParameterf
-	extern glTexEnvf
-	extern glPushMatrix
-	extern glLoadIdentity
-	extern glTexCoord2f
-	extern glPopMatrix
-	extern glTexEnvfv
-	extern glPointSize
-	extern glDrawRangeElements
-	extern memmove
-	extern glBindTexture
-	extern glColorMask
-	extern glActiveTextureARB
-	extern glDepthFunc
-	extern glShadeModel
-	extern glViewport
-	extern glDepthRange
-	extern glAlphaFunc
-	extern glClearDepth
-	extern glScissor
-	extern glClear
-	extern glClearColor
-	extern glClearStencil
-	extern glMaterialfv
-	extern glMaterialf
-	extern glPixelStorei
-	extern glCopyTexSubImage2D
-	extern gluOrtho2D
-	extern glTexEnvi
-	extern glBlendFuncSeparateEXT
-	extern glBlendFunc
-	extern glBegin
-	extern glVertex3f
-	extern glEnd
-	extern cos
-	extern log
-	extern cosf
-	extern glPolygonMode
-	extern glFogf
-	extern glLightModelfv
-	extern glBlendEquationEXT
-	extern glPolygonOffset
-	extern glFogfv
-	extern glPointParameterfvARB
-	extern glStencilFunc
-	extern glPointParameterfARB
-	extern glStencilOp
-	extern glFrontFace
-	extern glColorMaterial
-	extern glPushAttrib
-	extern glPushClientAttrib
-	extern glDrawBuffer
-	extern glReadBuffer
-	extern __dynamic_cast
-	extern glScalef
-	extern glVertex2f
-	extern glPopClientAttrib
-	extern glPopAttrib
-	extern glProgramEnvParameter4fvARB
-	extern glTexGenfv
-	extern _ZNSsC1EPKcRKSaIcE
-	extern _ZNKSs4findEPKcmm
-	extern _ZNSsC1ERKSsmm
-	extern _ZSt20__throw_out_of_rangePKc
-	extern glCombinerParameterfvNV
-	extern glCombinerStageParameterfvNV
-	extern glBindProgramARB
-	extern glDeleteProgramsARB
-	extern glGetProgramivARB
-	extern glGenProgramsARB
-	extern glProgramStringARB
-	extern _ZNSs6appendEPKcm
-	extern _ZNSs6appendERKSs
-	extern glTexImage2D
-	extern glCompressedTexImage2DARB
-	extern glTexSubImage2D
-	extern glCompressedTexSubImage2D
-	extern _ZNSt15_List_node_base6unhookEv
-	extern ceilf
-	extern glFinishFenceAPPLE
-	extern glSetFenceAPPLE
-	extern glGenFencesAPPLE
-	extern glDeleteFencesAPPLE
-	extern glVertexArrayRangeAPPLE
-	extern glDisableVertexAttribArrayARB
-	extern glVertexAttribPointerARB
-	extern glEnableVertexAttribArrayARB
-	extern glTexGeni
-	extern glBindVertexArrayAPPLE
-	extern glLightf
-	extern glClientActiveTextureARB
-	extern glDeleteTextures
-	extern glDeleteVertexArraysAPPLE
-	extern glDisableClientState
-	extern glFogi
-	extern glLightModeli
-	extern glClipPlane
-	extern glEnableClientState
-	extern glVertexArrayParameteriAPPLE
-	extern strcasecmp
-	extern strncasecmp
-	extern tolower
-	extern toupper
-	extern RemoveEventHandler
-	extern FlushEventQueue
-	extern SendEventToEventTarget
-	extern ReceiveNextEvent
+	extern CFDictionaryGetValue
+	extern CFGetTypeID
+	extern CFNumberGetValue
+	extern CFPreferencesAppSynchronize
+	extern CFPreferencesCopyAppValue
+	extern CFPreferencesSetAppValue
+	extern CFRelease
+	extern CFStringCreateWithCString
+	extern CFStringCreateWithCharacters
+	extern CFStringCreateWithFormat
+	extern CFStringGetCString
+	extern CFStringGetPascalString
+	extern CFStringGetTypeID
 	extern CFURLCreateFromFSRef
-	extern CGDataProviderCreateWithURL
-	extern CGImageCreateWithPNGDataProvider
-	extern QDBeginCGContext
-	extern CGImageRelease
-	extern CGDataProviderRelease
+	extern CFURLCreateWithBytes
+	extern CFURLGetFSRef
+	extern CGAcquireDisplayFadeReservation
+	extern CGAssociateMouseAndMouseCursorPosition
 	extern CGContextClearRect
 	extern CGContextDrawImage
 	extern CGContextFlush
-	extern QDEndCGContext
-	extern EventAvail
-	extern strcmp
-	extern getrlimit
-	extern setrlimit
-	extern EnterMovies
-	extern FSGetVolumeInfo
-	extern GetCompressionInfo
-	extern RunApplicationEventLoop
-	extern GetEventDispatcherTarget
-	extern GetApplicationEventTarget
-	extern GetMenuHandle
-	extern AppendMenuItemTextWithCFString
-	extern SetItemCmd
-	extern GetIndMenuItemWithCommandID
-	extern GetMenuEventTarget
-	extern AEInstallEventHandler
-	extern chdir
-	extern QuitApplicationEventLoop
+	extern CGDataProviderCreateWithURL
+	extern CGDataProviderRelease
+	extern CGDisplayAvailableModes
+	extern CGDisplayBitsPerPixel
+	extern CGDisplayBounds
+	extern CGDisplayCurrentMode
+	extern CGDisplayFade
+	extern CGDisplayIDToOpenGLDisplayMask
+	extern CGDisplayIOServicePort
+	extern CGDisplayPixelsHigh
+	extern CGDisplayPixelsWide
+	extern CGGetActiveDisplayList
+	extern CGGetDisplayTransferByTable
+	extern CGImageCreateWithPNGDataProvider
+	extern CGImageRelease
+	extern CGLChoosePixelFormat
+	extern CGLCreateContext
+	extern CGLDescribeRenderer
+	extern CGLDestroyContext
+	extern CGLDestroyPixelFormat
+	extern CGLDestroyRendererInfo
+	extern CGLGetCurrentContext
+	extern CGLQueryRendererInfo
+	extern CGLSetCurrentContext
+	extern CGRectEqualToRect
+	extern CGRectGetHeight
+	extern CGRectGetWidth
+	extern CGRectIsEmpty
+	extern CGRectUnion
+	extern CGReleaseDisplayFadeReservation
+	extern CGSetDisplayTransferByTable
+	extern CGWarpMouseCursorPosition
+	extern ClipRect
+	extern CloseComponent
+	extern CloseMovieFile
+	extern CloseRgn
+	extern CollapseWindow
+	extern CreateEvent
+	extern CreateNewWindow
+	extern CreateNibReferenceWithCFBundle
+	extern CreateObjSpecifier
+	extern CreateStandardAlert
+	extern CreateWindowFromNib
+	extern DMGetFirstScreenDevice
+	extern DMGetNextScreenDevice
+	extern DisableControl
 	extern DisableMenuItem
-	extern close
-	extern ioctl
-	extern __error
-	extern vsnprintf
-	extern strchr
-	extern rand
-	extern acosf
-	extern atan2
-	extern tan
-	extern sinf
-	extern time
-	extern localtime
-	extern asctime
-	extern longjmp
-	extern __maskrune
-	extern snprintf
-	extern floorf
-	extern setjmp
-	extern remove
-	extern fflush
-	extern qsort
-	extern fwrite
-	extern rename
-	extern isspace
-	extern _ZNSs9_M_mutateEmmm
+	extern DisposeAUGraph
+	extern DisposeGWorld
+	extern DisposeHandle
+	extern DisposeMovie
+	extern DisposeNibReference
+	extern DisposeRgn
+	extern DisposeWindow
+	extern DrawThemeFocusRect
+	extern DrawThemeMenuBarBackground
+	extern EnableControl
+	extern EndMediaEdits
+	extern EnterMovies
+	extern EqualRect
+	extern EventAvail
+	extern FSCloseIterator
+	extern FSDeleteObject
+	extern FSGetCatalogInfo
+	extern FSGetCatalogInfoBulk
+	extern FSGetVolumeInfo
+	extern FSMakeFSSpec
+	extern FSOpenIterator
+	extern FSPathMakeRef
+	extern FSRefMakePath
+	extern FSSetCatalogInfo
+	extern FSpMakeFSRef
+	extern FindNextComponent
+	extern FlushEventQueue
+	extern ForeColor
+	extern FrameRoundRect
+	extern Gestalt
+	extern GetApplicationEventTarget
+	extern GetAvailableWindowPositioningBounds
+	extern GetComponentVersion
+	extern GetCompressionInfo
+	extern GetControlBounds
+	extern GetControlByID
+	extern GetControlData
+	extern GetControlDataSize
+	extern GetControlKind
+	extern GetControlMaximum
+	extern GetControlOwner
+	extern GetControlReference
+	extern GetCurrentEventTime
+	extern GetCurrentKeyModifiers
+	extern GetCurrentProcess
+	extern GetCursor
+	extern GetEventClass
+	extern GetEventDispatcherTarget
+	extern GetEventKind
+	extern GetEventParameter
+	extern GetGWorldPixMap
+	extern GetGlobalMouse
+	extern GetHandleSize
+	extern GetIconRefFromFileInfo
+	extern GetIndMenuItemWithCommandID
+	extern GetMainDevice
+	extern GetMainEventLoop
+	extern GetMainEventQueue
+	extern GetMediaDuration
+	extern GetMediaHandler
+	extern GetMediaSampleDescription
+	extern GetMenuEventTarget
+	extern GetMenuHandle
+	extern GetMovieDuration
+	extern GetMovieIndTrackType
+	extern GetMoviePreferredRate
+	extern GetMovieTime
+	extern GetMovieTimeScale
+	extern GetNextProcess
+	extern GetPixRowBytes
+	extern GetPort
+	extern GetProcessBundleLocation
+	extern GetProcessInformation
+	extern GetQDGlobalsArrow
+	extern GetStandardAlertDefaultParams
+	extern GetTrackMedia
+	extern GetWRefCon
+	extern GetWindowEventTarget
+	extern GetWindowPort
+	extern GetWindowPortBounds
+	extern GetWindowResizeLimits
+	extern GoToBeginningOfMovie
+	extern HITextViewGetTXNObject
+	extern HIViewGetRoot
+	extern HIViewGetViewForMouseEvent
+	extern HandleControlKey
+	extern HideControl
+	extern HideCursor
+	extern HideMenuBar
+	extern HideWindow
+	extern IOObjectConformsTo
+	extern IORegistryEntryCreateCFProperty
+	extern IORegistryEntryGetParentEntry
+	extern InitCursor
+	extern InsertMediaIntoTrack
+	extern InsertMenu
+	extern InsetRect
+	extern InstallEventHandler
+	extern InstallEventLoopTimer
+	extern InvalMenuBar
+	extern IsMovieDone
+	extern IsWindowVisible
+	extern LSCopyItemInfoForRef
+	extern LSOpenCFURLRef
+	extern LSOpenFSRef
+	extern LockPixels
+	extern MPDelayUntil
+	extern MapRect
+	extern MediaSetSoundBalance
+	extern Microseconds
+	extern MoveWindow
+	extern MoviesTask
+	extern NewAUGraph
+	extern NewControlEditTextValidationUPP
+	extern NewControlKeyFilterUPP
+	extern NewControlUserPaneDrawUPP
+	extern NewControlUserPaneHitTestUPP
+	extern NewControlUserPaneTrackingUPP
+	extern NewGWorld
+	extern NewHandle
+	extern NewMenu
+	extern NewMovieFromFile
+	extern NewRgn
+	extern NormalizeThemeDrawingState
+	extern OTAtomicAdd32
+	extern OTCompareAndSwap32
+	extern OffsetRect
+	extern OpenAComponent
+	extern OpenComponent
+	extern OpenMovieFile
+	extern OpenRgn
+	extern PBGetCatInfoSync
+	extern PaintRect
+	extern PaintRoundRect
+	extern PlotIconRef
+	extern PostEventToQueue
+	extern PrerollMovie
+	extern PtInRect
+	extern PtrAndHand
+	extern QDBeginCGContext
+	extern QDEndCGContext
+	extern QDGlobalToLocalPoint
+	extern QDLocalToGlobalPoint
+	extern QDRegisterNamedPixMapCursor
+	extern QDSetNamedPixMapCursor
+	extern QuitAppModalLoopForWindow
+	extern QuitApplicationEventLoop
+	extern RGBForeColor
+	extern ReceiveNextEvent
+	extern ReleaseEvent
+	extern ReleaseIconRef
+	extern RemoveEventHandler
+	extern RemoveEventLoopTimer
+	extern RunAppModalLoopForWindow
+	extern RunApplicationEventLoop
+	extern RunStandardAlert
+	extern SECTION
+	extern SendEventToEventTarget
+	extern SetClip
+	extern SetControlData
+	extern SetControlFontStyle
+	extern SetControlMaximum
+	extern SetControlReference
+	extern SetCursor
+	extern SetEventParameter
+	extern SetFrontProcess
+	extern SetItemCmd
+	extern SetKeyboardFocus
+	extern SetMovieRate
+	extern SetMovieTimeValue
+	extern SetPort
+	extern SetPortWindowPort
+	extern SetSystemUIMode
+	extern SetThemeCursor
+	extern SetTrackVolume
+	extern SetWRefCon
+	extern SetWindowContentColor
+	extern SetWindowResizeLimits
+	extern SetWindowTitleWithCFString
+	extern ShowControl
+	extern ShowCursor
+	extern ShowMenuBar
+	extern ShowWindow
+	extern SizeWindow
+	extern StartMovie
+	extern StopMovie
+	extern StringToNum
+	extern TXNSetData
+	extern TXNSetSelection
+	extern TXNSetTypeAttributes
+	extern TXNShowSelection
+	extern TickCount
+	extern UpTime
+	extern UpdateSystemActivity
+	extern Z11vectoanglesPKfPf_F0_18
+	extern _Unwind_Resume
+	extern _ZN9__gnu_cxx18__exchange_and_addEPVii
+	extern _ZNKSs4findEPKcmm
+	extern _ZNKSs7compareEPKc
 	extern _ZNSs12_M_leak_hardEv
-	extern _ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_
+	extern _ZNSs4_Rep10_M_destroyERKSaIcE
+	extern _ZNSs6appendEPKcm
+	extern _ZNSs6appendERKSs
+	extern _ZNSs6assignEPKcm
+	extern _ZNSs6assignERKSs
+	extern _ZNSs7replaceEmmPKcm
+	extern _ZNSs7reserveEm
+	extern _ZNSs9_M_mutateEmmm
+	extern _ZNSsC1EPKcRKSaIcE
+	extern _ZNSsC1ERKSs
+	extern _ZNSsC1ERKSsmm
+	extern _ZNSsD1Ev
+	extern _ZNSt15_List_node_base4hookEPS_
+	extern _ZNSt15_List_node_base6unhookEv
+	extern _ZSt17__throw_bad_allocv
 	extern _ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base
 	extern _ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base
-	extern sscanf
-	extern sin
-	extern acos
-	extern vsprintf
-	extern _ZNSs7reserveEm
-	extern strncat
-	extern ctime
-	extern strncmp
-	extern LSOpenFSRef
-	extern CFURLCreateWithBytes
-	extern LSOpenCFURLRef
-	extern UpdateSystemActivity
-	extern GetHandleSize
-	extern TXNSetData
-	extern NewHandle
-	extern DisposeHandle
-	extern RemoveEventLoopTimer
-	extern CollapseWindow
-	extern TXNSetSelection
-	extern TXNShowSelection
-	extern PtrAndHand
-	extern mkdir
-	extern opendir
-	extern readdir
-	extern stat
-	extern closedir
-	extern pow
-	extern glTestFenceAPPLE
-	extern glReadPixels
-	extern glGetError
-	extern asin
-	extern printf
-	extern _ZNSs7replaceEmmPKcm
-	extern expf
-	extern exp
-	extern isprint
-	extern fileno
-	extern isatty
-	extern fprintf
-	extern realloc
+	extern _ZSt20__throw_length_errorPKc
+	extern _ZSt20__throw_out_of_rangePKc
+	extern _ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_
+	extern _ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_
+	extern _ZZ14R_VisitPortalsPK7GfxCellPK9DpvsPlaneS4_iE5color
+	extern _ZdaPv
+	extern _ZdlPv
+	extern _Znam
+	extern _Znwm
+	extern __cxa_allocate_exception
+	extern __cxa_begin_catch
+	extern __cxa_end_catch
+	extern __cxa_guard_abort
 	extern __cxa_guard_acquire
 	extern __cxa_guard_release
-	extern __cxa_guard_abort
-	extern GetCurrentEventTime
-	extern SetFrontProcess
-	extern glGenVertexArraysAPPLE
-	extern glColorPointer
-	extern glNormalPointer
-	extern glVertexPointer
-	extern glTexCoordPointer
-	extern _ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_
-	extern AudioConverterReset
-	extern AudioUnitGetProperty
-	extern AudioConverterDispose
-	extern AudioConverterNew
-	extern log10f
-	extern AudioUnitSetParameter
-	extern AudioConverterFillComplexBuffer
-	extern AudioUnitSetProperty
-	extern AudioUnitAddRenderNotify
-	extern AudioUnitRemoveRenderNotify
-	extern usleep
-	extern AUGraphGetCPULoad
-	extern strdup
-	extern AUGraphStop
-	extern DisposeAUGraph
-	extern AudioDeviceGetPropertyInfo
-	extern AudioDeviceGetProperty
-	extern FindNextComponent
-	extern OpenComponent
-	extern GetComponentVersion
-	extern CloseComponent
-	extern NewAUGraph
-	extern AUGraphNewNode
-	extern AUGraphOpen
-	extern AUGraphGetNodeInfo
-	extern AUGraphUpdate
-	extern AUGraphConnectNodeInput
-	extern AUGraphInitialize
-	extern AUGraphStart
-	extern pthread_mutex_destroy
-	extern pthread_create
-	extern pthread_mutexattr_init
-	extern pthread_mutexattr_settype
-	extern pthread_mutex_init
-	extern pthread_mutexattr_destroy
-	extern pthread_mutex_unlock
-	extern pthread_mutex_lock
-	extern glTexImage3D
-	extern glCompressedTexImage3DARB
-	extern glTexSubImage3D
-	extern glCompressedTexSubImage3D
-	extern strtok
-	extern StopMovie
-	extern GoToBeginningOfMovie
-	extern GetMovieTimeScale
-	extern GetMovieDuration
-	extern GetMovieTime
-	extern SetMovieTimeValue
-	extern SetTrackVolume
-	extern GetMediaHandler
-	extern MediaSetSoundBalance
-	extern MoviesTask
-	extern IsMovieDone
-	extern StartMovie
-	extern DisposeMovie
-	extern SetMovieRate
-	extern OpenMovieFile
-	extern NewMovieFromFile
-	extern GetMoviePreferredRate
-	extern PrerollMovie
-	extern GetMovieIndTrackType
-	extern GetTrackMedia
-	extern GetMediaSampleDescription
-	extern srand
-	extern putenv
-	extern getenv
-	extern puts
-	extern asinf
-	extern atanf
-	extern tanf
-	extern select
-	extern inet_addr
-	extern gethostbyname
-	extern recvfrom
-	extern strerror
-	extern sendto
-	extern setsockopt
-	extern bind
-	extern socket
-	extern connect
-	extern send
-	extern recv
+	extern __cxa_rethrow
+	extern __cxa_throw
+	extern __dynamic_cast
+	extern __error
 	extern __isnanf
-	extern floor
-	extern logf
-	extern AudioOutputUnitStart
-	extern AudioOutputUnitStop
-	extern AudioDeviceSetProperty
-	extern AudioConverterFillBuffer
-	extern AudioUnitRender
-	extern AudioUnitUninitialize
-	extern OpenAComponent
-	extern AudioHardwareGetProperty
-	extern AudioUnitInitialize
+	extern __keymgr_dwarf2_register_sections
+	extern __maskrune
+	extern __udivdi3
+	extern _double_0_00872665
+	extern _double_0_01745329
+	extern _double_0_50000000
+	extern _double_0_99950027
+	extern _double_1_00000000
+	extern _double_3_14159265
+	extern _double__180_00000000
+	extern _double__1_00000000
+	extern _double__2_00000000
+	extern _float_0_00000000
+	extern _float_0_000000001
+	extern _float_0_00100000
+	extern _float_0_00549316
+	extern _float_0_50000000
+	extern _float_0_99950027
+	extern _float_180_00000000
+	extern _float_182_04444885
+	extern _float_1_00000000
+	extern _float_270_00000000
+	extern _float_2_00000000
+	extern _float_360_00000000
+	extern _float_90_00000000
+	extern _float__0_50000000
+	extern _float__180_00000000
+	extern _float__1_00000000
+	extern _float__90_00000000
+	extern abort
+	extern accept
+	extern access
+	extern acos
+	extern acosf
+	extern add
+	extern addsd
+	extern addss
+	extern aglChoosePixelFormat
+	extern aglCreateContext
+	extern aglDescribePixelFormat
+	extern aglDestroyContext
+	extern aglDestroyPixelFormat
+	extern aglGetDrawable
+	extern aglSetCurrentContext
+	extern aglSetDrawable
+	extern aglSetFullScreen
+	extern aglSetInteger
+	extern aglSwapBuffers
+	extern and
+	extern andnps
+	extern andps
+	extern asctime
+	extern asin
+	extern asinf
+	extern atan2
+	extern atanf
+	extern atexit
+	extern atof
+	extern atoi
+	extern atol
+	extern bind
+	extern bytedirs
+	extern call
+	extern calloc
+	extern ceilf
+	extern chdir
+	extern cld
+	extern close
+	extern closedir
+	extern cmova
+	extern cmovbe
+	extern cmp
+	extern cmpss
+	extern connect
+	extern cos
+	extern cosf
+	extern ctime
+	extern cvtsd2ss
+	extern cvtsi2ss
+	extern cvtss2sd
+	extern cvttss2si
+	extern divsd
+	extern divss
 	extern dlclose
 	extern dlopen
 	extern dlsym
-	extern abort
-	extern vfprintf
-	extern getsockname
-	extern read
-	extern atol
-	extern strtol
-	extern getpid
-	extern tmpnam
-	extern strftime
-	extern gmtime
-	extern mktime
+	extern exit
+	extern exp
+	extern expf
+	extern fclose
 	extern fcntl
-	extern accept
-	extern listen
-	extern gethostname
-	extern getdomainname
-	extern getlogin
-	extern getuid
-	extern getpwuid
+	extern fflush
 	extern fgets
-	extern gettimeofday
-	extern regcomp
-	extern regerror
-	extern regfree
-	extern regexec
-	extern getpass
-	extern getsockopt
-	extern write
-	extern unlink
+	extern fileno
+	extern fld
+	extern floor
+	extern floorf
+	extern fopen
+	extern fprintf
 	extern fputc
 	extern fputs
+	extern fread
+	extern free
+	extern fseek
+	extern fst
+	extern fstp
+	extern ftell
+	extern fwrite
+	extern getcwd
+	extern getdomainname
+	extern getenv
+	extern gethostbyname
+	extern gethostname
+	extern getlogin
+	extern getpass
+	extern getpid
+	extern getpwuid
+	extern getrlimit
+	extern getsockname
+	extern getsockopt
+	extern gettimeofday
+	extern getuid
+	extern glActiveTextureARB
+	extern glAlphaFunc
+	extern glBegin
+	extern glBindProgramARB
+	extern glBindTexture
+	extern glBindVertexArrayAPPLE
+	extern glBlendEquationEXT
+	extern glBlendFunc
+	extern glBlendFuncSeparateEXT
+	extern glClear
+	extern glClearColor
+	extern glClearDepth
+	extern glClearStencil
+	extern glClientActiveTextureARB
+	extern glClipPlane
+	extern glColor4f
+	extern glColorMask
+	extern glColorMaterial
+	extern glColorPointer
+	extern glCombinerParameterfvNV
+	extern glCombinerStageParameterfvNV
+	extern glCompressedTexImage2DARB
+	extern glCompressedTexImage3DARB
+	extern glCompressedTexSubImage2D
+	extern glCompressedTexSubImage3D
+	extern glCopyTexSubImage2D
+	extern glDeleteFencesAPPLE
+	extern glDeleteProgramsARB
+	extern glDeleteTextures
+	extern glDeleteVertexArraysAPPLE
+	extern glDepthFunc
+	extern glDepthMask
+	extern glDepthRange
+	extern glDisable
+	extern glDisableClientState
+	extern glDisableVertexAttribArrayARB
+	extern glDrawBuffer
+	extern glDrawRangeElements
+	extern glEnable
+	extern glEnableClientState
+	extern glEnableVertexAttribArrayARB
+	extern glEnd
+	extern glFinish
+	extern glFinishFenceAPPLE
+	extern glFlushVertexArrayRangeAPPLE
+	extern glFogf
+	extern glFogfv
+	extern glFogi
+	extern glFrontFace
+	extern glGenFencesAPPLE
+	extern glGenProgramsARB
+	extern glGenTextures
+	extern glGenVertexArraysAPPLE
+	extern glGetError
+	extern glGetFloatv
+	extern glGetIntegerv
+	extern glGetProgramivARB
+	extern glGetString
+	extern glHint
+	extern glLightModelfv
+	extern glLightModeli
+	extern glLightf
+	extern glLightfv
+	extern glLoadIdentity
+	extern glLoadMatrixf
+	extern glMaterialf
+	extern glMaterialfv
+	extern glMatrixMode
+	extern glNormalPointer
+	extern glPixelStorei
+	extern glPointParameterfARB
+	extern glPointParameterfvARB
+	extern glPointSize
+	extern glPolygonMode
+	extern glPolygonOffset
+	extern glPopAttrib
+	extern glPopClientAttrib
+	extern glPopMatrix
+	extern glProgramEnvParameter4fvARB
+	extern glProgramStringARB
+	extern glPushAttrib
+	extern glPushClientAttrib
+	extern glPushMatrix
+	extern glReadBuffer
+	extern glReadPixels
+	extern glScalef
+	extern glScissor
+	extern glSetFenceAPPLE
+	extern glShadeModel
+	extern glStencilFunc
+	extern glStencilMask
+	extern glStencilOp
+	extern glTestFenceAPPLE
+	extern glTexCoord2f
+	extern glTexCoordPointer
+	extern glTexEnvf
+	extern glTexEnvfv
+	extern glTexEnvi
+	extern glTexGenfv
+	extern glTexGeni
+	extern glTexImage2D
+	extern glTexImage3D
+	extern glTexParameterf
+	extern glTexParameterfv
+	extern glTexParameteri
+	extern glTexSubImage2D
+	extern glTexSubImage3D
+	extern glVertex2f
+	extern glVertex3f
+	extern glVertexArrayParameteriAPPLE
+	extern glVertexArrayRangeAPPLE
+	extern glVertexAttribPointerARB
+	extern glVertexPointer
+	extern glViewport
+	extern gluCheckExtension
+	extern gluOrtho2D
+	extern gmtime
+	extern identityMatrix44
+	extern imul
+	extern inet_addr
+	extern ioctl
+	extern isatty
+	extern isprint
+	extern isspace
+	extern ja
+	extern jae
+	extern jb
+	extern jbe
+	extern jg
+	extern jl
+	extern jle
+	extern jmp
+	extern jnz
+	extern jp
+	extern jz
+	extern lea
+	extern leave
+	extern listen
+	extern localtime
+	extern log
+	extern log10f
+	extern logf
+	extern longjmp
+	extern lround
+	extern malloc
+	extern maxsd
+	extern maxss
+	extern memcpy
+	extern memmove
+	extern memset
+	extern minss
+	extern mkdir
+	extern mktime
+	extern mov
+	extern movaps
+	extern movsd
+	extern movss
+	extern movsx
+	extern movzx
+	extern mulsd
+	extern mulss
+	extern nop
+	extern not
+	extern opendir
+	extern or
+	extern orps
+	extern pop
+	extern pow
+	extern printf
+	extern pthread_create
+	extern pthread_main_np
+	extern pthread_mutex_destroy
+	extern pthread_mutex_init
+	extern pthread_mutex_lock
+	extern pthread_mutex_unlock
+	extern pthread_mutexattr_destroy
+	extern pthread_mutexattr_init
+	extern pthread_mutexattr_settype
+	extern pthread_self
+	extern push
+	extern putenv
+	extern puts
+	extern pxor
+	extern qsort
+	extern rand
+	extern read
+	extern readdir
+	extern realloc
+	extern recv
+	extern recvfrom
+	extern regcomp
+	extern regerror
+	extern regexec
+	extern regfree
+	extern remove
+	extern rename
+	extern rep
+	extern ret
+	extern rewind
+	extern sar
+	extern sbb
+	extern select
+	extern send
+	extern sendto
+	extern seta
+	extern setae
+	extern setjmp
+	extern setrlimit
+	extern setsockopt
+	extern shl
+	extern sin
+	extern sinf
+	extern snprintf
+	extern socket
+	extern sprintf
+	extern sqrtss
+	extern srand
+	extern sscanf
+	extern stat
+	extern stosd
+	extern strcasecmp
+	extern strcat
+	extern strchr
+	extern strcmp
+	extern strcpy
+	extern strdup
+	extern strerror
+	extern strftime
+	extern strncasecmp
+	extern strncat
+	extern strncmp
+	extern strncpy
+	extern strrchr
+	extern strstr
+	extern strtok
+	extern strtol
+	extern sub
+	extern subsd
+	extern subss
+	extern sysctl
+	extern tan
+	extern tanf
+	extern test
+	extern text
+	extern time
+	extern tmpnam
+	extern tolower
+	extern toupper
+	extern ucomisd
+	extern ucomiss
+	extern unlink
+	extern usleep
+	extern vec2_origin
+	extern vfprintf
+	extern vsnprintf
+	extern vsprintf
+	extern write
+	extern xor
+	extern xorps
 
 ;Exports defined in this file:
-	global OrientationPosToWorldPos:F(0,15)
-	global OrientationDirToWorldDir:F(0,15)
-	global OrientationPosFromWorldPos:F(0,15)
-	global OrientationDirFromWorldDir:F(0,15)
-	global VecNCompareCustomEpsilon:F(0,1)
-	global Z25GraphGetValueFromFractioniPA2_Kff:F(0,4)
-	global Z9ClampChari:F(0,14)
-	global Z14Vec2DistanceSqPKfS0_:F(0,7)
-	global Vec3Cross:F(0,18)
-	global Z19Vec3RotateTransposePKfPA3_S_Pf:F(0,18)
-	global MatrixMultiply:F(0,18)
-	global PointToBoxDistSq:F(0,4)
-	global MatrixIdentity44:F(0,18)
-	global MatrixSet44:F(0,18)
-	global MatrixMultiply43:F(0,18)
-	global MatrixMultiply44:F(0,18)
-	global MatrixTranspose:F(0,18)
-	global MatrixTranspose44:F(0,18)
-	global MatrixInverse:F(0,18)
-	global MatrixTransformVector:F(0,18)
-	global MatrixInverse44:F(0,18)
-	global MatrixTransformVector44:F(0,18)
-	global Z30MatrixTransposeTransformVectorPKfPA3_S_Pf:F(0,18)
-	global Z23MatrixTransformVector43PKfPA3_S_Pf:F(0,18)
-	global Z10QuatToAxisPKfPA3_f:F(0,18)
-	global InfinitePerspectiveMatrix:F(0,18)
-	global MatrixForViewer:F(0,18)
-	global Z8AngleModf:F(0,10)
-	global Z13AngleSubtractff:F(0,10)
-	global Z17AngleNormalize360f:F(0,10)
-	global Z25AngleNormalize360Accuratef:F(0,10)
-	global Z25AngleNormalize180Accuratef:F(0,10)
-	global AddPointToBounds:F(0,18)
-	global ExpandBounds:F(0,18)
-	global AxisTransformVector:F(0,18)
-	global BoxOnPlaneSide:F(0,8)
-	global BoxOnPlaneSide:F(0,8)_jumptab_0
-	global Z30MatrixTransformVectorQuatTransPKfPK13DObjAnimMat_sPf:F(0,18)
-	global Z9DiffTrackffff:F(0,4)
-	global Z9ByteToDiriPf:F(0,18)
-	global AxisCopy:F(0,18)
-	global Vec3DistanceSq:F(0,7)
-	global Z32MatrixTransposeTransformVector43PKfPA3_S_Pf:F(0,18)
-	global Z19ExpandBoundsToWidthPfS_:F(0,18)
-	global Z18BoxDistSqrdExceedsPKfS0_S0_f:F(0,6)
-	global Z9DirToBytePKf:F(0,61)
-	global GetRotatedBounds:F(0,18)
-	global Z14ColorNormalizePKfPf:F(0,7)
-	global ClearBounds:F(0,18)
-	global Vec3Normalize:F(0,7)
-	global Vec2Normalize:F(0,7)
-	global Z10vectopitchPKf:F(0,10)
-	global Z14AnglesSubtractPKfS0_Pf:F(0,18)
-	global Vec3NormalizeTo:F(0,7)
-	global Vec3MajorAxis:F(0,5)
-	global Z17AngleNormalize180f:F(0,10)
-	global Z10AngleDeltaff:F(0,10)
-	global Vec3Distance:F(0,7)
-	global Z14DiffTrackAngleffff:F(0,4)
-	global Z14GaussianRandomPfS_:F(0,18)
-	global MatrixInverseOrthogonal43:F(0,18)
-	global MakeNormalVectors:F(0,18)
-	global PerpendicularVector:F(0,18)
-	global YawToAxis:F(0,18)
-	global AngleVectors:F(0,18)
-	global AnglesToAxis:F(0,18)
-	global Z10YawVectorsfPfS_:F(0,18)
-	global Z15AngleAxisToQuatfPKfPf:F(0,18)
-	global AxisToAngles:F(0,18)
-	global Z11FresnelTermfff:F(0,6)
-	global FFT:F(0,1)
+	global OrientationPosToWorldPos_F0_15
+	global OrientationDirToWorldDir_F0_15
+	global OrientationPosFromWorldPos_F0_15
+	global OrientationDirFromWorldDir_F0_15
+	global VecNCompareCustomEpsilon_F0_1
+	global Z25GraphGetValueFromFractioniPA2_Kff_F0_4
+	global Z9ClampChari_F0_14
+	global Z14Vec2DistanceSqPKfS0__F0_7
+	global Vec3Cross_F0_18
+	global Z19Vec3RotateTransposePKfPA3_S_Pf_F0_18
+	global MatrixMultiply_F0_18
+	global PointToBoxDistSq_F0_4
+	global MatrixIdentity44_F0_18
+	global MatrixSet44_F0_18
+	global MatrixMultiply43_F0_18
+	global MatrixMultiply44_F0_18
+	global MatrixTranspose_F0_18
+	global MatrixTranspose44_F0_18
+	global MatrixInverse_F0_18
+	global MatrixTransformVector_F0_18
+	global MatrixInverse44_F0_18
+	global MatrixTransformVector44_F0_18
+	global Z30MatrixTransposeTransformVectorPKfPA3_S_Pf_F0_18
+	global Z23MatrixTransformVector43PKfPA3_S_Pf_F0_18
+	global Z10QuatToAxisPKfPA3_f_F0_18
+	global InfinitePerspectiveMatrix_F0_18
+	global MatrixForViewer_F0_18
+	global Z8AngleModf_F0_10
+	global Z13AngleSubtractff_F0_10
+	global Z17AngleNormalize360f_F0_10
+	global Z25AngleNormalize360Accuratef_F0_10
+	global Z25AngleNormalize180Accuratef_F0_10
+	global AddPointToBounds_F0_18
+	global ExpandBounds_F0_18
+	global AxisTransformVector_F0_18
+	global BoxOnPlaneSide_F0_8
+	global BoxOnPlaneSide_F0_8_jumptab_0
+	global Z30MatrixTransformVectorQuatTransPKfPK13DObjAnimMat_sPf_F0_18
+	global Z9DiffTrackffff_F0_4
+	global Z9ByteToDiriPf_F0_18
+	global AxisCopy_F0_18
+	global Vec3DistanceSq_F0_7
+	global Z32MatrixTransposeTransformVector43PKfPA3_S_Pf_F0_18
+	global Z19ExpandBoundsToWidthPfS__F0_18
+	global Z18BoxDistSqrdExceedsPKfS0_S0_f_F0_6
+	global Z9DirToBytePKf_F0_61
+	global GetRotatedBounds_F0_18
+	global Z14ColorNormalizePKfPf_F0_7
+	global ClearBounds_F0_18
+	global Vec3Normalize_F0_7
+	global Vec2Normalize_F0_7
+	global Z10vectopitchPKf_F0_10
+	global Z14AnglesSubtractPKfS0_Pf_F0_18
+	global Vec3NormalizeTo_F0_7
+	global Vec3MajorAxis_F0_5
+	global Z17AngleNormalize180f_F0_10
+	global Z10AngleDeltaff_F0_10
+	global Vec3Distance_F0_7
+	global Z14DiffTrackAngleffff_F0_4
+	global Z14GaussianRandomPfS__F0_18
+	global MatrixInverseOrthogonal43_F0_18
+	global MakeNormalVectors_F0_18
+	global PerpendicularVector_F0_18
+	global YawToAxis_F0_18
+	global AngleVectors_F0_18
+	global AnglesToAxis_F0_18
+	global Z10YawVectorsfPfS__F0_18
+	global Z15AngleAxisToQuatfPKfPf_F0_18
+	global AxisToAngles_F0_18
+	global Z11FresnelTermfff_F0_6
+	global FFT_F0_1
 
 SECTION .text
-OrientationPosToWorldPos:F(0,15):
+OrientationPosToWorldPos_F0_15:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -752,9 +855,9 @@ OrientationPosToWorldPos:F(0,15):
 	nop
 
 
-;OrientationDirToWorldDir:F(0,15)
+;OrientationDirToWorldDir_F0_15
 
-OrientationDirToWorldDir:F(0,15):
+OrientationDirToWorldDir_F0_15:
 	push ebp
 	mov ebp, esp
 	mov edx, [ebp+0x8]
@@ -792,9 +895,9 @@ OrientationDirToWorldDir:F(0,15):
 	nop
 
 
-;OrientationPosFromWorldPos:F(0,15)
+;OrientationPosFromWorldPos_F0_15
 
-OrientationPosFromWorldPos:F(0,15):
+OrientationPosFromWorldPos_F0_15:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -835,9 +938,9 @@ OrientationPosFromWorldPos:F(0,15):
 	nop
 
 
-;OrientationDirFromWorldDir:F(0,15)
+;OrientationDirFromWorldDir_F0_15
 
-OrientationDirFromWorldDir:F(0,15):
+OrientationDirFromWorldDir_F0_15:
 	push ebp
 	mov ebp, esp
 	mov edx, [ebp+0x8]
@@ -876,9 +979,9 @@ OrientationDirFromWorldDir:F(0,15):
 	add [eax], al
 
 
-;I_strnicmp:F(0,2)
+;I_strnicmp_F0_2
 
-VecNCompareCustomEpsilon:F(0,1):
+VecNCompareCustomEpsilon_F0_1:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -887,38 +990,38 @@ VecNCompareCustomEpsilon:F(0,1):
 	movss xmm1, dword [ebp+0x10]
 	mov edx, [ebp+0x14]
 	test edx, edx
-	jle VecNCompareCustomEpsilon:F(0,1)_10
+	jle VecNCompareCustomEpsilon_F0_1_10
 	movss xmm0, dword [ebx]
 	subss xmm0, [ecx]
 	mulss xmm1, xmm1
 	mulss xmm0, xmm0
 	ucomiss xmm0, xmm1
-	ja VecNCompareCustomEpsilon:F(0,1)_20
+	ja VecNCompareCustomEpsilon_F0_1_20
 	xor eax, eax
-VecNCompareCustomEpsilon:F(0,1)_30:
+VecNCompareCustomEpsilon_F0_1_30:
 	add eax, 0x1
 	cmp edx, eax
-	jz VecNCompareCustomEpsilon:F(0,1)_10
+	jz VecNCompareCustomEpsilon_F0_1_10
 	movss xmm0, dword [ebx+eax*4]
 	subss xmm0, [ecx+eax*4]
 	mulss xmm0, xmm0
 	ucomiss xmm0, xmm1
-	jbe VecNCompareCustomEpsilon:F(0,1)_30
-VecNCompareCustomEpsilon:F(0,1)_20:
+	jbe VecNCompareCustomEpsilon_F0_1_30
+VecNCompareCustomEpsilon_F0_1_20:
 	xor eax, eax
 	pop ebx
 	pop ebp
 	ret
-VecNCompareCustomEpsilon:F(0,1)_10:
+VecNCompareCustomEpsilon_F0_1_10:
 	mov eax, 0x1
 	pop ebx
 	pop ebp
 	ret
 
 
-;Z7randomfv:F(0,4)
+;Z7randomfv_F0_4
 
-Z25GraphGetValueFromFractioniPA2_Kff:F(0,4):
+Z25GraphGetValueFromFractioniPA2_Kff_F0_4:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -928,28 +1031,28 @@ Z25GraphGetValueFromFractioniPA2_Kff:F(0,4):
 	mov edi, [ebp+0xc]
 	movss xmm3, dword [ebp+0x10]
 	cmp dword [ebp+0x8], 0x1
-	jle Z25GraphGetValueFromFractioniPA2_Kff:F(0,4)_10
+	jle Z25GraphGetValueFromFractioniPA2_Kff_F0_4_10
 	lea esi, [edi+0x8]
 	movss xmm0, dword [edi+0x8]
 	ucomiss xmm0, xmm3
-	jae Z25GraphGetValueFromFractioniPA2_Kff:F(0,4)_20
+	jae Z25GraphGetValueFromFractioniPA2_Kff_F0_4_20
 	lea ebx, [edi+0x10]
 	mov ecx, 0x1
 	mov eax, 0x10
-	jmp Z25GraphGetValueFromFractioniPA2_Kff:F(0,4)_30
-Z25GraphGetValueFromFractioniPA2_Kff:F(0,4)_50:
+	jmp Z25GraphGetValueFromFractioniPA2_Kff_F0_4_30
+Z25GraphGetValueFromFractioniPA2_Kff_F0_4_50:
 	lea edx, [edi+eax]
 	mov esi, edx
 	movss xmm0, dword [ebx]
 	add eax, 0x8
 	add ebx, 0x8
 	ucomiss xmm0, xmm3
-	jae Z25GraphGetValueFromFractioniPA2_Kff:F(0,4)_40
-Z25GraphGetValueFromFractioniPA2_Kff:F(0,4)_30:
+	jae Z25GraphGetValueFromFractioniPA2_Kff_F0_4_40
+Z25GraphGetValueFromFractioniPA2_Kff_F0_4_30:
 	add ecx, 0x1
 	cmp [ebp+0x8], ecx
-	jnz Z25GraphGetValueFromFractioniPA2_Kff:F(0,4)_50
-Z25GraphGetValueFromFractioniPA2_Kff:F(0,4)_10:
+	jnz Z25GraphGetValueFromFractioniPA2_Kff_F0_4_50
+Z25GraphGetValueFromFractioniPA2_Kff_F0_4_10:
 	movss xmm3, dword [_float__1_00000000]
 	movss [ebp-0x10], xmm3
 	fld dword [ebp-0x10]
@@ -959,9 +1062,9 @@ Z25GraphGetValueFromFractioniPA2_Kff:F(0,4)_10:
 	pop edi
 	pop ebp
 	ret
-Z25GraphGetValueFromFractioniPA2_Kff:F(0,4)_20:
+Z25GraphGetValueFromFractioniPA2_Kff_F0_4_20:
 	mov edx, esi
-Z25GraphGetValueFromFractioniPA2_Kff:F(0,4)_40:
+Z25GraphGetValueFromFractioniPA2_Kff_F0_4_40:
 	movss xmm1, dword [edx-0x8]
 	movss xmm2, dword [edx-0x4]
 	subss xmm3, xmm1
@@ -983,24 +1086,24 @@ Z25GraphGetValueFromFractioniPA2_Kff:F(0,4)_40:
 	add [eax], al
 
 
-;Z6Q_acosf:F(0,10)
+;Z6Q_acosf_F0_10
 
-Z9ClampChari:F(0,14):
+Z9ClampChari_F0_14:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
 	cmp eax, 0xffffff80
-	jl Z9ClampChari:F(0,14)_10
+	jl Z9ClampChari_F0_14_10
 	cmp eax, 0x7f
-	jg Z9ClampChari:F(0,14)_20
+	jg Z9ClampChari_F0_14_20
 	movsx eax, al
 	pop ebp
 	ret
-Z9ClampChari:F(0,14)_20:
+Z9ClampChari_F0_14_20:
 	mov eax, 0x7f
 	pop ebp
 	ret
-Z9ClampChari:F(0,14)_10:
+Z9ClampChari_F0_14_10:
 	mov eax, 0xffffff80
 	pop ebp
 	ret
@@ -1008,9 +1111,9 @@ Z9ClampChari:F(0,14)_10:
 	add [eax], al
 
 
-;Z14Vec2DistanceSqPKfS0_:F(0,7)
+;Z14Vec2DistanceSqPKfS0__F0_7
 
-Z14Vec2DistanceSqPKfS0_:F(0,7):
+Z14Vec2DistanceSqPKfS0__F0_7:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x4
@@ -1029,9 +1132,9 @@ Z14Vec2DistanceSqPKfS0_:F(0,7):
 	ret
 
 
-;Vec3Cross:F(0,18)
+;Vec3Cross_F0_18
 
-Vec3Cross:F(0,18):
+Vec3Cross_F0_18:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -1060,9 +1163,9 @@ Vec3Cross:F(0,18):
 	add [eax], al
 
 
-;Z19Vec3RotateTransposePKfPA3_S_Pf:F(0,18)
+;Z19Vec3RotateTransposePKfPA3_S_Pf_F0_18
 
-Z19Vec3RotateTransposePKfPA3_S_Pf:F(0,18):
+Z19Vec3RotateTransposePKfPA3_S_Pf_F0_18:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -1105,9 +1208,9 @@ Z19Vec3RotateTransposePKfPA3_S_Pf:F(0,18):
 	ret
 
 
-;MatrixMultiply:F(0,18)
+;MatrixMultiply_F0_18
 
-MatrixMultiply:F(0,18):
+MatrixMultiply_F0_18:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1222,9 +1325,9 @@ MatrixMultiply:F(0,18):
 	nop
 
 
-;Z8vectoyawPKf:F(0,10)
+;Z8vectoyawPKf_F0_10
 
-PointToBoxDistSq:F(0,4):
+PointToBoxDistSq_F0_4:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -1235,20 +1338,20 @@ PointToBoxDistSq:F(0,4):
 	pxor xmm2, xmm2
 	mov edx, 0x1
 	movaps xmm3, xmm2
-PointToBoxDistSq:F(0,4)_20:
+PointToBoxDistSq_F0_4_20:
 	lea eax, [edx*4]
 	movss xmm1, dword [ebx+eax-0x4]
 	movss xmm0, dword [ecx+eax-0x4]
 	subss xmm0, xmm1
 	ucomiss xmm0, xmm3
-	jbe PointToBoxDistSq:F(0,4)_10
-PointToBoxDistSq:F(0,4)_30:
+	jbe PointToBoxDistSq_F0_4_10
+PointToBoxDistSq_F0_4_30:
 	mulss xmm0, xmm0
 	addss xmm2, xmm0
-PointToBoxDistSq:F(0,4)_40:
+PointToBoxDistSq_F0_4_40:
 	add edx, 0x1
 	cmp edx, 0x4
-	jnz PointToBoxDistSq:F(0,4)_20
+	jnz PointToBoxDistSq_F0_4_20
 	movss [ebp-0xc], xmm2
 	fld dword [ebp-0xc]
 	add esp, 0x4
@@ -1256,18 +1359,18 @@ PointToBoxDistSq:F(0,4)_40:
 	pop esi
 	pop ebp
 	ret
-PointToBoxDistSq:F(0,4)_10:
+PointToBoxDistSq_F0_4_10:
 	movaps xmm0, xmm1
 	mov esi, [ebp+0x10]
 	subss xmm0, [eax+esi-0x4]
 	ucomiss xmm0, xmm3
-	ja PointToBoxDistSq:F(0,4)_30
-	jmp PointToBoxDistSq:F(0,4)_40
+	ja PointToBoxDistSq_F0_4_30
+	jmp PointToBoxDistSq_F0_4_40
 
 
-;MatrixIdentity44:F(0,18)
+;MatrixIdentity44_F0_18
 
-MatrixIdentity44:F(0,18):
+MatrixIdentity44_F0_18:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -1308,9 +1411,9 @@ MatrixIdentity44:F(0,18):
 	nop
 
 
-;MatrixSet44:F(0,18)
+;MatrixSet44_F0_18
 
-MatrixSet44:F(0,18):
+MatrixSet44_F0_18:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1371,9 +1474,9 @@ MatrixSet44:F(0,18):
 	add [eax], al
 
 
-;MatrixMultiply43:F(0,18)
+;MatrixMultiply43_F0_18
 
-MatrixMultiply43:F(0,18):
+MatrixMultiply43_F0_18:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1545,9 +1648,9 @@ MatrixMultiply43:F(0,18):
 	ret
 
 
-;MatrixMultiply44:F(0,18)
+;MatrixMultiply44_F0_18
 
-MatrixMultiply44:F(0,18):
+MatrixMultiply44_F0_18:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1794,9 +1897,9 @@ MatrixMultiply44:F(0,18):
 	ret
 
 
-;MatrixTranspose:F(0,18)
+;MatrixTranspose_F0_18
 
-MatrixTranspose:F(0,18):
+MatrixTranspose_F0_18:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1834,9 +1937,9 @@ MatrixTranspose:F(0,18):
 	nop
 
 
-;MatrixTranspose44:F(0,18)
+;MatrixTranspose44_F0_18
 
-MatrixTranspose44:F(0,18):
+MatrixTranspose44_F0_18:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -1878,9 +1981,9 @@ MatrixTranspose44:F(0,18):
 	nop
 
 
-;MatrixInverse:F(0,18)
+;MatrixInverse_F0_18
 
-MatrixInverse:F(0,18):
+MatrixInverse_F0_18:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -1985,9 +2088,9 @@ MatrixInverse:F(0,18):
 	ret
 
 
-;MatrixTransformVector:F(0,18)
+;MatrixTransformVector_F0_18
 
-MatrixTransformVector:F(0,18):
+MatrixTransformVector_F0_18:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -2030,9 +2133,9 @@ MatrixTransformVector:F(0,18):
 	ret
 
 
-;MatrixInverse44:F(0,18)
+;MatrixInverse44_F0_18
 
-MatrixInverse44:F(0,18):
+MatrixInverse44_F0_18:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -2042,7 +2145,7 @@ MatrixInverse44:F(0,18):
 	xor ecx, ecx
 	lea ebx, [ebp-0x48]
 	mov edx, [ebp+0x8]
-MatrixInverse44:F(0,18)_10:
+MatrixInverse44_F0_18_10:
 	mov eax, [edx]
 	mov [ecx+ebx], eax
 	mov eax, [edx+0x4]
@@ -2054,7 +2157,7 @@ MatrixInverse44:F(0,18)_10:
 	add ecx, 0x4
 	add edx, 0x10
 	cmp ecx, 0x10
-	jnz MatrixInverse44:F(0,18)_10
+	jnz MatrixInverse44_F0_18_10
 	movss xmm0, dword [ebp-0x20]
 	movss [ebp-0xbc], xmm0
 	movss xmm1, dword [ebp-0xc]
@@ -2449,14 +2552,14 @@ MatrixInverse44:F(0,18)_10:
 	divss xmm1, xmm3
 	mov edx, 0x1
 	lea eax, [esi+0x4]
-MatrixInverse44:F(0,18)_20:
+MatrixInverse44_F0_18_20:
 	movaps xmm0, xmm1
 	mulss xmm0, [eax-0x4]
 	movss [eax-0x4], xmm0
 	add edx, 0x1
 	add eax, 0x4
 	cmp edx, 0x11
-	jnz MatrixInverse44:F(0,18)_20
+	jnz MatrixInverse44_F0_18_20
 	add esp, 0xc0
 	pop ebx
 	pop esi
@@ -2465,9 +2568,9 @@ MatrixInverse44:F(0,18)_20:
 	nop
 
 
-;MatrixTransformVector44:F(0,18)
+;MatrixTransformVector44_F0_18
 
-MatrixTransformVector44:F(0,18):
+MatrixTransformVector44_F0_18:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -2535,9 +2638,9 @@ MatrixTransformVector44:F(0,18):
 	nop
 
 
-;Z30MatrixTransposeTransformVectorPKfPA3_S_Pf:F(0,18)
+;Z30MatrixTransposeTransformVectorPKfPA3_S_Pf_F0_18
 
-Z30MatrixTransposeTransformVectorPKfPA3_S_Pf:F(0,18):
+Z30MatrixTransposeTransformVectorPKfPA3_S_Pf_F0_18:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -2578,9 +2681,9 @@ Z30MatrixTransposeTransformVectorPKfPA3_S_Pf:F(0,18):
 	ret
 
 
-;Z23MatrixTransformVector43PKfPA3_S_Pf:F(0,18)
+;Z23MatrixTransformVector43PKfPA3_S_Pf_F0_18
 
-Z23MatrixTransformVector43PKfPA3_S_Pf:F(0,18):
+Z23MatrixTransformVector43PKfPA3_S_Pf_F0_18:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -2629,9 +2732,9 @@ Z23MatrixTransformVector43PKfPA3_S_Pf:F(0,18):
 	ret
 
 
-;Z12QuatMultiplyPKfS0_Pf:F(0,18)
+;Z12QuatMultiplyPKfS0_Pf_F0_18
 
-Z10QuatToAxisPKfPA3_f:F(0,18):
+Z10QuatToAxisPKfPA3_f_F0_18:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x14
@@ -2711,9 +2814,9 @@ Z10QuatToAxisPKfPA3_f:F(0,18):
 	nop
 
 
-;Z13RotationToYawPKf:F(0,4)
+;Z13RotationToYawPKf_F0_4
 
-InfinitePerspectiveMatrix:F(0,18):
+InfinitePerspectiveMatrix_F0_18:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -2766,9 +2869,9 @@ InfinitePerspectiveMatrix:F(0,18):
 	nop
 
 
-;MatrixForViewer:F(0,18)
+;MatrixForViewer_F0_18
 
-MatrixForViewer:F(0,18):
+MatrixForViewer_F0_18:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -2852,9 +2955,9 @@ MatrixForViewer:F(0,18):
 	nop
 
 
-;Z8AngleModf:F(0,10)
+;Z8AngleModf_F0_10
 
-Z8AngleModf:F(0,10):
+Z8AngleModf_F0_10:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x4
@@ -2870,41 +2973,41 @@ Z8AngleModf:F(0,10):
 	ret
 
 
-;Z9LerpAnglefff:F(0,10)
+;Z9LerpAnglefff_F0_10
 
-Z13AngleSubtractff:F(0,10):
+Z13AngleSubtractff_F0_10:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x4
 	movss xmm0, dword [ebp+0x8]
 	subss xmm0, [ebp+0xc]
 	ucomiss xmm0, [_float_180_00000000]
-	jbe Z13AngleSubtractff:F(0,10)_10
+	jbe Z13AngleSubtractff_F0_10_10
 	movss xmm2, dword [_float_360_00000000]
 	movss xmm1, dword [_float_180_00000000]
-Z13AngleSubtractff:F(0,10)_20:
+Z13AngleSubtractff_F0_10_20:
 	subss xmm0, xmm2
 	ucomiss xmm0, xmm1
-	ja Z13AngleSubtractff:F(0,10)_20
-Z13AngleSubtractff:F(0,10)_10:
+	ja Z13AngleSubtractff_F0_10_20
+Z13AngleSubtractff_F0_10_10:
 	movss xmm1, dword [_float__180_00000000]
 	ucomiss xmm1, xmm0
-	jbe Z13AngleSubtractff:F(0,10)_30
+	jbe Z13AngleSubtractff_F0_10_30
 	movss xmm2, dword [_float_360_00000000]
-Z13AngleSubtractff:F(0,10)_40:
+Z13AngleSubtractff_F0_10_40:
 	addss xmm0, xmm2
 	ucomiss xmm1, xmm0
-	ja Z13AngleSubtractff:F(0,10)_40
-Z13AngleSubtractff:F(0,10)_30:
+	ja Z13AngleSubtractff_F0_10_40
+Z13AngleSubtractff_F0_10_30:
 	movss [ebp-0x4], xmm0
 	fld dword [ebp-0x4]
 	leave
 	ret
 
 
-;Z17AngleNormalize360f:F(0,10)
+;Z17AngleNormalize360f_F0_10
 
-Z17AngleNormalize360f:F(0,10):
+Z17AngleNormalize360f_F0_10:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x4
@@ -2920,70 +3023,70 @@ Z17AngleNormalize360f:F(0,10):
 	ret
 
 
-;Z25AngleNormalize360Accuratef:F(0,10)
+;Z25AngleNormalize360Accuratef_F0_10
 
-Z25AngleNormalize360Accuratef:F(0,10):
+Z25AngleNormalize360Accuratef_F0_10:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x4
 	movss xmm0, dword [ebp+0x8]
 	pxor xmm1, xmm1
 	ucomiss xmm1, xmm0
-	ja Z25AngleNormalize360Accuratef:F(0,10)_10
+	ja Z25AngleNormalize360Accuratef_F0_10_10
 	ucomiss xmm0, [_float_360_00000000]
-	jb Z25AngleNormalize360Accuratef:F(0,10)_20
+	jb Z25AngleNormalize360Accuratef_F0_10_20
 	movss xmm1, dword [_float_360_00000000]
 	movaps xmm2, xmm1
-Z25AngleNormalize360Accuratef:F(0,10)_30:
+Z25AngleNormalize360Accuratef_F0_10_30:
 	subss xmm0, xmm2
 	ucomiss xmm0, xmm1
-	jae Z25AngleNormalize360Accuratef:F(0,10)_30
-Z25AngleNormalize360Accuratef:F(0,10)_20:
+	jae Z25AngleNormalize360Accuratef_F0_10_30
+Z25AngleNormalize360Accuratef_F0_10_20:
 	movss [ebp-0x4], xmm0
 	fld dword [ebp-0x4]
 	leave
 	ret
-Z25AngleNormalize360Accuratef:F(0,10)_10:
+Z25AngleNormalize360Accuratef_F0_10_10:
 	movss xmm2, dword [_float_360_00000000]
-Z25AngleNormalize360Accuratef:F(0,10)_40:
+Z25AngleNormalize360Accuratef_F0_10_40:
 	addss xmm0, xmm2
 	ucomiss xmm1, xmm0
-	ja Z25AngleNormalize360Accuratef:F(0,10)_40
+	ja Z25AngleNormalize360Accuratef_F0_10_40
 	movss [ebp-0x4], xmm0
 	fld dword [ebp-0x4]
 	leave
 	ret
 
 
-;Z25AngleNormalize180Accuratef:F(0,10)
+;Z25AngleNormalize180Accuratef_F0_10
 
-Z25AngleNormalize180Accuratef:F(0,10):
+Z25AngleNormalize180Accuratef_F0_10:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x4
 	movss xmm0, dword [ebp+0x8]
 	movss xmm1, dword [_float__180_00000000]
 	ucomiss xmm1, xmm0
-	jb Z25AngleNormalize180Accuratef:F(0,10)_10
+	jb Z25AngleNormalize180Accuratef_F0_10_10
 	movss xmm2, dword [_float_360_00000000]
-Z25AngleNormalize180Accuratef:F(0,10)_20:
+Z25AngleNormalize180Accuratef_F0_10_20:
 	addss xmm0, xmm2
 	ucomiss xmm1, xmm0
-	jae Z25AngleNormalize180Accuratef:F(0,10)_20
-Z25AngleNormalize180Accuratef:F(0,10)_30:
+	jae Z25AngleNormalize180Accuratef_F0_10_20
+Z25AngleNormalize180Accuratef_F0_10_30:
 	movss [ebp-0x4], xmm0
 	fld dword [ebp-0x4]
 	leave
 	ret
-Z25AngleNormalize180Accuratef:F(0,10)_10:
+Z25AngleNormalize180Accuratef_F0_10_10:
 	ucomiss xmm0, [_float_180_00000000]
-	jbe Z25AngleNormalize180Accuratef:F(0,10)_30
+	jbe Z25AngleNormalize180Accuratef_F0_10_30
 	movss xmm2, dword [_float_360_00000000]
 	movss xmm1, dword [_float_180_00000000]
-Z25AngleNormalize180Accuratef:F(0,10)_40:
+Z25AngleNormalize180Accuratef_F0_10_40:
 	subss xmm0, xmm2
 	ucomiss xmm0, xmm1
-	ja Z25AngleNormalize180Accuratef:F(0,10)_40
+	ja Z25AngleNormalize180Accuratef_F0_10_40
 	movss [ebp-0x4], xmm0
 	fld dword [ebp-0x4]
 	leave
@@ -2992,9 +3095,9 @@ Z25AngleNormalize180Accuratef:F(0,10)_40:
 	add [eax], al
 
 
-;AddPointToBounds:F(0,18)
+;AddPointToBounds_F0_18
 
-AddPointToBounds:F(0,18):
+AddPointToBounds_F0_18:
 	push ebp
 	mov ebp, esp
 	mov edx, [ebp+0x8]
@@ -3003,43 +3106,43 @@ AddPointToBounds:F(0,18):
 	movss xmm1, dword [edx]
 	movss xmm0, dword [eax]
 	ucomiss xmm0, xmm1
-	jbe AddPointToBounds:F(0,18)_10
+	jbe AddPointToBounds_F0_18_10
 	movss [eax], xmm1
 	movss xmm1, dword [edx]
-AddPointToBounds:F(0,18)_10:
+AddPointToBounds_F0_18_10:
 	ucomiss xmm1, [ecx]
-	jbe AddPointToBounds:F(0,18)_20
+	jbe AddPointToBounds_F0_18_20
 	movss [ecx], xmm1
-AddPointToBounds:F(0,18)_20:
+AddPointToBounds_F0_18_20:
 	movss xmm1, dword [edx+0x4]
 	movss xmm0, dword [eax+0x4]
 	ucomiss xmm0, xmm1
-	jbe AddPointToBounds:F(0,18)_30
+	jbe AddPointToBounds_F0_18_30
 	movss [eax+0x4], xmm1
 	movss xmm1, dword [edx+0x4]
-AddPointToBounds:F(0,18)_30:
+AddPointToBounds_F0_18_30:
 	ucomiss xmm1, [ecx+0x4]
-	jbe AddPointToBounds:F(0,18)_40
+	jbe AddPointToBounds_F0_18_40
 	movss [ecx+0x4], xmm1
-AddPointToBounds:F(0,18)_40:
+AddPointToBounds_F0_18_40:
 	movss xmm1, dword [edx+0x8]
 	movss xmm0, dword [eax+0x8]
 	ucomiss xmm0, xmm1
-	jbe AddPointToBounds:F(0,18)_50
+	jbe AddPointToBounds_F0_18_50
 	movss [eax+0x8], xmm1
 	movss xmm1, dword [edx+0x8]
-AddPointToBounds:F(0,18)_50:
+AddPointToBounds_F0_18_50:
 	ucomiss xmm1, [ecx+0x8]
-	jbe AddPointToBounds:F(0,18)_60
+	jbe AddPointToBounds_F0_18_60
 	movss [ecx+0x8], xmm1
-AddPointToBounds:F(0,18)_60:
+AddPointToBounds_F0_18_60:
 	pop ebp
 	ret
 
 
-;ExpandBounds:F(0,18)
+;ExpandBounds_F0_18
 
-ExpandBounds:F(0,18):
+ExpandBounds_F0_18:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -3050,36 +3153,36 @@ ExpandBounds:F(0,18):
 	movss xmm1, dword [ecx]
 	movss xmm0, dword [eax]
 	ucomiss xmm0, xmm1
-	jbe ExpandBounds:F(0,18)_10
+	jbe ExpandBounds_F0_18_10
 	movss [eax], xmm1
-ExpandBounds:F(0,18)_10:
+ExpandBounds_F0_18_10:
 	movss xmm0, dword [ebx]
 	ucomiss xmm0, [edx]
-	jbe ExpandBounds:F(0,18)_20
+	jbe ExpandBounds_F0_18_20
 	movss [edx], xmm0
-ExpandBounds:F(0,18)_20:
+ExpandBounds_F0_18_20:
 	movss xmm1, dword [ecx+0x4]
 	movss xmm0, dword [eax+0x4]
 	ucomiss xmm0, xmm1
-	jbe ExpandBounds:F(0,18)_30
+	jbe ExpandBounds_F0_18_30
 	movss [eax+0x4], xmm1
-ExpandBounds:F(0,18)_30:
+ExpandBounds_F0_18_30:
 	movss xmm0, dword [ebx+0x4]
 	ucomiss xmm0, [edx+0x4]
-	jbe ExpandBounds:F(0,18)_40
+	jbe ExpandBounds_F0_18_40
 	movss [edx+0x4], xmm0
-ExpandBounds:F(0,18)_40:
+ExpandBounds_F0_18_40:
 	movss xmm1, dword [ecx+0x8]
 	movss xmm0, dword [eax+0x8]
 	ucomiss xmm0, xmm1
-	jbe ExpandBounds:F(0,18)_50
+	jbe ExpandBounds_F0_18_50
 	movss [eax+0x8], xmm1
-ExpandBounds:F(0,18)_50:
+ExpandBounds_F0_18_50:
 	movss xmm0, dword [ebx+0x8]
 	ucomiss xmm0, [edx+0x8]
-	jbe ExpandBounds:F(0,18)_60
+	jbe ExpandBounds_F0_18_60
 	movss [edx+0x8], xmm0
-ExpandBounds:F(0,18)_60:
+ExpandBounds_F0_18_60:
 	pop ebx
 	pop ebp
 	ret
@@ -3087,9 +3190,9 @@ ExpandBounds:F(0,18)_60:
 	add [eax], al
 
 
-;AxisTransformVector:F(0,18)
+;AxisTransformVector_F0_18
 
-AxisTransformVector:F(0,18):
+AxisTransformVector_F0_18:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -3130,9 +3233,9 @@ AxisTransformVector:F(0,18):
 	add [eax], al
 
 
-;Z19ProjectPointOnPlanePKfS0_Pf:F(0,18)
+;Z19ProjectPointOnPlanePKfS0_Pf_F0_18
 
-BoxOnPlaneSide:F(0,8):
+BoxOnPlaneSide_F0_8:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -3141,13 +3244,13 @@ BoxOnPlaneSide:F(0,8):
 	mov edx, [ebp+0x10]
 	movzx eax, byte [edx+0x10]
 	cmp al, 0x2
-	ja BoxOnPlaneSide:F(0,8)_10
+	ja BoxOnPlaneSide_F0_8_10
 	movss xmm3, dword [edx+0xc]
 	movzx eax, al
 	shl eax, 0x2
 	movss xmm0, dword [ecx+eax]
 	ucomiss xmm0, xmm3
-	jae BoxOnPlaneSide:F(0,8)_20
+	jae BoxOnPlaneSide_F0_8_20
 	ucomiss xmm3, [ebx+eax]
 	sbb edx, edx
 	not edx
@@ -3156,13 +3259,13 @@ BoxOnPlaneSide:F(0,8):
 	pop ebx
 	pop ebp
 	ret
-BoxOnPlaneSide:F(0,8)_10:
+BoxOnPlaneSide_F0_8_10:
 	movzx eax, byte [edx+0x11]
 	cmp eax, 0x7
-	jbe BoxOnPlaneSide:F(0,8)_30
+	jbe BoxOnPlaneSide_F0_8_30
 	pxor xmm3, xmm3
 	movaps xmm4, xmm3
-BoxOnPlaneSide:F(0,8)_40:
+BoxOnPlaneSide_F0_8_40:
 	movss xmm0, dword [edx+0xc]
 	xor edx, edx
 	ucomiss xmm4, xmm0
@@ -3175,9 +3278,9 @@ BoxOnPlaneSide:F(0,8)_40:
 	pop ebx
 	pop ebp
 	ret
-BoxOnPlaneSide:F(0,8)_30:
-	jmp dword [eax*4+BoxOnPlaneSide:F(0,8)_jumptab_0]
-BoxOnPlaneSide:F(0,8)_50:
+BoxOnPlaneSide_F0_8_30:
+	jmp dword [eax*4+BoxOnPlaneSide_F0_8_jumptab_0]
+BoxOnPlaneSide_F0_8_50:
 	movss xmm3, dword [edx]
 	movss xmm1, dword [edx+0x4]
 	movss xmm2, dword [edx+0x8]
@@ -3194,8 +3297,8 @@ BoxOnPlaneSide:F(0,8)_50:
 	addss xmm3, xmm1
 	mulss xmm2, [ecx+0x8]
 	addss xmm3, xmm2
-	jmp BoxOnPlaneSide:F(0,8)_40
-BoxOnPlaneSide:F(0,8)_120:
+	jmp BoxOnPlaneSide_F0_8_40
+BoxOnPlaneSide_F0_8_120:
 	movss xmm3, dword [edx]
 	movss xmm1, dword [edx+0x4]
 	movss xmm2, dword [edx+0x8]
@@ -3212,8 +3315,8 @@ BoxOnPlaneSide:F(0,8)_120:
 	addss xmm3, xmm1
 	mulss xmm2, [ebx+0x8]
 	addss xmm3, xmm2
-	jmp BoxOnPlaneSide:F(0,8)_40
-BoxOnPlaneSide:F(0,8)_110:
+	jmp BoxOnPlaneSide_F0_8_40
+BoxOnPlaneSide_F0_8_110:
 	movss xmm3, dword [edx]
 	movss xmm1, dword [edx+0x4]
 	movss xmm2, dword [edx+0x8]
@@ -3230,8 +3333,8 @@ BoxOnPlaneSide:F(0,8)_110:
 	addss xmm3, xmm1
 	mulss xmm2, [ebx+0x8]
 	addss xmm3, xmm2
-	jmp BoxOnPlaneSide:F(0,8)_40
-BoxOnPlaneSide:F(0,8)_100:
+	jmp BoxOnPlaneSide_F0_8_40
+BoxOnPlaneSide_F0_8_100:
 	movss xmm3, dword [edx]
 	movss xmm1, dword [edx+0x4]
 	movss xmm2, dword [edx+0x8]
@@ -3248,8 +3351,8 @@ BoxOnPlaneSide:F(0,8)_100:
 	addss xmm3, xmm1
 	mulss xmm2, [ebx+0x8]
 	addss xmm3, xmm2
-	jmp BoxOnPlaneSide:F(0,8)_40
-BoxOnPlaneSide:F(0,8)_90:
+	jmp BoxOnPlaneSide_F0_8_40
+BoxOnPlaneSide_F0_8_90:
 	movss xmm3, dword [edx]
 	movss xmm1, dword [edx+0x4]
 	movss xmm2, dword [edx+0x8]
@@ -3266,8 +3369,8 @@ BoxOnPlaneSide:F(0,8)_90:
 	addss xmm3, xmm1
 	mulss xmm2, [ebx+0x8]
 	addss xmm3, xmm2
-	jmp BoxOnPlaneSide:F(0,8)_40
-BoxOnPlaneSide:F(0,8)_80:
+	jmp BoxOnPlaneSide_F0_8_40
+BoxOnPlaneSide_F0_8_80:
 	movss xmm3, dword [edx]
 	movss xmm1, dword [edx+0x4]
 	movss xmm2, dword [edx+0x8]
@@ -3284,8 +3387,8 @@ BoxOnPlaneSide:F(0,8)_80:
 	addss xmm3, xmm1
 	mulss xmm2, [ecx+0x8]
 	addss xmm3, xmm2
-	jmp BoxOnPlaneSide:F(0,8)_40
-BoxOnPlaneSide:F(0,8)_70:
+	jmp BoxOnPlaneSide_F0_8_40
+BoxOnPlaneSide_F0_8_70:
 	movss xmm3, dword [edx]
 	movss xmm1, dword [edx+0x4]
 	movss xmm2, dword [edx+0x8]
@@ -3302,8 +3405,8 @@ BoxOnPlaneSide:F(0,8)_70:
 	addss xmm3, xmm1
 	mulss xmm2, [ecx+0x8]
 	addss xmm3, xmm2
-	jmp BoxOnPlaneSide:F(0,8)_40
-BoxOnPlaneSide:F(0,8)_60:
+	jmp BoxOnPlaneSide_F0_8_40
+BoxOnPlaneSide_F0_8_60:
 	movss xmm3, dword [edx]
 	movss xmm1, dword [edx+0x4]
 	movss xmm2, dword [edx+0x8]
@@ -3320,8 +3423,8 @@ BoxOnPlaneSide:F(0,8)_60:
 	addss xmm3, xmm1
 	mulss xmm2, [ecx+0x8]
 	addss xmm3, xmm2
-	jmp BoxOnPlaneSide:F(0,8)_40
-BoxOnPlaneSide:F(0,8)_20:
+	jmp BoxOnPlaneSide_F0_8_40
+BoxOnPlaneSide_F0_8_20:
 	mov edx, 0x1
 	mov eax, edx
 	pop ebx
@@ -3331,20 +3434,20 @@ BoxOnPlaneSide:F(0,8)_20:
 	
 	
 
-BoxOnPlaneSide:F(0,8)_jumptab_0:
-	dd BoxOnPlaneSide:F(0,8)_50
-	dd BoxOnPlaneSide:F(0,8)_60
-	dd BoxOnPlaneSide:F(0,8)_70
-	dd BoxOnPlaneSide:F(0,8)_80
-	dd BoxOnPlaneSide:F(0,8)_90
-	dd BoxOnPlaneSide:F(0,8)_100
-	dd BoxOnPlaneSide:F(0,8)_110
-	dd BoxOnPlaneSide:F(0,8)_120
+BoxOnPlaneSide_F0_8_jumptab_0:
+	dd BoxOnPlaneSide_F0_8_50
+	dd BoxOnPlaneSide_F0_8_60
+	dd BoxOnPlaneSide_F0_8_70
+	dd BoxOnPlaneSide_F0_8_80
+	dd BoxOnPlaneSide_F0_8_90
+	dd BoxOnPlaneSide_F0_8_100
+	dd BoxOnPlaneSide_F0_8_110
+	dd BoxOnPlaneSide_F0_8_120
 
 
-;Z9Rand_Initi:F(0,18)
+;Z9Rand_Initi_F0_18
 
-Z30MatrixTransformVectorQuatTransPKfPK13DObjAnimMat_sPf:F(0,18):
+Z30MatrixTransformVectorQuatTransPKfPK13DObjAnimMat_sPf_F0_18:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x10
@@ -3423,9 +3526,9 @@ Z30MatrixTransformVectorQuatTransPKfPK13DObjAnimMat_sPf:F(0,18):
 	ret
 
 
-;Z9DiffTrackffff:F(0,4)
+;Z9DiffTrackffff_F0_4
 
-Z9DiffTrackffff:F(0,4):
+Z9DiffTrackffff_F0_4:
 	push ebp
 	mov ebp, esp
 	movss xmm4, dword [ebp+0xc]
@@ -3438,35 +3541,35 @@ Z9DiffTrackffff:F(0,4):
 	movaps xmm3, xmm0
 	andps xmm3, xmm1
 	ucomiss xmm3, [_float_0_00100000]
-	jbe Z9DiffTrackffff:F(0,4)_10
+	jbe Z9DiffTrackffff_F0_4_10
 	movaps xmm0, xmm2
 	andps xmm0, xmm1
 	ucomiss xmm0, xmm3
-	ja Z9DiffTrackffff:F(0,4)_10
+	ja Z9DiffTrackffff_F0_4_10
 	addss xmm4, xmm2
 	movss [ebp+0x8], xmm4
-Z9DiffTrackffff:F(0,4)_10:
+Z9DiffTrackffff_F0_4_10:
 	fld dword [ebp+0x8]
 	pop ebp
 	ret
 
 
-;Z18RadiusFromBounds2DPKfS0_:F(0,7)
+;Z18RadiusFromBounds2DPKfS0__F0_7
 
-Z9ByteToDiriPf:F(0,18):
+Z9ByteToDiriPf_F0_18:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
 	mov ecx, [ebp+0xc]
 	cmp eax, 0xa1
-	jbe Z9ByteToDiriPf:F(0,18)_10
+	jbe Z9ByteToDiriPf_F0_18_10
 	xor eax, eax
 	mov [ecx], eax
 	mov [ecx+0x4], eax
 	mov [ecx+0x8], eax
 	pop ebp
 	ret
-Z9ByteToDiriPf:F(0,18)_10:
+Z9ByteToDiriPf_F0_18_10:
 	lea eax, [eax+eax*2]
 	shl eax, 0x2
 	lea edx, [eax+bytedirs]
@@ -3481,9 +3584,9 @@ Z9ByteToDiriPf:F(0,18)_10:
 	add [eax], al
 
 
-;AxisCopy:F(0,18)
+;AxisCopy_F0_18
 
-AxisCopy:F(0,18):
+AxisCopy_F0_18:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -3520,9 +3623,9 @@ AxisCopy:F(0,18):
 	add [eax], al
 
 
-;Vec3DistanceSq:F(0,7)
+;Vec3DistanceSq_F0_7
 
-Vec3DistanceSq:F(0,7):
+Vec3DistanceSq_F0_7:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x4
@@ -3545,9 +3648,9 @@ Vec3DistanceSq:F(0,7):
 	ret
 
 
-;Z32MatrixTransposeTransformVector43PKfPA3_S_Pf:F(0,18)
+;Z32MatrixTransposeTransformVector43PKfPA3_S_Pf_F0_18
 
-Z32MatrixTransposeTransformVector43PKfPA3_S_Pf:F(0,18):
+Z32MatrixTransposeTransformVector43PKfPA3_S_Pf_F0_18:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -3592,9 +3695,9 @@ Z32MatrixTransposeTransformVector43PKfPA3_S_Pf:F(0,18):
 	ret
 
 
-;Z19ExpandBoundsToWidthPfS_:F(0,18)
+;Z19ExpandBoundsToWidthPfS__F0_18
 
-Z19ExpandBoundsToWidthPfS_:F(0,18):
+Z19ExpandBoundsToWidthPfS__F0_18:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -3613,7 +3716,7 @@ Z19ExpandBoundsToWidthPfS_:F(0,18):
 	andnps xmm2, xmm0
 	orps xmm2, xmm4
 	ucomiss xmm2, xmm3
-	jbe Z19ExpandBoundsToWidthPfS_:F(0,18)_10
+	jbe Z19ExpandBoundsToWidthPfS__F0_18_10
 	movaps xmm1, xmm2
 	subss xmm1, xmm3
 	mulss xmm1, [_float_0_50000000]
@@ -3622,15 +3725,15 @@ Z19ExpandBoundsToWidthPfS_:F(0,18):
 	movss [eax+0x8], xmm0
 	addss xmm1, [edx+0x8]
 	movss [edx+0x8], xmm1
-Z19ExpandBoundsToWidthPfS_:F(0,18)_10:
+Z19ExpandBoundsToWidthPfS__F0_18_10:
 	pop ebp
 	ret
 	nop
 
 
-;Z20ShrinkBoundsToHeightPfS_:F(0,18)
+;Z20ShrinkBoundsToHeightPfS__F0_18
 
-Z18BoxDistSqrdExceedsPKfS0_S0_f:F(0,6):
+Z18BoxDistSqrdExceedsPKfS0_S0_f_F0_6:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -3664,23 +3767,23 @@ Z18BoxDistSqrdExceedsPKfS0_S0_f:F(0,6):
 	mov edx, 0x1
 	lea ebx, [ebp-0x14]
 	lea ecx, [ebp-0x20]
-Z18BoxDistSqrdExceedsPKfS0_S0_f:F(0,6)_20:
+Z18BoxDistSqrdExceedsPKfS0_S0_f_F0_6_20:
 	lea eax, [edx*4]
 	movss xmm1, dword [ebx+eax-0x4]
 	movss xmm2, dword [ecx+eax-0x4]
 	movaps xmm0, xmm1
 	mulss xmm0, xmm2
 	ucomiss xmm4, xmm0
-	jae Z18BoxDistSqrdExceedsPKfS0_S0_f:F(0,6)_10
+	jae Z18BoxDistSqrdExceedsPKfS0_S0_f_F0_6_10
 	mulss xmm1, xmm1
 	movaps xmm0, xmm2
 	mulss xmm0, xmm2
 	minss xmm0, xmm1
 	addss xmm3, xmm0
-Z18BoxDistSqrdExceedsPKfS0_S0_f:F(0,6)_10:
+Z18BoxDistSqrdExceedsPKfS0_S0_f_F0_6_10:
 	add edx, 0x1
 	cmp edx, 0x4
-	jnz Z18BoxDistSqrdExceedsPKfS0_S0_f:F(0,6)_20
+	jnz Z18BoxDistSqrdExceedsPKfS0_S0_f_F0_6_20
 	xor eax, eax
 	ucomiss xmm3, [ebp+0x14]
 	seta al
@@ -3691,14 +3794,14 @@ Z18BoxDistSqrdExceedsPKfS0_S0_f:F(0,6)_10:
 	nop
 
 
-;Z9DirToBytePKf:F(0,61)
+;Z9DirToBytePKf_F0_61
 
-Z9DirToBytePKf:F(0,61):
+Z9DirToBytePKf_F0_61:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
 	test eax, eax
-	jz Z9DirToBytePKf:F(0,61)_10
+	jz Z9DirToBytePKf_F0_61_10
 	movss xmm4, dword [eax]
 	movss xmm3, dword [eax+0x4]
 	movss xmm2, dword [eax+0x8]
@@ -3706,7 +3809,7 @@ Z9DirToBytePKf:F(0,61):
 	xor eax, eax
 	xor ecx, ecx
 	xor edx, edx
-Z9DirToBytePKf:F(0,61)_30:
+Z9DirToBytePKf_F0_61_30:
 	movaps xmm1, xmm4
 	mulss xmm1, [edx+bytedirs]
 	movaps xmm0, xmm3
@@ -3716,23 +3819,23 @@ Z9DirToBytePKf:F(0,61)_30:
 	mulss xmm0, [edx+bytedirs+0x8]
 	addss xmm1, xmm0
 	ucomiss xmm1, xmm5
-	jbe Z9DirToBytePKf:F(0,61)_20
+	jbe Z9DirToBytePKf_F0_61_20
 	movaps xmm5, xmm1
 	mov eax, ecx
-Z9DirToBytePKf:F(0,61)_20:
+Z9DirToBytePKf_F0_61_20:
 	add ecx, 0x1
 	add edx, 0xc
 	cmp ecx, 0xa2
-	jnz Z9DirToBytePKf:F(0,61)_30
+	jnz Z9DirToBytePKf_F0_61_30
 	movzx eax, al
-Z9DirToBytePKf:F(0,61)_10:
+Z9DirToBytePKf_F0_61_10:
 	pop ebp
 	ret
 
 
-;GetRotatedBounds:F(0,18)
+;GetRotatedBounds_F0_18
 
-GetRotatedBounds:F(0,18):
+GetRotatedBounds_F0_18:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -3759,7 +3862,7 @@ GetRotatedBounds:F(0,18):
 	add eax, 0x14
 	mov [ebp-0x20], eax
 	xor ebx, ebx
-GetRotatedBounds:F(0,18)_10:
+GetRotatedBounds_F0_18_10:
 	mov edi, [ebp+0xc]
 	movss xmm0, dword [ebx+edi]
 	movss [edx], xmm0
@@ -3821,7 +3924,7 @@ GetRotatedBounds:F(0,18)_10:
 	add ecx, 0x4
 	add esi, 0x4
 	cmp dword [ebp-0x18], 0x3
-	jnz GetRotatedBounds:F(0,18)_10
+	jnz GetRotatedBounds_F0_18_10
 	add esp, 0x24
 	pop ebx
 	pop esi
@@ -3830,9 +3933,9 @@ GetRotatedBounds:F(0,18)_10:
 	ret
 
 
-;Z14ColorNormalizePKfPf:F(0,7)
+;Z14ColorNormalizePKfPf_F0_7
 
-Z14ColorNormalizePKfPf:F(0,7):
+Z14ColorNormalizePKfPf_F0_7:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -3848,8 +3951,8 @@ Z14ColorNormalizePKfPf:F(0,7):
 	maxss xmm2, xmm0
 	pxor xmm0, xmm0
 	ucomiss xmm2, xmm0
-	jnz Z14ColorNormalizePKfPf:F(0,7)_10
-	jp Z14ColorNormalizePKfPf:F(0,7)_10
+	jnz Z14ColorNormalizePKfPf_F0_7_10
+	jp Z14ColorNormalizePKfPf_F0_7_10
 	mov eax, 0x3f800000
 	mov [edx+0x8], eax
 	mov [edx+0x4], eax
@@ -3861,7 +3964,7 @@ Z14ColorNormalizePKfPf:F(0,7):
 	pop ebx
 	pop ebp
 	ret
-Z14ColorNormalizePKfPf:F(0,7)_10:
+Z14ColorNormalizePKfPf_F0_7_10:
 	movss xmm0, dword [_float_1_00000000]
 	divss xmm0, xmm2
 	mulss xmm1, xmm0
@@ -3880,9 +3983,9 @@ Z14ColorNormalizePKfPf:F(0,7)_10:
 	nop
 
 
-;ClearBounds:F(0,18)
+;ClearBounds_F0_18
 
-ClearBounds:F(0,18):
+ClearBounds_F0_18:
 	push ebp
 	mov ebp, esp
 	mov edx, [ebp+0x8]
@@ -3900,9 +4003,9 @@ ClearBounds:F(0,18):
 	nop
 
 
-;Vec3Normalize:F(0,7)
+;Vec3Normalize_F0_7
 
-Vec3Normalize:F(0,7):
+Vec3Normalize_F0_7:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x4
@@ -3918,9 +4021,9 @@ Vec3Normalize:F(0,7):
 	addss xmm1, xmm2
 	sqrtss xmm2, xmm1
 	ucomiss xmm2, [_float_0_00000000]
-	jp Vec3Normalize:F(0,7)_10
-	jz Vec3Normalize:F(0,7)_20
-Vec3Normalize:F(0,7)_10:
+	jp Vec3Normalize_F0_7_10
+	jz Vec3Normalize_F0_7_20
+Vec3Normalize_F0_7_10:
 	movss xmm0, dword [_float_1_00000000]
 	divss xmm0, xmm2
 	mulss xmm3, xmm0
@@ -3930,16 +4033,16 @@ Vec3Normalize:F(0,7)_10:
 	movss [eax+0x4], xmm1
 	mulss xmm0, [eax+0x8]
 	movss [eax+0x8], xmm0
-Vec3Normalize:F(0,7)_20:
+Vec3Normalize_F0_7_20:
 	movss [ebp-0x4], xmm2
 	fld dword [ebp-0x4]
 	leave
 	ret
 
 
-;Vec2Normalize:F(0,7)
+;Vec2Normalize_F0_7
 
-Vec2Normalize:F(0,7):
+Vec2Normalize_F0_7:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x4
@@ -3952,16 +4055,16 @@ Vec2Normalize:F(0,7):
 	addss xmm1, xmm0
 	sqrtss xmm1, xmm1
 	ucomiss xmm1, [_float_0_00000000]
-	jp Vec2Normalize:F(0,7)_10
-	jz Vec2Normalize:F(0,7)_20
-Vec2Normalize:F(0,7)_10:
+	jp Vec2Normalize_F0_7_10
+	jz Vec2Normalize_F0_7_20
+Vec2Normalize_F0_7_10:
 	movss xmm0, dword [_float_1_00000000]
 	divss xmm0, xmm1
 	mulss xmm2, xmm0
 	movss [eax], xmm2
 	mulss xmm0, [eax+0x4]
 	movss [eax+0x4], xmm0
-Vec2Normalize:F(0,7)_20:
+Vec2Normalize_F0_7_20:
 	movss [ebp-0x4], xmm1
 	fld dword [ebp-0x4]
 	leave
@@ -3969,9 +4072,9 @@ Vec2Normalize:F(0,7)_20:
 	add [eax], al
 
 
-;Z10vectopitchPKf:F(0,10)
+;Z10vectopitchPKf_F0_10
 
-Z10vectopitchPKf:F(0,10):
+Z10vectopitchPKf_F0_10:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x38
@@ -3979,21 +4082,21 @@ Z10vectopitchPKf:F(0,10):
 	movss xmm1, dword [eax+0x4]
 	pxor xmm2, xmm2
 	ucomiss xmm1, xmm2
-	jnz Z10vectopitchPKf:F(0,10)_10
-	jp Z10vectopitchPKf:F(0,10)_10
+	jnz Z10vectopitchPKf_F0_10_10
+	jp Z10vectopitchPKf_F0_10_10
 	ucomiss xmm2, [eax]
-	jnz Z10vectopitchPKf:F(0,10)_10
-	jp Z10vectopitchPKf:F(0,10)_10
+	jnz Z10vectopitchPKf_F0_10_10
+	jp Z10vectopitchPKf_F0_10_10
 	movss xmm0, dword [eax+0x8]
 	ucomiss xmm0, xmm2
-	jbe Z10vectopitchPKf:F(0,10)_20
+	jbe Z10vectopitchPKf_F0_10_20
 	movss xmm0, dword [_float_270_00000000]
-Z10vectopitchPKf:F(0,10)_30:
+Z10vectopitchPKf_F0_10_30:
 	movss [ebp-0x24], xmm0
 	fld dword [ebp-0x24]
 	leave
 	ret
-Z10vectopitchPKf:F(0,10)_10:
+Z10vectopitchPKf_F0_10_10:
 	movss xmm0, dword [eax]
 	mulss xmm0, xmm0
 	mulss xmm1, xmm1
@@ -4008,24 +4111,24 @@ Z10vectopitchPKf:F(0,10)_10:
 	fstp qword [ebp-0x20]
 	movsd xmm0, qword [ebp-0x20]
 	mulsd xmm0, [_double__180_00000000]
-	divsd xmm0, qword [_double_3_14159265]
+	divsd xmm0, [_double_3_14159265]
 	cvtsd2ss xmm0, xmm0
 	movss xmm2, dword [ebp-0x18]
 	ucomiss xmm2, xmm0
-	jbe Z10vectopitchPKf:F(0,10)_30
+	jbe Z10vectopitchPKf_F0_10_30
 	addss xmm0, [_float_360_00000000]
 	movss [ebp-0x24], xmm0
 	fld dword [ebp-0x24]
 	leave
 	ret
-Z10vectopitchPKf:F(0,10)_20:
+Z10vectopitchPKf_F0_10_20:
 	movss xmm0, dword [_float_90_00000000]
-	jmp Z10vectopitchPKf:F(0,10)_30
+	jmp Z10vectopitchPKf_F0_10_30
 
 
-;Z11vectoanglesPKfPf:F(0,18)
+;Z11vectoanglesPKfPf_F0_18
 
-Z14AnglesSubtractPKfS0_Pf:F(0,18):
+Z14AnglesSubtractPKfS0_Pf_F0_18:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -4035,74 +4138,74 @@ Z14AnglesSubtractPKfS0_Pf:F(0,18):
 	movss xmm0, dword [ecx]
 	subss xmm0, [ebx]
 	ucomiss xmm0, [_float_180_00000000]
-	jbe Z14AnglesSubtractPKfS0_Pf:F(0,18)_10
+	jbe Z14AnglesSubtractPKfS0_Pf_F0_18_10
 	movss xmm3, dword [_float_360_00000000]
 	movss xmm1, dword [_float_180_00000000]
-Z14AnglesSubtractPKfS0_Pf:F(0,18)_20:
+Z14AnglesSubtractPKfS0_Pf_F0_18_20:
 	subss xmm0, xmm3
 	ucomiss xmm0, xmm1
-	ja Z14AnglesSubtractPKfS0_Pf:F(0,18)_20
-Z14AnglesSubtractPKfS0_Pf:F(0,18)_10:
+	ja Z14AnglesSubtractPKfS0_Pf_F0_18_20
+Z14AnglesSubtractPKfS0_Pf_F0_18_10:
 	movss xmm2, dword [_float__180_00000000]
 	ucomiss xmm2, xmm0
-	jbe Z14AnglesSubtractPKfS0_Pf:F(0,18)_30
+	jbe Z14AnglesSubtractPKfS0_Pf_F0_18_30
 	movss xmm3, dword [_float_360_00000000]
-Z14AnglesSubtractPKfS0_Pf:F(0,18)_40:
+Z14AnglesSubtractPKfS0_Pf_F0_18_40:
 	addss xmm0, xmm3
 	ucomiss xmm2, xmm0
-	ja Z14AnglesSubtractPKfS0_Pf:F(0,18)_40
-Z14AnglesSubtractPKfS0_Pf:F(0,18)_30:
+	ja Z14AnglesSubtractPKfS0_Pf_F0_18_40
+Z14AnglesSubtractPKfS0_Pf_F0_18_30:
 	movss [edx], xmm0
 	lea eax, [edx+0x4]
 	movss xmm0, dword [ecx+0x4]
 	subss xmm0, [ebx+0x4]
 	ucomiss xmm0, [_float_180_00000000]
-	jbe Z14AnglesSubtractPKfS0_Pf:F(0,18)_50
+	jbe Z14AnglesSubtractPKfS0_Pf_F0_18_50
 	movss xmm3, dword [_float_360_00000000]
 	movss xmm1, dword [_float_180_00000000]
-Z14AnglesSubtractPKfS0_Pf:F(0,18)_60:
+Z14AnglesSubtractPKfS0_Pf_F0_18_60:
 	subss xmm0, xmm3
 	ucomiss xmm0, xmm1
-	ja Z14AnglesSubtractPKfS0_Pf:F(0,18)_60
-Z14AnglesSubtractPKfS0_Pf:F(0,18)_50:
+	ja Z14AnglesSubtractPKfS0_Pf_F0_18_60
+Z14AnglesSubtractPKfS0_Pf_F0_18_50:
 	ucomiss xmm2, xmm0
-	jbe Z14AnglesSubtractPKfS0_Pf:F(0,18)_70
+	jbe Z14AnglesSubtractPKfS0_Pf_F0_18_70
 	movss xmm3, dword [_float_360_00000000]
-Z14AnglesSubtractPKfS0_Pf:F(0,18)_80:
+Z14AnglesSubtractPKfS0_Pf_F0_18_80:
 	addss xmm0, xmm3
 	ucomiss xmm2, xmm0
-	ja Z14AnglesSubtractPKfS0_Pf:F(0,18)_80
-Z14AnglesSubtractPKfS0_Pf:F(0,18)_70:
+	ja Z14AnglesSubtractPKfS0_Pf_F0_18_80
+Z14AnglesSubtractPKfS0_Pf_F0_18_70:
 	movss [eax], xmm0
 	lea eax, [edx+0x8]
 	movss xmm0, dword [ecx+0x8]
 	subss xmm0, [ebx+0x8]
 	ucomiss xmm0, [_float_180_00000000]
-	jbe Z14AnglesSubtractPKfS0_Pf:F(0,18)_90
+	jbe Z14AnglesSubtractPKfS0_Pf_F0_18_90
 	movss xmm3, dword [_float_360_00000000]
 	movss xmm1, dword [_float_180_00000000]
-Z14AnglesSubtractPKfS0_Pf:F(0,18)_100:
+Z14AnglesSubtractPKfS0_Pf_F0_18_100:
 	subss xmm0, xmm3
 	ucomiss xmm0, xmm1
-	ja Z14AnglesSubtractPKfS0_Pf:F(0,18)_100
-Z14AnglesSubtractPKfS0_Pf:F(0,18)_90:
+	ja Z14AnglesSubtractPKfS0_Pf_F0_18_100
+Z14AnglesSubtractPKfS0_Pf_F0_18_90:
 	ucomiss xmm2, xmm0
-	jbe Z14AnglesSubtractPKfS0_Pf:F(0,18)_110
+	jbe Z14AnglesSubtractPKfS0_Pf_F0_18_110
 	movss xmm3, dword [_float_360_00000000]
-Z14AnglesSubtractPKfS0_Pf:F(0,18)_120:
+Z14AnglesSubtractPKfS0_Pf_F0_18_120:
 	addss xmm0, xmm3
 	ucomiss xmm2, xmm0
-	ja Z14AnglesSubtractPKfS0_Pf:F(0,18)_120
-Z14AnglesSubtractPKfS0_Pf:F(0,18)_110:
+	ja Z14AnglesSubtractPKfS0_Pf_F0_18_120
+Z14AnglesSubtractPKfS0_Pf_F0_18_110:
 	movss [eax], xmm0
 	pop ebx
 	pop ebp
 	ret
 
 
-;Vec3NormalizeTo:F(0,7)
+;Vec3NormalizeTo_F0_7
 
-Vec3NormalizeTo:F(0,7):
+Vec3NormalizeTo_F0_7:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x4
@@ -4119,9 +4222,9 @@ Vec3NormalizeTo:F(0,7):
 	addss xmm1, xmm2
 	sqrtss xmm2, xmm1
 	ucomiss xmm2, [_float_0_00000000]
-	jp Vec3NormalizeTo:F(0,7)_10
-	jz Vec3NormalizeTo:F(0,7)_20
-Vec3NormalizeTo:F(0,7)_10:
+	jp Vec3NormalizeTo_F0_7_10
+	jz Vec3NormalizeTo_F0_7_20
+Vec3NormalizeTo_F0_7_10:
 	movss xmm0, dword [_float_1_00000000]
 	divss xmm0, xmm2
 	mulss xmm3, xmm0
@@ -4135,7 +4238,7 @@ Vec3NormalizeTo:F(0,7)_10:
 	fld dword [ebp-0x4]
 	leave
 	ret
-Vec3NormalizeTo:F(0,7)_20:
+Vec3NormalizeTo_F0_7_20:
 	mov dword [edx], 0x0
 	mov dword [edx+0x4], 0x0
 	mov dword [edx+0x8], 0x0
@@ -4146,9 +4249,9 @@ Vec3NormalizeTo:F(0,7)_20:
 	nop
 
 
-;Vec3MajorAxis:F(0,5)
+;Vec3MajorAxis_F0_5
 
-Vec3MajorAxis:F(0,5):
+Vec3MajorAxis_F0_5:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x10
@@ -4172,9 +4275,9 @@ Vec3MajorAxis:F(0,5):
 	ret
 
 
-;Z17AngleNormalize180f:F(0,10)
+;Z17AngleNormalize180f_F0_10
 
-Z17AngleNormalize180f:F(0,10):
+Z17AngleNormalize180f_F0_10:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x4
@@ -4185,9 +4288,9 @@ Z17AngleNormalize180f:F(0,10):
 	cvtsi2ss xmm0, eax
 	mulss xmm0, [_float_0_00549316]
 	ucomiss xmm0, [_float_180_00000000]
-	jbe Z17AngleNormalize180f:F(0,10)_10
+	jbe Z17AngleNormalize180f_F0_10_10
 	subss xmm0, [_float_360_00000000]
-Z17AngleNormalize180f:F(0,10)_10:
+Z17AngleNormalize180f_F0_10_10:
 	movss [ebp-0x4], xmm0
 	fld dword [ebp-0x4]
 	leave
@@ -4195,9 +4298,9 @@ Z17AngleNormalize180f:F(0,10)_10:
 	nop
 
 
-;Z10AngleDeltaff:F(0,10)
+;Z10AngleDeltaff_F0_10
 
-Z10AngleDeltaff:F(0,10):
+Z10AngleDeltaff_F0_10:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x4
@@ -4209,9 +4312,9 @@ Z10AngleDeltaff:F(0,10):
 	cvtsi2ss xmm0, eax
 	mulss xmm0, [_float_0_00549316]
 	ucomiss xmm0, [_float_180_00000000]
-	jbe Z10AngleDeltaff:F(0,10)_10
+	jbe Z10AngleDeltaff_F0_10_10
 	subss xmm0, [_float_360_00000000]
-Z10AngleDeltaff:F(0,10)_10:
+Z10AngleDeltaff_F0_10_10:
 	movss [ebp-0x4], xmm0
 	fld dword [ebp-0x4]
 	leave
@@ -4219,9 +4322,9 @@ Z10AngleDeltaff:F(0,10)_10:
 	add [eax], al
 
 
-;Vec3Distance:F(0,7)
+;Vec3Distance_F0_7
 
-Vec3Distance:F(0,7):
+Vec3Distance_F0_7:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x4
@@ -4245,9 +4348,9 @@ Vec3Distance:F(0,7):
 	ret
 
 
-;Z14DiffTrackAngleffff:F(0,4)
+;Z14DiffTrackAngleffff_F0_4
 
-Z14DiffTrackAngleffff:F(0,4):
+Z14DiffTrackAngleffff_F0_4:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x4
@@ -4256,27 +4359,27 @@ Z14DiffTrackAngleffff:F(0,4):
 	movaps xmm0, xmm1
 	subss xmm0, xmm5
 	ucomiss xmm0, [_float_180_00000000]
-	jbe Z14DiffTrackAngleffff:F(0,4)_10
+	jbe Z14DiffTrackAngleffff_F0_4_10
 	movss xmm3, dword [_float_360_00000000]
 	movss xmm2, dword [_float_180_00000000]
-Z14DiffTrackAngleffff:F(0,4)_20:
+Z14DiffTrackAngleffff_F0_4_20:
 	subss xmm1, xmm3
 	movaps xmm0, xmm1
 	subss xmm0, xmm5
 	ucomiss xmm0, xmm2
-	ja Z14DiffTrackAngleffff:F(0,4)_20
-Z14DiffTrackAngleffff:F(0,4)_10:
+	ja Z14DiffTrackAngleffff_F0_4_20
+Z14DiffTrackAngleffff_F0_4_10:
 	movss xmm2, dword [_float__180_00000000]
 	ucomiss xmm2, xmm0
-	jbe Z14DiffTrackAngleffff:F(0,4)_30
+	jbe Z14DiffTrackAngleffff_F0_4_30
 	movss xmm3, dword [_float_360_00000000]
-Z14DiffTrackAngleffff:F(0,4)_40:
+Z14DiffTrackAngleffff_F0_4_40:
 	addss xmm1, xmm3
 	movaps xmm0, xmm1
 	subss xmm0, xmm5
 	ucomiss xmm2, xmm0
-	ja Z14DiffTrackAngleffff:F(0,4)_40
-Z14DiffTrackAngleffff:F(0,4)_30:
+	ja Z14DiffTrackAngleffff_F0_4_40
+Z14DiffTrackAngleffff_F0_4_30:
 	movaps xmm3, xmm0
 	mulss xmm3, [ebp+0x10]
 	mulss xmm3, [ebp+0x14]
@@ -4284,41 +4387,41 @@ Z14DiffTrackAngleffff:F(0,4)_30:
 	movaps xmm4, xmm0
 	andps xmm4, xmm2
 	ucomiss xmm4, [_float_0_00100000]
-	jbe Z14DiffTrackAngleffff:F(0,4)_50
+	jbe Z14DiffTrackAngleffff_F0_4_50
 	movaps xmm0, xmm3
 	andps xmm0, xmm2
 	ucomiss xmm0, xmm4
-	jbe Z14DiffTrackAngleffff:F(0,4)_60
-Z14DiffTrackAngleffff:F(0,4)_50:
+	jbe Z14DiffTrackAngleffff_F0_4_60
+Z14DiffTrackAngleffff_F0_4_50:
 	movaps xmm0, xmm1
-Z14DiffTrackAngleffff:F(0,4)_80:
+Z14DiffTrackAngleffff_F0_4_80:
 	mulss xmm0, [_float_182_04444885]
 	cvttss2si eax, xmm0
 	and eax, 0xffff
 	cvtsi2ss xmm0, eax
 	mulss xmm0, [_float_0_00549316]
 	ucomiss xmm0, [_float_180_00000000]
-	jbe Z14DiffTrackAngleffff:F(0,4)_70
+	jbe Z14DiffTrackAngleffff_F0_4_70
 	subss xmm0, [_float_360_00000000]
-Z14DiffTrackAngleffff:F(0,4)_70:
+Z14DiffTrackAngleffff_F0_4_70:
 	movss [ebp-0x4], xmm0
 	fld dword [ebp-0x4]
 	leave
 	ret
-Z14DiffTrackAngleffff:F(0,4)_60:
+Z14DiffTrackAngleffff_F0_4_60:
 	movaps xmm0, xmm5
 	addss xmm0, xmm3
-	jmp Z14DiffTrackAngleffff:F(0,4)_80
+	jmp Z14DiffTrackAngleffff_F0_4_80
 	add [eax], al
 
 
-;Z7crandomv:F(0,4)
+;Z7crandomv_F0_4
 
-Z14GaussianRandomPfS_:F(0,18):
+Z14GaussianRandomPfS__F0_18:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x58
-Z14GaussianRandomPfS_:F(0,18)_10:
+Z14GaussianRandomPfS__F0_18_10:
 	call rand
 	cvtsi2ss xmm3, eax
 	mulss xmm3, [_float_0_000000001]
@@ -4337,7 +4440,7 @@ Z14GaussianRandomPfS_:F(0,18)_10:
 	mulss xmm0, xmm2
 	addss xmm1, xmm0
 	ucomiss xmm1, [_float_1_00000000]
-	ja Z14GaussianRandomPfS_:F(0,18)_10
+	ja Z14GaussianRandomPfS__F0_18_10
 	cvtss2sd xmm1, xmm1
 	movsd [ebp-0x10], xmm1
 	movsd [esp], xmm1
@@ -4346,7 +4449,7 @@ Z14GaussianRandomPfS_:F(0,18)_10:
 	fstp qword [ebp-0x40]
 	movsd xmm0, qword [ebp-0x40]
 	mulsd xmm0, [_double__2_00000000]
-	divsd xmm0, qword [ebp-0x10]
+	divsd xmm0, [ebp-0x10]
 	cvtsd2ss xmm1, xmm0
 	sqrtss xmm1, xmm1
 	movss xmm3, dword [ebp-0x38]
@@ -4363,9 +4466,9 @@ Z14GaussianRandomPfS_:F(0,18)_10:
 	nop
 
 
-;MatrixInverseOrthogonal43:F(0,18)
+;MatrixInverseOrthogonal43_F0_18
 
-MatrixInverseOrthogonal43:F(0,18):
+MatrixInverseOrthogonal43_F0_18:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -4440,9 +4543,9 @@ MatrixInverseOrthogonal43:F(0,18):
 	add [eax], al
 
 
-;Z28WindingContainsCoplanarPointPA3_KfiPS_S2_:F(0,6)
+;Z28WindingContainsCoplanarPointPA3_KfiPS_S2__F0_6
 
-MakeNormalVectors:F(0,18):
+MakeNormalVectors_F0_18:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -4492,9 +4595,9 @@ MakeNormalVectors:F(0,18):
 	addss xmm2, xmm0
 	sqrtss xmm2, xmm2
 	ucomiss xmm2, [_float_0_00000000]
-	jp MakeNormalVectors:F(0,18)_10
-	jz MakeNormalVectors:F(0,18)_20
-MakeNormalVectors:F(0,18)_10:
+	jp MakeNormalVectors_F0_18_10
+	jz MakeNormalVectors_F0_18_20
+MakeNormalVectors_F0_18_10:
 	movss xmm0, dword [_float_1_00000000]
 	divss xmm0, xmm2
 	mulss xmm4, xmm0
@@ -4504,7 +4607,7 @@ MakeNormalVectors:F(0,18)_10:
 	movss [edx+0x4], xmm1
 	mulss xmm0, [edx+0x8]
 	movss [edx+0x8], xmm0
-MakeNormalVectors:F(0,18)_20:
+MakeNormalVectors_F0_18_20:
 	mov eax, [ebp-0x14]
 	movss xmm1, dword [eax]
 	mulss xmm1, [ebx]
@@ -4534,9 +4637,9 @@ MakeNormalVectors:F(0,18)_20:
 	ret
 
 
-;PerpendicularVector:F(0,18)
+;PerpendicularVector_F0_18
 
-PerpendicularVector:F(0,18):
+PerpendicularVector_F0_18:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -4586,9 +4689,9 @@ PerpendicularVector:F(0,18):
 	addss xmm1, xmm2
 	sqrtss xmm1, xmm1
 	ucomiss xmm1, [_float_0_00000000]
-	jp PerpendicularVector:F(0,18)_10
-	jz PerpendicularVector:F(0,18)_20
-PerpendicularVector:F(0,18)_10:
+	jp PerpendicularVector_F0_18_10
+	jz PerpendicularVector_F0_18_20
+PerpendicularVector_F0_18_10:
 	movaps xmm0, xmm4
 	divss xmm0, xmm1
 	mulss xmm3, xmm0
@@ -4598,7 +4701,7 @@ PerpendicularVector:F(0,18)_10:
 	movss [ebx+0x4], xmm1
 	mulss xmm0, [ebx+0x8]
 	movss [ebx+0x8], xmm0
-PerpendicularVector:F(0,18)_20:
+PerpendicularVector_F0_18_20:
 	add esp, 0x10
 	pop ebx
 	pop ebp
@@ -4606,9 +4709,9 @@ PerpendicularVector:F(0,18)_20:
 	nop
 
 
-;Z19PitchForYawOnNormalfPKf:F(0,4)
+;Z19PitchForYawOnNormalfPKf_F0_4
 
-YawToAxis:F(0,18):
+YawToAxis_F0_18:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -4627,14 +4730,14 @@ YawToAxis:F(0,18):
 	fstp dword [ebp-0x10]
 	pxor xmm1, xmm1
 	test ebx, ebx
-	jz YawToAxis:F(0,18)_10
+	jz YawToAxis_F0_18_10
 	movss xmm0, dword [ebp-0x10]
 	movss [ebx], xmm0
 	movss xmm0, dword [ebp-0x14]
 	movss [ebx+0x4], xmm0
 	pxor xmm1, xmm1
 	movss [ebx+0x8], xmm1
-YawToAxis:F(0,18)_10:
+YawToAxis_F0_18_10:
 	lea eax, [ebx+0x18]
 	mov dword [ebx+0x18], 0x0
 	mov dword [eax+0x4], 0x0
@@ -4652,9 +4755,9 @@ YawToAxis:F(0,18)_10:
 	ret
 
 
-;Z23RotatePointAroundVectorPfPKfS1_f:F(0,18)
+;Z23RotatePointAroundVectorPfPKfS1_f_F0_18
 
-AngleVectors:F(0,18):
+AngleVectors_F0_18:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -4687,7 +4790,7 @@ AngleVectors:F(0,18):
 	call cosf
 	fstp dword [ebp-0x28]
 	test ebx, ebx
-	jz AngleVectors:F(0,18)_10
+	jz AngleVectors_F0_18_10
 	movss xmm0, dword [ebp-0x24]
 	mulss xmm0, [ebp-0x28]
 	movss [ebx], xmm0
@@ -4699,10 +4802,10 @@ AngleVectors:F(0,18):
 	movss [ebp-0x3c], xmm0
 	mov eax, [ebp-0x3c]
 	mov [ebx+0x8], eax
-AngleVectors:F(0,18)_10:
+AngleVectors_F0_18_10:
 	test edi, edi
-	jz AngleVectors:F(0,18)_20
-AngleVectors:F(0,18)_50:
+	jz AngleVectors_F0_18_20
+AngleVectors_F0_18_50:
 	cvtss2sd xmm0, [esi+0x8]
 	mulsd xmm0, [_double_0_01745329]
 	cvtsd2ss xmm0, xmm0
@@ -4716,7 +4819,7 @@ AngleVectors:F(0,18)_50:
 	fstp dword [ebp-0x3c]
 	movss xmm4, dword [ebp-0x3c]
 	test edi, edi
-	jz AngleVectors:F(0,18)_30
+	jz AngleVectors_F0_18_30
 	movss xmm3, dword [ebp-0x34]
 	xorps xmm3, [vec2_origin+0x1a4]
 	movss xmm2, dword [ebp-0x30]
@@ -4734,10 +4837,10 @@ AngleVectors:F(0,18)_50:
 	movss [edi+0x4], xmm2
 	mulss xmm3, [ebp-0x28]
 	movss [edi+0x8], xmm3
-AngleVectors:F(0,18)_30:
+AngleVectors_F0_18_30:
 	mov ebx, [ebp+0x14]
 	test ebx, ebx
-	jz AngleVectors:F(0,18)_40
+	jz AngleVectors_F0_18_40
 	movss xmm1, dword [ebp-0x30]
 	mulss xmm1, xmm4
 	movss xmm0, dword [ebp-0x24]
@@ -4755,23 +4858,23 @@ AngleVectors:F(0,18)_30:
 	movss xmm0, dword [ebp-0x28]
 	mulss xmm0, xmm4
 	movss [eax+0x8], xmm0
-AngleVectors:F(0,18)_40:
+AngleVectors_F0_18_40:
 	add esp, 0x4c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-AngleVectors:F(0,18)_20:
+AngleVectors_F0_18_20:
 	mov eax, [ebp+0x14]
 	test eax, eax
-	jnz AngleVectors:F(0,18)_50
-	jmp AngleVectors:F(0,18)_40
+	jnz AngleVectors_F0_18_50
+	jmp AngleVectors_F0_18_40
 
 
-;AnglesToAxis:F(0,18)
+;AnglesToAxis_F0_18
 
-AnglesToAxis:F(0,18):
+AnglesToAxis_F0_18:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -4784,7 +4887,7 @@ AnglesToAxis:F(0,18):
 	mov [esp+0x4], ebx
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call AngleVectors:F(0,18)
+	call AngleVectors_F0_18
 	lea eax, [ebx+0xc]
 	pxor xmm0, xmm0
 	movaps xmm1, xmm0
@@ -4801,9 +4904,9 @@ AnglesToAxis:F(0,18):
 	ret
 
 
-;Z10YawVectorsfPfS_:F(0,18)
+;Z10YawVectorsfPfS__F0_18
 
-Z10YawVectorsfPfS_:F(0,18):
+Z10YawVectorsfPfS__F0_18:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -4822,14 +4925,14 @@ Z10YawVectorsfPfS_:F(0,18):
 	movss [esp], xmm0
 	call cosf
 	test ebx, ebx
-	jz Z10YawVectorsfPfS_:F(0,18)_10
+	jz Z10YawVectorsfPfS__F0_18_10
 	fst dword [ebx]
 	movss xmm0, dword [ebp-0xc]
 	movss [ebx+0x4], xmm0
 	mov dword [ebx+0x8], 0x0
-Z10YawVectorsfPfS_:F(0,18)_10:
+Z10YawVectorsfPfS__F0_18_10:
 	test esi, esi
-	jz Z10YawVectorsfPfS_:F(0,18)_20
+	jz Z10YawVectorsfPfS__F0_18_20
 	movss xmm0, dword [ebp-0xc]
 	movss [esi], xmm0
 	fstp dword [ebp-0x1c]
@@ -4837,10 +4940,10 @@ Z10YawVectorsfPfS_:F(0,18)_10:
 	xor eax, 0x80000000
 	mov [esi+0x4], eax
 	mov dword [esi+0x8], 0x0
-	jmp Z10YawVectorsfPfS_:F(0,18)_30
-Z10YawVectorsfPfS_:F(0,18)_20:
+	jmp Z10YawVectorsfPfS__F0_18_30
+Z10YawVectorsfPfS__F0_18_20:
 	fstp st0
-Z10YawVectorsfPfS_:F(0,18)_30:
+Z10YawVectorsfPfS__F0_18_30:
 	add esp, 0x30
 	pop ebx
 	pop esi
@@ -4848,9 +4951,9 @@ Z10YawVectorsfPfS_:F(0,18)_30:
 	ret
 
 
-;Z19VectorAngleMultiplyPff:F(0,18)
+;Z19VectorAngleMultiplyPff_F0_18
 
-Z15AngleAxisToQuatfPKfPf:F(0,18):
+Z15AngleAxisToQuatfPKfPf_F0_18:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -4889,9 +4992,9 @@ Z15AngleAxisToQuatfPKfPf:F(0,18):
 	add [eax], al
 
 
-;AxisToAngles:F(0,18)
+;AxisToAngles_F0_18
 
-AxisToAngles:F(0,18):
+AxisToAngles_F0_18:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -4901,7 +5004,7 @@ AxisToAngles:F(0,18):
 	mov esi, [ebp+0xc]
 	mov [esp+0x4], esi
 	mov [esp], ebx
-	call Z11vectoanglesPKfPf:F(0,18)
+	call Z11vectoanglesPKfPf_F0_18
 	lea eax, [ebx+0xc]
 	movss xmm0, dword [ebx+0xc]
 	movss [ebp-0x14], xmm0
@@ -4964,22 +5067,22 @@ AxisToAngles:F(0,18):
 	pxor xmm3, xmm3
 	movss xmm0, dword [ebp-0xc]
 	ucomiss xmm0, xmm3
-	jnz AxisToAngles:F(0,18)_10
-	jp AxisToAngles:F(0,18)_10
+	jnz AxisToAngles_F0_18_10
+	jp AxisToAngles_F0_18_10
 	ucomiss xmm2, xmm3
-	jnz AxisToAngles:F(0,18)_20
-	jp AxisToAngles:F(0,18)_20
+	jnz AxisToAngles_F0_18_20
+	jp AxisToAngles_F0_18_20
 	ucomiss xmm1, xmm3
-	jbe AxisToAngles:F(0,18)_30
+	jbe AxisToAngles_F0_18_30
 	movss xmm0, dword [_float__90_00000000]
 	ucomiss xmm3, [ebp-0xc]
-	jbe AxisToAngles:F(0,18)_40
-AxisToAngles:F(0,18)_60:
+	jbe AxisToAngles_F0_18_40
+AxisToAngles_F0_18_60:
 	lea eax, [esi+0x8]
 	ucomiss xmm3, xmm0
-	ja AxisToAngles:F(0,18)_50
+	ja AxisToAngles_F0_18_50
 	movss xmm1, dword [_float__180_00000000]
-AxisToAngles:F(0,18)_80:
+AxisToAngles_F0_18_80:
 	addss xmm0, xmm1
 	movss [eax], xmm0
 	add esp, 0x60
@@ -4987,9 +5090,9 @@ AxisToAngles:F(0,18)_80:
 	pop esi
 	pop ebp
 	ret
-AxisToAngles:F(0,18)_20:
+AxisToAngles_F0_18_20:
 	movss xmm0, dword [ebp-0xc]
-AxisToAngles:F(0,18)_10:
+AxisToAngles_F0_18_10:
 	mulss xmm2, xmm2
 	mulss xmm0, xmm0
 	addss xmm2, xmm0
@@ -5003,13 +5106,13 @@ AxisToAngles:F(0,18)_10:
 	fstp qword [ebp-0x58]
 	movsd xmm0, qword [ebp-0x58]
 	mulsd xmm0, [_double__180_00000000]
-	divsd xmm0, qword [_double_3_14159265]
+	divsd xmm0, [_double_3_14159265]
 	cvtsd2ss xmm0, xmm0
 	movss xmm3, dword [ebp-0x48]
-AxisToAngles:F(0,18)_70:
+AxisToAngles_F0_18_70:
 	ucomiss xmm3, [ebp-0xc]
-	ja AxisToAngles:F(0,18)_60
-AxisToAngles:F(0,18)_40:
+	ja AxisToAngles_F0_18_60
+AxisToAngles_F0_18_40:
 	xorps xmm0, [vec2_origin+0x1d4]
 	movss [esi+0x8], xmm0
 	add esp, 0x60
@@ -5017,18 +5120,18 @@ AxisToAngles:F(0,18)_40:
 	pop esi
 	pop ebp
 	ret
-AxisToAngles:F(0,18)_30:
+AxisToAngles_F0_18_30:
 	movss xmm0, dword [_float_90_00000000]
-	jmp AxisToAngles:F(0,18)_70
-AxisToAngles:F(0,18)_50:
+	jmp AxisToAngles_F0_18_70
+AxisToAngles_F0_18_50:
 	movss xmm1, dword [_float_180_00000000]
-	jmp AxisToAngles:F(0,18)_80
+	jmp AxisToAngles_F0_18_80
 	nop
 
 
-;Z17Com_BeginRedirectPciPFvS_E:F(0,1)
+;Z17Com_BeginRedirectPciPFvS_E_F0_1
 
-Z11FresnelTermfff:F(0,6):
+Z11FresnelTermfff_F0_6:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x78
@@ -5039,7 +5142,7 @@ Z11FresnelTermfff:F(0,6):
 	call acos
 	fstp qword [ebp-0x10]
 	movss xmm0, dword [ebp+0x8]
-	divss xmm0, dword [ebp+0xc]
+	divss xmm0, [ebp+0xc]
 	cvtss2sd xmm1, xmm0
 	movsd [ebp-0x28], xmm1
 	movsd xmm0, qword [ebp-0x10]
@@ -5050,8 +5153,8 @@ Z11FresnelTermfff:F(0,6):
 	mulsd xmm1, [ebp-0x28]
 	movsd xmm0, qword [_double_1_00000000]
 	ucomisd xmm1, xmm0
-	jbe Z11FresnelTermfff:F(0,6)_10
-Z11FresnelTermfff:F(0,6)_30:
+	jbe Z11FresnelTermfff_F0_6_10
+Z11FresnelTermfff_F0_6_30:
 	movsd [esp], xmm0
 	call asin
 	fstp qword [ebp-0x60]
@@ -5070,7 +5173,7 @@ Z11FresnelTermfff:F(0,6)_30:
 	call sin
 	fstp qword [ebp-0x38]
 	movsd xmm1, qword [ebp-0x30]
-	divsd xmm1, qword [ebp-0x38]
+	divsd xmm1, [ebp-0x38]
 	movsd [ebp-0x30], xmm1
 	movsd xmm0, qword [ebp-0x18]
 	movsd [esp], xmm0
@@ -5083,7 +5186,7 @@ Z11FresnelTermfff:F(0,6)_30:
 	call tan
 	fstp qword [ebp-0x40]
 	movsd xmm0, qword [ebp-0x58]
-	divsd xmm0, qword [ebp-0x40]
+	divsd xmm0, [ebp-0x40]
 	movsd xmm1, qword [ebp-0x30]
 	mulsd xmm1, xmm1
 	mulsd xmm0, xmm0
@@ -5092,8 +5195,8 @@ Z11FresnelTermfff:F(0,6)_30:
 	mulsd xmm0, [_double_0_50000000]
 	cvtsd2ss xmm1, xmm0
 	ucomiss xmm1, [_float_0_00000000]
-	jb Z11FresnelTermfff:F(0,6)_20
-Z11FresnelTermfff:F(0,6)_40:
+	jb Z11FresnelTermfff_F0_6_20
+Z11FresnelTermfff_F0_6_40:
 	movss xmm0, dword [_float_1_00000000]
 	minss xmm0, xmm1
 	movaps xmm1, xmm0
@@ -5101,12 +5204,12 @@ Z11FresnelTermfff:F(0,6)_40:
 	fld dword [ebp-0x64]
 	leave
 	ret
-Z11FresnelTermfff:F(0,6)_10:
+Z11FresnelTermfff_F0_6_10:
 	movsd xmm0, qword [_double__1_00000000]
 	maxsd xmm0, xmm1
-	jmp Z11FresnelTermfff:F(0,6)_30
-Z11FresnelTermfff:F(0,6)_20:
-	jp Z11FresnelTermfff:F(0,6)_40
+	jmp Z11FresnelTermfff_F0_6_30
+Z11FresnelTermfff_F0_6_20:
+	jp Z11FresnelTermfff_F0_6_40
 	pxor xmm1, xmm1
 	movss [ebp-0x64], xmm1
 	fld dword [ebp-0x64]
@@ -5115,9 +5218,9 @@ Z11FresnelTermfff:F(0,6)_20:
 	nop
 
 
-;Z13R_ClearFlaresv:F(0,1)
+;Z13R_ClearFlaresv_F0_1
 
-FFT:F(0,1):
+FFT_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -5131,20 +5234,20 @@ FFT:F(0,1):
 	sub [ebp-0x10], ecx
 	mov edx, [ebp-0x28]
 	test edx, edx
-	jle FFT:F(0,1)_10
+	jle FFT_F0_1_10
 	mov dword [ebp-0x2c], 0x0
 	mov edi, [ebp+0x8]
 	mov eax, [ebp+0x10]
 	shl eax, 0x3
 	mov [ebp-0x44], eax
 	mov edx, [ebp-0x2c]
-FFT:F(0,1)_30:
+FFT_F0_1_30:
 	mov ecx, [ebp+0x14]
 	mov eax, [ecx+edx*4]
 	movzx ecx, byte [ebp-0x10]
 	sar eax, cl
 	cmp edx, eax
-	jle FFT:F(0,1)_20
+	jle FFT_F0_1_20
 	mov ebx, [edi]
 	mov esi, [edi+0x4]
 	mov ecx, [ebp+0x10]
@@ -5157,18 +5260,18 @@ FFT:F(0,1)_30:
 	mov [edi+0x4], edx
 	mov [ecx], ebx
 	mov [ecx+0x4], esi
-FFT:F(0,1)_20:
+FFT_F0_1_20:
 	add dword [ebp-0x2c], 0x1
 	add edi, [ebp-0x44]
 	mov edx, [ebp-0x2c]
 	cmp [ebp-0x28], edx
-	jnz FFT:F(0,1)_30
-FFT:F(0,1)_10:
+	jnz FFT_F0_1_30
+FFT_F0_1_10:
 	mov ecx, [ebp+0x10]
 	imul ecx, [ebp-0x28]
 	mov [ebp-0x40], ecx
 	test ecx, ecx
-	jz FFT:F(0,1)_40
+	jz FFT_F0_1_40
 	mov ebx, [ebp+0x10]
 	lea eax, [ebx+ebx*2]
 	shl ebx, 0x2
@@ -5184,10 +5287,10 @@ FFT:F(0,1)_10:
 	shl edi, 0x5
 	mov [ebp-0x50], edi
 	mov esi, [ebp-0x4c]
-	jmp FFT:F(0,1)_50
-FFT:F(0,1)_60:
+	jmp FFT_F0_1_50
+FFT_F0_1_60:
 	mov esi, eax
-FFT:F(0,1)_50:
+FFT_F0_1_50:
 	mov edi, [ebp+0x8]
 	lea eax, [edi+esi*8]
 	mov esi, [eax]
@@ -5241,10 +5344,10 @@ FFT:F(0,1)_50:
 	add ecx, [ebp-0x50]
 	mov eax, [ebp-0x4c]
 	cmp [ebp-0x40], eax
-	ja FFT:F(0,1)_60
-FFT:F(0,1)_40:
+	ja FFT_F0_1_60
+FFT_F0_1_40:
 	cmp dword [ebp-0x28], 0x4
-	jle FFT:F(0,1)_70
+	jle FFT_F0_1_70
 	mov dword [ebp-0x24], 0x5
 	mov dword [ebp-0x20], 0x4
 	mov edx, [ebp-0x20]
@@ -5252,8 +5355,8 @@ FFT:F(0,1)_40:
 	mov [ebp-0x1c], edx
 	mov eax, [ebp-0x20]
 	test eax, eax
-	jle FFT:F(0,1)_80
-FFT:F(0,1)_130:
+	jle FFT_F0_1_80
+FFT_F0_1_130:
 	mov ecx, [ebp-0x20]
 	imul ecx, [ebp+0x10]
 	mov [ebp-0x14], ecx
@@ -5262,7 +5365,7 @@ FFT:F(0,1)_130:
 	xor ebx, ebx
 	lea esi, [edi*8]
 	mov [ebp-0x50], esi
-FFT:F(0,1)_120:
+FFT_F0_1_120:
 	mov eax, ebx
 	movzx ecx, byte [ebp-0x24]
 	shl eax, cl
@@ -5278,16 +5381,16 @@ FFT:F(0,1)_120:
 	mov ecx, [ebp+0x10]
 	imul ecx, ebx
 	cmp [ebp-0x40], ecx
-	jbe FFT:F(0,1)_90
+	jbe FFT_F0_1_90
 	mov edx, [ebp-0x14]
 	add edx, ecx
 	mov eax, [ebp+0x8]
 	lea edx, [eax+edx*8]
 	mov esi, eax
-	jmp FFT:F(0,1)_100
-FFT:F(0,1)_110:
+	jmp FFT_F0_1_100
+FFT_F0_1_110:
 	mov esi, [ebp+0x8]
-FFT:F(0,1)_100:
+FFT_F0_1_100:
 	movss xmm2, dword [edx]
 	movss xmm1, dword [edx+0x4]
 	movaps xmm3, xmm2
@@ -5312,29 +5415,29 @@ FFT:F(0,1)_100:
 	add ecx, edi
 	add edx, [ebp-0x50]
 	cmp [ebp-0x40], ecx
-	ja FFT:F(0,1)_110
-FFT:F(0,1)_90:
+	ja FFT_F0_1_110
+FFT_F0_1_90:
 	add ebx, 0x1
 	cmp [ebp-0x20], ebx
-	jnz FFT:F(0,1)_120
+	jnz FFT_F0_1_120
 	mov edi, [ebp-0x1c]
 	sub dword [ebp-0x24], 0x1
 	cmp [ebp-0x28], edi
-	jle FFT:F(0,1)_70
-FFT:F(0,1)_140:
+	jle FFT_F0_1_70
+FFT_F0_1_140:
 	mov [ebp-0x20], edi
 	mov edx, edi
 	add edx, edx
 	mov [ebp-0x1c], edx
 	mov eax, [ebp-0x20]
 	test eax, eax
-	jg FFT:F(0,1)_130
-FFT:F(0,1)_80:
+	jg FFT_F0_1_130
+FFT_F0_1_80:
 	mov edi, edx
 	sub dword [ebp-0x24], 0x1
 	cmp [ebp-0x28], edi
-	jg FFT:F(0,1)_140
-FFT:F(0,1)_70:
+	jg FFT_F0_1_140
+FFT_F0_1_70:
 	add esp, 0x44
 	pop ebx
 	pop esi
@@ -5343,5 +5446,5 @@ FFT:F(0,1)_70:
 	ret
 
 
-;Z21RB_UploadWaterTextureP8GfxImageP7water_t:F(0,1)
+;Z21RB_UploadWaterTextureP8GfxImageP7water_t_F0_1
 

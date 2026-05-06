@@ -2,660 +2,717 @@
 ;Symbols in this file: 18
 ;
 ;Imports (over-declared, NASM-safe):
-	extern __keymgr_dwarf2_register_sections
-	extern atexit
-	extern exit
-	extern AEDisposeDesc
-	extern AECreateDesc
-	extern __cxa_allocate_exception
-	extern __cxa_throw
-	extern _Unwind_Resume
 	extern AECoerceDesc
+	extern AECreateAppleEvent
+	extern AECreateDesc
+	extern AEDisposeDesc
 	extern AEGetDescData
 	extern AEGetDescDataSize
-	extern CreateObjSpecifier
-	extern AEPutParamDesc
-	extern AECreateAppleEvent
-	extern AESend
-	extern AEPutParamPtr
-	extern AEGetParamPtr
 	extern AEGetParamDesc
-	extern GetControlBounds
-	extern PtInRect
-	extern GetEventKind
-	extern GetEventClass
-	extern GetEventParameter
-	extern GetControlOwner
-	extern AdvanceKeyboardFocus
-	extern SetWRefCon
-	extern QuitAppModalLoopForWindow
-	extern HIViewGetRoot
-	extern HIViewGetViewForMouseEvent
-	extern GetControlKind
-	extern SetThemeCursor
-	extern CFBundleGetMainBundle
-	extern CreateNibReferenceWithCFBundle
-	extern CreateWindowFromNib
-	extern DisposeNibReference
-	extern GetWindowEventTarget
-	extern InstallEventHandler
-	extern GetWindowResizeLimits
-	extern SetWindowResizeLimits
-	extern InitCursor
-	extern ShowWindow
-	extern RunAppModalLoopForWindow
-	extern HideWindow
-	extern GetWRefCon
-	extern DisposeWindow
-	extern GetControlByID
-	extern GetControlMaximum
-	extern GetControlDataSize
-	extern SetControlData
-	extern HandleControlKey
-	extern GetControlReference
-	extern GetControlData
-	extern AlertSoundPlay
-	extern HITextViewGetTXNObject
-	extern TXNSetTypeAttributes
-	extern HideControl
-	extern ShowControl
-	extern DisableControl
-	extern EnableControl
-	extern SetControlFontStyle
-	extern SetKeyboardFocus
-	extern NewControlUserPaneDrawUPP
-	extern NewControlUserPaneHitTestUPP
-	extern NewControlUserPaneTrackingUPP
-	extern SetControlReference
-	extern SetControlMaximum
-	extern NewControlKeyFilterUPP
-	extern NewControlEditTextValidationUPP
-	extern GetWindowPort
-	extern CGDisplayBounds
-	extern DMGetFirstScreenDevice
-	extern EqualRect
-	extern DMGetNextScreenDevice
-	extern GetMainDevice
-	extern GetWindowPortBounds
-	extern CGDisplayFade
-	extern CGReleaseDisplayFadeReservation
-	extern CGAcquireDisplayFadeReservation
-	extern CGDisplayPixelsWide
-	extern CGDisplayPixelsHigh
-	extern CGDisplayBitsPerPixel
-	extern aglSwapBuffers
-	extern EndMediaEdits
-	extern GetMediaDuration
-	extern InsertMediaIntoTrack
-	extern AddMovieResource
-	extern CloseMovieFile
-	extern MoveWindow
-	extern GetAvailableWindowPositioningBounds
-	extern CreateNewWindow
-	extern SetPortWindowPort
-	extern SetWindowContentColor
-	extern SetWindowTitleWithCFString
-	extern gluCheckExtension
-	extern _Znam
-	extern CGSetDisplayTransferByTable
-	extern _ZdaPv
-	extern CGGetDisplayTransferByTable
-	extern QDLocalToGlobalPoint
-	extern QDGlobalToLocalPoint
-	extern _Znwm
-	extern _ZdlPv
-	extern _ZSt17__throw_bad_allocv
-	extern _ZSt20__throw_length_errorPKc
-	extern NormalizeThemeDrawingState
-	extern ForeColor
-	extern FrameRoundRect
-	extern RGBForeColor
-	extern PaintRoundRect
-	extern NewRgn
-	extern OpenRgn
-	extern CloseRgn
-	extern SetClip
-	extern DisposeRgn
-	extern ClipRect
-	extern DrawThemeMenuBarBackground
-	extern InsetRect
-	extern DrawThemeFocusRect
-	extern GetIconRefFromFileInfo
-	extern PlotIconRef
-	extern ReleaseIconRef
-	extern CGRectIsEmpty
-	extern CGRectUnion
-	extern CGRectGetWidth
-	extern CGRectGetHeight
-	extern OffsetRect
-	extern MapRect
-	extern glFinish
-	extern aglSetCurrentContext
-	extern aglSetDrawable
-	extern aglDestroyContext
-	extern ShowMenuBar
-	extern SetSystemUIMode
-	extern aglChoosePixelFormat
-	extern aglCreateContext
-	extern aglSetFullScreen
-	extern CGDisplayCurrentMode
-	extern aglSetInteger
-	extern HideMenuBar
-	extern aglDescribePixelFormat
-	extern aglDestroyPixelFormat
-	extern glEnable
-	extern glHint
-	extern aglGetDrawable
-	extern glDisable
-	extern IsWindowVisible
-	extern SizeWindow
-	extern PaintRect
-	extern _ZNSs6assignERKSs
-	extern CGDisplayIDToOpenGLDisplayMask
-	extern CGLQueryRendererInfo
-	extern CGLDescribeRenderer
-	extern CGLDestroyRendererInfo
-	extern CGDisplayAvailableModes
-	extern CFArrayGetCount
-	extern CGDisplayIOServicePort
-	extern CGLGetCurrentContext
-	extern CGLChoosePixelFormat
-	extern CGLCreateContext
-	extern CGLDestroyPixelFormat
-	extern CGLSetCurrentContext
-	extern glGetString
-	extern _ZNSs6assignEPKcm
-	extern glGetIntegerv
-	extern CGLDestroyContext
-	extern _ZNSsC1ERKSs
-	extern strstr
-	extern _ZNSsD1Ev
-	extern CFArrayGetValueAtIndex
-	extern IOObjectConformsTo
-	extern IORegistryEntryGetParentEntry
-	extern glGetFloatv
-	extern _ZN9__gnu_cxx18__exchange_and_addEPVii
-	extern _ZNSs4_Rep10_M_destroyERKSaIcE
-	extern __cxa_begin_catch
-	extern __cxa_rethrow
-	extern __cxa_end_catch
-	extern CGGetActiveDisplayList
-	extern NewMenu
-	extern InsertMenu
-	extern InvalMenuBar
-	extern GetCurrentKeyModifiers
-	extern CGRectEqualToRect
-	extern Gestalt
-	extern sysctl
-	extern FSOpenIterator
-	extern FSGetCatalogInfoBulk
-	extern FSCloseIterator
-	extern FSDeleteObject
-	extern FSSetCatalogInfo
-	extern FSPathMakeRef
-	extern access
-	extern CFBundleCopyExecutableURL
-	extern CFURLGetFSRef
-	extern CFRelease
-	extern FSGetCatalogInfo
-	extern GetCurrentProcess
-	extern strcat
-	extern GetProcessBundleLocation
-	extern FSRefMakePath
-	extern PBGetCatInfoSync
-	extern FSMakeFSSpec
-	extern FSpMakeFSRef
-	extern memcpy
-	extern CFStringCreateWithCString
-	extern CFPreferencesCopyAppValue
-	extern CFGetTypeID
-	extern CFStringGetTypeID
-	extern strcpy
-	extern CFStringGetCString
-	extern CFPreferencesSetAppValue
-	extern atoi
-	extern sprintf
-	extern CFPreferencesAppSynchronize
-	extern atof
-	extern CFBundleCopyLocalizedString
-	extern CFStringGetPascalString
-	extern StringToNum
-	extern CFStringCreateWithFormat
-	extern GetPort
-	extern SetPort
-	extern CFStringCreateWithCharacters
-	extern GetCursor
-	extern SetCursor
-	extern CGAssociateMouseAndMouseCursorPosition
-	extern CGWarpMouseCursorPosition
-	extern HideCursor
-	extern GetGlobalMouse
-	extern UpTime
+	extern AEGetParamPtr
+	extern AEInstallEventHandler
+	extern AEPutParamDesc
+	extern AEPutParamPtr
+	extern AESend
+	extern AUGraphConnectNodeInput
+	extern AUGraphGetCPULoad
+	extern AUGraphGetNodeInfo
+	extern AUGraphInitialize
+	extern AUGraphNewNode
+	extern AUGraphOpen
+	extern AUGraphStart
+	extern AUGraphStop
+	extern AUGraphUpdate
 	extern AddDurationToAbsolute
-	extern MPDelayUntil
-	extern GetNextProcess
-	extern GetProcessInformation
-	extern CFDictionaryGetValue
-	extern CFNumberGetValue
-	extern lround
-	extern IORegistryEntryCreateCFProperty
+	extern AddMovieResource
+	extern AdvanceKeyboardFocus
+	extern AlertSoundPlay
+	extern AppendMenuItemTextWithCFString
+	extern AudioConverterDispose
+	extern AudioConverterFillBuffer
+	extern AudioConverterFillComplexBuffer
+	extern AudioConverterNew
+	extern AudioConverterReset
+	extern AudioDeviceGetProperty
+	extern AudioDeviceGetPropertyInfo
+	extern AudioDeviceSetProperty
+	extern AudioHardwareGetProperty
+	extern AudioOutputUnitStart
+	extern AudioOutputUnitStop
+	extern AudioUnitAddRenderNotify
+	extern AudioUnitGetProperty
+	extern AudioUnitInitialize
+	extern AudioUnitRemoveRenderNotify
+	extern AudioUnitRender
+	extern AudioUnitSetParameter
+	extern AudioUnitSetProperty
+	extern AudioUnitUninitialize
+	extern CFArrayGetCount
+	extern CFArrayGetValueAtIndex
+	extern CFBundleCopyExecutableURL
+	extern CFBundleCopyLocalizedString
+	extern CFBundleGetMainBundle
 	extern CFDataGetBytePtr
-	extern CreateEvent
-	extern SetEventParameter
-	extern GetMainEventQueue
-	extern PostEventToQueue
-	extern ReleaseEvent
-	extern pthread_main_np
-	extern GetStandardAlertDefaultParams
-	extern CreateStandardAlert
-	extern RunStandardAlert
-	extern LSCopyItemInfoForRef
-	extern pthread_self
-	extern OTAtomicAdd32
-	extern OTCompareAndSwap32
-	extern calloc
-	extern free
-	extern strrchr
-	extern Microseconds
-	extern __udivdi3
-	extern memset
-	extern strncpy
-	extern getcwd
-	extern NewGWorld
-	extern GetGWorldPixMap
-	extern LockPixels
-	extern GetPixRowBytes
-	extern QDRegisterNamedPixMapCursor
-	extern DisposeGWorld
-	extern TickCount
-	extern QDSetNamedPixMapCursor
-	extern GetMainEventLoop
-	extern InstallEventLoopTimer
-	extern GetQDGlobalsArrow
-	extern ShowCursor
-	extern fopen
-	extern fseek
-	extern fclose
-	extern ftell
-	extern rewind
-	extern malloc
-	extern fread
-	extern _ZNKSs7compareEPKc
-	extern glStencilMask
-	extern glDepthMask
-	extern glFlushVertexArrayRangeAPPLE
-	extern glTexParameterfv
-	extern glLightfv
-	extern glColor4f
-	extern glMatrixMode
-	extern glLoadMatrixf
-	extern glTexParameteri
-	extern glGenTextures
-	extern _ZNSt15_List_node_base4hookEPS_
-	extern glTexParameterf
-	extern glTexEnvf
-	extern glPushMatrix
-	extern glLoadIdentity
-	extern glTexCoord2f
-	extern glPopMatrix
-	extern glTexEnvfv
-	extern glPointSize
-	extern glDrawRangeElements
-	extern memmove
-	extern glBindTexture
-	extern glColorMask
-	extern glActiveTextureARB
-	extern glDepthFunc
-	extern glShadeModel
-	extern glViewport
-	extern glDepthRange
-	extern glAlphaFunc
-	extern glClearDepth
-	extern glScissor
-	extern glClear
-	extern glClearColor
-	extern glClearStencil
-	extern glMaterialfv
-	extern glMaterialf
-	extern glPixelStorei
-	extern glCopyTexSubImage2D
-	extern gluOrtho2D
-	extern glTexEnvi
-	extern glBlendFuncSeparateEXT
-	extern glBlendFunc
-	extern glBegin
-	extern glVertex3f
-	extern glEnd
-	extern cos
-	extern log
-	extern cosf
-	extern glPolygonMode
-	extern glFogf
-	extern glLightModelfv
-	extern glBlendEquationEXT
-	extern glPolygonOffset
-	extern glFogfv
-	extern glPointParameterfvARB
-	extern glStencilFunc
-	extern glPointParameterfARB
-	extern glStencilOp
-	extern glFrontFace
-	extern glColorMaterial
-	extern glPushAttrib
-	extern glPushClientAttrib
-	extern glDrawBuffer
-	extern glReadBuffer
-	extern __dynamic_cast
-	extern glScalef
-	extern glVertex2f
-	extern glPopClientAttrib
-	extern glPopAttrib
-	extern glProgramEnvParameter4fvARB
-	extern glTexGenfv
-	extern _ZNSsC1EPKcRKSaIcE
-	extern _ZNKSs4findEPKcmm
-	extern _ZNSsC1ERKSsmm
-	extern _ZSt20__throw_out_of_rangePKc
-	extern glCombinerParameterfvNV
-	extern glCombinerStageParameterfvNV
-	extern glBindProgramARB
-	extern glDeleteProgramsARB
-	extern glGetProgramivARB
-	extern glGenProgramsARB
-	extern glProgramStringARB
-	extern _ZNSs6appendEPKcm
-	extern _ZNSs6appendERKSs
-	extern glTexImage2D
-	extern glCompressedTexImage2DARB
-	extern glTexSubImage2D
-	extern glCompressedTexSubImage2D
-	extern _ZNSt15_List_node_base6unhookEv
-	extern ceilf
-	extern glFinishFenceAPPLE
-	extern glSetFenceAPPLE
-	extern glGenFencesAPPLE
-	extern glDeleteFencesAPPLE
-	extern glVertexArrayRangeAPPLE
-	extern glDisableVertexAttribArrayARB
-	extern glVertexAttribPointerARB
-	extern glEnableVertexAttribArrayARB
-	extern glTexGeni
-	extern glBindVertexArrayAPPLE
-	extern glLightf
-	extern glClientActiveTextureARB
-	extern glDeleteTextures
-	extern glDeleteVertexArraysAPPLE
-	extern glDisableClientState
-	extern glFogi
-	extern glLightModeli
-	extern glClipPlane
-	extern glEnableClientState
-	extern glVertexArrayParameteriAPPLE
-	extern strcasecmp
-	extern strncasecmp
-	extern tolower
-	extern toupper
-	extern RemoveEventHandler
-	extern FlushEventQueue
-	extern SendEventToEventTarget
-	extern ReceiveNextEvent
+	extern CFDictionaryGetValue
+	extern CFGetTypeID
+	extern CFNumberGetValue
+	extern CFPreferencesAppSynchronize
+	extern CFPreferencesCopyAppValue
+	extern CFPreferencesSetAppValue
+	extern CFRelease
+	extern CFStringCreateWithCString
+	extern CFStringCreateWithCharacters
+	extern CFStringCreateWithFormat
+	extern CFStringGetCString
+	extern CFStringGetPascalString
+	extern CFStringGetTypeID
 	extern CFURLCreateFromFSRef
-	extern CGDataProviderCreateWithURL
-	extern CGImageCreateWithPNGDataProvider
-	extern QDBeginCGContext
-	extern CGImageRelease
-	extern CGDataProviderRelease
+	extern CFURLCreateWithBytes
+	extern CFURLGetFSRef
+	extern CGAcquireDisplayFadeReservation
+	extern CGAssociateMouseAndMouseCursorPosition
 	extern CGContextClearRect
 	extern CGContextDrawImage
 	extern CGContextFlush
-	extern QDEndCGContext
-	extern EventAvail
-	extern strcmp
-	extern getrlimit
-	extern setrlimit
-	extern EnterMovies
-	extern FSGetVolumeInfo
-	extern GetCompressionInfo
-	extern RunApplicationEventLoop
-	extern GetEventDispatcherTarget
-	extern GetApplicationEventTarget
-	extern GetMenuHandle
-	extern AppendMenuItemTextWithCFString
-	extern SetItemCmd
-	extern GetIndMenuItemWithCommandID
-	extern GetMenuEventTarget
-	extern AEInstallEventHandler
-	extern chdir
-	extern QuitApplicationEventLoop
+	extern CGDataProviderCreateWithURL
+	extern CGDataProviderRelease
+	extern CGDisplayAvailableModes
+	extern CGDisplayBitsPerPixel
+	extern CGDisplayBounds
+	extern CGDisplayCurrentMode
+	extern CGDisplayFade
+	extern CGDisplayIDToOpenGLDisplayMask
+	extern CGDisplayIOServicePort
+	extern CGDisplayPixelsHigh
+	extern CGDisplayPixelsWide
+	extern CGGetActiveDisplayList
+	extern CGGetDisplayTransferByTable
+	extern CGImageCreateWithPNGDataProvider
+	extern CGImageRelease
+	extern CGLChoosePixelFormat
+	extern CGLCreateContext
+	extern CGLDescribeRenderer
+	extern CGLDestroyContext
+	extern CGLDestroyPixelFormat
+	extern CGLDestroyRendererInfo
+	extern CGLGetCurrentContext
+	extern CGLQueryRendererInfo
+	extern CGLSetCurrentContext
+	extern CGRectEqualToRect
+	extern CGRectGetHeight
+	extern CGRectGetWidth
+	extern CGRectIsEmpty
+	extern CGRectUnion
+	extern CGReleaseDisplayFadeReservation
+	extern CGSetDisplayTransferByTable
+	extern CGWarpMouseCursorPosition
+	extern ClipRect
+	extern CloseComponent
+	extern CloseMovieFile
+	extern CloseRgn
+	extern CollapseWindow
+	extern CreateEvent
+	extern CreateNewWindow
+	extern CreateNibReferenceWithCFBundle
+	extern CreateObjSpecifier
+	extern CreateStandardAlert
+	extern CreateWindowFromNib
+	extern DMGetFirstScreenDevice
+	extern DMGetNextScreenDevice
+	extern DisableControl
 	extern DisableMenuItem
-	extern close
-	extern ioctl
-	extern __error
-	extern vsnprintf
-	extern strchr
-	extern rand
-	extern acosf
-	extern atan2
-	extern tan
-	extern sinf
-	extern time
-	extern localtime
-	extern asctime
-	extern longjmp
-	extern __maskrune
-	extern snprintf
-	extern floorf
-	extern setjmp
-	extern remove
-	extern fflush
-	extern qsort
-	extern fwrite
-	extern rename
-	extern isspace
-	extern _ZNSs9_M_mutateEmmm
+	extern DisposeAUGraph
+	extern DisposeGWorld
+	extern DisposeHandle
+	extern DisposeMovie
+	extern DisposeNibReference
+	extern DisposeRgn
+	extern DisposeWindow
+	extern DrawThemeFocusRect
+	extern DrawThemeMenuBarBackground
+	extern EnableControl
+	extern EndMediaEdits
+	extern EnterMovies
+	extern EqualRect
+	extern EventAvail
+	extern FSCloseIterator
+	extern FSDeleteObject
+	extern FSGetCatalogInfo
+	extern FSGetCatalogInfoBulk
+	extern FSGetVolumeInfo
+	extern FSMakeFSSpec
+	extern FSOpenIterator
+	extern FSPathMakeRef
+	extern FSRefMakePath
+	extern FSSetCatalogInfo
+	extern FS_FileRead_F0_1
+	extern FS_FileSeek_F0_10
+	extern FSpMakeFSRef
+	extern FindNextComponent
+	extern FlushEventQueue
+	extern ForeColor
+	extern FrameRoundRect
+	extern Gestalt
+	extern GetApplicationEventTarget
+	extern GetAvailableWindowPositioningBounds
+	extern GetComponentVersion
+	extern GetCompressionInfo
+	extern GetControlBounds
+	extern GetControlByID
+	extern GetControlData
+	extern GetControlDataSize
+	extern GetControlKind
+	extern GetControlMaximum
+	extern GetControlOwner
+	extern GetControlReference
+	extern GetCurrentEventTime
+	extern GetCurrentKeyModifiers
+	extern GetCurrentProcess
+	extern GetCursor
+	extern GetEventClass
+	extern GetEventDispatcherTarget
+	extern GetEventKind
+	extern GetEventParameter
+	extern GetGWorldPixMap
+	extern GetGlobalMouse
+	extern GetHandleSize
+	extern GetIconRefFromFileInfo
+	extern GetIndMenuItemWithCommandID
+	extern GetMainDevice
+	extern GetMainEventLoop
+	extern GetMainEventQueue
+	extern GetMediaDuration
+	extern GetMediaHandler
+	extern GetMediaSampleDescription
+	extern GetMenuEventTarget
+	extern GetMenuHandle
+	extern GetMovieDuration
+	extern GetMovieIndTrackType
+	extern GetMoviePreferredRate
+	extern GetMovieTime
+	extern GetMovieTimeScale
+	extern GetNextProcess
+	extern GetPixRowBytes
+	extern GetPort
+	extern GetProcessBundleLocation
+	extern GetProcessInformation
+	extern GetQDGlobalsArrow
+	extern GetStandardAlertDefaultParams
+	extern GetTrackMedia
+	extern GetWRefCon
+	extern GetWindowEventTarget
+	extern GetWindowPort
+	extern GetWindowPortBounds
+	extern GetWindowResizeLimits
+	extern GoToBeginningOfMovie
+	extern HITextViewGetTXNObject
+	extern HIViewGetRoot
+	extern HIViewGetViewForMouseEvent
+	extern HandleControlKey
+	extern HideControl
+	extern HideCursor
+	extern HideMenuBar
+	extern HideWindow
+	extern IOObjectConformsTo
+	extern IORegistryEntryCreateCFProperty
+	extern IORegistryEntryGetParentEntry
+	extern InitCursor
+	extern InsertMediaIntoTrack
+	extern InsertMenu
+	extern InsetRect
+	extern InstallEventHandler
+	extern InstallEventLoopTimer
+	extern InvalMenuBar
+	extern IsMovieDone
+	extern IsWindowVisible
+	extern LSCopyItemInfoForRef
+	extern LSOpenCFURLRef
+	extern LSOpenFSRef
+	extern LockPixels
+	extern MPDelayUntil
+	extern MapRect
+	extern MediaSetSoundBalance
+	extern Microseconds
+	extern MoveWindow
+	extern MoviesTask
+	extern NewAUGraph
+	extern NewControlEditTextValidationUPP
+	extern NewControlKeyFilterUPP
+	extern NewControlUserPaneDrawUPP
+	extern NewControlUserPaneHitTestUPP
+	extern NewControlUserPaneTrackingUPP
+	extern NewGWorld
+	extern NewHandle
+	extern NewMenu
+	extern NewMovieFromFile
+	extern NewRgn
+	extern NormalizeThemeDrawingState
+	extern OTAtomicAdd32
+	extern OTCompareAndSwap32
+	extern OffsetRect
+	extern OpenAComponent
+	extern OpenComponent
+	extern OpenMovieFile
+	extern OpenRgn
+	extern PBGetCatInfoSync
+	extern PaintRect
+	extern PaintRoundRect
+	extern PlotIconRef
+	extern PostEventToQueue
+	extern PrerollMovie
+	extern PtInRect
+	extern PtrAndHand
+	extern QDBeginCGContext
+	extern QDEndCGContext
+	extern QDGlobalToLocalPoint
+	extern QDLocalToGlobalPoint
+	extern QDRegisterNamedPixMapCursor
+	extern QDSetNamedPixMapCursor
+	extern QuitAppModalLoopForWindow
+	extern QuitApplicationEventLoop
+	extern RGBForeColor
+	extern ReceiveNextEvent
+	extern ReleaseEvent
+	extern ReleaseIconRef
+	extern RemoveEventHandler
+	extern RemoveEventLoopTimer
+	extern RunAppModalLoopForWindow
+	extern RunApplicationEventLoop
+	extern RunStandardAlert
+	extern SECTION
+	extern SendEventToEventTarget
+	extern SetClip
+	extern SetControlData
+	extern SetControlFontStyle
+	extern SetControlMaximum
+	extern SetControlReference
+	extern SetCursor
+	extern SetEventParameter
+	extern SetFrontProcess
+	extern SetItemCmd
+	extern SetKeyboardFocus
+	extern SetMovieRate
+	extern SetMovieTimeValue
+	extern SetPort
+	extern SetPortWindowPort
+	extern SetSystemUIMode
+	extern SetThemeCursor
+	extern SetTrackVolume
+	extern SetWRefCon
+	extern SetWindowContentColor
+	extern SetWindowResizeLimits
+	extern SetWindowTitleWithCFString
+	extern ShowControl
+	extern ShowCursor
+	extern ShowMenuBar
+	extern ShowWindow
+	extern SizeWindow
+	extern StartMovie
+	extern StopMovie
+	extern StringToNum
+	extern TXNSetData
+	extern TXNSetSelection
+	extern TXNSetTypeAttributes
+	extern TXNShowSelection
+	extern TickCount
+	extern UpTime
+	extern UpdateSystemActivity
+	extern Z_FreeInternal_F0_1
+	extern Z_MallocInternal_F0_2
+	extern _Unwind_Resume
+	extern _ZN9__gnu_cxx18__exchange_and_addEPVii
+	extern _ZNKSs4findEPKcmm
+	extern _ZNKSs7compareEPKc
 	extern _ZNSs12_M_leak_hardEv
-	extern _ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_
+	extern _ZNSs4_Rep10_M_destroyERKSaIcE
+	extern _ZNSs6appendEPKcm
+	extern _ZNSs6appendERKSs
+	extern _ZNSs6assignEPKcm
+	extern _ZNSs6assignERKSs
+	extern _ZNSs7replaceEmmPKcm
+	extern _ZNSs7reserveEm
+	extern _ZNSs9_M_mutateEmmm
+	extern _ZNSsC1EPKcRKSaIcE
+	extern _ZNSsC1ERKSs
+	extern _ZNSsC1ERKSsmm
+	extern _ZNSsD1Ev
+	extern _ZNSt15_List_node_base4hookEPS_
+	extern _ZNSt15_List_node_base6unhookEv
+	extern _ZSt17__throw_bad_allocv
 	extern _ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base
 	extern _ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base
-	extern sscanf
-	extern sin
-	extern acos
-	extern vsprintf
-	extern _ZNSs7reserveEm
-	extern strncat
-	extern ctime
-	extern strncmp
-	extern LSOpenFSRef
-	extern CFURLCreateWithBytes
-	extern LSOpenCFURLRef
-	extern UpdateSystemActivity
-	extern GetHandleSize
-	extern TXNSetData
-	extern NewHandle
-	extern DisposeHandle
-	extern RemoveEventLoopTimer
-	extern CollapseWindow
-	extern TXNSetSelection
-	extern TXNShowSelection
-	extern PtrAndHand
-	extern mkdir
-	extern opendir
-	extern readdir
-	extern stat
-	extern closedir
-	extern pow
-	extern glTestFenceAPPLE
-	extern glReadPixels
-	extern glGetError
-	extern asin
-	extern printf
-	extern _ZNSs7replaceEmmPKcm
-	extern expf
-	extern exp
-	extern isprint
-	extern fileno
-	extern isatty
-	extern fprintf
-	extern realloc
+	extern _ZSt20__throw_length_errorPKc
+	extern _ZSt20__throw_out_of_rangePKc
+	extern _ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_
+	extern _ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_
+	extern _ZdaPv
+	extern _ZdlPv
+	extern _Znam
+	extern _Znwm
+	extern __cxa_allocate_exception
+	extern __cxa_begin_catch
+	extern __cxa_end_catch
+	extern __cxa_guard_abort
 	extern __cxa_guard_acquire
 	extern __cxa_guard_release
-	extern __cxa_guard_abort
-	extern GetCurrentEventTime
-	extern SetFrontProcess
-	extern glGenVertexArraysAPPLE
-	extern glColorPointer
-	extern glNormalPointer
-	extern glVertexPointer
-	extern glTexCoordPointer
-	extern _ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_
-	extern AudioConverterReset
-	extern AudioUnitGetProperty
-	extern AudioConverterDispose
-	extern AudioConverterNew
-	extern log10f
-	extern AudioUnitSetParameter
-	extern AudioConverterFillComplexBuffer
-	extern AudioUnitSetProperty
-	extern AudioUnitAddRenderNotify
-	extern AudioUnitRemoveRenderNotify
-	extern usleep
-	extern AUGraphGetCPULoad
-	extern strdup
-	extern AUGraphStop
-	extern DisposeAUGraph
-	extern AudioDeviceGetPropertyInfo
-	extern AudioDeviceGetProperty
-	extern FindNextComponent
-	extern OpenComponent
-	extern GetComponentVersion
-	extern CloseComponent
-	extern NewAUGraph
-	extern AUGraphNewNode
-	extern AUGraphOpen
-	extern AUGraphGetNodeInfo
-	extern AUGraphUpdate
-	extern AUGraphConnectNodeInput
-	extern AUGraphInitialize
-	extern AUGraphStart
-	extern pthread_mutex_destroy
-	extern pthread_create
-	extern pthread_mutexattr_init
-	extern pthread_mutexattr_settype
-	extern pthread_mutex_init
-	extern pthread_mutexattr_destroy
-	extern pthread_mutex_unlock
-	extern pthread_mutex_lock
-	extern glTexImage3D
-	extern glCompressedTexImage3DARB
-	extern glTexSubImage3D
-	extern glCompressedTexSubImage3D
-	extern strtok
-	extern StopMovie
-	extern GoToBeginningOfMovie
-	extern GetMovieTimeScale
-	extern GetMovieDuration
-	extern GetMovieTime
-	extern SetMovieTimeValue
-	extern SetTrackVolume
-	extern GetMediaHandler
-	extern MediaSetSoundBalance
-	extern MoviesTask
-	extern IsMovieDone
-	extern StartMovie
-	extern DisposeMovie
-	extern SetMovieRate
-	extern OpenMovieFile
-	extern NewMovieFromFile
-	extern GetMoviePreferredRate
-	extern PrerollMovie
-	extern GetMovieIndTrackType
-	extern GetTrackMedia
-	extern GetMediaSampleDescription
-	extern srand
-	extern putenv
-	extern getenv
-	extern puts
-	extern asinf
-	extern atanf
-	extern tanf
-	extern select
-	extern inet_addr
-	extern gethostbyname
-	extern recvfrom
-	extern strerror
-	extern sendto
-	extern setsockopt
-	extern bind
-	extern socket
-	extern connect
-	extern send
-	extern recv
+	extern __cxa_rethrow
+	extern __cxa_throw
+	extern __dynamic_cast
+	extern __error
+	extern __i686_get_pc_thunk_bx
+	extern __i686_get_pc_thunk_cx
 	extern __isnanf
-	extern floor
-	extern logf
-	extern AudioOutputUnitStart
-	extern AudioOutputUnitStop
-	extern AudioDeviceSetProperty
-	extern AudioConverterFillBuffer
-	extern AudioUnitRender
-	extern AudioUnitUninitialize
-	extern OpenAComponent
-	extern AudioHardwareGetProperty
-	extern AudioUnitInitialize
+	extern __keymgr_dwarf2_register_sections
+	extern __maskrune
+	extern __udivdi3
+	extern abort
+	extern accept
+	extern access
+	extern acos
+	extern acosf
+	extern add
+	extern aglChoosePixelFormat
+	extern aglCreateContext
+	extern aglDescribePixelFormat
+	extern aglDestroyContext
+	extern aglDestroyPixelFormat
+	extern aglGetDrawable
+	extern aglSetCurrentContext
+	extern aglSetDrawable
+	extern aglSetFullScreen
+	extern aglSetInteger
+	extern aglSwapBuffers
+	extern and
+	extern asctime
+	extern asin
+	extern asinf
+	extern atan2
+	extern atanf
+	extern atexit
+	extern atof
+	extern atoi
+	extern atol
+	extern bind
+	extern call
+	extern calloc
+	extern ceilf
+	extern chdir
+	extern cl_serverStatusList
+	extern close
+	extern closedir
+	extern cmova
+	extern cmovae
+	extern cmovb
+	extern cmovnz
+	extern cmovz
+	extern cmp
+	extern connect
+	extern cos
+	extern cosf
+	extern ctime
 	extern dlclose
 	extern dlopen
 	extern dlsym
-	extern abort
-	extern vfprintf
-	extern getsockname
-	extern read
-	extern atol
-	extern strtol
-	extern getpid
-	extern tmpnam
-	extern strftime
-	extern gmtime
-	extern mktime
+	extern exit
+	extern exp
+	extern expf
+	extern fclose
 	extern fcntl
-	extern accept
-	extern listen
-	extern gethostname
-	extern getdomainname
-	extern getlogin
-	extern getuid
-	extern getpwuid
+	extern fflush
 	extern fgets
-	extern gettimeofday
-	extern regcomp
-	extern regerror
-	extern regfree
-	extern regexec
-	extern getpass
-	extern getsockopt
-	extern write
-	extern unlink
+	extern fild
+	extern fileno
+	extern floor
+	extern floorf
+	extern fopen
+	extern fprintf
 	extern fputc
 	extern fputs
+	extern fread
+	extern free
+	extern fseek
+	extern ftell
+	extern fwrite
+	extern getcwd
+	extern getdomainname
+	extern getenv
+	extern gethostbyname
+	extern gethostname
+	extern getlogin
+	extern getpass
+	extern getpid
+	extern getpwuid
+	extern getrlimit
+	extern getsockname
+	extern getsockopt
+	extern gettimeofday
+	extern getuid
+	extern glActiveTextureARB
+	extern glAlphaFunc
+	extern glBegin
+	extern glBindProgramARB
+	extern glBindTexture
+	extern glBindVertexArrayAPPLE
+	extern glBlendEquationEXT
+	extern glBlendFunc
+	extern glBlendFuncSeparateEXT
+	extern glClear
+	extern glClearColor
+	extern glClearDepth
+	extern glClearStencil
+	extern glClientActiveTextureARB
+	extern glClipPlane
+	extern glColor4f
+	extern glColorMask
+	extern glColorMaterial
+	extern glColorPointer
+	extern glCombinerParameterfvNV
+	extern glCombinerStageParameterfvNV
+	extern glCompressedTexImage2DARB
+	extern glCompressedTexImage3DARB
+	extern glCompressedTexSubImage2D
+	extern glCompressedTexSubImage3D
+	extern glCopyTexSubImage2D
+	extern glDeleteFencesAPPLE
+	extern glDeleteProgramsARB
+	extern glDeleteTextures
+	extern glDeleteVertexArraysAPPLE
+	extern glDepthFunc
+	extern glDepthMask
+	extern glDepthRange
+	extern glDisable
+	extern glDisableClientState
+	extern glDisableVertexAttribArrayARB
+	extern glDrawBuffer
+	extern glDrawRangeElements
+	extern glEnable
+	extern glEnableClientState
+	extern glEnableVertexAttribArrayARB
+	extern glEnd
+	extern glFinish
+	extern glFinishFenceAPPLE
+	extern glFlushVertexArrayRangeAPPLE
+	extern glFogf
+	extern glFogfv
+	extern glFogi
+	extern glFrontFace
+	extern glGenFencesAPPLE
+	extern glGenProgramsARB
+	extern glGenTextures
+	extern glGenVertexArraysAPPLE
+	extern glGetError
+	extern glGetFloatv
+	extern glGetIntegerv
+	extern glGetProgramivARB
+	extern glGetString
+	extern glHint
+	extern glLightModelfv
+	extern glLightModeli
+	extern glLightf
+	extern glLightfv
+	extern glLoadIdentity
+	extern glLoadMatrixf
+	extern glMaterialf
+	extern glMaterialfv
+	extern glMatrixMode
+	extern glNormalPointer
+	extern glPixelStorei
+	extern glPointParameterfARB
+	extern glPointParameterfvARB
+	extern glPointSize
+	extern glPolygonMode
+	extern glPolygonOffset
+	extern glPopAttrib
+	extern glPopClientAttrib
+	extern glPopMatrix
+	extern glProgramEnvParameter4fvARB
+	extern glProgramStringARB
+	extern glPushAttrib
+	extern glPushClientAttrib
+	extern glPushMatrix
+	extern glReadBuffer
+	extern glReadPixels
+	extern glScalef
+	extern glScissor
+	extern glSetFenceAPPLE
+	extern glShadeModel
+	extern glStencilFunc
+	extern glStencilMask
+	extern glStencilOp
+	extern glTestFenceAPPLE
+	extern glTexCoord2f
+	extern glTexCoordPointer
+	extern glTexEnvf
+	extern glTexEnvfv
+	extern glTexEnvi
+	extern glTexGenfv
+	extern glTexGeni
+	extern glTexImage2D
+	extern glTexImage3D
+	extern glTexParameterf
+	extern glTexParameterfv
+	extern glTexParameteri
+	extern glTexSubImage2D
+	extern glTexSubImage3D
+	extern glVertex2f
+	extern glVertex3f
+	extern glVertexArrayParameteriAPPLE
+	extern glVertexArrayRangeAPPLE
+	extern glVertexAttribPointerARB
+	extern glVertexPointer
+	extern glViewport
+	extern gluCheckExtension
+	extern gluOrtho2D
+	extern gmtime
+	extern hlt
+	extern imul
+	extern inet_addr
+	extern ioctl
+	extern isatty
+	extern isprint
+	extern isspace
+	extern ja
+	extern jae
+	extern jb
+	extern jbe
+	extern jecxz
+	extern jg
+	extern jge
+	extern jle
+	extern jmp
+	extern jns
+	extern jnz
+	extern js
+	extern jz
+	extern lea
+	extern leave
+	extern listen
+	extern localtime
+	extern log
+	extern log10f
+	extern logf
+	extern longjmp
+	extern lround
+	extern malloc
+	extern markVerts
+	extern memcpy
+	extern memmove
+	extern memset
+	extern mkdir
+	extern mktime
+	extern mov
+	extern movsx
+	extern movzx
+	extern mul
+	extern neg
+	extern nop
+	extern not
+	extern opendir
+	extern or
+	extern pop
+	extern pow
+	extern printf
+	extern pthread_create
+	extern pthread_main_np
+	extern pthread_mutex_destroy
+	extern pthread_mutex_init
+	extern pthread_mutex_lock
+	extern pthread_mutex_unlock
+	extern pthread_mutexattr_destroy
+	extern pthread_mutexattr_init
+	extern pthread_mutexattr_settype
+	extern pthread_self
+	extern push
+	extern putenv
+	extern puts
+	extern qsort
+	extern rand
+	extern read
+	extern readdir
+	extern realloc
+	extern recv
+	extern recvfrom
+	extern regcomp
+	extern regerror
+	extern regexec
+	extern regfree
+	extern remove
+	extern rename
+	extern ret
+	extern rewind
+	extern sar
+	extern sbb
+	extern select
+	extern send
+	extern sendto
+	extern setjmp
+	extern setnz
+	extern setrlimit
+	extern setsockopt
+	extern shl
+	extern shr
+	extern sin
+	extern sinf
+	extern snprintf
+	extern socket
+	extern sprintf
+	extern srand
+	extern sscanf
+	extern stat
+	extern strcasecmp
+	extern strcat
+	extern strchr
+	extern strcmp
+	extern strcpy
+	extern strdup
+	extern strerror
+	extern strftime
+	extern strncasecmp
+	extern strncat
+	extern strncmp
+	extern strncpy
+	extern strrchr
+	extern strstr
+	extern strtok
+	extern strtol
+	extern sub
+	extern sysctl
+	extern tan
+	extern tanf
+	extern test
+	extern text
+	extern time
+	extern tmpnam
+	extern tolower
+	extern toupper
+	extern unlink
+	extern usleep
+	extern vfprintf
+	extern vsnprintf
+	extern vsprintf
+	extern write
+	extern xlatb
+	extern xor
 
 ;Exports defined in this file:
 	global _Z35unzlocal_GetCurrentFileInfoInternalPhP15unz_file_info_sP24unz_file_info_internal_sPcmPvmS4_m
-	global zcalloc:F(0,5)
-	global zcfree:F(0,9)
+	global zcalloc_F0_5
+	global zcfree_F0_9
 	global inflate_mask
-	global adler32:F(0,1)
-	global inflate_blocks_reset:F(0,1)
-	global inflate_blocks:F(0,29)
-	global inflate_blocks_new:F(0,2)
-	global inflate_blocks_free:F(0,29)
-	global inflate_codes_new:F(0,1)
-	global inflate_codes:F(0,30)
-	global inflate_codes_free:F(0,39)
-	global inflate_flush:F(0,1)
+	global adler32_F0_1
+	global inflate_blocks_reset_F0_1
+	global inflate_blocks_F0_29
+	global inflate_blocks_new_F0_2
+	global inflate_blocks_free_F0_29
+	global inflate_codes_new_F0_1
+	global inflate_codes_F0_30
+	global inflate_codes_free_F0_39
+	global inflate_flush_F0_1
 	global huft_build
-	global inflate_trees_bits:F(0,1)
-	global inflate_trees_dynamic:F(0,1)
-	global inflate_trees_fixed:F(0,1)
-	global inflate_fast:F(0,1)
+	global inflate_trees_bits_F0_1
+	global inflate_trees_dynamic_F0_1
+	global inflate_trees_fixed_F0_1
+	global inflate_fast_F0_1
 
 SECTION .text
 _Z35unzlocal_GetCurrentFileInfoInternalPhP15unz_file_info_sP24unz_file_info_internal_sPcmPvmS4_m:
@@ -676,7 +733,7 @@ _Z35unzlocal_GetCurrentFileInfoInternalPhP15unz_file_info_sP24unz_file_info_inte
 	mov [esp+0x4], eax
 	mov eax, [ebx]
 	mov [esp], eax
-	call FS_FileSeek:F(0,10)
+	call FS_FileSeek_F0_10
 	mov esi, eax
 	test eax, eax
 	jz _Z35unzlocal_GetCurrentFileInfoInternalPhP15unz_file_info_sP24unz_file_info_internal_sPcmPvmS4_m_20
@@ -688,7 +745,7 @@ _Z35unzlocal_GetCurrentFileInfoInternalPhP15unz_file_info_sP24unz_file_info_inte
 	mov dword [esp+0x4], 0x2
 	lea edx, [ebp-0x1c]
 	mov [esp], edx
-	call FS_FileRead:F(0,1)
+	call FS_FileRead_F0_1
 	movsx ecx, word [ebp-0x1c]
 	mov [ebp-0x34], ecx
 	mov eax, [ebx]
@@ -697,7 +754,7 @@ _Z35unzlocal_GetCurrentFileInfoInternalPhP15unz_file_info_sP24unz_file_info_inte
 	mov dword [esp+0x4], 0x2
 	lea eax, [ebp-0x1c]
 	mov [esp], eax
-	call FS_FileRead:F(0,1)
+	call FS_FileRead_F0_1
 	movsx edx, word [ebp-0x1c]
 	mov [ebp-0x38], edx
 	mov eax, [ebx]
@@ -706,7 +763,7 @@ _Z35unzlocal_GetCurrentFileInfoInternalPhP15unz_file_info_sP24unz_file_info_inte
 	mov dword [esp+0x4], 0x2
 	lea ecx, [ebp-0x1c]
 	mov [esp], ecx
-	call FS_FileRead:F(0,1)
+	call FS_FileRead_F0_1
 	movsx eax, word [ebp-0x1c]
 	mov [ebp-0x3c], eax
 	mov eax, [ebx]
@@ -715,7 +772,7 @@ _Z35unzlocal_GetCurrentFileInfoInternalPhP15unz_file_info_sP24unz_file_info_inte
 	mov dword [esp+0x4], 0x2
 	lea edx, [ebp-0x1c]
 	mov [esp], edx
-	call FS_FileRead:F(0,1)
+	call FS_FileRead_F0_1
 	movsx ecx, word [ebp-0x1c]
 	mov [ebp-0x40], ecx
 	mov eax, [ebx]
@@ -724,7 +781,7 @@ _Z35unzlocal_GetCurrentFileInfoInternalPhP15unz_file_info_sP24unz_file_info_inte
 	mov dword [esp+0x4], 0x4
 	lea eax, [ebp-0x1c]
 	mov [esp], eax
-	call FS_FileRead:F(0,1)
+	call FS_FileRead_F0_1
 	mov edx, [ebp-0x1c]
 	mov [ebp-0x44], edx
 	shr edx, 0x10
@@ -757,7 +814,7 @@ _Z35unzlocal_GetCurrentFileInfoInternalPhP15unz_file_info_sP24unz_file_info_inte
 	mov dword [esp+0x4], 0x4
 	lea ecx, [ebp-0x1c]
 	mov [esp], ecx
-	call FS_FileRead:F(0,1)
+	call FS_FileRead_F0_1
 	mov eax, [ebp-0x1c]
 	mov [ebp-0x4c], eax
 	mov eax, [ebx]
@@ -766,7 +823,7 @@ _Z35unzlocal_GetCurrentFileInfoInternalPhP15unz_file_info_sP24unz_file_info_inte
 	mov dword [esp+0x4], 0x4
 	lea edx, [ebp-0x1c]
 	mov [esp], edx
-	call FS_FileRead:F(0,1)
+	call FS_FileRead_F0_1
 	mov ecx, [ebp-0x1c]
 	mov [ebp-0x50], ecx
 	mov eax, [ebx]
@@ -775,7 +832,7 @@ _Z35unzlocal_GetCurrentFileInfoInternalPhP15unz_file_info_sP24unz_file_info_inte
 	mov dword [esp+0x4], 0x4
 	lea eax, [ebp-0x1c]
 	mov [esp], eax
-	call FS_FileRead:F(0,1)
+	call FS_FileRead_F0_1
 	mov edx, [ebp-0x1c]
 	mov [ebp-0x54], edx
 	mov eax, [ebx]
@@ -784,7 +841,7 @@ _Z35unzlocal_GetCurrentFileInfoInternalPhP15unz_file_info_sP24unz_file_info_inte
 	mov dword [esp+0x4], 0x2
 	lea ecx, [ebp-0x1c]
 	mov [esp], ecx
-	call FS_FileRead:F(0,1)
+	call FS_FileRead_F0_1
 	mov eax, [ebp-0x1c]
 	mov [ebp-0x76], ax
 	movsx edx, ax
@@ -795,7 +852,7 @@ _Z35unzlocal_GetCurrentFileInfoInternalPhP15unz_file_info_sP24unz_file_info_inte
 	mov dword [esp+0x4], 0x2
 	lea ecx, [ebp-0x1c]
 	mov [esp], ecx
-	call FS_FileRead:F(0,1)
+	call FS_FileRead_F0_1
 	mov eax, [ebp-0x1c]
 	mov [ebp-0x74], ax
 	movsx edx, ax
@@ -806,7 +863,7 @@ _Z35unzlocal_GetCurrentFileInfoInternalPhP15unz_file_info_sP24unz_file_info_inte
 	mov dword [esp+0x4], 0x2
 	lea ecx, [ebp-0x1c]
 	mov [esp], ecx
-	call FS_FileRead:F(0,1)
+	call FS_FileRead_F0_1
 	mov eax, [ebp-0x1c]
 	mov [ebp-0x72], ax
 	movsx edx, ax
@@ -817,7 +874,7 @@ _Z35unzlocal_GetCurrentFileInfoInternalPhP15unz_file_info_sP24unz_file_info_inte
 	mov dword [esp+0x4], 0x2
 	lea ecx, [ebp-0x1c]
 	mov [esp], ecx
-	call FS_FileRead:F(0,1)
+	call FS_FileRead_F0_1
 	movsx eax, word [ebp-0x1c]
 	mov [ebp-0x64], eax
 	mov eax, [ebx]
@@ -826,7 +883,7 @@ _Z35unzlocal_GetCurrentFileInfoInternalPhP15unz_file_info_sP24unz_file_info_inte
 	mov dword [esp+0x4], 0x2
 	lea edx, [ebp-0x1c]
 	mov [esp], edx
-	call FS_FileRead:F(0,1)
+	call FS_FileRead_F0_1
 	movsx ecx, word [ebp-0x1c]
 	mov [ebp-0x68], ecx
 	mov eax, [ebx]
@@ -835,7 +892,7 @@ _Z35unzlocal_GetCurrentFileInfoInternalPhP15unz_file_info_sP24unz_file_info_inte
 	mov dword [esp+0x4], 0x4
 	lea eax, [ebp-0x1c]
 	mov [esp], eax
-	call FS_FileRead:F(0,1)
+	call FS_FileRead_F0_1
 	mov edx, [ebp-0x1c]
 	mov [ebp-0x6c], edx
 	mov eax, [ebx]
@@ -844,7 +901,7 @@ _Z35unzlocal_GetCurrentFileInfoInternalPhP15unz_file_info_sP24unz_file_info_inte
 	mov dword [esp+0x4], 0x4
 	lea ecx, [ebp-0x1c]
 	mov [esp], ecx
-	call FS_FileRead:F(0,1)
+	call FS_FileRead_F0_1
 	mov eax, [ebp-0x1c]
 	mov [ebp-0x30], eax
 	mov esi, [ebp-0x58]
@@ -997,7 +1054,7 @@ _Z35unzlocal_GetCurrentFileInfoInternalPhP15unz_file_info_sP24unz_file_info_inte
 	mov dword [esp+0x4], 0x4
 	lea eax, [ebp-0x1c]
 	mov [esp], eax
-	call FS_FileRead:F(0,1)
+	call FS_FileRead_F0_1
 	mov dword [ebp-0x90], 0xffffff99
 	cmp dword [ebp-0x1c], 0x2014b50
 	cmovnz esi, [ebp-0x90]
@@ -1025,7 +1082,7 @@ _Z35unzlocal_GetCurrentFileInfoInternalPhP15unz_file_info_sP24unz_file_info_inte
 	mov [esp+0x4], esi
 	mov ecx, [ebp+0x18]
 	mov [esp], ecx
-	call FS_FileRead:F(0,1)
+	call FS_FileRead_F0_1
 	sub eax, 0x1
 	jz _Z35unzlocal_GetCurrentFileInfoInternalPhP15unz_file_info_sP24unz_file_info_internal_sPcmPvmS4_m_80
 	mov dword [ebp-0x90], 0xffffffff
@@ -1035,7 +1092,7 @@ _Z35unzlocal_GetCurrentFileInfoInternalPhP15unz_file_info_sP24unz_file_info_inte
 	mov [esp+0x4], eax
 	mov eax, [ebx]
 	mov [esp], eax
-	call FS_FileSeek:F(0,10)
+	call FS_FileSeek_F0_10
 	test eax, eax
 	jz _Z35unzlocal_GetCurrentFileInfoInternalPhP15unz_file_info_sP24unz_file_info_internal_sPcmPvmS4_m_230
 	mov dword [ebp-0x90], 0xffffffff
@@ -1051,7 +1108,7 @@ _Z35unzlocal_GetCurrentFileInfoInternalPhP15unz_file_info_sP24unz_file_info_inte
 	mov [esp+0x4], esi
 	mov eax, [ebx]
 	mov [esp], eax
-	call FS_FileSeek:F(0,10)
+	call FS_FileSeek_F0_10
 	test eax, eax
 	jz _Z35unzlocal_GetCurrentFileInfoInternalPhP15unz_file_info_sP24unz_file_info_internal_sPcmPvmS4_m_260
 	mov dword [ebp-0x90], 0xffffffff
@@ -1064,7 +1121,7 @@ _Z35unzlocal_GetCurrentFileInfoInternalPhP15unz_file_info_sP24unz_file_info_inte
 	mov [esp+0x4], edx
 	mov ecx, [ebp+0x10]
 	mov [esp], ecx
-	call FS_FileRead:F(0,1)
+	call FS_FileRead_F0_1
 	sub eax, 0x1
 	mov eax, 0xffffffff
 	cmovz eax, [ebp-0x90]
@@ -1079,42 +1136,42 @@ _Z35unzlocal_GetCurrentFileInfoInternalPhP15unz_file_info_sP24unz_file_info_inte
 	mov [esp+0x4], esi
 	mov edx, [ebp+0x8]
 	mov [esp], edx
-	call FS_FileRead:F(0,1)
+	call FS_FileRead_F0_1
 	sub eax, 0x1
 	jz _Z35unzlocal_GetCurrentFileInfoInternalPhP15unz_file_info_sP24unz_file_info_internal_sPcmPvmS4_m_130
 	mov dword [ebp-0x90], 0xffffffff
 	jmp _Z35unzlocal_GetCurrentFileInfoInternalPhP15unz_file_info_sP24unz_file_info_internal_sPcmPvmS4_m_280
 
 
-;unzSetCurrentFileInfoPosition:F(0,1)
+;unzSetCurrentFileInfoPosition_F0_1
 
-zcalloc:F(0,5):
+zcalloc_F0_5:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x10]
 	imul eax, [ebp+0xc]
 	mov [ebp+0x8], eax
 	pop ebp
-	jmp Z_MallocInternal:F(0,2)
+	jmp Z_MallocInternal_F0_2
 	nop
 
 
-;zcfree:F(0,9)
+;zcfree_F0_9
 
-zcfree:F(0,9):
+zcfree_F0_9:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0xc]
 	mov [ebp+0x8], eax
 	pop ebp
-	jmp Z_FreeInternal:F(0,1)
+	jmp Z_FreeInternal_F0_1
 	add [eax], al
 
 
-;Z9XModelBadPK6XModel:F(0,1)
+;Z9XModelBadPK6XModel_F0_1
 
 inflate_mask: dd 0x0, 0x1, 0x3, 0x7, 0xf, 0x1f, 0x3f, 0x7f, 0xff, 0x1ff, 0x3ff, 0x7ff, 0xfff, 0x1fff, 0x3fff, 0x7fff, 0xffff, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
- eax, [ebp+0x10]
+	; [sanitized: dropped line containing embedded NUL byte]
 	mov [edx+0x4], eax
 	mov eax, [ebp+0xc]
 	mov [edx], eax
@@ -1124,7 +1181,7 @@ inflate_mask: dd 0x0, 0x1, 0x3, 0x7, 0xf, 0x1f, 0x3f, 0x7f, 0xff, 0x1ff, 0x3ff, 
 	pop ebp
 	ret
 
-adler32:F(0,1):
+adler32_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1136,23 +1193,23 @@ adler32:F(0,1):
 	shr eax, 0x10
 	mov [ebp-0xc], eax
 	test esi, esi
-	jz adler32:F(0,1)_10
+	jz adler32_F0_1_10
 	mov eax, [ebp+0x10]
 	test eax, eax
-	jz adler32:F(0,1)_20
-adler32:F(0,1)_80:
+	jz adler32_F0_1_20
+adler32_F0_1_80:
 	cmp dword [ebp+0x10], 0x15b1
 	mov eax, 0x15b0
 	cmovb eax, [ebp+0x10]
 	mov [ebp-0x10], eax
 	sub [ebp+0x10], eax
 	cmp eax, 0xf
-	jle adler32:F(0,1)_30
+	jle adler32_F0_1_30
 	mov ecx, [ebp-0xc]
-	jmp adler32:F(0,1)_40
-adler32:F(0,1)_50:
+	jmp adler32_F0_1_40
+adler32_F0_1_50:
 	mov ecx, edx
-adler32:F(0,1)_40:
+adler32_F0_1_40:
 	movzx eax, byte [esi]
 	add eax, edi
 	lea edx, [eax+ecx]
@@ -1205,23 +1262,23 @@ adler32:F(0,1)_40:
 	add esi, 0x10
 	sub dword [ebp-0x10], 0x10
 	cmp dword [ebp-0x10], 0xf
-	jg adler32:F(0,1)_50
-adler32:F(0,1)_30:
+	jg adler32_F0_1_50
+adler32_F0_1_30:
 	mov edx, [ebp-0x10]
 	test edx, edx
-	jz adler32:F(0,1)_60
+	jz adler32_F0_1_60
 	mov edx, esi
 	mov eax, [ebp-0x10]
 	lea ecx, [eax+esi]
-adler32:F(0,1)_70:
+adler32_F0_1_70:
 	movzx eax, byte [edx]
 	add edi, eax
 	add edx, 0x1
 	add [ebp-0xc], edi
 	cmp ecx, edx
-	jnz adler32:F(0,1)_70
+	jnz adler32_F0_1_70
 	mov esi, ecx
-adler32:F(0,1)_60:
+adler32_F0_1_60:
 	mov eax, 0x80078071
 	mul edi
 	shr edx, 0xf
@@ -1245,8 +1302,8 @@ adler32:F(0,1)_60:
 	sub [ebp-0xc], eax
 	mov eax, [ebp+0x10]
 	test eax, eax
-	jnz adler32:F(0,1)_80
-adler32:F(0,1)_20:
+	jnz adler32_F0_1_80
+adler32_F0_1_20:
 	mov eax, [ebp-0xc]
 	shl eax, 0x10
 	or eax, edi
@@ -1255,7 +1312,7 @@ adler32:F(0,1)_20:
 	pop edi
 	pop ebp
 	ret
-adler32:F(0,1)_10:
+adler32_F0_1_10:
 	mov eax, 0x1
 	add esp, 0x8
 	pop esi
@@ -1264,9 +1321,9 @@ adler32:F(0,1)_10:
 	ret
 
 
-;inflate_blocks_reset:F(0,1)
+;inflate_blocks_reset_F0_1
 
-inflate_blocks_reset:F(0,1):
+inflate_blocks_reset_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1276,18 +1333,18 @@ inflate_blocks_reset:F(0,1):
 	mov edi, [ebp+0xc]
 	mov edx, [ebp+0x10]
 	test edx, edx
-	jz inflate_blocks_reset:F(0,1)_10
+	jz inflate_blocks_reset_F0_1_10
 	mov eax, [esi+0x3c]
 	mov [edx], eax
-inflate_blocks_reset:F(0,1)_10:
+inflate_blocks_reset_F0_1_10:
 	mov eax, [esi]
 	sub eax, 0x4
 	cmp eax, 0x1
-	jbe inflate_blocks_reset:F(0,1)_20
-inflate_blocks_reset:F(0,1)_60:
+	jbe inflate_blocks_reset_F0_1_20
+inflate_blocks_reset_F0_1_60:
 	cmp dword [esi], 0x6
-	jz inflate_blocks_reset:F(0,1)_30
-inflate_blocks_reset:F(0,1)_50:
+	jz inflate_blocks_reset_F0_1_30
+inflate_blocks_reset_F0_1_50:
 	mov dword [esi], 0x0
 	mov dword [esi+0x1c], 0x0
 	mov dword [esi+0x20], 0x0
@@ -1296,44 +1353,44 @@ inflate_blocks_reset:F(0,1)_50:
 	mov [esi+0x30], eax
 	mov eax, [esi+0x38]
 	test eax, eax
-	jz inflate_blocks_reset:F(0,1)_40
+	jz inflate_blocks_reset_F0_1_40
 	mov dword [esp+0x8], 0x0
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], 0x0
 	call eax
 	mov [esi+0x3c], eax
 	mov [edi+0x30], eax
-inflate_blocks_reset:F(0,1)_40:
+inflate_blocks_reset_F0_1_40:
 	add esp, 0x10
 	pop esi
 	pop edi
 	pop ebp
 	ret
-inflate_blocks_reset:F(0,1)_30:
+inflate_blocks_reset_F0_1_30:
 	mov [esp+0x4], edi
 	mov eax, [esi+0x4]
 	mov [esp], eax
-	call inflate_codes_free:F(0,39)
-	jmp inflate_blocks_reset:F(0,1)_50
-inflate_blocks_reset:F(0,1)_20:
+	call inflate_codes_free_F0_39
+	jmp inflate_blocks_reset_F0_1_50
+inflate_blocks_reset_F0_1_20:
 	mov eax, [esi+0xc]
 	mov [esp+0x4], eax
 	mov eax, [edi+0x28]
 	mov [esp], eax
 	call dword [edi+0x24]
-	jmp inflate_blocks_reset:F(0,1)_60
+	jmp inflate_blocks_reset_F0_1_60
 
 
-;inflate_blocks:F(0,29)
+;inflate_blocks_F0_29
 
-inflate_blocks:F(0,29):
+inflate_blocks_F0_29:
 	push ebp
 	mov ebp, esp
 	push edi
 	push esi
 	push ebx
 	sub esp, 0xbc
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov eax, [ebp+0xc]
 	mov eax, [eax]
 	mov [ebp-0x64], eax
@@ -1349,14 +1406,14 @@ inflate_blocks:F(0,29):
 	mov [ebp-0x5c], eax
 	mov eax, [esi+0x30]
 	cmp [ebp-0x5c], eax
-	jae inflate_blocks:F(0,29)_10
+	jae inflate_blocks_F0_29_10
 	sub eax, [ebp-0x5c]
 	sub eax, 0x1
 	mov [ebp-0x58], eax
-inflate_blocks:F(0,29)_30:
+inflate_blocks_F0_29_30:
 	mov eax, [ebp+0x8]
 	cmp dword [eax], 0x9
-	ja inflate_blocks:F(0,29)_20
+	ja inflate_blocks_F0_29_20
 	mov eax, [eax]
 	mov eax, [ebx+eax*4+0x51]
 	add eax, ebx
@@ -1378,7 +1435,7 @@ inflate_blocks:F(0,29)_30:
 	add [eax], al
 	jecxz 0x224807
 	add [eax], al
-inflate_blocks:F(0,29)_20:
+inflate_blocks_F0_29_20:
 	mov edx, eax
 	mov eax, [ebp-0x34]
 	mov [edx+0x20], eax
@@ -1397,21 +1454,21 @@ inflate_blocks:F(0,29)_20:
 	mov esi, [ebp+0xc]
 	mov [esp+0x4], esi
 	mov [esp], edx
-	call inflate_flush:F(0,1)
-inflate_blocks:F(0,29)_50:
+	call inflate_flush_F0_1
+inflate_blocks_F0_29_50:
 	add esp, 0xbc
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-inflate_blocks:F(0,29)_10:
+inflate_blocks_F0_29_10:
 	mov edx, [esi+0x2c]
 	mov ecx, [ebp-0x5c]
 	sub edx, ecx
 	mov [ebp-0x58], edx
-	jmp inflate_blocks:F(0,29)_30
-inflate_blocks:F(0,29)_170:
+	jmp inflate_blocks_F0_29_30
+inflate_blocks_F0_29_170:
 	mov dword [edx], 0x7
 	mov dword [ebp+0x10], 0x0
 	mov esi, [ebp-0x5c]
@@ -1422,14 +1479,14 @@ inflate_blocks:F(0,29)_170:
 	mov edx, [ebp+0xc]
 	mov [esp+0x4], edx
 	mov [esp], ecx
-	call inflate_flush:F(0,1)
+	call inflate_flush_F0_1
 	mov edx, eax
 	mov ecx, [ebp+0x8]
 	mov ecx, [ecx+0x34]
 	mov [ebp-0x5c], ecx
 	mov esi, [ebp+0x8]
 	cmp ecx, [esi+0x30]
-	jnz inflate_blocks:F(0,29)_40
+	jnz inflate_blocks_F0_29_40
 	mov dword [esi], 0x8
 	mov eax, [ebp-0x34]
 	mov edx, [ebp+0x8]
@@ -1449,15 +1506,15 @@ inflate_blocks:F(0,29)_170:
 	mov esi, [ebp+0xc]
 	mov [esp+0x4], esi
 	mov [esp], edx
-	call inflate_flush:F(0,1)
-	jmp inflate_blocks:F(0,29)_50
+	call inflate_flush_F0_1
+	jmp inflate_blocks_F0_29_50
 	cmp edi, 0xd
-	jbe inflate_blocks:F(0,29)_60
+	jbe inflate_blocks_F0_29_60
 	mov ecx, [ebp-0x64]
 	mov [ebp-0x40], ecx
 	mov esi, [ebp-0x60]
 	mov [ebp-0x3c], esi
-inflate_blocks:F(0,29)_820:
+inflate_blocks_F0_29_820:
 	mov eax, [ebp-0x34]
 	and eax, 0x3fff
 	mov edx, [ebp+0x8]
@@ -1465,11 +1522,11 @@ inflate_blocks:F(0,29)_820:
 	mov edx, [ebp-0x34]
 	and edx, 0x1f
 	cmp edx, 0x1d
-	ja inflate_blocks:F(0,29)_70
+	ja inflate_blocks_F0_29_70
 	shr eax, 0x5
 	and eax, 0x1f
 	cmp eax, 0x1d
-	ja inflate_blocks:F(0,29)_70
+	ja inflate_blocks_F0_29_70
 	mov dword [esp+0x8], 0x4
 	lea eax, [edx+eax+0x102]
 	mov [esp+0x4], eax
@@ -1480,12 +1537,12 @@ inflate_blocks:F(0,29)_820:
 	mov esi, [ebp+0x8]
 	mov [esi+0xc], eax
 	test eax, eax
-	jz inflate_blocks:F(0,29)_80
+	jz inflate_blocks_F0_29_80
 	shr dword [ebp-0x34], 0xe
 	sub edi, 0xe
 	mov dword [esi+0x8], 0x0
 	mov dword [esi], 0x4
-	jmp inflate_blocks:F(0,29)_90
+	jmp inflate_blocks_F0_29_90
 	mov eax, [ebp-0x34]
 	mov edx, [ebp+0x8]
 	mov [edx+0x20], eax
@@ -1499,19 +1556,19 @@ inflate_blocks:F(0,29)_820:
 	mov eax, [ebp-0x64]
 	mov [ecx], eax
 	mov ecx, [ebp-0x5c]
-inflate_blocks:F(0,29)_860:
+inflate_blocks_F0_29_860:
 	mov [edx+0x34], ecx
 	mov dword [esp+0x8], 0xfffffffd
 	mov esi, [ebp+0xc]
 	mov [esp+0x4], esi
 	mov [esp], edx
-	call inflate_flush:F(0,1)
-	jmp inflate_blocks:F(0,29)_50
+	call inflate_flush_F0_1
+	jmp inflate_blocks_F0_29_50
 	mov ecx, [ebp-0x64]
 	mov [ebp-0x40], ecx
 	mov esi, [ebp-0x60]
 	mov [ebp-0x3c], esi
-inflate_blocks:F(0,29)_90:
+inflate_blocks_F0_29_90:
 	mov eax, [ebp+0x8]
 	mov edx, [eax+0x8]
 	mov [ebp-0x70], edx
@@ -1519,18 +1576,18 @@ inflate_blocks:F(0,29)_90:
 	shr eax, 0xa
 	add eax, 0x4
 	cmp eax, edx
-	jbe inflate_blocks:F(0,29)_100
+	jbe inflate_blocks_F0_29_100
 	lea edx, [ebx+edx*4+0x11b711]
 	mov [ebp-0x48], edx
-inflate_blocks:F(0,29)_360:
+inflate_blocks_F0_29_360:
 	cmp edi, 0x2
-	ja inflate_blocks:F(0,29)_110
+	ja inflate_blocks_F0_29_110
 	mov ecx, [ebp-0x3c]
 	test ecx, ecx
-	jz inflate_blocks:F(0,29)_120
+	jz inflate_blocks_F0_29_120
 	mov edx, [ebp-0x40]
 	mov esi, [ebp-0x3c]
-inflate_blocks:F(0,29)_140:
+inflate_blocks_F0_29_140:
 	sub esi, 0x1
 	movzx eax, byte [edx]
 	mov ecx, edi
@@ -1539,14 +1596,14 @@ inflate_blocks:F(0,29)_140:
 	add edx, 0x1
 	add edi, 0x8
 	cmp edi, 0x2
-	ja inflate_blocks:F(0,29)_130
+	ja inflate_blocks_F0_29_130
 	mov ecx, [ebp-0x3c]
 	add ecx, [ebp-0x40]
 	cmp ecx, edx
-	jnz inflate_blocks:F(0,29)_140
-inflate_blocks:F(0,29)_430:
+	jnz inflate_blocks_F0_29_140
+inflate_blocks_F0_29_430:
 	mov dword [ebp+0x10], 0x0
-inflate_blocks:F(0,29)_830:
+inflate_blocks_F0_29_830:
 	mov eax, [ebp-0x34]
 	mov edx, [ebp+0x8]
 	mov [edx+0x20], eax
@@ -1564,7 +1621,7 @@ inflate_blocks:F(0,29)_830:
 	mov [esp+0x4], esi
 	mov ecx, [ebp+0x8]
 	mov [esp], ecx
-	call inflate_flush:F(0,1)
+	call inflate_flush_F0_1
 	add esp, 0xbc
 	pop ebx
 	pop esi
@@ -1575,7 +1632,7 @@ inflate_blocks:F(0,29)_830:
 	mov [ebp-0x40], ecx
 	mov esi, [ebp-0x60]
 	mov [ebp-0x3c], esi
-inflate_blocks:F(0,29)_850:
+inflate_blocks_F0_29_850:
 	mov ecx, [ebp-0x34]
 	mov esi, [ebp+0x8]
 	mov [esi+0x20], ecx
@@ -1597,14 +1654,14 @@ inflate_blocks:F(0,29)_850:
 	mov esi, [ebp+0xc]
 	mov [esp+0x4], esi
 	mov [esp], eax
-	call inflate_codes:F(0,30)
+	call inflate_codes_F0_30
 	cmp eax, 0x1
-	jnz inflate_blocks:F(0,29)_150
+	jnz inflate_blocks_F0_29_150
 	mov [esp+0x4], esi
 	mov edx, [ebp+0x8]
 	mov eax, [edx+0x4]
 	mov [esp], eax
-	call inflate_codes_free:F(0,39)
+	call inflate_codes_free_F0_39
 	mov ecx, [esi]
 	mov [ebp-0x64], ecx
 	mov esi, [esi+0x4]
@@ -1618,56 +1675,56 @@ inflate_blocks:F(0,29)_850:
 	mov [ebp-0x5c], ecx
 	mov eax, [edx+0x30]
 	cmp eax, ecx
-	jbe inflate_blocks:F(0,29)_160
+	jbe inflate_blocks_F0_29_160
 	sub eax, ecx
 	sub eax, 0x1
 	mov [ebp-0x58], eax
-inflate_blocks:F(0,29)_530:
+inflate_blocks_F0_29_530:
 	mov edx, [ebp+0x8]
 	mov eax, [edx+0x18]
 	test eax, eax
-	jnz inflate_blocks:F(0,29)_170
+	jnz inflate_blocks_F0_29_170
 	mov dword [edx], 0x0
 	mov dword [ebp+0x10], 0x0
-	jmp inflate_blocks:F(0,29)_30
+	jmp inflate_blocks_F0_29_30
 	mov ecx, [ebp-0x60]
 	test ecx, ecx
-	jz inflate_blocks:F(0,29)_180
+	jz inflate_blocks_F0_29_180
 	mov edx, [ebp-0x58]
 	test edx, edx
-	jnz inflate_blocks:F(0,29)_190
+	jnz inflate_blocks_F0_29_190
 	mov ecx, [ebp-0x5c]
 	mov edx, [ebp+0x8]
 	cmp ecx, [edx+0x2c]
-	jz inflate_blocks:F(0,29)_200
-inflate_blocks:F(0,29)_790:
+	jz inflate_blocks_F0_29_200
+inflate_blocks_F0_29_790:
 	mov [edx+0x34], ecx
 	mov esi, [ebp+0x10]
 	mov [esp+0x8], esi
 	mov eax, [ebp+0xc]
 	mov [esp+0x4], eax
 	mov [esp], edx
-	call inflate_flush:F(0,1)
+	call inflate_flush_F0_1
 	mov esi, eax
 	mov ecx, [ebp+0x8]
 	mov edx, [ecx+0x34]
 	mov ecx, [ecx+0x30]
 	cmp edx, ecx
-	jae inflate_blocks:F(0,29)_210
+	jae inflate_blocks_F0_29_210
 	mov eax, ecx
 	sub eax, edx
 	sub eax, 0x1
 	mov [ebp-0x58], eax
-inflate_blocks:F(0,29)_740:
+inflate_blocks_F0_29_740:
 	mov eax, [ebp+0x8]
 	cmp edx, [eax+0x2c]
-	jz inflate_blocks:F(0,29)_220
-inflate_blocks:F(0,29)_680:
+	jz inflate_blocks_F0_29_220
+inflate_blocks_F0_29_680:
 	mov [ebp-0x5c], edx
-inflate_blocks:F(0,29)_700:
+inflate_blocks_F0_29_700:
 	mov eax, [ebp-0x58]
 	test eax, eax
-	jnz inflate_blocks:F(0,29)_190
+	jnz inflate_blocks_F0_29_190
 	mov edx, [ebp-0x34]
 	mov ecx, [ebp+0x8]
 	mov [ecx+0x20], edx
@@ -1680,7 +1737,7 @@ inflate_blocks:F(0,29)_700:
 	sub eax, [ecx]
 	add [ecx+0x8], eax
 	mov eax, [ebp-0x64]
-inflate_blocks:F(0,29)_880:
+inflate_blocks_F0_29_880:
 	mov [ecx], eax
 	mov ecx, [ebp-0x5c]
 	mov edx, [ebp+0x8]
@@ -1689,21 +1746,21 @@ inflate_blocks:F(0,29)_880:
 	mov esi, [ebp+0xc]
 	mov [esp+0x4], esi
 	mov [esp], edx
-	call inflate_flush:F(0,1)
-	jmp inflate_blocks:F(0,29)_50
+	call inflate_flush_F0_1
+	jmp inflate_blocks_F0_29_50
 	cmp edi, 0x1f
-	ja inflate_blocks:F(0,29)_230
+	ja inflate_blocks_F0_29_230
 	mov edx, [ebp-0x60]
 	test edx, edx
-	jz inflate_blocks:F(0,29)_240
+	jz inflate_blocks_F0_29_240
 	mov esi, [ebp-0x60]
 	mov edx, [ebp-0x64]
 	mov [ebp-0x80], edx
 	mov ecx, edx
-	jmp inflate_blocks:F(0,29)_250
-inflate_blocks:F(0,29)_270:
+	jmp inflate_blocks_F0_29_250
+inflate_blocks_F0_29_270:
 	mov ecx, [ebp-0x80]
-inflate_blocks:F(0,29)_250:
+inflate_blocks_F0_29_250:
 	sub esi, 0x1
 	movzx eax, byte [ecx]
 	mov ecx, edi
@@ -1712,13 +1769,13 @@ inflate_blocks:F(0,29)_250:
 	add dword [ebp-0x80], 0x1
 	add edi, 0x8
 	cmp edi, 0x1f
-	ja inflate_blocks:F(0,29)_260
+	ja inflate_blocks_F0_29_260
 	mov eax, [ebp-0x64]
 	add eax, [ebp-0x60]
 	cmp [ebp-0x80], eax
-	jnz inflate_blocks:F(0,29)_270
+	jnz inflate_blocks_F0_29_270
 	mov dword [ebp+0x10], 0x0
-inflate_blocks:F(0,29)_890:
+inflate_blocks_F0_29_890:
 	mov eax, [ebp-0x34]
 	mov edx, [ebp+0x8]
 	mov [edx+0x20], eax
@@ -1729,7 +1786,7 @@ inflate_blocks:F(0,29)_890:
 	sub eax, [ecx]
 	add [ecx+0x8], eax
 	mov esi, [ebp-0x80]
-inflate_blocks:F(0,29)_630:
+inflate_blocks_F0_29_630:
 	mov [ecx], esi
 	mov eax, [ebp-0x5c]
 	mov [edx+0x34], eax
@@ -1738,11 +1795,11 @@ inflate_blocks:F(0,29)_630:
 	mov [esp+0x4], ecx
 	mov ecx, [ebp+0x8]
 	mov [esp], ecx
-	call inflate_flush:F(0,1)
-	jmp inflate_blocks:F(0,29)_50
+	call inflate_flush_F0_1
+	jmp inflate_blocks_F0_29_50
 	cmp edi, 0x2
-	jbe inflate_blocks:F(0,29)_280
-inflate_blocks:F(0,29)_800:
+	jbe inflate_blocks_F0_29_280
+inflate_blocks_F0_29_800:
 	mov eax, [ebp-0x34]
 	and eax, 0x1
 	mov esi, [ebp+0x8]
@@ -1751,12 +1808,12 @@ inflate_blocks:F(0,29)_800:
 	and eax, 0x7
 	shr eax, 1
 	cmp eax, 0x1
-	jz inflate_blocks:F(0,29)_290
-	jb inflate_blocks:F(0,29)_300
+	jz inflate_blocks_F0_29_290
+	jb inflate_blocks_F0_29_300
 	cmp eax, 0x2
-	jz inflate_blocks:F(0,29)_310
+	jz inflate_blocks_F0_29_310
 	cmp eax, 0x3
-	jnz inflate_blocks:F(0,29)_30
+	jnz inflate_blocks_F0_29_30
 	mov edx, [ebp+0x8]
 	mov dword [edx], 0x9
 	lea eax, [ebx+0xc6495]
@@ -1780,13 +1837,13 @@ inflate_blocks:F(0,29)_800:
 	mov dword [esp+0x8], 0xfffffffd
 	mov [esp+0x4], ecx
 	mov [esp], eax
-	call inflate_flush:F(0,1)
-	jmp inflate_blocks:F(0,29)_50
+	call inflate_flush_F0_1
+	jmp inflate_blocks_F0_29_50
 	mov eax, [ebp-0x64]
 	mov [ebp-0x40], eax
 	mov edx, [ebp-0x60]
 	mov [ebp-0x3c], edx
-inflate_blocks:F(0,29)_350:
+inflate_blocks_F0_29_350:
 	mov esi, [ebp+0x8]
 	mov eax, [esi+0x4]
 	mov edx, [esi+0x8]
@@ -1799,14 +1856,14 @@ inflate_blocks:F(0,29)_350:
 	lea esi, [ecx+edx+0x102]
 	mov [ebp-0x68], esi
 	cmp [ebp-0x54], esi
-	jae inflate_blocks:F(0,29)_320
+	jae inflate_blocks_F0_29_320
 	mov edx, [ebp+0x8]
 	mov esi, [edx+0x10]
 	cmp esi, edi
-	ja inflate_blocks:F(0,29)_330
+	ja inflate_blocks_F0_29_330
 	mov ecx, [ebp-0x3c]
 	mov [ebp-0x38], ecx
-inflate_blocks:F(0,29)_710:
+inflate_blocks_F0_29_710:
 	mov eax, [ebp-0x34]
 	mov edx, [ebx+markVerts+0x10ce2]
 	and eax, [edx+esi*4]
@@ -1818,7 +1875,7 @@ inflate_blocks:F(0,29)_710:
 	mov eax, [eax+0x4]
 	mov [ebp-0x2c], eax
 	cmp eax, 0xf
-	ja inflate_blocks:F(0,29)_340
+	ja inflate_blocks_F0_29_340
 	mov ecx, esi
 	shr dword [ebp-0x34], cl
 	sub edi, esi
@@ -1830,15 +1887,15 @@ inflate_blocks:F(0,29)_710:
 	mov edx, [ebp-0x54]
 	add edx, 0x1
 	mov [esi+0x8], edx
-inflate_blocks:F(0,29)_520:
+inflate_blocks_F0_29_520:
 	mov ecx, [ebp-0x38]
 	mov [ebp-0x3c], ecx
-	jmp inflate_blocks:F(0,29)_350
-inflate_blocks:F(0,29)_130:
+	jmp inflate_blocks_F0_29_350
+inflate_blocks_F0_29_130:
 	mov [ebp-0x40], edx
 	mov [ebp-0x3c], esi
 	mov dword [ebp+0x10], 0x0
-inflate_blocks:F(0,29)_110:
+inflate_blocks_F0_29_110:
 	mov esi, [ebp-0x48]
 	mov ecx, [esi]
 	mov eax, [ebp+0x8]
@@ -1858,12 +1915,12 @@ inflate_blocks:F(0,29)_110:
 	shr eax, 0xa
 	add eax, 0x4
 	cmp edx, eax
-	jb inflate_blocks:F(0,29)_360
-inflate_blocks:F(0,29)_100:
+	jb inflate_blocks_F0_29_360
+inflate_blocks_F0_29_100:
 	mov esi, edx
 	cmp edx, 0x12
-	jbe inflate_blocks:F(0,29)_370
-inflate_blocks:F(0,29)_660:
+	jbe inflate_blocks_F0_29_370
+inflate_blocks_F0_29_660:
 	mov edx, [ebp+0x8]
 	mov dword [edx+0x10], 0x7
 	mov ecx, [ebp+0xc]
@@ -1877,26 +1934,26 @@ inflate_blocks:F(0,29)_660:
 	mov [esp+0x4], eax
 	mov eax, [edx+0xc]
 	mov [esp], eax
-	call inflate_trees_bits:F(0,1)
+	call inflate_trees_bits_F0_1
 	mov esi, eax
 	test eax, eax
-	jnz inflate_blocks:F(0,29)_380
+	jnz inflate_blocks_F0_29_380
 	mov eax, [ebp+0x8]
 	mov dword [eax+0x8], 0x0
 	mov dword [eax], 0x5
-	jmp inflate_blocks:F(0,29)_350
-inflate_blocks:F(0,29)_780:
+	jmp inflate_blocks_F0_29_350
+inflate_blocks_F0_29_780:
 	mov [ebp-0x5c], edx
-inflate_blocks:F(0,29)_190:
+inflate_blocks_F0_29_190:
 	mov eax, [ebp+0x8]
 	mov esi, [eax+0x4]
 	cmp [ebp-0x60], esi
 	cmovb esi, [ebp-0x60]
 	cmp [ebp-0x58], esi
-	jae inflate_blocks:F(0,29)_390
+	jae inflate_blocks_F0_29_390
 	mov esi, [ebp-0x58]
 	mov dword [ebp-0x58], 0x0
-inflate_blocks:F(0,29)_640:
+inflate_blocks_F0_29_640:
 	mov [esp+0x8], esi
 	mov edx, [ebp-0x64]
 	mov [esp+0x4], edx
@@ -1911,22 +1968,22 @@ inflate_blocks:F(0,29)_640:
 	sub eax, esi
 	mov [edx+0x4], eax
 	test eax, eax
-	jnz inflate_blocks:F(0,29)_400
+	jnz inflate_blocks_F0_29_400
 	cmp dword [edx+0x18], 0x1
 	sbb eax, eax
 	not eax
 	and eax, 0x7
 	mov [edx], eax
 	mov dword [ebp+0x10], 0x0
-	jmp inflate_blocks:F(0,29)_30
-inflate_blocks:F(0,29)_330:
+	jmp inflate_blocks_F0_29_30
+inflate_blocks_F0_29_330:
 	mov eax, [ebp-0x3c]
 	test eax, eax
-	jz inflate_blocks:F(0,29)_120
+	jz inflate_blocks_F0_29_120
 	mov ecx, [ebp-0x3c]
 	mov [ebp-0x38], ecx
 	mov edx, [ebp-0x40]
-inflate_blocks:F(0,29)_420:
+inflate_blocks_F0_29_420:
 	sub dword [ebp-0x38], 0x1
 	movzx eax, byte [edx]
 	mov ecx, edi
@@ -1935,31 +1992,31 @@ inflate_blocks:F(0,29)_420:
 	add edx, 0x1
 	add edi, 0x8
 	cmp esi, edi
-	jbe inflate_blocks:F(0,29)_410
+	jbe inflate_blocks_F0_29_410
 	mov ecx, [ebp-0x40]
 	add ecx, [ebp-0x3c]
 	cmp ecx, edx
-	jnz inflate_blocks:F(0,29)_420
-	jmp inflate_blocks:F(0,29)_430
-inflate_blocks:F(0,29)_340:
+	jnz inflate_blocks_F0_29_420
+	jmp inflate_blocks_F0_29_430
+inflate_blocks_F0_29_340:
 	cmp dword [ebp-0x2c], 0x12
-	jz inflate_blocks:F(0,29)_440
+	jz inflate_blocks_F0_29_440
 	mov esi, [ebp-0x2c]
 	sub esi, 0xe
 	mov [ebp-0x30], esi
 	mov dword [ebp-0x50], 0x3
-inflate_blocks:F(0,29)_720:
+inflate_blocks_F0_29_720:
 	mov eax, [ebp-0x44]
 	add eax, [ebp-0x30]
 	mov [ebp-0x6c], eax
 	cmp eax, edi
-	jbe inflate_blocks:F(0,29)_450
+	jbe inflate_blocks_F0_29_450
 	mov esi, [ebp-0x38]
 	test esi, esi
-	jz inflate_blocks:F(0,29)_120
+	jz inflate_blocks_F0_29_120
 	mov esi, [ebp-0x38]
 	mov edx, [ebp-0x40]
-inflate_blocks:F(0,29)_470:
+inflate_blocks_F0_29_470:
 	sub esi, 0x1
 	movzx eax, byte [edx]
 	mov ecx, edi
@@ -1968,17 +2025,17 @@ inflate_blocks:F(0,29)_470:
 	add edx, 0x1
 	add edi, 0x8
 	cmp [ebp-0x6c], edi
-	jbe inflate_blocks:F(0,29)_460
+	jbe inflate_blocks_F0_29_460
 	mov ecx, [ebp-0x40]
 	add ecx, [ebp-0x38]
 	cmp ecx, edx
-	jnz inflate_blocks:F(0,29)_470
-	jmp inflate_blocks:F(0,29)_430
-inflate_blocks:F(0,29)_460:
+	jnz inflate_blocks_F0_29_470
+	jmp inflate_blocks_F0_29_430
+inflate_blocks_F0_29_460:
 	mov [ebp-0x40], edx
 	mov [ebp-0x38], esi
 	mov dword [ebp+0x10], 0x0
-inflate_blocks:F(0,29)_450:
+inflate_blocks_F0_29_450:
 	mov eax, [ebp-0x34]
 	movzx ecx, byte [ebp-0x44]
 	shr eax, cl
@@ -1996,33 +2053,33 @@ inflate_blocks:F(0,29)_450:
 	mov eax, [ebp-0x54]
 	add eax, edx
 	cmp [ebp-0x68], eax
-	jb inflate_blocks:F(0,29)_480
+	jb inflate_blocks_F0_29_480
 	cmp dword [ebp-0x2c], 0x10
-	jz inflate_blocks:F(0,29)_490
+	jz inflate_blocks_F0_29_490
 	mov dword [ebp-0x4c], 0x0
 	mov esi, [ebp+0x8]
 	mov eax, [esi+0xc]
-inflate_blocks:F(0,29)_670:
+inflate_blocks_F0_29_670:
 	mov edx, [ebp-0x54]
 	shl edx, 0x2
 	xor ecx, ecx
-	jmp inflate_blocks:F(0,29)_500
-inflate_blocks:F(0,29)_510:
+	jmp inflate_blocks_F0_29_500
+inflate_blocks_F0_29_510:
 	mov esi, [ebp+0x8]
 	mov eax, [esi+0xc]
-inflate_blocks:F(0,29)_500:
+inflate_blocks_F0_29_500:
 	mov esi, [ebp-0x4c]
 	mov [eax+edx], esi
 	add dword [ebp-0x54], 0x1
 	add ecx, 0x1
 	add edx, 0x4
 	cmp [ebp-0x7c], ecx
-	jnz inflate_blocks:F(0,29)_510
+	jnz inflate_blocks_F0_29_510
 	mov eax, [ebp-0x54]
 	mov edx, [ebp+0x8]
 	mov [edx+0x8], eax
-	jmp inflate_blocks:F(0,29)_520
-inflate_blocks:F(0,29)_40:
+	jmp inflate_blocks_F0_29_520
+inflate_blocks_F0_29_40:
 	mov ecx, [ebp-0x34]
 	mov [esi+0x20], ecx
 	mov [esi+0x1c], edi
@@ -2042,51 +2099,51 @@ inflate_blocks:F(0,29)_40:
 	mov eax, [ebp+0xc]
 	mov [esp+0x4], eax
 	mov [esp], ecx
-	call inflate_flush:F(0,1)
-	jmp inflate_blocks:F(0,29)_50
-inflate_blocks:F(0,29)_160:
+	call inflate_flush_F0_1
+	jmp inflate_blocks_F0_29_50
+inflate_blocks_F0_29_160:
 	mov esi, [edx+0x2c]
 	sub esi, ecx
 	mov [ebp-0x58], esi
-	jmp inflate_blocks:F(0,29)_530
-inflate_blocks:F(0,29)_230:
+	jmp inflate_blocks_F0_29_530
+inflate_blocks_F0_29_230:
 	mov esi, [ebp-0x64]
 	mov [ebp-0x80], esi
 	mov esi, [ebp-0x60]
-inflate_blocks:F(0,29)_810:
+inflate_blocks_F0_29_810:
 	mov edx, [ebp-0x34]
 	not edx
 	shr edx, 0x10
 	movzx eax, word [ebp-0x34]
 	cmp edx, eax
-	jnz inflate_blocks:F(0,29)_540
+	jnz inflate_blocks_F0_29_540
 	mov eax, [ebp+0x8]
 	mov [eax+0x4], edx
 	test edx, edx
-	jz inflate_blocks:F(0,29)_550
+	jz inflate_blocks_F0_29_550
 	mov eax, 0x2
 	mov ecx, [ebp+0x8]
-inflate_blocks:F(0,29)_730:
+inflate_blocks_F0_29_730:
 	mov [ecx], eax
 	mov eax, [ebp-0x80]
 	mov [ebp-0x64], eax
 	mov [ebp-0x60], esi
 	mov dword [ebp-0x34], 0x0
 	xor edi, edi
-	jmp inflate_blocks:F(0,29)_30
-inflate_blocks:F(0,29)_60:
+	jmp inflate_blocks_F0_29_30
+inflate_blocks_F0_29_60:
 	mov eax, [ebp-0x60]
 	test eax, eax
-	jz inflate_blocks:F(0,29)_560
+	jz inflate_blocks_F0_29_560
 	mov eax, [ebp-0x64]
 	mov [ebp-0x40], eax
 	mov edx, [ebp-0x60]
 	mov [ebp-0x3c], edx
 	mov ecx, eax
-	jmp inflate_blocks:F(0,29)_570
-inflate_blocks:F(0,29)_590:
+	jmp inflate_blocks_F0_29_570
+inflate_blocks_F0_29_590:
 	mov ecx, [ebp-0x40]
-inflate_blocks:F(0,29)_570:
+inflate_blocks_F0_29_570:
 	sub dword [ebp-0x3c], 0x1
 	movzx eax, byte [ecx]
 	mov ecx, edi
@@ -2095,13 +2152,13 @@ inflate_blocks:F(0,29)_570:
 	add dword [ebp-0x40], 0x1
 	add edi, 0x8
 	cmp edi, 0xd
-	ja inflate_blocks:F(0,29)_580
+	ja inflate_blocks_F0_29_580
 	mov edx, [ebp-0x64]
 	add edx, [ebp-0x60]
 	cmp edx, [ebp-0x40]
-	jnz inflate_blocks:F(0,29)_590
+	jnz inflate_blocks_F0_29_590
 	mov dword [ebp+0x10], 0x0
-inflate_blocks:F(0,29)_900:
+inflate_blocks_F0_29_900:
 	mov eax, [ebp-0x34]
 	mov ecx, [ebp+0x8]
 	mov [ecx+0x20], eax
@@ -2118,15 +2175,15 @@ inflate_blocks:F(0,29)_900:
 	mov [esp+0x8], edx
 	mov [esp+0x4], esi
 	mov [esp], ecx
-	call inflate_flush:F(0,1)
-	jmp inflate_blocks:F(0,29)_50
-inflate_blocks:F(0,29)_280:
+	call inflate_flush_F0_1
+	jmp inflate_blocks_F0_29_50
+inflate_blocks_F0_29_280:
 	mov eax, [ebp-0x60]
 	test eax, eax
-	jz inflate_blocks:F(0,29)_600
+	jz inflate_blocks_F0_29_600
 	mov edx, [ebp-0x64]
 	mov esi, [ebp-0x60]
-inflate_blocks:F(0,29)_620:
+inflate_blocks_F0_29_620:
 	sub esi, 0x1
 	movzx eax, byte [edx]
 	mov ecx, edi
@@ -2135,14 +2192,14 @@ inflate_blocks:F(0,29)_620:
 	add edx, 0x1
 	add edi, 0x8
 	cmp edi, 0x2
-	ja inflate_blocks:F(0,29)_610
+	ja inflate_blocks_F0_29_610
 	mov eax, [ebp-0x64]
 	add eax, [ebp-0x60]
 	cmp eax, edx
-	jnz inflate_blocks:F(0,29)_620
+	jnz inflate_blocks_F0_29_620
 	mov [ebp-0x64], edx
 	mov dword [ebp+0x10], 0x0
-inflate_blocks:F(0,29)_600:
+inflate_blocks_F0_29_600:
 	mov eax, [ebp-0x34]
 	mov edx, [ebp+0x8]
 	mov [edx+0x20], eax
@@ -2153,13 +2210,13 @@ inflate_blocks:F(0,29)_600:
 	sub eax, [ecx]
 	add [ecx+0x8], eax
 	mov esi, [ebp-0x64]
-	jmp inflate_blocks:F(0,29)_630
-inflate_blocks:F(0,29)_390:
+	jmp inflate_blocks_F0_29_630
+inflate_blocks_F0_29_390:
 	sub [ebp-0x58], esi
-	jmp inflate_blocks:F(0,29)_640
-inflate_blocks:F(0,29)_370:
+	jmp inflate_blocks_F0_29_640
+inflate_blocks_F0_29_370:
 	lea ecx, [ebx+edx*4+0x11b711]
-inflate_blocks:F(0,29)_650:
+inflate_blocks_F0_29_650:
 	mov edx, [ecx]
 	mov eax, [ebp+0x8]
 	mov eax, [eax+0xc]
@@ -2170,48 +2227,48 @@ inflate_blocks:F(0,29)_650:
 	mov [eax+0x8], esi
 	add ecx, 0x4
 	cmp esi, 0x13
-	jnz inflate_blocks:F(0,29)_650
-	jmp inflate_blocks:F(0,29)_660
-inflate_blocks:F(0,29)_490:
+	jnz inflate_blocks_F0_29_650
+	jmp inflate_blocks_F0_29_660
+inflate_blocks_F0_29_490:
 	mov eax, [ebp-0x54]
 	test eax, eax
-	jz inflate_blocks:F(0,29)_480
+	jz inflate_blocks_F0_29_480
 	mov edx, [ebp+0x8]
 	mov eax, [edx+0xc]
 	mov ecx, [ebp-0x54]
 	mov ecx, [eax+ecx*4-0x4]
 	mov [ebp-0x4c], ecx
-	jmp inflate_blocks:F(0,29)_670
-inflate_blocks:F(0,29)_220:
+	jmp inflate_blocks_F0_29_670
+inflate_blocks_F0_29_220:
 	mov eax, [eax+0x28]
 	mov [ebp-0x5c], eax
 	cmp ecx, eax
-	jz inflate_blocks:F(0,29)_680
-	jbe inflate_blocks:F(0,29)_690
+	jz inflate_blocks_F0_29_680
+	jbe inflate_blocks_F0_29_690
 	sub ecx, eax
 	sub ecx, 0x1
 	mov [ebp-0x58], ecx
-	jmp inflate_blocks:F(0,29)_700
-inflate_blocks:F(0,29)_410:
+	jmp inflate_blocks_F0_29_700
+inflate_blocks_F0_29_410:
 	mov [ebp-0x40], edx
 	mov dword [ebp+0x10], 0x0
-	jmp inflate_blocks:F(0,29)_710
-inflate_blocks:F(0,29)_400:
+	jmp inflate_blocks_F0_29_710
+inflate_blocks_F0_29_400:
 	mov dword [ebp+0x10], 0x0
-	jmp inflate_blocks:F(0,29)_30
-inflate_blocks:F(0,29)_440:
+	jmp inflate_blocks_F0_29_30
+inflate_blocks_F0_29_440:
 	mov dword [ebp-0x50], 0xb
 	mov dword [ebp-0x30], 0x7
-	jmp inflate_blocks:F(0,29)_720
-inflate_blocks:F(0,29)_550:
+	jmp inflate_blocks_F0_29_720
+inflate_blocks_F0_29_550:
 	mov edx, [ebp+0x8]
 	cmp dword [edx+0x18], 0x1
 	sbb eax, eax
 	not eax
 	and eax, 0x7
 	mov ecx, edx
-	jmp inflate_blocks:F(0,29)_730
-inflate_blocks:F(0,29)_300:
+	jmp inflate_blocks_F0_29_730
+inflate_blocks_F0_29_300:
 	shr dword [ebp-0x34], 0x3
 	lea eax, [edi-0x3]
 	mov ecx, eax
@@ -2221,14 +2278,14 @@ inflate_blocks:F(0,29)_300:
 	sub edi, ecx
 	mov eax, [ebp+0x8]
 	mov dword [eax], 0x1
-	jmp inflate_blocks:F(0,29)_30
-inflate_blocks:F(0,29)_210:
+	jmp inflate_blocks_F0_29_30
+inflate_blocks_F0_29_210:
 	mov eax, [ebp+0x8]
 	mov eax, [eax+0x2c]
 	sub eax, edx
 	mov [ebp-0x58], eax
-	jmp inflate_blocks:F(0,29)_740
-inflate_blocks:F(0,29)_290:
+	jmp inflate_blocks_F0_29_740
+inflate_blocks_F0_29_290:
 	mov edx, [ebp+0xc]
 	mov [esp+0x10], edx
 	lea eax, [ebp-0x20]
@@ -2239,7 +2296,7 @@ inflate_blocks:F(0,29)_290:
 	mov [esp+0x4], eax
 	lea eax, [ebp-0x28]
 	mov [esp], eax
-	call inflate_trees_fixed:F(0,1)
+	call inflate_trees_fixed_F0_1
 	mov ecx, [ebp+0xc]
 	mov [esp+0x10], ecx
 	mov eax, [ebp-0x20]
@@ -2250,58 +2307,58 @@ inflate_blocks:F(0,29)_290:
 	mov [esp+0x4], eax
 	mov eax, [ebp-0x28]
 	mov [esp], eax
-	call inflate_codes_new:F(0,1)
+	call inflate_codes_new_F0_1
 	mov esi, [ebp+0x8]
 	mov [esi+0x4], eax
 	test eax, eax
-	jz inflate_blocks:F(0,29)_750
+	jz inflate_blocks_F0_29_750
 	shr dword [ebp-0x34], 0x3
 	sub edi, 0x3
 	mov dword [esi], 0x6
-	jmp inflate_blocks:F(0,29)_30
-inflate_blocks:F(0,29)_200:
+	jmp inflate_blocks_F0_29_30
+inflate_blocks_F0_29_200:
 	mov eax, [edx+0x30]
 	mov edx, [edx+0x28]
 	cmp eax, edx
-	jz inflate_blocks:F(0,29)_760
-	jbe inflate_blocks:F(0,29)_770
+	jz inflate_blocks_F0_29_760
+	jbe inflate_blocks_F0_29_770
 	sub eax, edx
 	sub eax, 0x1
 	mov [ebp-0x58], eax
-inflate_blocks:F(0,29)_840:
+inflate_blocks_F0_29_840:
 	mov eax, [ebp-0x58]
 	test eax, eax
-	jnz inflate_blocks:F(0,29)_780
+	jnz inflate_blocks_F0_29_780
 	mov [ebp-0x5c], edx
 	mov ecx, edx
 	mov edx, [ebp+0x8]
-	jmp inflate_blocks:F(0,29)_790
-inflate_blocks:F(0,29)_610:
+	jmp inflate_blocks_F0_29_790
+inflate_blocks_F0_29_610:
 	mov [ebp-0x64], edx
 	mov [ebp-0x60], esi
 	mov dword [ebp+0x10], 0x0
-	jmp inflate_blocks:F(0,29)_800
-inflate_blocks:F(0,29)_260:
+	jmp inflate_blocks_F0_29_800
+inflate_blocks_F0_29_260:
 	mov dword [ebp+0x10], 0x0
-	jmp inflate_blocks:F(0,29)_810
-inflate_blocks:F(0,29)_580:
+	jmp inflate_blocks_F0_29_810
+inflate_blocks_F0_29_580:
 	mov dword [ebp+0x10], 0x0
-	jmp inflate_blocks:F(0,29)_820
-inflate_blocks:F(0,29)_120:
+	jmp inflate_blocks_F0_29_820
+inflate_blocks_F0_29_120:
 	mov ecx, [ebp-0x40]
-	jmp inflate_blocks:F(0,29)_830
-inflate_blocks:F(0,29)_770:
+	jmp inflate_blocks_F0_29_830
+inflate_blocks_F0_29_770:
 	mov eax, [ebp-0x5c]
 	sub eax, edx
 	mov [ebp-0x58], eax
-	jmp inflate_blocks:F(0,29)_840
-inflate_blocks:F(0,29)_310:
+	jmp inflate_blocks_F0_29_840
+inflate_blocks_F0_29_310:
 	shr dword [ebp-0x34], 0x3
 	sub edi, 0x3
 	mov eax, [ebp+0x8]
 	mov dword [eax], 0x3
-	jmp inflate_blocks:F(0,29)_30
-inflate_blocks:F(0,29)_320:
+	jmp inflate_blocks_F0_29_30
+inflate_blocks_F0_29_320:
 	mov eax, [ebp+0x8]
 	mov dword [eax+0x14], 0x0
 	mov dword [ebp-0x20], 0x9
@@ -2325,10 +2382,10 @@ inflate_blocks:F(0,29)_320:
 	mov [esp+0x4], eax
 	lea eax, [ecx+0x101]
 	mov [esp], eax
-	call inflate_trees_dynamic:F(0,1)
+	call inflate_trees_dynamic_F0_1
 	mov esi, eax
 	test eax, eax
-	jnz inflate_blocks:F(0,29)_380
+	jnz inflate_blocks_F0_29_380
 	mov edx, [ebp+0x8]
 	mov eax, [edx+0xc]
 	mov [esp+0x4], eax
@@ -2346,22 +2403,22 @@ inflate_blocks:F(0,29)_320:
 	mov [esp+0x4], eax
 	mov eax, [ebp-0x20]
 	mov [esp], eax
-	call inflate_codes_new:F(0,1)
+	call inflate_codes_new_F0_1
 	test eax, eax
-	jz inflate_blocks:F(0,29)_80
+	jz inflate_blocks_F0_29_80
 	mov edx, [ebp+0x8]
 	mov [edx+0x4], eax
 	mov dword [edx], 0x6
-	jmp inflate_blocks:F(0,29)_850
-inflate_blocks:F(0,29)_760:
+	jmp inflate_blocks_F0_29_850
+inflate_blocks_F0_29_760:
 	mov ecx, [ebp-0x5c]
 	mov edx, [ebp+0x8]
-	jmp inflate_blocks:F(0,29)_790
-inflate_blocks:F(0,29)_690:
+	jmp inflate_blocks_F0_29_790
+inflate_blocks_F0_29_690:
 	sub edx, [ebp-0x5c]
 	mov [ebp-0x58], edx
-	jmp inflate_blocks:F(0,29)_700
-inflate_blocks:F(0,29)_480:
+	jmp inflate_blocks_F0_29_700
+inflate_blocks_F0_29_480:
 	mov edx, [ebp+0x8]
 	mov eax, [edx+0xc]
 	mov [esp+0x4], eax
@@ -2386,8 +2443,8 @@ inflate_blocks:F(0,29)_480:
 	mov [edx], eax
 	mov ecx, [ebp-0x5c]
 	mov edx, [ebp+0x8]
-	jmp inflate_blocks:F(0,29)_860
-inflate_blocks:F(0,29)_70:
+	jmp inflate_blocks_F0_29_860
+inflate_blocks_F0_29_70:
 	mov ecx, [ebp+0x8]
 	mov dword [ecx], 0x9
 	lea eax, [ebx+0xc64c9]
@@ -2410,12 +2467,12 @@ inflate_blocks:F(0,29)_70:
 	mov edx, [ebp+0xc]
 	mov [esp+0x4], edx
 	mov [esp], esi
-	call inflate_flush:F(0,1)
-	jmp inflate_blocks:F(0,29)_50
-inflate_blocks:F(0,29)_380:
+	call inflate_flush_F0_1
+	jmp inflate_blocks_F0_29_50
+inflate_blocks_F0_29_380:
 	cmp esi, 0xfffffffd
-	jz inflate_blocks:F(0,29)_870
-inflate_blocks:F(0,29)_910:
+	jz inflate_blocks_F0_29_870
+inflate_blocks_F0_29_910:
 	mov edx, [ebp-0x34]
 	mov ecx, [ebp+0x8]
 	mov [ecx+0x20], edx
@@ -2428,16 +2485,16 @@ inflate_blocks:F(0,29)_910:
 	sub eax, [ecx]
 	add [ecx+0x8], eax
 	mov eax, [ebp-0x40]
-	jmp inflate_blocks:F(0,29)_880
-inflate_blocks:F(0,29)_150:
+	jmp inflate_blocks_F0_29_880
+inflate_blocks_F0_29_150:
 	mov [esp+0x8], eax
 	mov eax, [ebp+0xc]
 	mov [esp+0x4], eax
 	mov edx, [ebp+0x8]
 	mov [esp], edx
-	call inflate_flush:F(0,1)
-	jmp inflate_blocks:F(0,29)_50
-inflate_blocks:F(0,29)_180:
+	call inflate_flush_F0_1
+	jmp inflate_blocks_F0_29_50
+inflate_blocks_F0_29_180:
 	mov edx, [ebp-0x34]
 	mov ecx, [ebp+0x8]
 	mov [ecx+0x20], edx
@@ -2456,9 +2513,9 @@ inflate_blocks:F(0,29)_180:
 	mov [esp+0x4], esi
 	mov esi, [ebp+0x8]
 	mov [esp], esi
-	call inflate_flush:F(0,1)
-	jmp inflate_blocks:F(0,29)_50
-inflate_blocks:F(0,29)_80:
+	call inflate_flush_F0_1
+	jmp inflate_blocks_F0_29_50
+inflate_blocks_F0_29_80:
 	mov eax, [ebp-0x34]
 	mov edx, [ebp+0x8]
 	mov [edx+0x20], eax
@@ -2477,9 +2534,9 @@ inflate_blocks:F(0,29)_80:
 	mov esi, [ebp+0xc]
 	mov [esp+0x4], esi
 	mov [esp], edx
-	call inflate_flush:F(0,1)
-	jmp inflate_blocks:F(0,29)_50
-inflate_blocks:F(0,29)_540:
+	call inflate_flush_F0_1
+	jmp inflate_blocks_F0_29_50
+inflate_blocks_F0_29_540:
 	mov edx, [ebp+0x8]
 	mov dword [edx], 0x9
 	lea eax, [ebx+0xc64a9]
@@ -2501,16 +2558,16 @@ inflate_blocks:F(0,29)_540:
 	mov eax, [ebp+0xc]
 	mov [esp+0x4], eax
 	mov [esp], ecx
-	call inflate_flush:F(0,1)
-	jmp inflate_blocks:F(0,29)_50
-inflate_blocks:F(0,29)_240:
+	call inflate_flush_F0_1
+	jmp inflate_blocks_F0_29_50
+inflate_blocks_F0_29_240:
 	mov eax, [ebp-0x64]
 	mov [ebp-0x80], eax
-	jmp inflate_blocks:F(0,29)_890
-inflate_blocks:F(0,29)_560:
+	jmp inflate_blocks_F0_29_890
+inflate_blocks_F0_29_560:
 	mov edx, [ebp-0x64]
-	jmp inflate_blocks:F(0,29)_900
-inflate_blocks:F(0,29)_750:
+	jmp inflate_blocks_F0_29_900
+inflate_blocks_F0_29_750:
 	mov edx, [ebp-0x34]
 	mov ecx, [ebp+0x8]
 	mov [ecx+0x20], edx
@@ -2529,9 +2586,9 @@ inflate_blocks:F(0,29)_750:
 	mov eax, [ebp+0xc]
 	mov [esp+0x4], eax
 	mov [esp], ecx
-	call inflate_flush:F(0,1)
-	jmp inflate_blocks:F(0,29)_50
-inflate_blocks:F(0,29)_870:
+	call inflate_flush_F0_1
+	jmp inflate_blocks_F0_29_50
+inflate_blocks_F0_29_870:
 	mov edx, [ebp+0x8]
 	mov eax, [edx+0xc]
 	mov [esp+0x4], eax
@@ -2541,12 +2598,12 @@ inflate_blocks:F(0,29)_870:
 	call dword [ecx+0x24]
 	mov eax, [ebp+0x8]
 	mov dword [eax], 0x9
-	jmp inflate_blocks:F(0,29)_910
+	jmp inflate_blocks_F0_29_910
 
 
-;inflate_blocks_new:F(0,2)
+;inflate_blocks_new_F0_2
 
-inflate_blocks_new:F(0,2):
+inflate_blocks_new_F0_2:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -2560,7 +2617,7 @@ inflate_blocks_new:F(0,2):
 	call dword [edi+0x20]
 	mov esi, eax
 	test eax, eax
-	jz inflate_blocks_new:F(0,2)_10
+	jz inflate_blocks_new_F0_2_10
 	mov dword [esp+0x8], 0x5a0
 	mov dword [esp+0x4], 0x8
 	mov eax, [edi+0x28]
@@ -2568,7 +2625,7 @@ inflate_blocks_new:F(0,2):
 	call dword [edi+0x20]
 	mov [esi+0x24], eax
 	test eax, eax
-	jz inflate_blocks_new:F(0,2)_20
+	jz inflate_blocks_new_F0_2_20
 	mov eax, [ebp+0x10]
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], 0x1
@@ -2578,7 +2635,7 @@ inflate_blocks_new:F(0,2):
 	mov edx, eax
 	mov [esi+0x28], eax
 	test eax, eax
-	jz inflate_blocks_new:F(0,2)_30
+	jz inflate_blocks_new_F0_2_30
 	mov ecx, [ebp+0x10]
 	lea eax, [eax+ecx]
 	mov [esi+0x2c], eax
@@ -2590,38 +2647,38 @@ inflate_blocks_new:F(0,2):
 	mov [esi+0x34], edx
 	mov [esi+0x30], edx
 	test eax, eax
-	jz inflate_blocks_new:F(0,2)_10
+	jz inflate_blocks_new_F0_2_10
 	mov dword [esp+0x8], 0x0
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], 0x0
 	call dword [ebp+0xc]
 	mov [esi+0x3c], eax
 	mov [edi+0x30], eax
-inflate_blocks_new:F(0,2)_10:
+inflate_blocks_new_F0_2_10:
 	mov eax, esi
 	add esp, 0x10
 	pop esi
 	pop edi
 	pop ebp
 	ret
-inflate_blocks_new:F(0,2)_30:
+inflate_blocks_new_F0_2_30:
 	mov eax, [esi+0x24]
 	mov [esp+0x4], eax
 	mov eax, [edi+0x28]
 	mov [esp], eax
 	call dword [edi+0x24]
-inflate_blocks_new:F(0,2)_20:
+inflate_blocks_new_F0_2_20:
 	mov [esp+0x4], esi
 	mov eax, [edi+0x28]
 	mov [esp], eax
 	call dword [edi+0x24]
 	xor esi, esi
-	jmp inflate_blocks_new:F(0,2)_10
+	jmp inflate_blocks_new_F0_2_10
 
 
-;inflate_blocks_free:F(0,29)
+;inflate_blocks_free_F0_29
 
-inflate_blocks_free:F(0,29):
+inflate_blocks_free_F0_29:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -2632,11 +2689,11 @@ inflate_blocks_free:F(0,29):
 	mov eax, [esi]
 	sub eax, 0x4
 	cmp eax, 0x1
-	jbe inflate_blocks_free:F(0,29)_10
-inflate_blocks_free:F(0,29)_50:
+	jbe inflate_blocks_free_F0_29_10
+inflate_blocks_free_F0_29_50:
 	cmp dword [esi], 0x6
-	jz inflate_blocks_free:F(0,29)_20
-inflate_blocks_free:F(0,29)_40:
+	jz inflate_blocks_free_F0_29_20
+inflate_blocks_free_F0_29_40:
 	mov dword [esi], 0x0
 	mov dword [esi+0x1c], 0x0
 	mov dword [esi+0x20], 0x0
@@ -2645,7 +2702,7 @@ inflate_blocks_free:F(0,29)_40:
 	mov [esi+0x30], eax
 	mov edx, [esi+0x38]
 	test edx, edx
-	jz inflate_blocks_free:F(0,29)_30
+	jz inflate_blocks_free_F0_29_30
 	mov dword [esp+0x8], 0x0
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], 0x0
@@ -2653,7 +2710,7 @@ inflate_blocks_free:F(0,29)_40:
 	mov [esi+0x3c], eax
 	mov [edi+0x30], eax
 	mov eax, [esi+0x28]
-inflate_blocks_free:F(0,29)_30:
+inflate_blocks_free_F0_29_30:
 	mov [esp+0x4], eax
 	mov eax, [edi+0x28]
 	mov [esp], eax
@@ -2673,23 +2730,23 @@ inflate_blocks_free:F(0,29)_30:
 	pop edi
 	pop ebp
 	ret
-inflate_blocks_free:F(0,29)_20:
+inflate_blocks_free_F0_29_20:
 	mov [esp+0x4], edi
 	mov eax, [esi+0x4]
 	mov [esp], eax
-	call inflate_codes_free:F(0,39)
-	jmp inflate_blocks_free:F(0,29)_40
-inflate_blocks_free:F(0,29)_10:
+	call inflate_codes_free_F0_39
+	jmp inflate_blocks_free_F0_29_40
+inflate_blocks_free_F0_29_10:
 	mov eax, [esi+0xc]
 	mov [esp+0x4], eax
 	mov eax, [edi+0x28]
 	mov [esp], eax
 	call dword [edi+0x24]
-	jmp inflate_blocks_free:F(0,29)_50
+	jmp inflate_blocks_free_F0_29_50
 	add [eax], al
 
 
-inflate_codes_new:F(0,1):
+inflate_codes_new_F0_1:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -2700,7 +2757,7 @@ inflate_codes_new:F(0,1):
 	mov [esp], eax
 	call dword [edx+0x20]
 	test eax, eax
-	jz inflate_codes_new:F(0,1)_10
+	jz inflate_codes_new_F0_1_10
 	mov dword [eax], 0x0
 	movzx edx, byte [ebp+0x8]
 	mov [eax+0x10], dl
@@ -2710,21 +2767,21 @@ inflate_codes_new:F(0,1):
 	mov [eax+0x14], edx
 	mov edx, [ebp+0x14]
 	mov [eax+0x18], edx
-inflate_codes_new:F(0,1)_10:
+inflate_codes_new_F0_1_10:
 	leave
 	ret
 
 
-;inflate_codes:F(0,30)
+;inflate_codes_F0_30
 
-inflate_codes:F(0,30):
+inflate_codes_F0_30:
 	push ebp
 	mov ebp, esp
 	push edi
 	push esi
 	push ebx
 	sub esp, 0x6c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov esi, [ebp+0x8]
 	mov eax, [ebp+0xc]
 	mov [ebp-0x44], eax
@@ -2745,14 +2802,14 @@ inflate_codes:F(0,30):
 	mov [ebp-0x1c], edx
 	mov eax, [esi+0x30]
 	cmp edx, eax
-	jae inflate_codes:F(0,30)_10
+	jae inflate_codes_F0_30_10
 	sub eax, edx
 	sub eax, 0x1
 	mov [ebp-0x34], eax
-inflate_codes:F(0,30)_30:
+inflate_codes_F0_30_30:
 	mov edx, [ebp-0x30]
 	cmp dword [edx], 0x9
-	ja inflate_codes:F(0,30)_20
+	ja inflate_codes_F0_30_20
 	mov eax, [edx]
 	mov eax, [ebx+eax*4+0x5e]
 	add eax, ebx
@@ -2771,7 +2828,7 @@ inflate_codes:F(0,30)_30:
 	add [eax], eax
 	add [edx+0x4], dl
 	add [eax], al
-inflate_codes:F(0,30)_20:
+inflate_codes_F0_30_20:
 	mov edx, [ebp-0x40]
 	mov [esi+0x20], edx
 	mov ecx, [ebp-0x3c]
@@ -2788,24 +2845,24 @@ inflate_codes:F(0,30)_20:
 	mov edx, [ebp-0x1c]
 	mov [esi+0x34], edx
 	mov dword [ebp+0x10], 0xfffffffe
-inflate_codes:F(0,30)_90:
+inflate_codes_F0_30_90:
 	mov [ebp+0xc], ecx
-inflate_codes:F(0,30)_120:
+inflate_codes_F0_30_120:
 	mov [ebp+0x8], esi
 	add esp, 0x6c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
-	jmp inflate_flush:F(0,1)
-inflate_codes:F(0,30)_10:
+	jmp inflate_flush_F0_1
+inflate_codes_F0_30_10:
 	mov ecx, [esi+0x2c]
 	sub ecx, edx
 	mov [ebp-0x34], ecx
-	jmp inflate_codes:F(0,30)_30
+	jmp inflate_codes_F0_30_30
 	cmp dword [ebp-0x34], 0x101
-	ja inflate_codes:F(0,30)_40
-inflate_codes:F(0,30)_530:
+	ja inflate_codes_F0_30_40
+inflate_codes_F0_30_530:
 	mov ecx, [ebp-0x30]
 	movzx ecx, byte [ecx+0x10]
 	mov eax, [ebp-0x30]
@@ -2820,12 +2877,12 @@ inflate_codes:F(0,30)_530:
 	mov eax, [eax+0xc]
 	mov [ebp-0x4c], eax
 	cmp [ebp-0x3c], eax
-	jae inflate_codes:F(0,30)_50
+	jae inflate_codes_F0_30_50
 	mov eax, [ebp-0x38]
 	test eax, eax
-	jz inflate_codes:F(0,30)_60
+	jz inflate_codes_F0_30_60
 	mov edi, [ebp-0x38]
-inflate_codes:F(0,30)_80:
+inflate_codes_F0_30_80:
 	sub edi, 0x1
 	mov edx, [ebp-0x2c]
 	movzx eax, byte [edx]
@@ -2837,13 +2894,13 @@ inflate_codes:F(0,30)_80:
 	add dword [ebp-0x3c], 0x8
 	mov eax, [ebp-0x3c]
 	cmp [ebp-0x4c], eax
-	jbe inflate_codes:F(0,30)_70
+	jbe inflate_codes_F0_30_70
 	mov edx, [ebp-0x38]
 	add edx, [ebp-0x28]
 	cmp edx, [ebp-0x2c]
-	jnz inflate_codes:F(0,30)_80
+	jnz inflate_codes_F0_30_80
 	mov dword [ebp-0x48], 0x0
-inflate_codes:F(0,30)_740:
+inflate_codes_F0_30_740:
 	mov ecx, [ebp-0x40]
 	mov [esi+0x20], ecx
 	mov eax, [ebp-0x3c]
@@ -2858,13 +2915,13 @@ inflate_codes:F(0,30)_740:
 	mov [esi+0x34], eax
 	mov edx, [ebp-0x48]
 	mov [ebp+0x10], edx
-	jmp inflate_codes:F(0,30)_90
+	jmp inflate_codes_F0_30_90
 	cmp dword [ebp-0x3c], 0x7
-	jbe inflate_codes:F(0,30)_100
+	jbe inflate_codes_F0_30_100
 	sub dword [ebp-0x3c], 0x8
 	add dword [ebp-0x38], 0x1
 	sub dword [ebp-0x2c], 0x1
-inflate_codes:F(0,30)_100:
+inflate_codes_F0_30_100:
 	mov eax, [ebp-0x1c]
 	mov [esi+0x34], eax
 	mov edx, [ebp-0x48]
@@ -2872,12 +2929,12 @@ inflate_codes:F(0,30)_100:
 	mov ecx, [ebp-0x44]
 	mov [esp+0x4], ecx
 	mov [esp], esi
-	call inflate_flush:F(0,1)
+	call inflate_flush_F0_1
 	mov edx, eax
 	mov eax, [esi+0x34]
 	mov [ebp-0x1c], eax
 	cmp eax, [esi+0x30]
-	jnz inflate_codes:F(0,30)_110
+	jnz inflate_codes_F0_30_110
 	mov edx, [ebp-0x30]
 	mov dword [edx], 0x8
 	mov ecx, [ebp-0x40]
@@ -2897,39 +2954,39 @@ inflate_codes:F(0,30)_100:
 	mov dword [ebp+0x10], 0x1
 	mov ecx, [ebp-0x44]
 	mov [ebp+0xc], ecx
-	jmp inflate_codes:F(0,30)_120
+	jmp inflate_codes_F0_30_120
 	mov eax, [ebp-0x34]
 	test eax, eax
-	jnz inflate_codes:F(0,30)_130
+	jnz inflate_codes_F0_30_130
 	mov edx, [ebp-0x1c]
 	cmp edx, [esi+0x2c]
-	jz inflate_codes:F(0,30)_140
+	jz inflate_codes_F0_30_140
 	mov eax, edx
-inflate_codes:F(0,30)_660:
+inflate_codes_F0_30_660:
 	mov [esi+0x34], eax
 	mov edx, [ebp-0x48]
 	mov [esp+0x8], edx
 	mov ecx, [ebp-0x44]
 	mov [esp+0x4], ecx
 	mov [esp], esi
-	call inflate_flush:F(0,1)
+	call inflate_flush_F0_1
 	mov edi, eax
 	mov edx, [esi+0x34]
 	mov ecx, [esi+0x30]
 	cmp edx, ecx
-	jae inflate_codes:F(0,30)_150
+	jae inflate_codes_F0_30_150
 	mov eax, ecx
 	sub eax, edx
 	sub eax, 0x1
 	mov [ebp-0x34], eax
-inflate_codes:F(0,30)_630:
+inflate_codes_F0_30_630:
 	cmp edx, [esi+0x2c]
-	jz inflate_codes:F(0,30)_160
-inflate_codes:F(0,30)_700:
+	jz inflate_codes_F0_30_160
+inflate_codes_F0_30_700:
 	mov eax, [ebp-0x34]
 	test eax, eax
-	jz inflate_codes:F(0,30)_170
-inflate_codes:F(0,30)_570:
+	jz inflate_codes_F0_30_170
+inflate_codes_F0_30_570:
 	mov ecx, [ebp-0x30]
 	mov eax, [ecx+0x8]
 	mov [edx], al
@@ -2938,63 +2995,63 @@ inflate_codes:F(0,30)_570:
 	sub dword [ebp-0x34], 0x1
 	mov dword [ecx], 0x0
 	mov dword [ebp-0x48], 0x0
-	jmp inflate_codes:F(0,30)_30
+	jmp inflate_codes_F0_30_30
 	mov eax, [ebp-0x30]
 	mov eax, [eax+0xc]
 	mov [ebp-0x4c], eax
-inflate_codes:F(0,30)_550:
+inflate_codes_F0_30_550:
 	mov edi, [ebp-0x1c]
 	sub edi, [ebp-0x4c]
 	mov edx, [esi+0x28]
 	cmp edx, edi
-	jbe inflate_codes:F(0,30)_180
+	jbe inflate_codes_F0_30_180
 	mov eax, [esi+0x2c]
 	sub eax, edx
-inflate_codes:F(0,30)_190:
+inflate_codes_F0_30_190:
 	add edi, eax
 	cmp edx, edi
-	ja inflate_codes:F(0,30)_190
-inflate_codes:F(0,30)_180:
+	ja inflate_codes_F0_30_190
+inflate_codes_F0_30_180:
 	mov edx, [ebp-0x30]
 	mov ecx, [edx+0x4]
 	test ecx, ecx
-	jz inflate_codes:F(0,30)_200
-inflate_codes:F(0,30)_280:
+	jz inflate_codes_F0_30_200
+inflate_codes_F0_30_280:
 	mov eax, [ebp-0x34]
 	test eax, eax
-	jnz inflate_codes:F(0,30)_210
+	jnz inflate_codes_F0_30_210
 	mov eax, [esi+0x2c]
 	cmp eax, [ebp-0x1c]
-	jz inflate_codes:F(0,30)_220
-inflate_codes:F(0,30)_420:
+	jz inflate_codes_F0_30_220
+inflate_codes_F0_30_420:
 	mov eax, [ebp-0x1c]
-inflate_codes:F(0,30)_620:
+inflate_codes_F0_30_620:
 	mov [esi+0x34], eax
 	mov edx, [ebp-0x48]
 	mov [esp+0x8], edx
 	mov ecx, [ebp-0x44]
 	mov [esp+0x4], ecx
 	mov [esp], esi
-	call inflate_flush:F(0,1)
+	call inflate_flush_F0_1
 	mov [ebp-0x24], eax
 	mov edx, [esi+0x34]
 	mov ecx, [esi+0x30]
 	cmp edx, ecx
-	jae inflate_codes:F(0,30)_230
+	jae inflate_codes_F0_30_230
 	mov eax, ecx
 	sub eax, edx
 	sub eax, 0x1
 	mov [ebp-0x34], eax
-inflate_codes:F(0,30)_430:
+inflate_codes_F0_30_430:
 	cmp edx, [esi+0x2c]
-	jz inflate_codes:F(0,30)_240
-inflate_codes:F(0,30)_500:
+	jz inflate_codes_F0_30_240
+inflate_codes_F0_30_500:
 	mov [ebp-0x1c], edx
-inflate_codes:F(0,30)_520:
+inflate_codes_F0_30_520:
 	mov eax, [ebp-0x34]
 	test eax, eax
-	jz inflate_codes:F(0,30)_250
-inflate_codes:F(0,30)_210:
+	jz inflate_codes_F0_30_250
+inflate_codes_F0_30_210:
 	movzx eax, byte [edi]
 	mov edx, [ebp-0x1c]
 	mov [edx], al
@@ -3003,27 +3060,27 @@ inflate_codes:F(0,30)_210:
 	add edi, 0x1
 	sub dword [ebp-0x34], 0x1
 	cmp edi, [esi+0x2c]
-	jz inflate_codes:F(0,30)_260
-inflate_codes:F(0,30)_460:
+	jz inflate_codes_F0_30_260
+inflate_codes_F0_30_460:
 	mov ecx, [ebp-0x30]
 	mov eax, [ecx+0x4]
 	sub eax, 0x1
 	mov [ecx+0x4], eax
 	test eax, eax
-	jz inflate_codes:F(0,30)_270
+	jz inflate_codes_F0_30_270
 	mov dword [ebp-0x48], 0x0
-	jmp inflate_codes:F(0,30)_280
+	jmp inflate_codes_F0_30_280
 	mov eax, [ebp-0x30]
 	mov edi, [eax+0x8]
 	cmp [ebp-0x3c], edi
-	jae inflate_codes:F(0,30)_290
+	jae inflate_codes_F0_30_290
 	mov ecx, [ebp-0x38]
 	test ecx, ecx
-	jz inflate_codes:F(0,30)_300
+	jz inflate_codes_F0_30_300
 	mov edx, [ebp-0x2c]
 	mov ecx, [ebp-0x38]
 	mov [ebp-0x4c], ecx
-inflate_codes:F(0,30)_320:
+inflate_codes_F0_30_320:
 	sub dword [ebp-0x4c], 0x1
 	movzx eax, byte [edx]
 	movzx ecx, byte [ebp-0x3c]
@@ -3032,14 +3089,14 @@ inflate_codes:F(0,30)_320:
 	add edx, 0x1
 	add dword [ebp-0x3c], 0x8
 	cmp edi, [ebp-0x3c]
-	jbe inflate_codes:F(0,30)_310
+	jbe inflate_codes_F0_30_310
 	mov eax, [ebp-0x38]
 	add eax, [ebp-0x2c]
 	cmp edx, eax
-	jnz inflate_codes:F(0,30)_320
+	jnz inflate_codes_F0_30_320
 	mov [ebp-0x2c], edx
 	mov dword [ebp-0x48], 0x0
-inflate_codes:F(0,30)_300:
+inflate_codes_F0_30_300:
 	mov eax, [ebp-0x40]
 	mov [esi+0x20], eax
 	mov edx, [ebp-0x3c]
@@ -3057,16 +3114,16 @@ inflate_codes:F(0,30)_300:
 	mov [ebp+0x10], ecx
 	mov eax, [ebp-0x44]
 	mov [ebp+0xc], eax
-	jmp inflate_codes:F(0,30)_120
+	jmp inflate_codes_F0_30_120
 	mov edi, [ebp-0x38]
-inflate_codes:F(0,30)_560:
+inflate_codes_F0_30_560:
 	mov ecx, [ebp-0x30]
 	mov ecx, [ecx+0xc]
 	mov [ebp-0x4c], ecx
 	cmp [ebp-0x3c], ecx
-	jb inflate_codes:F(0,30)_330
+	jb inflate_codes_F0_30_330
 	mov [ebp-0x38], edi
-inflate_codes:F(0,30)_610:
+inflate_codes_F0_30_610:
 	mov eax, [ebx+markVerts+0x987b]
 	mov edx, [ebp-0x40]
 	mov ecx, [ebp-0x4c]
@@ -3079,15 +3136,15 @@ inflate_codes:F(0,30)_610:
 	sub [ebp-0x3c], ecx
 	movzx eax, byte [edx]
 	test al, 0x10
-	jnz inflate_codes:F(0,30)_340
+	jnz inflate_codes_F0_30_340
 	test al, 0x40
-	jnz inflate_codes:F(0,30)_350
+	jnz inflate_codes_F0_30_350
 	mov ecx, [ebp-0x30]
 	mov [ecx+0xc], eax
 	mov eax, [edx+0x4]
 	lea eax, [edx+eax*8]
 	mov [ecx+0x8], eax
-	jmp inflate_codes:F(0,30)_30
+	jmp inflate_codes_F0_30_30
 	mov eax, [ebp-0x40]
 	mov [esi+0x20], eax
 	mov edx, [ebp-0x3c]
@@ -3105,18 +3162,18 @@ inflate_codes:F(0,30)_610:
 	mov dword [ebp+0x10], 0xfffffffd
 	mov eax, [ebp-0x44]
 	mov [ebp+0xc], eax
-	jmp inflate_codes:F(0,30)_120
+	jmp inflate_codes_F0_30_120
 	mov eax, [ebp-0x30]
 	mov eax, [eax+0x8]
 	mov [ebp-0x20], eax
 	cmp [ebp-0x3c], eax
-	jae inflate_codes:F(0,30)_360
+	jae inflate_codes_F0_30_360
 	mov edx, [ebp-0x38]
 	test edx, edx
-	jz inflate_codes:F(0,30)_370
+	jz inflate_codes_F0_30_370
 	mov edi, [ebp-0x38]
 	mov edx, [ebp-0x2c]
-inflate_codes:F(0,30)_390:
+inflate_codes_F0_30_390:
 	sub edi, 0x1
 	movzx eax, byte [edx]
 	movzx ecx, byte [ebp-0x3c]
@@ -3126,13 +3183,13 @@ inflate_codes:F(0,30)_390:
 	add dword [ebp-0x3c], 0x8
 	mov eax, [ebp-0x3c]
 	cmp [ebp-0x20], eax
-	jbe inflate_codes:F(0,30)_380
+	jbe inflate_codes_F0_30_380
 	mov ecx, [ebp-0x38]
 	add ecx, [ebp-0x2c]
 	cmp ecx, edx
-	jnz inflate_codes:F(0,30)_390
+	jnz inflate_codes_F0_30_390
 	mov dword [ebp-0x48], 0x0
-inflate_codes:F(0,30)_750:
+inflate_codes_F0_30_750:
 	mov edx, [ebp-0x40]
 	mov [esi+0x20], edx
 	mov eax, [ebp-0x3c]
@@ -3148,31 +3205,31 @@ inflate_codes:F(0,30)_750:
 	mov eax, [ebp-0x48]
 	mov [ebp+0x10], eax
 	mov [ebp+0xc], edx
-	jmp inflate_codes:F(0,30)_120
-inflate_codes:F(0,30)_220:
+	jmp inflate_codes_F0_30_120
+inflate_codes_F0_30_220:
 	mov edx, [esi+0x30]
 	mov ecx, [esi+0x28]
 	mov [ebp-0x1c], ecx
 	cmp edx, ecx
-	jz inflate_codes:F(0,30)_400
-	jbe inflate_codes:F(0,30)_410
+	jz inflate_codes_F0_30_400
+	jbe inflate_codes_F0_30_410
 	sub edx, [ebp-0x1c]
 	sub edx, 0x1
 	mov [ebp-0x34], edx
-inflate_codes:F(0,30)_580:
+inflate_codes_F0_30_580:
 	mov eax, [ebp-0x34]
 	test eax, eax
-	jnz inflate_codes:F(0,30)_210
-	jmp inflate_codes:F(0,30)_420
-inflate_codes:F(0,30)_230:
+	jnz inflate_codes_F0_30_210
+	jmp inflate_codes_F0_30_420
+inflate_codes_F0_30_230:
 	mov eax, [esi+0x2c]
 	sub eax, edx
 	mov [ebp-0x34], eax
-	jmp inflate_codes:F(0,30)_430
-inflate_codes:F(0,30)_70:
+	jmp inflate_codes_F0_30_430
+inflate_codes_F0_30_70:
 	mov [ebp-0x38], edi
 	mov dword [ebp-0x48], 0x0
-inflate_codes:F(0,30)_50:
+inflate_codes_F0_30_50:
 	mov eax, [ebx+markVerts+0x987b]
 	mov edx, [ebp-0x40]
 	mov ecx, [ebp-0x4c]
@@ -3186,25 +3243,25 @@ inflate_codes:F(0,30)_50:
 	movzx eax, byte [edi]
 	movzx edx, al
 	test al, al
-	jz inflate_codes:F(0,30)_440
+	jz inflate_codes_F0_30_440
 	test dl, 0x10
-	jz inflate_codes:F(0,30)_450
+	jz inflate_codes_F0_30_450
 	and edx, 0xf
 	mov ecx, [ebp-0x30]
 	mov [ecx+0x8], edx
 	mov eax, [edi+0x4]
 	mov [ecx+0x4], eax
 	mov dword [ecx], 0x2
-	jmp inflate_codes:F(0,30)_30
-inflate_codes:F(0,30)_260:
+	jmp inflate_codes_F0_30_30
+inflate_codes_F0_30_260:
 	mov edi, [esi+0x28]
-	jmp inflate_codes:F(0,30)_460
-inflate_codes:F(0,30)_330:
+	jmp inflate_codes_F0_30_460
+inflate_codes_F0_30_330:
 	test edi, edi
-	jz inflate_codes:F(0,30)_470
+	jz inflate_codes_F0_30_470
 	mov [ebp-0x38], edi
 	mov edx, [ebp-0x2c]
-inflate_codes:F(0,30)_490:
+inflate_codes_F0_30_490:
 	sub dword [ebp-0x38], 0x1
 	movzx eax, byte [edx]
 	movzx ecx, byte [ebp-0x3c]
@@ -3214,14 +3271,14 @@ inflate_codes:F(0,30)_490:
 	add dword [ebp-0x3c], 0x8
 	mov eax, [ebp-0x4c]
 	cmp [ebp-0x3c], eax
-	jae inflate_codes:F(0,30)_480
+	jae inflate_codes_F0_30_480
 	mov eax, [ebp-0x2c]
 	add eax, edi
 	cmp edx, eax
-	jnz inflate_codes:F(0,30)_490
+	jnz inflate_codes_F0_30_490
 	mov [ebp-0x2c], edx
 	mov dword [ebp-0x48], 0x0
-inflate_codes:F(0,30)_470:
+inflate_codes_F0_30_470:
 	mov edx, [ebp-0x40]
 	mov [esi+0x20], edx
 	mov ecx, [ebp-0x3c]
@@ -3240,13 +3297,13 @@ inflate_codes:F(0,30)_470:
 	mov [ebp+0x10], edx
 	mov ecx, [ebp-0x44]
 	mov [ebp+0xc], ecx
-	jmp inflate_codes:F(0,30)_120
-inflate_codes:F(0,30)_200:
+	jmp inflate_codes_F0_30_120
+inflate_codes_F0_30_200:
 	mov eax, edx
-inflate_codes:F(0,30)_590:
+inflate_codes_F0_30_590:
 	mov dword [eax], 0x0
-	jmp inflate_codes:F(0,30)_30
-inflate_codes:F(0,30)_110:
+	jmp inflate_codes_F0_30_30
+inflate_codes_F0_30_110:
 	mov ecx, [ebp-0x40]
 	mov [esi+0x20], ecx
 	mov eax, [ebp-0x3c]
@@ -3264,34 +3321,34 @@ inflate_codes:F(0,30)_110:
 	mov [ebp+0x10], edx
 	mov eax, [ebp-0x44]
 	mov [ebp+0xc], eax
-	jmp inflate_codes:F(0,30)_120
-inflate_codes:F(0,30)_440:
+	jmp inflate_codes_F0_30_120
+inflate_codes_F0_30_440:
 	mov eax, [edi+0x4]
 	mov edx, [ebp-0x30]
 	mov [edx+0x8], eax
 	mov dword [edx], 0x6
-	jmp inflate_codes:F(0,30)_30
-inflate_codes:F(0,30)_340:
+	jmp inflate_codes_F0_30_30
+inflate_codes_F0_30_340:
 	and eax, 0xf
 	mov ecx, [ebp-0x30]
 	mov [ecx+0x8], eax
 	mov edx, [edx+0x4]
 	mov [ecx+0xc], edx
 	mov dword [ecx], 0x4
-	jmp inflate_codes:F(0,30)_30
-inflate_codes:F(0,30)_240:
+	jmp inflate_codes_F0_30_30
+inflate_codes_F0_30_240:
 	mov eax, [esi+0x28]
 	mov [ebp-0x1c], eax
 	cmp ecx, eax
-	jz inflate_codes:F(0,30)_500
-	jbe inflate_codes:F(0,30)_510
+	jz inflate_codes_F0_30_500
+	jbe inflate_codes_F0_30_510
 	sub ecx, eax
 	sub ecx, 0x1
 	mov [ebp-0x34], ecx
-	jmp inflate_codes:F(0,30)_520
-inflate_codes:F(0,30)_40:
+	jmp inflate_codes_F0_30_520
+inflate_codes_F0_30_40:
 	cmp dword [ebp-0x38], 0x9
-	jbe inflate_codes:F(0,30)_530
+	jbe inflate_codes_F0_30_530
 	mov eax, [ebp-0x40]
 	mov [esi+0x20], eax
 	mov edx, [ebp-0x3c]
@@ -3318,7 +3375,7 @@ inflate_codes:F(0,30)_40:
 	mov [esp+0x4], eax
 	movzx eax, byte [edx+0x10]
 	mov [esp], eax
-	call inflate_fast:F(0,1)
+	call inflate_fast_F0_1
 	mov [ebp-0x48], eax
 	mov ecx, [ebp-0x44]
 	mov ecx, [ecx]
@@ -3334,24 +3391,24 @@ inflate_codes:F(0,30)_40:
 	mov [ebp-0x1c], eax
 	mov eax, [esi+0x30]
 	cmp [ebp-0x1c], eax
-	jae inflate_codes:F(0,30)_540
+	jae inflate_codes_F0_30_540
 	sub eax, [ebp-0x1c]
 	sub eax, 0x1
 	mov [ebp-0x34], eax
-inflate_codes:F(0,30)_720:
+inflate_codes_F0_30_720:
 	mov edi, [ebp-0x48]
 	test edi, edi
-	jz inflate_codes:F(0,30)_530
+	jz inflate_codes_F0_30_530
 	xor eax, eax
 	cmp dword [ebp-0x48], 0x1
 	setnz al
 	lea eax, [eax+eax+0x7]
 	mov edx, [ebp-0x30]
 	mov [edx], eax
-	jmp inflate_codes:F(0,30)_30
-inflate_codes:F(0,30)_290:
+	jmp inflate_codes_F0_30_30
+inflate_codes_F0_30_290:
 	mov edx, [ebp-0x2c]
-inflate_codes:F(0,30)_670:
+inflate_codes_F0_30_670:
 	mov eax, [ebx+markVerts+0x987b]
 	mov ecx, [ebp-0x40]
 	and ecx, [eax+edi*4]
@@ -3367,10 +3424,10 @@ inflate_codes:F(0,30)_670:
 	sub [ebp-0x3c], edi
 	mov dword [eax], 0x5
 	mov [ebp-0x2c], edx
-	jmp inflate_codes:F(0,30)_550
-inflate_codes:F(0,30)_360:
+	jmp inflate_codes_F0_30_550
+inflate_codes_F0_30_360:
 	mov edi, [ebp-0x38]
-inflate_codes:F(0,30)_690:
+inflate_codes_F0_30_690:
 	mov eax, [ebx+markVerts+0x987b]
 	mov edx, [ebp-0x20]
 	mov eax, [eax+edx*4]
@@ -3387,76 +3444,76 @@ inflate_codes:F(0,30)_690:
 	mov eax, [edx+0x18]
 	mov [edx+0x8], eax
 	mov dword [edx], 0x3
-	jmp inflate_codes:F(0,30)_560
-inflate_codes:F(0,30)_130:
+	jmp inflate_codes_F0_30_560
+inflate_codes_F0_30_130:
 	mov edx, [ebp-0x1c]
-	jmp inflate_codes:F(0,30)_570
-inflate_codes:F(0,30)_410:
+	jmp inflate_codes_F0_30_570
+inflate_codes_F0_30_410:
 	sub eax, [ebp-0x1c]
 	mov [ebp-0x34], eax
-	jmp inflate_codes:F(0,30)_580
-inflate_codes:F(0,30)_270:
+	jmp inflate_codes_F0_30_580
+inflate_codes_F0_30_270:
 	mov dword [ebp-0x48], 0x0
 	mov eax, [ebp-0x30]
-	jmp inflate_codes:F(0,30)_590
-inflate_codes:F(0,30)_450:
+	jmp inflate_codes_F0_30_590
+inflate_codes_F0_30_450:
 	test dl, 0x40
-	jnz inflate_codes:F(0,30)_600
+	jnz inflate_codes_F0_30_600
 	mov eax, [ebp-0x30]
 	mov [eax+0xc], edx
 	mov eax, [edi+0x4]
 	lea eax, [edi+eax*8]
 	mov edx, [ebp-0x30]
 	mov [edx+0x8], eax
-	jmp inflate_codes:F(0,30)_30
-inflate_codes:F(0,30)_480:
+	jmp inflate_codes_F0_30_30
+inflate_codes_F0_30_480:
 	mov [ebp-0x2c], edx
 	mov dword [ebp-0x48], 0x0
-	jmp inflate_codes:F(0,30)_610
-inflate_codes:F(0,30)_400:
+	jmp inflate_codes_F0_30_610
+inflate_codes_F0_30_400:
 	mov [ebp-0x1c], eax
-	jmp inflate_codes:F(0,30)_620
-inflate_codes:F(0,30)_150:
+	jmp inflate_codes_F0_30_620
+inflate_codes_F0_30_150:
 	mov eax, [esi+0x2c]
 	sub eax, edx
 	mov [ebp-0x34], eax
-	jmp inflate_codes:F(0,30)_630
-inflate_codes:F(0,30)_510:
+	jmp inflate_codes_F0_30_630
+inflate_codes_F0_30_510:
 	sub edx, [ebp-0x1c]
 	mov [ebp-0x34], edx
-	jmp inflate_codes:F(0,30)_520
-inflate_codes:F(0,30)_140:
+	jmp inflate_codes_F0_30_520
+inflate_codes_F0_30_140:
 	mov eax, [esi+0x30]
 	mov edx, [esi+0x28]
 	cmp eax, edx
-	jz inflate_codes:F(0,30)_640
-	jbe inflate_codes:F(0,30)_650
+	jz inflate_codes_F0_30_640
+	jbe inflate_codes_F0_30_650
 	sub eax, edx
 	sub eax, 0x1
 	mov [ebp-0x34], eax
-inflate_codes:F(0,30)_730:
+inflate_codes_F0_30_730:
 	mov eax, [ebp-0x34]
 	test eax, eax
-	jnz inflate_codes:F(0,30)_570
+	jnz inflate_codes_F0_30_570
 	mov [ebp-0x1c], edx
 	mov eax, edx
-	jmp inflate_codes:F(0,30)_660
-inflate_codes:F(0,30)_310:
+	jmp inflate_codes_F0_30_660
+inflate_codes_F0_30_310:
 	mov ecx, [ebp-0x4c]
 	mov [ebp-0x38], ecx
 	mov dword [ebp-0x48], 0x0
-	jmp inflate_codes:F(0,30)_670
-inflate_codes:F(0,30)_600:
+	jmp inflate_codes_F0_30_670
+inflate_codes_F0_30_600:
 	and dl, 0x20
-	jz inflate_codes:F(0,30)_680
+	jz inflate_codes_F0_30_680
 	mov ecx, [ebp-0x30]
 	mov dword [ecx], 0x7
-	jmp inflate_codes:F(0,30)_30
-inflate_codes:F(0,30)_380:
+	jmp inflate_codes_F0_30_30
+inflate_codes_F0_30_380:
 	mov [ebp-0x2c], edx
 	mov dword [ebp-0x48], 0x0
-	jmp inflate_codes:F(0,30)_690
-inflate_codes:F(0,30)_250:
+	jmp inflate_codes_F0_30_690
+inflate_codes_F0_30_250:
 	mov edx, [ebp-0x40]
 	mov [esi+0x20], edx
 	mov ecx, [ebp-0x3c]
@@ -3476,43 +3533,43 @@ inflate_codes:F(0,30)_250:
 	mov [ebp+0x10], ecx
 	mov eax, [ebp-0x44]
 	mov [ebp+0xc], eax
-	jmp inflate_codes:F(0,30)_120
-inflate_codes:F(0,30)_160:
+	jmp inflate_codes_F0_30_120
+inflate_codes_F0_30_160:
 	mov eax, [esi+0x28]
 	cmp ecx, eax
-	jz inflate_codes:F(0,30)_700
-	jbe inflate_codes:F(0,30)_710
+	jz inflate_codes_F0_30_700
+	jbe inflate_codes_F0_30_710
 	sub ecx, eax
 	sub ecx, 0x1
 	mov [ebp-0x34], ecx
 	mov edx, eax
-	jmp inflate_codes:F(0,30)_700
-inflate_codes:F(0,30)_540:
+	jmp inflate_codes_F0_30_700
+inflate_codes_F0_30_540:
 	mov edx, [esi+0x2c]
 	mov ecx, [ebp-0x1c]
 	sub edx, ecx
 	mov [ebp-0x34], edx
-	jmp inflate_codes:F(0,30)_720
-inflate_codes:F(0,30)_650:
+	jmp inflate_codes_F0_30_720
+inflate_codes_F0_30_650:
 	mov ecx, [ebp-0x1c]
 	sub ecx, edx
 	mov [ebp-0x34], ecx
-	jmp inflate_codes:F(0,30)_730
-inflate_codes:F(0,30)_640:
+	jmp inflate_codes_F0_30_730
+inflate_codes_F0_30_640:
 	mov eax, [ebp-0x1c]
-	jmp inflate_codes:F(0,30)_660
-inflate_codes:F(0,30)_710:
+	jmp inflate_codes_F0_30_660
+inflate_codes_F0_30_710:
 	sub edx, eax
 	mov [ebp-0x34], edx
 	mov edx, eax
-	jmp inflate_codes:F(0,30)_700
-inflate_codes:F(0,30)_60:
+	jmp inflate_codes_F0_30_700
+inflate_codes_F0_30_60:
 	mov edx, [ebp-0x2c]
-	jmp inflate_codes:F(0,30)_740
-inflate_codes:F(0,30)_370:
+	jmp inflate_codes_F0_30_740
+inflate_codes_F0_30_370:
 	mov ecx, [ebp-0x2c]
-	jmp inflate_codes:F(0,30)_750
-inflate_codes:F(0,30)_350:
+	jmp inflate_codes_F0_30_750
+inflate_codes_F0_30_350:
 	mov eax, [ebp-0x30]
 	mov dword [eax], 0x9
 	lea eax, [ebx+0xbf0be]
@@ -3534,8 +3591,8 @@ inflate_codes:F(0,30)_350:
 	mov dword [ebp+0x10], 0xfffffffd
 	mov ecx, [ebp-0x44]
 	mov [ebp+0xc], ecx
-	jmp inflate_codes:F(0,30)_120
-inflate_codes:F(0,30)_170:
+	jmp inflate_codes_F0_30_120
+inflate_codes_F0_30_170:
 	mov ecx, [ebp-0x40]
 	mov [esi+0x20], ecx
 	mov eax, [ebp-0x3c]
@@ -3551,8 +3608,8 @@ inflate_codes:F(0,30)_170:
 	mov [esi+0x34], edx
 	mov [ebp+0x10], edi
 	mov [ebp+0xc], ecx
-	jmp inflate_codes:F(0,30)_120
-inflate_codes:F(0,30)_680:
+	jmp inflate_codes_F0_30_120
+inflate_codes_F0_30_680:
 	mov eax, [ebp-0x30]
 	mov dword [eax], 0x9
 	lea eax, [ebx+0xbf0a2]
@@ -3573,12 +3630,12 @@ inflate_codes:F(0,30)_680:
 	mov [esi+0x34], edx
 	mov dword [ebp+0x10], 0xfffffffd
 	mov ecx, [ebp-0x44]
-	jmp inflate_codes:F(0,30)_90
+	jmp inflate_codes_F0_30_90
 
 
-;inflate_codes_free:F(0,39)
+;inflate_codes_free_F0_39
 
-inflate_codes_free:F(0,39):
+inflate_codes_free_F0_39:
 	push ebp
 	mov ebp, esp
 	mov edx, [ebp+0xc]
@@ -3592,9 +3649,9 @@ inflate_codes_free:F(0,39):
 	add [eax], al
 
 
-;inflate_flush:F(0,1)
+;inflate_flush_F0_1
 
-inflate_flush:F(0,1):
+inflate_flush_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -3607,32 +3664,32 @@ inflate_flush:F(0,1):
 	mov edi, [edx+0x30]
 	mov eax, [edx+0x34]
 	cmp edi, eax
-	jbe inflate_flush:F(0,1)_10
+	jbe inflate_flush_F0_1_10
 	mov eax, [edx+0x2c]
-inflate_flush:F(0,1)_10:
+inflate_flush_F0_1_10:
 	mov esi, eax
 	sub esi, edi
 	mov ecx, [ebp+0xc]
 	mov eax, [ecx+0x10]
 	cmp esi, eax
-	jbe inflate_flush:F(0,1)_20
+	jbe inflate_flush_F0_1_20
 	mov esi, eax
 	xor edx, edx
-inflate_flush:F(0,1)_70:
+inflate_flush_F0_1_70:
 	test esi, esi
-	jz inflate_flush:F(0,1)_30
+	jz inflate_flush_F0_1_30
 	cmp dword [ebp+0x10], 0xfffffffb
 	mov eax, 0x0
 	cmovnz eax, [ebp+0x10]
 	mov [ebp+0x10], eax
-inflate_flush:F(0,1)_30:
+inflate_flush_F0_1_30:
 	mov eax, [ebp+0xc]
 	mov [eax+0x10], edx
 	add [eax+0x14], esi
 	mov ecx, [ebp+0x8]
 	mov edx, [ecx+0x38]
 	test edx, edx
-	jz inflate_flush:F(0,1)_40
+	jz inflate_flush_F0_1_40
 	mov [esp+0x8], esi
 	mov [esp+0x4], edi
 	mov eax, [ecx+0x3c]
@@ -3642,10 +3699,10 @@ inflate_flush:F(0,1)_30:
 	mov [edx+0x3c], eax
 	mov ecx, [ebp+0xc]
 	mov [ecx+0x30], eax
-inflate_flush:F(0,1)_40:
+inflate_flush_F0_1_40:
 	mov edx, [ebp-0xc]
 	test edx, edx
-	jz inflate_flush:F(0,1)_50
+	jz inflate_flush_F0_1_50
 	mov [esp+0x8], esi
 	mov [esp+0x4], edi
 	mov eax, [ebp-0xc]
@@ -3657,8 +3714,8 @@ inflate_flush:F(0,1)_40:
 	lea eax, [edi+esi]
 	mov ecx, [ebp+0x8]
 	cmp eax, [ecx+0x2c]
-	jz inflate_flush:F(0,1)_60
-inflate_flush:F(0,1)_80:
+	jz inflate_flush_F0_1_60
+inflate_flush_F0_1_80:
 	mov ecx, [ebp-0x10]
 	mov edx, [ebp+0xc]
 	mov [edx+0xc], ecx
@@ -3670,45 +3727,45 @@ inflate_flush:F(0,1)_80:
 	pop edi
 	pop ebp
 	ret
-inflate_flush:F(0,1)_20:
+inflate_flush_F0_1_20:
 	mov edx, eax
 	sub edx, esi
-	jmp inflate_flush:F(0,1)_70
-inflate_flush:F(0,1)_50:
+	jmp inflate_flush_F0_1_70
+inflate_flush_F0_1_50:
 	mov dword [ebp-0x10], 0x0
 	lea eax, [edi+esi]
 	mov ecx, [ebp+0x8]
 	cmp eax, [ecx+0x2c]
-	jnz inflate_flush:F(0,1)_80
-inflate_flush:F(0,1)_60:
+	jnz inflate_flush_F0_1_80
+inflate_flush_F0_1_60:
 	mov edi, [ecx+0x28]
 	cmp eax, [ecx+0x34]
-	jz inflate_flush:F(0,1)_90
-inflate_flush:F(0,1)_150:
+	jz inflate_flush_F0_1_90
+inflate_flush_F0_1_150:
 	mov eax, [ebp+0x8]
 	mov esi, [eax+0x34]
 	sub esi, edi
 	mov edx, [ebp+0xc]
 	mov eax, [edx+0x10]
 	cmp esi, eax
-	jbe inflate_flush:F(0,1)_100
+	jbe inflate_flush_F0_1_100
 	mov esi, eax
 	xor edx, edx
-inflate_flush:F(0,1)_140:
+inflate_flush_F0_1_140:
 	test esi, esi
-	jz inflate_flush:F(0,1)_110
+	jz inflate_flush_F0_1_110
 	cmp dword [ebp+0x10], 0xfffffffb
 	mov eax, 0x0
 	cmovnz eax, [ebp+0x10]
 	mov [ebp+0x10], eax
-inflate_flush:F(0,1)_110:
+inflate_flush_F0_1_110:
 	mov ecx, [ebp+0xc]
 	mov [ecx+0x10], edx
 	add [ecx+0x14], esi
 	mov eax, [ebp+0x8]
 	mov edx, [eax+0x38]
 	test edx, edx
-	jz inflate_flush:F(0,1)_120
+	jz inflate_flush_F0_1_120
 	mov [esp+0x8], esi
 	mov [esp+0x4], edi
 	mov eax, [eax+0x3c]
@@ -3718,17 +3775,17 @@ inflate_flush:F(0,1)_110:
 	mov [edx+0x3c], eax
 	mov ecx, [ebp+0xc]
 	mov [ecx+0x30], eax
-inflate_flush:F(0,1)_120:
+inflate_flush_F0_1_120:
 	mov eax, [ebp-0x10]
 	test eax, eax
-	jz inflate_flush:F(0,1)_130
+	jz inflate_flush_F0_1_130
 	mov [esp+0x8], esi
 	mov [esp+0x4], edi
 	mov eax, [ebp-0x10]
 	mov [esp], eax
 	call memcpy
 	add [ebp-0x10], esi
-inflate_flush:F(0,1)_130:
+inflate_flush_F0_1_130:
 	lea eax, [edi+esi]
 	mov ecx, [ebp-0x10]
 	mov edx, [ebp+0xc]
@@ -3741,13 +3798,13 @@ inflate_flush:F(0,1)_130:
 	pop edi
 	pop ebp
 	ret
-inflate_flush:F(0,1)_100:
+inflate_flush_F0_1_100:
 	mov edx, eax
 	sub edx, esi
-	jmp inflate_flush:F(0,1)_140
-inflate_flush:F(0,1)_90:
+	jmp inflate_flush_F0_1_140
+inflate_flush_F0_1_90:
 	mov [ecx+0x34], edi
-	jmp inflate_flush:F(0,1)_150
+	jmp inflate_flush_F0_1_150
 	add [eax], al
 
 
@@ -4218,16 +4275,16 @@ huft_build_370:
 	jmp huft_build_400
 
 
-;inflate_trees_bits:F(0,1)
+;inflate_trees_bits_F0_1
 
-inflate_trees_bits:F(0,1):
+inflate_trees_bits_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
 	push esi
 	push ebx
 	sub esp, 0x3c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov dword [ebp-0x1c], 0x0
 	mov dword [esp+0x8], 0x4
 	mov dword [esp+0x4], 0x13
@@ -4237,7 +4294,7 @@ inflate_trees_bits:F(0,1):
 	call dword [edx+0x20]
 	mov esi, eax
 	test eax, eax
-	jz inflate_trees_bits:F(0,1)_10
+	jz inflate_trees_bits_F0_1_10
 	mov [esp+0x18], eax
 	lea eax, [ebp-0x1c]
 	mov [esp+0x14], eax
@@ -4255,14 +4312,14 @@ inflate_trees_bits:F(0,1):
 	call huft_build
 	mov edi, eax
 	cmp eax, 0xfffffffd
-	jz inflate_trees_bits:F(0,1)_20
+	jz inflate_trees_bits_F0_1_20
 	cmp eax, 0xfffffffb
-	jz inflate_trees_bits:F(0,1)_30
+	jz inflate_trees_bits_F0_1_30
 	mov eax, [ebp+0xc]
 	mov ecx, [eax]
 	test ecx, ecx
-	jz inflate_trees_bits:F(0,1)_30
-inflate_trees_bits:F(0,1)_40:
+	jz inflate_trees_bits_F0_1_30
+inflate_trees_bits_F0_1_40:
 	mov [esp+0x4], esi
 	mov edx, [ebp+0x18]
 	mov eax, [edx+0x28]
@@ -4275,18 +4332,18 @@ inflate_trees_bits:F(0,1)_40:
 	pop edi
 	pop ebp
 	ret
-inflate_trees_bits:F(0,1)_30:
+inflate_trees_bits_F0_1_30:
 	lea eax, [ebx+0xbdd8c]
 	mov edx, [ebp+0x18]
 	mov [edx+0x18], eax
 	mov edi, 0xfffffffd
-	jmp inflate_trees_bits:F(0,1)_40
-inflate_trees_bits:F(0,1)_20:
+	jmp inflate_trees_bits_F0_1_40
+inflate_trees_bits_F0_1_20:
 	lea eax, [ebx+0xbdd64]
 	mov edx, [ebp+0x18]
 	mov [edx+0x18], eax
-	jmp inflate_trees_bits:F(0,1)_40
-inflate_trees_bits:F(0,1)_10:
+	jmp inflate_trees_bits_F0_1_40
+inflate_trees_bits_F0_1_10:
 	mov edi, 0xfffffffc
 	mov eax, edi
 	add esp, 0x3c
@@ -4297,16 +4354,16 @@ inflate_trees_bits:F(0,1)_10:
 	ret
 
 
-;inflate_trees_dynamic:F(0,1)
+;inflate_trees_dynamic_F0_1
 
-inflate_trees_dynamic:F(0,1):
+inflate_trees_dynamic_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
 	push esi
 	push ebx
 	sub esp, 0x4c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov dword [ebp-0x1c], 0x0
 	mov dword [esp+0x8], 0x4
 	mov dword [esp+0x4], 0x120
@@ -4316,7 +4373,7 @@ inflate_trees_dynamic:F(0,1):
 	call dword [edx+0x20]
 	mov edi, eax
 	test eax, eax
-	jz inflate_trees_dynamic:F(0,1)_10
+	jz inflate_trees_dynamic_F0_1_10
 	mov [esp+0x18], eax
 	lea ecx, [ebp-0x1c]
 	mov [ebp-0x2c], ecx
@@ -4337,23 +4394,23 @@ inflate_trees_dynamic:F(0,1):
 	call huft_build
 	mov esi, eax
 	test eax, eax
-	jnz inflate_trees_dynamic:F(0,1)_20
+	jnz inflate_trees_dynamic_F0_1_20
 	mov eax, [ebp+0x14]
 	mov eax, [eax]
 	test eax, eax
-	jnz inflate_trees_dynamic:F(0,1)_30
-inflate_trees_dynamic:F(0,1)_50:
+	jnz inflate_trees_dynamic_F0_1_30
+inflate_trees_dynamic_F0_1_50:
 	lea eax, [ebx+0xbdcf9]
 	mov ecx, [ebp+0x28]
 	mov [ecx+0x18], eax
 	mov esi, 0xfffffffd
-inflate_trees_dynamic:F(0,1)_60:
+inflate_trees_dynamic_F0_1_60:
 	mov [esp+0x4], edi
 	mov edx, [ebp+0x28]
 	mov eax, [edx+0x28]
 	mov [esp], eax
 	call dword [edx+0x24]
-inflate_trees_dynamic:F(0,1)_100:
+inflate_trees_dynamic_F0_1_100:
 	mov eax, esi
 	add esp, 0x4c
 	pop ebx
@@ -4361,13 +4418,13 @@ inflate_trees_dynamic:F(0,1)_100:
 	pop edi
 	pop ebp
 	ret
-inflate_trees_dynamic:F(0,1)_20:
+inflate_trees_dynamic_F0_1_20:
 	cmp eax, 0xfffffffd
-	jz inflate_trees_dynamic:F(0,1)_40
+	jz inflate_trees_dynamic_F0_1_40
 	cmp eax, 0xfffffffc
-	jnz inflate_trees_dynamic:F(0,1)_50
-	jmp inflate_trees_dynamic:F(0,1)_60
-inflate_trees_dynamic:F(0,1)_10:
+	jnz inflate_trees_dynamic_F0_1_50
+	jmp inflate_trees_dynamic_F0_1_60
+inflate_trees_dynamic_F0_1_10:
 	mov esi, 0xfffffffc
 	mov eax, esi
 	add esp, 0x4c
@@ -4376,7 +4433,7 @@ inflate_trees_dynamic:F(0,1)_10:
 	pop edi
 	pop ebp
 	ret
-inflate_trees_dynamic:F(0,1)_30:
+inflate_trees_dynamic_F0_1_30:
 	mov ecx, [ebp+0x8]
 	mov edx, [ebp+0x10]
 	lea eax, [edx+ecx*4]
@@ -4398,64 +4455,64 @@ inflate_trees_dynamic:F(0,1)_30:
 	call huft_build
 	mov esi, eax
 	test eax, eax
-	jnz inflate_trees_dynamic:F(0,1)_70
+	jnz inflate_trees_dynamic_F0_1_70
 	mov ecx, [ebp+0x18]
 	mov esi, [ecx]
 	test esi, esi
-	jnz inflate_trees_dynamic:F(0,1)_80
+	jnz inflate_trees_dynamic_F0_1_80
 	cmp dword [ebp+0x8], 0x101
-	ja inflate_trees_dynamic:F(0,1)_90
-inflate_trees_dynamic:F(0,1)_80:
+	ja inflate_trees_dynamic_F0_1_90
+inflate_trees_dynamic_F0_1_80:
 	mov [esp+0x4], edi
 	mov edx, [ebp+0x28]
 	mov eax, [edx+0x28]
 	mov [esp], eax
 	call dword [edx+0x24]
 	xor esi, esi
-	jmp inflate_trees_dynamic:F(0,1)_100
-inflate_trees_dynamic:F(0,1)_40:
+	jmp inflate_trees_dynamic_F0_1_100
+inflate_trees_dynamic_F0_1_40:
 	lea eax, [ebx+0xbdcd5]
 	mov edx, [ebp+0x28]
 	mov [edx+0x18], eax
-	jmp inflate_trees_dynamic:F(0,1)_60
-inflate_trees_dynamic:F(0,1)_70:
+	jmp inflate_trees_dynamic_F0_1_60
+inflate_trees_dynamic_F0_1_70:
 	cmp eax, 0xfffffffd
-	jz inflate_trees_dynamic:F(0,1)_110
+	jz inflate_trees_dynamic_F0_1_110
 	cmp eax, 0xfffffffb
-	jz inflate_trees_dynamic:F(0,1)_120
+	jz inflate_trees_dynamic_F0_1_120
 	cmp eax, 0xfffffffc
-	jz inflate_trees_dynamic:F(0,1)_130
-inflate_trees_dynamic:F(0,1)_90:
+	jz inflate_trees_dynamic_F0_1_130
+inflate_trees_dynamic_F0_1_90:
 	lea eax, [ebx+0xbdd55]
 	mov edx, [ebp+0x28]
 	mov [edx+0x18], eax
 	mov esi, 0xfffffffd
-inflate_trees_dynamic:F(0,1)_130:
+inflate_trees_dynamic_F0_1_130:
 	mov [esp+0x4], edi
 	mov ecx, [ebp+0x28]
 	mov eax, [ecx+0x28]
 	mov [esp], eax
 	call dword [ecx+0x24]
-	jmp inflate_trees_dynamic:F(0,1)_100
-inflate_trees_dynamic:F(0,1)_110:
+	jmp inflate_trees_dynamic_F0_1_100
+inflate_trees_dynamic_F0_1_110:
 	lea eax, [ebx+0xbdd19]
 	mov edx, [ebp+0x28]
 	mov [edx+0x18], eax
-	jmp inflate_trees_dynamic:F(0,1)_130
-inflate_trees_dynamic:F(0,1)_120:
+	jmp inflate_trees_dynamic_F0_1_130
+inflate_trees_dynamic_F0_1_120:
 	lea eax, [ebx+0xbdd39]
 	mov ecx, [ebp+0x28]
 	mov [ecx+0x18], eax
 	mov si, 0xfffd
-	jmp inflate_trees_dynamic:F(0,1)_130
+	jmp inflate_trees_dynamic_F0_1_130
 
 
-;inflate_trees_fixed:F(0,1)
+;inflate_trees_fixed_F0_1
 
-inflate_trees_fixed:F(0,1):
+inflate_trees_fixed_F0_1:
 	push ebp
 	mov ebp, esp
-	call __i686.get_pc_thunk.cx
+	call __i686_get_pc_thunk_cx
 	mov edx, [ecx+0x1230f2]
 	mov eax, [ebp+0x8]
 	mov [eax], edx
@@ -4474,16 +4531,16 @@ inflate_trees_fixed:F(0,1):
 	add [eax], al
 
 
-;jdiv_round_up:F(0,1)
+;jdiv_round_up_F0_1
 
-inflate_fast:F(0,1):
+inflate_fast_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
 	push esi
 	push ebx
 	sub esp, 0x38
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov eax, [ebp+0x1c]
 	mov eax, [eax]
 	mov [ebp-0x2c], eax
@@ -4498,11 +4555,11 @@ inflate_fast:F(0,1):
 	mov [ebp-0x3c], eax
 	mov eax, [ecx+0x30]
 	cmp [ebp-0x3c], eax
-	jae inflate_fast:F(0,1)_10
+	jae inflate_fast_F0_1_10
 	sub eax, [ebp-0x3c]
 	sub eax, 0x1
 	mov [ebp-0x38], eax
-inflate_fast:F(0,1)_210:
+inflate_fast_F0_1_210:
 	mov eax, [ebp+0x8]
 	mov esi, [ebx+cl_serverStatusList+0x17c9b]
 	mov eax, [esi+eax*4]
@@ -4510,9 +4567,9 @@ inflate_fast:F(0,1)_210:
 	mov eax, [ebp+0xc]
 	mov eax, [esi+eax*4]
 	mov [ebp-0x30], eax
-inflate_fast:F(0,1)_50:
+inflate_fast_F0_1_50:
 	cmp dword [ebp-0x24], 0x13
-	jbe inflate_fast:F(0,1)_20
+	jbe inflate_fast_F0_1_20
 	mov eax, [ebp-0x34]
 	and eax, edi
 	mov esi, [ebp+0x10]
@@ -4520,7 +4577,7 @@ inflate_fast:F(0,1)_50:
 	movzx eax, byte [edx]
 	movzx esi, al
 	test al, al
-	jnz inflate_fast:F(0,1)_30
+	jnz inflate_fast_F0_1_30
 	movzx ecx, byte [edx+0x1]
 	shr edi, cl
 	sub [ebp-0x24], ecx
@@ -4530,12 +4587,12 @@ inflate_fast:F(0,1)_50:
 	add edx, 0x1
 	mov [ebp-0x3c], edx
 	sub dword [ebp-0x38], 0x1
-inflate_fast:F(0,1)_80:
+inflate_fast_F0_1_80:
 	cmp dword [ebp-0x38], 0x101
-	jbe inflate_fast:F(0,1)_40
+	jbe inflate_fast_F0_1_40
 	cmp dword [ebp-0x28], 0x9
-	ja inflate_fast:F(0,1)_50
-inflate_fast:F(0,1)_40:
+	ja inflate_fast_F0_1_50
+inflate_fast_F0_1_40:
 	mov ecx, [ebp+0x1c]
 	mov eax, [ecx+0x4]
 	sub eax, [ebp-0x28]
@@ -4568,14 +4625,14 @@ inflate_fast:F(0,1)_40:
 	pop edi
 	pop ebp
 	ret
-inflate_fast:F(0,1)_30:
+inflate_fast_F0_1_30:
 	movzx ecx, byte [edx+0x1]
 	shr edi, cl
 	sub [ebp-0x24], ecx
 	test esi, 0x10
-	jnz inflate_fast:F(0,1)_60
+	jnz inflate_fast_F0_1_60
 	test esi, 0x40
-	jnz inflate_fast:F(0,1)_70
+	jnz inflate_fast_F0_1_70
 	mov eax, [edx+0x4]
 	lea eax, [edx+eax*8]
 	mov edx, edi
@@ -4585,7 +4642,7 @@ inflate_fast:F(0,1)_30:
 	movzx eax, byte [edx]
 	movzx esi, al
 	test al, al
-	jnz inflate_fast:F(0,1)_30
+	jnz inflate_fast_F0_1_30
 	movzx ecx, byte [edx+0x1]
 	shr edi, cl
 	sub [ebp-0x24], ecx
@@ -4595,8 +4652,8 @@ inflate_fast:F(0,1)_30:
 	add esi, 0x1
 	mov [ebp-0x3c], esi
 	sub dword [ebp-0x38], 0x1
-	jmp inflate_fast:F(0,1)_80
-inflate_fast:F(0,1)_20:
+	jmp inflate_fast_F0_1_80
+inflate_fast_F0_1_20:
 	sub dword [ebp-0x28], 0x1
 	mov edx, [ebp-0x2c]
 	movzx eax, byte [edx]
@@ -4606,8 +4663,8 @@ inflate_fast:F(0,1)_20:
 	add edx, 0x1
 	mov [ebp-0x2c], edx
 	add dword [ebp-0x24], 0x8
-	jmp inflate_fast:F(0,1)_50
-inflate_fast:F(0,1)_60:
+	jmp inflate_fast_F0_1_50
+inflate_fast_F0_1_60:
 	mov ecx, esi
 	and ecx, 0xf
 	mov esi, [ebx+cl_serverStatusList+0x17c9b]
@@ -4622,9 +4679,9 @@ inflate_fast:F(0,1)_60:
 	mov edi, [ebp-0x24]
 	sub edi, ecx
 	cmp edi, 0xe
-	ja inflate_fast:F(0,1)_90
+	ja inflate_fast_F0_1_90
 	mov esi, [ebp-0x2c]
-inflate_fast:F(0,1)_100:
+inflate_fast_F0_1_100:
 	movzx eax, byte [esi]
 	mov ecx, edi
 	shl eax, cl
@@ -4632,12 +4689,12 @@ inflate_fast:F(0,1)_100:
 	add esi, 0x1
 	add edi, 0x8
 	cmp edi, 0xe
-	jbe inflate_fast:F(0,1)_100
+	jbe inflate_fast_F0_1_100
 	mov eax, [ebp-0x2c]
 	add [ebp-0x28], eax
 	sub [ebp-0x28], esi
 	mov [ebp-0x2c], esi
-inflate_fast:F(0,1)_90:
+inflate_fast_F0_1_90:
 	mov eax, [ebp-0x30]
 	and eax, edx
 	mov ecx, [ebp+0x14]
@@ -4650,13 +4707,13 @@ inflate_fast:F(0,1)_90:
 	sub edi, ecx
 	mov [ebp-0x20], edi
 	test esi, 0x10
-	jz inflate_fast:F(0,1)_110
-inflate_fast:F(0,1)_180:
+	jz inflate_fast_F0_1_110
+inflate_fast_F0_1_180:
 	and esi, 0xf
 	cmp esi, [ebp-0x20]
-	jbe inflate_fast:F(0,1)_120
+	jbe inflate_fast_F0_1_120
 	mov edx, [ebp-0x2c]
-inflate_fast:F(0,1)_130:
+inflate_fast_F0_1_130:
 	movzx eax, byte [edx]
 	movzx ecx, byte [ebp-0x20]
 	shl eax, cl
@@ -4664,12 +4721,12 @@ inflate_fast:F(0,1)_130:
 	add edx, 0x1
 	add dword [ebp-0x20], 0x8
 	cmp esi, [ebp-0x20]
-	ja inflate_fast:F(0,1)_130
+	ja inflate_fast_F0_1_130
 	mov eax, [ebp-0x2c]
 	add [ebp-0x28], eax
 	sub [ebp-0x28], edx
 	mov [ebp-0x2c], edx
-inflate_fast:F(0,1)_120:
+inflate_fast_F0_1_120:
 	mov edi, [ebp-0x1c]
 	mov ecx, esi
 	shr edi, cl
@@ -4689,18 +4746,18 @@ inflate_fast:F(0,1)_120:
 	mov ecx, [ebp+0x18]
 	mov eax, [ecx+0x28]
 	cmp edx, eax
-	jae inflate_fast:F(0,1)_140
+	jae inflate_fast_F0_1_140
 	mov esi, [ecx+0x2c]
 	mov ecx, esi
 	sub ecx, eax
-inflate_fast:F(0,1)_150:
+inflate_fast_F0_1_150:
 	add edx, ecx
 	cmp eax, edx
-	ja inflate_fast:F(0,1)_150
+	ja inflate_fast_F0_1_150
 	mov eax, esi
 	sub eax, edx
 	cmp [ebp-0x14], eax
-	ja inflate_fast:F(0,1)_160
+	ja inflate_fast_F0_1_160
 	movzx eax, byte [edx]
 	mov esi, [ebp-0x3c]
 	mov [esi], al
@@ -4712,15 +4769,15 @@ inflate_fast:F(0,1)_150:
 	lea eax, [eax+ecx-0x2]
 	mov [ebp-0x3c], eax
 	mov esi, eax
-inflate_fast:F(0,1)_170:
+inflate_fast_F0_1_170:
 	movzx eax, byte [edx]
 	mov [ecx], al
 	add ecx, 0x1
 	add edx, 0x1
 	cmp esi, ecx
-	jnz inflate_fast:F(0,1)_170
-	jmp inflate_fast:F(0,1)_80
-inflate_fast:F(0,1)_190:
+	jnz inflate_fast_F0_1_170
+	jmp inflate_fast_F0_1_80
+inflate_fast_F0_1_190:
 	mov edx, [ebp-0x18]
 	mov eax, [edx+0x4]
 	lea eax, [edx+eax*8]
@@ -4734,10 +4791,10 @@ inflate_fast:F(0,1)_190:
 	shr dword [ebp-0x1c], cl
 	sub [ebp-0x20], ecx
 	test esi, 0x10
-	jnz inflate_fast:F(0,1)_180
-inflate_fast:F(0,1)_110:
+	jnz inflate_fast_F0_1_180
+inflate_fast_F0_1_110:
 	test esi, 0x40
-	jz inflate_fast:F(0,1)_190
+	jz inflate_fast_F0_1_190
 	lea eax, [ebx+0xad1fe]
 	mov esi, [ebp+0x1c]
 	mov [esi+0x18], eax
@@ -4774,9 +4831,9 @@ inflate_fast:F(0,1)_110:
 	pop edi
 	pop ebp
 	ret
-inflate_fast:F(0,1)_70:
+inflate_fast_F0_1_70:
 	and esi, 0x20
-	jz inflate_fast:F(0,1)_200
+	jz inflate_fast_F0_1_200
 	mov edx, [ebp+0x1c]
 	mov eax, [edx+0x4]
 	sub eax, [ebp-0x28]
@@ -4803,20 +4860,20 @@ inflate_fast:F(0,1)_70:
 	mov eax, [ebp+0x18]
 	mov [eax+0x34], edx
 	mov eax, 0x1
-inflate_fast:F(0,1)_250:
+inflate_fast_F0_1_250:
 	add esp, 0x38
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-inflate_fast:F(0,1)_10:
+inflate_fast_F0_1_10:
 	mov edx, [ecx+0x2c]
 	mov ecx, [ebp-0x3c]
 	sub edx, ecx
 	mov [ebp-0x38], edx
-	jmp inflate_fast:F(0,1)_210
-inflate_fast:F(0,1)_140:
+	jmp inflate_fast_F0_1_210
+inflate_fast_F0_1_140:
 	movzx eax, byte [edx]
 	mov ecx, [ebp-0x3c]
 	mov [ecx], al
@@ -4829,44 +4886,44 @@ inflate_fast:F(0,1)_140:
 	lea eax, [eax+ecx-0x2]
 	mov [ebp-0x3c], eax
 	mov esi, eax
-inflate_fast:F(0,1)_220:
+inflate_fast_F0_1_220:
 	movzx eax, byte [edx]
 	mov [ecx], al
 	add ecx, 0x1
 	add edx, 0x1
 	cmp esi, ecx
-	jnz inflate_fast:F(0,1)_220
-	jmp inflate_fast:F(0,1)_80
-inflate_fast:F(0,1)_160:
+	jnz inflate_fast_F0_1_220
+	jmp inflate_fast_F0_1_80
+inflate_fast_F0_1_160:
 	mov esi, [ebp-0x14]
 	sub esi, eax
 	mov [ebp-0x10], esi
 	mov ecx, [ebp-0x3c]
 	lea esi, [ecx+eax]
 	mov [ebp-0x40], esi
-inflate_fast:F(0,1)_230:
+inflate_fast_F0_1_230:
 	movzx eax, byte [edx]
 	mov [ecx], al
 	add ecx, 0x1
 	add edx, 0x1
 	cmp [ebp-0x40], ecx
-	jnz inflate_fast:F(0,1)_230
+	jnz inflate_fast_F0_1_230
 	mov eax, [ebp+0x18]
 	mov edx, [eax+0x28]
 	mov ecx, [ebp-0x40]
 	mov eax, [ebp-0x10]
 	add ecx, eax
 	mov [ebp-0x44], ecx
-inflate_fast:F(0,1)_240:
+inflate_fast_F0_1_240:
 	movzx eax, byte [edx]
 	mov [esi], al
 	add esi, 0x1
 	add edx, 0x1
 	cmp esi, [ebp-0x44]
-	jnz inflate_fast:F(0,1)_240
+	jnz inflate_fast_F0_1_240
 	mov [ebp-0x3c], esi
-	jmp inflate_fast:F(0,1)_80
-inflate_fast:F(0,1)_200:
+	jmp inflate_fast_F0_1_80
+inflate_fast_F0_1_200:
 	lea eax, [ebx+0xad1e2]
 	mov ecx, [ebp+0x1c]
 	mov [ecx+0x18], eax
@@ -4895,8 +4952,8 @@ inflate_fast:F(0,1)_200:
 	mov eax, [ebp+0x18]
 	mov [eax+0x34], edx
 	mov eax, 0xfffffffd
-	jmp inflate_fast:F(0,1)_250
+	jmp inflate_fast_F0_1_250
 
 
-;jpeg_idct_4x4:F(0,1)
+;jpeg_idct_4x4_F0_1
 

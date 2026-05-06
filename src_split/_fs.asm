@@ -2,740 +2,1029 @@
 ;Symbols in this file: 95
 ;
 ;Imports (over-declared, NASM-safe):
-	extern __keymgr_dwarf2_register_sections
-	extern atexit
-	extern exit
-	extern AEDisposeDesc
-	extern AECreateDesc
-	extern __cxa_allocate_exception
-	extern __cxa_throw
-	extern _Unwind_Resume
 	extern AECoerceDesc
+	extern AECreateAppleEvent
+	extern AECreateDesc
+	extern AEDisposeDesc
 	extern AEGetDescData
 	extern AEGetDescDataSize
-	extern CreateObjSpecifier
-	extern AEPutParamDesc
-	extern AECreateAppleEvent
-	extern AESend
-	extern AEPutParamPtr
-	extern AEGetParamPtr
 	extern AEGetParamDesc
-	extern GetControlBounds
-	extern PtInRect
-	extern GetEventKind
-	extern GetEventClass
-	extern GetEventParameter
-	extern GetControlOwner
-	extern AdvanceKeyboardFocus
-	extern SetWRefCon
-	extern QuitAppModalLoopForWindow
-	extern HIViewGetRoot
-	extern HIViewGetViewForMouseEvent
-	extern GetControlKind
-	extern SetThemeCursor
-	extern CFBundleGetMainBundle
-	extern CreateNibReferenceWithCFBundle
-	extern CreateWindowFromNib
-	extern DisposeNibReference
-	extern GetWindowEventTarget
-	extern InstallEventHandler
-	extern GetWindowResizeLimits
-	extern SetWindowResizeLimits
-	extern InitCursor
-	extern ShowWindow
-	extern RunAppModalLoopForWindow
-	extern HideWindow
-	extern GetWRefCon
-	extern DisposeWindow
-	extern GetControlByID
-	extern GetControlMaximum
-	extern GetControlDataSize
-	extern SetControlData
-	extern HandleControlKey
-	extern GetControlReference
-	extern GetControlData
-	extern AlertSoundPlay
-	extern HITextViewGetTXNObject
-	extern TXNSetTypeAttributes
-	extern HideControl
-	extern ShowControl
-	extern DisableControl
-	extern EnableControl
-	extern SetControlFontStyle
-	extern SetKeyboardFocus
-	extern NewControlUserPaneDrawUPP
-	extern NewControlUserPaneHitTestUPP
-	extern NewControlUserPaneTrackingUPP
-	extern SetControlReference
-	extern SetControlMaximum
-	extern NewControlKeyFilterUPP
-	extern NewControlEditTextValidationUPP
-	extern GetWindowPort
-	extern CGDisplayBounds
-	extern DMGetFirstScreenDevice
-	extern EqualRect
-	extern DMGetNextScreenDevice
-	extern GetMainDevice
-	extern GetWindowPortBounds
-	extern CGDisplayFade
-	extern CGReleaseDisplayFadeReservation
-	extern CGAcquireDisplayFadeReservation
-	extern CGDisplayPixelsWide
-	extern CGDisplayPixelsHigh
-	extern CGDisplayBitsPerPixel
-	extern aglSwapBuffers
-	extern EndMediaEdits
-	extern GetMediaDuration
-	extern InsertMediaIntoTrack
-	extern AddMovieResource
-	extern CloseMovieFile
-	extern MoveWindow
-	extern GetAvailableWindowPositioningBounds
-	extern CreateNewWindow
-	extern SetPortWindowPort
-	extern SetWindowContentColor
-	extern SetWindowTitleWithCFString
-	extern gluCheckExtension
-	extern _Znam
-	extern CGSetDisplayTransferByTable
-	extern _ZdaPv
-	extern CGGetDisplayTransferByTable
-	extern QDLocalToGlobalPoint
-	extern QDGlobalToLocalPoint
-	extern _Znwm
-	extern _ZdlPv
-	extern _ZSt17__throw_bad_allocv
-	extern _ZSt20__throw_length_errorPKc
-	extern NormalizeThemeDrawingState
-	extern ForeColor
-	extern FrameRoundRect
-	extern RGBForeColor
-	extern PaintRoundRect
-	extern NewRgn
-	extern OpenRgn
-	extern CloseRgn
-	extern SetClip
-	extern DisposeRgn
-	extern ClipRect
-	extern DrawThemeMenuBarBackground
-	extern InsetRect
-	extern DrawThemeFocusRect
-	extern GetIconRefFromFileInfo
-	extern PlotIconRef
-	extern ReleaseIconRef
-	extern CGRectIsEmpty
-	extern CGRectUnion
-	extern CGRectGetWidth
-	extern CGRectGetHeight
-	extern OffsetRect
-	extern MapRect
-	extern glFinish
-	extern aglSetCurrentContext
-	extern aglSetDrawable
-	extern aglDestroyContext
-	extern ShowMenuBar
-	extern SetSystemUIMode
-	extern aglChoosePixelFormat
-	extern aglCreateContext
-	extern aglSetFullScreen
-	extern CGDisplayCurrentMode
-	extern aglSetInteger
-	extern HideMenuBar
-	extern aglDescribePixelFormat
-	extern aglDestroyPixelFormat
-	extern glEnable
-	extern glHint
-	extern aglGetDrawable
-	extern glDisable
-	extern IsWindowVisible
-	extern SizeWindow
-	extern PaintRect
-	extern _ZNSs6assignERKSs
-	extern CGDisplayIDToOpenGLDisplayMask
-	extern CGLQueryRendererInfo
-	extern CGLDescribeRenderer
-	extern CGLDestroyRendererInfo
-	extern CGDisplayAvailableModes
-	extern CFArrayGetCount
-	extern CGDisplayIOServicePort
-	extern CGLGetCurrentContext
-	extern CGLChoosePixelFormat
-	extern CGLCreateContext
-	extern CGLDestroyPixelFormat
-	extern CGLSetCurrentContext
-	extern glGetString
-	extern _ZNSs6assignEPKcm
-	extern glGetIntegerv
-	extern CGLDestroyContext
-	extern _ZNSsC1ERKSs
-	extern strstr
-	extern _ZNSsD1Ev
-	extern CFArrayGetValueAtIndex
-	extern IOObjectConformsTo
-	extern IORegistryEntryGetParentEntry
-	extern glGetFloatv
-	extern _ZN9__gnu_cxx18__exchange_and_addEPVii
-	extern _ZNSs4_Rep10_M_destroyERKSaIcE
-	extern __cxa_begin_catch
-	extern __cxa_rethrow
-	extern __cxa_end_catch
-	extern CGGetActiveDisplayList
-	extern NewMenu
-	extern InsertMenu
-	extern InvalMenuBar
-	extern GetCurrentKeyModifiers
-	extern CGRectEqualToRect
-	extern Gestalt
-	extern sysctl
-	extern FSOpenIterator
-	extern FSGetCatalogInfoBulk
-	extern FSCloseIterator
-	extern FSDeleteObject
-	extern FSSetCatalogInfo
-	extern FSPathMakeRef
-	extern access
-	extern CFBundleCopyExecutableURL
-	extern CFURLGetFSRef
-	extern CFRelease
-	extern FSGetCatalogInfo
-	extern GetCurrentProcess
-	extern strcat
-	extern GetProcessBundleLocation
-	extern FSRefMakePath
-	extern PBGetCatInfoSync
-	extern FSMakeFSSpec
-	extern FSpMakeFSRef
-	extern memcpy
-	extern CFStringCreateWithCString
-	extern CFPreferencesCopyAppValue
-	extern CFGetTypeID
-	extern CFStringGetTypeID
-	extern strcpy
-	extern CFStringGetCString
-	extern CFPreferencesSetAppValue
-	extern atoi
-	extern sprintf
-	extern CFPreferencesAppSynchronize
-	extern atof
-	extern CFBundleCopyLocalizedString
-	extern CFStringGetPascalString
-	extern StringToNum
-	extern CFStringCreateWithFormat
-	extern GetPort
-	extern SetPort
-	extern CFStringCreateWithCharacters
-	extern GetCursor
-	extern SetCursor
-	extern CGAssociateMouseAndMouseCursorPosition
-	extern CGWarpMouseCursorPosition
-	extern HideCursor
-	extern GetGlobalMouse
-	extern UpTime
+	extern AEGetParamPtr
+	extern AEInstallEventHandler
+	extern AEPutParamDesc
+	extern AEPutParamPtr
+	extern AESend
+	extern AUGraphConnectNodeInput
+	extern AUGraphGetCPULoad
+	extern AUGraphGetNodeInfo
+	extern AUGraphInitialize
+	extern AUGraphNewNode
+	extern AUGraphOpen
+	extern AUGraphStart
+	extern AUGraphStop
+	extern AUGraphUpdate
 	extern AddDurationToAbsolute
-	extern MPDelayUntil
-	extern GetNextProcess
-	extern GetProcessInformation
-	extern CFDictionaryGetValue
-	extern CFNumberGetValue
-	extern lround
-	extern IORegistryEntryCreateCFProperty
+	extern AddMovieResource
+	extern AdvanceKeyboardFocus
+	extern AlertSoundPlay
+	extern AppendMenuItemTextWithCFString
+	extern AudioConverterDispose
+	extern AudioConverterFillBuffer
+	extern AudioConverterFillComplexBuffer
+	extern AudioConverterNew
+	extern AudioConverterReset
+	extern AudioDeviceGetProperty
+	extern AudioDeviceGetPropertyInfo
+	extern AudioDeviceSetProperty
+	extern AudioHardwareGetProperty
+	extern AudioOutputUnitStart
+	extern AudioOutputUnitStop
+	extern AudioUnitAddRenderNotify
+	extern AudioUnitGetProperty
+	extern AudioUnitInitialize
+	extern AudioUnitRemoveRenderNotify
+	extern AudioUnitRender
+	extern AudioUnitSetParameter
+	extern AudioUnitSetProperty
+	extern AudioUnitUninitialize
+	extern CFArrayGetCount
+	extern CFArrayGetValueAtIndex
+	extern CFBundleCopyExecutableURL
+	extern CFBundleCopyLocalizedString
+	extern CFBundleGetMainBundle
 	extern CFDataGetBytePtr
-	extern CreateEvent
-	extern SetEventParameter
-	extern GetMainEventQueue
-	extern PostEventToQueue
-	extern ReleaseEvent
-	extern pthread_main_np
-	extern GetStandardAlertDefaultParams
-	extern CreateStandardAlert
-	extern RunStandardAlert
-	extern LSCopyItemInfoForRef
-	extern pthread_self
-	extern OTAtomicAdd32
-	extern OTCompareAndSwap32
-	extern calloc
-	extern free
-	extern strrchr
-	extern Microseconds
-	extern __udivdi3
-	extern memset
-	extern strncpy
-	extern getcwd
-	extern NewGWorld
-	extern GetGWorldPixMap
-	extern LockPixels
-	extern GetPixRowBytes
-	extern QDRegisterNamedPixMapCursor
-	extern DisposeGWorld
-	extern TickCount
-	extern QDSetNamedPixMapCursor
-	extern GetMainEventLoop
-	extern InstallEventLoopTimer
-	extern GetQDGlobalsArrow
-	extern ShowCursor
-	extern fopen
-	extern fseek
-	extern fclose
-	extern ftell
-	extern rewind
-	extern malloc
-	extern fread
-	extern _ZNKSs7compareEPKc
-	extern glStencilMask
-	extern glDepthMask
-	extern glFlushVertexArrayRangeAPPLE
-	extern glTexParameterfv
-	extern glLightfv
-	extern glColor4f
-	extern glMatrixMode
-	extern glLoadMatrixf
-	extern glTexParameteri
-	extern glGenTextures
-	extern _ZNSt15_List_node_base4hookEPS_
-	extern glTexParameterf
-	extern glTexEnvf
-	extern glPushMatrix
-	extern glLoadIdentity
-	extern glTexCoord2f
-	extern glPopMatrix
-	extern glTexEnvfv
-	extern glPointSize
-	extern glDrawRangeElements
-	extern memmove
-	extern glBindTexture
-	extern glColorMask
-	extern glActiveTextureARB
-	extern glDepthFunc
-	extern glShadeModel
-	extern glViewport
-	extern glDepthRange
-	extern glAlphaFunc
-	extern glClearDepth
-	extern glScissor
-	extern glClear
-	extern glClearColor
-	extern glClearStencil
-	extern glMaterialfv
-	extern glMaterialf
-	extern glPixelStorei
-	extern glCopyTexSubImage2D
-	extern gluOrtho2D
-	extern glTexEnvi
-	extern glBlendFuncSeparateEXT
-	extern glBlendFunc
-	extern glBegin
-	extern glVertex3f
-	extern glEnd
-	extern cos
-	extern log
-	extern cosf
-	extern glPolygonMode
-	extern glFogf
-	extern glLightModelfv
-	extern glBlendEquationEXT
-	extern glPolygonOffset
-	extern glFogfv
-	extern glPointParameterfvARB
-	extern glStencilFunc
-	extern glPointParameterfARB
-	extern glStencilOp
-	extern glFrontFace
-	extern glColorMaterial
-	extern glPushAttrib
-	extern glPushClientAttrib
-	extern glDrawBuffer
-	extern glReadBuffer
-	extern __dynamic_cast
-	extern glScalef
-	extern glVertex2f
-	extern glPopClientAttrib
-	extern glPopAttrib
-	extern glProgramEnvParameter4fvARB
-	extern glTexGenfv
-	extern _ZNSsC1EPKcRKSaIcE
-	extern _ZNKSs4findEPKcmm
-	extern _ZNSsC1ERKSsmm
-	extern _ZSt20__throw_out_of_rangePKc
-	extern glCombinerParameterfvNV
-	extern glCombinerStageParameterfvNV
-	extern glBindProgramARB
-	extern glDeleteProgramsARB
-	extern glGetProgramivARB
-	extern glGenProgramsARB
-	extern glProgramStringARB
-	extern _ZNSs6appendEPKcm
-	extern _ZNSs6appendERKSs
-	extern glTexImage2D
-	extern glCompressedTexImage2DARB
-	extern glTexSubImage2D
-	extern glCompressedTexSubImage2D
-	extern _ZNSt15_List_node_base6unhookEv
-	extern ceilf
-	extern glFinishFenceAPPLE
-	extern glSetFenceAPPLE
-	extern glGenFencesAPPLE
-	extern glDeleteFencesAPPLE
-	extern glVertexArrayRangeAPPLE
-	extern glDisableVertexAttribArrayARB
-	extern glVertexAttribPointerARB
-	extern glEnableVertexAttribArrayARB
-	extern glTexGeni
-	extern glBindVertexArrayAPPLE
-	extern glLightf
-	extern glClientActiveTextureARB
-	extern glDeleteTextures
-	extern glDeleteVertexArraysAPPLE
-	extern glDisableClientState
-	extern glFogi
-	extern glLightModeli
-	extern glClipPlane
-	extern glEnableClientState
-	extern glVertexArrayParameteriAPPLE
-	extern strcasecmp
-	extern strncasecmp
-	extern tolower
-	extern toupper
-	extern RemoveEventHandler
-	extern FlushEventQueue
-	extern SendEventToEventTarget
-	extern ReceiveNextEvent
+	extern CFDictionaryGetValue
+	extern CFGetTypeID
+	extern CFNumberGetValue
+	extern CFPreferencesAppSynchronize
+	extern CFPreferencesCopyAppValue
+	extern CFPreferencesSetAppValue
+	extern CFRelease
+	extern CFStringCreateWithCString
+	extern CFStringCreateWithCharacters
+	extern CFStringCreateWithFormat
+	extern CFStringGetCString
+	extern CFStringGetPascalString
+	extern CFStringGetTypeID
 	extern CFURLCreateFromFSRef
-	extern CGDataProviderCreateWithURL
-	extern CGImageCreateWithPNGDataProvider
-	extern QDBeginCGContext
-	extern CGImageRelease
-	extern CGDataProviderRelease
+	extern CFURLCreateWithBytes
+	extern CFURLGetFSRef
+	extern CGAcquireDisplayFadeReservation
+	extern CGAssociateMouseAndMouseCursorPosition
 	extern CGContextClearRect
 	extern CGContextDrawImage
 	extern CGContextFlush
-	extern QDEndCGContext
-	extern EventAvail
-	extern strcmp
-	extern getrlimit
-	extern setrlimit
-	extern EnterMovies
-	extern FSGetVolumeInfo
-	extern GetCompressionInfo
-	extern RunApplicationEventLoop
-	extern GetEventDispatcherTarget
-	extern GetApplicationEventTarget
-	extern GetMenuHandle
-	extern AppendMenuItemTextWithCFString
-	extern SetItemCmd
-	extern GetIndMenuItemWithCommandID
-	extern GetMenuEventTarget
-	extern AEInstallEventHandler
-	extern chdir
-	extern QuitApplicationEventLoop
+	extern CGDataProviderCreateWithURL
+	extern CGDataProviderRelease
+	extern CGDisplayAvailableModes
+	extern CGDisplayBitsPerPixel
+	extern CGDisplayBounds
+	extern CGDisplayCurrentMode
+	extern CGDisplayFade
+	extern CGDisplayIDToOpenGLDisplayMask
+	extern CGDisplayIOServicePort
+	extern CGDisplayPixelsHigh
+	extern CGDisplayPixelsWide
+	extern CGGetActiveDisplayList
+	extern CGGetDisplayTransferByTable
+	extern CGImageCreateWithPNGDataProvider
+	extern CGImageRelease
+	extern CGLChoosePixelFormat
+	extern CGLCreateContext
+	extern CGLDescribeRenderer
+	extern CGLDestroyContext
+	extern CGLDestroyPixelFormat
+	extern CGLDestroyRendererInfo
+	extern CGLGetCurrentContext
+	extern CGLQueryRendererInfo
+	extern CGLSetCurrentContext
+	extern CGRectEqualToRect
+	extern CGRectGetHeight
+	extern CGRectGetWidth
+	extern CGRectIsEmpty
+	extern CGRectUnion
+	extern CGReleaseDisplayFadeReservation
+	extern CGSetDisplayTransferByTable
+	extern CGWarpMouseCursorPosition
+	extern ClipRect
+	extern CloseComponent
+	extern CloseMovieFile
+	extern CloseRgn
+	extern CollapseWindow
+	extern Com_Error_F0_1
+	extern Com_Memcpy_F0_12
+	extern CopyStringInternal_F0_99
+	extern CreateEvent
+	extern CreateNewWindow
+	extern CreateNibReferenceWithCFBundle
+	extern CreateObjSpecifier
+	extern CreateStandardAlert
+	extern CreateWindowFromNib
+	extern DMGetFirstScreenDevice
+	extern DMGetNextScreenDevice
+	extern DisableControl
 	extern DisableMenuItem
-	extern close
-	extern ioctl
-	extern __error
-	extern vsnprintf
-	extern strchr
-	extern rand
-	extern acosf
-	extern atan2
-	extern tan
-	extern sinf
-	extern time
-	extern localtime
-	extern asctime
-	extern longjmp
-	extern __maskrune
-	extern snprintf
-	extern floorf
-	extern setjmp
-	extern remove
-	extern fflush
-	extern qsort
-	extern fwrite
-	extern rename
-	extern isspace
-	extern _ZNSs9_M_mutateEmmm
+	extern DisposeAUGraph
+	extern DisposeGWorld
+	extern DisposeHandle
+	extern DisposeMovie
+	extern DisposeNibReference
+	extern DisposeRgn
+	extern DisposeWindow
+	extern DrawThemeFocusRect
+	extern DrawThemeMenuBarBackground
+	extern EnableControl
+	extern EndMediaEdits
+	extern EnterMovies
+	extern EqualRect
+	extern EventAvail
+	extern FSCloseIterator
+	extern FSDeleteObject
+	extern FSGetCatalogInfo
+	extern FSGetCatalogInfoBulk
+	extern FSGetVolumeInfo
+	extern FSMakeFSSpec
+	extern FSOpenIterator
+	extern FSPathMakeRef
+	extern FSRefMakePath
+	extern FSSetCatalogInfo
+	extern FSpMakeFSRef
+	extern FindNextComponent
+	extern FlushEventQueue
+	extern ForeColor
+	extern FrameRoundRect
+	extern Gestalt
+	extern GetApplicationEventTarget
+	extern GetAvailableWindowPositioningBounds
+	extern GetComponentVersion
+	extern GetCompressionInfo
+	extern GetControlBounds
+	extern GetControlByID
+	extern GetControlData
+	extern GetControlDataSize
+	extern GetControlKind
+	extern GetControlMaximum
+	extern GetControlOwner
+	extern GetControlReference
+	extern GetCurrentEventTime
+	extern GetCurrentKeyModifiers
+	extern GetCurrentProcess
+	extern GetCursor
+	extern GetEventClass
+	extern GetEventDispatcherTarget
+	extern GetEventKind
+	extern GetEventParameter
+	extern GetFileAttributesA_F0_1
+	extern GetGWorldPixMap
+	extern GetGlobalMouse
+	extern GetHandleSize
+	extern GetIconRefFromFileInfo
+	extern GetIndMenuItemWithCommandID
+	extern GetMainDevice
+	extern GetMainEventLoop
+	extern GetMainEventQueue
+	extern GetMediaDuration
+	extern GetMediaHandler
+	extern GetMediaSampleDescription
+	extern GetMenuEventTarget
+	extern GetMenuHandle
+	extern GetMovieDuration
+	extern GetMovieIndTrackType
+	extern GetMoviePreferredRate
+	extern GetMovieTime
+	extern GetMovieTimeScale
+	extern GetNextProcess
+	extern GetPixRowBytes
+	extern GetPort
+	extern GetProcessBundleLocation
+	extern GetProcessInformation
+	extern GetQDGlobalsArrow
+	extern GetStandardAlertDefaultParams
+	extern GetTrackMedia
+	extern GetWRefCon
+	extern GetWindowEventTarget
+	extern GetWindowPort
+	extern GetWindowPortBounds
+	extern GetWindowResizeLimits
+	extern GoToBeginningOfMovie
+	extern HITextViewGetTXNObject
+	extern HIViewGetRoot
+	extern HIViewGetViewForMouseEvent
+	extern HandleControlKey
+	extern HideControl
+	extern HideCursor
+	extern HideMenuBar
+	extern HideWindow
+	extern Hunk_AllocateTempMemoryInternal_F0_2
+	extern Hunk_FreeTempMemory_F0_1
+	extern IOObjectConformsTo
+	extern IORegistryEntryCreateCFProperty
+	extern IORegistryEntryGetParentEntry
+	extern I_stricmp_F0_2
+	extern I_strncmp_F0_2
+	extern I_strnicmp_F0_2
+	extern InitCursor
+	extern InsertMediaIntoTrack
+	extern InsertMenu
+	extern InsetRect
+	extern InstallEventHandler
+	extern InstallEventLoopTimer
+	extern InvalMenuBar
+	extern IsMovieDone
+	extern IsWindowVisible
+	extern LSCopyItemInfoForRef
+	extern LSOpenCFURLRef
+	extern LSOpenFSRef
+	extern LockPixels
+	extern MPDelayUntil
+	extern MapRect
+	extern MediaSetSoundBalance
+	extern Microseconds
+	extern MoveWindow
+	extern MoviesTask
+	extern NewAUGraph
+	extern NewControlEditTextValidationUPP
+	extern NewControlKeyFilterUPP
+	extern NewControlUserPaneDrawUPP
+	extern NewControlUserPaneHitTestUPP
+	extern NewControlUserPaneTrackingUPP
+	extern NewGWorld
+	extern NewHandle
+	extern NewMenu
+	extern NewMovieFromFile
+	extern NewRgn
+	extern NormalizeThemeDrawingState
+	extern OTAtomicAdd32
+	extern OTCompareAndSwap32
+	extern OffsetRect
+	extern OpenAComponent
+	extern OpenComponent
+	extern OpenMovieFile
+	extern OpenRgn
+	extern PBGetCatInfoSync
+	extern PaintRect
+	extern PaintRoundRect
+	extern PlotIconRef
+	extern PostEventToQueue
+	extern PrerollMovie
+	extern PtInRect
+	extern PtrAndHand
+	extern QDBeginCGContext
+	extern QDEndCGContext
+	extern QDGlobalToLocalPoint
+	extern QDLocalToGlobalPoint
+	extern QDRegisterNamedPixMapCursor
+	extern QDSetNamedPixMapCursor
+	extern QuitAppModalLoopForWindow
+	extern QuitApplicationEventLoop
+	extern RGBForeColor
+	extern ReceiveNextEvent
+	extern ReleaseEvent
+	extern ReleaseIconRef
+	extern RemoveEventHandler
+	extern RemoveEventLoopTimer
+	extern RunAppModalLoopForWindow
+	extern RunApplicationEventLoop
+	extern RunStandardAlert
+	extern SECTION
+	extern SendEventToEventTarget
+	extern SetClip
+	extern SetControlData
+	extern SetControlFontStyle
+	extern SetControlMaximum
+	extern SetControlReference
+	extern SetCursor
+	extern SetEventParameter
+	extern SetFileAttributesA_F0_3
+	extern SetFrontProcess
+	extern SetItemCmd
+	extern SetKeyboardFocus
+	extern SetMovieRate
+	extern SetMovieTimeValue
+	extern SetPort
+	extern SetPortWindowPort
+	extern SetSystemUIMode
+	extern SetThemeCursor
+	extern SetTrackVolume
+	extern SetWRefCon
+	extern SetWindowContentColor
+	extern SetWindowResizeLimits
+	extern SetWindowTitleWithCFString
+	extern ShowControl
+	extern ShowCursor
+	extern ShowMenuBar
+	extern ShowWindow
+	extern SizeWindow
+	extern StartMovie
+	extern StopMovie
+	extern StringToNum
+	extern TXNSetData
+	extern TXNSetSelection
+	extern TXNSetTypeAttributes
+	extern TXNShowSelection
+	extern TickCount
+	extern UpTime
+	extern UpdateSystemActivity
+	extern Z10Com_MemsetPvii_F0_12
+	extern Z10Com_PrintfPKcz_F0_1
+	extern Z10I_strncpyzPcPKci_F0_15
+	extern Z11Com_DPrintfPKcz_F0_1
+	extern Z11Com_sprintfPciPKcz_F0_2
+	extern Z12Cbuf_AddTextPKc_F0_1
+	extern Z12Com_SafeModev_F0_15
+	extern Z12Dvar_SetBoolPK6dvar_sh_F0_1
+	extern Z13Com_ReadCDKeyv_F0_1
+	extern Z13Sys_ListFilesPKcS0_S0_Pii_F0_12
+	extern Z14Cmd_AddCommandPKcPFvvE_F0_1
+	extern Z14Com_FilterPathPKcS0_i_F0_17
+	extern Z14Dvar_SetStringPK6dvar_sPKc_F0_1
+	extern Z14SND_StopSounds20snd_stopsounds_arg_t_F0_14
+	extern Z14Sys_StreamSeekiii_F0_1
+	extern Z16Dvar_RegisterIntPKciiit_F0_9
+	extern Z16SEH_InitLanguagev_F0_2
+	extern Z16Sys_FreeFileListPPc_F0_1
+	extern Z17Cmd_RemoveCommandPKc_F0_1
+	extern Z17Com_BlockChecksumPKvi_F0_15
+	extern Z17Dvar_RegisterBoolPKcht_F0_9
+	extern Z17SEH_Init_StringEdv_F0_2
+	extern Z17Sys_DefaultCDPathv_F0_2
+	extern Z18Cmd_TokenizeStringPKc_F0_1
+	extern Z18Dvar_ClearModifiedPK6dvar_s_F0_1
+	extern Z19Com_StartupVariablePKc_F0_1
+	extern Z19Dvar_RegisterStringPKcS0_t_F0_9
+	extern Z19SEH_GetLanguageNamei_F0_3
+	extern Z19Sys_DefaultHomePathv_F0_2
+	extern Z19Sys_EndStreamedFilei_F0_1
+	extern Z20Com_BlockChecksumKeyPvii_F0_15
+	extern Z21SEH_Shutdown_StringEdv_F0_2
+	extern Z22SEH_GetCurrentLanguagev_F0_1
+	extern Z22SEH_UpdateLanguageInfov_F0_2
+	extern Z22Sys_DefaultInstallPathv_F0_2
+	extern Z24Sys_DirectoryHasContentsPKc_F0_6
+	extern Z25Com_GetExtensionSubStringPKc_F0_5
+	extern Z27SEH_GetLanguageIndexForNamePKcPi_F0_7
+	extern Z7stricmpPKcS0__F0_1
+	extern Z8Cmd_Argcv_F0_2
+	extern Z8Cmd_Argvi_F0_3
+	extern Z8I_strlwrPc_F0_3
+	extern Z9I_isloweri_F0_16
+	extern Z9I_strncatPciPKc_F0_15
+	extern Z9Sys_MkdirPKc_F0_1
+	extern Z_FreeInternal_F0_1
+	extern Z_MallocInternal_F0_2
+	extern _Unwind_Resume
+	extern _ZN9__gnu_cxx18__exchange_and_addEPVii
+	extern _ZNKSs4findEPKcmm
+	extern _ZNKSs7compareEPKc
 	extern _ZNSs12_M_leak_hardEv
-	extern _ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_
+	extern _ZNSs4_Rep10_M_destroyERKSaIcE
+	extern _ZNSs6appendEPKcm
+	extern _ZNSs6appendERKSs
+	extern _ZNSs6assignEPKcm
+	extern _ZNSs6assignERKSs
+	extern _ZNSs7replaceEmmPKcm
+	extern _ZNSs7reserveEm
+	extern _ZNSs9_M_mutateEmmm
+	extern _ZNSsC1EPKcRKSaIcE
+	extern _ZNSsC1ERKSs
+	extern _ZNSsC1ERKSsmm
+	extern _ZNSsD1Ev
+	extern _ZNSt15_List_node_base4hookEPS_
+	extern _ZNSt15_List_node_base6unhookEv
+	extern _ZSt17__throw_bad_allocv
 	extern _ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base
 	extern _ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base
-	extern sscanf
-	extern sin
-	extern acos
-	extern vsprintf
-	extern _ZNSs7reserveEm
-	extern strncat
-	extern ctime
-	extern strncmp
-	extern LSOpenFSRef
-	extern CFURLCreateWithBytes
-	extern LSOpenCFURLRef
-	extern UpdateSystemActivity
-	extern GetHandleSize
-	extern TXNSetData
-	extern NewHandle
-	extern DisposeHandle
-	extern RemoveEventLoopTimer
-	extern CollapseWindow
-	extern TXNSetSelection
-	extern TXNShowSelection
-	extern PtrAndHand
-	extern mkdir
-	extern opendir
-	extern readdir
-	extern stat
-	extern closedir
-	extern pow
-	extern glTestFenceAPPLE
-	extern glReadPixels
-	extern glGetError
-	extern asin
-	extern printf
-	extern _ZNSs7replaceEmmPKcm
-	extern expf
-	extern exp
-	extern isprint
-	extern fileno
-	extern isatty
-	extern fprintf
-	extern realloc
+	extern _ZSt20__throw_length_errorPKc
+	extern _ZSt20__throw_out_of_rangePKc
+	extern _ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_
+	extern _ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_
+	extern _ZZ11FS_ShiftStrPKciE3buf
+	extern _ZZ15IwdFileLanguagePKcE17szIwdLanguageName
+	extern _ZZ15IwdFileLanguagePKcE7iString
+	extern _ZZ17FS_GetMapBaseNamePKcE8basename
+	extern _ZZ30FS_AddIwdFilesForGameDirectoryPKcS0_E16bLanguagesListed
+	extern _ZdaPv
+	extern _ZdlPv
+	extern _Znam
+	extern _Znwm
+	extern __cxa_allocate_exception
+	extern __cxa_begin_catch
+	extern __cxa_end_catch
+	extern __cxa_guard_abort
 	extern __cxa_guard_acquire
 	extern __cxa_guard_release
-	extern __cxa_guard_abort
-	extern GetCurrentEventTime
-	extern SetFrontProcess
-	extern glGenVertexArraysAPPLE
-	extern glColorPointer
-	extern glNormalPointer
-	extern glVertexPointer
-	extern glTexCoordPointer
-	extern _ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_
-	extern AudioConverterReset
-	extern AudioUnitGetProperty
-	extern AudioConverterDispose
-	extern AudioConverterNew
-	extern log10f
-	extern AudioUnitSetParameter
-	extern AudioConverterFillComplexBuffer
-	extern AudioUnitSetProperty
-	extern AudioUnitAddRenderNotify
-	extern AudioUnitRemoveRenderNotify
-	extern usleep
-	extern AUGraphGetCPULoad
-	extern strdup
-	extern AUGraphStop
-	extern DisposeAUGraph
-	extern AudioDeviceGetPropertyInfo
-	extern AudioDeviceGetProperty
-	extern FindNextComponent
-	extern OpenComponent
-	extern GetComponentVersion
-	extern CloseComponent
-	extern NewAUGraph
-	extern AUGraphNewNode
-	extern AUGraphOpen
-	extern AUGraphGetNodeInfo
-	extern AUGraphUpdate
-	extern AUGraphConnectNodeInput
-	extern AUGraphInitialize
-	extern AUGraphStart
-	extern pthread_mutex_destroy
-	extern pthread_create
-	extern pthread_mutexattr_init
-	extern pthread_mutexattr_settype
-	extern pthread_mutex_init
-	extern pthread_mutexattr_destroy
-	extern pthread_mutex_unlock
-	extern pthread_mutex_lock
-	extern glTexImage3D
-	extern glCompressedTexImage3DARB
-	extern glTexSubImage3D
-	extern glCompressedTexSubImage3D
-	extern strtok
-	extern StopMovie
-	extern GoToBeginningOfMovie
-	extern GetMovieTimeScale
-	extern GetMovieDuration
-	extern GetMovieTime
-	extern SetMovieTimeValue
-	extern SetTrackVolume
-	extern GetMediaHandler
-	extern MediaSetSoundBalance
-	extern MoviesTask
-	extern IsMovieDone
-	extern StartMovie
-	extern DisposeMovie
-	extern SetMovieRate
-	extern OpenMovieFile
-	extern NewMovieFromFile
-	extern GetMoviePreferredRate
-	extern PrerollMovie
-	extern GetMovieIndTrackType
-	extern GetTrackMedia
-	extern GetMediaSampleDescription
-	extern srand
-	extern putenv
-	extern getenv
-	extern puts
-	extern asinf
-	extern atanf
-	extern tanf
-	extern select
-	extern inet_addr
-	extern gethostbyname
-	extern recvfrom
-	extern strerror
-	extern sendto
-	extern setsockopt
-	extern bind
-	extern socket
-	extern connect
-	extern send
-	extern recv
+	extern __cxa_rethrow
+	extern __cxa_throw
+	extern __dynamic_cast
+	extern __error
 	extern __isnanf
-	extern floor
-	extern logf
-	extern AudioOutputUnitStart
-	extern AudioOutputUnitStop
-	extern AudioDeviceSetProperty
-	extern AudioConverterFillBuffer
-	extern AudioUnitRender
-	extern AudioUnitUninitialize
-	extern OpenAComponent
-	extern AudioHardwareGetProperty
-	extern AudioUnitInitialize
+	extern __keymgr_dwarf2_register_sections
+	extern __maskrune
+	extern __udivdi3
+	extern _cstring_10
+	extern _cstring_14
+	extern _cstring_15
+	extern _cstring_3
+	extern _cstring_4
+	extern _cstring_6
+	extern _cstring_7
+	extern _cstring_8
+	extern _cstring___________
+	extern _cstring_____localized_as
+	extern _cstring_____localized_as1
+	extern _cstring_____localized_as2
+	extern _cstring_____not_on_the_p
+	extern _cstring_____on_the_pure_
+	extern _cstring_____s
+	extern _cstring__fs_startup_
+	extern _cstring__iw02d
+	extern _cstring__local_file_exis
+	extern _cstring__svr_
+	extern _cstring_arena
+	extern _cstring_at
+	extern _cstring_bsp
+	extern _cstring_cant_find_s
+	extern _cstring_cfg
+	extern _cstring_cfg1
+	extern _cstring_config_mpcfg
+	extern _cstring_connected_to_a_p
+	extern _cstring_corrupted_iw0iwd
+	extern _cstring_couldnt_load_s__
+	extern _cstring_couldnt_read_i_b
+	extern _cstring_couldnt_reopen_s
+	extern _cstring_couldnt_write_i_
+	extern _cstring_current_language
+	extern _cstring_current_search_p
+	extern _cstring_d_files_in_iwd_f
+	extern _cstring_d_files_listed
+	extern _cstring_default_localize
+	extern _cstring_default_mpcfg
+	extern _cstring_demomain
+	extern _cstring_descriptiontxt
+	extern _cstring_devraw
+	extern _cstring_devraw_shared
+	extern _cstring_dir
+	extern _cstring_directory_of_s_s
+	extern _cstring_dm_network_proto
+	extern _cstring_end_of_memory_fi
+	extern _cstring_english
+	extern _cstring_example_fdir_q3d
+	extern _cstring_exe_unpureclient
+	extern _cstring_exec_s
+	extern _cstring_failed_to_open_s
+	extern _cstring_fdir
+	extern _cstring_file_2i_s
+	extern _cstring_file_handles
+	extern _cstring_fs_basegame
+	extern _cstring_fs_basepath
+	extern _cstring_fs_buildospath_o
+	extern _cstring_fs_cdpath
+	extern _cstring_fs_copyfiles
+	extern _cstring_fs_debug
+	extern _cstring_fs_fopenfileappe
+	extern _cstring_fs_fopenfileover
+	extern _cstring_fs_fopenfileover1
+	extern _cstring_fs_fopenfileread
+	extern _cstring_fs_fopenfileread1
+	extern _cstring_fs_fopenfilewrit
+	extern _cstring_fs_game
+	extern _cstring_fs_handleforfile
+	extern _cstring_fs_homepath
+	extern _cstring_fs_ignorelocaliz
+	extern _cstring_fs_read_1_bytes_
+	extern _cstring_fs_readfile_with
+	extern _cstring_fs_restrict
+	extern _cstring_fs_sv_fopenfiler
+	extern _cstring_fs_sv_fopenfiler1
+	extern _cstring_fs_sv_fopenfiler2
+	extern _cstring_fs_sv_fopenfilew
+	extern _cstring_fs_sv_rename_s__
+	extern _cstring_fs_useoldassets
+	extern _cstring_fsh_fopenfile_ba
+	extern _cstring_fullpath
+	extern _cstring_handle_i_s
+	extern _cstring_hlsl
+	extern _cstring_i_
+	extern _cstring_invalid_game_fol
+	extern _cstring_iwd
+	extern _cstring_iwd1
+	extern _cstring_iwd_sumname_mism
+	extern _cstring_levelshots
+	extern _cstring_loc_language
+	extern _cstring_localized
+	extern _cstring_localized_
+	extern _cstring_main
+	extern _cstring_mapsmp
+	extern _cstring_menu
+	extern _cstring_menu1
+	extern _cstring_modlist
+	extern _cstring_need_iwds_s
+	extern _cstring_nonlocalized
+	extern _cstring_null
+	extern _cstring_path
+	extern _cstring_raw
+	extern _cstring_raw_shared
+	extern _cstring_rb
+	extern _cstring_roq
+	extern _cstring_running_in_restr
+	extern _cstring_s
+	extern _cstring_s08xiwd
+	extern _cstring_s_i_files
+	extern _cstring_short_read_in_fs
+	extern _cstring_short_write_in_f
+	extern _cstring_siw_02d
+	extern _cstring_siwd
+	extern _cstring_slocalized_
+	extern _cstring_space
+	extern _cstring_ss2
+	extern _cstring_ss3
+	extern _cstring_str
+	extern _cstring_str1
+	extern _cstring_supported_langua
+	extern _cstring_tempcod
+	extern _cstring_touchfile
+	extern _cstring_txt
+	extern _cstring_usage_dir_direct
+	extern _cstring_usage_fdir_filte
+	extern _cstring_usage_touchfile_
+	extern _cstring_warning_exceeded
+	extern _cstring_warning_game_fol
+	extern _cstring_warning_game_gol
+	extern _cstring_warning_localize
+	extern _cstring_warning_localize1
+	extern _cstring_warning_refusing
+	extern _cstring_wb
+	extern _cstring_writing_to_s
+	extern _cstring_wt
+	extern abort
+	extern accept
+	extern access
+	extern acos
+	extern acosf
+	extern add
+	extern aglChoosePixelFormat
+	extern aglCreateContext
+	extern aglDescribePixelFormat
+	extern aglDestroyContext
+	extern aglDestroyPixelFormat
+	extern aglGetDrawable
+	extern aglSetCurrentContext
+	extern aglSetDrawable
+	extern aglSetFullScreen
+	extern aglSetInteger
+	extern aglSwapBuffers
+	extern and
+	extern asctime
+	extern asin
+	extern asinf
+	extern atan2
+	extern atanf
+	extern atexit
+	extern atof
+	extern atoi
+	extern atol
+	extern bind
+	extern call
+	extern calloc
+	extern ceilf
+	extern chdir
+	extern cld
+	extern close
+	extern closedir
+	extern cmovge
+	extern cmovnz
+	extern cmovz
+	extern cmp
+	extern com_fileAccessed
+	extern connect
+	extern cos
+	extern cosf
+	extern ctime
+	extern default_config
 	extern dlclose
 	extern dlopen
 	extern dlsym
-	extern abort
-	extern vfprintf
-	extern getsockname
-	extern read
-	extern atol
-	extern strtol
-	extern getpid
-	extern tmpnam
-	extern strftime
-	extern gmtime
-	extern mktime
+	extern exit
+	extern exp
+	extern expf
+	extern fclose
 	extern fcntl
-	extern accept
-	extern listen
-	extern gethostname
-	extern getdomainname
-	extern getlogin
-	extern getuid
-	extern getpwuid
+	extern fflush
 	extern fgets
-	extern gettimeofday
-	extern regcomp
-	extern regerror
-	extern regfree
-	extern regexec
-	extern getpass
-	extern getsockopt
-	extern write
-	extern unlink
+	extern fileno
+	extern floor
+	extern floorf
+	extern fopen
+	extern fprintf
 	extern fputc
 	extern fputs
+	extern fread
+	extern free
+	extern fs_basegame
+	extern fs_basepath
+	extern fs_cdpath
+	extern fs_checksumFeed
+	extern fs_copyfiles
+	extern fs_debug
+	extern fs_fakeChkSum
+	extern fs_gameDirVar
+	extern fs_gamedir
+	extern fs_homepath
+	extern fs_ignoreLocalized
+	extern fs_loadStack
+	extern fs_numServerIwds
+	extern fs_numServerReferencedIwds
+	extern fs_packFiles
+	extern fs_restrict
+	extern fs_searchpaths
+	extern fs_serverIwdNames
+	extern fs_serverIwds
+	extern fs_serverReferencedIwdNames
+	extern fs_useOldAssets
+	extern fseek
+	extern fsh
+	extern ftell
+	extern fwrite
+	extern getcwd
+	extern getdomainname
+	extern getenv
+	extern gethostbyname
+	extern gethostname
+	extern getlogin
+	extern getpass
+	extern getpid
+	extern getpwuid
+	extern getrlimit
+	extern getsockname
+	extern getsockopt
+	extern gettimeofday
+	extern getuid
+	extern glActiveTextureARB
+	extern glAlphaFunc
+	extern glBegin
+	extern glBindProgramARB
+	extern glBindTexture
+	extern glBindVertexArrayAPPLE
+	extern glBlendEquationEXT
+	extern glBlendFunc
+	extern glBlendFuncSeparateEXT
+	extern glClear
+	extern glClearColor
+	extern glClearDepth
+	extern glClearStencil
+	extern glClientActiveTextureARB
+	extern glClipPlane
+	extern glColor4f
+	extern glColorMask
+	extern glColorMaterial
+	extern glColorPointer
+	extern glCombinerParameterfvNV
+	extern glCombinerStageParameterfvNV
+	extern glCompressedTexImage2DARB
+	extern glCompressedTexImage3DARB
+	extern glCompressedTexSubImage2D
+	extern glCompressedTexSubImage3D
+	extern glCopyTexSubImage2D
+	extern glDeleteFencesAPPLE
+	extern glDeleteProgramsARB
+	extern glDeleteTextures
+	extern glDeleteVertexArraysAPPLE
+	extern glDepthFunc
+	extern glDepthMask
+	extern glDepthRange
+	extern glDisable
+	extern glDisableClientState
+	extern glDisableVertexAttribArrayARB
+	extern glDrawBuffer
+	extern glDrawRangeElements
+	extern glEnable
+	extern glEnableClientState
+	extern glEnableVertexAttribArrayARB
+	extern glEnd
+	extern glFinish
+	extern glFinishFenceAPPLE
+	extern glFlushVertexArrayRangeAPPLE
+	extern glFogf
+	extern glFogfv
+	extern glFogi
+	extern glFrontFace
+	extern glGenFencesAPPLE
+	extern glGenProgramsARB
+	extern glGenTextures
+	extern glGenVertexArraysAPPLE
+	extern glGetError
+	extern glGetFloatv
+	extern glGetIntegerv
+	extern glGetProgramivARB
+	extern glGetString
+	extern glHint
+	extern glLightModelfv
+	extern glLightModeli
+	extern glLightf
+	extern glLightfv
+	extern glLoadIdentity
+	extern glLoadMatrixf
+	extern glMaterialf
+	extern glMaterialfv
+	extern glMatrixMode
+	extern glNormalPointer
+	extern glPixelStorei
+	extern glPointParameterfARB
+	extern glPointParameterfvARB
+	extern glPointSize
+	extern glPolygonMode
+	extern glPolygonOffset
+	extern glPopAttrib
+	extern glPopClientAttrib
+	extern glPopMatrix
+	extern glProgramEnvParameter4fvARB
+	extern glProgramStringARB
+	extern glPushAttrib
+	extern glPushClientAttrib
+	extern glPushMatrix
+	extern glReadBuffer
+	extern glReadPixels
+	extern glScalef
+	extern glScissor
+	extern glSetFenceAPPLE
+	extern glShadeModel
+	extern glStencilFunc
+	extern glStencilMask
+	extern glStencilOp
+	extern glTestFenceAPPLE
+	extern glTexCoord2f
+	extern glTexCoordPointer
+	extern glTexEnvf
+	extern glTexEnvfv
+	extern glTexEnvi
+	extern glTexGenfv
+	extern glTexGeni
+	extern glTexImage2D
+	extern glTexImage3D
+	extern glTexParameterf
+	extern glTexParameterfv
+	extern glTexParameteri
+	extern glTexSubImage2D
+	extern glTexSubImage3D
+	extern glVertex2f
+	extern glVertex3f
+	extern glVertexArrayParameteriAPPLE
+	extern glVertexArrayRangeAPPLE
+	extern glVertexAttribPointerARB
+	extern glVertexPointer
+	extern glViewport
+	extern gluCheckExtension
+	extern gluOrtho2D
+	extern gmtime
+	extern imul
+	extern inet_addr
+	extern info2
+	extern info3
+	extern info4
+	extern info5
+	extern info6
+	extern info8
+	extern ioctl
+	extern isatty
+	extern isprint
+	extern isspace
+	extern ja
+	extern jae
+	extern jb
+	extern jbe
+	extern jg
+	extern jge
+	extern jl
+	extern jle
+	extern jmp
+	extern jnz
+	extern js
+	extern jz
+	extern lastValidBase
+	extern lastValidGame
+	extern lea
+	extern leave
+	extern listen
+	extern localtime
+	extern log
+	extern log10f
+	extern logf
+	extern longjmp
+	extern lround
+	extern malloc
+	extern memcpy
+	extern memmove
+	extern memset
+	extern mkdir
+	extern mktime
+	extern mov
+	extern movsx
+	extern movzx
+	extern nop
+	extern not
+	extern opendir
+	extern pop
+	extern pow
+	extern printf
+	extern pthread_create
+	extern pthread_main_np
+	extern pthread_mutex_destroy
+	extern pthread_mutex_init
+	extern pthread_mutex_lock
+	extern pthread_mutex_unlock
+	extern pthread_mutexattr_destroy
+	extern pthread_mutexattr_init
+	extern pthread_mutexattr_settype
+	extern pthread_self
+	extern push
+	extern putenv
+	extern puts
+	extern qsort
+	extern rand
+	extern read
+	extern readdir
+	extern realloc
+	extern recv
+	extern recvfrom
+	extern regcomp
+	extern regerror
+	extern regexec
+	extern regfree
+	extern remove
+	extern rename
+	extern repne
+	extern ret
+	extern rewind
+	extern sar
+	extern sbb
+	extern scasb
+	extern scrMemTreeGlob
+	extern select
+	extern send
+	extern sendto
+	extern setb
+	extern setjmp
+	extern setnz
+	extern setrlimit
+	extern setsockopt
+	extern setz
+	extern shl
+	extern shr
+	extern sin
+	extern sinf
+	extern snprintf
+	extern socket
+	extern sprintf
+	extern srand
+	extern sscanf
+	extern stat
+	extern strcasecmp
+	extern strcat
+	extern strchr
+	extern strcmp
+	extern strcpy
+	extern strdup
+	extern strerror
+	extern strftime
+	extern strncasecmp
+	extern strncat
+	extern strncmp
+	extern strncpy
+	extern strrchr
+	extern strstr
+	extern strtok
+	extern strtol
+	extern sub
+	extern sysctl
+	extern tan
+	extern tanf
+	extern test
+	extern text
+	extern time
+	extern tmpnam
+	extern tolower
+	extern toupper
+	extern unlink
+	extern unzCloseCurrentFile_F0_1
+	extern unzClose_F0_1
+	extern unzGetCurrentFileInfoPosition_F0_1
+	extern unzGetCurrentFileInfo_F0_1
+	extern unzGetGlobalInfo_F0_1
+	extern unzGoToFirstFile_F0_1
+	extern unzGoToNextFile_F0_1
+	extern unzOpenCurrentFile_F0_1
+	extern unzOpen_F0_5
+	extern unzReOpen_F0_5
+	extern unzReadCurrentFile_F0_1
+	extern unzSetCurrentFileInfoPosition_F0_1
+	extern unztell_F0_69
+	extern usleep
+	extern va_F0_3
+	extern vfprintf
+	extern vsnprintf
+	extern vsprintf
+	extern write
+	extern xor
 
 ;Exports defined in this file:
-	global Z14FS_Initializedv:F(0,1)
-	global Z25FS_CheckFileSystemStartedv:F(0,3)
-	global Z12FS_LoadStackv:F(0,2)
-	global Z16FS_UseSearchPathPK12searchpath_s:F(0,1)
-	global Z20FS_LanguageHasAssetsi:F(0,1)
-	global Z15FS_HashFileNamePKci:F(0,29)
-	global Z16FS_HandleForFilei:F(0,32)
-	global Z16FS_FileForHandlei:F(0,33)
-	global Z13FS_CreatePathPc:F(0,1)
-	global Z9FS_RemovePKc:F(0,3)
-	global Z18FS_FilenameComparePKcS0_:F(0,1)
-	global Z23FS_PureIgnoresExtensionPKc:F(0,1)
-	global Z13FS_ResetFilesv:F(0,3)
-	global Z14FS_ConvertPathPc:F(0,3)
-	global Z25FS_ShutdownServerIwdNamesv:F(0,3)
-	global Z31FS_ShutdownServerReferencedIwdsv:F(0,3)
-	global Z16FS_RegisterDvarsv:F(0,61)
-	global Z21FS_ClearIwdReferencesv:F(0,3)
-	global FS_FreeFile:F(0,3)
-	global FS_FreeFileList:F(0,3)
-	global Z13FS_filelengthi:F(0,2)
-	global Z13FS_FCloseFilei:F(0,3)
-	global Z11FS_Shutdowni:F(0,3)
-	global Z7FS_ReadPvii:F(0,2)
-	global Z8FS_WritePKvii:F(0,2)
-	global Z7FS_Seekili:F(0,2)
-	global Z8FS_FTelli:F(0,2)
-	global Z8FS_Flushi:F(0,3)
+	global Z14FS_Initializedv_F0_1
+	global Z25FS_CheckFileSystemStartedv_F0_3
+	global Z12FS_LoadStackv_F0_2
+	global Z16FS_UseSearchPathPK12searchpath_s_F0_1
+	global Z20FS_LanguageHasAssetsi_F0_1
+	global Z15FS_HashFileNamePKci_F0_29
+	global Z16FS_HandleForFilei_F0_32
+	global Z16FS_FileForHandlei_F0_33
+	global Z13FS_CreatePathPc_F0_1
+	global Z9FS_RemovePKc_F0_3
+	global Z18FS_FilenameComparePKcS0__F0_1
+	global Z23FS_PureIgnoresExtensionPKc_F0_1
+	global Z13FS_ResetFilesv_F0_3
+	global Z14FS_ConvertPathPc_F0_3
+	global Z25FS_ShutdownServerIwdNamesv_F0_3
+	global Z31FS_ShutdownServerReferencedIwdsv_F0_3
+	global Z16FS_RegisterDvarsv_F0_61
+	global Z21FS_ClearIwdReferencesv_F0_3
+	global FS_FreeFile_F0_3
+	global FS_FreeFileList_F0_3
+	global Z13FS_filelengthi_F0_2
+	global Z13FS_FCloseFilei_F0_3
+	global Z11FS_Shutdowni_F0_3
+	global Z7FS_ReadPvii_F0_2
+	global Z8FS_WritePKvii_F0_2
+	global Z7FS_Seekili_F0_2
+	global Z8FS_FTelli_F0_2
+	global Z8FS_Flushi_F0_3
 	global _Z19FS_SanitizeFilenamePKcPci
 	global _Z23FS_BuildOSPath_InternalPKcS0_S0_Pci
-	global Z14FS_BuildOSPathPKcS0_S0_Pc:F(0,3)
-	global Z13FS_FileExistsPKc:F(0,1)
-	global Z18FS_ShortOSFilePathPKc:F(0,30)
-	global Z16FS_GetFileOsPathPKcPc:F(0,2)
-	global Z14FS_DisplayPathi:F(0,3)
-	global Z9FS_Path_fv:F(0,3)
-	global Z13FS_FullPath_fv:F(0,3)
-	global Z9FS_PrintfiPKcz:F(0,3)
-	global Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)
-	global FS_ListFiles:F(0,62)
-	global Z14FS_GetFileListPKcS0_16FsListBehavior_ePci:F(0,2)
-	global Z15FS_SortFileListPPKci:F(0,3)
-	global Z20FS_OpenFileOverwritePKc:F(0,32)
+	global Z14FS_BuildOSPathPKcS0_S0_Pc_F0_3
+	global Z13FS_FileExistsPKc_F0_1
+	global Z18FS_ShortOSFilePathPKc_F0_30
+	global Z16FS_GetFileOsPathPKcPc_F0_2
+	global Z14FS_DisplayPathi_F0_3
+	global Z9FS_Path_fv_F0_3
+	global Z13FS_FullPath_fv_F0_3
+	global Z9FS_PrintfiPKcz_F0_3
+	global Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62
+	global FS_ListFiles_F0_62
+	global Z14FS_GetFileListPKcS0_16FsListBehavior_ePci_F0_2
+	global Z15FS_SortFileListPPKci_F0_3
+	global Z20FS_OpenFileOverwritePKc_F0_32
 	global _Z7iwdsortPKvS0_
 	global _Z30FS_AddIwdFilesForGameDirectoryPKcS0_
 	global _Z19FS_AddGameDirectoryPKcS0_ii
-	global Z11FS_CopyFilePcS_:F(0,3)
+	global Z11FS_CopyFilePcS__F0_3
 	global _Z25FS_FOpenFileRead_InternalPKcPiiii
-	global Z16FS_FOpenFileReadPKcPii:F(0,2)
-	global Z22FS_FOpenFileReadStreamPKcPii:F(0,2)
-	global Z12FS_TouchFilePKc:F(0,1)
-	global FS_ReadFile:F(0,2)
-	global Z17FS_FOpenFileWritePKc:F(0,32)
-	global Z12FS_WriteFilePKcPKvi:F(0,1)
-	global Z21FS_FOpenTextFileWritePKc:F(0,32)
-	global Z18FS_FOpenFileAppendPKc:F(0,32)
-	global Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2)
-	global Z10FS_StartupPKc:F(0,3)
-	global Z10FS_Restarti:F(0,3)
-	global Z21FS_ConditionalRestarti:F(0,1)
-	global Z17FS_InitFilesystemv:F(0,3)
-	global FS_FileRead:F(0,1)
-	global FS_FileWrite:F(0,1)
-	global FS_FileOpen:F(0,4)
-	global FS_FileClose:F(0,10)
-	global FS_FileSeek:F(0,10)
-	global Z20FS_SV_FOpenFileWritePKc:F(0,33)
-	global Z19FS_SV_FOpenFileReadPKcPi:F(0,2)
-	global Z12FS_SV_RenamePKcS0_:F(0,22)
-	global Z11FS_ShiftStrPKci:F(0,35)
-	global Z8FS_Dir_fv:F(0,22)
-	global Z11FS_NewDir_fv:F(0,22)
-	global Z14FS_TouchFile_fv:F(0,22)
-	global Z8FS_iwIwdPcS_:F(0,1)
-	global Z14FS_AddCommandsv:F(0,22)
-	global Z18FS_SetRestrictionsv:F(0,22)
-	global Z21FS_LoadedIwdChecksumsv:F(0,3)
-	global Z17FS_LoadedIwdNamesv:F(0,3)
-	global Z25FS_LoadedIwdPureChecksumsv:F(0,3)
-	global Z25FS_ReferencedIwdChecksumsv:F(0,3)
-	global Z21FS_ReferencedIwdNamesv:F(0,3)
-	global Z29FS_ReferencedIwdPureChecksumsv:F(0,3)
-	global Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)
-	global Z30FS_PureServerSetReferencedIwdsPKcS0_:F(0,22)
-	global Z17FS_GetMapBaseNamePKc:F(0,3)
-	global Z13FS_GetModListPci:F(0,2)
-	global Z14FS_CompareIwdsPcii:F(0,1)
-	global Z15CompareCaseInfoPKvS0_:F(0,1)
+	global Z16FS_FOpenFileReadPKcPii_F0_2
+	global Z22FS_FOpenFileReadStreamPKcPii_F0_2
+	global Z12FS_TouchFilePKc_F0_1
+	global FS_ReadFile_F0_2
+	global Z17FS_FOpenFileWritePKc_F0_32
+	global Z12FS_WriteFilePKcPKvi_F0_1
+	global Z21FS_FOpenTextFileWritePKc_F0_32
+	global Z18FS_FOpenFileAppendPKc_F0_32
+	global Z18FS_FOpenFileByModePKcPi8fsMode_t_F0_2
+	global Z10FS_StartupPKc_F0_3
+	global Z10FS_Restarti_F0_3
+	global Z21FS_ConditionalRestarti_F0_1
+	global Z17FS_InitFilesystemv_F0_3
+	global FS_FileRead_F0_1
+	global FS_FileWrite_F0_1
+	global FS_FileOpen_F0_4
+	global FS_FileClose_F0_10
+	global FS_FileSeek_F0_10
+	global Z20FS_SV_FOpenFileWritePKc_F0_33
+	global Z19FS_SV_FOpenFileReadPKcPi_F0_2
+	global Z12FS_SV_RenamePKcS0__F0_22
+	global Z11FS_ShiftStrPKci_F0_35
+	global Z8FS_Dir_fv_F0_22
+	global Z11FS_NewDir_fv_F0_22
+	global Z14FS_TouchFile_fv_F0_22
+	global Z8FS_iwIwdPcS__F0_1
+	global Z14FS_AddCommandsv_F0_22
+	global Z18FS_SetRestrictionsv_F0_22
+	global Z21FS_LoadedIwdChecksumsv_F0_3
+	global Z17FS_LoadedIwdNamesv_F0_3
+	global Z25FS_LoadedIwdPureChecksumsv_F0_3
+	global Z25FS_ReferencedIwdChecksumsv_F0_3
+	global Z21FS_ReferencedIwdNamesv_F0_3
+	global Z29FS_ReferencedIwdPureChecksumsv_F0_3
+	global Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22
+	global Z30FS_PureServerSetReferencedIwdsPKcS0__F0_22
+	global Z17FS_GetMapBaseNamePKc_F0_3
+	global Z13FS_GetModListPci_F0_2
+	global Z14FS_CompareIwdsPcii_F0_1
+	global Z15CompareCaseInfoPKvS0__F0_1
 	global _Z27MemFile_WriteDataForArchiveP10MemoryFileiPv
-	global Z22MemFile_InitForWritingP10MemoryFileiPvh:F(0,1)
-	global Z16MemFile_ReadDataP10MemoryFileiPv:F(0,1)
-	global Z17MemFile_WriteDataP10MemoryFileiPKv:F(0,1)
-	global Z19MemFile_ReadCStringP10MemoryFile:F(0,14)
-	global Z22MemFile_InitForReadingP10MemoryFileiPv:F(0,1)
-	global Z20MemFile_WriteCStringP10MemoryFilePKc:F(0,1)
+	global Z22MemFile_InitForWritingP10MemoryFileiPvh_F0_1
+	global Z16MemFile_ReadDataP10MemoryFileiPv_F0_1
+	global Z17MemFile_WriteDataP10MemoryFileiPKv_F0_1
+	global Z19MemFile_ReadCStringP10MemoryFile_F0_14
+	global Z22MemFile_InitForReadingP10MemoryFileiPv_F0_1
+	global Z20MemFile_WriteCStringP10MemoryFilePKc_F0_1
 
 SECTION .text
-Z14FS_Initializedv:F(0,1):
+Z14FS_Initializedv_F0_1:
 	push ebp
 	mov ebp, esp
 	xor eax, eax
@@ -746,9 +1035,9 @@ Z14FS_Initializedv:F(0,1):
 	nop
 
 
-;Z25FS_CheckFileSystemStartedv:F(0,3)
+;Z25FS_CheckFileSystemStartedv_F0_3
 
-Z25FS_CheckFileSystemStartedv:F(0,3):
+Z25FS_CheckFileSystemStartedv_F0_3:
 	push ebp
 	mov ebp, esp
 	pop ebp
@@ -757,9 +1046,9 @@ Z25FS_CheckFileSystemStartedv:F(0,3):
 	add [eax], al
 
 
-;Z12FS_LoadStackv:F(0,2)
+;Z12FS_LoadStackv_F0_2
 
-Z12FS_LoadStackv:F(0,2):
+Z12FS_LoadStackv_F0_2:
 	push ebp
 	mov ebp, esp
 	mov eax, [fs_loadStack]
@@ -767,9 +1056,9 @@ Z12FS_LoadStackv:F(0,2):
 	ret
 
 
-;Z16FS_UseSearchPathPK12searchpath_s:F(0,1)
+;Z16FS_UseSearchPathPK12searchpath_s_F0_1
 
-Z16FS_UseSearchPathPK12searchpath_s:F(0,1):
+Z16FS_UseSearchPathPK12searchpath_s_F0_1:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -777,22 +1066,22 @@ Z16FS_UseSearchPathPK12searchpath_s:F(0,1):
 	mov edx, [ebp+0x8]
 	mov eax, [edx+0xc]
 	test eax, eax
-	jz Z16FS_UseSearchPathPK12searchpath_s:F(0,1)_10
+	jz Z16FS_UseSearchPathPK12searchpath_s_F0_1_10
 	mov eax, [fs_ignoreLocalized]
 	cmp byte [eax+0x8], 0x0
-	jz Z16FS_UseSearchPathPK12searchpath_s:F(0,1)_20
-Z16FS_UseSearchPathPK12searchpath_s:F(0,1)_30:
+	jz Z16FS_UseSearchPathPK12searchpath_s_F0_1_20
+Z16FS_UseSearchPathPK12searchpath_s_F0_1_30:
 	xor eax, eax
 	add esp, 0x4
 	pop ebx
 	pop ebp
 	ret
-Z16FS_UseSearchPathPK12searchpath_s:F(0,1)_20:
+Z16FS_UseSearchPathPK12searchpath_s_F0_1_20:
 	mov ebx, [edx+0x10]
-	call Z22SEH_GetCurrentLanguagev:F(0,1)
+	call Z22SEH_GetCurrentLanguagev_F0_1
 	cmp ebx, eax
-	jnz Z16FS_UseSearchPathPK12searchpath_s:F(0,1)_30
-Z16FS_UseSearchPathPK12searchpath_s:F(0,1)_10:
+	jnz Z16FS_UseSearchPathPK12searchpath_s_F0_1_30
+Z16FS_UseSearchPathPK12searchpath_s_F0_1_10:
 	mov eax, 0x1
 	add esp, 0x4
 	pop ebx
@@ -801,38 +1090,38 @@ Z16FS_UseSearchPathPK12searchpath_s:F(0,1)_10:
 	nop
 
 
-;Z20FS_LanguageHasAssetsi:F(0,1)
+;Z20FS_LanguageHasAssetsi_F0_1
 
-Z20FS_LanguageHasAssetsi:F(0,1):
+Z20FS_LanguageHasAssetsi_F0_1:
 	push ebp
 	mov ebp, esp
 	mov edx, [ebp+0x8]
 	mov eax, [fs_searchpaths]
 	test eax, eax
-	jz Z20FS_LanguageHasAssetsi:F(0,1)_10
-Z20FS_LanguageHasAssetsi:F(0,1)_40:
+	jz Z20FS_LanguageHasAssetsi_F0_1_10
+Z20FS_LanguageHasAssetsi_F0_1_40:
 	mov ecx, [eax+0xc]
 	test ecx, ecx
-	jz Z20FS_LanguageHasAssetsi:F(0,1)_20
+	jz Z20FS_LanguageHasAssetsi_F0_1_20
 	cmp [eax+0x10], edx
-	jz Z20FS_LanguageHasAssetsi:F(0,1)_30
-Z20FS_LanguageHasAssetsi:F(0,1)_20:
+	jz Z20FS_LanguageHasAssetsi_F0_1_30
+Z20FS_LanguageHasAssetsi_F0_1_20:
 	mov eax, [eax]
 	test eax, eax
-	jnz Z20FS_LanguageHasAssetsi:F(0,1)_40
-Z20FS_LanguageHasAssetsi:F(0,1)_10:
+	jnz Z20FS_LanguageHasAssetsi_F0_1_40
+Z20FS_LanguageHasAssetsi_F0_1_10:
 	xor eax, eax
 	pop ebp
 	ret
-Z20FS_LanguageHasAssetsi:F(0,1)_30:
+Z20FS_LanguageHasAssetsi_F0_1_30:
 	mov eax, 0x1
 	pop ebp
 	ret
 
 
-;Z15FS_HashFileNamePKci:F(0,29)
+;Z15FS_HashFileNamePKci_F0_29
 
-Z15FS_HashFileNamePKci:F(0,29):
+Z15FS_HashFileNamePKci_F0_29:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -842,7 +1131,7 @@ Z15FS_HashFileNamePKci:F(0,29):
 	mov edi, [ebp+0x8]
 	movzx eax, byte [edi]
 	test al, al
-	jnz Z15FS_HashFileNamePKci:F(0,29)_10
+	jnz Z15FS_HashFileNamePKci_F0_29_10
 	xor esi, esi
 	xor eax, eax
 	xor edx, edx
@@ -858,16 +1147,16 @@ Z15FS_HashFileNamePKci:F(0,29):
 	pop edi
 	pop ebp
 	ret
-Z15FS_HashFileNamePKci:F(0,29)_10:
+Z15FS_HashFileNamePKci_F0_29_10:
 	xor esi, esi
 	mov ebx, 0x77
-Z15FS_HashFileNamePKci:F(0,29)_30:
+Z15FS_HashFileNamePKci_F0_29_30:
 	movsx eax, al
 	mov [esp], eax
 	call tolower
 	mov edx, eax
 	cmp eax, 0x2e
-	jz Z15FS_HashFileNamePKci:F(0,29)_20
+	jz Z15FS_HashFileNamePKci_F0_29_20
 	cmp eax, 0x5c
 	mov eax, 0x2f
 	cmovz edx, eax
@@ -876,8 +1165,8 @@ Z15FS_HashFileNamePKci:F(0,29)_30:
 	movzx eax, byte [edi+ebx-0x76]
 	add ebx, 0x1
 	test al, al
-	jnz Z15FS_HashFileNamePKci:F(0,29)_30
-Z15FS_HashFileNamePKci:F(0,29)_20:
+	jnz Z15FS_HashFileNamePKci_F0_29_30
+Z15FS_HashFileNamePKci_F0_29_20:
 	mov eax, esi
 	sar eax, 0xa
 	mov edx, esi
@@ -896,9 +1185,9 @@ Z15FS_HashFileNamePKci:F(0,29)_20:
 	ret
 
 
-;Z16FS_HandleForFilei:F(0,32)
+;Z16FS_HandleForFilei_F0_32
 
-Z16FS_HandleForFilei:F(0,32):
+Z16FS_HandleForFilei_F0_32:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -907,7 +1196,7 @@ Z16FS_HandleForFilei:F(0,32):
 	sub esp, 0x1c
 	mov esi, [ebp+0x8]
 	test esi, esi
-	jz Z16FS_HandleForFilei:F(0,32)_10
+	jz Z16FS_HandleForFilei_F0_32_10
 	mov esi, 0x3d
 	mov edi, 0xd
 	lea eax, [esi+esi*8]
@@ -916,19 +1205,19 @@ Z16FS_HandleForFilei:F(0,32):
 	shl eax, 0x2
 	mov ebx, [eax+fsh]
 	test ebx, ebx
-	jz Z16FS_HandleForFilei:F(0,32)_20
-Z16FS_HandleForFilei:F(0,32)_50:
+	jz Z16FS_HandleForFilei_F0_32_20
+Z16FS_HandleForFilei_F0_32_50:
 	lea ecx, [eax+fsh]
 	xor edx, edx
-Z16FS_HandleForFilei:F(0,32)_40:
+Z16FS_HandleForFilei_F0_32_40:
 	add edx, 0x1
 	cmp edi, edx
-	jz Z16FS_HandleForFilei:F(0,32)_30
+	jz Z16FS_HandleForFilei_F0_32_30
 	lea ebx, [edx+esi]
 	mov eax, [ecx+0x11c]
 	add ecx, 0x11c
 	test eax, eax
-	jnz Z16FS_HandleForFilei:F(0,32)_40
+	jnz Z16FS_HandleForFilei_F0_32_40
 	mov eax, ebx
 	add esp, 0x1c
 	pop ebx
@@ -936,7 +1225,7 @@ Z16FS_HandleForFilei:F(0,32)_40:
 	pop edi
 	pop ebp
 	ret
-Z16FS_HandleForFilei:F(0,32)_10:
+Z16FS_HandleForFilei_F0_32_10:
 	mov esi, 0x1
 	mov edi, 0x3c
 	lea eax, [esi+esi*8]
@@ -945,8 +1234,8 @@ Z16FS_HandleForFilei:F(0,32)_10:
 	shl eax, 0x2
 	mov ebx, [eax+fsh]
 	test ebx, ebx
-	jnz Z16FS_HandleForFilei:F(0,32)_50
-Z16FS_HandleForFilei:F(0,32)_20:
+	jnz Z16FS_HandleForFilei_F0_32_50
+Z16FS_HandleForFilei_F0_32_20:
 	mov ebx, esi
 	mov eax, ebx
 	add esp, 0x1c
@@ -955,21 +1244,21 @@ Z16FS_HandleForFilei:F(0,32)_20:
 	pop edi
 	pop ebp
 	ret
-Z16FS_HandleForFilei:F(0,32)_30:
+Z16FS_HandleForFilei_F0_32_30:
 	mov ebx, 0x1
 	mov esi, fsh+0x138
-Z16FS_HandleForFilei:F(0,32)_60:
+Z16FS_HandleForFilei_F0_32_60:
 	mov [esp+0x8], esi
 	mov [esp+0x4], ebx
 	mov dword [esp], _cstring_file_2i_s
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	add ebx, 0x1
 	add esi, 0x11c
 	cmp ebx, 0x4a
-	jnz Z16FS_HandleForFilei:F(0,32)_60
+	jnz Z16FS_HandleForFilei_F0_32_60
 	mov dword [esp+0x4], _cstring_fs_handleforfile
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	mov ebx, 0xffffffff
 	mov eax, ebx
 	add esp, 0x1c
@@ -981,9 +1270,9 @@ Z16FS_HandleForFilei:F(0,32)_60:
 	nop
 
 
-;Z16FS_FileForHandlei:F(0,33)
+;Z16FS_FileForHandlei_F0_33
 
-Z16FS_FileForHandlei:F(0,33):
+Z16FS_FileForHandlei_F0_33:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -996,9 +1285,9 @@ Z16FS_FileForHandlei:F(0,33):
 	nop
 
 
-;Z13FS_CreatePathPc:F(0,1)
+;Z13FS_CreatePathPc_F0_1
 
-Z13FS_CreatePathPc:F(0,1):
+Z13FS_CreatePathPc_F0_1:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -1009,52 +1298,52 @@ Z13FS_CreatePathPc:F(0,1):
 	mov [esp], ebx
 	call strstr
 	test eax, eax
-	jz Z13FS_CreatePathPc:F(0,1)_10
-Z13FS_CreatePathPc:F(0,1)_20:
+	jz Z13FS_CreatePathPc_F0_1_10
+Z13FS_CreatePathPc_F0_1_20:
 	mov [esp+0x4], ebx
 	mov dword [esp], _cstring_warning_refusing
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov eax, 0x1
-Z13FS_CreatePathPc:F(0,1)_60:
+Z13FS_CreatePathPc_F0_1_60:
 	add esp, 0x10
 	pop ebx
 	pop esi
 	pop ebp
 	ret
-Z13FS_CreatePathPc:F(0,1)_10:
+Z13FS_CreatePathPc_F0_1_10:
 	mov dword [esp+0x4], _cstring_3
 	mov [esp], ebx
 	call strstr
 	test eax, eax
-	jnz Z13FS_CreatePathPc:F(0,1)_20
+	jnz Z13FS_CreatePathPc_F0_1_20
 	lea edx, [ebx+0x1]
 	movzx eax, byte [ebx+0x1]
 	test al, al
-	jz Z13FS_CreatePathPc:F(0,1)_30
+	jz Z13FS_CreatePathPc_F0_1_30
 	mov esi, edx
-	jmp Z13FS_CreatePathPc:F(0,1)_40
-Z13FS_CreatePathPc:F(0,1)_50:
+	jmp Z13FS_CreatePathPc_F0_1_40
+Z13FS_CreatePathPc_F0_1_50:
 	movzx eax, byte [esi+0x1]
 	add esi, 0x1
 	test al, al
-	jz Z13FS_CreatePathPc:F(0,1)_30
-Z13FS_CreatePathPc:F(0,1)_40:
+	jz Z13FS_CreatePathPc_F0_1_30
+Z13FS_CreatePathPc_F0_1_40:
 	cmp al, 0x2f
-	jnz Z13FS_CreatePathPc:F(0,1)_50
+	jnz Z13FS_CreatePathPc_F0_1_50
 	mov byte [esi], 0x0
 	mov [esp], ebx
-	call Z9Sys_MkdirPKc:F(0,1)
+	call Z9Sys_MkdirPKc_F0_1
 	mov byte [esi], 0x2f
-	jmp Z13FS_CreatePathPc:F(0,1)_50
-Z13FS_CreatePathPc:F(0,1)_30:
+	jmp Z13FS_CreatePathPc_F0_1_50
+Z13FS_CreatePathPc_F0_1_30:
 	xor eax, eax
-	jmp Z13FS_CreatePathPc:F(0,1)_60
+	jmp Z13FS_CreatePathPc_F0_1_60
 	nop
 
 
-;Z9FS_RemovePKc:F(0,3)
+;Z9FS_RemovePKc_F0_3
 
-Z9FS_RemovePKc:F(0,3):
+Z9FS_RemovePKc_F0_3:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -1066,9 +1355,9 @@ Z9FS_RemovePKc:F(0,3):
 	nop
 
 
-;Z18FS_FilenameComparePKcS0_:F(0,1)
+;Z18FS_FilenameComparePKcS0__F0_1
 
-Z18FS_FilenameComparePKcS0_:F(0,1):
+Z18FS_FilenameComparePKcS0__F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1076,21 +1365,21 @@ Z18FS_FilenameComparePKcS0_:F(0,1):
 	push ebx
 	sub esp, 0x1c
 	mov edi, [ebp+0xc]
-	jmp Z18FS_FilenameComparePKcS0_:F(0,1)_10
-Z18FS_FilenameComparePKcS0_:F(0,1)_60:
+	jmp Z18FS_FilenameComparePKcS0__F0_1_10
+Z18FS_FilenameComparePKcS0__F0_1_60:
 	cmp esi, 0x3a
-	jz Z18FS_FilenameComparePKcS0_:F(0,1)_20
+	jz Z18FS_FilenameComparePKcS0__F0_1_20
 	cmp ebx, 0x5c
-	jz Z18FS_FilenameComparePKcS0_:F(0,1)_30
-Z18FS_FilenameComparePKcS0_:F(0,1)_70:
+	jz Z18FS_FilenameComparePKcS0__F0_1_30
+Z18FS_FilenameComparePKcS0__F0_1_70:
 	cmp ebx, 0x3a
-	jz Z18FS_FilenameComparePKcS0_:F(0,1)_30
+	jz Z18FS_FilenameComparePKcS0__F0_1_30
 	cmp esi, ebx
-	jnz Z18FS_FilenameComparePKcS0_:F(0,1)_40
-Z18FS_FilenameComparePKcS0_:F(0,1)_80:
+	jnz Z18FS_FilenameComparePKcS0__F0_1_40
+Z18FS_FilenameComparePKcS0__F0_1_80:
 	test esi, esi
-	jz Z18FS_FilenameComparePKcS0_:F(0,1)_50
-Z18FS_FilenameComparePKcS0_:F(0,1)_10:
+	jz Z18FS_FilenameComparePKcS0__F0_1_50
+Z18FS_FilenameComparePKcS0__F0_1_10:
 	mov eax, [ebp+0x8]
 	movsx esi, byte [eax]
 	add eax, 0x1
@@ -1098,26 +1387,26 @@ Z18FS_FilenameComparePKcS0_:F(0,1)_10:
 	movsx ebx, byte [edi]
 	add edi, 0x1
 	mov [esp], esi
-	call Z9I_isloweri:F(0,16)
+	call Z9I_isloweri_F0_16
 	lea edx, [esi-0x20]
 	test al, al
 	cmovnz esi, edx
 	mov [esp], ebx
-	call Z9I_isloweri:F(0,16)
+	call Z9I_isloweri_F0_16
 	lea edx, [ebx-0x20]
 	test al, al
 	cmovnz ebx, edx
 	cmp esi, 0x5c
-	jnz Z18FS_FilenameComparePKcS0_:F(0,1)_60
-Z18FS_FilenameComparePKcS0_:F(0,1)_20:
+	jnz Z18FS_FilenameComparePKcS0__F0_1_60
+Z18FS_FilenameComparePKcS0__F0_1_20:
 	mov esi, 0x2f
 	cmp ebx, 0x5c
-	jnz Z18FS_FilenameComparePKcS0_:F(0,1)_70
-Z18FS_FilenameComparePKcS0_:F(0,1)_30:
+	jnz Z18FS_FilenameComparePKcS0__F0_1_70
+Z18FS_FilenameComparePKcS0__F0_1_30:
 	mov ebx, 0x2f
 	cmp esi, ebx
-	jz Z18FS_FilenameComparePKcS0_:F(0,1)_80
-Z18FS_FilenameComparePKcS0_:F(0,1)_40:
+	jz Z18FS_FilenameComparePKcS0__F0_1_80
+Z18FS_FilenameComparePKcS0__F0_1_40:
 	mov eax, 0xffffffff
 	add esp, 0x1c
 	pop ebx
@@ -1125,7 +1414,7 @@ Z18FS_FilenameComparePKcS0_:F(0,1)_40:
 	pop edi
 	pop ebp
 	ret
-Z18FS_FilenameComparePKcS0_:F(0,1)_50:
+Z18FS_FilenameComparePKcS0__F0_1_50:
 	xor eax, eax
 	add esp, 0x1c
 	pop ebx
@@ -1136,9 +1425,9 @@ Z18FS_FilenameComparePKcS0_:F(0,1)_50:
 	add [eax], al
 
 
-;Z23FS_PureIgnoresExtensionPKc:F(0,1)
+;Z23FS_PureIgnoresExtensionPKc_F0_1
 
-Z23FS_PureIgnoresExtensionPKc:F(0,1):
+Z23FS_PureIgnoresExtensionPKc_F0_1:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -1151,42 +1440,42 @@ Z23FS_PureIgnoresExtensionPKc:F(0,1):
 	mov [esp], ebx
 	call strcasecmp
 	test eax, eax
-	jnz Z23FS_PureIgnoresExtensionPKc:F(0,1)_10
-Z23FS_PureIgnoresExtensionPKc:F(0,1)_20:
+	jnz Z23FS_PureIgnoresExtensionPKc_F0_1_10
+Z23FS_PureIgnoresExtensionPKc_F0_1_20:
 	mov eax, 0x1
-Z23FS_PureIgnoresExtensionPKc:F(0,1)_30:
+Z23FS_PureIgnoresExtensionPKc_F0_1_30:
 	add esp, 0x14
 	pop ebx
 	pop ebp
 	ret
-Z23FS_PureIgnoresExtensionPKc:F(0,1)_10:
+Z23FS_PureIgnoresExtensionPKc_F0_1_10:
 	mov dword [esp+0x4], _cstring_menu
 	mov [esp], ebx
-	call I_stricmp:F(0,2)
+	call I_stricmp_F0_2
 	test eax, eax
-	jz Z23FS_PureIgnoresExtensionPKc:F(0,1)_20
+	jz Z23FS_PureIgnoresExtensionPKc_F0_1_20
 	mov dword [esp+0x4], _cstring_str
 	mov [esp], ebx
-	call I_stricmp:F(0,2)
+	call I_stricmp_F0_2
 	test eax, eax
-	jz Z23FS_PureIgnoresExtensionPKc:F(0,1)_20
+	jz Z23FS_PureIgnoresExtensionPKc_F0_1_20
 	mov dword [esp+0x4], _cstring_roq
 	mov [esp], ebx
-	call I_stricmp:F(0,2)
+	call I_stricmp_F0_2
 	test eax, eax
-	jz Z23FS_PureIgnoresExtensionPKc:F(0,1)_20
+	jz Z23FS_PureIgnoresExtensionPKc_F0_1_20
 	mov dword [esp+0x4], _cstring_dm_network_proto
 	mov [esp], ebx
-	call I_stricmp:F(0,2)
+	call I_stricmp_F0_2
 	test eax, eax
-	jz Z23FS_PureIgnoresExtensionPKc:F(0,1)_20
+	jz Z23FS_PureIgnoresExtensionPKc_F0_1_20
 	xor eax, eax
-	jmp Z23FS_PureIgnoresExtensionPKc:F(0,1)_30
+	jmp Z23FS_PureIgnoresExtensionPKc_F0_1_30
 
 
-;Z13FS_ResetFilesv:F(0,3)
+;Z13FS_ResetFilesv_F0_3
 
-Z13FS_ResetFilesv:F(0,3):
+Z13FS_ResetFilesv_F0_3:
 	push ebp
 	mov ebp, esp
 	mov dword [fs_loadStack], 0x0
@@ -1195,41 +1484,41 @@ Z13FS_ResetFilesv:F(0,3):
 	nop
 
 
-;Z14FS_ConvertPathPc:F(0,3)
+;Z14FS_ConvertPathPc_F0_3
 
-Z14FS_ConvertPathPc:F(0,3):
+Z14FS_ConvertPathPc_F0_3:
 	push ebp
 	mov ebp, esp
 	mov edx, [ebp+0x8]
 	movzx eax, byte [edx]
 	test al, al
-	jz Z14FS_ConvertPathPc:F(0,3)_10
-	jmp Z14FS_ConvertPathPc:F(0,3)_20
-Z14FS_ConvertPathPc:F(0,3)_40:
+	jz Z14FS_ConvertPathPc_F0_3_10
+	jmp Z14FS_ConvertPathPc_F0_3_20
+Z14FS_ConvertPathPc_F0_3_40:
 	cmp al, 0x3a
-	jz Z14FS_ConvertPathPc:F(0,3)_30
+	jz Z14FS_ConvertPathPc_F0_3_30
 	movzx eax, byte [edx+0x1]
 	add edx, 0x1
 	test al, al
-	jz Z14FS_ConvertPathPc:F(0,3)_10
-Z14FS_ConvertPathPc:F(0,3)_20:
+	jz Z14FS_ConvertPathPc_F0_3_10
+Z14FS_ConvertPathPc_F0_3_20:
 	cmp al, 0x5c
-	jnz Z14FS_ConvertPathPc:F(0,3)_40
-Z14FS_ConvertPathPc:F(0,3)_30:
+	jnz Z14FS_ConvertPathPc_F0_3_40
+Z14FS_ConvertPathPc_F0_3_30:
 	mov byte [edx], 0x2f
 	movzx eax, byte [edx+0x1]
 	add edx, 0x1
 	test al, al
-	jnz Z14FS_ConvertPathPc:F(0,3)_20
-Z14FS_ConvertPathPc:F(0,3)_10:
+	jnz Z14FS_ConvertPathPc_F0_3_20
+Z14FS_ConvertPathPc_F0_3_10:
 	pop ebp
 	ret
 	add [eax], al
 
 
-;Z25FS_ShutdownServerIwdNamesv:F(0,3)
+;Z25FS_ShutdownServerIwdNamesv_F0_3
 
-Z25FS_ShutdownServerIwdNamesv:F(0,3):
+Z25FS_ShutdownServerIwdNamesv_F0_3:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -1237,22 +1526,22 @@ Z25FS_ShutdownServerIwdNamesv:F(0,3):
 	sub esp, 0x10
 	mov eax, [fs_numServerIwds]
 	test eax, eax
-	jle Z25FS_ShutdownServerIwdNamesv:F(0,3)_10
+	jle Z25FS_ShutdownServerIwdNamesv_F0_3_10
 	xor esi, esi
 	mov ebx, fs_serverIwdNames
-Z25FS_ShutdownServerIwdNamesv:F(0,3)_30:
+Z25FS_ShutdownServerIwdNamesv_F0_3_30:
 	mov eax, [ebx]
 	test eax, eax
-	jz Z25FS_ShutdownServerIwdNamesv:F(0,3)_20
+	jz Z25FS_ShutdownServerIwdNamesv_F0_3_20
 	mov [esp], eax
-	call Z_FreeInternal:F(0,1)
-Z25FS_ShutdownServerIwdNamesv:F(0,3)_20:
+	call Z_FreeInternal_F0_1
+Z25FS_ShutdownServerIwdNamesv_F0_3_20:
 	mov dword [ebx], 0x0
 	add esi, 0x1
 	add ebx, 0x4
 	cmp esi, [fs_numServerIwds]
-	jl Z25FS_ShutdownServerIwdNamesv:F(0,3)_30
-Z25FS_ShutdownServerIwdNamesv:F(0,3)_10:
+	jl Z25FS_ShutdownServerIwdNamesv_F0_3_30
+Z25FS_ShutdownServerIwdNamesv_F0_3_10:
 	mov dword [fs_numServerIwds], 0x0
 	add esp, 0x10
 	pop ebx
@@ -1262,9 +1551,9 @@ Z25FS_ShutdownServerIwdNamesv:F(0,3)_10:
 	nop
 
 
-;Z31FS_ShutdownServerReferencedIwdsv:F(0,3)
+;Z31FS_ShutdownServerReferencedIwdsv_F0_3
 
-Z31FS_ShutdownServerReferencedIwdsv:F(0,3):
+Z31FS_ShutdownServerReferencedIwdsv_F0_3:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -1272,22 +1561,22 @@ Z31FS_ShutdownServerReferencedIwdsv:F(0,3):
 	sub esp, 0x10
 	mov eax, [fs_numServerReferencedIwds]
 	test eax, eax
-	jle Z31FS_ShutdownServerReferencedIwdsv:F(0,3)_10
+	jle Z31FS_ShutdownServerReferencedIwdsv_F0_3_10
 	xor esi, esi
 	mov ebx, fs_serverReferencedIwdNames
-Z31FS_ShutdownServerReferencedIwdsv:F(0,3)_30:
+Z31FS_ShutdownServerReferencedIwdsv_F0_3_30:
 	mov eax, [ebx]
 	test eax, eax
-	jz Z31FS_ShutdownServerReferencedIwdsv:F(0,3)_20
+	jz Z31FS_ShutdownServerReferencedIwdsv_F0_3_20
 	mov [esp], eax
-	call Z_FreeInternal:F(0,1)
-Z31FS_ShutdownServerReferencedIwdsv:F(0,3)_20:
+	call Z_FreeInternal_F0_1
+Z31FS_ShutdownServerReferencedIwdsv_F0_3_20:
 	mov dword [ebx], 0x0
 	add esi, 0x1
 	add ebx, 0x4
 	cmp esi, [fs_numServerReferencedIwds]
-	jl Z31FS_ShutdownServerReferencedIwdsv:F(0,3)_30
-Z31FS_ShutdownServerReferencedIwdsv:F(0,3)_10:
+	jl Z31FS_ShutdownServerReferencedIwdsv_F0_3_30
+Z31FS_ShutdownServerReferencedIwdsv_F0_3_10:
 	mov dword [fs_numServerReferencedIwds], 0x0
 	add esp, 0x10
 	pop ebx
@@ -1297,122 +1586,122 @@ Z31FS_ShutdownServerReferencedIwdsv:F(0,3)_10:
 	nop
 
 
-;Z16FS_RegisterDvarsv:F(0,61)
+;Z16FS_RegisterDvarsv_F0_61
 
-Z16FS_RegisterDvarsv:F(0,61):
+Z16FS_RegisterDvarsv_F0_61:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x28
 	mov eax, [fs_debug]
 	test eax, eax
-	jz Z16FS_RegisterDvarsv:F(0,61)_10
+	jz Z16FS_RegisterDvarsv_F0_61_10
 	xor eax, eax
 	leave
 	ret
-Z16FS_RegisterDvarsv:F(0,61)_10:
+Z16FS_RegisterDvarsv_F0_61_10:
 	mov dword [esp+0x10], 0x1000
 	mov dword [esp+0xc], 0x2
 	mov dword [esp+0x8], 0x0
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], _cstring_fs_debug
-	call Z16Dvar_RegisterIntPKciiit:F(0,9)
+	call Z16Dvar_RegisterIntPKciiit_F0_9
 	mov [fs_debug], eax
 	mov dword [esp+0x8], 0x1010
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], _cstring_fs_copyfiles
-	call Z17Dvar_RegisterBoolPKcht:F(0,9)
+	call Z17Dvar_RegisterBoolPKcht_F0_9
 	mov [fs_copyfiles], eax
-	call Z17Sys_DefaultCDPathv:F(0,2)
+	call Z17Sys_DefaultCDPathv_F0_2
 	mov dword [esp+0x8], 0x1010
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_fs_cdpath
-	call Z19Dvar_RegisterStringPKcS0_t:F(0,9)
+	call Z19Dvar_RegisterStringPKcS0_t_F0_9
 	mov [fs_cdpath], eax
-	call Z22Sys_DefaultInstallPathv:F(0,2)
+	call Z22Sys_DefaultInstallPathv_F0_2
 	mov dword [esp+0x8], 0x1010
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_fs_basepath
-	call Z19Dvar_RegisterStringPKcS0_t:F(0,9)
+	call Z19Dvar_RegisterStringPKcS0_t_F0_9
 	mov [fs_basepath], eax
 	mov dword [esp+0x8], 0x1010
 	mov dword [esp+0x4], _cstring_null
 	mov dword [esp], _cstring_fs_basegame
-	call Z19Dvar_RegisterStringPKcS0_t:F(0,9)
+	call Z19Dvar_RegisterStringPKcS0_t_F0_9
 	mov [fs_basegame], eax
 	mov dword [esp+0x8], 0x1000
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], _cstring_fs_useoldassets
-	call Z17Dvar_RegisterBoolPKcht:F(0,9)
+	call Z17Dvar_RegisterBoolPKcht_F0_9
 	mov [fs_useOldAssets], eax
-	call Z19Sys_DefaultHomePathv:F(0,2)
+	call Z19Sys_DefaultHomePathv_F0_2
 	test eax, eax
-	jz Z16FS_RegisterDvarsv:F(0,61)_20
+	jz Z16FS_RegisterDvarsv_F0_61_20
 	cmp byte [eax], 0x0
-	jnz Z16FS_RegisterDvarsv:F(0,61)_30
-Z16FS_RegisterDvarsv:F(0,61)_20:
+	jnz Z16FS_RegisterDvarsv_F0_61_30
+Z16FS_RegisterDvarsv_F0_61_20:
 	mov eax, [fs_basepath]
 	mov eax, [eax+0x8]
-Z16FS_RegisterDvarsv:F(0,61)_30:
+Z16FS_RegisterDvarsv_F0_61_30:
 	mov dword [esp+0x8], 0x1010
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_fs_homepath
-	call Z19Dvar_RegisterStringPKcS0_t:F(0,9)
+	call Z19Dvar_RegisterStringPKcS0_t_F0_9
 	mov [fs_homepath], eax
 	mov dword [esp+0x8], 0x101c
 	mov dword [esp+0x4], _cstring_null
 	mov dword [esp], _cstring_fs_game
-	call Z19Dvar_RegisterStringPKcS0_t:F(0,9)
+	call Z19Dvar_RegisterStringPKcS0_t_F0_9
 	mov [fs_gameDirVar], eax
 	mov dword [esp+0x8], 0x1010
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], _cstring_fs_restrict
-	call Z17Dvar_RegisterBoolPKcht:F(0,9)
+	call Z17Dvar_RegisterBoolPKcht_F0_9
 	mov [fs_restrict], eax
 	mov dword [esp+0x8], 0x10a0
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], _cstring_fs_ignorelocaliz
-	call Z17Dvar_RegisterBoolPKcht:F(0,9)
+	call Z17Dvar_RegisterBoolPKcht_F0_9
 	mov [fs_ignoreLocalized], eax
 	mov eax, 0x1
 	leave
 	ret
 
 
-;Z21FS_ClearIwdReferencesv:F(0,3)
+;Z21FS_ClearIwdReferencesv_F0_3
 
-Z21FS_ClearIwdReferencesv:F(0,3):
+Z21FS_ClearIwdReferencesv_F0_3:
 	push ebp
 	mov ebp, esp
 	mov eax, [fs_searchpaths]
 	test eax, eax
-	jz Z21FS_ClearIwdReferencesv:F(0,3)_10
-Z21FS_ClearIwdReferencesv:F(0,3)_30:
+	jz Z21FS_ClearIwdReferencesv_F0_3_10
+Z21FS_ClearIwdReferencesv_F0_3_30:
 	mov edx, [eax+0x4]
 	test edx, edx
-	jz Z21FS_ClearIwdReferencesv:F(0,3)_20
+	jz Z21FS_ClearIwdReferencesv_F0_3_20
 	mov byte [edx+0x310], 0x0
-Z21FS_ClearIwdReferencesv:F(0,3)_20:
+Z21FS_ClearIwdReferencesv_F0_3_20:
 	mov eax, [eax]
 	test eax, eax
-	jnz Z21FS_ClearIwdReferencesv:F(0,3)_30
-Z21FS_ClearIwdReferencesv:F(0,3)_10:
+	jnz Z21FS_ClearIwdReferencesv_F0_3_30
+Z21FS_ClearIwdReferencesv_F0_3_10:
 	pop ebp
 	ret
 
 
-;Z15GetBspExtensionv:F(0,30)
+;Z15GetBspExtensionv_F0_30
 
-FS_FreeFile:F(0,3):
+FS_FreeFile_F0_3:
 	push ebp
 	mov ebp, esp
 	sub dword [fs_loadStack], 0x1
 	pop ebp
-	jmp Hunk_FreeTempMemory:F(0,1)
+	jmp Hunk_FreeTempMemory_F0_1
 
 
-;FS_FreeFileList:F(0,3)
+;FS_FreeFileList_F0_3
 
-FS_FreeFileList:F(0,3):
+FS_FreeFileList_F0_3:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -1420,26 +1709,26 @@ FS_FreeFileList:F(0,3):
 	sub esp, 0x10
 	mov esi, [ebp+0x8]
 	test esi, esi
-	jz FS_FreeFileList:F(0,3)_10
+	jz FS_FreeFileList_F0_3_10
 	mov eax, [esi]
 	test eax, eax
-	jz FS_FreeFileList:F(0,3)_20
+	jz FS_FreeFileList_F0_3_20
 	mov ebx, esi
-FS_FreeFileList:F(0,3)_30:
+FS_FreeFileList_F0_3_30:
 	mov [esp], eax
-	call Z_FreeInternal:F(0,1)
+	call Z_FreeInternal_F0_1
 	mov eax, [ebx+0x4]
 	add ebx, 0x4
 	test eax, eax
-	jnz FS_FreeFileList:F(0,3)_30
-FS_FreeFileList:F(0,3)_20:
+	jnz FS_FreeFileList_F0_3_30
+FS_FreeFileList_F0_3_20:
 	mov [ebp+0x8], esi
 	add esp, 0x10
 	pop ebx
 	pop esi
 	pop ebp
-	jmp Z_FreeInternal:F(0,1)
-FS_FreeFileList:F(0,3)_10:
+	jmp Z_FreeInternal_F0_1
+FS_FreeFileList_F0_3_10:
 	add esp, 0x10
 	pop ebx
 	pop esi
@@ -1447,9 +1736,9 @@ FS_FreeFileList:F(0,3)_10:
 	ret
 
 
-;Z13FS_filelengthi:F(0,2)
+;Z13FS_filelengthi_F0_2
 
-Z13FS_filelengthi:F(0,2):
+Z13FS_filelengthi_F0_2:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1463,17 +1752,17 @@ Z13FS_filelengthi:F(0,2):
 	shl eax, 0x2
 	mov edx, [eax+fsh+0x14]
 	test edx, edx
-	jz Z13FS_filelengthi:F(0,2)_10
+	jz Z13FS_filelengthi_F0_2_10
 	mov eax, [eax+fsh]
 	mov eax, [eax+0x44]
-Z13FS_filelengthi:F(0,2)_20:
+Z13FS_filelengthi_F0_2_20:
 	add esp, 0x1c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z13FS_filelengthi:F(0,2)_10:
+Z13FS_filelengthi_F0_2_10:
 	mov ebx, [eax+fsh]
 	mov [esp], ebx
 	call ftell
@@ -1481,21 +1770,21 @@ Z13FS_filelengthi:F(0,2)_10:
 	mov dword [esp+0x8], 0x2
 	mov dword [esp+0x4], 0x0
 	mov [esp], ebx
-	call FS_FileSeek:F(0,10)
+	call FS_FileSeek_F0_10
 	mov [esp], ebx
 	call ftell
 	mov esi, eax
 	mov dword [esp+0x8], 0x0
 	mov [esp+0x4], edi
 	mov [esp], ebx
-	call FS_FileSeek:F(0,10)
+	call FS_FileSeek_F0_10
 	mov eax, esi
-	jmp Z13FS_filelengthi:F(0,2)_20
+	jmp Z13FS_filelengthi_F0_2_20
 
 
-;Z13FS_FCloseFilei:F(0,3)
+;Z13FS_FCloseFilei_F0_3
 
-Z13FS_FCloseFilei:F(0,3):
+Z13FS_FCloseFilei_F0_3:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -1508,57 +1797,57 @@ Z13FS_FCloseFilei:F(0,3):
 	lea ebx, [eax*4]
 	mov eax, [ebx+fsh+0x18]
 	test eax, eax
-	jnz Z13FS_FCloseFilei:F(0,3)_10
-Z13FS_FCloseFilei:F(0,3)_50:
+	jnz Z13FS_FCloseFilei_F0_3_10
+Z13FS_FCloseFilei_F0_3_50:
 	mov eax, [ebx+fsh+0x14]
 	test eax, eax
-	jz Z13FS_FCloseFilei:F(0,3)_20
+	jz Z13FS_FCloseFilei_F0_3_20
 	mov eax, [ebx+fsh]
 	mov [esp], eax
-	call unzCloseCurrentFile:F(0,1)
+	call unzCloseCurrentFile_F0_1
 	mov ecx, [ebx+fsh+0x4]
 	test ecx, ecx
-	jnz Z13FS_FCloseFilei:F(0,3)_30
-Z13FS_FCloseFilei:F(0,3)_40:
+	jnz Z13FS_FCloseFilei_F0_3_30
+Z13FS_FCloseFilei_F0_3_40:
 	mov dword [esp+0x8], 0x11c
 	mov dword [esp+0x4], 0x0
 	lea eax, [ebx+fsh]
 	mov [esp], eax
-	call Z10Com_MemsetPvii:F(0,12)
+	call Z10Com_MemsetPvii_F0_12
 	add esp, 0x10
 	pop ebx
 	pop esi
 	pop ebp
 	ret
-Z13FS_FCloseFilei:F(0,3)_20:
+Z13FS_FCloseFilei_F0_3_20:
 	test esi, esi
-	jz Z13FS_FCloseFilei:F(0,3)_40
+	jz Z13FS_FCloseFilei_F0_3_40
 	mov eax, [ebx+fsh]
 	mov [esp], eax
-	call FS_FileClose:F(0,10)
+	call FS_FileClose_F0_10
 	mov dword [esp+0x8], 0x11c
 	mov dword [esp+0x4], 0x0
 	lea eax, [ebx+fsh]
 	mov [esp], eax
-	call Z10Com_MemsetPvii:F(0,12)
+	call Z10Com_MemsetPvii_F0_12
 	add esp, 0x10
 	pop ebx
 	pop esi
 	pop ebp
 	ret
-Z13FS_FCloseFilei:F(0,3)_10:
+Z13FS_FCloseFilei_F0_3_10:
 	mov [esp], esi
-	call Z19Sys_EndStreamedFilei:F(0,1)
-	jmp Z13FS_FCloseFilei:F(0,3)_50
-Z13FS_FCloseFilei:F(0,3)_30:
+	call Z19Sys_EndStreamedFilei_F0_1
+	jmp Z13FS_FCloseFilei_F0_3_50
+Z13FS_FCloseFilei_F0_3_30:
 	mov eax, [ebx+fsh]
 	mov [esp], eax
-	call unzClose:F(0,1)
+	call unzClose_F0_1
 	mov dword [esp+0x8], 0x11c
 	mov dword [esp+0x4], 0x0
 	lea eax, [ebx+fsh]
 	mov [esp], eax
-	call Z10Com_MemsetPvii:F(0,12)
+	call Z10Com_MemsetPvii_F0_12
 	add esp, 0x10
 	pop ebx
 	pop esi
@@ -1566,90 +1855,90 @@ Z13FS_FCloseFilei:F(0,3)_30:
 	ret
 
 
-;Z11FS_Shutdowni:F(0,3)
+;Z11FS_Shutdowni_F0_3
 
-Z11FS_Shutdowni:F(0,3):
+Z11FS_Shutdowni_F0_3:
 	push ebp
 	mov ebp, esp
 	push esi
 	push ebx
 	sub esp, 0x10
 	mov dword [esp], 0x8
-	call Z14SND_StopSounds20snd_stopsounds_arg_t:F(0,14)
-	call Z21SEH_Shutdown_StringEdv:F(0,2)
+	call Z14SND_StopSounds20snd_stopsounds_arg_t_F0_14
+	call Z21SEH_Shutdown_StringEdv_F0_2
 	mov esi, 0x1
 	mov ebx, fsh
-	jmp Z11FS_Shutdowni:F(0,3)_10
-Z11FS_Shutdowni:F(0,3)_30:
+	jmp Z11FS_Shutdowni_F0_3_10
+Z11FS_Shutdowni_F0_3_30:
 	add esi, 0x1
 	add ebx, 0x11c
 	cmp esi, 0x4a
-	jz Z11FS_Shutdowni:F(0,3)_20
-Z11FS_Shutdowni:F(0,3)_10:
+	jz Z11FS_Shutdowni_F0_3_20
+Z11FS_Shutdowni_F0_3_10:
 	mov eax, [ebx+0x128]
 	test eax, eax
-	jz Z11FS_Shutdowni:F(0,3)_30
+	jz Z11FS_Shutdowni_F0_3_30
 	mov [esp], esi
-	call Z13FS_FCloseFilei:F(0,3)
+	call Z13FS_FCloseFilei_F0_3
 	add esi, 0x1
 	add ebx, 0x11c
 	cmp esi, 0x4a
-	jnz Z11FS_Shutdowni:F(0,3)_10
-Z11FS_Shutdowni:F(0,3)_20:
+	jnz Z11FS_Shutdowni_F0_3_10
+Z11FS_Shutdowni_F0_3_20:
 	mov ebx, [fs_searchpaths]
 	test ebx, ebx
-	jnz Z11FS_Shutdowni:F(0,3)_40
-	jmp Z11FS_Shutdowni:F(0,3)_50
-Z11FS_Shutdowni:F(0,3)_80:
+	jnz Z11FS_Shutdowni_F0_3_40
+	jmp Z11FS_Shutdowni_F0_3_50
+Z11FS_Shutdowni_F0_3_80:
 	mov ebx, esi
-Z11FS_Shutdowni:F(0,3)_40:
+Z11FS_Shutdowni_F0_3_40:
 	mov esi, [ebx]
 	mov eax, [ebx+0x4]
 	test eax, eax
-	jz Z11FS_Shutdowni:F(0,3)_60
+	jz Z11FS_Shutdowni_F0_3_60
 	mov eax, [eax+0x300]
 	mov [esp], eax
-	call unzClose:F(0,1)
+	call unzClose_F0_1
 	mov eax, [ebx+0x4]
 	mov eax, [eax+0x31c]
 	mov [esp], eax
-	call Z_FreeInternal:F(0,1)
+	call Z_FreeInternal_F0_1
 	mov eax, [ebx+0x4]
 	mov [esp], eax
-	call Z_FreeInternal:F(0,1)
-Z11FS_Shutdowni:F(0,3)_60:
+	call Z_FreeInternal_F0_1
+Z11FS_Shutdowni_F0_3_60:
 	mov eax, [ebx+0x8]
 	test eax, eax
-	jz Z11FS_Shutdowni:F(0,3)_70
+	jz Z11FS_Shutdowni_F0_3_70
 	mov [esp], eax
-	call Z_FreeInternal:F(0,1)
-Z11FS_Shutdowni:F(0,3)_70:
+	call Z_FreeInternal_F0_1
+Z11FS_Shutdowni_F0_3_70:
 	mov [esp], ebx
-	call Z_FreeInternal:F(0,1)
+	call Z_FreeInternal_F0_1
 	test esi, esi
-	jnz Z11FS_Shutdowni:F(0,3)_80
-Z11FS_Shutdowni:F(0,3)_50:
+	jnz Z11FS_Shutdowni_F0_3_80
+Z11FS_Shutdowni_F0_3_50:
 	mov dword [fs_searchpaths], 0x0
 	mov dword [esp], _cstring_path
-	call Z17Cmd_RemoveCommandPKc:F(0,1)
+	call Z17Cmd_RemoveCommandPKc_F0_1
 	mov dword [esp], _cstring_fullpath
-	call Z17Cmd_RemoveCommandPKc:F(0,1)
+	call Z17Cmd_RemoveCommandPKc_F0_1
 	mov dword [esp], _cstring_dir
-	call Z17Cmd_RemoveCommandPKc:F(0,1)
+	call Z17Cmd_RemoveCommandPKc_F0_1
 	mov dword [esp], _cstring_fdir
-	call Z17Cmd_RemoveCommandPKc:F(0,1)
+	call Z17Cmd_RemoveCommandPKc_F0_1
 	mov dword [ebp+0x8], _cstring_touchfile
 	add esp, 0x10
 	pop ebx
 	pop esi
 	pop ebp
-	jmp Z17Cmd_RemoveCommandPKc:F(0,1)
+	jmp Z17Cmd_RemoveCommandPKc_F0_1
 	nop
 
 
-;Z7FS_ReadPvii:F(0,2)
+;Z7FS_ReadPvii_F0_2
 
-Z7FS_ReadPvii:F(0,2):
+Z7FS_ReadPvii_F0_2:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1661,14 +1950,14 @@ Z7FS_ReadPvii:F(0,2):
 	mov [ebp-0x28], eax
 	mov edx, [ebp+0x10]
 	test edx, edx
-	jz Z7FS_ReadPvii:F(0,2)_10
+	jz Z7FS_ReadPvii_F0_2_10
 	lea eax, [edx+edx*8]
 	shl eax, 0x3
 	sub eax, edx
 	shl eax, 0x2
 	mov ebx, [eax+fsh+0x14]
 	test ebx, ebx
-	jz Z7FS_ReadPvii:F(0,2)_20
+	jz Z7FS_ReadPvii_F0_2_20
 	mov edx, [ebp-0x28]
 	mov [ebp+0x10], edx
 	mov [ebp+0xc], ecx
@@ -1679,24 +1968,24 @@ Z7FS_ReadPvii:F(0,2):
 	pop esi
 	pop edi
 	pop ebp
-	jmp unzReadCurrentFile:F(0,1)
-Z7FS_ReadPvii:F(0,2)_20:
+	jmp unzReadCurrentFile_F0_1
+Z7FS_ReadPvii_F0_2_20:
 	mov eax, [eax+fsh]
 	mov [ebp-0x1c], eax
 	mov edi, ecx
 	mov eax, [ebp-0x28]
 	test eax, eax
-	jnz Z7FS_ReadPvii:F(0,2)_30
-Z7FS_ReadPvii:F(0,2)_60:
+	jnz Z7FS_ReadPvii_F0_2_30
+Z7FS_ReadPvii_F0_2_60:
 	mov eax, [ebp-0x28]
-Z7FS_ReadPvii:F(0,2)_100:
+Z7FS_ReadPvii_F0_2_100:
 	add esp, 0x2c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z7FS_ReadPvii:F(0,2)_10:
+Z7FS_ReadPvii_F0_2_10:
 	xor eax, eax
 	add esp, 0x2c
 	pop ebx
@@ -1704,52 +1993,52 @@ Z7FS_ReadPvii:F(0,2)_10:
 	pop edi
 	pop ebp
 	ret
-Z7FS_ReadPvii:F(0,2)_30:
+Z7FS_ReadPvii_F0_2_30:
 	sub edx, 0x3d
 	mov [ebp-0x24], edx
 	mov esi, [ebp-0x28]
 	mov dword [ebp-0x20], 0x0
-	jmp Z7FS_ReadPvii:F(0,2)_40
-Z7FS_ReadPvii:F(0,2)_70:
+	jmp Z7FS_ReadPvii_F0_2_40
+Z7FS_ReadPvii_F0_2_70:
 	mov eax, [ebp-0x20]
 	test eax, eax
-	jnz Z7FS_ReadPvii:F(0,2)_50
+	jnz Z7FS_ReadPvii_F0_2_50
 	mov dword [ebp-0x20], 0x1
-Z7FS_ReadPvii:F(0,2)_80:
+Z7FS_ReadPvii_F0_2_80:
 	add edi, ebx
 	sub esi, ebx
-	jz Z7FS_ReadPvii:F(0,2)_60
-Z7FS_ReadPvii:F(0,2)_40:
+	jz Z7FS_ReadPvii_F0_2_60
+Z7FS_ReadPvii_F0_2_40:
 	mov eax, [ebp-0x1c]
 	mov [esp+0xc], eax
 	mov [esp+0x8], esi
 	mov dword [esp+0x4], 0x1
 	mov [esp], edi
-	call FS_FileRead:F(0,1)
+	call FS_FileRead_F0_1
 	mov ebx, eax
 	test eax, eax
-	jz Z7FS_ReadPvii:F(0,2)_70
+	jz Z7FS_ReadPvii_F0_2_70
 	cmp eax, 0xffffffff
-	jnz Z7FS_ReadPvii:F(0,2)_80
+	jnz Z7FS_ReadPvii_F0_2_80
 	cmp dword [ebp-0x24], 0xc
-	jbe Z7FS_ReadPvii:F(0,2)_90
+	jbe Z7FS_ReadPvii_F0_2_90
 	mov dword [esp+0x4], _cstring_fs_read_1_bytes_
 	mov dword [esp], 0x0
-	call Com_Error:F(0,1)
-	jmp Z7FS_ReadPvii:F(0,2)_80
-Z7FS_ReadPvii:F(0,2)_50:
+	call Com_Error_F0_1
+	jmp Z7FS_ReadPvii_F0_2_80
+Z7FS_ReadPvii_F0_2_50:
 	mov eax, [ebp-0x28]
 	sub eax, esi
-	jmp Z7FS_ReadPvii:F(0,2)_100
-Z7FS_ReadPvii:F(0,2)_90:
+	jmp Z7FS_ReadPvii_F0_2_100
+Z7FS_ReadPvii_F0_2_90:
 	mov eax, 0xffffffff
-	jmp Z7FS_ReadPvii:F(0,2)_100
+	jmp Z7FS_ReadPvii_F0_2_100
 	nop
 
 
-;Z8FS_WritePKvii:F(0,2)
+;Z8FS_WritePKvii_F0_2
 
-Z8FS_WritePKvii:F(0,2):
+Z8FS_WritePKvii_F0_2:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1758,7 +2047,7 @@ Z8FS_WritePKvii:F(0,2):
 	sub esp, 0x2c
 	mov edi, [ebp+0x10]
 	test edi, edi
-	jz Z8FS_WritePKvii:F(0,2)_10
+	jz Z8FS_WritePKvii_F0_2_10
 	lea eax, [edi+edi*8]
 	shl eax, 0x3
 	sub eax, edi
@@ -1767,14 +2056,14 @@ Z8FS_WritePKvii:F(0,2):
 	mov esi, [ebp+0x8]
 	mov ecx, [ebp+0xc]
 	test ecx, ecx
-	jnz Z8FS_WritePKvii:F(0,2)_20
-Z8FS_WritePKvii:F(0,2)_50:
+	jnz Z8FS_WritePKvii_F0_2_20
+Z8FS_WritePKvii_F0_2_50:
 	lea eax, [edi+edi*8]
 	shl eax, 0x3
 	sub eax, edi
 	mov esi, [eax*4+fsh+0x8]
 	test esi, esi
-	jnz Z8FS_WritePKvii:F(0,2)_30
+	jnz Z8FS_WritePKvii_F0_2_30
 	mov eax, [ebp+0xc]
 	add esp, 0x2c
 	pop ebx
@@ -1782,7 +2071,7 @@ Z8FS_WritePKvii:F(0,2)_50:
 	pop edi
 	pop ebp
 	ret
-Z8FS_WritePKvii:F(0,2)_30:
+Z8FS_WritePKvii_F0_2_30:
 	mov eax, [ebp-0x1c]
 	mov [esp], eax
 	call fflush
@@ -1793,31 +2082,31 @@ Z8FS_WritePKvii:F(0,2)_30:
 	pop edi
 	pop ebp
 	ret
-Z8FS_WritePKvii:F(0,2)_20:
+Z8FS_WritePKvii_F0_2_20:
 	mov ebx, [ebp+0xc]
 	mov dword [ebp-0x20], 0x0
-	jmp Z8FS_WritePKvii:F(0,2)_40
-Z8FS_WritePKvii:F(0,2)_60:
+	jmp Z8FS_WritePKvii_F0_2_40
+Z8FS_WritePKvii_F0_2_60:
 	mov edx, [ebp-0x20]
 	test edx, edx
-	jnz Z8FS_WritePKvii:F(0,2)_10
+	jnz Z8FS_WritePKvii_F0_2_10
 	mov dword [ebp-0x20], 0x1
-Z8FS_WritePKvii:F(0,2)_70:
+Z8FS_WritePKvii_F0_2_70:
 	add esi, eax
 	sub ebx, eax
-	jz Z8FS_WritePKvii:F(0,2)_50
-Z8FS_WritePKvii:F(0,2)_40:
+	jz Z8FS_WritePKvii_F0_2_50
+Z8FS_WritePKvii_F0_2_40:
 	mov eax, [ebp-0x1c]
 	mov [esp+0xc], eax
 	mov [esp+0x8], ebx
 	mov dword [esp+0x4], 0x1
 	mov [esp], esi
-	call FS_FileWrite:F(0,1)
+	call FS_FileWrite_F0_1
 	test eax, eax
-	jz Z8FS_WritePKvii:F(0,2)_60
+	jz Z8FS_WritePKvii_F0_2_60
 	cmp eax, 0xffffffff
-	jnz Z8FS_WritePKvii:F(0,2)_70
-Z8FS_WritePKvii:F(0,2)_10:
+	jnz Z8FS_WritePKvii_F0_2_70
+Z8FS_WritePKvii_F0_2_10:
 	mov dword [ebp+0xc], 0x0
 	mov eax, [ebp+0xc]
 	add esp, 0x2c
@@ -1828,9 +2117,9 @@ Z8FS_WritePKvii:F(0,2)_10:
 	ret
 
 
-;Z7FS_Seekili:F(0,2)
+;Z7FS_Seekili_F0_2
 
-Z7FS_Seekili:F(0,2):
+Z7FS_Seekili_F0_2:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1847,48 +2136,48 @@ Z7FS_Seekili:F(0,2):
 	lea ebx, [eax*4]
 	mov eax, [ebx+fsh+0x18]
 	test eax, eax
-	jnz Z7FS_Seekili:F(0,2)_10
+	jnz Z7FS_Seekili_F0_2_10
 	mov eax, [ebx+fsh+0x14]
 	test eax, eax
-	jz Z7FS_Seekili:F(0,2)_20
-Z7FS_Seekili:F(0,2)_120:
+	jz Z7FS_Seekili_F0_2_20
+Z7FS_Seekili_F0_2_120:
 	mov eax, [ebp-0x20]
 	test eax, eax
-	jnz Z7FS_Seekili:F(0,2)_30
+	jnz Z7FS_Seekili_F0_2_30
 	cmp esi, 0x2
-	jz Z7FS_Seekili:F(0,2)_40
+	jz Z7FS_Seekili_F0_2_40
 	test esi, esi
-	jz Z7FS_Seekili:F(0,2)_50
-Z7FS_Seekili:F(0,2)_30:
+	jz Z7FS_Seekili_F0_2_50
+Z7FS_Seekili_F0_2_30:
 	lea eax, [edi+edi*8]
 	shl eax, 0x3
 	sub eax, edi
 	lea ebx, [eax*4]
 	mov eax, [ebx+fsh]
 	mov [esp], eax
-	call unztell:F(0,69)
+	call unztell_F0_69
 	mov [ebp-0x1c], eax
 	test esi, esi
-	jz Z7FS_Seekili:F(0,2)_60
+	jz Z7FS_Seekili_F0_2_60
 	cmp esi, 0x1
-	jnz Z7FS_Seekili:F(0,2)_70
+	jnz Z7FS_Seekili_F0_2_70
 	mov [esp], edi
-	call Z13FS_filelengthi:F(0,2)
+	call Z13FS_filelengthi_F0_2
 	add eax, [ebp-0x20]
 	cmp [ebp-0x1c], eax
-	jg Z7FS_Seekili:F(0,2)_80
+	jg Z7FS_Seekili_F0_2_80
 	mov [esp], edi
-	call Z13FS_filelengthi:F(0,2)
+	call Z13FS_filelengthi_F0_2
 	add eax, [ebp-0x20]
 	sub eax, [ebp-0x1c]
-	jmp Z7FS_Seekili:F(0,2)_90
-Z7FS_Seekili:F(0,2)_60:
+	jmp Z7FS_Seekili_F0_2_90
+Z7FS_Seekili_F0_2_60:
 	mov esi, [ebp-0x20]
 	test esi, esi
-	js Z7FS_Seekili:F(0,2)_100
-Z7FS_Seekili:F(0,2)_190:
+	js Z7FS_Seekili_F0_2_100
+Z7FS_Seekili_F0_2_190:
 	mov eax, [ebp-0x20]
-Z7FS_Seekili:F(0,2)_90:
+Z7FS_Seekili_F0_2_90:
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], 0x0
 	lea eax, [edi+edi*8]
@@ -1896,58 +2185,58 @@ Z7FS_Seekili:F(0,2)_90:
 	sub eax, edi
 	mov eax, [eax*4+fsh]
 	mov [esp], eax
-	call unzReadCurrentFile:F(0,1)
+	call unzReadCurrentFile_F0_1
 	test eax, eax
-	jz Z7FS_Seekili:F(0,2)_110
-Z7FS_Seekili:F(0,2)_50:
+	jz Z7FS_Seekili_F0_2_110
+Z7FS_Seekili_F0_2_50:
 	xor eax, eax
-Z7FS_Seekili:F(0,2)_170:
+Z7FS_Seekili_F0_2_170:
 	add esp, 0x2c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z7FS_Seekili:F(0,2)_10:
+Z7FS_Seekili_F0_2_10:
 	mov dword [ebx+fsh+0x18], 0x0
 	mov [esp+0x8], esi
 	mov edx, [ebp-0x20]
 	mov [esp+0x4], edx
 	mov [esp], edi
-	call Z14Sys_StreamSeekiii:F(0,1)
+	call Z14Sys_StreamSeekiii_F0_1
 	mov dword [ebx+fsh+0x18], 0x1
 	mov eax, [ebx+fsh+0x14]
 	test eax, eax
-	jnz Z7FS_Seekili:F(0,2)_120
-Z7FS_Seekili:F(0,2)_20:
+	jnz Z7FS_Seekili_F0_2_120
+Z7FS_Seekili_F0_2_20:
 	mov eax, [ebx+fsh]
 	cmp esi, 0x1
-	jz Z7FS_Seekili:F(0,2)_130
+	jz Z7FS_Seekili_F0_2_130
 	cmp esi, 0x2
-	jz Z7FS_Seekili:F(0,2)_140
+	jz Z7FS_Seekili_F0_2_140
 	test esi, esi
-	jnz Z7FS_Seekili:F(0,2)_50
+	jnz Z7FS_Seekili_F0_2_50
 	mov edx, 0x1
-	jmp Z7FS_Seekili:F(0,2)_150
-Z7FS_Seekili:F(0,2)_80:
+	jmp Z7FS_Seekili_F0_2_150
+Z7FS_Seekili_F0_2_80:
 	mov eax, [ebx+fsh+0x10]
 	mov [esp+0x4], eax
 	mov eax, [ebx+fsh]
 	mov [esp], eax
-	call unzSetCurrentFileInfoPosition:F(0,1)
+	call unzSetCurrentFileInfoPosition_F0_1
 	mov eax, [ebx+fsh]
 	mov [esp], eax
-	call unzOpenCurrentFile:F(0,1)
+	call unzOpenCurrentFile_F0_1
 	mov [esp], edi
-	call Z13FS_filelengthi:F(0,2)
+	call Z13FS_filelengthi_F0_2
 	add eax, [ebp-0x20]
-	jmp Z7FS_Seekili:F(0,2)_90
-Z7FS_Seekili:F(0,2)_40:
+	jmp Z7FS_Seekili_F0_2_90
+Z7FS_Seekili_F0_2_40:
 	mov eax, [ebx+fsh+0x10]
 	mov [esp+0x4], eax
 	mov eax, [ebx+fsh]
 	mov [esp], eax
-	call unzSetCurrentFileInfoPosition:F(0,1)
+	call unzSetCurrentFileInfoPosition_F0_1
 	mov eax, [ebx+fsh]
 	mov [ebp+0x8], eax
 	add esp, 0x2c
@@ -1955,16 +2244,16 @@ Z7FS_Seekili:F(0,2)_40:
 	pop esi
 	pop edi
 	pop ebp
-	jmp unzOpenCurrentFile:F(0,1)
-Z7FS_Seekili:F(0,2)_70:
+	jmp unzOpenCurrentFile_F0_1
+Z7FS_Seekili_F0_2_70:
 	cmp esi, 0x2
-	jz Z7FS_Seekili:F(0,2)_160
-Z7FS_Seekili:F(0,2)_110:
+	jz Z7FS_Seekili_F0_2_160
+Z7FS_Seekili_F0_2_110:
 	mov eax, 0xffffffff
-	jmp Z7FS_Seekili:F(0,2)_170
-Z7FS_Seekili:F(0,2)_130:
+	jmp Z7FS_Seekili_F0_2_170
+Z7FS_Seekili_F0_2_130:
 	mov edx, 0x2
-Z7FS_Seekili:F(0,2)_150:
+Z7FS_Seekili_F0_2_150:
 	mov [ebp+0x10], edx
 	mov edx, [ebp-0x20]
 	mov [ebp+0xc], edx
@@ -1974,44 +2263,44 @@ Z7FS_Seekili:F(0,2)_150:
 	pop esi
 	pop edi
 	pop ebp
-	jmp FS_FileSeek:F(0,10)
-Z7FS_Seekili:F(0,2)_100:
+	jmp FS_FileSeek_F0_10
+Z7FS_Seekili_F0_2_100:
 	mov eax, [ebx+fsh+0x10]
 	mov [esp+0x4], eax
 	mov eax, [ebx+fsh]
 	mov [esp], eax
-	call unzSetCurrentFileInfoPosition:F(0,1)
+	call unzSetCurrentFileInfoPosition_F0_1
 	mov eax, [ebx+fsh]
 	mov [esp], eax
-	call unzOpenCurrentFile:F(0,1)
+	call unzOpenCurrentFile_F0_1
 	mov eax, [ebp-0x20]
 	add eax, [ebp-0x1c]
-	jmp Z7FS_Seekili:F(0,2)_90
-Z7FS_Seekili:F(0,2)_160:
+	jmp Z7FS_Seekili_F0_2_90
+Z7FS_Seekili_F0_2_160:
 	mov eax, [ebp-0x1c]
 	cmp [ebp-0x20], eax
-	jl Z7FS_Seekili:F(0,2)_180
+	jl Z7FS_Seekili_F0_2_180
 	mov eax, [ebp-0x20]
 	sub eax, [ebp-0x1c]
-	jmp Z7FS_Seekili:F(0,2)_90
-Z7FS_Seekili:F(0,2)_140:
+	jmp Z7FS_Seekili_F0_2_90
+Z7FS_Seekili_F0_2_140:
 	xor edx, edx
-	jmp Z7FS_Seekili:F(0,2)_150
-Z7FS_Seekili:F(0,2)_180:
+	jmp Z7FS_Seekili_F0_2_150
+Z7FS_Seekili_F0_2_180:
 	mov eax, [ebx+fsh+0x10]
 	mov [esp+0x4], eax
 	mov eax, [ebx+fsh]
 	mov [esp], eax
-	call unzSetCurrentFileInfoPosition:F(0,1)
+	call unzSetCurrentFileInfoPosition_F0_1
 	mov eax, [ebx+fsh]
 	mov [esp], eax
-	call unzOpenCurrentFile:F(0,1)
-	jmp Z7FS_Seekili:F(0,2)_190
+	call unzOpenCurrentFile_F0_1
+	jmp Z7FS_Seekili_F0_2_190
 
 
-;Z8FS_FTelli:F(0,2)
+;Z8FS_FTelli_F0_2
 
-Z8FS_FTelli:F(0,2):
+Z8FS_FTelli_F0_2:
 	push ebp
 	mov ebp, esp
 	mov edx, [ebp+0x8]
@@ -2021,12 +2310,12 @@ Z8FS_FTelli:F(0,2):
 	shl eax, 0x2
 	mov edx, [eax+fsh+0x14]
 	test edx, edx
-	jz Z8FS_FTelli:F(0,2)_10
+	jz Z8FS_FTelli_F0_2_10
 	mov eax, [eax+fsh]
 	mov [ebp+0x8], eax
 	pop ebp
-	jmp unztell:F(0,69)
-Z8FS_FTelli:F(0,2)_10:
+	jmp unztell_F0_69
+Z8FS_FTelli_F0_2_10:
 	mov eax, [eax+fsh]
 	mov [ebp+0x8], eax
 	pop ebp
@@ -2034,9 +2323,9 @@ Z8FS_FTelli:F(0,2)_10:
 	nop
 
 
-;Z8FS_Flushi:F(0,3)
+;Z8FS_Flushi_F0_3
 
-Z8FS_Flushi:F(0,3):
+Z8FS_Flushi_F0_3:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -2215,7 +2504,7 @@ _Z23FS_BuildOSPath_InternalPKcS0_S0_Pci_10:
 _Z23FS_BuildOSPath_InternalPKcS0_S0_Pci_30:
 	mov dword [esp+0x4], _cstring_fs_buildospath_o
 	mov dword [esp], 0x0
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 _Z23FS_BuildOSPath_InternalPKcS0_S0_Pci_20:
 	mov [esp+0x8], ebx
 	mov eax, [ebp-0x24]
@@ -2271,9 +2560,9 @@ _Z23FS_BuildOSPath_InternalPKcS0_S0_Pci_70:
 	nop
 
 
-;Z14FS_BuildOSPathPKcS0_S0_Pc:F(0,3)
+;Z14FS_BuildOSPathPKcS0_S0_Pc_F0_3
 
-Z14FS_BuildOSPathPKcS0_S0_Pc:F(0,3):
+Z14FS_BuildOSPathPKcS0_S0_Pc_F0_3:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -2289,9 +2578,9 @@ Z14FS_BuildOSPathPKcS0_S0_Pc:F(0,3):
 	nop
 
 
-;Z13FS_FileExistsPKc:F(0,1)
+;Z13FS_FileExistsPKc_F0_1
 
-Z13FS_FileExistsPKc:F(0,1):
+Z13FS_FileExistsPKc_F0_1:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -2306,13 +2595,13 @@ Z13FS_FileExistsPKc:F(0,1):
 	call _Z23FS_BuildOSPath_InternalPKcS0_S0_Pci
 	mov dword [esp+0x4], _cstring_rb
 	mov [esp], ebx
-	call FS_FileOpen:F(0,4)
+	call FS_FileOpen_F0_4
 	test eax, eax
-	jz Z13FS_FileExistsPKc:F(0,1)_10
+	jz Z13FS_FileExistsPKc_F0_1_10
 	mov [esp], eax
-	call FS_FileClose:F(0,10)
+	call FS_FileClose_F0_10
 	mov eax, 0x1
-Z13FS_FileExistsPKc:F(0,1)_10:
+Z13FS_FileExistsPKc_F0_1_10:
 	add esp, 0x114
 	pop ebx
 	pop ebp
@@ -2320,9 +2609,9 @@ Z13FS_FileExistsPKc:F(0,1)_10:
 	add [eax], al
 
 
-;Z18FS_ShortOSFilePathPKc:F(0,30)
+;Z18FS_ShortOSFilePathPKc_F0_30
 
-Z18FS_ShortOSFilePathPKc:F(0,30):
+Z18FS_ShortOSFilePathPKc_F0_30:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -2331,25 +2620,25 @@ Z18FS_ShortOSFilePathPKc:F(0,30):
 	sub esp, 0x11c
 	mov esi, [fs_searchpaths]
 	test esi, esi
-	jz Z18FS_ShortOSFilePathPKc:F(0,30)_10
+	jz Z18FS_ShortOSFilePathPKc_F0_30_10
 	lea edi, [ebp-0x118]
-	jmp Z18FS_ShortOSFilePathPKc:F(0,30)_20
-Z18FS_ShortOSFilePathPKc:F(0,30)_40:
+	jmp Z18FS_ShortOSFilePathPKc_F0_30_20
+Z18FS_ShortOSFilePathPKc_F0_30_40:
 	mov eax, [fs_ignoreLocalized]
 	cmp byte [eax+0x8], 0x0
-	jz Z18FS_ShortOSFilePathPKc:F(0,30)_30
-Z18FS_ShortOSFilePathPKc:F(0,30)_50:
+	jz Z18FS_ShortOSFilePathPKc_F0_30_30
+Z18FS_ShortOSFilePathPKc_F0_30_50:
 	mov esi, [esi]
 	test esi, esi
-	jz Z18FS_ShortOSFilePathPKc:F(0,30)_10
-Z18FS_ShortOSFilePathPKc:F(0,30)_20:
+	jz Z18FS_ShortOSFilePathPKc_F0_30_10
+Z18FS_ShortOSFilePathPKc_F0_30_20:
 	mov ecx, [esi+0xc]
 	test ecx, ecx
-	jnz Z18FS_ShortOSFilePathPKc:F(0,30)_40
-Z18FS_ShortOSFilePathPKc:F(0,30)_60:
+	jnz Z18FS_ShortOSFilePathPKc_F0_30_40
+Z18FS_ShortOSFilePathPKc_F0_30_60:
 	mov eax, [esi+0x8]
 	test eax, eax
-	jz Z18FS_ShortOSFilePathPKc:F(0,30)_50
+	jz Z18FS_ShortOSFilePathPKc_F0_30_50
 	lea ebx, [eax+0x100]
 	mov dword [esp+0x4], 0x0
 	mov [esp], edi
@@ -2358,31 +2647,31 @@ Z18FS_ShortOSFilePathPKc:F(0,30)_60:
 	call _Z23FS_BuildOSPath_InternalPKcS0_S0_Pci
 	mov dword [esp+0x4], _cstring_rb
 	mov [esp], edi
-	call FS_FileOpen:F(0,4)
+	call FS_FileOpen_F0_4
 	test eax, eax
-	jz Z18FS_ShortOSFilePathPKc:F(0,30)_50
+	jz Z18FS_ShortOSFilePathPKc_F0_30_50
 	mov [esp], eax
-	call FS_FileClose:F(0,10)
+	call FS_FileClose_F0_10
 	mov eax, [ebp+0x8]
 	mov [esp+0x8], eax
 	mov [esp+0x4], ebx
 	mov dword [esp], _cstring_ss2
-	call va:F(0,3)
+	call va_F0_3
 	add esp, 0x11c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z18FS_ShortOSFilePathPKc:F(0,30)_30:
+Z18FS_ShortOSFilePathPKc_F0_30_30:
 	mov ebx, [esi+0x10]
-	call Z22SEH_GetCurrentLanguagev:F(0,1)
+	call Z22SEH_GetCurrentLanguagev_F0_1
 	cmp ebx, eax
-	jz Z18FS_ShortOSFilePathPKc:F(0,30)_60
+	jz Z18FS_ShortOSFilePathPKc_F0_30_60
 	mov esi, [esi]
 	test esi, esi
-	jnz Z18FS_ShortOSFilePathPKc:F(0,30)_20
-Z18FS_ShortOSFilePathPKc:F(0,30)_10:
+	jnz Z18FS_ShortOSFilePathPKc_F0_30_20
+Z18FS_ShortOSFilePathPKc_F0_30_10:
 	xor eax, eax
 	add esp, 0x11c
 	pop ebx
@@ -2393,9 +2682,9 @@ Z18FS_ShortOSFilePathPKc:F(0,30)_10:
 	nop
 
 
-;Z16FS_GetFileOsPathPKcPc:F(0,2)
+;Z16FS_GetFileOsPathPKcPc_F0_2
 
-Z16FS_GetFileOsPathPKcPc:F(0,2):
+Z16FS_GetFileOsPathPKcPc_F0_2:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -2408,37 +2697,37 @@ Z16FS_GetFileOsPathPKcPc:F(0,2):
 	mov edx, edi
 	call _Z19FS_SanitizeFilenamePKcPci
 	test al, al
-	jnz Z16FS_GetFileOsPathPKcPc:F(0,2)_10
-Z16FS_GetFileOsPathPKcPc:F(0,2)_30:
+	jnz Z16FS_GetFileOsPathPKcPc_F0_2_10
+Z16FS_GetFileOsPathPKcPc_F0_2_30:
 	mov eax, 0xffffffff
-Z16FS_GetFileOsPathPKcPc:F(0,2)_70:
+Z16FS_GetFileOsPathPKcPc_F0_2_70:
 	add esp, 0x11c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z16FS_GetFileOsPathPKcPc:F(0,2)_10:
+Z16FS_GetFileOsPathPKcPc_F0_2_10:
 	mov esi, [fs_searchpaths]
 	test esi, esi
-	jnz Z16FS_GetFileOsPathPKcPc:F(0,2)_20
-	jmp Z16FS_GetFileOsPathPKcPc:F(0,2)_30
-Z16FS_GetFileOsPathPKcPc:F(0,2)_50:
+	jnz Z16FS_GetFileOsPathPKcPc_F0_2_20
+	jmp Z16FS_GetFileOsPathPKcPc_F0_2_30
+Z16FS_GetFileOsPathPKcPc_F0_2_50:
 	mov eax, [fs_ignoreLocalized]
 	cmp byte [eax+0x8], 0x0
-	jz Z16FS_GetFileOsPathPKcPc:F(0,2)_40
-Z16FS_GetFileOsPathPKcPc:F(0,2)_60:
+	jz Z16FS_GetFileOsPathPKcPc_F0_2_40
+Z16FS_GetFileOsPathPKcPc_F0_2_60:
 	mov esi, [esi]
 	test esi, esi
-	jz Z16FS_GetFileOsPathPKcPc:F(0,2)_30
-Z16FS_GetFileOsPathPKcPc:F(0,2)_20:
+	jz Z16FS_GetFileOsPathPKcPc_F0_2_30
+Z16FS_GetFileOsPathPKcPc_F0_2_20:
 	mov eax, [esi+0xc]
 	test eax, eax
-	jnz Z16FS_GetFileOsPathPKcPc:F(0,2)_50
-Z16FS_GetFileOsPathPKcPc:F(0,2)_80:
+	jnz Z16FS_GetFileOsPathPKcPc_F0_2_50
+Z16FS_GetFileOsPathPKcPc_F0_2_80:
 	mov ebx, [esi+0x4]
 	test ebx, ebx
-	jnz Z16FS_GetFileOsPathPKcPc:F(0,2)_60
+	jnz Z16FS_GetFileOsPathPKcPc_F0_2_60
 	mov eax, [esi+0x8]
 	lea edx, [eax+0x100]
 	mov dword [esp+0x4], 0x0
@@ -2449,194 +2738,194 @@ Z16FS_GetFileOsPathPKcPc:F(0,2)_80:
 	mov dword [esp+0x4], _cstring_rb
 	mov eax, [ebp+0xc]
 	mov [esp], eax
-	call FS_FileOpen:F(0,4)
+	call FS_FileOpen_F0_4
 	test eax, eax
-	jz Z16FS_GetFileOsPathPKcPc:F(0,2)_60
+	jz Z16FS_GetFileOsPathPKcPc_F0_2_60
 	mov [esp], eax
-	call FS_FileClose:F(0,10)
+	call FS_FileClose_F0_10
 	xor eax, eax
-	jmp Z16FS_GetFileOsPathPKcPc:F(0,2)_70
-Z16FS_GetFileOsPathPKcPc:F(0,2)_40:
+	jmp Z16FS_GetFileOsPathPKcPc_F0_2_70
+Z16FS_GetFileOsPathPKcPc_F0_2_40:
 	mov ebx, [esi+0x10]
-	call Z22SEH_GetCurrentLanguagev:F(0,1)
+	call Z22SEH_GetCurrentLanguagev_F0_1
 	cmp ebx, eax
-	jnz Z16FS_GetFileOsPathPKcPc:F(0,2)_60
-	jmp Z16FS_GetFileOsPathPKcPc:F(0,2)_80
+	jnz Z16FS_GetFileOsPathPKcPc_F0_2_60
+	jmp Z16FS_GetFileOsPathPKcPc_F0_2_80
 	nop
 
 
-;Z14FS_DisplayPathi:F(0,3)
+;Z14FS_DisplayPathi_F0_3
 
-Z14FS_DisplayPathi:F(0,3):
+Z14FS_DisplayPathi_F0_3:
 	push ebp
 	mov ebp, esp
 	push edi
 	push esi
 	push ebx
 	sub esp, 0x1c
-	call Z22SEH_GetCurrentLanguagev:F(0,1)
+	call Z22SEH_GetCurrentLanguagev_F0_1
 	mov [esp], eax
-	call Z19SEH_GetLanguageNamei:F(0,3)
+	call Z19SEH_GetLanguageNamei_F0_3
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_current_language
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov eax, [fs_ignoreLocalized]
 	cmp byte [eax+0x8], 0x0
-	jnz Z14FS_DisplayPathi:F(0,3)_10
-Z14FS_DisplayPathi:F(0,3)_160:
+	jnz Z14FS_DisplayPathi_F0_3_10
+Z14FS_DisplayPathi_F0_3_160:
 	mov dword [esp], _cstring_current_search_p
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov esi, [fs_searchpaths]
 	test esi, esi
-	jnz Z14FS_DisplayPathi:F(0,3)_20
-	jmp Z14FS_DisplayPathi:F(0,3)_30
-Z14FS_DisplayPathi:F(0,3)_60:
+	jnz Z14FS_DisplayPathi_F0_3_20
+	jmp Z14FS_DisplayPathi_F0_3_30
+Z14FS_DisplayPathi_F0_3_60:
 	mov eax, [esi+0xc]
 	test eax, eax
-	jz Z14FS_DisplayPathi:F(0,3)_40
+	jz Z14FS_DisplayPathi_F0_3_40
 	mov eax, [fs_ignoreLocalized]
 	cmp byte [eax+0x8], 0x0
-	jz Z14FS_DisplayPathi:F(0,3)_50
-Z14FS_DisplayPathi:F(0,3)_90:
+	jz Z14FS_DisplayPathi_F0_3_50
+Z14FS_DisplayPathi_F0_3_90:
 	mov esi, [esi]
 	test esi, esi
-	jz Z14FS_DisplayPathi:F(0,3)_30
-Z14FS_DisplayPathi:F(0,3)_20:
+	jz Z14FS_DisplayPathi_F0_3_30
+Z14FS_DisplayPathi_F0_3_20:
 	mov eax, [ebp+0x8]
 	test eax, eax
-	jnz Z14FS_DisplayPathi:F(0,3)_60
-Z14FS_DisplayPathi:F(0,3)_40:
+	jnz Z14FS_DisplayPathi_F0_3_60
+Z14FS_DisplayPathi_F0_3_40:
 	mov edx, [esi+0x4]
 	test edx, edx
-	jz Z14FS_DisplayPathi:F(0,3)_70
+	jz Z14FS_DisplayPathi_F0_3_70
 	mov eax, [edx+0x30c]
 	mov [esp+0x8], eax
 	mov [esp+0x4], edx
 	mov dword [esp], _cstring_s_i_files
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov eax, [esi+0xc]
 	test eax, eax
-	jnz Z14FS_DisplayPathi:F(0,3)_80
-Z14FS_DisplayPathi:F(0,3)_150:
+	jnz Z14FS_DisplayPathi_F0_3_80
+Z14FS_DisplayPathi_F0_3_150:
 	mov ebx, [fs_numServerIwds]
 	cmp ebx, 0x0
-	jz Z14FS_DisplayPathi:F(0,3)_90
+	jz Z14FS_DisplayPathi_F0_3_90
 	mov eax, [esi+0x4]
-	jle Z14FS_DisplayPathi:F(0,3)_100
+	jle Z14FS_DisplayPathi_F0_3_100
 	mov edi, [eax+0x304]
 	cmp edi, [fs_serverIwds]
-	jz Z14FS_DisplayPathi:F(0,3)_110
+	jz Z14FS_DisplayPathi_F0_3_110
 	xor ecx, ecx
 	mov edx, fs_serverIwds
-Z14FS_DisplayPathi:F(0,3)_120:
+Z14FS_DisplayPathi_F0_3_120:
 	add ecx, 0x1
 	cmp ebx, ecx
-	jz Z14FS_DisplayPathi:F(0,3)_100
+	jz Z14FS_DisplayPathi_F0_3_100
 	mov eax, [edx+0x4]
 	add edx, 0x4
 	cmp edi, eax
-	jnz Z14FS_DisplayPathi:F(0,3)_120
-Z14FS_DisplayPathi:F(0,3)_110:
+	jnz Z14FS_DisplayPathi_F0_3_120
+Z14FS_DisplayPathi_F0_3_110:
 	mov dword [esp], _cstring_____on_the_pure_
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov esi, [esi]
 	test esi, esi
-	jnz Z14FS_DisplayPathi:F(0,3)_20
-Z14FS_DisplayPathi:F(0,3)_30:
+	jnz Z14FS_DisplayPathi_F0_3_20
+Z14FS_DisplayPathi_F0_3_30:
 	mov dword [esp], _cstring_file_handles
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov ebx, 0x1
 	mov esi, fsh
 	mov edi, fsh+0x138
-Z14FS_DisplayPathi:F(0,3)_140:
+Z14FS_DisplayPathi_F0_3_140:
 	mov eax, [esi+0x11c]
 	test eax, eax
-	jz Z14FS_DisplayPathi:F(0,3)_130
+	jz Z14FS_DisplayPathi_F0_3_130
 	mov [esp+0x8], edi
 	mov [esp+0x4], ebx
 	mov dword [esp], _cstring_handle_i_s
-	call Z10Com_PrintfPKcz:F(0,1)
-Z14FS_DisplayPathi:F(0,3)_130:
+	call Z10Com_PrintfPKcz_F0_1
+Z14FS_DisplayPathi_F0_3_130:
 	add ebx, 0x1
 	add edi, 0x11c
 	add esi, 0x11c
 	cmp ebx, 0x4a
-	jnz Z14FS_DisplayPathi:F(0,3)_140
+	jnz Z14FS_DisplayPathi_F0_3_140
 	add esp, 0x1c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z14FS_DisplayPathi:F(0,3)_100:
+Z14FS_DisplayPathi_F0_3_100:
 	mov dword [esp], _cstring_____not_on_the_p
-	call Z10Com_PrintfPKcz:F(0,1)
-	jmp Z14FS_DisplayPathi:F(0,3)_90
-Z14FS_DisplayPathi:F(0,3)_80:
+	call Z10Com_PrintfPKcz_F0_1
+	jmp Z14FS_DisplayPathi_F0_3_90
+Z14FS_DisplayPathi_F0_3_80:
 	mov eax, [esi+0x10]
 	mov [esp], eax
-	call Z19SEH_GetLanguageNamei:F(0,3)
+	call Z19SEH_GetLanguageNamei_F0_3
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_____localized_as
-	call Z10Com_PrintfPKcz:F(0,1)
-	jmp Z14FS_DisplayPathi:F(0,3)_150
-Z14FS_DisplayPathi:F(0,3)_70:
+	call Z10Com_PrintfPKcz_F0_1
+	jmp Z14FS_DisplayPathi_F0_3_150
+Z14FS_DisplayPathi_F0_3_70:
 	mov edx, [esi+0x8]
 	lea eax, [edx+0x100]
 	mov [esp+0x8], eax
 	mov [esp+0x4], edx
 	mov dword [esp], _cstring_ss3
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov eax, [esi+0xc]
 	test eax, eax
-	jz Z14FS_DisplayPathi:F(0,3)_90
+	jz Z14FS_DisplayPathi_F0_3_90
 	mov eax, [esi+0x10]
 	mov [esp], eax
-	call Z19SEH_GetLanguageNamei:F(0,3)
+	call Z19SEH_GetLanguageNamei_F0_3
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_____localized_as1
-	call Z10Com_PrintfPKcz:F(0,1)
-	jmp Z14FS_DisplayPathi:F(0,3)_90
-Z14FS_DisplayPathi:F(0,3)_50:
+	call Z10Com_PrintfPKcz_F0_1
+	jmp Z14FS_DisplayPathi_F0_3_90
+Z14FS_DisplayPathi_F0_3_50:
 	mov ebx, [esi+0x10]
-	call Z22SEH_GetCurrentLanguagev:F(0,1)
+	call Z22SEH_GetCurrentLanguagev_F0_1
 	cmp ebx, eax
-	jnz Z14FS_DisplayPathi:F(0,3)_90
-	jmp Z14FS_DisplayPathi:F(0,3)_40
-Z14FS_DisplayPathi:F(0,3)_10:
+	jnz Z14FS_DisplayPathi_F0_3_90
+	jmp Z14FS_DisplayPathi_F0_3_40
+Z14FS_DisplayPathi_F0_3_10:
 	mov dword [esp], _cstring_____localized_as2
-	call Z10Com_PrintfPKcz:F(0,1)
-	jmp Z14FS_DisplayPathi:F(0,3)_160
+	call Z10Com_PrintfPKcz_F0_1
+	jmp Z14FS_DisplayPathi_F0_3_160
 	nop
 
 
-;Z9FS_Path_fv:F(0,3)
+;Z9FS_Path_fv_F0_3
 
-Z9FS_Path_fv:F(0,3):
+Z9FS_Path_fv_F0_3:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
 	mov dword [esp], 0x1
-	call Z14FS_DisplayPathi:F(0,3)
+	call Z14FS_DisplayPathi_F0_3
 	leave
 	ret
 
 
-;Z13FS_FullPath_fv:F(0,3)
+;Z13FS_FullPath_fv_F0_3
 
-Z13FS_FullPath_fv:F(0,3):
+Z13FS_FullPath_fv_F0_3:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
 	mov dword [esp], 0x0
-	call Z14FS_DisplayPathi:F(0,3)
+	call Z14FS_DisplayPathi_F0_3
 	leave
 	ret
 
 
-;Z9FS_PrintfiPKcz:F(0,3)
+;Z9FS_PrintfiPKcz_F0_3
 
-Z9FS_PrintfiPKcz:F(0,3):
+Z9FS_PrintfiPKcz_F0_3:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -2661,29 +2950,29 @@ Z9FS_PrintfiPKcz:F(0,3):
 	not ecx
 	lea edi, [ecx-0x1]
 	test esi, esi
-	jz Z9FS_PrintfiPKcz:F(0,3)_10
+	jz Z9FS_PrintfiPKcz_F0_3_10
 	lea eax, [esi+esi*8]
 	shl eax, 0x3
 	sub eax, esi
 	mov eax, [eax*4+fsh]
 	mov [ebp-0x102c], eax
 	test edi, edi
-	jnz Z9FS_PrintfiPKcz:F(0,3)_20
-Z9FS_PrintfiPKcz:F(0,3)_50:
+	jnz Z9FS_PrintfiPKcz_F0_3_20
+Z9FS_PrintfiPKcz_F0_3_50:
 	lea eax, [esi+esi*8]
 	shl eax, 0x3
 	sub eax, esi
 	mov edx, [eax*4+fsh+0x8]
 	test edx, edx
-	jnz Z9FS_PrintfiPKcz:F(0,3)_30
-Z9FS_PrintfiPKcz:F(0,3)_10:
+	jnz Z9FS_PrintfiPKcz_F0_3_30
+Z9FS_PrintfiPKcz_F0_3_10:
 	add esp, 0x103c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z9FS_PrintfiPKcz:F(0,3)_30:
+Z9FS_PrintfiPKcz_F0_3_30:
 	mov eax, [ebp-0x102c]
 	mov [esp], eax
 	call fflush
@@ -2693,35 +2982,35 @@ Z9FS_PrintfiPKcz:F(0,3)_30:
 	pop edi
 	pop ebp
 	ret
-Z9FS_PrintfiPKcz:F(0,3)_20:
+Z9FS_PrintfiPKcz_F0_3_20:
 	mov dword [ebp-0x1030], 0x0
-	jmp Z9FS_PrintfiPKcz:F(0,3)_40
-Z9FS_PrintfiPKcz:F(0,3)_60:
+	jmp Z9FS_PrintfiPKcz_F0_3_40
+Z9FS_PrintfiPKcz_F0_3_60:
 	mov ecx, [ebp-0x1030]
 	test ecx, ecx
-	jnz Z9FS_PrintfiPKcz:F(0,3)_10
+	jnz Z9FS_PrintfiPKcz_F0_3_10
 	mov dword [ebp-0x1030], 0x1
-Z9FS_PrintfiPKcz:F(0,3)_70:
+Z9FS_PrintfiPKcz_F0_3_70:
 	add ebx, eax
 	sub edi, eax
-	jz Z9FS_PrintfiPKcz:F(0,3)_50
-Z9FS_PrintfiPKcz:F(0,3)_40:
+	jz Z9FS_PrintfiPKcz_F0_3_50
+Z9FS_PrintfiPKcz_F0_3_40:
 	mov eax, [ebp-0x102c]
 	mov [esp+0xc], eax
 	mov [esp+0x8], edi
 	mov dword [esp+0x4], 0x1
 	mov [esp], ebx
-	call FS_FileWrite:F(0,1)
+	call FS_FileWrite_F0_1
 	test eax, eax
-	jz Z9FS_PrintfiPKcz:F(0,3)_60
+	jz Z9FS_PrintfiPKcz_F0_3_60
 	cmp eax, 0xffffffff
-	jnz Z9FS_PrintfiPKcz:F(0,3)_70
-	jmp Z9FS_PrintfiPKcz:F(0,3)_10
+	jnz Z9FS_PrintfiPKcz_F0_3_70
+	jmp Z9FS_PrintfiPKcz_F0_3_10
 
 
-;Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)
+;Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62
 
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62):
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -2730,7 +3019,7 @@ Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62):
 	sub esp, 0x437c
 	mov ebx, [ebp+0xc]
 	test ebx, ebx
-	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_10
+	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_10
 	mov edi, [ebp+0x10]
 	test edi, edi
 	mov eax, _cstring_null
@@ -2741,11 +3030,11 @@ Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62):
 	mov eax, ebx
 	call _Z19FS_SanitizeFilenamePKcPci
 	test al, al
-	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_20
+	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_20
 	mov edx, [ebp+0x1c]
 	mov dword [edx], 0x0
 	xor ecx, ecx
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_540:
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_540:
 	mov eax, ecx
 	add esp, 0x437c
 	pop ebx
@@ -2753,11 +3042,11 @@ Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_540
 	pop edi
 	pop ebp
 	ret
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_20:
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_20:
 	mov dword [esp+0x4], _cstring_7
 	mov eax, [ebp+0x10]
 	mov [esp], eax
-	call I_stricmp:F(0,2)
+	call I_stricmp_F0_2
 	test eax, eax
 	setz byte [ebp-0x4341]
 	cld
@@ -2769,14 +3058,14 @@ Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_20:
 	mov edx, ecx
 	sub edx, 0x1
 	mov [ebp-0x434c], edx
-	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_30
+	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_30
 	lea edx, [ecx-0x2]
 	movzx eax, byte [ebp+edx-0x21c]
 	cmp al, 0x5c
-	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_40
+	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_40
 	cmp al, 0x2f
-	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_40
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_30:
+	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_40
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_30:
 	cld
 	mov ecx, 0xffffffff
 	xor eax, eax
@@ -2788,12 +3077,12 @@ Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_30:
 	mov byte [ebp-0x11c], 0x0
 	movzx eax, byte [ebp-0x21c]
 	test al, al
-	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_50
+	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_50
 	mov dword [ebp-0x4348], 0x0
 	xor ebx, ebx
 	xor esi, esi
 	mov edi, 0x1
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_330:
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_330:
 	lea eax, [ebp-0x21c]
 	mov [esp+0x4], eax
 	lea edx, [ebp-0x11c]
@@ -2809,124 +3098,124 @@ Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_330
 	mov [ebp-0x4348], eax
 	mov esi, [ebp+0x8]
 	test esi, esi
-	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_60
+	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_60
 	mov eax, [ebp+0x8]
 	mov [ebp-0x4354], eax
 	mov dword [ebp-0x4358], 0x0
 	mov edx, eax
-	jmp Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_70
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_100:
+	jmp Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_70
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_100:
 	mov eax, [fs_ignoreLocalized]
 	cmp byte [eax+0x8], 0x0
-	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_80
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_130:
+	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_80
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_130:
 	mov edx, [ebp-0x4354]
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_490:
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_490:
 	mov edx, [edx]
 	mov [ebp-0x4354], edx
 	test edx, edx
-	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_90
+	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_90
 	mov edx, [ebp-0x4354]
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_70:
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_70:
 	mov ebx, [edx+0xc]
 	test ebx, ebx
-	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_100
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_390:
+	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_100
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_390:
 	mov edx, [edx+0x4]
 	mov [ebp-0x435c], edx
 	test edx, edx
-	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_110
+	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_110
 	mov eax, [ebp-0x4354]
 	mov edx, [eax+0xc]
 	test edx, edx
-	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_120
+	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_120
 	mov ebx, [fs_numServerIwds]
 	cmp ebx, 0x0
-	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_120
-	jle Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_130
+	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_120
+	jle Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_130
 	mov eax, [ebp-0x435c]
 	mov esi, [eax+0x304]
 	cmp esi, [fs_serverIwds]
-	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_140
+	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_140
 	xor ecx, ecx
 	mov edx, fs_serverIwds
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_150:
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_150:
 	add ecx, 0x1
 	cmp ebx, ecx
-	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_130
+	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_130
 	mov eax, [edx+0x4]
 	add edx, 0x4
 	cmp eax, esi
-	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_150
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_120:
+	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_150
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_120:
 	mov edx, [ebp-0x435c]
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_530:
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_530:
 	mov eax, [edx+0x31c]
 	mov ecx, [edx+0x30c]
 	test ecx, ecx
-	jle Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_130
+	jle Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_130
 	mov [ebp-0x432c], eax
 	mov dword [ebp-0x4350], 0x0
 	mov edx, eax
 	mov esi, [edx+0x4]
 	mov eax, [ebp+0x14]
 	test eax, eax
-	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_160
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_210:
+	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_160
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_210:
 	mov dword [esp+0x8], 0x0
 	mov [esp+0x4], esi
 	mov eax, [ebp+0x14]
 	mov [esp], eax
-	call Z14Com_FilterPathPKcS0_i:F(0,17)
+	call Z14Com_FilterPathPKcS0_i_F0_17
 	test al, al
-	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_170
+	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_170
 	cmp dword [ebp-0x4358], 0xfff
-	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_180
+	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_180
 	mov eax, [ebp-0x4358]
 	test eax, eax
-	jle Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_190
+	jle Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_190
 	xor ebx, ebx
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_200:
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_200:
 	mov eax, [ebp+ebx*4-0x431c]
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call I_stricmp:F(0,2)
+	call I_stricmp_F0_2
 	test eax, eax
-	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_170
+	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_170
 	add ebx, 0x1
 	cmp [ebp-0x4358], ebx
-	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_200
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_190:
+	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_200
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_190:
 	mov [esp], esi
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_600:
-	call CopyStringInternal:F(0,99)
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_600:
+	call CopyStringInternal_F0_99
 	mov edx, [ebp-0x4358]
 	mov [ebp+edx*4-0x431c], eax
 	add edx, 0x1
 	mov [ebp-0x4358], edx
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_170:
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_170:
 	add dword [ebp-0x4350], 0x1
 	add dword [ebp-0x432c], 0xc
 	mov edx, [ebp-0x4350]
 	mov eax, [ebp-0x435c]
 	cmp edx, [eax+0x30c]
-	jge Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_130
+	jge Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_130
 	mov edx, [ebp-0x432c]
 	mov esi, [edx+0x4]
 	mov eax, [ebp+0x14]
 	test eax, eax
-	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_210
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_160:
+	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_210
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_160:
 	mov byte [ebp-0x11c], 0x0
 	movzx eax, byte [esi]
 	test al, al
-	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_220
+	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_220
 	xor edi, edi
 	mov dword [ebp-0x433c], 0x0
 	xor ebx, ebx
 	mov dword [ebp-0x4334], 0x0
 	mov dword [ebp-0x4330], 0x1
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_380:
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_380:
 	mov [esp+0x4], esi
 	lea eax, [ebp-0x11c]
 	mov [esp], eax
@@ -2937,132 +3226,132 @@ Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_380
 	cmp [ebp-0x4330], ebx
 	cmovz edi, eax
 	cmp edi, [ebp-0x4348]
-	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_170
+	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_170
 	mov eax, [ebp-0x433c]
 	cmp [ebp-0x434c], eax
-	jg Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_170
+	jg Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_170
 	mov eax, [ebp-0x434c]
 	test eax, eax
-	jle Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_230
+	jle Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_230
 	mov edx, [ebp-0x434c]
 	cmp byte [esi+edx], 0x2f
-	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_170
+	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_170
 	mov eax, edx
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_550:
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_550:
 	mov [esp+0x8], eax
 	lea edx, [ebp-0x21c]
 	mov [esp+0x4], edx
 	mov [esp], esi
-	call I_strnicmp:F(0,2)
+	call I_strnicmp_F0_2
 	test eax, eax
-	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_170
+	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_170
 	cmp byte [ebp-0x4341], 0x0
-	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_240
+	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_240
 	mov eax, [ebp-0x4340]
 	test eax, eax
-	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_250
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_570:
+	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_250
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_570:
 	mov edi, [ebp-0x434c]
 	test edi, edi
-	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_260
+	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_260
 	xor eax, eax
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_560:
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_560:
 	cmp byte [ebp-0x4341], 0x0
-	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_270
+	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_270
 	add esi, eax
 	cmp dword [ebp-0x4358], 0xfff
-	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_180
+	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_180
 	mov eax, [ebp-0x4358]
 	test eax, eax
-	jle Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_190
+	jle Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_190
 	xor ebx, ebx
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_280:
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_280:
 	mov eax, [ebp+ebx*4-0x431c]
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call I_stricmp:F(0,2)
+	call I_stricmp_F0_2
 	test eax, eax
-	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_170
+	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_170
 	add ebx, 0x1
 	cmp [ebp-0x4358], ebx
-	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_280
-	jmp Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_190
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_50:
+	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_280
+	jmp Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_190
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_50:
 	mov dword [ebp-0x4348], 0x0
 	xor edx, edx
 	xor ebx, ebx
-	jmp Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_290
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_320:
+	jmp Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_290
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_320:
 	cmp al, 0x5c
-	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_300
+	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_300
 	add ebx, 0x1
 	movzx eax, byte [ebx+ebp-0x21c]
 	test al, al
-	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_310
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_290:
+	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_310
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_290:
 	cmp al, 0x2f
-	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_320
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_300:
+	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_320
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_300:
 	add dword [ebp-0x4348], 0x1
 	mov edx, ebx
 	add ebx, 0x1
 	movzx eax, byte [ebx+ebp-0x21c]
 	test al, al
-	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_290
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_310:
+	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_290
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_310:
 	mov esi, edx
 	lea edi, [edx+0x1]
-	jmp Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_330
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_40:
+	jmp Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_330
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_40:
 	mov [ebp-0x434c], edx
-	jmp Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_30
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_220:
+	jmp Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_30
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_220:
 	xor ebx, ebx
 	mov dword [ebp-0x433c], 0x0
 	xor edi, edi
-	jmp Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_340
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_370:
+	jmp Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_340
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_370:
 	cmp al, 0x5c
-	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_350
+	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_350
 	add ebx, 0x1
 	movzx eax, byte [esi+ebx]
 	test al, al
-	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_360
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_340:
+	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_360
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_340:
 	cmp al, 0x2f
-	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_370
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_350:
+	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_370
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_350:
 	add edi, 0x1
 	mov [ebp-0x433c], ebx
 	add ebx, 0x1
 	movzx eax, byte [esi+ebx]
 	test al, al
-	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_340
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_360:
+	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_340
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_360:
 	mov eax, [ebp-0x433c]
 	mov [ebp-0x4334], eax
 	mov edx, eax
 	add edx, 0x1
 	mov [ebp-0x4330], edx
-	jmp Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_380
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_180:
+	jmp Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_380
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_180:
 	mov dword [ebp-0x4358], 0xfff
-	jmp Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_170
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_80:
+	jmp Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_170
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_80:
 	mov ebx, [edx+0x10]
-	call Z22SEH_GetCurrentLanguagev:F(0,1)
+	call Z22SEH_GetCurrentLanguagev_F0_1
 	cmp ebx, eax
-	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_130
+	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_130
 	mov edx, [ebp-0x4354]
-	jmp Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_390
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_60:
+	jmp Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_390
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_60:
 	mov dword [ebp-0x4358], 0x0
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_90:
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_90:
 	mov eax, [ebp-0x4358]
 	mov edx, [ebp+0x1c]
 	mov [edx], eax
 	test eax, eax
-	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_400
+	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_400
 	xor ecx, ecx
 	mov eax, ecx
 	add esp, 0x437c
@@ -3071,22 +3360,22 @@ Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_90:
 	pop edi
 	pop ebp
 	ret
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_110:
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_110:
 	mov eax, [ebp-0x4354]
 	mov ebx, [eax+0x8]
 	test ebx, ebx
-	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_410
+	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_410
 	mov eax, [fs_restrict]
 	cmp byte [eax+0x8], 0x0
-	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_420
+	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_420
 	mov esi, [fs_numServerIwds]
 	test esi, esi
-	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_430
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_420:
+	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_430
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_420:
 	mov ecx, [ebp+0x18]
 	test ecx, ecx
-	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_130
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_430:
+	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_130
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_430:
 	lea edx, [ebx+0x100]
 	mov dword [esp+0x4], 0x0
 	lea eax, [ebp-0x31c]
@@ -3104,59 +3393,59 @@ Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_430
 	mov [esp+0x4], eax
 	lea edx, [ebp-0x31c]
 	mov [esp], edx
-	call Z13Sys_ListFilesPKcS0_S0_Pii:F(0,12)
+	call Z13Sys_ListFilesPKcS0_S0_Pii_F0_12
 	mov [ebp-0x4338], eax
 	mov edx, [ebp-0x1c]
 	test edx, edx
-	jle Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_440
+	jle Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_440
 	xor edi, edi
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_480:
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_480:
 	mov eax, [ebp-0x4338]
 	mov esi, [eax+edi*4]
 	cmp dword [ebp-0x4358], 0xfff
-	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_450
+	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_450
 	mov eax, [ebp-0x4358]
 	test eax, eax
-	jle Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_460
+	jle Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_460
 	xor ebx, ebx
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_470:
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_470:
 	mov eax, [ebp+ebx*4-0x431c]
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call I_stricmp:F(0,2)
+	call I_stricmp_F0_2
 	test eax, eax
-	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_450
+	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_450
 	add ebx, 0x1
 	cmp ebx, [ebp-0x4358]
-	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_470
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_460:
+	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_470
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_460:
 	mov [esp], esi
-	call CopyStringInternal:F(0,99)
+	call CopyStringInternal_F0_99
 	mov edx, [ebp-0x4358]
 	mov [ebp+edx*4-0x431c], eax
 	add edx, 0x1
 	mov [ebp-0x4358], edx
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_450:
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_450:
 	add edi, 0x1
 	cmp [ebp-0x1c], edi
-	jg Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_480
+	jg Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_480
 	mov eax, [ebp-0x4338]
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_440:
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_440:
 	mov [esp], eax
-	call Z16Sys_FreeFileListPPc:F(0,1)
+	call Z16Sys_FreeFileListPPc_F0_1
 	mov edx, [ebp-0x4354]
-	jmp Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_490
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_400:
+	jmp Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_490
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_400:
 	mov edx, [ebp-0x4358]
 	lea eax, [edx*4+0x4]
 	mov [esp], eax
-	call Z_MallocInternal:F(0,2)
+	call Z_MallocInternal_F0_2
 	mov ecx, eax
 	mov ebx, [ebp-0x4358]
 	test ebx, ebx
-	jg Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_500
+	jg Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_500
 	xor eax, eax
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_520:
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_520:
 	mov dword [ecx+eax*4], 0x0
 	mov eax, ecx
 	add esp, 0x437c
@@ -3165,35 +3454,35 @@ Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_520
 	pop edi
 	pop ebp
 	ret
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_500:
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_500:
 	xor edx, edx
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_510:
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_510:
 	mov eax, [ebp+edx*4-0x431c]
 	mov [ecx+edx*4], eax
 	add edx, 0x1
 	cmp [ebp-0x4358], edx
-	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_510
+	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_510
 	mov eax, edx
-	jmp Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_520
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_410:
+	jmp Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_520
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_410:
 	mov edx, eax
-	jmp Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_490
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_140:
+	jmp Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_490
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_140:
 	mov edx, eax
-	jmp Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_530
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_10:
+	jmp Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_530
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_10:
 	mov eax, [ebp+0x1c]
 	mov dword [eax], 0x0
 	xor ecx, ecx
-	jmp Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_540
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_230:
+	jmp Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_540
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_230:
 	mov eax, [ebp-0x434c]
-	jmp Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_550
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_260:
+	jmp Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_550
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_260:
 	mov eax, [ebp-0x434c]
 	add eax, 0x1
-	jmp Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_560
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_240:
+	jmp Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_560
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_240:
 	cld
 	mov ecx, 0xffffffff
 	mov edi, esi
@@ -3201,9 +3490,9 @@ Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_240
 	repne scasb
 	not ecx
 	cmp byte [ecx+esi-0x2], 0x2f
-	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_170
-	jmp Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_570
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_250:
+	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_170
+	jmp Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_570
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_250:
 	cld
 	mov ecx, 0xffffffff
 	mov edi, esi
@@ -3212,21 +3501,21 @@ Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_250
 	not ecx
 	lea edx, [ecx-0x1]
 	cmp [ebp-0x4340], edx
-	jge Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_170
+	jge Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_170
 	mov eax, edx
 	sub eax, [ebp-0x4340]
 	cmp byte [esi+eax-0x1], 0x2e
-	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_170
+	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_170
 	mov eax, [ebp+0x10]
 	mov [esp+0x4], eax
 	lea eax, [esi+edx]
 	sub eax, [ebp-0x4340]
 	mov [esp], eax
-	call I_stricmp:F(0,2)
+	call I_stricmp_F0_2
 	test eax, eax
-	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_170
-	jmp Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_570
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_270:
+	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_170
+	jmp Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_570
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_270:
 	lea eax, [esi+eax]
 	mov [esp+0x4], eax
 	lea edx, [ebp-0x31c]
@@ -3240,32 +3529,32 @@ Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_270
 	not ecx
 	mov byte [ecx+ebp-0x31e], 0x0
 	cmp dword [ebp-0x4358], 0xfff
-	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_180
+	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_180
 	mov eax, [ebp-0x4358]
 	test eax, eax
-	jle Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_580
+	jle Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_580
 	xor ebx, ebx
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_590:
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_590:
 	mov eax, [ebp+ebx*4-0x431c]
 	mov [esp+0x4], eax
 	lea edx, [ebp-0x31c]
 	mov [esp], edx
-	call I_stricmp:F(0,2)
+	call I_stricmp_F0_2
 	test eax, eax
-	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_170
+	jz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_170
 	add ebx, 0x1
 	cmp [ebp-0x4358], ebx
-	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_590
-Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_580:
+	jnz Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_590
+Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_580:
 	lea eax, [ebp-0x31c]
 	mov [esp], eax
-	jmp Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)_600
+	jmp Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62_600
 	add [eax], al
 
 
-;FS_ListFiles:F(0,62)
+;FS_ListFiles_F0_62
 
-FS_ListFiles:F(0,62):
+FS_ListFiles_F0_62:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x28
@@ -3282,14 +3571,14 @@ FS_ListFiles:F(0,62):
 	mov [esp+0x4], eax
 	mov eax, [fs_searchpaths]
 	mov [esp], eax
-	call Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)
+	call Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62
 	leave
 	ret
 
 
-;Z14FS_GetFileListPKcS0_16FsListBehavior_ePci:F(0,2)
+;Z14FS_GetFileListPKcS0_16FsListBehavior_ePci_F0_2
 
-Z14FS_GetFileListPKcS0_16FsListBehavior_ePci:F(0,2):
+Z14FS_GetFileListPKcS0_16FsListBehavior_ePci_F0_2:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -3302,20 +3591,20 @@ Z14FS_GetFileListPKcS0_16FsListBehavior_ePci:F(0,2):
 	mov dword [ebp-0x1c], 0x0
 	mov dword [esp+0x4], _cstring_modlist
 	mov [esp], ebx
-	call I_stricmp:F(0,2)
+	call I_stricmp_F0_2
 	test eax, eax
-	jnz Z14FS_GetFileListPKcS0_16FsListBehavior_ePci:F(0,2)_10
+	jnz Z14FS_GetFileListPKcS0_16FsListBehavior_ePci_F0_2_10
 	mov eax, [ebp+0x18]
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call Z13FS_GetModListPci:F(0,2)
+	call Z13FS_GetModListPci_F0_2
 	add esp, 0x4c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z14FS_GetFileListPKcS0_16FsListBehavior_ePci:F(0,2)_10:
+Z14FS_GetFileListPKcS0_16FsListBehavior_ePci_F0_2_10:
 	mov dword [esp+0x18], 0x3
 	lea eax, [ebp-0x1c]
 	mov [esp+0x14], eax
@@ -3327,33 +3616,33 @@ Z14FS_GetFileListPKcS0_16FsListBehavior_ePci:F(0,2)_10:
 	mov [esp+0x4], ebx
 	mov eax, [fs_searchpaths]
 	mov [esp], eax
-	call Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)
+	call Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62
 	mov [ebp-0x2c], eax
 	mov edi, [ebp-0x1c]
 	test edi, edi
-	jg Z14FS_GetFileListPKcS0_16FsListBehavior_ePci:F(0,2)_20
-Z14FS_GetFileListPKcS0_16FsListBehavior_ePci:F(0,2)_100:
+	jg Z14FS_GetFileListPKcS0_16FsListBehavior_ePci_F0_2_20
+Z14FS_GetFileListPKcS0_16FsListBehavior_ePci_F0_2_100:
 	mov ebx, [ebp-0x2c]
 	test ebx, ebx
-	jz Z14FS_GetFileListPKcS0_16FsListBehavior_ePci:F(0,2)_30
-Z14FS_GetFileListPKcS0_16FsListBehavior_ePci:F(0,2)_80:
+	jz Z14FS_GetFileListPKcS0_16FsListBehavior_ePci_F0_2_30
+Z14FS_GetFileListPKcS0_16FsListBehavior_ePci_F0_2_80:
 	mov edx, [ebp-0x2c]
 	mov eax, [edx]
 	test eax, eax
-	jz Z14FS_GetFileListPKcS0_16FsListBehavior_ePci:F(0,2)_40
+	jz Z14FS_GetFileListPKcS0_16FsListBehavior_ePci_F0_2_40
 	mov edi, edx
-Z14FS_GetFileListPKcS0_16FsListBehavior_ePci:F(0,2)_50:
+Z14FS_GetFileListPKcS0_16FsListBehavior_ePci_F0_2_50:
 	mov [esp], eax
-	call Z_FreeInternal:F(0,1)
+	call Z_FreeInternal_F0_1
 	mov eax, [edi+0x4]
 	add edi, 0x4
 	test eax, eax
-	jnz Z14FS_GetFileListPKcS0_16FsListBehavior_ePci:F(0,2)_50
+	jnz Z14FS_GetFileListPKcS0_16FsListBehavior_ePci_F0_2_50
 	mov ecx, [ebp-0x2c]
-Z14FS_GetFileListPKcS0_16FsListBehavior_ePci:F(0,2)_90:
+Z14FS_GetFileListPKcS0_16FsListBehavior_ePci_F0_2_90:
 	mov [esp], ecx
-	call Z_FreeInternal:F(0,1)
-Z14FS_GetFileListPKcS0_16FsListBehavior_ePci:F(0,2)_30:
+	call Z_FreeInternal_F0_1
+Z14FS_GetFileListPKcS0_16FsListBehavior_ePci_F0_2_30:
 	mov eax, [ebp-0x1c]
 	add esp, 0x4c
 	pop ebx
@@ -3361,10 +3650,10 @@ Z14FS_GetFileListPKcS0_16FsListBehavior_ePci:F(0,2)_30:
 	pop edi
 	pop ebp
 	ret
-Z14FS_GetFileListPKcS0_16FsListBehavior_ePci:F(0,2)_20:
+Z14FS_GetFileListPKcS0_16FsListBehavior_ePci_F0_2_20:
 	mov dword [ebp-0x30], 0x0
 	mov dword [ebp-0x34], 0x0
-Z14FS_GetFileListPKcS0_16FsListBehavior_ePci:F(0,2)_70:
+Z14FS_GetFileListPKcS0_16FsListBehavior_ePci_F0_2_70:
 	mov eax, [ebp-0x34]
 	mov ecx, [ebp-0x2c]
 	mov edx, [ecx+eax*4]
@@ -3379,7 +3668,7 @@ Z14FS_GetFileListPKcS0_16FsListBehavior_ePci:F(0,2)_70:
 	mov eax, [ebp-0x30]
 	add eax, 0x1
 	cmp eax, [ebp+0x18]
-	jge Z14FS_GetFileListPKcS0_16FsListBehavior_ePci:F(0,2)_60
+	jge Z14FS_GetFileListPKcS0_16FsListBehavior_ePci_F0_2_60
 	mov [esp+0x4], edx
 	mov [esp], esi
 	call strcpy
@@ -3387,24 +3676,24 @@ Z14FS_GetFileListPKcS0_16FsListBehavior_ePci:F(0,2)_70:
 	add dword [ebp-0x34], 0x1
 	mov eax, [ebp-0x34]
 	cmp eax, [ebp-0x1c]
-	jl Z14FS_GetFileListPKcS0_16FsListBehavior_ePci:F(0,2)_70
+	jl Z14FS_GetFileListPKcS0_16FsListBehavior_ePci_F0_2_70
 	mov ebx, [ebp-0x2c]
 	test ebx, ebx
-	jnz Z14FS_GetFileListPKcS0_16FsListBehavior_ePci:F(0,2)_80
-	jmp Z14FS_GetFileListPKcS0_16FsListBehavior_ePci:F(0,2)_30
-Z14FS_GetFileListPKcS0_16FsListBehavior_ePci:F(0,2)_40:
+	jnz Z14FS_GetFileListPKcS0_16FsListBehavior_ePci_F0_2_80
+	jmp Z14FS_GetFileListPKcS0_16FsListBehavior_ePci_F0_2_30
+Z14FS_GetFileListPKcS0_16FsListBehavior_ePci_F0_2_40:
 	mov ecx, edx
-	jmp Z14FS_GetFileListPKcS0_16FsListBehavior_ePci:F(0,2)_90
-Z14FS_GetFileListPKcS0_16FsListBehavior_ePci:F(0,2)_60:
+	jmp Z14FS_GetFileListPKcS0_16FsListBehavior_ePci_F0_2_90
+Z14FS_GetFileListPKcS0_16FsListBehavior_ePci_F0_2_60:
 	mov edx, [ebp-0x34]
 	mov [ebp-0x1c], edx
-	jmp Z14FS_GetFileListPKcS0_16FsListBehavior_ePci:F(0,2)_100
+	jmp Z14FS_GetFileListPKcS0_16FsListBehavior_ePci_F0_2_100
 	nop
 
 
-;Z15FS_SortFileListPPKci:F(0,3)
+;Z15FS_SortFileListPPKci_F0_3
 
-Z15FS_SortFileListPPKci:F(0,3):
+Z15FS_SortFileListPPKci_F0_3:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -3417,17 +3706,17 @@ Z15FS_SortFileListPPKci:F(0,3):
 	mov [ebp-0x34], edx
 	lea eax, [edx*4+0x4]
 	mov [esp], eax
-	call Z_MallocInternal:F(0,2)
+	call Z_MallocInternal_F0_2
 	mov [ebp-0x24], eax
 	mov dword [eax], 0x0
 	mov edx, [ebp-0x34]
 	test edx, edx
-	jle Z15FS_SortFileListPPKci:F(0,3)_10
+	jle Z15FS_SortFileListPPKci_F0_3_10
 	mov [ebp-0x1c], eax
 	mov dword [ebp-0x2c], 0x0
 	mov dword [ebp-0x28], 0x0
 	mov edx, [ebp-0x28]
-Z15FS_SortFileListPPKci:F(0,3)_150:
+Z15FS_SortFileListPPKci_F0_3_150:
 	mov ecx, [ebp-0x30]
 	mov eax, [ecx+edx*4]
 	mov edx, [ebp-0x2c]
@@ -3437,76 +3726,76 @@ Z15FS_SortFileListPPKci:F(0,3)_150:
 	add dword [ebp-0x1c], 0x4
 	mov eax, [ebp-0x28]
 	cmp [ebp-0x34], eax
-	jz Z15FS_SortFileListPPKci:F(0,3)_10
-Z15FS_SortFileListPPKci:F(0,3)_120:
+	jz Z15FS_SortFileListPPKci_F0_3_10
+Z15FS_SortFileListPPKci_F0_3_120:
 	mov dword [ebp-0x2c], 0x0
 	test eax, eax
-	jle Z15FS_SortFileListPPKci:F(0,3)_20
+	jle Z15FS_SortFileListPPKci_F0_3_20
 	mov ecx, [ebp-0x2c]
-Z15FS_SortFileListPPKci:F(0,3)_140:
+Z15FS_SortFileListPPKci_F0_3_140:
 	mov eax, [ebp-0x24]
 	mov ecx, [eax+ecx*4]
 	mov [ebp-0x20], ecx
 	mov eax, [ebp-0x28]
 	mov edx, [ebp-0x30]
 	mov edi, [edx+eax*4]
-	jmp Z15FS_SortFileListPPKci:F(0,3)_30
-Z15FS_SortFileListPPKci:F(0,3)_80:
+	jmp Z15FS_SortFileListPPKci_F0_3_30
+Z15FS_SortFileListPPKci_F0_3_80:
 	cmp esi, 0x3a
-	jz Z15FS_SortFileListPPKci:F(0,3)_40
+	jz Z15FS_SortFileListPPKci_F0_3_40
 	cmp ebx, 0x5c
-	jz Z15FS_SortFileListPPKci:F(0,3)_50
-Z15FS_SortFileListPPKci:F(0,3)_90:
+	jz Z15FS_SortFileListPPKci_F0_3_50
+Z15FS_SortFileListPPKci_F0_3_90:
 	cmp ebx, 0x3a
-	jz Z15FS_SortFileListPPKci:F(0,3)_50
+	jz Z15FS_SortFileListPPKci_F0_3_50
 	cmp esi, ebx
-	jl Z15FS_SortFileListPPKci:F(0,3)_60
-Z15FS_SortFileListPPKci:F(0,3)_100:
-	jg Z15FS_SortFileListPPKci:F(0,3)_70
+	jl Z15FS_SortFileListPPKci_F0_3_60
+Z15FS_SortFileListPPKci_F0_3_100:
+	jg Z15FS_SortFileListPPKci_F0_3_70
 	test esi, esi
-	jz Z15FS_SortFileListPPKci:F(0,3)_70
+	jz Z15FS_SortFileListPPKci_F0_3_70
 	mov ecx, [ebp-0x20]
-Z15FS_SortFileListPPKci:F(0,3)_30:
+Z15FS_SortFileListPPKci_F0_3_30:
 	movsx esi, byte [edi]
 	add edi, 0x1
 	movsx ebx, byte [ecx]
 	add ecx, 0x1
 	mov [ebp-0x20], ecx
 	mov [esp], esi
-	call Z9I_isloweri:F(0,16)
+	call Z9I_isloweri_F0_16
 	lea edx, [esi-0x20]
 	test al, al
 	cmovnz esi, edx
 	mov [esp], ebx
-	call Z9I_isloweri:F(0,16)
+	call Z9I_isloweri_F0_16
 	lea edx, [ebx-0x20]
 	test al, al
 	cmovnz ebx, edx
 	cmp esi, 0x5c
-	jnz Z15FS_SortFileListPPKci:F(0,3)_80
-Z15FS_SortFileListPPKci:F(0,3)_40:
+	jnz Z15FS_SortFileListPPKci_F0_3_80
+Z15FS_SortFileListPPKci_F0_3_40:
 	mov esi, 0x2f
 	cmp ebx, 0x5c
-	jnz Z15FS_SortFileListPPKci:F(0,3)_90
-Z15FS_SortFileListPPKci:F(0,3)_50:
+	jnz Z15FS_SortFileListPPKci_F0_3_90
+Z15FS_SortFileListPPKci_F0_3_50:
 	mov ebx, 0x2f
 	cmp esi, ebx
-	jge Z15FS_SortFileListPPKci:F(0,3)_100
-Z15FS_SortFileListPPKci:F(0,3)_60:
+	jge Z15FS_SortFileListPPKci_F0_3_100
+Z15FS_SortFileListPPKci_F0_3_60:
 	mov eax, [ebp-0x2c]
 	cmp [ebp-0x28], eax
-	jle Z15FS_SortFileListPPKci:F(0,3)_20
+	jle Z15FS_SortFileListPPKci_F0_3_20
 	mov edx, [ebp-0x1c]
 	sub edx, 0x4
 	mov ecx, [ebp-0x28]
-Z15FS_SortFileListPPKci:F(0,3)_110:
+Z15FS_SortFileListPPKci_F0_3_110:
 	mov eax, [edx]
 	mov [edx+0x4], eax
 	sub ecx, 0x1
 	sub edx, 0x4
 	cmp ecx, [ebp-0x2c]
-	jg Z15FS_SortFileListPPKci:F(0,3)_110
-Z15FS_SortFileListPPKci:F(0,3)_20:
+	jg Z15FS_SortFileListPPKci_F0_3_110
+Z15FS_SortFileListPPKci_F0_3_20:
 	mov edx, [ebp-0x28]
 	mov ecx, [ebp-0x30]
 	mov eax, [ecx+edx*4]
@@ -3517,8 +3806,8 @@ Z15FS_SortFileListPPKci:F(0,3)_20:
 	add dword [ebp-0x1c], 0x4
 	mov eax, [ebp-0x28]
 	cmp [ebp-0x34], eax
-	jnz Z15FS_SortFileListPPKci:F(0,3)_120
-Z15FS_SortFileListPPKci:F(0,3)_10:
+	jnz Z15FS_SortFileListPPKci_F0_3_120
+Z15FS_SortFileListPPKci_F0_3_10:
 	mov eax, [ebp-0x34]
 	shl eax, 0x2
 	mov [esp+0x8], eax
@@ -3526,7 +3815,7 @@ Z15FS_SortFileListPPKci:F(0,3)_10:
 	mov [esp+0x4], edx
 	mov ecx, [ebp-0x30]
 	mov [esp], ecx
-	call Com_Memcpy:F(0,12)
+	call Com_Memcpy_F0_12
 	mov eax, [ebp-0x24]
 	mov [ebp+0x8], eax
 	add esp, 0x3c
@@ -3534,25 +3823,25 @@ Z15FS_SortFileListPPKci:F(0,3)_10:
 	pop esi
 	pop edi
 	pop ebp
-	jmp Z_FreeInternal:F(0,1)
-Z15FS_SortFileListPPKci:F(0,3)_70:
+	jmp Z_FreeInternal_F0_1
+Z15FS_SortFileListPPKci_F0_3_70:
 	add dword [ebp-0x2c], 0x1
 	mov edx, [ebp-0x2c]
 	cmp [ebp-0x28], edx
-	jz Z15FS_SortFileListPPKci:F(0,3)_130
+	jz Z15FS_SortFileListPPKci_F0_3_130
 	mov ecx, edx
-	jmp Z15FS_SortFileListPPKci:F(0,3)_140
-Z15FS_SortFileListPPKci:F(0,3)_130:
+	jmp Z15FS_SortFileListPPKci_F0_3_140
+Z15FS_SortFileListPPKci_F0_3_130:
 	mov ecx, [ebp-0x28]
 	mov [ebp-0x2c], ecx
 	mov edx, ecx
-	jmp Z15FS_SortFileListPPKci:F(0,3)_150
+	jmp Z15FS_SortFileListPPKci_F0_3_150
 	nop
 
 
-;Z20FS_OpenFileOverwritePKc:F(0,32)
+;Z20FS_OpenFileOverwritePKc_F0_32
 
-Z20FS_OpenFileOverwritePKc:F(0,32):
+Z20FS_OpenFileOverwritePKc_F0_32:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -3563,43 +3852,43 @@ Z20FS_OpenFileOverwritePKc:F(0,32):
 	mov [esp+0x4], ebx
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z16FS_GetFileOsPathPKcPc:F(0,2)
+	call Z16FS_GetFileOsPathPKcPc_F0_2
 	test eax, eax
-	js Z20FS_OpenFileOverwritePKc:F(0,32)_10
+	js Z20FS_OpenFileOverwritePKc_F0_32_10
 	mov eax, [fs_debug]
 	mov esi, [eax+0x8]
 	test esi, esi
-	jnz Z20FS_OpenFileOverwritePKc:F(0,32)_20
-Z20FS_OpenFileOverwritePKc:F(0,32)_80:
+	jnz Z20FS_OpenFileOverwritePKc_F0_32_20
+Z20FS_OpenFileOverwritePKc_F0_32_80:
 	mov [esp], ebx
-	call GetFileAttributesA:F(0,1)
+	call GetFileAttributesA_F0_1
 	mov edx, eax
 	and edx, 0xfffffffe
 	cmp eax, edx
-	jz Z20FS_OpenFileOverwritePKc:F(0,32)_30
+	jz Z20FS_OpenFileOverwritePKc_F0_32_30
 	mov [esp+0x4], edx
 	mov [esp], ebx
-	call SetFileAttributesA:F(0,3)
-Z20FS_OpenFileOverwritePKc:F(0,32)_30:
+	call SetFileAttributesA_F0_3
+Z20FS_OpenFileOverwritePKc_F0_32_30:
 	mov dword [esp+0x4], _cstring_wb
 	mov [esp], ebx
-	call FS_FileOpen:F(0,4)
+	call FS_FileOpen_F0_4
 	mov edi, eax
 	test eax, eax
-	jz Z20FS_OpenFileOverwritePKc:F(0,32)_40
+	jz Z20FS_OpenFileOverwritePKc_F0_32_40
 	xor esi, esi
 	mov eax, fsh
-	jmp Z20FS_OpenFileOverwritePKc:F(0,32)_50
-Z20FS_OpenFileOverwritePKc:F(0,32)_70:
+	jmp Z20FS_OpenFileOverwritePKc_F0_32_50
+Z20FS_OpenFileOverwritePKc_F0_32_70:
 	add eax, 0x11c
 	cmp esi, 0x3c
-	jz Z20FS_OpenFileOverwritePKc:F(0,32)_60
-Z20FS_OpenFileOverwritePKc:F(0,32)_50:
+	jz Z20FS_OpenFileOverwritePKc_F0_32_60
+Z20FS_OpenFileOverwritePKc_F0_32_50:
 	add esi, 0x1
 	mov ecx, [eax+0x11c]
 	test ecx, ecx
-	jnz Z20FS_OpenFileOverwritePKc:F(0,32)_70
-Z20FS_OpenFileOverwritePKc:F(0,32)_100:
+	jnz Z20FS_OpenFileOverwritePKc_F0_32_70
+Z20FS_OpenFileOverwritePKc_F0_32_100:
 	lea ebx, [esi+esi*8]
 	shl ebx, 0x3
 	sub ebx, esi
@@ -3611,9 +3900,9 @@ Z20FS_OpenFileOverwritePKc:F(0,32)_100:
 	mov [esp+0x4], eax
 	lea eax, [ebx+fsh+0x1c]
 	mov [esp], eax
-	call Z10I_strncpyzPcPKci:F(0,15)
+	call Z10I_strncpyzPcPKci_F0_15
 	mov dword [ebx+fsh+0x8], 0x0
-Z20FS_OpenFileOverwritePKc:F(0,32)_110:
+Z20FS_OpenFileOverwritePKc_F0_32_110:
 	mov eax, esi
 	add esp, 0x11c
 	pop ebx
@@ -3621,34 +3910,34 @@ Z20FS_OpenFileOverwritePKc:F(0,32)_110:
 	pop edi
 	pop ebp
 	ret
-Z20FS_OpenFileOverwritePKc:F(0,32)_20:
+Z20FS_OpenFileOverwritePKc_F0_32_20:
 	mov [esp+0x4], ebx
 	mov dword [esp], _cstring_fs_fopenfileover
-	call Z10Com_PrintfPKcz:F(0,1)
-	jmp Z20FS_OpenFileOverwritePKc:F(0,32)_80
-Z20FS_OpenFileOverwritePKc:F(0,32)_60:
+	call Z10Com_PrintfPKcz_F0_1
+	jmp Z20FS_OpenFileOverwritePKc_F0_32_80
+Z20FS_OpenFileOverwritePKc_F0_32_60:
 	mov ebx, 0x1
 	mov esi, fsh+0x138
-Z20FS_OpenFileOverwritePKc:F(0,32)_90:
+Z20FS_OpenFileOverwritePKc_F0_32_90:
 	mov [esp+0x8], esi
 	mov [esp+0x4], ebx
 	mov dword [esp], _cstring_file_2i_s
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	add ebx, 0x1
 	add esi, 0x11c
 	cmp ebx, 0x4a
-	jnz Z20FS_OpenFileOverwritePKc:F(0,32)_90
+	jnz Z20FS_OpenFileOverwritePKc_F0_32_90
 	mov dword [esp+0x4], _cstring_fs_handleforfile
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	mov esi, 0xffffffff
-	jmp Z20FS_OpenFileOverwritePKc:F(0,32)_100
-Z20FS_OpenFileOverwritePKc:F(0,32)_10:
+	jmp Z20FS_OpenFileOverwritePKc_F0_32_100
+Z20FS_OpenFileOverwritePKc_F0_32_10:
 	mov eax, [ebp+0x8]
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], _cstring_fs_fopenfileover1
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	xor esi, esi
 	mov eax, esi
 	add esp, 0x11c
@@ -3657,9 +3946,9 @@ Z20FS_OpenFileOverwritePKc:F(0,32)_10:
 	pop edi
 	pop ebp
 	ret
-Z20FS_OpenFileOverwritePKc:F(0,32)_40:
+Z20FS_OpenFileOverwritePKc_F0_32_40:
 	xor esi, esi
-	jmp Z20FS_OpenFileOverwritePKc:F(0,32)_110
+	jmp Z20FS_OpenFileOverwritePKc_F0_32_110
 	nop
 
 
@@ -3682,14 +3971,14 @@ _Z7iwdsortPKvS0_:
 	mov dword [esp+0x4], _cstring___________
 	mov eax, [ebp-0x28]
 	mov [esp], eax
-	call I_strncmp:F(0,2)
+	call I_strncmp_F0_2
 	test eax, eax
 	jnz _Z7iwdsortPKvS0__10
 	mov dword [esp+0x8], 0xa
 	mov dword [esp+0x4], _cstring___________
 	mov eax, [ebp-0x24]
 	mov [esp], eax
-	call I_strncmp:F(0,2)
+	call I_strncmp_F0_2
 	test eax, eax
 	jz _Z7iwdsortPKvS0__20
 _Z7iwdsortPKvS0__10:
@@ -3719,12 +4008,12 @@ _Z7iwdsortPKvS0__30:
 	movsx edi, byte [esi]
 	add esi, 0x1
 	mov [esp], ebx
-	call Z9I_isloweri:F(0,16)
+	call Z9I_isloweri_F0_16
 	lea edx, [ebx-0x20]
 	test al, al
 	cmovnz ebx, edx
 	mov [esp], edi
-	call Z9I_isloweri:F(0,16)
+	call Z9I_isloweri_F0_16
 	lea edx, [edi-0x20]
 	test al, al
 	cmovnz edi, edx
@@ -3795,12 +4084,12 @@ _Z7iwdsortPKvS0__220:
 	mov dword [esp+0x4], _cstring_english
 	mov eax, [ebp-0x20]
 	mov [esp], eax
-	call I_stricmp:F(0,2)
+	call I_stricmp_F0_2
 	test eax, eax
 	jz _Z7iwdsortPKvS0__140
 	mov dword [esp+0x4], _cstring_english
 	mov [esp], ebx
-	call I_stricmp:F(0,2)
+	call I_stricmp_F0_2
 	test eax, eax
 	jnz _Z7iwdsortPKvS0__10
 _Z7iwdsortPKvS0__70:
@@ -3904,7 +4193,7 @@ _Z7iwdsortPKvS0__160:
 _Z7iwdsortPKvS0__140:
 	mov dword [esp+0x4], _cstring_english
 	mov [esp], ebx
-	call I_stricmp:F(0,2)
+	call I_stricmp_F0_2
 	test eax, eax
 	jz _Z7iwdsortPKvS0__10
 	mov eax, 0xffffffff
@@ -3941,7 +4230,7 @@ _Z30FS_AddIwdFilesForGameDirectoryPKcS0_:
 	mov dword [esp+0x4], _cstring_iwd
 	lea edx, [ebp-0x178]
 	mov [esp], edx
-	call Z13Sys_ListFilesPKcS0_S0_Pii:F(0,12)
+	call Z13Sys_ListFilesPKcS0_S0_Pii_F0_12
 	mov [ebp-0x12b0], eax
 	mov eax, [ebp-0x1c]
 	cmp eax, 0x400
@@ -3963,7 +4252,7 @@ _Z30FS_AddIwdFilesForGameDirectoryPKcS0__420:
 _Z30FS_AddIwdFilesForGameDirectoryPKcS0__60:
 	mov eax, [ebp-0x12b0]
 	mov [esp], eax
-	call Z16Sys_FreeFileListPPc:F(0,1)
+	call Z16Sys_FreeFileListPPc_F0_1
 	add esp, 0x12cc
 	pop ebx
 	pop esi
@@ -3993,13 +4282,13 @@ _Z30FS_AddIwdFilesForGameDirectoryPKcS0__200:
 	mov [ebp-0x12a8], edx
 	lea ecx, [ebp-0x178]
 	mov [esp], ecx
-	call unzOpen:F(0,5)
+	call unzOpen_F0_5
 	mov [ebp-0x12a0], eax
 	lea eax, [ebp-0x28]
 	mov [esp+0x4], eax
 	mov eax, [ebp-0x12a0]
 	mov [esp], eax
-	call unzGetGlobalInfo:F(0,1)
+	call unzGetGlobalInfo_F0_1
 	test eax, eax
 	jz _Z30FS_AddIwdFilesForGameDirectoryPKcS0__50
 _Z30FS_AddIwdFilesForGameDirectoryPKcS0__100:
@@ -4014,7 +4303,7 @@ _Z30FS_AddIwdFilesForGameDirectoryPKcS0__40:
 	mov dword [esp+0x4], _cstring___________
 	mov eax, [ecx-0x4]
 	mov [esp], eax
-	call I_strncmp:F(0,2)
+	call I_strncmp_F0_2
 	test eax, eax
 	jnz _Z30FS_AddIwdFilesForGameDirectoryPKcS0__70
 	mov edx, [ebp-0x12b8]
@@ -4053,14 +4342,14 @@ _Z30FS_AddIwdFilesForGameDirectoryPKcS0__260:
 	mov edx, [ebp+0x8]
 	mov [esp+0x4], edx
 	mov dword [esp], _cstring_warning_localize
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	jmp _Z30FS_AddIwdFilesForGameDirectoryPKcS0__100
 _Z30FS_AddIwdFilesForGameDirectoryPKcS0__50:
 	mov eax, [ebp-0x28]
 	add [fs_packFiles], eax
 	mov edx, [ebp-0x12a0]
 	mov [esp], edx
-	call unzGoToFirstFile:F(0,1)
+	call unzGoToFirstFile_F0_1
 	mov eax, [ebp-0x28]
 	test eax, eax
 	jnz _Z30FS_AddIwdFilesForGameDirectoryPKcS0__110
@@ -4070,7 +4359,7 @@ _Z30FS_AddIwdFilesForGameDirectoryPKcS0__400:
 	lea eax, [eax+eax*2]
 	lea eax, [edx+eax*4]
 	mov [esp], eax
-	call Z_MallocInternal:F(0,2)
+	call Z_MallocInternal_F0_2
 	mov [ebp-0x12a4], eax
 	mov eax, [ebp-0x28]
 	lea edx, [eax+eax*2]
@@ -4079,7 +4368,7 @@ _Z30FS_AddIwdFilesForGameDirectoryPKcS0__400:
 	mov [ebp-0x1294], edx
 	shl eax, 0x2
 	mov [esp], eax
-	call Z_MallocInternal:F(0,2)
+	call Z_MallocInternal_F0_2
 	mov [ebp-0x1298], eax
 	mov edx, [ebp-0x28]
 	mov edi, 0x1
@@ -4093,7 +4382,7 @@ _Z30FS_AddIwdFilesForGameDirectoryPKcS0__130:
 _Z30FS_AddIwdFilesForGameDirectoryPKcS0__120:
 	lea eax, [edi*4+0x320]
 	mov [esp], eax
-	call Z_MallocInternal:F(0,2)
+	call Z_MallocInternal_F0_2
 	mov esi, eax
 	mov [eax+0x314], edi
 	lea eax, [eax+0x320]
@@ -4112,13 +4401,13 @@ _Z30FS_AddIwdFilesForGameDirectoryPKcS0__140:
 	lea eax, [ebp-0x178]
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call Z10I_strncpyzPcPKci:F(0,15)
+	call Z10I_strncpyzPcPKci_F0_15
 	lea ebx, [esi+0x100]
 	mov dword [esp+0x8], 0x100
 	mov edx, [ebp-0x12a8]
 	mov [esp+0x4], edx
 	mov [esp], ebx
-	call Z10I_strncpyzPcPKci:F(0,15)
+	call Z10I_strncpyzPcPKci_F0_15
 	cld
 	mov ecx, 0xffffffff
 	mov edi, ebx
@@ -4134,7 +4423,7 @@ _Z30FS_AddIwdFilesForGameDirectoryPKcS0__370:
 	mov eax, [ebp-0x28]
 	mov [esi+0x30c], eax
 	mov [esp], edx
-	call unzGoToFirstFile:F(0,1)
+	call unzGoToFirstFile_F0_1
 	mov eax, [ebp-0x28]
 	test eax, eax
 	jnz _Z30FS_AddIwdFilesForGameDirectoryPKcS0__170
@@ -4143,18 +4432,18 @@ _Z30FS_AddIwdFilesForGameDirectoryPKcS0__360:
 	mov [esp+0x4], ebx
 	mov ecx, [ebp-0x1298]
 	mov [esp], ecx
-	call Z17Com_BlockChecksumPKvi:F(0,15)
+	call Z17Com_BlockChecksumPKvi_F0_15
 	mov [esi+0x304], eax
 	mov eax, [fs_checksumFeed]
 	mov [esp+0x8], eax
 	mov [esp+0x4], ebx
 	mov eax, [ebp-0x1298]
 	mov [esp], eax
-	call Z20Com_BlockChecksumKeyPvii:F(0,15)
+	call Z20Com_BlockChecksumKeyPvii_F0_15
 	mov [esi+0x308], eax
 	mov edx, [ebp-0x1298]
 	mov [esp], edx
-	call Z_FreeInternal:F(0,1)
+	call Z_FreeInternal_F0_1
 	mov ecx, [ebp-0x12a4]
 	mov [esi+0x31c], ecx
 	mov eax, [ebp+0xc]
@@ -4163,7 +4452,7 @@ _Z30FS_AddIwdFilesForGameDirectoryPKcS0__360:
 	mov [esp], eax
 	call strcpy
 	mov dword [esp], 0x14
-	call Z_MallocInternal:F(0,2)
+	call Z_MallocInternal_F0_2
 	mov edx, eax
 	mov [eax+0x4], esi
 	mov ecx, [ebp-0x12b4]
@@ -4183,7 +4472,7 @@ _Z30FS_AddIwdFilesForGameDirectoryPKcS0__90:
 	lea eax, [ebp-0x20]
 	mov [esp+0x4], eax
 	mov [esp], edx
-	call Z27SEH_GetLanguageIndexForNamePKcPi:F(0,7)
+	call Z27SEH_GetLanguageIndexForNamePKcPi_F0_7
 	test eax, eax
 	jz _Z30FS_AddIwdFilesForGameDirectoryPKcS0__190
 	mov dword [ebp-0x12b4], 0x1
@@ -4282,7 +4571,7 @@ _Z30FS_AddIwdFilesForGameDirectoryPKcS0__350:
 	mov [esp+0x4], edx
 	mov ecx, [ebp-0x12a0]
 	mov [esp], ecx
-	call unzGetCurrentFileInfoPosition:F(0,1)
+	call unzGetCurrentFileInfoPosition_F0_1
 	mov eax, [ebp-0x127c]
 	xor [ebp-0x128c], eax
 	xor ebx, [ebp-0x128c]
@@ -4298,7 +4587,7 @@ _Z30FS_AddIwdFilesForGameDirectoryPKcS0__350:
 	mov [edx+eax], ecx
 	mov eax, [ebp-0x12a0]
 	mov [esp], eax
-	call unzGoToNextFile:F(0,1)
+	call unzGoToNextFile_F0_1
 	add dword [ebp-0x1280], 0x1
 	add dword [ebp-0x1288], 0xc
 	mov edx, [ebp-0x1280]
@@ -4316,7 +4605,7 @@ _Z30FS_AddIwdFilesForGameDirectoryPKcS0__290:
 	mov [esp+0x4], edx
 	mov ecx, [ebp-0x12a0]
 	mov [esp], ecx
-	call unzGetCurrentFileInfo:F(0,1)
+	call unzGetCurrentFileInfo_F0_1
 	test eax, eax
 	jnz _Z30FS_AddIwdFilesForGameDirectoryPKcS0__300
 	mov eax, [ebp-0x5c]
@@ -4331,7 +4620,7 @@ _Z30FS_AddIwdFilesForGameDirectoryPKcS0__290:
 _Z30FS_AddIwdFilesForGameDirectoryPKcS0__310:
 	lea eax, [ebp-0x278]
 	mov [esp], eax
-	call Z8I_strlwrPc:F(0,3)
+	call Z8I_strlwrPc_F0_3
 	mov edx, [esi+0x314]
 	mov [ebp-0x1290], edx
 	movzx eax, byte [ebp-0x278]
@@ -4369,7 +4658,7 @@ _Z30FS_AddIwdFilesForGameDirectoryPKcS0__160:
 	mov dword [esp+0x4], _cstring_iwd1
 	lea eax, [ebx+eax-0x4]
 	mov [esp], eax
-	call I_stricmp:F(0,2)
+	call I_stricmp_F0_2
 	test eax, eax
 	jnz _Z30FS_AddIwdFilesForGameDirectoryPKcS0__370
 	cld
@@ -4394,7 +4683,7 @@ _Z30FS_AddIwdFilesForGameDirectoryPKcS0__390:
 	mov [esp+0x4], eax
 	mov edx, [ebp-0x12a0]
 	mov [esp], edx
-	call unzGetCurrentFileInfo:F(0,1)
+	call unzGetCurrentFileInfo_F0_1
 	test eax, eax
 	jnz _Z30FS_AddIwdFilesForGameDirectoryPKcS0__380
 	cld
@@ -4405,7 +4694,7 @@ _Z30FS_AddIwdFilesForGameDirectoryPKcS0__390:
 	lea esi, [ecx+esi]
 	mov edx, [ebp-0x12a0]
 	mov [esp], edx
-	call unzGoToNextFile:F(0,1)
+	call unzGoToNextFile_F0_1
 	add ebx, 0x1
 	cmp [ebp-0x28], ebx
 	ja _Z30FS_AddIwdFilesForGameDirectoryPKcS0__390
@@ -4431,7 +4720,7 @@ _Z30FS_AddIwdFilesForGameDirectoryPKcS0__410:
 	mov dword [esp+0x8], 0xa
 	mov dword [esp+0x4], _cstring_localized_
 	mov [esp], eax
-	call I_strncmp:F(0,2)
+	call I_strncmp_F0_2
 	test eax, eax
 	jnz _Z30FS_AddIwdFilesForGameDirectoryPKcS0__430
 	mov eax, [esi-0x4]
@@ -4447,7 +4736,7 @@ _Z30FS_AddIwdFilesForGameDirectoryPKcS0__10:
 	mov eax, [ebp+0x8]
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_warning_exceeded
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov dword [ebp-0x1c], 0x400
 	mov eax, 0x400
 	jmp _Z30FS_AddIwdFilesForGameDirectoryPKcS0__440
@@ -4460,19 +4749,19 @@ _Z30FS_AddIwdFilesForGameDirectoryPKcS0__190:
 	mov edx, [ebp+0x8]
 	mov [esp+0x4], edx
 	mov dword [esp], _cstring_warning_localize1
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov eax, [_ZZ30FS_AddIwdFilesForGameDirectoryPKcS0_E16bLanguagesListed]
 	test eax, eax
 	jnz _Z30FS_AddIwdFilesForGameDirectoryPKcS0__100
 	mov dword [esp], _cstring_supported_langua
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	xor ebx, ebx
 _Z30FS_AddIwdFilesForGameDirectoryPKcS0__450:
 	mov [esp], ebx
-	call Z19SEH_GetLanguageNamei:F(0,3)
+	call Z19SEH_GetLanguageNamei_F0_3
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_____s
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	add ebx, 0x1
 	cmp ebx, 0xf
 	jnz _Z30FS_AddIwdFilesForGameDirectoryPKcS0__450
@@ -4503,14 +4792,14 @@ _Z19FS_AddGameDirectoryPKcS0_ii:
 	jz _Z19FS_AddGameDirectoryPKcS0_ii_10
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z19SEH_GetLanguageNamei:F(0,3)
+	call Z19SEH_GetLanguageNamei_F0_3
 	mov [esp+0x10], eax
 	mov [esp+0xc], edi
 	mov dword [esp+0x8], _cstring_ss2
 	mov dword [esp+0x4], 0x40
 	lea edi, [ebp-0x58]
 	mov [esp], edi
-	call Z11Com_sprintfPciPKcz:F(0,2)
+	call Z11Com_sprintfPciPKcz_F0_2
 _Z19FS_AddGameDirectoryPKcS0_ii_100:
 	mov edi, [fs_searchpaths]
 	test edi, edi
@@ -4526,7 +4815,7 @@ _Z19FS_AddGameDirectoryPKcS0_ii_20:
 	jz _Z19FS_AddGameDirectoryPKcS0_ii_40
 	mov [esp+0x4], ebx
 	mov [esp], eax
-	call I_stricmp:F(0,2)
+	call I_stricmp_F0_2
 	test eax, eax
 	jnz _Z19FS_AddGameDirectoryPKcS0_ii_40
 	lea eax, [ebp-0x58]
@@ -4534,7 +4823,7 @@ _Z19FS_AddGameDirectoryPKcS0_ii_20:
 	mov eax, [edi+0x8]
 	add eax, 0x100
 	mov [esp], eax
-	call I_stricmp:F(0,2)
+	call I_stricmp_F0_2
 	test eax, eax
 	jnz _Z19FS_AddGameDirectoryPKcS0_ii_40
 	mov edx, [edi+0xc]
@@ -4549,7 +4838,7 @@ _Z19FS_AddGameDirectoryPKcS0_ii_20:
 	mov [esp+0x8], eax
 	mov [esp+0x4], ebx
 	mov dword [esp], _cstring_warning_game_fol
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 _Z19FS_AddGameDirectoryPKcS0_ii_50:
 	mov esi, [edi+0xc]
 	test esi, esi
@@ -4561,7 +4850,7 @@ _Z19FS_AddGameDirectoryPKcS0_ii_50:
 	mov [esp+0x8], edi
 	mov [esp+0x4], ebx
 	mov dword [esp], _cstring_warning_game_gol
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	jmp _Z19FS_AddGameDirectoryPKcS0_ii_60
 _Z19FS_AddGameDirectoryPKcS0_ii_30:
 	test esi, esi
@@ -4582,27 +4871,27 @@ _Z19FS_AddGameDirectoryPKcS0_ii_30:
 	mov byte [ecx+ebp-0x15a], 0x0
 	lea eax, [ebp-0x158]
 	mov [esp], eax
-	call Z24Sys_DirectoryHasContentsPKc:F(0,6)
+	call Z24Sys_DirectoryHasContentsPKc_F0_6
 	test eax, eax
 	jz _Z19FS_AddGameDirectoryPKcS0_ii_60
 _Z19FS_AddGameDirectoryPKcS0_ii_120:
 	mov dword [esp], 0x14
-	call Z_MallocInternal:F(0,2)
+	call Z_MallocInternal_F0_2
 	mov edi, eax
 	mov dword [esp], 0x200
-	call Z_MallocInternal:F(0,2)
+	call Z_MallocInternal_F0_2
 	mov [edi+0x8], eax
 	mov dword [esp+0x8], 0x100
 	mov [esp+0x4], ebx
 	mov [esp], eax
-	call Z10I_strncpyzPcPKci:F(0,15)
+	call Z10I_strncpyzPcPKci_F0_15
 	mov dword [esp+0x8], 0x100
 	lea eax, [ebp-0x58]
 	mov [esp+0x4], eax
 	mov eax, [edi+0x8]
 	add eax, 0x100
 	mov [esp], eax
-	call Z10I_strncpyzPcPKci:F(0,15)
+	call Z10I_strncpyzPcPKci_F0_15
 	mov [edi+0xc], esi
 	mov eax, [ebp+0x8]
 	mov [edi+0x10], eax
@@ -4636,7 +4925,7 @@ _Z19FS_AddGameDirectoryPKcS0_ii_10:
 	mov [esp+0x4], edx
 	lea eax, [ebp-0x58]
 	mov [esp], eax
-	call Z10I_strncpyzPcPKci:F(0,15)
+	call Z10I_strncpyzPcPKci_F0_15
 	jmp _Z19FS_AddGameDirectoryPKcS0_ii_100
 _Z19FS_AddGameDirectoryPKcS0_ii_90:
 	mov edx, eax
@@ -4653,13 +4942,13 @@ _Z19FS_AddGameDirectoryPKcS0_ii_70:
 	lea edi, [ebp-0x58]
 	mov [esp+0x4], edi
 	mov dword [esp], fs_gamedir
-	call Z10I_strncpyzPcPKci:F(0,15)
+	call Z10I_strncpyzPcPKci_F0_15
 	jmp _Z19FS_AddGameDirectoryPKcS0_ii_120
 
 
-;Z11FS_CopyFilePcS_:F(0,3)
+;Z11FS_CopyFilePcS__F0_3
 
-Z11FS_CopyFilePcS_:F(0,3):
+Z11FS_CopyFilePcS__F0_3:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -4670,21 +4959,21 @@ Z11FS_CopyFilePcS_:F(0,3):
 	mov dword [esp+0x4], _cstring_rb
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call FS_FileOpen:F(0,4)
+	call FS_FileOpen_F0_4
 	mov ebx, eax
 	test eax, eax
-	jz Z11FS_CopyFilePcS_:F(0,3)_10
+	jz Z11FS_CopyFilePcS__F0_3_10
 	mov dword [esp+0x8], 0x2
 	mov dword [esp+0x4], 0x0
 	mov [esp], eax
-	call FS_FileSeek:F(0,10)
+	call FS_FileSeek_F0_10
 	mov [esp], ebx
 	call ftell
 	mov edi, eax
 	mov dword [esp+0x8], 0x0
 	mov dword [esp+0x4], 0x0
 	mov [esp], ebx
-	call FS_FileSeek:F(0,10)
+	call FS_FileSeek_F0_10
 	mov [esp], edi
 	call malloc
 	mov [ebp-0x1c], eax
@@ -4692,25 +4981,25 @@ Z11FS_CopyFilePcS_:F(0,3):
 	mov [esp+0x8], edi
 	mov dword [esp+0x4], 0x1
 	mov [esp], eax
-	call FS_FileRead:F(0,1)
+	call FS_FileRead_F0_1
 	cmp edi, eax
-	jz Z11FS_CopyFilePcS_:F(0,3)_20
+	jz Z11FS_CopyFilePcS__F0_3_20
 	mov dword [esp+0x4], _cstring_short_read_in_fs
 	mov dword [esp], 0x0
-	call Com_Error:F(0,1)
-Z11FS_CopyFilePcS_:F(0,3)_20:
+	call Com_Error_F0_1
+Z11FS_CopyFilePcS__F0_3_20:
 	mov [esp], ebx
-	call FS_FileClose:F(0,10)
+	call FS_FileClose_F0_10
 	mov dword [esp+0x4], _cstring_6
 	mov [esp], esi
 	call strstr
 	test eax, eax
-	jz Z11FS_CopyFilePcS_:F(0,3)_30
-Z11FS_CopyFilePcS_:F(0,3)_40:
+	jz Z11FS_CopyFilePcS__F0_3_30
+Z11FS_CopyFilePcS__F0_3_40:
 	mov [esp+0x4], esi
 	mov dword [esp], _cstring_warning_refusing
-	call Z10Com_PrintfPKcz:F(0,1)
-Z11FS_CopyFilePcS_:F(0,3)_80:
+	call Z10Com_PrintfPKcz_F0_1
+Z11FS_CopyFilePcS__F0_3_80:
 	mov eax, [ebp-0x1c]
 	mov [ebp+0x8], eax
 	add esp, 0x2c
@@ -4719,60 +5008,60 @@ Z11FS_CopyFilePcS_:F(0,3)_80:
 	pop edi
 	pop ebp
 	jmp free
-Z11FS_CopyFilePcS_:F(0,3)_10:
+Z11FS_CopyFilePcS__F0_3_10:
 	add esp, 0x2c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z11FS_CopyFilePcS_:F(0,3)_30:
+Z11FS_CopyFilePcS__F0_3_30:
 	mov dword [esp+0x4], _cstring_3
 	mov [esp], esi
 	call strstr
 	test eax, eax
-	jnz Z11FS_CopyFilePcS_:F(0,3)_40
+	jnz Z11FS_CopyFilePcS__F0_3_40
 	lea edx, [esi+0x1]
 	movzx eax, byte [esi+0x1]
 	test al, al
-	jz Z11FS_CopyFilePcS_:F(0,3)_50
+	jz Z11FS_CopyFilePcS__F0_3_50
 	mov ebx, edx
-	jmp Z11FS_CopyFilePcS_:F(0,3)_60
-Z11FS_CopyFilePcS_:F(0,3)_70:
+	jmp Z11FS_CopyFilePcS__F0_3_60
+Z11FS_CopyFilePcS__F0_3_70:
 	movzx eax, byte [ebx+0x1]
 	add ebx, 0x1
 	test al, al
-	jz Z11FS_CopyFilePcS_:F(0,3)_50
-Z11FS_CopyFilePcS_:F(0,3)_60:
+	jz Z11FS_CopyFilePcS__F0_3_50
+Z11FS_CopyFilePcS__F0_3_60:
 	cmp al, 0x2f
-	jnz Z11FS_CopyFilePcS_:F(0,3)_70
+	jnz Z11FS_CopyFilePcS__F0_3_70
 	mov byte [ebx], 0x0
 	mov [esp], esi
-	call Z9Sys_MkdirPKc:F(0,1)
+	call Z9Sys_MkdirPKc_F0_1
 	mov byte [ebx], 0x2f
-	jmp Z11FS_CopyFilePcS_:F(0,3)_70
-Z11FS_CopyFilePcS_:F(0,3)_50:
+	jmp Z11FS_CopyFilePcS__F0_3_70
+Z11FS_CopyFilePcS__F0_3_50:
 	mov dword [esp+0x4], _cstring_wb
 	mov [esp], esi
-	call FS_FileOpen:F(0,4)
+	call FS_FileOpen_F0_4
 	mov ebx, eax
 	test eax, eax
-	jz Z11FS_CopyFilePcS_:F(0,3)_80
+	jz Z11FS_CopyFilePcS__F0_3_80
 	mov [esp+0xc], ebx
 	mov [esp+0x8], edi
 	mov dword [esp+0x4], 0x1
 	mov eax, [ebp-0x1c]
 	mov [esp], eax
-	call FS_FileWrite:F(0,1)
+	call FS_FileWrite_F0_1
 	cmp edi, eax
-	jz Z11FS_CopyFilePcS_:F(0,3)_90
+	jz Z11FS_CopyFilePcS__F0_3_90
 	mov dword [esp+0x4], _cstring_short_write_in_f
 	mov dword [esp], 0x0
-	call Com_Error:F(0,1)
-Z11FS_CopyFilePcS_:F(0,3)_90:
+	call Com_Error_F0_1
+Z11FS_CopyFilePcS__F0_3_90:
 	mov [esp], ebx
-	call FS_FileClose:F(0,10)
-	jmp Z11FS_CopyFilePcS_:F(0,3)_80
+	call FS_FileClose_F0_10
+	jmp Z11FS_CopyFilePcS__F0_3_80
 
 
 ;FS_FOpenFileRead_Internal(char const*, int*, int, int, int)
@@ -4906,12 +5195,12 @@ _Z25FS_FOpenFileRead_InternalPKcPiiii_140:
 	add edx, 0x1
 	mov [ebp-0x324], edx
 	mov [esp], edi
-	call Z9I_isloweri:F(0,16)
+	call Z9I_isloweri_F0_16
 	lea edx, [edi-0x20]
 	test al, al
 	cmovnz edi, edx
 	mov [esp], ebx
-	call Z9I_isloweri:F(0,16)
+	call Z9I_isloweri_F0_16
 	lea edx, [ebx-0x20]
 	test al, al
 	cmovnz ebx, edx
@@ -4944,7 +5233,7 @@ _Z25FS_FOpenFileRead_InternalPKcPiiii_120:
 	jz _Z25FS_FOpenFileRead_InternalPKcPiiii_250
 	lea ecx, [ebp-0x118]
 	mov [esp], ecx
-	call Z25Com_GetExtensionSubStringPKc:F(0,5)
+	call Z25Com_GetExtensionSubStringPKc_F0_5
 	mov [ebp-0x334], eax
 	mov eax, [fs_restrict]
 	cmp byte [eax+0x8], 0x0
@@ -4973,7 +5262,7 @@ _Z25FS_FOpenFileRead_InternalPKcPiiii_470:
 	mov dword [esp+0x4], _cstring_rb
 	lea eax, [ebp-0x218]
 	mov [esp], eax
-	call FS_FileOpen:F(0,4)
+	call FS_FileOpen_F0_4
 	lea edx, [ebx+ebx*8]
 	shl edx, 0x3
 	sub edx, ebx
@@ -4999,7 +5288,7 @@ _Z25FS_FOpenFileRead_InternalPKcPiiii_770:
 	sub eax, edx
 	lea eax, [eax*4+fsh+0x1c]
 	mov [esp], eax
-	call Z10I_strncpyzPcPKci:F(0,15)
+	call Z10I_strncpyzPcPKci_F0_15
 	mov ecx, [ebp-0x348]
 	mov edx, [ecx]
 	lea eax, [edx+edx*8]
@@ -5018,7 +5307,7 @@ _Z25FS_FOpenFileRead_InternalPKcPiiii_770:
 	lea ebx, [ebp-0x118]
 	mov [esp+0x4], ebx
 	mov dword [esp], _cstring_fs_fopenfileread
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 _Z25FS_FOpenFileRead_InternalPKcPiiii_300:
 	mov eax, [fs_copyfiles]
 	cmp byte [eax+0x8], 0x0
@@ -5027,7 +5316,7 @@ _Z25FS_FOpenFileRead_InternalPKcPiiii_780:
 	mov ebx, [ebp-0x348]
 	mov eax, [ebx]
 	mov [esp], eax
-	call Z13FS_filelengthi:F(0,2)
+	call Z13FS_filelengthi_F0_2
 	jmp _Z25FS_FOpenFileRead_InternalPKcPiiii_320
 _Z25FS_FOpenFileRead_InternalPKcPiiii_180:
 	mov ebx, [ebp-0x31c]
@@ -5080,7 +5369,7 @@ _Z25FS_FOpenFileRead_InternalPKcPiiii_530:
 	sub eax, edx
 	lea eax, [eax*4+fsh+0x1c]
 	mov [esp], eax
-	call Z10I_strncpyzPcPKci:F(0,15)
+	call Z10I_strncpyzPcPKci_F0_15
 	mov ecx, [ebp-0x348]
 	mov edx, [ecx]
 	lea eax, [edx+edx*8]
@@ -5100,13 +5389,13 @@ _Z25FS_FOpenFileRead_InternalPKcPiiii_530:
 	mov ecx, [ebp-0x33c]
 	mov eax, [ecx+0x300]
 	mov [esp], eax
-	call unzSetCurrentFileInfoPosition:F(0,1)
+	call unzSetCurrentFileInfoPosition_F0_1
 	mov dword [esp+0x8], 0x80
 	mov edx, [ebp-0x33c]
 	mov eax, [edx+0x300]
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call Com_Memcpy:F(0,12)
+	call Com_Memcpy_F0_12
 	mov [esi], ebx
 	mov ecx, [ebp-0x348]
 	mov edx, [ecx]
@@ -5115,7 +5404,7 @@ _Z25FS_FOpenFileRead_InternalPKcPiiii_530:
 	sub eax, edx
 	mov eax, [eax*4+fsh]
 	mov [esp], eax
-	call unzOpenCurrentFile:F(0,1)
+	call unzOpenCurrentFile_F0_1
 	mov ebx, [ebp-0x348]
 	mov edx, [ebx]
 	lea eax, [edx+edx*8]
@@ -5139,7 +5428,7 @@ _Z25FS_FOpenFileRead_InternalPKcPiiii_320:
 	ret
 _Z25FS_FOpenFileRead_InternalPKcPiiii_90:
 	mov ebx, [edx+0x10]
-	call Z22SEH_GetCurrentLanguagev:F(0,1)
+	call Z22SEH_GetCurrentLanguagev_F0_1
 	cmp ebx, eax
 	jnz _Z25FS_FOpenFileRead_InternalPKcPiiii_220
 	mov ebx, [ebp-0x31c]
@@ -5167,10 +5456,10 @@ _Z25FS_FOpenFileRead_InternalPKcPiiii_410:
 	mov ebx, [ebp-0x330]
 	mov [esp+0x4], ebx
 	mov dword [esp], _cstring_exe_unpureclient
-	call va:F(0,3)
+	call va_F0_3
 	mov [esp+0x4], eax
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 _Z25FS_FOpenFileRead_InternalPKcPiiii_430:
 	cmp byte [ebp-0x329], 0x0
 	jnz _Z25FS_FOpenFileRead_InternalPKcPiiii_440
@@ -5191,7 +5480,7 @@ _Z25FS_FOpenFileRead_InternalPKcPiiii_340:
 _Z25FS_FOpenFileRead_InternalPKcPiiii_280:
 	mov eax, [ebp-0x334]
 	mov [esp], eax
-	call Z23FS_PureIgnoresExtensionPKc:F(0,1)
+	call Z23FS_PureIgnoresExtensionPKc_F0_1
 	test eax, eax
 	jz _Z25FS_FOpenFileRead_InternalPKcPiiii_460
 _Z25FS_FOpenFileRead_InternalPKcPiiii_270:
@@ -5229,14 +5518,14 @@ _Z25FS_FOpenFileRead_InternalPKcPiiii_510:
 	mov [esp+0x8], edi
 	mov [esp+0x4], ebx
 	mov dword [esp], _cstring_file_2i_s
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	add ebx, 0x1
 	add edi, 0x11c
 	cmp ebx, 0x4a
 	jnz _Z25FS_FOpenFileRead_InternalPKcPiiii_510
 	mov dword [esp+0x4], _cstring_fs_handleforfile
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	mov esi, 0xffffffff
 	jmp _Z25FS_FOpenFileRead_InternalPKcPiiii_40
 _Z25FS_FOpenFileRead_InternalPKcPiiii_390:
@@ -5248,7 +5537,7 @@ _Z25FS_FOpenFileRead_InternalPKcPiiii_390:
 	lea eax, [ebp-0x118]
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_fs_fopenfileread1
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	jmp _Z25FS_FOpenFileRead_InternalPKcPiiii_520
 _Z25FS_FOpenFileRead_InternalPKcPiiii_460:
 	cmp byte [ebp-0x329], 0x0
@@ -5263,11 +5552,11 @@ _Z25FS_FOpenFileRead_InternalPKcPiiii_460:
 	call _Z23FS_BuildOSPath_InternalPKcS0_S0_Pci
 	mov dword [esp+0x4], _cstring_rb
 	mov [esp], ebx
-	call FS_FileOpen:F(0,4)
+	call FS_FileOpen_F0_4
 	test eax, eax
 	jz _Z25FS_FOpenFileRead_InternalPKcPiiii_220
 	mov [esp], eax
-	call FS_FileClose:F(0,10)
+	call FS_FileClose_F0_10
 	mov byte [ebp-0x329], 0x1
 	mov eax, [ebp-0x31c]
 	jmp _Z25FS_FOpenFileRead_InternalPKcPiiii_450
@@ -5278,7 +5567,7 @@ _Z25FS_FOpenFileRead_InternalPKcPiiii_380:
 	mov eax, [edx+0x300]
 	mov [esp+0x4], eax
 	mov [esp], edx
-	call unzReOpen:F(0,5)
+	call unzReOpen_F0_5
 	lea edx, [ebx+ebx*8]
 	shl edx, 0x3
 	sub edx, ebx
@@ -5298,7 +5587,7 @@ _Z25FS_FOpenFileRead_InternalPKcPiiii_380:
 	mov [esp+0x8], ebx
 	mov dword [esp+0x4], _cstring_couldnt_reopen_s
 	mov dword [esp], 0x0
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	mov eax, [ebp-0x348]
 	mov edx, [eax]
 	jmp _Z25FS_FOpenFileRead_InternalPKcPiiii_530
@@ -5329,7 +5618,7 @@ _Z25FS_FOpenFileRead_InternalPKcPiiii_420:
 	mov edx, [ebp-0x344]
 	mov [esp+0x4], edx
 	mov dword [esp], _cstring_cant_find_s
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	jmp _Z25FS_FOpenFileRead_InternalPKcPiiii_410
 _Z25FS_FOpenFileRead_InternalPKcPiiii_440:
 	mov eax, 0xfffffffe
@@ -5358,7 +5647,7 @@ _Z25FS_FOpenFileRead_InternalPKcPiiii_580:
 	mov eax, esi
 	sub eax, ecx
 	mov [esp], eax
-	call I_stricmp:F(0,2)
+	call I_stricmp_F0_2
 	test eax, eax
 	jz _Z25FS_FOpenFileRead_InternalPKcPiiii_560
 	mov edx, [ebx+0x4]
@@ -5389,7 +5678,7 @@ _Z25FS_FOpenFileRead_InternalPKcPiiii_640:
 	jmp _Z25FS_FOpenFileRead_InternalPKcPiiii_630
 _Z25FS_FOpenFileRead_InternalPKcPiiii_610:
 	mov ebx, [ecx+0x10]
-	call Z22SEH_GetCurrentLanguagev:F(0,1)
+	call Z22SEH_GetCurrentLanguagev_F0_1
 	cmp ebx, eax
 	jnz _Z25FS_FOpenFileRead_InternalPKcPiiii_640
 _Z25FS_FOpenFileRead_InternalPKcPiiii_600:
@@ -5444,12 +5733,12 @@ _Z25FS_FOpenFileRead_InternalPKcPiiii_670:
 	add ecx, 0x1
 	mov [ebp-0x328], ecx
 	mov [esp], esi
-	call Z9I_isloweri:F(0,16)
+	call Z9I_isloweri_F0_16
 	lea edx, [esi-0x20]
 	test al, al
 	cmovnz esi, edx
 	mov [esp], ebx
-	call Z9I_isloweri:F(0,16)
+	call Z9I_isloweri_F0_16
 	lea edx, [ebx-0x20]
 	test al, al
 	cmovnz ebx, edx
@@ -5479,11 +5768,11 @@ _Z25FS_FOpenFileRead_InternalPKcPiiii_650:
 	call _Z23FS_BuildOSPath_InternalPKcS0_S0_Pci
 	mov dword [esp+0x4], _cstring_rb
 	mov [esp], ebx
-	call FS_FileOpen:F(0,4)
+	call FS_FileOpen_F0_4
 	test eax, eax
 	jz _Z25FS_FOpenFileRead_InternalPKcPiiii_640
 	mov [esp], eax
-	call FS_FileClose:F(0,10)
+	call FS_FileClose_F0_10
 _Z25FS_FOpenFileRead_InternalPKcPiiii_710:
 	mov eax, 0x1
 	jmp _Z25FS_FOpenFileRead_InternalPKcPiiii_320
@@ -5493,7 +5782,7 @@ _Z25FS_FOpenFileRead_InternalPKcPiiii_350:
 _Z25FS_FOpenFileRead_InternalPKcPiiii_290:
 	mov eax, [ebp-0x334]
 	mov [esp], eax
-	call Z23FS_PureIgnoresExtensionPKc:F(0,1)
+	call Z23FS_PureIgnoresExtensionPKc_F0_1
 	test eax, eax
 	jz _Z25FS_FOpenFileRead_InternalPKcPiiii_760
 	mov ebx, [ebp-0x348]
@@ -5504,7 +5793,7 @@ _Z25FS_FOpenFileRead_InternalPKcPiiii_310:
 	mov eax, [eax+0x8]
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call I_stricmp:F(0,2)
+	call I_stricmp_F0_2
 	test eax, eax
 	jnz _Z25FS_FOpenFileRead_InternalPKcPiiii_780
 	mov eax, [fs_basepath]
@@ -5519,7 +5808,7 @@ _Z25FS_FOpenFileRead_InternalPKcPiiii_310:
 	mov [esp+0x4], ebx
 	lea ecx, [ebp-0x218]
 	mov [esp], ecx
-	call Z11FS_CopyFilePcS_:F(0,3)
+	call Z11FS_CopyFilePcS__F0_3
 	jmp _Z25FS_FOpenFileRead_InternalPKcPiiii_780
 _Z25FS_FOpenFileRead_InternalPKcPiiii_660:
 	xor esi, esi
@@ -5566,16 +5855,16 @@ _Z25FS_FOpenFileRead_InternalPKcPiiii_760:
 	jmp _Z25FS_FOpenFileRead_InternalPKcPiiii_770
 _Z25FS_FOpenFileRead_InternalPKcPiiii_540:
 	mov [esp], edx
-	call Z13FS_FCloseFilei:F(0,3)
+	call Z13FS_FCloseFilei_F0_3
 	mov edx, [ebp-0x348]
 	mov dword [edx], 0x0
 	mov eax, 0xffffffff
 	jmp _Z25FS_FOpenFileRead_InternalPKcPiiii_630
 
 
-;Z16FS_FOpenFileReadPKcPii:F(0,2)
+;Z16FS_FOpenFileReadPKcPii_F0_2
 
-Z16FS_FOpenFileReadPKcPii:F(0,2):
+Z16FS_FOpenFileReadPKcPii_F0_2:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -5587,12 +5876,12 @@ Z16FS_FOpenFileReadPKcPii:F(0,2):
 	mov esi, [ebp+0x10]
 	mov dword [com_fileAccessed], 0x1
 	mov [esp], ebx
-	call Z25Com_GetExtensionSubStringPKc:F(0,5)
+	call Z25Com_GetExtensionSubStringPKc_F0_5
 	mov [esp], eax
-	call Z23FS_PureIgnoresExtensionPKc:F(0,1)
+	call Z23FS_PureIgnoresExtensionPKc_F0_1
 	test eax, eax
-	jnz Z16FS_FOpenFileReadPKcPii:F(0,2)_10
-Z16FS_FOpenFileReadPKcPii:F(0,2)_20:
+	jnz Z16FS_FOpenFileReadPKcPii_F0_2_10
+Z16FS_FOpenFileReadPKcPii_F0_2_20:
 	mov dword [ebp+0xc], 0x0
 	mov dword [ebp+0x8], 0x0
 	mov ecx, esi
@@ -5604,7 +5893,7 @@ Z16FS_FOpenFileReadPKcPii:F(0,2)_20:
 	pop edi
 	pop ebp
 	jmp _Z25FS_FOpenFileRead_InternalPKcPiiii
-Z16FS_FOpenFileReadPKcPii:F(0,2)_10:
+Z16FS_FOpenFileReadPKcPii_F0_2_10:
 	mov dword [esp+0x4], 0x1
 	mov dword [esp], 0x0
 	mov ecx, esi
@@ -5614,7 +5903,7 @@ Z16FS_FOpenFileReadPKcPii:F(0,2)_10:
 	mov edx, eax
 	lea eax, [eax+0x2]
 	cmp eax, 0x1
-	jbe Z16FS_FOpenFileReadPKcPii:F(0,2)_20
+	jbe Z16FS_FOpenFileReadPKcPii_F0_2_20
 	mov eax, edx
 	add esp, 0x1c
 	pop ebx
@@ -5624,9 +5913,9 @@ Z16FS_FOpenFileReadPKcPii:F(0,2)_10:
 	ret
 
 
-;Z22FS_FOpenFileReadStreamPKcPii:F(0,2)
+;Z22FS_FOpenFileReadStreamPKcPii_F0_2
 
-Z22FS_FOpenFileReadStreamPKcPii:F(0,2):
+Z22FS_FOpenFileReadStreamPKcPii_F0_2:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -5638,9 +5927,9 @@ Z22FS_FOpenFileReadStreamPKcPii:F(0,2):
 	jmp _Z25FS_FOpenFileRead_InternalPKcPiiii
 
 
-;Z12FS_TouchFilePKc:F(0,1)
+;Z12FS_TouchFilePKc_F0_1
 
-Z12FS_TouchFilePKc:F(0,1):
+Z12FS_TouchFilePKc_F0_1:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -5648,31 +5937,31 @@ Z12FS_TouchFilePKc:F(0,1):
 	mov ebx, [ebp+0x8]
 	mov dword [com_fileAccessed], 0x1
 	mov [esp], ebx
-	call Z25Com_GetExtensionSubStringPKc:F(0,5)
+	call Z25Com_GetExtensionSubStringPKc_F0_5
 	mov [esp], eax
-	call Z23FS_PureIgnoresExtensionPKc:F(0,1)
+	call Z23FS_PureIgnoresExtensionPKc_F0_1
 	test eax, eax
-	jnz Z12FS_TouchFilePKc:F(0,1)_10
-Z12FS_TouchFilePKc:F(0,1)_40:
+	jnz Z12FS_TouchFilePKc_F0_1_10
+Z12FS_TouchFilePKc_F0_1_40:
 	lea edx, [ebp-0xc]
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], 0x0
 	xor ecx, ecx
 	mov eax, ebx
 	call _Z25FS_FOpenFileRead_InternalPKcPiiii
-Z12FS_TouchFilePKc:F(0,1)_30:
+Z12FS_TouchFilePKc_F0_1_30:
 	mov eax, [ebp-0xc]
 	test eax, eax
-	jz Z12FS_TouchFilePKc:F(0,1)_20
+	jz Z12FS_TouchFilePKc_F0_1_20
 	mov [esp], eax
-	call Z13FS_FCloseFilei:F(0,3)
+	call Z13FS_FCloseFilei_F0_3
 	mov eax, 0x1
-Z12FS_TouchFilePKc:F(0,1)_20:
+Z12FS_TouchFilePKc_F0_1_20:
 	add esp, 0x24
 	pop ebx
 	pop ebp
 	ret
-Z12FS_TouchFilePKc:F(0,1)_10:
+Z12FS_TouchFilePKc_F0_1_10:
 	lea edx, [ebp-0xc]
 	mov dword [esp+0x4], 0x1
 	mov dword [esp], 0x0
@@ -5681,13 +5970,13 @@ Z12FS_TouchFilePKc:F(0,1)_10:
 	call _Z25FS_FOpenFileRead_InternalPKcPiiii
 	add eax, 0x2
 	cmp eax, 0x1
-	ja Z12FS_TouchFilePKc:F(0,1)_30
-	jmp Z12FS_TouchFilePKc:F(0,1)_40
+	ja Z12FS_TouchFilePKc_F0_1_30
+	jmp Z12FS_TouchFilePKc_F0_1_40
 
 
-;FS_ReadFile:F(0,2)
+;FS_ReadFile_F0_2
 
-FS_ReadFile:F(0,2):
+FS_ReadFile_F0_2:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -5697,17 +5986,17 @@ FS_ReadFile:F(0,2):
 	mov ebx, [ebp+0x8]
 	mov edi, [ebp+0xc]
 	test ebx, ebx
-	jz FS_ReadFile:F(0,2)_10
+	jz FS_ReadFile_F0_2_10
 	cmp byte [ebx], 0x0
-	jz FS_ReadFile:F(0,2)_10
+	jz FS_ReadFile_F0_2_10
 	mov dword [com_fileAccessed], 0x1
 	mov [esp], ebx
-	call Z25Com_GetExtensionSubStringPKc:F(0,5)
+	call Z25Com_GetExtensionSubStringPKc_F0_5
 	mov [esp], eax
-	call Z23FS_PureIgnoresExtensionPKc:F(0,1)
+	call Z23FS_PureIgnoresExtensionPKc_F0_1
 	test eax, eax
-	jnz FS_ReadFile:F(0,2)_20
-FS_ReadFile:F(0,2)_50:
+	jnz FS_ReadFile_F0_2_20
+FS_ReadFile_F0_2_50:
 	lea edx, [ebp-0x1c]
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], 0x0
@@ -5715,29 +6004,29 @@ FS_ReadFile:F(0,2)_50:
 	mov eax, ebx
 	call _Z25FS_FOpenFileRead_InternalPKcPiiii
 	mov esi, eax
-FS_ReadFile:F(0,2)_60:
+FS_ReadFile_F0_2_60:
 	mov eax, [ebp-0x1c]
 	test eax, eax
-	jz FS_ReadFile:F(0,2)_30
+	jz FS_ReadFile_F0_2_30
 	test edi, edi
-	jz FS_ReadFile:F(0,2)_40
+	jz FS_ReadFile_F0_2_40
 	add dword [fs_loadStack], 0x1
 	lea eax, [esi+0x1]
 	mov [esp], eax
-	call Hunk_AllocateTempMemoryInternal:F(0,2)
+	call Hunk_AllocateTempMemoryInternal_F0_2
 	mov ebx, eax
 	mov [edi], eax
 	mov eax, [ebp-0x1c]
 	mov [esp+0x8], eax
 	mov [esp+0x4], esi
 	mov [esp], ebx
-	call Z7FS_ReadPvii:F(0,2)
+	call Z7FS_ReadPvii_F0_2
 	mov byte [ebx+esi], 0x0
 	mov eax, [ebp-0x1c]
-FS_ReadFile:F(0,2)_40:
+FS_ReadFile_F0_2_40:
 	mov [esp], eax
-	call Z13FS_FCloseFilei:F(0,3)
-FS_ReadFile:F(0,2)_80:
+	call Z13FS_FCloseFilei_F0_3
+FS_ReadFile_F0_2_80:
 	mov eax, esi
 	add esp, 0x2c
 	pop ebx
@@ -5745,18 +6034,18 @@ FS_ReadFile:F(0,2)_80:
 	pop edi
 	pop ebp
 	ret
-FS_ReadFile:F(0,2)_10:
+FS_ReadFile_F0_2_10:
 	mov dword [esp+0x4], _cstring_fs_readfile_with
 	mov dword [esp], 0x0
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	mov dword [com_fileAccessed], 0x1
 	mov [esp], ebx
-	call Z25Com_GetExtensionSubStringPKc:F(0,5)
+	call Z25Com_GetExtensionSubStringPKc_F0_5
 	mov [esp], eax
-	call Z23FS_PureIgnoresExtensionPKc:F(0,1)
+	call Z23FS_PureIgnoresExtensionPKc_F0_1
 	test eax, eax
-	jz FS_ReadFile:F(0,2)_50
-FS_ReadFile:F(0,2)_20:
+	jz FS_ReadFile_F0_2_50
+FS_ReadFile_F0_2_20:
 	lea edx, [ebp-0x1c]
 	mov dword [esp+0x4], 0x1
 	mov dword [esp], 0x0
@@ -5766,24 +6055,24 @@ FS_ReadFile:F(0,2)_20:
 	mov esi, eax
 	lea eax, [eax+0x2]
 	cmp eax, 0x1
-	ja FS_ReadFile:F(0,2)_60
-	jmp FS_ReadFile:F(0,2)_50
-FS_ReadFile:F(0,2)_30:
+	ja FS_ReadFile_F0_2_60
+	jmp FS_ReadFile_F0_2_50
+FS_ReadFile_F0_2_30:
 	test edi, edi
-	jnz FS_ReadFile:F(0,2)_70
+	jnz FS_ReadFile_F0_2_70
 	mov esi, 0xffffffff
-	jmp FS_ReadFile:F(0,2)_80
-FS_ReadFile:F(0,2)_70:
+	jmp FS_ReadFile_F0_2_80
+FS_ReadFile_F0_2_70:
 	mov dword [edi], 0x0
 	mov esi, 0xffffffff
-	jmp FS_ReadFile:F(0,2)_80
+	jmp FS_ReadFile_F0_2_80
 	nop
 	add [eax], al
 
 
-;Z17FS_FOpenFileWritePKc:F(0,32)
+;Z17FS_FOpenFileWritePKc_F0_32
 
-Z17FS_FOpenFileWritePKc:F(0,32):
+Z17FS_FOpenFileWritePKc_F0_32:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -5801,18 +6090,18 @@ Z17FS_FOpenFileWritePKc:F(0,32):
 	mov eax, [fs_debug]
 	mov ecx, [eax+0x8]
 	test ecx, ecx
-	jnz Z17FS_FOpenFileWritePKc:F(0,32)_10
+	jnz Z17FS_FOpenFileWritePKc_F0_32_10
 	mov dword [esp+0x4], _cstring_6
 	mov [esp], ebx
 	call strstr
 	test eax, eax
-	jz Z17FS_FOpenFileWritePKc:F(0,32)_20
-Z17FS_FOpenFileWritePKc:F(0,32)_30:
+	jz Z17FS_FOpenFileWritePKc_F0_32_20
+Z17FS_FOpenFileWritePKc_F0_32_30:
 	mov [esp+0x4], ebx
 	mov dword [esp], _cstring_warning_refusing
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	xor esi, esi
-Z17FS_FOpenFileWritePKc:F(0,32)_110:
+Z17FS_FOpenFileWritePKc_F0_32_110:
 	mov eax, esi
 	add esp, 0x11c
 	pop ebx
@@ -5820,59 +6109,59 @@ Z17FS_FOpenFileWritePKc:F(0,32)_110:
 	pop edi
 	pop ebp
 	ret
-Z17FS_FOpenFileWritePKc:F(0,32)_10:
+Z17FS_FOpenFileWritePKc_F0_32_10:
 	mov [esp+0x4], ebx
 	mov dword [esp], _cstring_fs_fopenfilewrit
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov dword [esp+0x4], _cstring_6
 	mov [esp], ebx
 	call strstr
 	test eax, eax
-	jnz Z17FS_FOpenFileWritePKc:F(0,32)_30
-Z17FS_FOpenFileWritePKc:F(0,32)_20:
+	jnz Z17FS_FOpenFileWritePKc_F0_32_30
+Z17FS_FOpenFileWritePKc_F0_32_20:
 	mov dword [esp+0x4], _cstring_3
 	mov [esp], ebx
 	call strstr
 	test eax, eax
-	jnz Z17FS_FOpenFileWritePKc:F(0,32)_30
+	jnz Z17FS_FOpenFileWritePKc_F0_32_30
 	movzx eax, byte [ebp-0x117]
 	test al, al
-	jz Z17FS_FOpenFileWritePKc:F(0,32)_40
+	jz Z17FS_FOpenFileWritePKc_F0_32_40
 	mov esi, ebx
-	jmp Z17FS_FOpenFileWritePKc:F(0,32)_50
-Z17FS_FOpenFileWritePKc:F(0,32)_60:
+	jmp Z17FS_FOpenFileWritePKc_F0_32_50
+Z17FS_FOpenFileWritePKc_F0_32_60:
 	movzx eax, byte [esi+0x2]
 	add esi, 0x1
 	test al, al
-	jz Z17FS_FOpenFileWritePKc:F(0,32)_40
-Z17FS_FOpenFileWritePKc:F(0,32)_50:
+	jz Z17FS_FOpenFileWritePKc_F0_32_40
+Z17FS_FOpenFileWritePKc_F0_32_50:
 	cmp al, 0x2f
-	jnz Z17FS_FOpenFileWritePKc:F(0,32)_60
+	jnz Z17FS_FOpenFileWritePKc_F0_32_60
 	mov byte [esi+0x1], 0x0
 	mov [esp], ebx
-	call Z9Sys_MkdirPKc:F(0,1)
+	call Z9Sys_MkdirPKc_F0_1
 	mov byte [esi+0x1], 0x2f
-	jmp Z17FS_FOpenFileWritePKc:F(0,32)_60
-Z17FS_FOpenFileWritePKc:F(0,32)_40:
+	jmp Z17FS_FOpenFileWritePKc_F0_32_60
+Z17FS_FOpenFileWritePKc_F0_32_40:
 	mov dword [esp+0x4], _cstring_wb
 	mov [esp], ebx
-	call FS_FileOpen:F(0,4)
+	call FS_FileOpen_F0_4
 	mov edi, eax
 	test eax, eax
-	jz Z17FS_FOpenFileWritePKc:F(0,32)_70
+	jz Z17FS_FOpenFileWritePKc_F0_32_70
 	xor esi, esi
 	mov eax, fsh
-	jmp Z17FS_FOpenFileWritePKc:F(0,32)_80
-Z17FS_FOpenFileWritePKc:F(0,32)_100:
+	jmp Z17FS_FOpenFileWritePKc_F0_32_80
+Z17FS_FOpenFileWritePKc_F0_32_100:
 	add eax, 0x11c
 	cmp esi, 0x3c
-	jz Z17FS_FOpenFileWritePKc:F(0,32)_90
-Z17FS_FOpenFileWritePKc:F(0,32)_80:
+	jz Z17FS_FOpenFileWritePKc_F0_32_90
+Z17FS_FOpenFileWritePKc_F0_32_80:
 	add esi, 0x1
 	mov edx, [eax+0x11c]
 	test edx, edx
-	jnz Z17FS_FOpenFileWritePKc:F(0,32)_100
-Z17FS_FOpenFileWritePKc:F(0,32)_130:
+	jnz Z17FS_FOpenFileWritePKc_F0_32_100
+Z17FS_FOpenFileWritePKc_F0_32_130:
 	lea ebx, [esi+esi*8]
 	shl ebx, 0x3
 	sub ebx, esi
@@ -5884,35 +6173,35 @@ Z17FS_FOpenFileWritePKc:F(0,32)_130:
 	mov [esp+0x4], eax
 	lea eax, [ebx+fsh+0x1c]
 	mov [esp], eax
-	call Z10I_strncpyzPcPKci:F(0,15)
+	call Z10I_strncpyzPcPKci_F0_15
 	mov dword [ebx+fsh+0x8], 0x0
-	jmp Z17FS_FOpenFileWritePKc:F(0,32)_110
-Z17FS_FOpenFileWritePKc:F(0,32)_90:
+	jmp Z17FS_FOpenFileWritePKc_F0_32_110
+Z17FS_FOpenFileWritePKc_F0_32_90:
 	mov ebx, 0x1
 	mov esi, fsh+0x138
-Z17FS_FOpenFileWritePKc:F(0,32)_120:
+Z17FS_FOpenFileWritePKc_F0_32_120:
 	mov [esp+0x8], esi
 	mov [esp+0x4], ebx
 	mov dword [esp], _cstring_file_2i_s
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	add ebx, 0x1
 	add esi, 0x11c
 	cmp ebx, 0x4a
-	jnz Z17FS_FOpenFileWritePKc:F(0,32)_120
+	jnz Z17FS_FOpenFileWritePKc_F0_32_120
 	mov dword [esp+0x4], _cstring_fs_handleforfile
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	mov esi, 0xffffffff
-	jmp Z17FS_FOpenFileWritePKc:F(0,32)_130
-Z17FS_FOpenFileWritePKc:F(0,32)_70:
+	jmp Z17FS_FOpenFileWritePKc_F0_32_130
+Z17FS_FOpenFileWritePKc_F0_32_70:
 	xor esi, esi
-	jmp Z17FS_FOpenFileWritePKc:F(0,32)_110
+	jmp Z17FS_FOpenFileWritePKc_F0_32_110
 	nop
 
 
-;Z12FS_WriteFilePKcPKvi:F(0,1)
+;Z12FS_WriteFilePKcPKvi_F0_1
 
-Z12FS_WriteFilePKcPKvi:F(0,1):
+Z12FS_WriteFilePKcPKvi_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -5921,10 +6210,10 @@ Z12FS_WriteFilePKcPKvi:F(0,1):
 	sub esp, 0x12c
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z17FS_FOpenFileWritePKc:F(0,32)
+	call Z17FS_FOpenFileWritePKc_F0_32
 	mov esi, eax
 	test eax, eax
-	jz Z12FS_WriteFilePKcPKvi:F(0,1)_10
+	jz Z12FS_WriteFilePKcPKvi_F0_1_10
 	lea eax, [eax+eax*8]
 	shl eax, 0x3
 	sub eax, esi
@@ -5933,25 +6222,25 @@ Z12FS_WriteFilePKcPKvi:F(0,1):
 	mov edi, [ebp+0xc]
 	mov ecx, [ebp+0x10]
 	test ecx, ecx
-	jnz Z12FS_WriteFilePKcPKvi:F(0,1)_20
-Z12FS_WriteFilePKcPKvi:F(0,1)_90:
+	jnz Z12FS_WriteFilePKcPKvi_F0_1_20
+Z12FS_WriteFilePKcPKvi_F0_1_90:
 	lea eax, [esi+esi*8]
 	shl eax, 0x3
 	sub eax, esi
 	mov ebx, [eax*4+fsh+0x8]
 	test ebx, ebx
-	jnz Z12FS_WriteFilePKcPKvi:F(0,1)_30
-Z12FS_WriteFilePKcPKvi:F(0,1)_130:
+	jnz Z12FS_WriteFilePKcPKvi_F0_1_30
+Z12FS_WriteFilePKcPKvi_F0_1_130:
 	mov ebx, [ebp+0x10]
-Z12FS_WriteFilePKcPKvi:F(0,1)_120:
+Z12FS_WriteFilePKcPKvi_F0_1_120:
 	mov [esp], esi
-	call Z13FS_FCloseFilei:F(0,3)
+	call Z13FS_FCloseFilei_F0_3
 	cmp ebx, [ebp+0x10]
-	jz Z12FS_WriteFilePKcPKvi:F(0,1)_40
+	jz Z12FS_WriteFilePKcPKvi_F0_1_40
 	mov eax, [ebp+0x8]
 	cmp byte [eax], 0x0
-	jnz Z12FS_WriteFilePKcPKvi:F(0,1)_50
-Z12FS_WriteFilePKcPKvi:F(0,1)_60:
+	jnz Z12FS_WriteFilePKcPKvi_F0_1_50
+Z12FS_WriteFilePKcPKvi_F0_1_60:
 	xor eax, eax
 	add esp, 0x12c
 	pop ebx
@@ -5959,7 +6248,7 @@ Z12FS_WriteFilePKcPKvi:F(0,1)_60:
 	pop edi
 	pop ebp
 	ret
-Z12FS_WriteFilePKcPKvi:F(0,1)_50:
+Z12FS_WriteFilePKcPKvi_F0_1_50:
 	mov ecx, eax
 	mov eax, [fs_homepath]
 	mov eax, [eax+0x8]
@@ -5970,39 +6259,39 @@ Z12FS_WriteFilePKcPKvi:F(0,1)_50:
 	call _Z23FS_BuildOSPath_InternalPKcS0_S0_Pci
 	mov [esp], ebx
 	call remove
-	jmp Z12FS_WriteFilePKcPKvi:F(0,1)_60
-Z12FS_WriteFilePKcPKvi:F(0,1)_20:
+	jmp Z12FS_WriteFilePKcPKvi_F0_1_60
+Z12FS_WriteFilePKcPKvi_F0_1_20:
 	mov ebx, [ebp+0x10]
 	mov dword [ebp-0x120], 0x0
-	jmp Z12FS_WriteFilePKcPKvi:F(0,1)_70
-Z12FS_WriteFilePKcPKvi:F(0,1)_100:
+	jmp Z12FS_WriteFilePKcPKvi_F0_1_70
+Z12FS_WriteFilePKcPKvi_F0_1_100:
 	mov edx, [ebp-0x120]
 	test edx, edx
-	jnz Z12FS_WriteFilePKcPKvi:F(0,1)_80
+	jnz Z12FS_WriteFilePKcPKvi_F0_1_80
 	mov dword [ebp-0x120], 0x1
-Z12FS_WriteFilePKcPKvi:F(0,1)_110:
+Z12FS_WriteFilePKcPKvi_F0_1_110:
 	add edi, eax
 	sub ebx, eax
-	jz Z12FS_WriteFilePKcPKvi:F(0,1)_90
-Z12FS_WriteFilePKcPKvi:F(0,1)_70:
+	jz Z12FS_WriteFilePKcPKvi_F0_1_90
+Z12FS_WriteFilePKcPKvi_F0_1_70:
 	mov eax, [ebp-0x11c]
 	mov [esp+0xc], eax
 	mov [esp+0x8], ebx
 	mov dword [esp+0x4], 0x1
 	mov [esp], edi
-	call FS_FileWrite:F(0,1)
+	call FS_FileWrite_F0_1
 	test eax, eax
-	jz Z12FS_WriteFilePKcPKvi:F(0,1)_100
+	jz Z12FS_WriteFilePKcPKvi_F0_1_100
 	cmp eax, 0xffffffff
-	jnz Z12FS_WriteFilePKcPKvi:F(0,1)_110
-Z12FS_WriteFilePKcPKvi:F(0,1)_80:
+	jnz Z12FS_WriteFilePKcPKvi_F0_1_110
+Z12FS_WriteFilePKcPKvi_F0_1_80:
 	xor ebx, ebx
-	jmp Z12FS_WriteFilePKcPKvi:F(0,1)_120
-Z12FS_WriteFilePKcPKvi:F(0,1)_10:
+	jmp Z12FS_WriteFilePKcPKvi_F0_1_120
+Z12FS_WriteFilePKcPKvi_F0_1_10:
 	mov eax, [ebp+0x8]
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_failed_to_open_s
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	xor eax, eax
 	add esp, 0x12c
 	pop ebx
@@ -6010,12 +6299,12 @@ Z12FS_WriteFilePKcPKvi:F(0,1)_10:
 	pop edi
 	pop ebp
 	ret
-Z12FS_WriteFilePKcPKvi:F(0,1)_30:
+Z12FS_WriteFilePKcPKvi_F0_1_30:
 	mov eax, [ebp-0x11c]
 	mov [esp], eax
 	call fflush
-	jmp Z12FS_WriteFilePKcPKvi:F(0,1)_130
-Z12FS_WriteFilePKcPKvi:F(0,1)_40:
+	jmp Z12FS_WriteFilePKcPKvi_F0_1_130
+Z12FS_WriteFilePKcPKvi_F0_1_40:
 	mov eax, 0x1
 	add esp, 0x12c
 	pop ebx
@@ -6026,9 +6315,9 @@ Z12FS_WriteFilePKcPKvi:F(0,1)_40:
 	nop
 
 
-;Z21FS_FOpenTextFileWritePKc:F(0,32)
+;Z21FS_FOpenTextFileWritePKc_F0_32
 
-Z21FS_FOpenTextFileWritePKc:F(0,32):
+Z21FS_FOpenTextFileWritePKc_F0_32:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -6037,17 +6326,17 @@ Z21FS_FOpenTextFileWritePKc:F(0,32):
 	sub esp, 0x11c
 	xor esi, esi
 	mov eax, fsh
-	jmp Z21FS_FOpenTextFileWritePKc:F(0,32)_10
-Z21FS_FOpenTextFileWritePKc:F(0,32)_30:
+	jmp Z21FS_FOpenTextFileWritePKc_F0_32_10
+Z21FS_FOpenTextFileWritePKc_F0_32_30:
 	add eax, 0x11c
 	cmp esi, 0x3c
-	jz Z21FS_FOpenTextFileWritePKc:F(0,32)_20
-Z21FS_FOpenTextFileWritePKc:F(0,32)_10:
+	jz Z21FS_FOpenTextFileWritePKc_F0_32_20
+Z21FS_FOpenTextFileWritePKc_F0_32_10:
 	add esi, 0x1
 	mov edx, [eax+0x11c]
 	test edx, edx
-	jnz Z21FS_FOpenTextFileWritePKc:F(0,32)_30
-Z21FS_FOpenTextFileWritePKc:F(0,32)_110:
+	jnz Z21FS_FOpenTextFileWritePKc_F0_32_30
+Z21FS_FOpenTextFileWritePKc_F0_32_110:
 	lea eax, [esi+esi*8]
 	shl eax, 0x3
 	sub eax, esi
@@ -6063,18 +6352,18 @@ Z21FS_FOpenTextFileWritePKc:F(0,32)_110:
 	mov eax, [fs_debug]
 	mov edi, [eax+0x8]
 	test edi, edi
-	jnz Z21FS_FOpenTextFileWritePKc:F(0,32)_40
+	jnz Z21FS_FOpenTextFileWritePKc_F0_32_40
 	mov dword [esp+0x4], _cstring_6
 	mov [esp], ebx
 	call strstr
 	test eax, eax
-	jz Z21FS_FOpenTextFileWritePKc:F(0,32)_50
-Z21FS_FOpenTextFileWritePKc:F(0,32)_60:
+	jz Z21FS_FOpenTextFileWritePKc_F0_32_50
+Z21FS_FOpenTextFileWritePKc_F0_32_60:
 	mov [esp+0x4], ebx
 	mov dword [esp], _cstring_warning_refusing
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	xor esi, esi
-Z21FS_FOpenTextFileWritePKc:F(0,32)_120:
+Z21FS_FOpenTextFileWritePKc_F0_32_120:
 	mov eax, esi
 	add esp, 0x11c
 	pop ebx
@@ -6082,60 +6371,60 @@ Z21FS_FOpenTextFileWritePKc:F(0,32)_120:
 	pop edi
 	pop ebp
 	ret
-Z21FS_FOpenTextFileWritePKc:F(0,32)_40:
+Z21FS_FOpenTextFileWritePKc_F0_32_40:
 	mov [esp+0x4], ebx
 	mov dword [esp], _cstring_fs_fopenfilewrit
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov dword [esp+0x4], _cstring_6
 	mov [esp], ebx
 	call strstr
 	test eax, eax
-	jnz Z21FS_FOpenTextFileWritePKc:F(0,32)_60
-Z21FS_FOpenTextFileWritePKc:F(0,32)_50:
+	jnz Z21FS_FOpenTextFileWritePKc_F0_32_60
+Z21FS_FOpenTextFileWritePKc_F0_32_50:
 	mov dword [esp+0x4], _cstring_3
 	mov [esp], ebx
 	call strstr
 	test eax, eax
-	jnz Z21FS_FOpenTextFileWritePKc:F(0,32)_60
+	jnz Z21FS_FOpenTextFileWritePKc_F0_32_60
 	movzx eax, byte [ebp-0x117]
 	test al, al
-	jz Z21FS_FOpenTextFileWritePKc:F(0,32)_70
+	jz Z21FS_FOpenTextFileWritePKc_F0_32_70
 	mov edi, ebx
-	jmp Z21FS_FOpenTextFileWritePKc:F(0,32)_80
-Z21FS_FOpenTextFileWritePKc:F(0,32)_90:
+	jmp Z21FS_FOpenTextFileWritePKc_F0_32_80
+Z21FS_FOpenTextFileWritePKc_F0_32_90:
 	movzx eax, byte [edi+0x2]
 	add edi, 0x1
 	test al, al
-	jz Z21FS_FOpenTextFileWritePKc:F(0,32)_70
-Z21FS_FOpenTextFileWritePKc:F(0,32)_80:
+	jz Z21FS_FOpenTextFileWritePKc_F0_32_70
+Z21FS_FOpenTextFileWritePKc_F0_32_80:
 	cmp al, 0x2f
-	jnz Z21FS_FOpenTextFileWritePKc:F(0,32)_90
+	jnz Z21FS_FOpenTextFileWritePKc_F0_32_90
 	mov byte [edi+0x1], 0x0
 	mov [esp], ebx
-	call Z9Sys_MkdirPKc:F(0,1)
+	call Z9Sys_MkdirPKc_F0_1
 	mov byte [edi+0x1], 0x2f
-	jmp Z21FS_FOpenTextFileWritePKc:F(0,32)_90
-Z21FS_FOpenTextFileWritePKc:F(0,32)_20:
+	jmp Z21FS_FOpenTextFileWritePKc_F0_32_90
+Z21FS_FOpenTextFileWritePKc_F0_32_20:
 	mov ebx, 0x1
 	mov esi, fsh+0x138
-Z21FS_FOpenTextFileWritePKc:F(0,32)_100:
+Z21FS_FOpenTextFileWritePKc_F0_32_100:
 	mov [esp+0x8], esi
 	mov [esp+0x4], ebx
 	mov dword [esp], _cstring_file_2i_s
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	add ebx, 0x1
 	add esi, 0x11c
 	cmp ebx, 0x4a
-	jnz Z21FS_FOpenTextFileWritePKc:F(0,32)_100
+	jnz Z21FS_FOpenTextFileWritePKc_F0_32_100
 	mov dword [esp+0x4], _cstring_fs_handleforfile
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	mov esi, 0xffffffff
-	jmp Z21FS_FOpenTextFileWritePKc:F(0,32)_110
-Z21FS_FOpenTextFileWritePKc:F(0,32)_70:
+	jmp Z21FS_FOpenTextFileWritePKc_F0_32_110
+Z21FS_FOpenTextFileWritePKc_F0_32_70:
 	mov dword [esp+0x4], _cstring_wt
 	mov [esp], ebx
-	call FS_FileOpen:F(0,4)
+	call FS_FileOpen_F0_4
 	lea ebx, [esi+esi*8]
 	shl ebx, 0x3
 	sub ebx, esi
@@ -6146,19 +6435,19 @@ Z21FS_FOpenTextFileWritePKc:F(0,32)_70:
 	mov [esp+0x4], eax
 	lea eax, [ebx+fsh+0x1c]
 	mov [esp], eax
-	call Z10I_strncpyzPcPKci:F(0,15)
+	call Z10I_strncpyzPcPKci_F0_15
 	mov dword [ebx+fsh+0x8], 0x0
 	mov ebx, [ebx+fsh]
 	test ebx, ebx
-	jnz Z21FS_FOpenTextFileWritePKc:F(0,32)_120
+	jnz Z21FS_FOpenTextFileWritePKc_F0_32_120
 	xor esi, esi
-	jmp Z21FS_FOpenTextFileWritePKc:F(0,32)_120
+	jmp Z21FS_FOpenTextFileWritePKc_F0_32_120
 	nop
 
 
-;Z18FS_FOpenFileAppendPKc:F(0,32)
+;Z18FS_FOpenFileAppendPKc_F0_32
 
-Z18FS_FOpenFileAppendPKc:F(0,32):
+Z18FS_FOpenFileAppendPKc_F0_32:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -6168,17 +6457,17 @@ Z18FS_FOpenFileAppendPKc:F(0,32):
 	mov edi, [ebp+0x8]
 	xor ebx, ebx
 	mov eax, fsh
-	jmp Z18FS_FOpenFileAppendPKc:F(0,32)_10
-Z18FS_FOpenFileAppendPKc:F(0,32)_30:
+	jmp Z18FS_FOpenFileAppendPKc_F0_32_10
+Z18FS_FOpenFileAppendPKc_F0_32_30:
 	add eax, 0x11c
 	cmp ebx, 0x3c
-	jz Z18FS_FOpenFileAppendPKc:F(0,32)_20
-Z18FS_FOpenFileAppendPKc:F(0,32)_10:
+	jz Z18FS_FOpenFileAppendPKc_F0_32_20
+Z18FS_FOpenFileAppendPKc_F0_32_10:
 	add ebx, 0x1
 	mov esi, [eax+0x11c]
 	test esi, esi
-	jnz Z18FS_FOpenFileAppendPKc:F(0,32)_30
-Z18FS_FOpenFileAppendPKc:F(0,32)_110:
+	jnz Z18FS_FOpenFileAppendPKc_F0_32_30
+Z18FS_FOpenFileAppendPKc_F0_32_110:
 	lea eax, [ebx+ebx*8]
 	shl eax, 0x3
 	sub eax, ebx
@@ -6188,7 +6477,7 @@ Z18FS_FOpenFileAppendPKc:F(0,32)_110:
 	mov [esp+0x4], edi
 	add eax, fsh+0x1c
 	mov [esp], eax
-	call Z10I_strncpyzPcPKci:F(0,15)
+	call Z10I_strncpyzPcPKci_F0_15
 	mov eax, [fs_homepath]
 	mov eax, [eax+0x8]
 	mov dword [esp+0x4], 0x0
@@ -6200,18 +6489,18 @@ Z18FS_FOpenFileAppendPKc:F(0,32)_110:
 	mov eax, [fs_debug]
 	mov ecx, [eax+0x8]
 	test ecx, ecx
-	jnz Z18FS_FOpenFileAppendPKc:F(0,32)_40
+	jnz Z18FS_FOpenFileAppendPKc_F0_32_40
 	mov dword [esp+0x4], _cstring_6
 	mov [esp], esi
 	call strstr
 	test eax, eax
-	jz Z18FS_FOpenFileAppendPKc:F(0,32)_50
-Z18FS_FOpenFileAppendPKc:F(0,32)_60:
+	jz Z18FS_FOpenFileAppendPKc_F0_32_50
+Z18FS_FOpenFileAppendPKc_F0_32_60:
 	mov [esp+0x4], esi
 	mov dword [esp], _cstring_warning_refusing
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	xor ebx, ebx
-Z18FS_FOpenFileAppendPKc:F(0,32)_120:
+Z18FS_FOpenFileAppendPKc_F0_32_120:
 	mov eax, ebx
 	add esp, 0x11c
 	pop ebx
@@ -6219,60 +6508,60 @@ Z18FS_FOpenFileAppendPKc:F(0,32)_120:
 	pop edi
 	pop ebp
 	ret
-Z18FS_FOpenFileAppendPKc:F(0,32)_40:
+Z18FS_FOpenFileAppendPKc_F0_32_40:
 	mov [esp+0x4], esi
 	mov dword [esp], _cstring_fs_fopenfileappe
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov dword [esp+0x4], _cstring_6
 	mov [esp], esi
 	call strstr
 	test eax, eax
-	jnz Z18FS_FOpenFileAppendPKc:F(0,32)_60
-Z18FS_FOpenFileAppendPKc:F(0,32)_50:
+	jnz Z18FS_FOpenFileAppendPKc_F0_32_60
+Z18FS_FOpenFileAppendPKc_F0_32_50:
 	mov dword [esp+0x4], _cstring_3
 	mov [esp], esi
 	call strstr
 	test eax, eax
-	jnz Z18FS_FOpenFileAppendPKc:F(0,32)_60
+	jnz Z18FS_FOpenFileAppendPKc_F0_32_60
 	movzx eax, byte [ebp-0x117]
 	test al, al
-	jz Z18FS_FOpenFileAppendPKc:F(0,32)_70
+	jz Z18FS_FOpenFileAppendPKc_F0_32_70
 	mov edi, esi
-	jmp Z18FS_FOpenFileAppendPKc:F(0,32)_80
-Z18FS_FOpenFileAppendPKc:F(0,32)_90:
+	jmp Z18FS_FOpenFileAppendPKc_F0_32_80
+Z18FS_FOpenFileAppendPKc_F0_32_90:
 	movzx eax, byte [edi+0x2]
 	add edi, 0x1
 	test al, al
-	jz Z18FS_FOpenFileAppendPKc:F(0,32)_70
-Z18FS_FOpenFileAppendPKc:F(0,32)_80:
+	jz Z18FS_FOpenFileAppendPKc_F0_32_70
+Z18FS_FOpenFileAppendPKc_F0_32_80:
 	cmp al, 0x2f
-	jnz Z18FS_FOpenFileAppendPKc:F(0,32)_90
+	jnz Z18FS_FOpenFileAppendPKc_F0_32_90
 	mov byte [edi+0x1], 0x0
 	mov [esp], esi
-	call Z9Sys_MkdirPKc:F(0,1)
+	call Z9Sys_MkdirPKc_F0_1
 	mov byte [edi+0x1], 0x2f
-	jmp Z18FS_FOpenFileAppendPKc:F(0,32)_90
-Z18FS_FOpenFileAppendPKc:F(0,32)_20:
+	jmp Z18FS_FOpenFileAppendPKc_F0_32_90
+Z18FS_FOpenFileAppendPKc_F0_32_20:
 	mov bl, 0x1
 	mov esi, fsh+0x138
-Z18FS_FOpenFileAppendPKc:F(0,32)_100:
+Z18FS_FOpenFileAppendPKc_F0_32_100:
 	mov [esp+0x8], esi
 	mov [esp+0x4], ebx
 	mov dword [esp], _cstring_file_2i_s
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	add ebx, 0x1
 	add esi, 0x11c
 	cmp ebx, 0x4a
-	jnz Z18FS_FOpenFileAppendPKc:F(0,32)_100
+	jnz Z18FS_FOpenFileAppendPKc_F0_32_100
 	mov dword [esp+0x4], _cstring_fs_handleforfile
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	mov ebx, 0xffffffff
-	jmp Z18FS_FOpenFileAppendPKc:F(0,32)_110
-Z18FS_FOpenFileAppendPKc:F(0,32)_70:
+	jmp Z18FS_FOpenFileAppendPKc_F0_32_110
+Z18FS_FOpenFileAppendPKc_F0_32_70:
 	mov dword [esp+0x4], _cstring_at
 	mov [esp], esi
-	call FS_FileOpen:F(0,4)
+	call FS_FileOpen_F0_4
 	lea edx, [ebx+ebx*8]
 	shl edx, 0x3
 	sub edx, ebx
@@ -6280,14 +6569,14 @@ Z18FS_FOpenFileAppendPKc:F(0,32)_70:
 	mov [edx+fsh], eax
 	mov dword [edx+fsh+0x8], 0x0
 	test eax, eax
-	jnz Z18FS_FOpenFileAppendPKc:F(0,32)_120
+	jnz Z18FS_FOpenFileAppendPKc_F0_32_120
 	xor ebx, ebx
-	jmp Z18FS_FOpenFileAppendPKc:F(0,32)_120
+	jmp Z18FS_FOpenFileAppendPKc_F0_32_120
 
 
-;Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2)
+;Z18FS_FOpenFileByModePKcPi8fsMode_t_F0_2
 
-Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2):
+Z18FS_FOpenFileByModePKcPi8fsMode_t_F0_2:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -6296,25 +6585,25 @@ Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2):
 	mov ebx, [ebp+0xc]
 	mov eax, [ebp+0x10]
 	cmp eax, 0x1
-	jz Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2)_10
-	jle Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2)_20
+	jz Z18FS_FOpenFileByModePKcPi8fsMode_t_F0_2_10
+	jle Z18FS_FOpenFileByModePKcPi8fsMode_t_F0_2_20
 	cmp eax, 0x2
-	jz Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2)_30
+	jz Z18FS_FOpenFileByModePKcPi8fsMode_t_F0_2_30
 	cmp eax, 0x3
-	jz Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2)_40
-Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2)_90:
+	jz Z18FS_FOpenFileByModePKcPi8fsMode_t_F0_2_40
+Z18FS_FOpenFileByModePKcPi8fsMode_t_F0_2_90:
 	mov dword [esp+0x4], _cstring_fsh_fopenfile_ba
 	mov dword [esp], 0x0
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	mov ecx, 0x1b39
-Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2)_110:
+Z18FS_FOpenFileByModePKcPi8fsMode_t_F0_2_110:
 	test ebx, ebx
-	jz Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2)_50
+	jz Z18FS_FOpenFileByModePKcPi8fsMode_t_F0_2_50
 	xor esi, esi
 	mov edx, [ebx]
-Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2)_80:
+Z18FS_FOpenFileByModePKcPi8fsMode_t_F0_2_80:
 	test edx, edx
-	jz Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2)_60
+	jz Z18FS_FOpenFileByModePKcPi8fsMode_t_F0_2_60
 	lea eax, [edx+edx*8]
 	shl eax, 0x3
 	sub eax, edx
@@ -6325,57 +6614,57 @@ Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2)_80:
 	sub eax, edx
 	mov dword [eax*4+fsh+0x18], 0x0
 	mov edx, [ebx]
-Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2)_60:
+Z18FS_FOpenFileByModePKcPi8fsMode_t_F0_2_60:
 	lea eax, [edx+edx*8]
 	shl eax, 0x3
 	sub eax, edx
 	mov [eax*4+fsh+0x8], esi
-Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2)_50:
+Z18FS_FOpenFileByModePKcPi8fsMode_t_F0_2_50:
 	mov eax, ecx
 	add esp, 0x10
 	pop ebx
 	pop esi
 	pop ebp
 	ret
-Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2)_10:
+Z18FS_FOpenFileByModePKcPi8fsMode_t_F0_2_10:
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z17FS_FOpenFileWritePKc:F(0,32)
+	call Z17FS_FOpenFileWritePKc_F0_32
 	mov [ebx], eax
 	test eax, eax
-	jz Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2)_70
+	jz Z18FS_FOpenFileByModePKcPi8fsMode_t_F0_2_70
 	xor ecx, ecx
 	xor esi, esi
 	mov edx, [ebx]
-	jmp Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2)_80
-Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2)_30:
+	jmp Z18FS_FOpenFileByModePKcPi8fsMode_t_F0_2_80
+Z18FS_FOpenFileByModePKcPi8fsMode_t_F0_2_30:
 	xor esi, esi
-Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2)_120:
+Z18FS_FOpenFileByModePKcPi8fsMode_t_F0_2_120:
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z18FS_FOpenFileAppendPKc:F(0,32)
+	call Z18FS_FOpenFileAppendPKc_F0_32
 	mov edx, eax
 	mov [ebx], eax
 	cmp eax, 0x1
 	sbb ecx, ecx
-	jmp Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2)_80
-Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2)_70:
+	jmp Z18FS_FOpenFileByModePKcPi8fsMode_t_F0_2_80
+Z18FS_FOpenFileByModePKcPi8fsMode_t_F0_2_70:
 	mov ecx, 0xffffffff
 	xor esi, esi
 	mov edx, [ebx]
-	jmp Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2)_80
-Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2)_20:
+	jmp Z18FS_FOpenFileByModePKcPi8fsMode_t_F0_2_80
+Z18FS_FOpenFileByModePKcPi8fsMode_t_F0_2_20:
 	test eax, eax
-	jnz Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2)_90
+	jnz Z18FS_FOpenFileByModePKcPi8fsMode_t_F0_2_90
 	mov dword [com_fileAccessed], 0x1
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z25Com_GetExtensionSubStringPKc:F(0,5)
+	call Z25Com_GetExtensionSubStringPKc_F0_5
 	mov [esp], eax
-	call Z23FS_PureIgnoresExtensionPKc:F(0,1)
+	call Z23FS_PureIgnoresExtensionPKc_F0_1
 	test eax, eax
-	jnz Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2)_100
-Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2)_130:
+	jnz Z18FS_FOpenFileByModePKcPi8fsMode_t_F0_2_100
+Z18FS_FOpenFileByModePKcPi8fsMode_t_F0_2_130:
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], 0x0
 	mov ecx, 0x1
@@ -6383,11 +6672,11 @@ Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2)_130:
 	mov eax, [ebp+0x8]
 	call _Z25FS_FOpenFileRead_InternalPKcPiiii
 	mov ecx, eax
-	jmp Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2)_110
-Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2)_40:
+	jmp Z18FS_FOpenFileByModePKcPi8fsMode_t_F0_2_110
+Z18FS_FOpenFileByModePKcPi8fsMode_t_F0_2_40:
 	mov esi, 0x1
-	jmp Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2)_120
-Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2)_100:
+	jmp Z18FS_FOpenFileByModePKcPi8fsMode_t_F0_2_120
+Z18FS_FOpenFileByModePKcPi8fsMode_t_F0_2_100:
 	mov dword [esp+0x4], 0x1
 	mov dword [esp], 0x0
 	mov ecx, 0x1
@@ -6397,14 +6686,14 @@ Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2)_100:
 	mov ecx, eax
 	lea eax, [eax+0x2]
 	cmp eax, 0x1
-	ja Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2)_110
-	jmp Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2)_130
+	ja Z18FS_FOpenFileByModePKcPi8fsMode_t_F0_2_110
+	jmp Z18FS_FOpenFileByModePKcPi8fsMode_t_F0_2_130
 	nop
 
 
-;Z10FS_StartupPKc:F(0,3)
+;Z10FS_StartupPKc_F0_3
 
-Z10FS_StartupPKc:F(0,3):
+Z10FS_StartupPKc_F0_3:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -6413,90 +6702,90 @@ Z10FS_StartupPKc:F(0,3):
 	sub esp, 0x2c
 	mov edi, [ebp+0x8]
 	mov dword [esp], _cstring__fs_startup_
-	call Z10Com_PrintfPKcz:F(0,1)
-	call Z16FS_RegisterDvarsv:F(0,61)
+	call Z10Com_PrintfPKcz_F0_1
+	call Z16FS_RegisterDvarsv_F0_61
 	mov eax, [fs_useOldAssets]
 	cmp byte [eax+0x8], 0x0
-	jz Z10FS_StartupPKc:F(0,3)_10
+	jz Z10FS_StartupPKc_F0_3_10
 	mov eax, [fs_basepath]
 	mov esi, [eax+0x8]
 	cmp byte [esi], 0x0
-	jnz Z10FS_StartupPKc:F(0,3)_20
+	jnz Z10FS_StartupPKc_F0_3_20
 	mov eax, [fs_homepath]
 	mov esi, [eax+0x8]
 	cmp byte [esi], 0x0
-	jnz Z10FS_StartupPKc:F(0,3)_30
-Z10FS_StartupPKc:F(0,3)_10:
+	jnz Z10FS_StartupPKc_F0_3_30
+Z10FS_StartupPKc_F0_3_10:
 	mov eax, [fs_basepath]
 	mov esi, [eax+0x8]
 	cmp byte [esi], 0x0
-	jnz Z10FS_StartupPKc:F(0,3)_40
-Z10FS_StartupPKc:F(0,3)_420:
+	jnz Z10FS_StartupPKc_F0_3_40
+Z10FS_StartupPKc_F0_3_420:
 	mov eax, [fs_homepath]
 	mov esi, [eax+0x8]
 	cmp byte [esi], 0x0
-	jnz Z10FS_StartupPKc:F(0,3)_50
-Z10FS_StartupPKc:F(0,3)_370:
+	jnz Z10FS_StartupPKc_F0_3_50
+Z10FS_StartupPKc_F0_3_370:
 	mov eax, [fs_cdpath]
 	mov esi, [eax+0x8]
 	cmp byte [esi], 0x0
-	jnz Z10FS_StartupPKc:F(0,3)_60
-Z10FS_StartupPKc:F(0,3)_320:
+	jnz Z10FS_StartupPKc_F0_3_60
+Z10FS_StartupPKc_F0_3_320:
 	mov eax, [fs_basepath]
 	mov esi, [eax+0x8]
 	cmp byte [esi], 0x0
-	jnz Z10FS_StartupPKc:F(0,3)_70
-Z10FS_StartupPKc:F(0,3)_250:
+	jnz Z10FS_StartupPKc_F0_3_70
+Z10FS_StartupPKc_F0_3_250:
 	mov eax, [fs_basegame]
 	mov eax, [eax+0x8]
 	cmp byte [eax], 0x0
-	jnz Z10FS_StartupPKc:F(0,3)_80
-Z10FS_StartupPKc:F(0,3)_160:
+	jnz Z10FS_StartupPKc_F0_3_80
+Z10FS_StartupPKc_F0_3_160:
 	mov eax, [fs_gameDirVar]
 	mov eax, [eax+0x8]
 	cmp byte [eax], 0x0
-	jnz Z10FS_StartupPKc:F(0,3)_90
-Z10FS_StartupPKc:F(0,3)_100:
-	call Z13Com_ReadCDKeyv:F(0,1)
-	call Z14FS_AddCommandsv:F(0,22)
+	jnz Z10FS_StartupPKc_F0_3_90
+Z10FS_StartupPKc_F0_3_100:
+	call Z13Com_ReadCDKeyv_F0_1
+	call Z14FS_AddCommandsv_F0_22
 	mov dword [esp], 0x1
-	call Z14FS_DisplayPathi:F(0,3)
+	call Z14FS_DisplayPathi_F0_3
 	mov eax, [fs_gameDirVar]
 	mov [esp], eax
-	call Z18Dvar_ClearModifiedPK6dvar_s:F(0,1)
+	call Z18Dvar_ClearModifiedPK6dvar_s_F0_1
 	mov dword [esp], _cstring_8
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov eax, [fs_packFiles]
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_d_files_in_iwd_f
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	add esp, 0x2c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z10FS_StartupPKc:F(0,3)_90:
+Z10FS_StartupPKc_F0_3_90:
 	mov dword [esp+0x4], _cstring_main
 	mov [esp], edi
-	call I_stricmp:F(0,2)
+	call I_stricmp_F0_2
 	test eax, eax
-	jnz Z10FS_StartupPKc:F(0,3)_100
+	jnz Z10FS_StartupPKc_F0_3_100
 	mov [esp+0x4], edi
 	mov eax, [fs_gameDirVar]
 	mov eax, [eax+0x8]
 	mov [esp], eax
-	call I_stricmp:F(0,2)
+	call I_stricmp_F0_2
 	test eax, eax
-	jz Z10FS_StartupPKc:F(0,3)_100
+	jz Z10FS_StartupPKc_F0_3_100
 	mov eax, [fs_cdpath]
 	mov esi, [eax+0x8]
 	cmp byte [esi], 0x0
-	jz Z10FS_StartupPKc:F(0,3)_110
+	jz Z10FS_StartupPKc_F0_3_110
 	mov eax, [fs_gameDirVar]
 	mov edi, [eax+0x8]
 	mov ebx, 0xe
-Z10FS_StartupPKc:F(0,3)_120:
+Z10FS_StartupPKc_F0_3_120:
 	mov [esp], ebx
 	mov ecx, 0x1
 	mov edx, edi
@@ -6504,21 +6793,21 @@ Z10FS_StartupPKc:F(0,3)_120:
 	call _Z19FS_AddGameDirectoryPKcS0_ii
 	sub ebx, 0x1
 	cmp ebx, 0xffffffff
-	jnz Z10FS_StartupPKc:F(0,3)_120
+	jnz Z10FS_StartupPKc_F0_3_120
 	mov dword [esp], 0x0
 	xor ecx, ecx
 	mov edx, edi
 	mov eax, esi
 	call _Z19FS_AddGameDirectoryPKcS0_ii
-Z10FS_StartupPKc:F(0,3)_110:
+Z10FS_StartupPKc_F0_3_110:
 	mov eax, [fs_basepath]
 	mov esi, [eax+0x8]
 	cmp byte [esi], 0x0
-	jz Z10FS_StartupPKc:F(0,3)_130
+	jz Z10FS_StartupPKc_F0_3_130
 	mov eax, [fs_gameDirVar]
 	mov edi, [eax+0x8]
 	mov ebx, 0xe
-Z10FS_StartupPKc:F(0,3)_140:
+Z10FS_StartupPKc_F0_3_140:
 	mov [esp], ebx
 	mov ecx, 0x1
 	mov edx, edi
@@ -6526,30 +6815,30 @@ Z10FS_StartupPKc:F(0,3)_140:
 	call _Z19FS_AddGameDirectoryPKcS0_ii
 	sub ebx, 0x1
 	cmp ebx, 0xffffffff
-	jnz Z10FS_StartupPKc:F(0,3)_140
+	jnz Z10FS_StartupPKc_F0_3_140
 	mov dword [esp], 0x0
 	xor ecx, ecx
 	mov edx, edi
 	mov eax, esi
 	call _Z19FS_AddGameDirectoryPKcS0_ii
-Z10FS_StartupPKc:F(0,3)_130:
+Z10FS_StartupPKc_F0_3_130:
 	mov eax, [fs_homepath]
 	mov edx, [eax+0x8]
 	cmp byte [edx], 0x0
-	jz Z10FS_StartupPKc:F(0,3)_100
+	jz Z10FS_StartupPKc_F0_3_100
 	mov eax, [fs_basepath]
 	mov eax, [eax+0x8]
 	mov [esp+0x4], eax
 	mov [esp], edx
-	call I_stricmp:F(0,2)
+	call I_stricmp_F0_2
 	test eax, eax
-	jz Z10FS_StartupPKc:F(0,3)_100
+	jz Z10FS_StartupPKc_F0_3_100
 	mov eax, [fs_gameDirVar]
 	mov edi, [eax+0x8]
 	mov eax, [fs_homepath]
 	mov esi, [eax+0x8]
 	mov ebx, 0xe
-Z10FS_StartupPKc:F(0,3)_150:
+Z10FS_StartupPKc_F0_3_150:
 	mov [esp], ebx
 	mov ecx, 0x1
 	mov edx, edi
@@ -6557,96 +6846,96 @@ Z10FS_StartupPKc:F(0,3)_150:
 	call _Z19FS_AddGameDirectoryPKcS0_ii
 	sub ebx, 0x1
 	cmp ebx, 0xffffffff
-	jnz Z10FS_StartupPKc:F(0,3)_150
+	jnz Z10FS_StartupPKc_F0_3_150
 	mov dword [esp], 0x0
 	xor ecx, ecx
 	mov edx, edi
 	mov eax, esi
 	call _Z19FS_AddGameDirectoryPKcS0_ii
-	jmp Z10FS_StartupPKc:F(0,3)_100
-Z10FS_StartupPKc:F(0,3)_80:
+	jmp Z10FS_StartupPKc_F0_3_100
+Z10FS_StartupPKc_F0_3_80:
 	mov dword [esp+0x4], _cstring_main
 	mov [esp], edi
-	call I_stricmp:F(0,2)
+	call I_stricmp_F0_2
 	test eax, eax
-	jnz Z10FS_StartupPKc:F(0,3)_160
+	jnz Z10FS_StartupPKc_F0_3_160
 	mov [esp+0x4], edi
 	mov eax, [fs_basegame]
 	mov eax, [eax+0x8]
 	mov [esp], eax
-	call I_stricmp:F(0,2)
+	call I_stricmp_F0_2
 	test eax, eax
-	jz Z10FS_StartupPKc:F(0,3)_160
+	jz Z10FS_StartupPKc_F0_3_160
 	mov eax, [fs_cdpath]
 	mov esi, [eax+0x8]
 	cmp byte [esi], 0x0
-	jz Z10FS_StartupPKc:F(0,3)_170
+	jz Z10FS_StartupPKc_F0_3_170
 	mov eax, [fs_basegame]
 	mov eax, [eax+0x8]
 	mov [ebp-0x24], eax
 	mov ebx, 0xe
 	mov edx, eax
-	jmp Z10FS_StartupPKc:F(0,3)_180
-Z10FS_StartupPKc:F(0,3)_190:
+	jmp Z10FS_StartupPKc_F0_3_180
+Z10FS_StartupPKc_F0_3_190:
 	mov edx, [ebp-0x24]
-Z10FS_StartupPKc:F(0,3)_180:
+Z10FS_StartupPKc_F0_3_180:
 	mov [esp], ebx
 	mov ecx, 0x1
 	mov eax, esi
 	call _Z19FS_AddGameDirectoryPKcS0_ii
 	sub ebx, 0x1
 	cmp ebx, 0xffffffff
-	jnz Z10FS_StartupPKc:F(0,3)_190
+	jnz Z10FS_StartupPKc_F0_3_190
 	mov dword [esp], 0x0
 	xor ecx, ecx
 	mov edx, [ebp-0x24]
 	mov eax, esi
 	call _Z19FS_AddGameDirectoryPKcS0_ii
-Z10FS_StartupPKc:F(0,3)_170:
+Z10FS_StartupPKc_F0_3_170:
 	mov eax, [fs_basepath]
 	mov esi, [eax+0x8]
 	cmp byte [esi], 0x0
-	jz Z10FS_StartupPKc:F(0,3)_200
+	jz Z10FS_StartupPKc_F0_3_200
 	mov eax, [fs_basegame]
 	mov eax, [eax+0x8]
 	mov [ebp-0x20], eax
 	mov ebx, 0xe
 	mov edx, eax
-	jmp Z10FS_StartupPKc:F(0,3)_210
-Z10FS_StartupPKc:F(0,3)_220:
+	jmp Z10FS_StartupPKc_F0_3_210
+Z10FS_StartupPKc_F0_3_220:
 	mov edx, [ebp-0x20]
-Z10FS_StartupPKc:F(0,3)_210:
+Z10FS_StartupPKc_F0_3_210:
 	mov [esp], ebx
 	mov ecx, 0x1
 	mov eax, esi
 	call _Z19FS_AddGameDirectoryPKcS0_ii
 	sub ebx, 0x1
 	cmp ebx, 0xffffffff
-	jnz Z10FS_StartupPKc:F(0,3)_220
+	jnz Z10FS_StartupPKc_F0_3_220
 	mov dword [esp], 0x0
 	xor ecx, ecx
 	mov edx, [ebp-0x20]
 	mov eax, esi
 	call _Z19FS_AddGameDirectoryPKcS0_ii
-Z10FS_StartupPKc:F(0,3)_200:
+Z10FS_StartupPKc_F0_3_200:
 	mov eax, [fs_homepath]
 	mov edx, [eax+0x8]
 	cmp byte [edx], 0x0
-	jz Z10FS_StartupPKc:F(0,3)_160
+	jz Z10FS_StartupPKc_F0_3_160
 	mov eax, [fs_basepath]
 	mov eax, [eax+0x8]
 	mov [esp+0x4], eax
 	mov [esp], edx
-	call I_stricmp:F(0,2)
+	call I_stricmp_F0_2
 	test eax, eax
-	jz Z10FS_StartupPKc:F(0,3)_160
+	jz Z10FS_StartupPKc_F0_3_160
 	mov eax, [fs_basegame]
 	mov eax, [eax+0x8]
 	mov [ebp-0x1c], eax
 	mov eax, [fs_homepath]
 	mov esi, [eax+0x8]
 	mov ebx, 0xe
-Z10FS_StartupPKc:F(0,3)_230:
+Z10FS_StartupPKc_F0_3_230:
 	mov [esp], ebx
 	mov ecx, 0x1
 	mov edx, [ebp-0x1c]
@@ -6654,16 +6943,16 @@ Z10FS_StartupPKc:F(0,3)_230:
 	call _Z19FS_AddGameDirectoryPKcS0_ii
 	sub ebx, 0x1
 	cmp ebx, 0xffffffff
-	jnz Z10FS_StartupPKc:F(0,3)_230
+	jnz Z10FS_StartupPKc_F0_3_230
 	mov dword [esp], 0x0
 	xor ecx, ecx
 	mov edx, [ebp-0x1c]
 	mov eax, esi
 	call _Z19FS_AddGameDirectoryPKcS0_ii
-	jmp Z10FS_StartupPKc:F(0,3)_160
-Z10FS_StartupPKc:F(0,3)_70:
+	jmp Z10FS_StartupPKc_F0_3_160
+Z10FS_StartupPKc_F0_3_70:
 	mov ebx, 0xe
-Z10FS_StartupPKc:F(0,3)_240:
+Z10FS_StartupPKc_F0_3_240:
 	mov [esp], ebx
 	mov ecx, 0x1
 	mov edx, edi
@@ -6671,7 +6960,7 @@ Z10FS_StartupPKc:F(0,3)_240:
 	call _Z19FS_AddGameDirectoryPKcS0_ii
 	sub ebx, 0x1
 	cmp ebx, 0xffffffff
-	jnz Z10FS_StartupPKc:F(0,3)_240
+	jnz Z10FS_StartupPKc_F0_3_240
 	mov dword [esp], 0x0
 	xor ecx, ecx
 	mov edx, edi
@@ -6680,18 +6969,18 @@ Z10FS_StartupPKc:F(0,3)_240:
 	mov eax, [fs_basepath]
 	mov eax, [eax+0x8]
 	cmp byte [eax], 0x0
-	jz Z10FS_StartupPKc:F(0,3)_250
+	jz Z10FS_StartupPKc_F0_3_250
 	mov [esp+0x4], eax
 	mov eax, [fs_homepath]
 	mov eax, [eax+0x8]
 	mov [esp], eax
-	call I_stricmp:F(0,2)
+	call I_stricmp_F0_2
 	test eax, eax
-	jz Z10FS_StartupPKc:F(0,3)_250
+	jz Z10FS_StartupPKc_F0_3_250
 	mov eax, [fs_homepath]
 	mov esi, [eax+0x8]
 	mov ebx, 0xe
-Z10FS_StartupPKc:F(0,3)_260:
+Z10FS_StartupPKc_F0_3_260:
 	mov [esp], ebx
 	mov ecx, 0x1
 	mov edx, edi
@@ -6699,16 +6988,16 @@ Z10FS_StartupPKc:F(0,3)_260:
 	call _Z19FS_AddGameDirectoryPKcS0_ii
 	sub ebx, 0x1
 	cmp ebx, 0xffffffff
-	jnz Z10FS_StartupPKc:F(0,3)_260
+	jnz Z10FS_StartupPKc_F0_3_260
 	mov dword [esp], 0x0
 	xor ecx, ecx
 	mov edx, edi
 	mov eax, esi
 	call _Z19FS_AddGameDirectoryPKcS0_ii
-	jmp Z10FS_StartupPKc:F(0,3)_250
-Z10FS_StartupPKc:F(0,3)_60:
+	jmp Z10FS_StartupPKc_F0_3_250
+Z10FS_StartupPKc_F0_3_60:
 	mov ebx, 0xe
-Z10FS_StartupPKc:F(0,3)_270:
+Z10FS_StartupPKc_F0_3_270:
 	mov [esp], ebx
 	mov ecx, 0x1
 	mov edx, _cstring_devraw_shared
@@ -6716,7 +7005,7 @@ Z10FS_StartupPKc:F(0,3)_270:
 	call _Z19FS_AddGameDirectoryPKcS0_ii
 	sub ebx, 0x1
 	cmp ebx, 0xffffffff
-	jnz Z10FS_StartupPKc:F(0,3)_270
+	jnz Z10FS_StartupPKc_F0_3_270
 	mov dword [esp], 0x0
 	xor ecx, ecx
 	mov edx, _cstring_devraw_shared
@@ -6725,7 +7014,7 @@ Z10FS_StartupPKc:F(0,3)_270:
 	mov eax, [fs_cdpath]
 	mov esi, [eax+0x8]
 	mov ebx, 0xe
-Z10FS_StartupPKc:F(0,3)_280:
+Z10FS_StartupPKc_F0_3_280:
 	mov [esp], ebx
 	mov ecx, 0x1
 	mov edx, _cstring_devraw
@@ -6733,7 +7022,7 @@ Z10FS_StartupPKc:F(0,3)_280:
 	call _Z19FS_AddGameDirectoryPKcS0_ii
 	sub ebx, 0x1
 	cmp ebx, 0xffffffff
-	jnz Z10FS_StartupPKc:F(0,3)_280
+	jnz Z10FS_StartupPKc_F0_3_280
 	mov dword [esp], 0x0
 	xor ecx, ecx
 	mov edx, _cstring_devraw
@@ -6742,7 +7031,7 @@ Z10FS_StartupPKc:F(0,3)_280:
 	mov eax, [fs_cdpath]
 	mov esi, [eax+0x8]
 	mov ebx, 0xe
-Z10FS_StartupPKc:F(0,3)_290:
+Z10FS_StartupPKc_F0_3_290:
 	mov [esp], ebx
 	mov ecx, 0x1
 	mov edx, _cstring_raw_shared
@@ -6750,7 +7039,7 @@ Z10FS_StartupPKc:F(0,3)_290:
 	call _Z19FS_AddGameDirectoryPKcS0_ii
 	sub ebx, 0x1
 	cmp ebx, 0xffffffff
-	jnz Z10FS_StartupPKc:F(0,3)_290
+	jnz Z10FS_StartupPKc_F0_3_290
 	mov dword [esp], 0x0
 	xor ecx, ecx
 	mov edx, _cstring_raw_shared
@@ -6759,7 +7048,7 @@ Z10FS_StartupPKc:F(0,3)_290:
 	mov eax, [fs_cdpath]
 	mov esi, [eax+0x8]
 	mov ebx, 0xe
-Z10FS_StartupPKc:F(0,3)_300:
+Z10FS_StartupPKc_F0_3_300:
 	mov [esp], ebx
 	mov ecx, 0x1
 	mov edx, _cstring_raw
@@ -6767,7 +7056,7 @@ Z10FS_StartupPKc:F(0,3)_300:
 	call _Z19FS_AddGameDirectoryPKcS0_ii
 	sub ebx, 0x1
 	cmp ebx, 0xffffffff
-	jnz Z10FS_StartupPKc:F(0,3)_300
+	jnz Z10FS_StartupPKc_F0_3_300
 	mov dword [esp], 0x0
 	xor ecx, ecx
 	mov edx, _cstring_raw
@@ -6776,7 +7065,7 @@ Z10FS_StartupPKc:F(0,3)_300:
 	mov eax, [fs_cdpath]
 	mov esi, [eax+0x8]
 	mov ebx, 0xe
-Z10FS_StartupPKc:F(0,3)_310:
+Z10FS_StartupPKc_F0_3_310:
 	mov [esp], ebx
 	mov ecx, 0x1
 	mov edx, edi
@@ -6784,16 +7073,16 @@ Z10FS_StartupPKc:F(0,3)_310:
 	call _Z19FS_AddGameDirectoryPKcS0_ii
 	sub ebx, 0x1
 	cmp ebx, 0xffffffff
-	jnz Z10FS_StartupPKc:F(0,3)_310
+	jnz Z10FS_StartupPKc_F0_3_310
 	mov dword [esp], 0x0
 	xor ecx, ecx
 	mov edx, edi
 	mov eax, esi
 	call _Z19FS_AddGameDirectoryPKcS0_ii
-	jmp Z10FS_StartupPKc:F(0,3)_320
-Z10FS_StartupPKc:F(0,3)_50:
+	jmp Z10FS_StartupPKc_F0_3_320
+Z10FS_StartupPKc_F0_3_50:
 	mov ebx, 0xe
-Z10FS_StartupPKc:F(0,3)_330:
+Z10FS_StartupPKc_F0_3_330:
 	mov [esp], ebx
 	mov ecx, 0x1
 	mov edx, _cstring_devraw_shared
@@ -6801,7 +7090,7 @@ Z10FS_StartupPKc:F(0,3)_330:
 	call _Z19FS_AddGameDirectoryPKcS0_ii
 	sub ebx, 0x1
 	cmp ebx, 0xffffffff
-	jnz Z10FS_StartupPKc:F(0,3)_330
+	jnz Z10FS_StartupPKc_F0_3_330
 	mov dword [esp], 0x0
 	xor ecx, ecx
 	mov edx, _cstring_devraw_shared
@@ -6810,7 +7099,7 @@ Z10FS_StartupPKc:F(0,3)_330:
 	mov eax, [fs_homepath]
 	mov esi, [eax+0x8]
 	mov ebx, 0xe
-Z10FS_StartupPKc:F(0,3)_340:
+Z10FS_StartupPKc_F0_3_340:
 	mov [esp], ebx
 	mov ecx, 0x1
 	mov edx, _cstring_devraw
@@ -6818,7 +7107,7 @@ Z10FS_StartupPKc:F(0,3)_340:
 	call _Z19FS_AddGameDirectoryPKcS0_ii
 	sub ebx, 0x1
 	cmp ebx, 0xffffffff
-	jnz Z10FS_StartupPKc:F(0,3)_340
+	jnz Z10FS_StartupPKc_F0_3_340
 	mov dword [esp], 0x0
 	xor ecx, ecx
 	mov edx, _cstring_devraw
@@ -6827,7 +7116,7 @@ Z10FS_StartupPKc:F(0,3)_340:
 	mov eax, [fs_homepath]
 	mov esi, [eax+0x8]
 	mov ebx, 0xe
-Z10FS_StartupPKc:F(0,3)_350:
+Z10FS_StartupPKc_F0_3_350:
 	mov [esp], ebx
 	mov ecx, 0x1
 	mov edx, _cstring_raw_shared
@@ -6835,7 +7124,7 @@ Z10FS_StartupPKc:F(0,3)_350:
 	call _Z19FS_AddGameDirectoryPKcS0_ii
 	sub ebx, 0x1
 	cmp ebx, 0xffffffff
-	jnz Z10FS_StartupPKc:F(0,3)_350
+	jnz Z10FS_StartupPKc_F0_3_350
 	mov dword [esp], 0x0
 	xor ecx, ecx
 	mov edx, _cstring_raw_shared
@@ -6844,7 +7133,7 @@ Z10FS_StartupPKc:F(0,3)_350:
 	mov eax, [fs_homepath]
 	mov esi, [eax+0x8]
 	mov ebx, 0xe
-Z10FS_StartupPKc:F(0,3)_360:
+Z10FS_StartupPKc_F0_3_360:
 	mov [esp], ebx
 	mov ecx, 0x1
 	mov edx, _cstring_raw
@@ -6852,16 +7141,16 @@ Z10FS_StartupPKc:F(0,3)_360:
 	call _Z19FS_AddGameDirectoryPKcS0_ii
 	sub ebx, 0x1
 	cmp ebx, 0xffffffff
-	jnz Z10FS_StartupPKc:F(0,3)_360
+	jnz Z10FS_StartupPKc_F0_3_360
 	mov dword [esp], 0x0
 	xor ecx, ecx
 	mov edx, _cstring_raw
 	mov eax, esi
 	call _Z19FS_AddGameDirectoryPKcS0_ii
-	jmp Z10FS_StartupPKc:F(0,3)_370
-Z10FS_StartupPKc:F(0,3)_40:
+	jmp Z10FS_StartupPKc_F0_3_370
+Z10FS_StartupPKc_F0_3_40:
 	mov ebx, 0xe
-Z10FS_StartupPKc:F(0,3)_380:
+Z10FS_StartupPKc_F0_3_380:
 	mov [esp], ebx
 	mov ecx, 0x1
 	mov edx, _cstring_devraw_shared
@@ -6869,7 +7158,7 @@ Z10FS_StartupPKc:F(0,3)_380:
 	call _Z19FS_AddGameDirectoryPKcS0_ii
 	sub ebx, 0x1
 	cmp ebx, 0xffffffff
-	jnz Z10FS_StartupPKc:F(0,3)_380
+	jnz Z10FS_StartupPKc_F0_3_380
 	mov dword [esp], 0x0
 	xor ecx, ecx
 	mov edx, _cstring_devraw_shared
@@ -6878,7 +7167,7 @@ Z10FS_StartupPKc:F(0,3)_380:
 	mov eax, [fs_basepath]
 	mov esi, [eax+0x8]
 	mov ebx, 0xe
-Z10FS_StartupPKc:F(0,3)_390:
+Z10FS_StartupPKc_F0_3_390:
 	mov [esp], ebx
 	mov ecx, 0x1
 	mov edx, _cstring_devraw
@@ -6886,7 +7175,7 @@ Z10FS_StartupPKc:F(0,3)_390:
 	call _Z19FS_AddGameDirectoryPKcS0_ii
 	sub ebx, 0x1
 	cmp ebx, 0xffffffff
-	jnz Z10FS_StartupPKc:F(0,3)_390
+	jnz Z10FS_StartupPKc_F0_3_390
 	mov dword [esp], 0x0
 	xor ecx, ecx
 	mov edx, _cstring_devraw
@@ -6895,7 +7184,7 @@ Z10FS_StartupPKc:F(0,3)_390:
 	mov eax, [fs_basepath]
 	mov esi, [eax+0x8]
 	mov ebx, 0xe
-Z10FS_StartupPKc:F(0,3)_400:
+Z10FS_StartupPKc_F0_3_400:
 	mov [esp], ebx
 	mov ecx, 0x1
 	mov edx, _cstring_raw_shared
@@ -6903,7 +7192,7 @@ Z10FS_StartupPKc:F(0,3)_400:
 	call _Z19FS_AddGameDirectoryPKcS0_ii
 	sub ebx, 0x1
 	cmp ebx, 0xffffffff
-	jnz Z10FS_StartupPKc:F(0,3)_400
+	jnz Z10FS_StartupPKc_F0_3_400
 	mov dword [esp], 0x0
 	xor ecx, ecx
 	mov edx, _cstring_raw_shared
@@ -6912,7 +7201,7 @@ Z10FS_StartupPKc:F(0,3)_400:
 	mov eax, [fs_basepath]
 	mov esi, [eax+0x8]
 	mov ebx, 0xe
-Z10FS_StartupPKc:F(0,3)_410:
+Z10FS_StartupPKc_F0_3_410:
 	mov [esp], ebx
 	mov ecx, 0x1
 	mov edx, _cstring_raw
@@ -6920,16 +7209,16 @@ Z10FS_StartupPKc:F(0,3)_410:
 	call _Z19FS_AddGameDirectoryPKcS0_ii
 	sub ebx, 0x1
 	cmp ebx, 0xffffffff
-	jnz Z10FS_StartupPKc:F(0,3)_410
+	jnz Z10FS_StartupPKc_F0_3_410
 	mov dword [esp], 0x0
 	xor ecx, ecx
 	mov edx, _cstring_raw
 	mov eax, esi
 	call _Z19FS_AddGameDirectoryPKcS0_ii
-	jmp Z10FS_StartupPKc:F(0,3)_420
-Z10FS_StartupPKc:F(0,3)_30:
+	jmp Z10FS_StartupPKc_F0_3_420
+Z10FS_StartupPKc_F0_3_30:
 	mov ebx, 0xe
-Z10FS_StartupPKc:F(0,3)_430:
+Z10FS_StartupPKc_F0_3_430:
 	mov [esp], ebx
 	mov ecx, 0x1
 	mov edx, _cstring_tempcod
@@ -6937,16 +7226,16 @@ Z10FS_StartupPKc:F(0,3)_430:
 	call _Z19FS_AddGameDirectoryPKcS0_ii
 	sub ebx, 0x1
 	cmp ebx, 0xffffffff
-	jnz Z10FS_StartupPKc:F(0,3)_430
+	jnz Z10FS_StartupPKc_F0_3_430
 	mov dword [esp], 0x0
 	xor ecx, ecx
 	mov edx, _cstring_tempcod
 	mov eax, esi
 	call _Z19FS_AddGameDirectoryPKcS0_ii
-	jmp Z10FS_StartupPKc:F(0,3)_10
-Z10FS_StartupPKc:F(0,3)_20:
+	jmp Z10FS_StartupPKc_F0_3_10
+Z10FS_StartupPKc_F0_3_20:
 	mov ebx, 0xe
-Z10FS_StartupPKc:F(0,3)_440:
+Z10FS_StartupPKc_F0_3_440:
 	mov [esp], ebx
 	mov ecx, 0x1
 	mov edx, _cstring_tempcod
@@ -6954,7 +7243,7 @@ Z10FS_StartupPKc:F(0,3)_440:
 	call _Z19FS_AddGameDirectoryPKcS0_ii
 	sub ebx, 0x1
 	cmp ebx, 0xffffffff
-	jnz Z10FS_StartupPKc:F(0,3)_440
+	jnz Z10FS_StartupPKc_F0_3_440
 	mov dword [esp], 0x0
 	xor ecx, ecx
 	mov edx, _cstring_tempcod
@@ -6963,219 +7252,219 @@ Z10FS_StartupPKc:F(0,3)_440:
 	mov eax, [fs_homepath]
 	mov esi, [eax+0x8]
 	cmp byte [esi], 0x0
-	jz Z10FS_StartupPKc:F(0,3)_10
-	jmp Z10FS_StartupPKc:F(0,3)_30
+	jz Z10FS_StartupPKc_F0_3_10
+	jmp Z10FS_StartupPKc_F0_3_30
 	nop
 
 
-;Z10FS_Restarti:F(0,3)
+;Z10FS_Restarti_F0_3
 
-Z10FS_Restarti:F(0,3):
-Z10FS_Restarti:F(0,3)_90:
+Z10FS_Restarti_F0_3:
+Z10FS_Restarti_F0_3_90:
 	push ebp
 	mov ebp, esp
 	push ebx
 	sub esp, 0x14
 	mov ebx, [ebp+0x8]
 	mov dword [esp], 0x0
-	call Z11FS_Shutdowni:F(0,3)
+	call Z11FS_Shutdowni_F0_3
 	mov [fs_checksumFeed], ebx
 	mov eax, [fs_searchpaths]
 	test eax, eax
-	jz Z10FS_Restarti:F(0,3)_10
-Z10FS_Restarti:F(0,3)_30:
+	jz Z10FS_Restarti_F0_3_10
+Z10FS_Restarti_F0_3_30:
 	mov edx, [eax+0x4]
 	test edx, edx
-	jz Z10FS_Restarti:F(0,3)_20
+	jz Z10FS_Restarti_F0_3_20
 	mov byte [edx+0x310], 0x0
-Z10FS_Restarti:F(0,3)_20:
+Z10FS_Restarti_F0_3_20:
 	mov eax, [eax]
 	test eax, eax
-	jnz Z10FS_Restarti:F(0,3)_30
-Z10FS_Restarti:F(0,3)_10:
+	jnz Z10FS_Restarti_F0_3_30
+Z10FS_Restarti_F0_3_10:
 	mov dword [esp], _cstring_main
-	call Z10FS_StartupPKc:F(0,3)
-	call Z17SEH_Init_StringEdv:F(0,2)
-	call Z22SEH_UpdateLanguageInfov:F(0,2)
-	call Z18FS_SetRestrictionsv:F(0,22)
+	call Z10FS_StartupPKc_F0_3
+	call Z17SEH_Init_StringEdv_F0_2
+	call Z22SEH_UpdateLanguageInfov_F0_2
+	call Z18FS_SetRestrictionsv_F0_22
 	mov dword [esp+0x4], 0x0
 	mov eax, [default_config]
 	mov [esp], eax
-	call FS_ReadFile:F(0,2)
+	call FS_ReadFile_F0_2
 	test eax, eax
-	jle Z10FS_Restarti:F(0,3)_40
-Z10FS_Restarti:F(0,3)_80:
+	jle Z10FS_Restarti_F0_3_40
+Z10FS_Restarti_F0_3_80:
 	mov dword [esp+0x4], lastValidGame
 	mov eax, [fs_gameDirVar]
 	mov eax, [eax+0x8]
 	mov [esp], eax
-	call I_stricmp:F(0,2)
+	call I_stricmp_F0_2
 	test eax, eax
-	jnz Z10FS_Restarti:F(0,3)_50
-Z10FS_Restarti:F(0,3)_60:
+	jnz Z10FS_Restarti_F0_3_50
+Z10FS_Restarti_F0_3_60:
 	mov dword [esp+0x8], 0x100
 	mov eax, [fs_basepath]
 	mov eax, [eax+0x8]
 	mov [esp+0x4], eax
 	mov dword [esp], lastValidBase
-	call Z10I_strncpyzPcPKci:F(0,15)
+	call Z10I_strncpyzPcPKci_F0_15
 	mov dword [esp+0x8], 0x100
 	mov eax, [fs_gameDirVar]
 	mov eax, [eax+0x8]
 	mov [esp+0x4], eax
 	mov dword [esp], lastValidGame
-	call Z10I_strncpyzPcPKci:F(0,15)
+	call Z10I_strncpyzPcPKci_F0_15
 	add esp, 0x14
 	pop ebx
 	pop ebp
 	ret
-Z10FS_Restarti:F(0,3)_50:
-	call Z12Com_SafeModev:F(0,15)
+Z10FS_Restarti_F0_3_50:
+	call Z12Com_SafeModev_F0_15
 	test eax, eax
-	jnz Z10FS_Restarti:F(0,3)_60
+	jnz Z10FS_Restarti_F0_3_60
 	mov dword [esp+0x4], _cstring_config_mpcfg
 	mov dword [esp], _cstring_exec_s
-	call va:F(0,3)
+	call va_F0_3
 	mov [esp], eax
-	call Z12Cbuf_AddTextPKc:F(0,1)
-	jmp Z10FS_Restarti:F(0,3)_60
-Z10FS_Restarti:F(0,3)_40:
+	call Z12Cbuf_AddTextPKc_F0_1
+	jmp Z10FS_Restarti_F0_3_60
+Z10FS_Restarti_F0_3_40:
 	cmp byte [lastValidBase], 0x0
-	jnz Z10FS_Restarti:F(0,3)_70
-Z10FS_Restarti:F(0,3)_100:
+	jnz Z10FS_Restarti_F0_3_70
+Z10FS_Restarti_F0_3_100:
 	mov eax, [default_config]
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], _cstring_couldnt_load_s__
 	mov dword [esp], 0x0
-	call Com_Error:F(0,1)
-	jmp Z10FS_Restarti:F(0,3)_80
-Z10FS_Restarti:F(0,3)_70:
+	call Com_Error_F0_1
+	jmp Z10FS_Restarti_F0_3_80
+Z10FS_Restarti_F0_3_70:
 	mov dword [esp+0x4], _cstring_null
 	mov dword [esp], _cstring_null
-	call Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)
+	call Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22
 	mov dword [esp+0x4], lastValidBase
 	mov eax, [fs_basepath]
 	mov [esp], eax
-	call Z14Dvar_SetStringPK6dvar_sPKc:F(0,1)
+	call Z14Dvar_SetStringPK6dvar_sPKc_F0_1
 	mov dword [esp+0x4], lastValidGame
 	mov eax, [fs_gameDirVar]
 	mov [esp], eax
-	call Z14Dvar_SetStringPK6dvar_sPKc:F(0,1)
+	call Z14Dvar_SetStringPK6dvar_sPKc_F0_1
 	mov byte [lastValidBase], 0x0
 	mov byte [lastValidGame], 0x0
 	mov dword [esp+0x4], 0x0
 	mov eax, [fs_restrict]
 	mov [esp], eax
-	call Z12Dvar_SetBoolPK6dvar_sh:F(0,1)
+	call Z12Dvar_SetBoolPK6dvar_sh_F0_1
 	mov [esp], ebx
-	call Z10FS_Restarti:F(0,3)_90
+	call Z10FS_Restarti_F0_3_90
 	mov dword [esp+0x4], _cstring_invalid_game_fol
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
-	jmp Z10FS_Restarti:F(0,3)_100
+	call Com_Error_F0_1
+	jmp Z10FS_Restarti_F0_3_100
 	nop
 
 
-;Z21FS_ConditionalRestarti:F(0,1)
+;Z21FS_ConditionalRestarti_F0_1
 
-Z21FS_ConditionalRestarti:F(0,1):
+Z21FS_ConditionalRestarti_F0_1:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
 	mov eax, [0x1accd25]
 	mov eax, [eax]
 	cmp byte [eax+0x8], 0x0
-	jnz Z21FS_ConditionalRestarti:F(0,1)_10
+	jnz Z21FS_ConditionalRestarti_F0_1_10
 	mov eax, [fs_gameDirVar]
 	cmp byte [eax+0x7], 0x0
-	jnz Z21FS_ConditionalRestarti:F(0,1)_20
+	jnz Z21FS_ConditionalRestarti_F0_1_20
 	mov eax, [ebp+0x8]
 	cmp [fs_checksumFeed], eax
-	jz Z21FS_ConditionalRestarti:F(0,1)_10
+	jz Z21FS_ConditionalRestarti_F0_1_10
 	mov [esp], eax
-	call Z10FS_Restarti:F(0,3)
+	call Z10FS_Restarti_F0_3
 	mov eax, 0x1
 	leave
 	ret
-Z21FS_ConditionalRestarti:F(0,1)_20:
+Z21FS_ConditionalRestarti_F0_1_20:
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z10FS_Restarti:F(0,3)
+	call Z10FS_Restarti_F0_3
 	mov eax, 0x1
 	leave
 	ret
-Z21FS_ConditionalRestarti:F(0,1)_10:
+Z21FS_ConditionalRestarti_F0_1_10:
 	xor eax, eax
 	leave
 	ret
 
 
-;Z17FS_InitFilesystemv:F(0,3)
+;Z17FS_InitFilesystemv_F0_3
 
-Z17FS_InitFilesystemv:F(0,3):
+Z17FS_InitFilesystemv_F0_3:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
 	mov dword [esp], _cstring_fs_cdpath
-	call Z19Com_StartupVariablePKc:F(0,1)
+	call Z19Com_StartupVariablePKc_F0_1
 	mov dword [esp], _cstring_fs_basepath
-	call Z19Com_StartupVariablePKc:F(0,1)
+	call Z19Com_StartupVariablePKc_F0_1
 	mov dword [esp], _cstring_fs_homepath
-	call Z19Com_StartupVariablePKc:F(0,1)
+	call Z19Com_StartupVariablePKc_F0_1
 	mov dword [esp], _cstring_fs_game
-	call Z19Com_StartupVariablePKc:F(0,1)
+	call Z19Com_StartupVariablePKc_F0_1
 	mov dword [esp], _cstring_fs_copyfiles
-	call Z19Com_StartupVariablePKc:F(0,1)
+	call Z19Com_StartupVariablePKc_F0_1
 	mov dword [esp], _cstring_fs_restrict
-	call Z19Com_StartupVariablePKc:F(0,1)
+	call Z19Com_StartupVariablePKc_F0_1
 	mov dword [esp], _cstring_loc_language
-	call Z19Com_StartupVariablePKc:F(0,1)
-	call Z16SEH_InitLanguagev:F(0,2)
+	call Z19Com_StartupVariablePKc_F0_1
+	call Z16SEH_InitLanguagev_F0_2
 	mov dword [esp], _cstring_main
-	call Z10FS_StartupPKc:F(0,3)
-	call Z17SEH_Init_StringEdv:F(0,2)
-	call Z22SEH_UpdateLanguageInfov:F(0,2)
-	call Z18FS_SetRestrictionsv:F(0,22)
+	call Z10FS_StartupPKc_F0_3
+	call Z17SEH_Init_StringEdv_F0_2
+	call Z22SEH_UpdateLanguageInfov_F0_2
+	call Z18FS_SetRestrictionsv_F0_22
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], _cstring_default_localize
-	call FS_ReadFile:F(0,2)
+	call FS_ReadFile_F0_2
 	test eax, eax
-	jle Z17FS_InitFilesystemv:F(0,3)_10
+	jle Z17FS_InitFilesystemv_F0_3_10
 	mov dword [default_config], _cstring_default_localize
-Z17FS_InitFilesystemv:F(0,3)_30:
+Z17FS_InitFilesystemv_F0_3_30:
 	mov dword [esp+0x8], 0x100
 	mov eax, [fs_basepath]
 	mov eax, [eax+0x8]
 	mov [esp+0x4], eax
 	mov dword [esp], lastValidBase
-	call Z10I_strncpyzPcPKci:F(0,15)
+	call Z10I_strncpyzPcPKci_F0_15
 	mov dword [esp+0x8], 0x100
 	mov eax, [fs_gameDirVar]
 	mov eax, [eax+0x8]
 	mov [esp+0x4], eax
 	mov dword [esp], lastValidGame
-	call Z10I_strncpyzPcPKci:F(0,15)
+	call Z10I_strncpyzPcPKci_F0_15
 	leave
 	ret
-Z17FS_InitFilesystemv:F(0,3)_10:
+Z17FS_InitFilesystemv_F0_3_10:
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], _cstring_default_mpcfg
-	call FS_ReadFile:F(0,2)
+	call FS_ReadFile_F0_2
 	test eax, eax
-	jle Z17FS_InitFilesystemv:F(0,3)_20
+	jle Z17FS_InitFilesystemv_F0_3_20
 	mov dword [default_config], _cstring_default_mpcfg
-	jmp Z17FS_InitFilesystemv:F(0,3)_30
-Z17FS_InitFilesystemv:F(0,3)_20:
+	jmp Z17FS_InitFilesystemv_F0_3_30
+Z17FS_InitFilesystemv_F0_3_20:
 	mov dword [esp+0x8], _cstring_default_localize
 	mov dword [esp+0x4], _cstring_couldnt_load_s__
 	mov dword [esp], 0x0
-	call Com_Error:F(0,1)
-	jmp Z17FS_InitFilesystemv:F(0,3)_30
+	call Com_Error_F0_1
+	jmp Z17FS_InitFilesystemv_F0_3_30
 
 
-;FS_FileRead:F(0,1)
+;FS_FileRead_F0_1
 
-FS_FileRead:F(0,1):
+FS_FileRead_F0_1:
 	push ebp
 	mov ebp, esp
 	pop ebp
@@ -7183,9 +7472,9 @@ FS_FileRead:F(0,1):
 	nop
 
 
-;FS_FileWrite:F(0,1)
+;FS_FileWrite_F0_1
 
-FS_FileWrite:F(0,1):
+FS_FileWrite_F0_1:
 	push ebp
 	mov ebp, esp
 	pop ebp
@@ -7193,9 +7482,9 @@ FS_FileWrite:F(0,1):
 	nop
 
 
-;FS_FileOpen:F(0,4)
+;FS_FileOpen_F0_4
 
-FS_FileOpen:F(0,4):
+FS_FileOpen_F0_4:
 	push ebp
 	mov ebp, esp
 	pop ebp
@@ -7203,9 +7492,9 @@ FS_FileOpen:F(0,4):
 	nop
 
 
-;FS_FileClose:F(0,10)
+;FS_FileClose_F0_10
 
-FS_FileClose:F(0,10):
+FS_FileClose_F0_10:
 	push ebp
 	mov ebp, esp
 	pop ebp
@@ -7213,9 +7502,9 @@ FS_FileClose:F(0,10):
 	nop
 
 
-;FS_FileSeek:F(0,10)
+;FS_FileSeek_F0_10
 
-FS_FileSeek:F(0,10):
+FS_FileSeek_F0_10:
 	push ebp
 	mov ebp, esp
 	pop ebp
@@ -7223,16 +7512,16 @@ FS_FileSeek:F(0,10):
 	add [eax], al
 
 
-;Z_FreeInternal:F(0,1)
+;Z_FreeInternal_F0_1
 
-Z20FS_SV_FOpenFileWritePKc:F(0,33):
+Z20FS_SV_FOpenFileWritePKc_F0_33:
 	push ebp
 	mov ebp, esp
 	push edi
 	push esi
 	push ebx
 	sub esp, 0x12c
-	call Z25FS_CheckFileSystemStartedv:F(0,3)
+	call Z25FS_CheckFileSystemStartedv_F0_3
 	lea esi, [ebp-0x118]
 	mov [esp+0xc], esi
 	mov dword [esp+0x8], _cstring_null
@@ -7242,7 +7531,7 @@ Z20FS_SV_FOpenFileWritePKc:F(0,33):
 	mov eax, [eax]
 	mov eax, [eax+0x8]
 	mov [esp], eax
-	call Z14FS_BuildOSPathPKcS0_S0_Pc:F(0,3)
+	call Z14FS_BuildOSPathPKcS0_S0_Pc_F0_3
 	cld
 	mov ecx, 0xffffffff
 	xor eax, eax
@@ -7251,7 +7540,7 @@ Z20FS_SV_FOpenFileWritePKc:F(0,33):
 	not ecx
 	mov byte [ecx+ebp-0x11a], 0x0
 	mov dword [esp], 0x0
-	call Z16FS_HandleForFilei:F(0,32)
+	call Z16FS_HandleForFilei_F0_32
 	mov edi, eax
 	lea eax, [eax+eax*8]
 	shl eax, 0x3
@@ -7265,13 +7554,13 @@ Z20FS_SV_FOpenFileWritePKc:F(0,33):
 	mov eax, [eax]
 	mov edx, [eax+0x8]
 	test edx, edx
-	jnz Z20FS_SV_FOpenFileWritePKc:F(0,33)_10
-Z20FS_SV_FOpenFileWritePKc:F(0,33)_40:
+	jnz Z20FS_SV_FOpenFileWritePKc_F0_33_10
+Z20FS_SV_FOpenFileWritePKc_F0_33_40:
 	mov [esp], esi
-	call Z13FS_CreatePathPc:F(0,1)
+	call Z13FS_CreatePathPc_F0_1
 	test eax, eax
-	jz Z20FS_SV_FOpenFileWritePKc:F(0,33)_20
-Z20FS_SV_FOpenFileWritePKc:F(0,33)_30:
+	jz Z20FS_SV_FOpenFileWritePKc_F0_33_20
+Z20FS_SV_FOpenFileWritePKc_F0_33_30:
 	xor edi, edi
 	mov eax, edi
 	add esp, 0x12c
@@ -7280,13 +7569,13 @@ Z20FS_SV_FOpenFileWritePKc:F(0,33)_30:
 	pop edi
 	pop ebp
 	ret
-Z20FS_SV_FOpenFileWritePKc:F(0,33)_20:
+Z20FS_SV_FOpenFileWritePKc_F0_33_20:
 	mov [esp+0x4], esi
 	mov dword [esp], _cstring_writing_to_s
-	call Z11Com_DPrintfPKcz:F(0,1)
+	call Z11Com_DPrintfPKcz_F0_1
 	mov dword [esp+0x4], _cstring_wb
 	mov [esp], esi
-	call FS_FileOpen:F(0,4)
+	call FS_FileOpen_F0_4
 	mov [ebx], eax
 	mov dword [esp+0x8], 0x100
 	mov edx, [ebp+0x8]
@@ -7295,11 +7584,11 @@ Z20FS_SV_FOpenFileWritePKc:F(0,33)_20:
 	mov edx, [0x1accd35]
 	lea eax, [ecx+edx+0x1c]
 	mov [esp], eax
-	call Z10I_strncpyzPcPKci:F(0,15)
+	call Z10I_strncpyzPcPKci_F0_15
 	mov dword [ebx+0x8], 0x0
 	mov eax, [ebx]
 	test eax, eax
-	jz Z20FS_SV_FOpenFileWritePKc:F(0,33)_30
+	jz Z20FS_SV_FOpenFileWritePKc_F0_33_30
 	mov eax, edi
 	add esp, 0x12c
 	pop ebx
@@ -7307,26 +7596,26 @@ Z20FS_SV_FOpenFileWritePKc:F(0,33)_20:
 	pop edi
 	pop ebp
 	ret
-Z20FS_SV_FOpenFileWritePKc:F(0,33)_10:
+Z20FS_SV_FOpenFileWritePKc_F0_33_10:
 	mov [esp+0x4], esi
 	mov dword [esp], _cstring_fs_sv_fopenfilew
-	call Z10Com_PrintfPKcz:F(0,1)
-	jmp Z20FS_SV_FOpenFileWritePKc:F(0,33)_40
+	call Z10Com_PrintfPKcz_F0_1
+	jmp Z20FS_SV_FOpenFileWritePKc_F0_33_40
 	nop
 
 
-;Z19FS_SV_FOpenFileReadPKcPi:F(0,2)
+;Z19FS_SV_FOpenFileReadPKcPi_F0_2
 
-Z19FS_SV_FOpenFileReadPKcPi:F(0,2):
+Z19FS_SV_FOpenFileReadPKcPi_F0_2:
 	push ebp
 	mov ebp, esp
 	push edi
 	push esi
 	push ebx
 	sub esp, 0x11c
-	call Z25FS_CheckFileSystemStartedv:F(0,3)
+	call Z25FS_CheckFileSystemStartedv_F0_3
 	mov dword [esp], 0x0
-	call Z16FS_HandleForFilei:F(0,32)
+	call Z16FS_HandleForFilei_F0_32
 	mov esi, eax
 	mov edx, [0x1accd35]
 	lea eax, [eax+eax*8]
@@ -7340,7 +7629,7 @@ Z19FS_SV_FOpenFileReadPKcPi:F(0,2):
 	mov [esp+0x4], ecx
 	lea eax, [eax+edx+0x1c]
 	mov [esp], eax
-	call Z10I_strncpyzPcPKci:F(0,15)
+	call Z10I_strncpyzPcPKci_F0_15
 	lea eax, [ebp-0x118]
 	mov [esp+0xc], eax
 	mov dword [esp+0x8], _cstring_null
@@ -7350,7 +7639,7 @@ Z19FS_SV_FOpenFileReadPKcPi:F(0,2):
 	mov eax, [ecx]
 	mov eax, [eax+0x8]
 	mov [esp], eax
-	call Z14FS_BuildOSPathPKcS0_S0_Pc:F(0,3)
+	call Z14FS_BuildOSPathPKcS0_S0_Pc_F0_3
 	cld
 	mov ecx, 0xffffffff
 	lea edi, [ebp-0x118]
@@ -7362,21 +7651,21 @@ Z19FS_SV_FOpenFileReadPKcPi:F(0,2):
 	mov eax, [edx]
 	mov eax, [eax+0x8]
 	test eax, eax
-	jnz Z19FS_SV_FOpenFileReadPKcPi:F(0,2)_10
-Z19FS_SV_FOpenFileReadPKcPi:F(0,2)_40:
+	jnz Z19FS_SV_FOpenFileReadPKcPi_F0_2_10
+Z19FS_SV_FOpenFileReadPKcPi_F0_2_40:
 	mov dword [esp+0x4], _cstring_rb
 	lea eax, [ebp-0x118]
 	mov [esp], eax
-	call FS_FileOpen:F(0,4)
+	call FS_FileOpen_F0_4
 	mov [ebx], eax
 	mov dword [ebx+0x8], 0x0
 	test eax, eax
-	jz Z19FS_SV_FOpenFileReadPKcPi:F(0,2)_20
-Z19FS_SV_FOpenFileReadPKcPi:F(0,2)_60:
+	jz Z19FS_SV_FOpenFileReadPKcPi_F0_2_20
+Z19FS_SV_FOpenFileReadPKcPi_F0_2_60:
 	mov eax, [ebp+0xc]
 	mov [eax], esi
 	test esi, esi
-	jnz Z19FS_SV_FOpenFileReadPKcPi:F(0,2)_30
+	jnz Z19FS_SV_FOpenFileReadPKcPi_F0_2_30
 	xor eax, eax
 	add esp, 0x11c
 	pop ebx
@@ -7384,22 +7673,22 @@ Z19FS_SV_FOpenFileReadPKcPi:F(0,2)_60:
 	pop edi
 	pop ebp
 	ret
-Z19FS_SV_FOpenFileReadPKcPi:F(0,2)_30:
+Z19FS_SV_FOpenFileReadPKcPi_F0_2_30:
 	mov [esp], esi
-	call Z13FS_filelengthi:F(0,2)
+	call Z13FS_filelengthi_F0_2
 	add esp, 0x11c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z19FS_SV_FOpenFileReadPKcPi:F(0,2)_10:
+Z19FS_SV_FOpenFileReadPKcPi_F0_2_10:
 	lea ecx, [ebp-0x118]
 	mov [esp+0x4], ecx
 	mov dword [esp], _cstring_fs_sv_fopenfiler
-	call Z10Com_PrintfPKcz:F(0,1)
-	jmp Z19FS_SV_FOpenFileReadPKcPi:F(0,2)_40
-Z19FS_SV_FOpenFileReadPKcPi:F(0,2)_20:
+	call Z10Com_PrintfPKcz_F0_1
+	jmp Z19FS_SV_FOpenFileReadPKcPi_F0_2_40
+Z19FS_SV_FOpenFileReadPKcPi_F0_2_20:
 	mov edi, [0x1accd31]
 	mov eax, [edi]
 	mov eax, [eax+0x8]
@@ -7408,10 +7697,10 @@ Z19FS_SV_FOpenFileReadPKcPi:F(0,2)_20:
 	mov eax, [edx]
 	mov eax, [eax+0x8]
 	mov [esp], eax
-	call I_stricmp:F(0,2)
+	call I_stricmp_F0_2
 	test eax, eax
-	jnz Z19FS_SV_FOpenFileReadPKcPi:F(0,2)_50
-Z19FS_SV_FOpenFileReadPKcPi:F(0,2)_90:
+	jnz Z19FS_SV_FOpenFileReadPKcPi_F0_2_50
+Z19FS_SV_FOpenFileReadPKcPi_F0_2_90:
 	lea eax, [esi+esi*8]
 	shl eax, 0x3
 	sub eax, esi
@@ -7419,7 +7708,7 @@ Z19FS_SV_FOpenFileReadPKcPi:F(0,2)_90:
 	mov edx, [0x1accd35]
 	mov eax, [ebx+edx]
 	test eax, eax
-	jnz Z19FS_SV_FOpenFileReadPKcPi:F(0,2)_60
+	jnz Z19FS_SV_FOpenFileReadPKcPi_F0_2_60
 	lea ecx, [ebp-0x118]
 	mov [esp+0xc], ecx
 	mov dword [esp+0x8], _cstring_null
@@ -7429,7 +7718,7 @@ Z19FS_SV_FOpenFileReadPKcPi:F(0,2)_90:
 	mov eax, [eax]
 	mov eax, [eax+0x8]
 	mov [esp], eax
-	call Z14FS_BuildOSPathPKcS0_S0_Pc:F(0,3)
+	call Z14FS_BuildOSPathPKcS0_S0_Pc_F0_3
 	cld
 	mov ecx, 0xffffffff
 	xor eax, eax
@@ -7441,12 +7730,12 @@ Z19FS_SV_FOpenFileReadPKcPi:F(0,2)_90:
 	mov eax, [eax]
 	mov edi, [eax+0x8]
 	test edi, edi
-	jnz Z19FS_SV_FOpenFileReadPKcPi:F(0,2)_70
-Z19FS_SV_FOpenFileReadPKcPi:F(0,2)_110:
+	jnz Z19FS_SV_FOpenFileReadPKcPi_F0_2_70
+Z19FS_SV_FOpenFileReadPKcPi_F0_2_110:
 	mov dword [esp+0x4], _cstring_rb
 	lea ecx, [ebp-0x118]
 	mov [esp], ecx
-	call FS_FileOpen:F(0,4)
+	call FS_FileOpen_F0_4
 	mov edx, [0x1accd35]
 	mov [ebx+edx], eax
 	lea eax, [ebx+edx]
@@ -7455,8 +7744,8 @@ Z19FS_SV_FOpenFileReadPKcPi:F(0,2)_110:
 	test ecx, ecx
 	mov eax, 0x0
 	cmovz esi, eax
-	jmp Z19FS_SV_FOpenFileReadPKcPi:F(0,2)_60
-Z19FS_SV_FOpenFileReadPKcPi:F(0,2)_50:
+	jmp Z19FS_SV_FOpenFileReadPKcPi_F0_2_60
+Z19FS_SV_FOpenFileReadPKcPi_F0_2_50:
 	lea ecx, [ebp-0x118]
 	mov [esp+0xc], ecx
 	mov dword [esp+0x8], _cstring_null
@@ -7465,7 +7754,7 @@ Z19FS_SV_FOpenFileReadPKcPi:F(0,2)_50:
 	mov eax, [edi]
 	mov eax, [eax+0x8]
 	mov [esp], eax
-	call Z14FS_BuildOSPathPKcS0_S0_Pc:F(0,3)
+	call Z14FS_BuildOSPathPKcS0_S0_Pc_F0_3
 	cld
 	mov ecx, 0xffffffff
 	lea edi, [ebp-0x118]
@@ -7477,43 +7766,43 @@ Z19FS_SV_FOpenFileReadPKcPi:F(0,2)_50:
 	mov eax, [edx]
 	mov eax, [eax+0x8]
 	test eax, eax
-	jnz Z19FS_SV_FOpenFileReadPKcPi:F(0,2)_80
-Z19FS_SV_FOpenFileReadPKcPi:F(0,2)_100:
+	jnz Z19FS_SV_FOpenFileReadPKcPi_F0_2_80
+Z19FS_SV_FOpenFileReadPKcPi_F0_2_100:
 	mov dword [esp+0x4], _cstring_rb
 	lea eax, [ebp-0x118]
 	mov [esp], eax
-	call FS_FileOpen:F(0,4)
+	call FS_FileOpen_F0_4
 	mov [ebx], eax
 	mov dword [ebx+0x8], 0x0
 	test eax, eax
-	jnz Z19FS_SV_FOpenFileReadPKcPi:F(0,2)_60
+	jnz Z19FS_SV_FOpenFileReadPKcPi_F0_2_60
 	xor esi, esi
-	jmp Z19FS_SV_FOpenFileReadPKcPi:F(0,2)_90
-Z19FS_SV_FOpenFileReadPKcPi:F(0,2)_80:
+	jmp Z19FS_SV_FOpenFileReadPKcPi_F0_2_90
+Z19FS_SV_FOpenFileReadPKcPi_F0_2_80:
 	lea ecx, [ebp-0x118]
 	mov [esp+0x4], ecx
 	mov dword [esp], _cstring_fs_sv_fopenfiler1
-	call Z10Com_PrintfPKcz:F(0,1)
-	jmp Z19FS_SV_FOpenFileReadPKcPi:F(0,2)_100
-Z19FS_SV_FOpenFileReadPKcPi:F(0,2)_70:
+	call Z10Com_PrintfPKcz_F0_1
+	jmp Z19FS_SV_FOpenFileReadPKcPi_F0_2_100
+Z19FS_SV_FOpenFileReadPKcPi_F0_2_70:
 	lea edx, [ebp-0x118]
 	mov [esp+0x4], edx
 	mov dword [esp], _cstring_fs_sv_fopenfiler2
-	call Z10Com_PrintfPKcz:F(0,1)
-	jmp Z19FS_SV_FOpenFileReadPKcPi:F(0,2)_110
+	call Z10Com_PrintfPKcz_F0_1
+	jmp Z19FS_SV_FOpenFileReadPKcPi_F0_2_110
 	nop
 
 
-;Z12FS_SV_RenamePKcS0_:F(0,22)
+;Z12FS_SV_RenamePKcS0__F0_22
 
-Z12FS_SV_RenamePKcS0_:F(0,22):
+Z12FS_SV_RenamePKcS0__F0_22:
 	push ebp
 	mov ebp, esp
 	push edi
 	push esi
 	push ebx
 	sub esp, 0x21c
-	call Z25FS_CheckFileSystemStartedv:F(0,3)
+	call Z25FS_CheckFileSystemStartedv_F0_3
 	lea eax, [ebp-0x118]
 	mov [esp+0xc], eax
 	mov dword [esp+0x8], _cstring_null
@@ -7523,7 +7812,7 @@ Z12FS_SV_RenamePKcS0_:F(0,22):
 	mov eax, [ebx]
 	mov eax, [eax+0x8]
 	mov [esp], eax
-	call Z14FS_BuildOSPathPKcS0_S0_Pc:F(0,3)
+	call Z14FS_BuildOSPathPKcS0_S0_Pc_F0_3
 	lea esi, [ebp-0x218]
 	mov [esp+0xc], esi
 	mov dword [esp+0x8], _cstring_null
@@ -7532,7 +7821,7 @@ Z12FS_SV_RenamePKcS0_:F(0,22):
 	mov eax, [ebx]
 	mov eax, [eax+0x8]
 	mov [esp], eax
-	call Z14FS_BuildOSPathPKcS0_S0_Pc:F(0,3)
+	call Z14FS_BuildOSPathPKcS0_S0_Pc_F0_3
 	mov edx, 0xffffffff
 	xor eax, eax
 	cld
@@ -7550,40 +7839,40 @@ Z12FS_SV_RenamePKcS0_:F(0,22):
 	mov eax, [eax]
 	mov eax, [eax+0x8]
 	test eax, eax
-	jnz Z12FS_SV_RenamePKcS0_:F(0,22)_10
-Z12FS_SV_RenamePKcS0_:F(0,22)_30:
+	jnz Z12FS_SV_RenamePKcS0__F0_22_10
+Z12FS_SV_RenamePKcS0__F0_22_30:
 	mov [esp+0x4], esi
 	lea eax, [ebp-0x118]
 	mov [esp], eax
 	call rename
 	test eax, eax
-	jz Z12FS_SV_RenamePKcS0_:F(0,22)_20
+	jz Z12FS_SV_RenamePKcS0__F0_22_20
 	mov [esp+0x4], esi
 	lea eax, [ebp-0x118]
 	mov [esp], eax
-	call Z11FS_CopyFilePcS_:F(0,3)
+	call Z11FS_CopyFilePcS__F0_3
 	lea eax, [ebp-0x118]
 	mov [esp], eax
-	call Z9FS_RemovePKc:F(0,3)
-Z12FS_SV_RenamePKcS0_:F(0,22)_20:
+	call Z9FS_RemovePKc_F0_3
+Z12FS_SV_RenamePKcS0__F0_22_20:
 	add esp, 0x21c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z12FS_SV_RenamePKcS0_:F(0,22)_10:
+Z12FS_SV_RenamePKcS0__F0_22_10:
 	mov [esp+0x8], esi
 	lea eax, [ebp-0x118]
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_fs_sv_rename_s__
-	call Z10Com_PrintfPKcz:F(0,1)
-	jmp Z12FS_SV_RenamePKcS0_:F(0,22)_30
+	call Z10Com_PrintfPKcz_F0_1
+	jmp Z12FS_SV_RenamePKcS0__F0_22_30
 
 
-;Z11FS_ShiftStrPKci:F(0,35)
+;Z11FS_ShiftStrPKci_F0_35
 
-Z11FS_ShiftStrPKci:F(0,35):
+Z11FS_ShiftStrPKci_F0_35:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -7599,7 +7888,7 @@ Z11FS_ShiftStrPKci:F(0,35):
 	not ecx
 	sub ecx, 0x1
 	test ecx, ecx
-	jg Z11FS_ShiftStrPKci:F(0,35)_10
+	jg Z11FS_ShiftStrPKci_F0_35_10
 	xor eax, eax
 	mov byte [eax+_ZZ11FS_ShiftStrPKciE3buf], 0x0
 	mov eax, _ZZ11FS_ShiftStrPKciE3buf
@@ -7609,16 +7898,16 @@ Z11FS_ShiftStrPKci:F(0,35):
 	pop edi
 	pop ebp
 	ret
-Z11FS_ShiftStrPKci:F(0,35)_10:
+Z11FS_ShiftStrPKci_F0_35_10:
 	movzx ebx, byte [ebp+0xc]
 	xor edx, edx
-Z11FS_ShiftStrPKci:F(0,35)_20:
+Z11FS_ShiftStrPKci_F0_35_20:
 	mov eax, ebx
 	add al, [esi+edx]
 	mov [edx+_ZZ11FS_ShiftStrPKciE3buf], al
 	add edx, 0x1
 	cmp edx, ecx
-	jnz Z11FS_ShiftStrPKci:F(0,35)_20
+	jnz Z11FS_ShiftStrPKci_F0_35_20
 	mov eax, ecx
 	mov byte [eax+_ZZ11FS_ShiftStrPKciE3buf], 0x0
 	mov eax, _ZZ11FS_ShiftStrPKciE3buf
@@ -7631,101 +7920,101 @@ Z11FS_ShiftStrPKci:F(0,35)_20:
 	nop
 
 
-;Z8FS_Dir_fv:F(0,22)
+;Z8FS_Dir_fv_F0_22
 
-Z8FS_Dir_fv:F(0,22):
+Z8FS_Dir_fv_F0_22:
 	push ebp
 	mov ebp, esp
 	push esi
 	push ebx
 	sub esp, 0x30
-	call Z8Cmd_Argcv:F(0,2)
+	call Z8Cmd_Argcv_F0_2
 	sub eax, 0x1
-	jle Z8FS_Dir_fv:F(0,22)_10
-	call Z8Cmd_Argcv:F(0,2)
+	jle Z8FS_Dir_fv_F0_22_10
+	call Z8Cmd_Argcv_F0_2
 	cmp eax, 0x3
-	jle Z8FS_Dir_fv:F(0,22)_20
-Z8FS_Dir_fv:F(0,22)_10:
+	jle Z8FS_Dir_fv_F0_22_20
+Z8FS_Dir_fv_F0_22_10:
 	mov dword [esp], _cstring_usage_dir_direct
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	add esp, 0x30
 	pop ebx
 	pop esi
 	pop ebp
 	ret
-Z8FS_Dir_fv:F(0,22)_20:
-	call Z8Cmd_Argcv:F(0,2)
+Z8FS_Dir_fv_F0_22_20:
+	call Z8Cmd_Argcv_F0_2
 	cmp eax, 0x2
-	jz Z8FS_Dir_fv:F(0,22)_30
+	jz Z8FS_Dir_fv_F0_22_30
 	mov dword [esp], 0x1
-	call Z8Cmd_Argvi:F(0,3)
+	call Z8Cmd_Argvi_F0_3
 	mov ebx, eax
 	mov dword [esp], 0x2
-	call Z8Cmd_Argvi:F(0,3)
+	call Z8Cmd_Argvi_F0_3
 	mov esi, eax
-Z8FS_Dir_fv:F(0,22)_50:
+Z8FS_Dir_fv_F0_22_50:
 	mov [esp+0x8], esi
 	mov [esp+0x4], ebx
 	mov dword [esp], _cstring_directory_of_s_s
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov dword [esp], _cstring_10
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov dword [esp+0x10], 0xa
 	lea eax, [ebp-0xc]
 	mov [esp+0xc], eax
 	mov dword [esp+0x8], 0x0
 	mov [esp+0x4], esi
 	mov [esp], ebx
-	call FS_ListFiles:F(0,62)
+	call FS_ListFiles_F0_62
 	mov esi, eax
 	mov eax, [ebp-0xc]
 	test eax, eax
-	jg Z8FS_Dir_fv:F(0,22)_40
-Z8FS_Dir_fv:F(0,22)_70:
+	jg Z8FS_Dir_fv_F0_22_40
+Z8FS_Dir_fv_F0_22_70:
 	mov dword [esp+0x4], 0xa
 	mov [esp], esi
-	call FS_FreeFileList:F(0,3)
+	call FS_FreeFileList_F0_3
 	add esp, 0x30
 	pop ebx
 	pop esi
 	pop ebp
 	ret
-Z8FS_Dir_fv:F(0,22)_30:
+Z8FS_Dir_fv_F0_22_30:
 	mov dword [esp], 0x1
-	call Z8Cmd_Argvi:F(0,3)
+	call Z8Cmd_Argvi_F0_3
 	mov ebx, eax
 	mov esi, _cstring_null
-	jmp Z8FS_Dir_fv:F(0,22)_50
-Z8FS_Dir_fv:F(0,22)_40:
+	jmp Z8FS_Dir_fv_F0_22_50
+Z8FS_Dir_fv_F0_22_40:
 	xor ebx, ebx
-Z8FS_Dir_fv:F(0,22)_60:
+Z8FS_Dir_fv_F0_22_60:
 	mov eax, [esi+ebx*4]
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_s
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	add ebx, 0x1
 	cmp [ebp-0xc], ebx
-	jg Z8FS_Dir_fv:F(0,22)_60
-	jmp Z8FS_Dir_fv:F(0,22)_70
+	jg Z8FS_Dir_fv_F0_22_60
+	jmp Z8FS_Dir_fv_F0_22_70
 
 
-;Z11FS_NewDir_fv:F(0,22)
+;Z11FS_NewDir_fv_F0_22
 
-Z11FS_NewDir_fv:F(0,22):
+Z11FS_NewDir_fv_F0_22:
 	push ebp
 	mov ebp, esp
 	push edi
 	push esi
 	push ebx
 	sub esp, 0x3c
-	call Z8Cmd_Argcv:F(0,2)
+	call Z8Cmd_Argcv_F0_2
 	sub eax, 0x1
-	jle Z11FS_NewDir_fv:F(0,22)_10
+	jle Z11FS_NewDir_fv_F0_22_10
 	mov dword [esp], 0x1
-	call Z8Cmd_Argvi:F(0,3)
+	call Z8Cmd_Argvi_F0_3
 	mov ebx, eax
 	mov dword [esp], _cstring_10
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov dword [esp+0x18], 0xa
 	lea eax, [ebp-0x1c]
 	mov [esp+0x14], eax
@@ -7736,51 +8025,51 @@ Z11FS_NewDir_fv:F(0,22):
 	mov eax, [0x1accd4d]
 	mov eax, [eax]
 	mov [esp], eax
-	call Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii:F(0,62)
+	call Z20FS_ListFilteredFilesP12searchpath_sPKcS2_S2_16FsListBehavior_ePii_F0_62
 	mov edi, eax
 	mov eax, [ebp-0x1c]
 	mov [esp+0x4], eax
 	mov [esp], edi
-	call Z15FS_SortFileListPPKci:F(0,3)
+	call Z15FS_SortFileListPPKci_F0_3
 	mov edx, [ebp-0x1c]
 	test edx, edx
-	jg Z11FS_NewDir_fv:F(0,22)_20
-Z11FS_NewDir_fv:F(0,22)_40:
+	jg Z11FS_NewDir_fv_F0_22_20
+Z11FS_NewDir_fv_F0_22_40:
 	mov [esp+0x4], edx
 	mov dword [esp], _cstring_d_files_listed
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov dword [esp+0x4], 0xa
 	mov [esp], edi
-	call FS_FreeFileList:F(0,3)
+	call FS_FreeFileList_F0_3
 	add esp, 0x3c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z11FS_NewDir_fv:F(0,22)_20:
+Z11FS_NewDir_fv_F0_22_20:
 	mov esi, 0x1
 	lea ebx, [edi+0x4]
-Z11FS_NewDir_fv:F(0,22)_30:
+Z11FS_NewDir_fv_F0_22_30:
 	mov eax, [ebx-0x4]
 	mov [esp], eax
-	call Z14FS_ConvertPathPc:F(0,3)
+	call Z14FS_ConvertPathPc_F0_3
 	mov eax, [ebx-0x4]
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_s
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov eax, esi
 	mov edx, [ebp-0x1c]
 	add esi, 0x1
 	add ebx, 0x4
 	cmp edx, eax
-	jg Z11FS_NewDir_fv:F(0,22)_30
-	jmp Z11FS_NewDir_fv:F(0,22)_40
-Z11FS_NewDir_fv:F(0,22)_10:
+	jg Z11FS_NewDir_fv_F0_22_30
+	jmp Z11FS_NewDir_fv_F0_22_40
+Z11FS_NewDir_fv_F0_22_10:
 	mov dword [esp], _cstring_usage_fdir_filte
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov dword [esp], _cstring_example_fdir_q3d
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	add esp, 0x3c
 	pop ebx
 	pop esi
@@ -7789,31 +8078,31 @@ Z11FS_NewDir_fv:F(0,22)_10:
 	ret
 
 
-;Z14FS_TouchFile_fv:F(0,22)
+;Z14FS_TouchFile_fv_F0_22
 
-Z14FS_TouchFile_fv:F(0,22):
+Z14FS_TouchFile_fv_F0_22:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
-	call Z8Cmd_Argcv:F(0,2)
+	call Z8Cmd_Argcv_F0_2
 	cmp eax, 0x2
-	jz Z14FS_TouchFile_fv:F(0,22)_10
+	jz Z14FS_TouchFile_fv_F0_22_10
 	mov dword [esp], _cstring_usage_touchfile_
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	leave
 	ret
-Z14FS_TouchFile_fv:F(0,22)_10:
+Z14FS_TouchFile_fv_F0_22_10:
 	mov dword [esp], 0x1
-	call Z8Cmd_Argvi:F(0,3)
+	call Z8Cmd_Argvi_F0_3
 	mov [esp], eax
-	call Z12FS_TouchFilePKc:F(0,1)
+	call Z12FS_TouchFilePKc_F0_1
 	leave
 	ret
 
 
-;Z8FS_iwIwdPcS_:F(0,1)
+;Z8FS_iwIwdPcS__F0_1
 
-Z8FS_iwIwdPcS_:F(0,1):
+Z8FS_iwIwdPcS__F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -7823,22 +8112,22 @@ Z8FS_iwIwdPcS_:F(0,1):
 	mov esi, [ebp+0x8]
 	mov edi, [ebp+0xc]
 	xor ebx, ebx
-	jmp Z8FS_iwIwdPcS_:F(0,1)_10
-Z8FS_iwIwdPcS_:F(0,1)_30:
+	jmp Z8FS_iwIwdPcS__F0_1_10
+Z8FS_iwIwdPcS__F0_1_30:
 	add ebx, 0x1
 	cmp ebx, 0x19
-	jz Z8FS_iwIwdPcS_:F(0,1)_20
-Z8FS_iwIwdPcS_:F(0,1)_10:
+	jz Z8FS_iwIwdPcS__F0_1_20
+Z8FS_iwIwdPcS__F0_1_10:
 	mov [esp+0x8], ebx
 	mov [esp+0x4], edi
 	mov dword [esp], _cstring_siw_02d
-	call va:F(0,3)
+	call va_F0_3
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call Z18FS_FilenameComparePKcS0_:F(0,1)
+	call Z18FS_FilenameComparePKcS0__F0_1
 	test eax, eax
-	jnz Z8FS_iwIwdPcS_:F(0,1)_30
-Z8FS_iwIwdPcS_:F(0,1)_80:
+	jnz Z8FS_iwIwdPcS__F0_1_30
+Z8FS_iwIwdPcS__F0_1_80:
 	mov eax, 0x1
 	add esp, 0x5c
 	pop ebx
@@ -7846,13 +8135,13 @@ Z8FS_iwIwdPcS_:F(0,1)_80:
 	pop edi
 	pop ebp
 	ret
-Z8FS_iwIwdPcS_:F(0,1)_20:
+Z8FS_iwIwdPcS__F0_1_20:
 	mov dword [esp+0x4], _cstring_localized_
 	mov [esp], esi
 	call strstr
 	mov ebx, eax
 	test eax, eax
-	jz Z8FS_iwIwdPcS_:F(0,1)_40
+	jz Z8FS_iwIwdPcS__F0_1_40
 	mov [esp+0x4], esi
 	lea eax, [ebp-0x58]
 	mov [esp], eax
@@ -7862,14 +8151,14 @@ Z8FS_iwIwdPcS_:F(0,1)_20:
 	mov byte [ebp+eax-0x4e], 0x0
 	mov [esp+0x4], edi
 	mov dword [esp], _cstring_slocalized_
-	call va:F(0,3)
+	call va_F0_3
 	mov [esp+0x4], eax
 	lea eax, [ebp-0x58]
 	mov [esp], eax
-	call Z18FS_FilenameComparePKcS0_:F(0,1)
+	call Z18FS_FilenameComparePKcS0__F0_1
 	test eax, eax
-	jz Z8FS_iwIwdPcS_:F(0,1)_50
-Z8FS_iwIwdPcS_:F(0,1)_40:
+	jz Z8FS_iwIwdPcS__F0_1_50
+Z8FS_iwIwdPcS__F0_1_40:
 	xor eax, eax
 	add esp, 0x5c
 	pop ebx
@@ -7877,7 +8166,7 @@ Z8FS_iwIwdPcS_:F(0,1)_40:
 	pop edi
 	pop ebp
 	ret
-Z8FS_iwIwdPcS_:F(0,1)_50:
+Z8FS_iwIwdPcS__F0_1_50:
 	lea eax, [ebx+0xa]
 	mov [esp+0x4], eax
 	lea eax, [ebp-0x58]
@@ -7885,56 +8174,56 @@ Z8FS_iwIwdPcS_:F(0,1)_50:
 	call strcpy
 	lea eax, [ebp-0x58]
 	mov [esp], eax
-	call Z8I_strlwrPc:F(0,3)
+	call Z8I_strlwrPc_F0_3
 	xor ebx, ebx
-	jmp Z8FS_iwIwdPcS_:F(0,1)_60
-Z8FS_iwIwdPcS_:F(0,1)_70:
+	jmp Z8FS_iwIwdPcS__F0_1_60
+Z8FS_iwIwdPcS__F0_1_70:
 	add ebx, 0x1
 	cmp ebx, 0x19
-	jz Z8FS_iwIwdPcS_:F(0,1)_40
-Z8FS_iwIwdPcS_:F(0,1)_60:
+	jz Z8FS_iwIwdPcS__F0_1_40
+Z8FS_iwIwdPcS__F0_1_60:
 	mov [esp+0x4], ebx
 	mov dword [esp], _cstring__iw02d
-	call va:F(0,3)
+	call va_F0_3
 	mov [esp+0x4], eax
 	lea eax, [ebp-0x58]
 	mov [esp], eax
 	call strstr
 	test eax, eax
-	jz Z8FS_iwIwdPcS_:F(0,1)_70
-	jmp Z8FS_iwIwdPcS_:F(0,1)_80
+	jz Z8FS_iwIwdPcS__F0_1_70
+	jmp Z8FS_iwIwdPcS__F0_1_80
 
 
-;Z14FS_AddCommandsv:F(0,22)
+;Z14FS_AddCommandsv_F0_22
 
-Z14FS_AddCommandsv:F(0,22):
+Z14FS_AddCommandsv_F0_22:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
 	mov eax, [0x1accd6d]
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_path
-	call Z14Cmd_AddCommandPKcPFvvE:F(0,1)
+	call Z14Cmd_AddCommandPKcPFvvE_F0_1
 	mov eax, [0x1accd59]
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_fullpath
-	call Z14Cmd_AddCommandPKcPFvvE:F(0,1)
-	mov dword [esp+0x4], Z8FS_Dir_fv:F(0,22)
+	call Z14Cmd_AddCommandPKcPFvvE_F0_1
+	mov dword [esp+0x4], Z8FS_Dir_fv_F0_22
 	mov dword [esp], _cstring_dir
-	call Z14Cmd_AddCommandPKcPFvvE:F(0,1)
-	mov dword [esp+0x4], Z11FS_NewDir_fv:F(0,22)
+	call Z14Cmd_AddCommandPKcPFvvE_F0_1
+	mov dword [esp+0x4], Z11FS_NewDir_fv_F0_22
 	mov dword [esp], _cstring_fdir
-	call Z14Cmd_AddCommandPKcPFvvE:F(0,1)
-	mov dword [esp+0x4], Z14FS_TouchFile_fv:F(0,22)
+	call Z14Cmd_AddCommandPKcPFvvE_F0_1
+	mov dword [esp+0x4], Z14FS_TouchFile_fv_F0_22
 	mov dword [esp], _cstring_touchfile
-	call Z14Cmd_AddCommandPKcPFvvE:F(0,1)
+	call Z14Cmd_AddCommandPKcPFvvE_F0_1
 	leave
 	ret
 
 
-;Z18FS_SetRestrictionsv:F(0,22)
+;Z18FS_SetRestrictionsv_F0_22
 
-Z18FS_SetRestrictionsv:F(0,22):
+Z18FS_SetRestrictionsv_F0_22:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -7942,45 +8231,45 @@ Z18FS_SetRestrictionsv:F(0,22):
 	mov eax, [0x1accd51]
 	mov eax, [eax]
 	cmp byte [eax+0x8], 0x0
-	jnz Z18FS_SetRestrictionsv:F(0,22)_10
-Z18FS_SetRestrictionsv:F(0,22)_20:
+	jnz Z18FS_SetRestrictionsv_F0_22_10
+Z18FS_SetRestrictionsv_F0_22_20:
 	add esp, 0x14
 	pop ebx
 	pop ebp
 	ret
-Z18FS_SetRestrictionsv:F(0,22)_10:
+Z18FS_SetRestrictionsv_F0_22_10:
 	mov dword [esp+0x4], 0x1
 	mov [esp], eax
-	call Z12Dvar_SetBoolPK6dvar_sh:F(0,1)
+	call Z12Dvar_SetBoolPK6dvar_sh_F0_1
 	mov dword [esp], _cstring_running_in_restr
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov dword [esp], 0x0
-	call Z11FS_Shutdowni:F(0,3)
+	call Z11FS_Shutdowni_F0_3
 	mov dword [esp], _cstring_demomain
-	call Z10FS_StartupPKc:F(0,3)
+	call Z10FS_StartupPKc_F0_3
 	mov eax, [0x1accd4d]
 	mov ebx, [eax]
 	test ebx, ebx
-	jz Z18FS_SetRestrictionsv:F(0,22)_20
-Z18FS_SetRestrictionsv:F(0,22)_40:
+	jz Z18FS_SetRestrictionsv_F0_22_20
+Z18FS_SetRestrictionsv_F0_22_40:
 	mov [esp], ebx
-	call Z16FS_UseSearchPathPK12searchpath_s:F(0,1)
+	call Z16FS_UseSearchPathPK12searchpath_s_F0_1
 	test eax, eax
-	jz Z18FS_SetRestrictionsv:F(0,22)_30
+	jz Z18FS_SetRestrictionsv_F0_22_30
 	mov eax, [ebx+0x4]
 	test eax, eax
-	jz Z18FS_SetRestrictionsv:F(0,22)_30
+	jz Z18FS_SetRestrictionsv_F0_22_30
 	mov eax, [eax+0x304]
 	cmp eax, 0xb1f595f5
-	jz Z18FS_SetRestrictionsv:F(0,22)_30
+	jz Z18FS_SetRestrictionsv_F0_22_30
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], _cstring_corrupted_iw0iwd
 	mov dword [esp], 0x0
-	call Com_Error:F(0,1)
-Z18FS_SetRestrictionsv:F(0,22)_30:
+	call Com_Error_F0_1
+Z18FS_SetRestrictionsv_F0_22_30:
 	mov ebx, [ebx]
 	test ebx, ebx
-	jnz Z18FS_SetRestrictionsv:F(0,22)_40
+	jnz Z18FS_SetRestrictionsv_F0_22_40
 	add esp, 0x14
 	pop ebx
 	pop ebp
@@ -7988,9 +8277,9 @@ Z18FS_SetRestrictionsv:F(0,22)_30:
 	nop
 
 
-;Z21FS_LoadedIwdChecksumsv:F(0,3)
+;Z21FS_LoadedIwdChecksumsv_F0_3
 
-Z21FS_LoadedIwdChecksumsv:F(0,3):
+Z21FS_LoadedIwdChecksumsv_F0_3:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -7999,31 +8288,31 @@ Z21FS_LoadedIwdChecksumsv:F(0,3):
 	mov eax, [0x1accd4d]
 	mov ebx, [eax]
 	test ebx, ebx
-	jnz Z21FS_LoadedIwdChecksumsv:F(0,3)_10
-	jmp Z21FS_LoadedIwdChecksumsv:F(0,3)_20
-Z21FS_LoadedIwdChecksumsv:F(0,3)_30:
+	jnz Z21FS_LoadedIwdChecksumsv_F0_3_10
+	jmp Z21FS_LoadedIwdChecksumsv_F0_3_20
+Z21FS_LoadedIwdChecksumsv_F0_3_30:
 	mov ebx, [ebx]
 	test ebx, ebx
-	jz Z21FS_LoadedIwdChecksumsv:F(0,3)_20
-Z21FS_LoadedIwdChecksumsv:F(0,3)_10:
+	jz Z21FS_LoadedIwdChecksumsv_F0_3_20
+Z21FS_LoadedIwdChecksumsv_F0_3_10:
 	mov eax, [ebx+0x4]
 	test eax, eax
-	jz Z21FS_LoadedIwdChecksumsv:F(0,3)_30
+	jz Z21FS_LoadedIwdChecksumsv_F0_3_30
 	mov edx, [ebx+0xc]
 	test edx, edx
-	jnz Z21FS_LoadedIwdChecksumsv:F(0,3)_30
+	jnz Z21FS_LoadedIwdChecksumsv_F0_3_30
 	mov eax, [eax+0x304]
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_i_
-	call va:F(0,3)
+	call va_F0_3
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], 0x2000
 	mov dword [esp], info2
-	call Z9I_strncatPciPKc:F(0,15)
+	call Z9I_strncatPciPKc_F0_15
 	mov ebx, [ebx]
 	test ebx, ebx
-	jnz Z21FS_LoadedIwdChecksumsv:F(0,3)_10
-Z21FS_LoadedIwdChecksumsv:F(0,3)_20:
+	jnz Z21FS_LoadedIwdChecksumsv_F0_3_10
+Z21FS_LoadedIwdChecksumsv_F0_3_20:
 	mov eax, info2
 	add esp, 0x14
 	pop ebx
@@ -8031,9 +8320,9 @@ Z21FS_LoadedIwdChecksumsv:F(0,3)_20:
 	ret
 
 
-;Z17FS_LoadedIwdNamesv:F(0,3)
+;Z17FS_LoadedIwdNamesv_F0_3
 
-Z17FS_LoadedIwdNamesv:F(0,3):
+Z17FS_LoadedIwdNamesv_F0_3:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -8042,34 +8331,34 @@ Z17FS_LoadedIwdNamesv:F(0,3):
 	mov eax, [0x1accd4d]
 	mov ebx, [eax]
 	test ebx, ebx
-	jnz Z17FS_LoadedIwdNamesv:F(0,3)_10
-	jmp Z17FS_LoadedIwdNamesv:F(0,3)_20
-Z17FS_LoadedIwdNamesv:F(0,3)_40:
+	jnz Z17FS_LoadedIwdNamesv_F0_3_10
+	jmp Z17FS_LoadedIwdNamesv_F0_3_20
+Z17FS_LoadedIwdNamesv_F0_3_40:
 	mov eax, [ebx+0x4]
 	add eax, 0x100
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], 0x2000
 	mov dword [esp], info3
-	call Z9I_strncatPciPKc:F(0,15)
-Z17FS_LoadedIwdNamesv:F(0,3)_30:
+	call Z9I_strncatPciPKc_F0_15
+Z17FS_LoadedIwdNamesv_F0_3_30:
 	mov ebx, [ebx]
 	test ebx, ebx
-	jz Z17FS_LoadedIwdNamesv:F(0,3)_20
-Z17FS_LoadedIwdNamesv:F(0,3)_10:
+	jz Z17FS_LoadedIwdNamesv_F0_3_20
+Z17FS_LoadedIwdNamesv_F0_3_10:
 	mov eax, [ebx+0x4]
 	test eax, eax
-	jz Z17FS_LoadedIwdNamesv:F(0,3)_30
+	jz Z17FS_LoadedIwdNamesv_F0_3_30
 	mov ecx, [ebx+0xc]
 	test ecx, ecx
-	jnz Z17FS_LoadedIwdNamesv:F(0,3)_30
+	jnz Z17FS_LoadedIwdNamesv_F0_3_30
 	cmp byte [info3], 0x0
-	jz Z17FS_LoadedIwdNamesv:F(0,3)_40
+	jz Z17FS_LoadedIwdNamesv_F0_3_40
 	mov dword [esp+0x8], _cstring_space
 	mov dword [esp+0x4], 0x2000
 	mov dword [esp], info3
-	call Z9I_strncatPciPKc:F(0,15)
-	jmp Z17FS_LoadedIwdNamesv:F(0,3)_40
-Z17FS_LoadedIwdNamesv:F(0,3)_20:
+	call Z9I_strncatPciPKc_F0_15
+	jmp Z17FS_LoadedIwdNamesv_F0_3_40
+Z17FS_LoadedIwdNamesv_F0_3_20:
 	mov eax, info3
 	add esp, 0x14
 	pop ebx
@@ -8078,9 +8367,9 @@ Z17FS_LoadedIwdNamesv:F(0,3)_20:
 	nop
 
 
-;Z25FS_LoadedIwdPureChecksumsv:F(0,3)
+;Z25FS_LoadedIwdPureChecksumsv_F0_3
 
-Z25FS_LoadedIwdPureChecksumsv:F(0,3):
+Z25FS_LoadedIwdPureChecksumsv_F0_3:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -8089,31 +8378,31 @@ Z25FS_LoadedIwdPureChecksumsv:F(0,3):
 	mov eax, [0x1accd4d]
 	mov ebx, [eax]
 	test ebx, ebx
-	jnz Z25FS_LoadedIwdPureChecksumsv:F(0,3)_10
-	jmp Z25FS_LoadedIwdPureChecksumsv:F(0,3)_20
-Z25FS_LoadedIwdPureChecksumsv:F(0,3)_30:
+	jnz Z25FS_LoadedIwdPureChecksumsv_F0_3_10
+	jmp Z25FS_LoadedIwdPureChecksumsv_F0_3_20
+Z25FS_LoadedIwdPureChecksumsv_F0_3_30:
 	mov ebx, [ebx]
 	test ebx, ebx
-	jz Z25FS_LoadedIwdPureChecksumsv:F(0,3)_20
-Z25FS_LoadedIwdPureChecksumsv:F(0,3)_10:
+	jz Z25FS_LoadedIwdPureChecksumsv_F0_3_20
+Z25FS_LoadedIwdPureChecksumsv_F0_3_10:
 	mov eax, [ebx+0x4]
 	test eax, eax
-	jz Z25FS_LoadedIwdPureChecksumsv:F(0,3)_30
+	jz Z25FS_LoadedIwdPureChecksumsv_F0_3_30
 	mov edx, [ebx+0xc]
 	test edx, edx
-	jnz Z25FS_LoadedIwdPureChecksumsv:F(0,3)_30
+	jnz Z25FS_LoadedIwdPureChecksumsv_F0_3_30
 	mov eax, [eax+0x308]
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_i_
-	call va:F(0,3)
+	call va_F0_3
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], 0x2000
 	mov dword [esp], info4
-	call Z9I_strncatPciPKc:F(0,15)
+	call Z9I_strncatPciPKc_F0_15
 	mov ebx, [ebx]
 	test ebx, ebx
-	jnz Z25FS_LoadedIwdPureChecksumsv:F(0,3)_10
-Z25FS_LoadedIwdPureChecksumsv:F(0,3)_20:
+	jnz Z25FS_LoadedIwdPureChecksumsv_F0_3_10
+Z25FS_LoadedIwdPureChecksumsv_F0_3_20:
 	mov eax, info4
 	add esp, 0x14
 	pop ebx
@@ -8121,9 +8410,9 @@ Z25FS_LoadedIwdPureChecksumsv:F(0,3)_20:
 	ret
 
 
-;Z25FS_ReferencedIwdChecksumsv:F(0,3)
+;Z25FS_ReferencedIwdChecksumsv_F0_3
 
-Z25FS_ReferencedIwdChecksumsv:F(0,3):
+Z25FS_ReferencedIwdChecksumsv_F0_3:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -8132,35 +8421,35 @@ Z25FS_ReferencedIwdChecksumsv:F(0,3):
 	mov eax, [0x1accd4d]
 	mov ebx, [eax]
 	test ebx, ebx
-	jz Z25FS_ReferencedIwdChecksumsv:F(0,3)_10
-Z25FS_ReferencedIwdChecksumsv:F(0,3)_40:
+	jz Z25FS_ReferencedIwdChecksumsv_F0_3_10
+Z25FS_ReferencedIwdChecksumsv_F0_3_40:
 	mov eax, [ebx+0x4]
 	test eax, eax
-	jz Z25FS_ReferencedIwdChecksumsv:F(0,3)_20
+	jz Z25FS_ReferencedIwdChecksumsv_F0_3_20
 	cmp byte [eax+0x310], 0x0
-	jnz Z25FS_ReferencedIwdChecksumsv:F(0,3)_30
+	jnz Z25FS_ReferencedIwdChecksumsv_F0_3_30
 	mov dword [esp+0x8], 0x4
 	mov dword [esp+0x4], _cstring_main
 	add eax, 0x200
 	mov [esp], eax
-	call I_strnicmp:F(0,2)
+	call I_strnicmp_F0_2
 	test eax, eax
-	jz Z25FS_ReferencedIwdChecksumsv:F(0,3)_20
+	jz Z25FS_ReferencedIwdChecksumsv_F0_3_20
 	mov eax, [ebx+0x4]
-Z25FS_ReferencedIwdChecksumsv:F(0,3)_30:
+Z25FS_ReferencedIwdChecksumsv_F0_3_30:
 	mov eax, [eax+0x304]
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_i_
-	call va:F(0,3)
+	call va_F0_3
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], 0x2000
 	mov dword [esp], info5
-	call Z9I_strncatPciPKc:F(0,15)
-Z25FS_ReferencedIwdChecksumsv:F(0,3)_20:
+	call Z9I_strncatPciPKc_F0_15
+Z25FS_ReferencedIwdChecksumsv_F0_3_20:
 	mov ebx, [ebx]
 	test ebx, ebx
-	jnz Z25FS_ReferencedIwdChecksumsv:F(0,3)_40
-Z25FS_ReferencedIwdChecksumsv:F(0,3)_10:
+	jnz Z25FS_ReferencedIwdChecksumsv_F0_3_40
+Z25FS_ReferencedIwdChecksumsv_F0_3_10:
 	mov eax, info5
 	add esp, 0x14
 	pop ebx
@@ -8168,9 +8457,9 @@ Z25FS_ReferencedIwdChecksumsv:F(0,3)_10:
 	ret
 
 
-;Z21FS_ReferencedIwdNamesv:F(0,3)
+;Z21FS_ReferencedIwdNamesv_F0_3
 
-Z21FS_ReferencedIwdNamesv:F(0,3):
+Z21FS_ReferencedIwdNamesv_F0_3:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -8179,65 +8468,65 @@ Z21FS_ReferencedIwdNamesv:F(0,3):
 	mov eax, [0x1accd4d]
 	mov ebx, [eax]
 	test ebx, ebx
-	jnz Z21FS_ReferencedIwdNamesv:F(0,3)_10
-	jmp Z21FS_ReferencedIwdNamesv:F(0,3)_20
-Z21FS_ReferencedIwdNamesv:F(0,3)_50:
+	jnz Z21FS_ReferencedIwdNamesv_F0_3_10
+	jmp Z21FS_ReferencedIwdNamesv_F0_3_20
+Z21FS_ReferencedIwdNamesv_F0_3_50:
 	cmp byte [info8], 0x0
-	jnz Z21FS_ReferencedIwdNamesv:F(0,3)_30
-Z21FS_ReferencedIwdNamesv:F(0,3)_60:
+	jnz Z21FS_ReferencedIwdNamesv_F0_3_30
+Z21FS_ReferencedIwdNamesv_F0_3_60:
 	mov eax, [ebx+0x4]
 	add eax, 0x200
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], 0x2000
 	mov dword [esp], info8
-	call Z9I_strncatPciPKc:F(0,15)
+	call Z9I_strncatPciPKc_F0_15
 	mov dword [esp+0x8], _cstring_7
 	mov dword [esp+0x4], 0x2000
 	mov dword [esp], info8
-	call Z9I_strncatPciPKc:F(0,15)
+	call Z9I_strncatPciPKc_F0_15
 	mov eax, [ebx+0x4]
 	add eax, 0x100
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], 0x2000
 	mov dword [esp], info8
-	call Z9I_strncatPciPKc:F(0,15)
-Z21FS_ReferencedIwdNamesv:F(0,3)_40:
+	call Z9I_strncatPciPKc_F0_15
+Z21FS_ReferencedIwdNamesv_F0_3_40:
 	mov ebx, [ebx]
 	test ebx, ebx
-	jz Z21FS_ReferencedIwdNamesv:F(0,3)_20
-Z21FS_ReferencedIwdNamesv:F(0,3)_10:
+	jz Z21FS_ReferencedIwdNamesv_F0_3_20
+Z21FS_ReferencedIwdNamesv_F0_3_10:
 	mov eax, [ebx+0x4]
 	test eax, eax
-	jz Z21FS_ReferencedIwdNamesv:F(0,3)_40
+	jz Z21FS_ReferencedIwdNamesv_F0_3_40
 	cmp byte [eax+0x310], 0x0
-	jnz Z21FS_ReferencedIwdNamesv:F(0,3)_50
+	jnz Z21FS_ReferencedIwdNamesv_F0_3_50
 	mov dword [esp+0x8], 0x4
 	mov dword [esp+0x4], _cstring_main
 	add eax, 0x200
 	mov [esp], eax
-	call I_strnicmp:F(0,2)
+	call I_strnicmp_F0_2
 	test eax, eax
-	jnz Z21FS_ReferencedIwdNamesv:F(0,3)_50
+	jnz Z21FS_ReferencedIwdNamesv_F0_3_50
 	mov ebx, [ebx]
 	test ebx, ebx
-	jnz Z21FS_ReferencedIwdNamesv:F(0,3)_10
-Z21FS_ReferencedIwdNamesv:F(0,3)_20:
+	jnz Z21FS_ReferencedIwdNamesv_F0_3_10
+Z21FS_ReferencedIwdNamesv_F0_3_20:
 	mov eax, info8
 	add esp, 0x14
 	pop ebx
 	pop ebp
 	ret
-Z21FS_ReferencedIwdNamesv:F(0,3)_30:
+Z21FS_ReferencedIwdNamesv_F0_3_30:
 	mov dword [esp+0x8], _cstring_space
 	mov dword [esp+0x4], 0x2000
 	mov dword [esp], info8
-	call Z9I_strncatPciPKc:F(0,15)
-	jmp Z21FS_ReferencedIwdNamesv:F(0,3)_60
+	call Z9I_strncatPciPKc_F0_15
+	jmp Z21FS_ReferencedIwdNamesv_F0_3_60
 
 
-;Z29FS_ReferencedIwdPureChecksumsv:F(0,3)
+;Z29FS_ReferencedIwdPureChecksumsv_F0_3
 
-Z29FS_ReferencedIwdPureChecksumsv:F(0,3):
+Z29FS_ReferencedIwdPureChecksumsv_F0_3:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -8273,57 +8562,57 @@ Z29FS_ReferencedIwdPureChecksumsv:F(0,3):
 	mov eax, [0x1accd4d]
 	mov ebx, [eax]
 	test ebx, ebx
-	jz Z29FS_ReferencedIwdPureChecksumsv:F(0,3)_10
+	jz Z29FS_ReferencedIwdPureChecksumsv_F0_3_10
 	xor edi, edi
-	jmp Z29FS_ReferencedIwdPureChecksumsv:F(0,3)_20
-Z29FS_ReferencedIwdPureChecksumsv:F(0,3)_40:
+	jmp Z29FS_ReferencedIwdPureChecksumsv_F0_3_20
+Z29FS_ReferencedIwdPureChecksumsv_F0_3_40:
 	mov ebx, [ebx]
 	test ebx, ebx
-	jz Z29FS_ReferencedIwdPureChecksumsv:F(0,3)_30
-Z29FS_ReferencedIwdPureChecksumsv:F(0,3)_20:
+	jz Z29FS_ReferencedIwdPureChecksumsv_F0_3_30
+Z29FS_ReferencedIwdPureChecksumsv_F0_3_20:
 	mov eax, [ebx+0x4]
 	test eax, eax
-	jz Z29FS_ReferencedIwdPureChecksumsv:F(0,3)_40
+	jz Z29FS_ReferencedIwdPureChecksumsv_F0_3_40
 	mov ecx, [ebx+0xc]
 	test ecx, ecx
-	jnz Z29FS_ReferencedIwdPureChecksumsv:F(0,3)_40
+	jnz Z29FS_ReferencedIwdPureChecksumsv_F0_3_40
 	cmp byte [eax+0x310], 0x0
-	jz Z29FS_ReferencedIwdPureChecksumsv:F(0,3)_40
+	jz Z29FS_ReferencedIwdPureChecksumsv_F0_3_40
 	mov eax, [eax+0x308]
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_i_
-	call va:F(0,3)
+	call va_F0_3
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], 0x2000
 	mov dword [esp], info6
-	call Z9I_strncatPciPKc:F(0,15)
+	call Z9I_strncatPciPKc_F0_15
 	mov eax, [ebx+0x4]
 	xor esi, [eax+0x308]
 	add edi, 0x1
 	mov ebx, [ebx]
 	test ebx, ebx
-	jnz Z29FS_ReferencedIwdPureChecksumsv:F(0,3)_20
-Z29FS_ReferencedIwdPureChecksumsv:F(0,3)_30:
+	jnz Z29FS_ReferencedIwdPureChecksumsv_F0_3_20
+Z29FS_ReferencedIwdPureChecksumsv_F0_3_30:
 	mov eax, [0x1accd49]
 	mov eax, [eax]
 	test eax, eax
-	jz Z29FS_ReferencedIwdPureChecksumsv:F(0,3)_50
+	jz Z29FS_ReferencedIwdPureChecksumsv_F0_3_50
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_i_
-	call va:F(0,3)
+	call va_F0_3
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], 0x2000
 	mov dword [esp], info6
-	call Z9I_strncatPciPKc:F(0,15)
-Z29FS_ReferencedIwdPureChecksumsv:F(0,3)_50:
+	call Z9I_strncatPciPKc_F0_15
+Z29FS_ReferencedIwdPureChecksumsv_F0_3_50:
 	xor edi, esi
 	mov [esp+0x4], edi
 	mov dword [esp], _cstring_i_
-	call va:F(0,3)
+	call va_F0_3
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], 0x2000
 	mov dword [esp], info6
-	call Z9I_strncatPciPKc:F(0,15)
+	call Z9I_strncatPciPKc_F0_15
 	mov eax, info6
 	add esp, 0x1c
 	pop ebx
@@ -8331,15 +8620,15 @@ Z29FS_ReferencedIwdPureChecksumsv:F(0,3)_50:
 	pop edi
 	pop ebp
 	ret
-Z29FS_ReferencedIwdPureChecksumsv:F(0,3)_10:
+Z29FS_ReferencedIwdPureChecksumsv_F0_3_10:
 	xor edi, edi
-	jmp Z29FS_ReferencedIwdPureChecksumsv:F(0,3)_30
+	jmp Z29FS_ReferencedIwdPureChecksumsv_F0_3_30
 	nop
 
 
-;Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)
+;Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22
 
-Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22):
+Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -8348,82 +8637,82 @@ Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22):
 	sub esp, 0x202c
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z18Cmd_TokenizeStringPKc:F(0,1)
-	call Z8Cmd_Argcv:F(0,2)
+	call Z18Cmd_TokenizeStringPKc_F0_1
+	call Z8Cmd_Argcv_F0_2
 	mov [ebp-0x2024], eax
 	cmp eax, 0x400
-	jle Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_10
+	jle Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_10
 	mov dword [ebp-0x2024], 0x400
-Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_110:
+Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_110:
 	xor ebx, ebx
-Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_20:
+Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_20:
 	mov [esp], ebx
-	call Z8Cmd_Argvi:F(0,3)
+	call Z8Cmd_Argvi_F0_3
 	mov [esp], eax
 	call atoi
 	mov [ebp+ebx*4-0x1018], eax
 	add ebx, 0x1
 	cmp [ebp-0x2024], ebx
-	jnz Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_20
-Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_100:
+	jnz Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_20
+Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_100:
 	mov eax, [ebp+0xc]
 	mov [esp], eax
-	call Z18Cmd_TokenizeStringPKc:F(0,1)
-	call Z8Cmd_Argcv:F(0,2)
+	call Z18Cmd_TokenizeStringPKc_F0_1
+	call Z8Cmd_Argcv_F0_2
 	mov edi, eax
 	cmp eax, 0x400
-	jle Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_30
+	jle Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_30
 	mov edi, 0x400
-Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_90:
+Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_90:
 	xor ebx, ebx
-Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_40:
+Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_40:
 	mov [esp], ebx
-	call Z8Cmd_Argvi:F(0,3)
+	call Z8Cmd_Argvi_F0_3
 	mov [esp], eax
-	call CopyStringInternal:F(0,99)
+	call CopyStringInternal_F0_99
 	mov [ebp+ebx*4-0x2018], eax
 	add ebx, 0x1
 	cmp edi, ebx
-	jnz Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_40
-Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_80:
+	jnz Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_40
+Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_80:
 	cmp [ebp-0x2024], edi
-	jz Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_50
+	jz Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_50
 	mov dword [esp+0x4], _cstring_iwd_sumname_mism
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
-Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_50:
+	call Com_Error_F0_1
+Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_50:
 	mov ecx, [0x1accd3d]
 	mov eax, [ebp-0x2024]
 	cmp eax, [ecx]
-	jz Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_60
-Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_130:
+	jz Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_60
+Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_130:
 	mov dword [esp], 0x8
-	call Z14SND_StopSounds20snd_stopsounds_arg_t:F(0,14)
-	call Z25FS_ShutdownServerIwdNamesv:F(0,3)
+	call Z14SND_StopSounds20snd_stopsounds_arg_t_F0_14
+	call Z25FS_ShutdownServerIwdNamesv_F0_3
 	mov ebx, [0x1accd3d]
 	mov ecx, [ebp-0x2024]
 	mov [ebx], ecx
 	test ecx, ecx
-	jnz Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_70
-Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_170:
+	jnz Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_70
+Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_170:
 	add esp, 0x202c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_30:
+Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_30:
 	test eax, eax
-	jle Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_80
-	jmp Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_90
-Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_10:
+	jle Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_80
+	jmp Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_90
+Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_10:
 	mov edi, [ebp-0x2024]
 	test edi, edi
-	jle Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_100
-	jmp Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_110
-Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_70:
+	jle Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_100
+	jmp Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_110
+Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_70:
 	mov dword [esp], _cstring_connected_to_a_p
-	call Z11Com_DPrintfPKcz:F(0,1)
+	call Z11Com_DPrintfPKcz_F0_1
 	mov eax, [ebx]
 	shl eax, 0x2
 	mov [esp+0x8], eax
@@ -8431,7 +8720,7 @@ Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_70:
 	mov [esp+0x4], eax
 	mov eax, [0x1accd65]
 	mov [esp], eax
-	call Com_Memcpy:F(0,12)
+	call Com_Memcpy_F0_12
 	mov eax, [ebx]
 	shl eax, 0x2
 	mov [esp+0x8], eax
@@ -8439,7 +8728,7 @@ Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_70:
 	mov [esp+0x4], eax
 	mov eax, [0x1accd45]
 	mov [esp], eax
-	call Com_Memcpy:F(0,12)
+	call Com_Memcpy_F0_12
 	mov eax, [0x1accd49]
 	mov dword [eax], 0x0
 	add esp, 0x202c
@@ -8448,72 +8737,72 @@ Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_70:
 	pop edi
 	pop ebp
 	ret
-Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_60:
+Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_60:
 	mov ebx, [ebp-0x2024]
 	test ebx, ebx
-	jle Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_120
+	jle Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_120
 	mov dword [ebp-0x201c], 0x0
-Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_190:
+Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_190:
 	mov esi, [ecx]
 	test esi, esi
-	jle Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_130
+	jle Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_130
 	xor esi, esi
 	mov ebx, [0x1accd65]
 	mov eax, [0x1accd45]
 	mov [ebp-0x2020], eax
-	jmp Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_140
-Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_150:
+	jmp Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_140
+Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_150:
 	add esi, 0x1
 	add ebx, 0x4
 	add dword [ebp-0x2020], 0x4
 	cmp esi, [ecx]
-	jge Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_130
-Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_140:
+	jge Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_130
+Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_140:
 	mov edx, [ebp-0x201c]
 	shl edx, 0x2
 	mov eax, [ebp+edx-0x1018]
 	cmp eax, [ebx]
-	jnz Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_150
+	jnz Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_150
 	mov ecx, [ebp-0x2020]
 	mov eax, [ecx]
 	mov [esp+0x4], eax
 	mov eax, [ebp+edx-0x2018]
 	mov [esp], eax
-	call I_stricmp:F(0,2)
+	call I_stricmp_F0_2
 	test eax, eax
-	jz Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_160
+	jz Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_160
 	mov ecx, [0x1accd3d]
-	jmp Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_150
-Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_120:
+	jmp Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_150
+Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_120:
 	test edi, edi
-	jle Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_170
+	jle Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_170
 	xor ebx, ebx
-Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_180:
+Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_180:
 	mov eax, [ebp+ebx*4-0x2018]
 	mov [esp], eax
-	call Z_FreeInternal:F(0,1)
+	call Z_FreeInternal_F0_1
 	add ebx, 0x1
 	cmp edi, ebx
-	jnz Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_180
+	jnz Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_180
 	add esp, 0x202c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_160:
+Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_160:
 	add dword [ebp-0x201c], 0x1
 	mov eax, [ebp-0x201c]
 	cmp [ebp-0x2024], eax
-	jz Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_120
+	jz Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_120
 	mov ecx, [0x1accd3d]
-	jmp Z26FS_PureServerSetLoadedIwdsPKcS0_:F(0,22)_190
+	jmp Z26FS_PureServerSetLoadedIwdsPKcS0__F0_22_190
 	nop
 
 
-;Z30FS_PureServerSetReferencedIwdsPKcS0_:F(0,22)
+;Z30FS_PureServerSetReferencedIwdsPKcS0__F0_22
 
-Z30FS_PureServerSetReferencedIwdsPKcS0_:F(0,22):
+Z30FS_PureServerSetReferencedIwdsPKcS0__F0_22:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -8522,26 +8811,26 @@ Z30FS_PureServerSetReferencedIwdsPKcS0_:F(0,22):
 	sub esp, 0x2c
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z18Cmd_TokenizeStringPKc:F(0,1)
-	call Z8Cmd_Argcv:F(0,2)
+	call Z18Cmd_TokenizeStringPKc_F0_1
+	call Z8Cmd_Argcv_F0_2
 	mov edi, eax
 	cmp eax, 0x401
 	mov eax, 0x400
 	cmovge edi, eax
-	call Z31FS_ShutdownServerReferencedIwdsv:F(0,3)
+	call Z31FS_ShutdownServerReferencedIwdsv_F0_3
 	test edi, edi
-	jg Z30FS_PureServerSetReferencedIwdsPKcS0_:F(0,22)_10
-Z30FS_PureServerSetReferencedIwdsPKcS0_:F(0,22)_60:
+	jg Z30FS_PureServerSetReferencedIwdsPKcS0__F0_22_10
+Z30FS_PureServerSetReferencedIwdsPKcS0__F0_22_60:
 	mov eax, [ebp+0xc]
 	test eax, eax
-	jz Z30FS_PureServerSetReferencedIwdsPKcS0_:F(0,22)_20
+	jz Z30FS_PureServerSetReferencedIwdsPKcS0__F0_22_20
 	mov eax, [ebp+0xc]
 	cmp byte [eax], 0x0
-	jnz Z30FS_PureServerSetReferencedIwdsPKcS0_:F(0,22)_30
-Z30FS_PureServerSetReferencedIwdsPKcS0_:F(0,22)_20:
+	jnz Z30FS_PureServerSetReferencedIwdsPKcS0__F0_22_30
+Z30FS_PureServerSetReferencedIwdsPKcS0__F0_22_20:
 	test edi, edi
-	jnz Z30FS_PureServerSetReferencedIwdsPKcS0_:F(0,22)_40
-Z30FS_PureServerSetReferencedIwdsPKcS0_:F(0,22)_80:
+	jnz Z30FS_PureServerSetReferencedIwdsPKcS0__F0_22_40
+Z30FS_PureServerSetReferencedIwdsPKcS0__F0_22_80:
 	mov eax, [0x1accd61]
 	mov [eax], edi
 	add esp, 0x2c
@@ -8550,10 +8839,10 @@ Z30FS_PureServerSetReferencedIwdsPKcS0_:F(0,22)_80:
 	pop edi
 	pop ebp
 	ret
-Z30FS_PureServerSetReferencedIwdsPKcS0_:F(0,22)_40:
+Z30FS_PureServerSetReferencedIwdsPKcS0__F0_22_40:
 	mov dword [esp+0x4], _cstring_iwd_sumname_mism
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	mov eax, [0x1accd61]
 	mov [eax], edi
 	add esp, 0x2c
@@ -8562,57 +8851,57 @@ Z30FS_PureServerSetReferencedIwdsPKcS0_:F(0,22)_40:
 	pop edi
 	pop ebp
 	ret
-Z30FS_PureServerSetReferencedIwdsPKcS0_:F(0,22)_10:
+Z30FS_PureServerSetReferencedIwdsPKcS0__F0_22_10:
 	xor ebx, ebx
 	mov esi, [0x1accd55]
-Z30FS_PureServerSetReferencedIwdsPKcS0_:F(0,22)_50:
+Z30FS_PureServerSetReferencedIwdsPKcS0__F0_22_50:
 	mov [esp], ebx
-	call Z8Cmd_Argvi:F(0,3)
+	call Z8Cmd_Argvi_F0_3
 	mov [esp], eax
 	call atoi
 	mov [esi], eax
 	add ebx, 0x1
 	add esi, 0x4
 	cmp edi, ebx
-	jnz Z30FS_PureServerSetReferencedIwdsPKcS0_:F(0,22)_50
-	jmp Z30FS_PureServerSetReferencedIwdsPKcS0_:F(0,22)_60
-Z30FS_PureServerSetReferencedIwdsPKcS0_:F(0,22)_30:
+	jnz Z30FS_PureServerSetReferencedIwdsPKcS0__F0_22_50
+	jmp Z30FS_PureServerSetReferencedIwdsPKcS0__F0_22_60
+Z30FS_PureServerSetReferencedIwdsPKcS0__F0_22_30:
 	mov [esp], eax
-	call Z18Cmd_TokenizeStringPKc:F(0,1)
-	call Z8Cmd_Argcv:F(0,2)
+	call Z18Cmd_TokenizeStringPKc_F0_1
+	call Z8Cmd_Argcv_F0_2
 	mov esi, eax
 	cmp eax, 0x401
 	mov eax, 0x400
 	cmovge esi, eax
 	cmp edi, esi
-	jz Z30FS_PureServerSetReferencedIwdsPKcS0_:F(0,22)_70
+	jz Z30FS_PureServerSetReferencedIwdsPKcS0__F0_22_70
 	mov dword [esp+0x4], _cstring_iwd_sumname_mism
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
-Z30FS_PureServerSetReferencedIwdsPKcS0_:F(0,22)_70:
+	call Com_Error_F0_1
+Z30FS_PureServerSetReferencedIwdsPKcS0__F0_22_70:
 	test esi, esi
-	jle Z30FS_PureServerSetReferencedIwdsPKcS0_:F(0,22)_80
+	jle Z30FS_PureServerSetReferencedIwdsPKcS0__F0_22_80
 	xor ebx, ebx
 	mov edx, [0x1accd41]
 	mov [ebp-0x1c], edx
-Z30FS_PureServerSetReferencedIwdsPKcS0_:F(0,22)_90:
+Z30FS_PureServerSetReferencedIwdsPKcS0__F0_22_90:
 	mov [esp], ebx
-	call Z8Cmd_Argvi:F(0,3)
+	call Z8Cmd_Argvi_F0_3
 	mov [esp], eax
-	call CopyStringInternal:F(0,99)
+	call CopyStringInternal_F0_99
 	mov edx, [ebp-0x1c]
 	mov [edx], eax
 	add ebx, 0x1
 	add edx, 0x4
 	mov [ebp-0x1c], edx
 	cmp esi, ebx
-	jnz Z30FS_PureServerSetReferencedIwdsPKcS0_:F(0,22)_90
-	jmp Z30FS_PureServerSetReferencedIwdsPKcS0_:F(0,22)_80
+	jnz Z30FS_PureServerSetReferencedIwdsPKcS0__F0_22_90
+	jmp Z30FS_PureServerSetReferencedIwdsPKcS0__F0_22_80
 
 
-;Z17FS_GetMapBaseNamePKc:F(0,3)
+;Z17FS_GetMapBaseNamePKc_F0_3
 
-Z17FS_GetMapBaseNamePKc:F(0,3):
+Z17FS_GetMapBaseNamePKc_F0_3:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -8623,7 +8912,7 @@ Z17FS_GetMapBaseNamePKc:F(0,3):
 	mov dword [esp+0x4], _cstring_mapsmp
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call I_strnicmp:F(0,2)
+	call I_strnicmp_F0_2
 	mov edx, [ebp+0x8]
 	add edx, 0x8
 	test eax, eax
@@ -8640,7 +8929,7 @@ Z17FS_GetMapBaseNamePKc:F(0,3):
 	mov dword [esp+0x4], _cstring_bsp
 	lea eax, [edx+ebx-0x3]
 	mov [esp], eax
-	call Z7stricmpPKcS0_:F(0,1)
+	call Z7stricmpPKcS0__F0_1
 	lea edx, [esi-0x8]
 	test eax, eax
 	cmovz ebx, edx
@@ -8651,22 +8940,22 @@ Z17FS_GetMapBaseNamePKc:F(0,3):
 	call memcpy
 	mov byte [ebx+_ZZ17FS_GetMapBaseNamePKcE8basename], 0x0
 	test ebx, ebx
-	jle Z17FS_GetMapBaseNamePKc:F(0,3)_10
+	jle Z17FS_GetMapBaseNamePKc_F0_3_10
 	mov eax, _ZZ17FS_GetMapBaseNamePKcE8basename
 	lea edx, [ebx+_ZZ17FS_GetMapBaseNamePKcE8basename]
-	jmp Z17FS_GetMapBaseNamePKc:F(0,3)_20
-Z17FS_GetMapBaseNamePKc:F(0,3)_30:
+	jmp Z17FS_GetMapBaseNamePKc_F0_3_20
+Z17FS_GetMapBaseNamePKc_F0_3_30:
 	add eax, 0x1
 	cmp eax, edx
-	jz Z17FS_GetMapBaseNamePKc:F(0,3)_10
-Z17FS_GetMapBaseNamePKc:F(0,3)_20:
+	jz Z17FS_GetMapBaseNamePKc_F0_3_10
+Z17FS_GetMapBaseNamePKc_F0_3_20:
 	cmp byte [eax], 0x25
-	jnz Z17FS_GetMapBaseNamePKc:F(0,3)_30
+	jnz Z17FS_GetMapBaseNamePKc_F0_3_30
 	mov byte [eax], 0x5f
 	add eax, 0x1
 	cmp eax, edx
-	jnz Z17FS_GetMapBaseNamePKc:F(0,3)_20
-Z17FS_GetMapBaseNamePKc:F(0,3)_10:
+	jnz Z17FS_GetMapBaseNamePKc_F0_3_20
+Z17FS_GetMapBaseNamePKc_F0_3_10:
 	mov eax, _ZZ17FS_GetMapBaseNamePKcE8basename
 	add esp, 0x1c
 	pop ebx
@@ -8676,9 +8965,9 @@ Z17FS_GetMapBaseNamePKc:F(0,3)_10:
 	ret
 
 
-;Z13FS_GetModListPci:F(0,2)
+;Z13FS_GetModListPci_F0_2
 
-Z13FS_GetModListPci:F(0,2):
+Z13FS_GetModListPci_F0_2:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -8696,7 +8985,7 @@ Z13FS_GetModListPci:F(0,2):
 	mov eax, [eax]
 	mov eax, [eax+0x8]
 	mov [esp], eax
-	call Z13Sys_ListFilesPKcS0_S0_Pii:F(0,12)
+	call Z13Sys_ListFilesPKcS0_S0_Pii_F0_12
 	mov edi, eax
 	mov dword [esp+0x10], 0x1
 	mov [esp+0xc], ebx
@@ -8706,178 +8995,178 @@ Z13FS_GetModListPci:F(0,2):
 	mov eax, [eax]
 	mov eax, [eax+0x8]
 	mov [esp], eax
-	call Z13Sys_ListFilesPKcS0_S0_Pii:F(0,12)
+	call Z13Sys_ListFilesPKcS0_S0_Pii_F0_12
 	mov esi, eax
 	mov eax, [0x1accd71]
 	mov eax, [eax]
 	mov eax, [eax+0x8]
 	test eax, eax
-	jz Z13FS_GetModListPci:F(0,2)_10
+	jz Z13FS_GetModListPci_F0_2_10
 	cmp byte [eax], 0x0
-	jnz Z13FS_GetModListPci:F(0,2)_20
-Z13FS_GetModListPci:F(0,2)_10:
+	jnz Z13FS_GetModListPci_F0_2_20
+Z13FS_GetModListPci_F0_2_10:
 	xor ebx, ebx
 	test edi, edi
-	jz Z13FS_GetModListPci:F(0,2)_30
-Z13FS_GetModListPci:F(0,2)_300:
+	jz Z13FS_GetModListPci_F0_2_30
+Z13FS_GetModListPci_F0_2_300:
 	mov eax, [edi]
 	test eax, eax
-	jz Z13FS_GetModListPci:F(0,2)_30
+	jz Z13FS_GetModListPci_F0_2_30
 	xor eax, eax
-Z13FS_GetModListPci:F(0,2)_40:
+Z13FS_GetModListPci_F0_2_40:
 	add eax, 0x1
 	mov edx, [edi+eax*4]
 	test edx, edx
-	jnz Z13FS_GetModListPci:F(0,2)_40
+	jnz Z13FS_GetModListPci_F0_2_40
 	mov ecx, eax
 	test esi, esi
-	jz Z13FS_GetModListPci:F(0,2)_50
-Z13FS_GetModListPci:F(0,2)_310:
+	jz Z13FS_GetModListPci_F0_2_50
+Z13FS_GetModListPci_F0_2_310:
 	mov eax, [esi]
 	test eax, eax
-	jz Z13FS_GetModListPci:F(0,2)_50
+	jz Z13FS_GetModListPci_F0_2_50
 	xor edx, edx
-Z13FS_GetModListPci:F(0,2)_60:
+Z13FS_GetModListPci_F0_2_60:
 	add edx, 0x1
 	mov eax, [esi+edx*4]
 	test eax, eax
-	jnz Z13FS_GetModListPci:F(0,2)_60
+	jnz Z13FS_GetModListPci_F0_2_60
 	mov eax, edx
 	add ecx, eax
 	test ebx, ebx
-	jz Z13FS_GetModListPci:F(0,2)_70
-Z13FS_GetModListPci:F(0,2)_320:
+	jz Z13FS_GetModListPci_F0_2_70
+Z13FS_GetModListPci_F0_2_320:
 	mov eax, [ebx]
 	test eax, eax
-	jz Z13FS_GetModListPci:F(0,2)_70
+	jz Z13FS_GetModListPci_F0_2_70
 	xor edx, edx
-Z13FS_GetModListPci:F(0,2)_80:
+Z13FS_GetModListPci_F0_2_80:
 	add edx, 0x1
 	mov eax, [ebx+edx*4]
 	test eax, eax
-	jnz Z13FS_GetModListPci:F(0,2)_80
+	jnz Z13FS_GetModListPci_F0_2_80
 	mov eax, edx
 	lea eax, [ecx+eax]
 	lea eax, [eax*4+0x4]
 	mov [esp], eax
-	call Z_MallocInternal:F(0,2)
+	call Z_MallocInternal_F0_2
 	mov [ebp-0x22c], eax
 	test edi, edi
-	jz Z13FS_GetModListPci:F(0,2)_90
-Z13FS_GetModListPci:F(0,2)_330:
+	jz Z13FS_GetModListPci_F0_2_90
+Z13FS_GetModListPci_F0_2_330:
 	mov ecx, [edi]
 	test ecx, ecx
-	jz Z13FS_GetModListPci:F(0,2)_90
+	jz Z13FS_GetModListPci_F0_2_90
 	mov eax, edi
 	mov edx, [ebp-0x22c]
-Z13FS_GetModListPci:F(0,2)_100:
+Z13FS_GetModListPci_F0_2_100:
 	mov [edx], ecx
 	add edx, 0x4
 	mov ecx, [eax+0x4]
 	add eax, 0x4
 	test ecx, ecx
-	jnz Z13FS_GetModListPci:F(0,2)_100
-Z13FS_GetModListPci:F(0,2)_340:
+	jnz Z13FS_GetModListPci_F0_2_100
+Z13FS_GetModListPci_F0_2_340:
 	test esi, esi
-	jz Z13FS_GetModListPci:F(0,2)_110
+	jz Z13FS_GetModListPci_F0_2_110
 	mov ecx, [esi]
 	test ecx, ecx
-	jz Z13FS_GetModListPci:F(0,2)_110
+	jz Z13FS_GetModListPci_F0_2_110
 	mov eax, esi
-Z13FS_GetModListPci:F(0,2)_120:
+Z13FS_GetModListPci_F0_2_120:
 	mov [edx], ecx
 	add edx, 0x4
 	mov ecx, [eax+0x4]
 	add eax, 0x4
 	test ecx, ecx
-	jnz Z13FS_GetModListPci:F(0,2)_120
-Z13FS_GetModListPci:F(0,2)_110:
+	jnz Z13FS_GetModListPci_F0_2_120
+Z13FS_GetModListPci_F0_2_110:
 	test ebx, ebx
-	jz Z13FS_GetModListPci:F(0,2)_130
+	jz Z13FS_GetModListPci_F0_2_130
 	mov ecx, [ebx]
 	test ecx, ecx
-	jz Z13FS_GetModListPci:F(0,2)_130
+	jz Z13FS_GetModListPci_F0_2_130
 	mov eax, ebx
-Z13FS_GetModListPci:F(0,2)_140:
+Z13FS_GetModListPci_F0_2_140:
 	mov [edx], ecx
 	add edx, 0x4
 	mov ecx, [eax+0x4]
 	add eax, 0x4
 	test ecx, ecx
-	jnz Z13FS_GetModListPci:F(0,2)_140
-Z13FS_GetModListPci:F(0,2)_130:
+	jnz Z13FS_GetModListPci_F0_2_140
+Z13FS_GetModListPci_F0_2_130:
 	mov dword [edx], 0x0
 	test edi, edi
-	jz Z13FS_GetModListPci:F(0,2)_150
+	jz Z13FS_GetModListPci_F0_2_150
 	mov [esp], edi
-	call Z_FreeInternal:F(0,1)
-Z13FS_GetModListPci:F(0,2)_150:
+	call Z_FreeInternal_F0_1
+Z13FS_GetModListPci_F0_2_150:
 	test esi, esi
-	jz Z13FS_GetModListPci:F(0,2)_160
+	jz Z13FS_GetModListPci_F0_2_160
 	mov [esp], esi
-	call Z_FreeInternal:F(0,1)
-Z13FS_GetModListPci:F(0,2)_160:
+	call Z_FreeInternal_F0_1
+Z13FS_GetModListPci_F0_2_160:
 	test ebx, ebx
-	jz Z13FS_GetModListPci:F(0,2)_170
+	jz Z13FS_GetModListPci_F0_2_170
 	mov [esp], ebx
-	call Z_FreeInternal:F(0,1)
-Z13FS_GetModListPci:F(0,2)_170:
+	call Z_FreeInternal_F0_1
+Z13FS_GetModListPci_F0_2_170:
 	mov edi, [ebp-0x22c]
 	test edi, edi
-	jz Z13FS_GetModListPci:F(0,2)_180
+	jz Z13FS_GetModListPci_F0_2_180
 	mov edx, [ebp-0x22c]
 	mov eax, [edx]
 	test eax, eax
-	jz Z13FS_GetModListPci:F(0,2)_180
+	jz Z13FS_GetModListPci_F0_2_180
 	xor eax, eax
 	mov edx, [ebp-0x22c]
-Z13FS_GetModListPci:F(0,2)_190:
+Z13FS_GetModListPci_F0_2_190:
 	add eax, 0x1
 	mov esi, [edx+eax*4]
 	test esi, esi
-	jnz Z13FS_GetModListPci:F(0,2)_190
+	jnz Z13FS_GetModListPci_F0_2_190
 	mov [ebp-0x230], eax
 	test eax, eax
-	jle Z13FS_GetModListPci:F(0,2)_180
+	jle Z13FS_GetModListPci_F0_2_180
 	mov dword [ebp-0x234], 0x0
 	mov dword [ebp-0x23c], 0x0
 	mov dword [ebp-0x240], 0x0
 	mov dword [ebp-0x244], 0x0
-	jmp Z13FS_GetModListPci:F(0,2)_200
-Z13FS_GetModListPci:F(0,2)_240:
-	jg Z13FS_GetModListPci:F(0,2)_210
-Z13FS_GetModListPci:F(0,2)_360:
+	jmp Z13FS_GetModListPci_F0_2_200
+Z13FS_GetModListPci_F0_2_240:
+	jg Z13FS_GetModListPci_F0_2_210
+Z13FS_GetModListPci_F0_2_360:
 	mov dword [ebp-0x234], 0x0
 	mov dword [esp+0x8], 0x1
 	mov dword [esp+0x4], _cstring_14
 	mov ecx, [ebp-0x238]
 	mov [esp], ecx
-	call I_strnicmp:F(0,2)
+	call I_strnicmp_F0_2
 	test eax, eax
-	jnz Z13FS_GetModListPci:F(0,2)_220
-Z13FS_GetModListPci:F(0,2)_250:
+	jnz Z13FS_GetModListPci_F0_2_220
+Z13FS_GetModListPci_F0_2_250:
 	add dword [ebp-0x240], 0x1
 	mov eax, [ebp-0x240]
 	cmp [ebp-0x230], eax
-	jz Z13FS_GetModListPci:F(0,2)_230
-Z13FS_GetModListPci:F(0,2)_200:
+	jz Z13FS_GetModListPci_F0_2_230
+Z13FS_GetModListPci_F0_2_200:
 	mov ecx, [ebp-0x240]
 	mov eax, [ebp-0x22c]
 	mov ecx, [eax+ecx*4]
 	mov [ebp-0x238], ecx
 	cmp dword [ebp-0x240], 0x0
-	jnz Z13FS_GetModListPci:F(0,2)_240
+	jnz Z13FS_GetModListPci_F0_2_240
 	mov ebx, [ebp-0x234]
 	test ebx, ebx
-	jnz Z13FS_GetModListPci:F(0,2)_250
+	jnz Z13FS_GetModListPci_F0_2_250
 	mov dword [esp+0x8], 0x1
 	mov dword [esp+0x4], _cstring_14
 	mov ecx, [ebp-0x238]
 	mov [esp], ecx
-	call I_strnicmp:F(0,2)
+	call I_strnicmp_F0_2
 	test eax, eax
-	jz Z13FS_GetModListPci:F(0,2)_250
-Z13FS_GetModListPci:F(0,2)_220:
+	jz Z13FS_GetModListPci_F0_2_250
+Z13FS_GetModListPci_F0_2_220:
 	lea eax, [ebp-0x124]
 	mov [esp+0xc], eax
 	mov dword [esp+0x8], _cstring_null
@@ -8887,7 +9176,7 @@ Z13FS_GetModListPci:F(0,2)_220:
 	mov eax, [eax]
 	mov eax, [eax+0x8]
 	mov [esp], eax
-	call Z14FS_BuildOSPathPKcS0_S0_Pc:F(0,3)
+	call Z14FS_BuildOSPathPKcS0_S0_Pc_F0_3
 	mov dword [ebp-0x1c], 0x0
 	mov dword [esp+0x10], 0x0
 	lea ecx, [ebp-0x1c]
@@ -8896,13 +9185,13 @@ Z13FS_GetModListPci:F(0,2)_220:
 	mov dword [esp+0x4], _cstring_iwd
 	lea eax, [ebp-0x124]
 	mov [esp], eax
-	call Z13Sys_ListFilesPKcS0_S0_Pii:F(0,12)
+	call Z13Sys_ListFilesPKcS0_S0_Pii_F0_12
 	mov [esp], eax
-	call Z16Sys_FreeFileListPPc:F(0,1)
+	call Z16Sys_FreeFileListPPc_F0_1
 	mov ecx, [ebp-0x1c]
 	test ecx, ecx
-	jle Z13FS_GetModListPci:F(0,2)_260
-Z13FS_GetModListPci:F(0,2)_400:
+	jle Z13FS_GetModListPci_F0_2_260
+Z13FS_GetModListPci_F0_2_400:
 	cld
 	mov ecx, 0xffffffff
 	mov edi, [ebp-0x238]
@@ -8919,24 +9208,24 @@ Z13FS_GetModListPci:F(0,2)_400:
 	mov dword [esp+0x4], 0x100
 	lea ecx, [ebp-0x224]
 	mov [esp], ecx
-	call Z9I_strncatPciPKc:F(0,15)
+	call Z9I_strncatPciPKc_F0_15
 	lea eax, [ebp-0x20]
 	mov [esp+0x4], eax
 	lea eax, [ebp-0x224]
 	mov [esp], eax
-	call Z19FS_SV_FOpenFileReadPKcPi:F(0,2)
+	call Z19FS_SV_FOpenFileReadPKcPi_F0_2
 	test eax, eax
-	jle Z13FS_GetModListPci:F(0,2)_270
+	jle Z13FS_GetModListPci_F0_2_270
 	mov eax, [ebp-0x20]
 	test eax, eax
-	jnz Z13FS_GetModListPci:F(0,2)_280
-Z13FS_GetModListPci:F(0,2)_270:
+	jnz Z13FS_GetModListPci_F0_2_280
+Z13FS_GetModListPci_F0_2_270:
 	mov dword [esp+0x4], _cstring_main
 	mov eax, [ebp-0x238]
 	mov [esp], eax
-	call I_stricmp:F(0,2)
+	call I_stricmp_F0_2
 	test eax, eax
-	jnz Z13FS_GetModListPci:F(0,2)_290
+	jnz Z13FS_GetModListPci_F0_2_290
 	mov dword [ebp-0x224], 0x6c6c6143
 	mov dword [ebp-0x220], 0x20666f20
 	mov dword [ebp-0x21c], 0x79747544
@@ -8945,7 +9234,7 @@ Z13FS_GetModListPci:F(0,2)_270:
 	mov dword [ebp-0x210], 0x79616c70
 	mov word [ebp-0x20c], 0x7265
 	mov byte [ebp-0x20a], 0x0
-Z13FS_GetModListPci:F(0,2)_380:
+Z13FS_GetModListPci_F0_2_380:
 	cld
 	mov ecx, 0xffffffff
 	lea edi, [ebp-0x224]
@@ -8957,7 +9246,7 @@ Z13FS_GetModListPci:F(0,2)_380:
 	add eax, [ebp-0x248]
 	lea eax, [esi+eax+0x2]
 	cmp eax, [ebp+0xc]
-	jge Z13FS_GetModListPci:F(0,2)_230
+	jge Z13FS_GetModListPci_F0_2_230
 	mov eax, [ebp-0x238]
 	mov [esp+0x4], eax
 	mov edx, [ebp+0x8]
@@ -8975,13 +9264,13 @@ Z13FS_GetModListPci:F(0,2)_380:
 	add eax, esi
 	add [ebp-0x23c], eax
 	add dword [ebp-0x244], 0x1
-	jmp Z13FS_GetModListPci:F(0,2)_250
-Z13FS_GetModListPci:F(0,2)_180:
+	jmp Z13FS_GetModListPci_F0_2_250
+Z13FS_GetModListPci_F0_2_180:
 	mov dword [ebp-0x244], 0x0
-Z13FS_GetModListPci:F(0,2)_230:
+Z13FS_GetModListPci_F0_2_230:
 	mov ecx, [ebp-0x22c]
 	mov [esp], ecx
-	call Z16Sys_FreeFileListPPc:F(0,1)
+	call Z16Sys_FreeFileListPPc_F0_1
 	mov eax, [ebp-0x244]
 	add esp, 0x25c
 	pop ebx
@@ -8989,86 +9278,86 @@ Z13FS_GetModListPci:F(0,2)_230:
 	pop edi
 	pop ebp
 	ret
-Z13FS_GetModListPci:F(0,2)_20:
+Z13FS_GetModListPci_F0_2_20:
 	mov dword [esp+0x10], 0x1
 	mov [esp+0xc], ebx
 	mov dword [esp+0x8], 0x0
 	mov dword [esp+0x4], 0x0
 	mov [esp], eax
-	call Z13Sys_ListFilesPKcS0_S0_Pii:F(0,12)
+	call Z13Sys_ListFilesPKcS0_S0_Pii_F0_12
 	mov ebx, eax
 	test edi, edi
-	jnz Z13FS_GetModListPci:F(0,2)_300
-Z13FS_GetModListPci:F(0,2)_30:
+	jnz Z13FS_GetModListPci_F0_2_300
+Z13FS_GetModListPci_F0_2_30:
 	xor ecx, ecx
 	test esi, esi
-	jnz Z13FS_GetModListPci:F(0,2)_310
-Z13FS_GetModListPci:F(0,2)_50:
+	jnz Z13FS_GetModListPci_F0_2_310
+Z13FS_GetModListPci_F0_2_50:
 	xor eax, eax
 	add ecx, eax
 	test ebx, ebx
-	jnz Z13FS_GetModListPci:F(0,2)_320
-Z13FS_GetModListPci:F(0,2)_70:
+	jnz Z13FS_GetModListPci_F0_2_320
+Z13FS_GetModListPci_F0_2_70:
 	xor eax, eax
 	lea eax, [ecx+eax]
 	lea eax, [eax*4+0x4]
 	mov [esp], eax
-	call Z_MallocInternal:F(0,2)
+	call Z_MallocInternal_F0_2
 	mov [ebp-0x22c], eax
 	test edi, edi
-	jnz Z13FS_GetModListPci:F(0,2)_330
-Z13FS_GetModListPci:F(0,2)_90:
+	jnz Z13FS_GetModListPci_F0_2_330
+Z13FS_GetModListPci_F0_2_90:
 	mov edx, [ebp-0x22c]
-	jmp Z13FS_GetModListPci:F(0,2)_340
-Z13FS_GetModListPci:F(0,2)_210:
+	jmp Z13FS_GetModListPci_F0_2_340
+Z13FS_GetModListPci_F0_2_210:
 	xor ebx, ebx
-	jmp Z13FS_GetModListPci:F(0,2)_350
-Z13FS_GetModListPci:F(0,2)_370:
+	jmp Z13FS_GetModListPci_F0_2_350
+Z13FS_GetModListPci_F0_2_370:
 	add ebx, 0x1
 	cmp [ebp-0x240], ebx
-	jz Z13FS_GetModListPci:F(0,2)_360
-Z13FS_GetModListPci:F(0,2)_350:
+	jz Z13FS_GetModListPci_F0_2_360
+Z13FS_GetModListPci_F0_2_350:
 	mov eax, [ebp-0x238]
 	mov [esp+0x4], eax
 	mov edx, [ebp-0x22c]
 	mov eax, [edx+ebx*4]
 	mov [esp], eax
-	call I_stricmp:F(0,2)
+	call I_stricmp_F0_2
 	test eax, eax
-	jnz Z13FS_GetModListPci:F(0,2)_370
+	jnz Z13FS_GetModListPci_F0_2_370
 	mov dword [ebp-0x234], 0x1
-	jmp Z13FS_GetModListPci:F(0,2)_250
-Z13FS_GetModListPci:F(0,2)_290:
+	jmp Z13FS_GetModListPci_F0_2_250
+Z13FS_GetModListPci_F0_2_290:
 	mov edx, [ebp-0x238]
 	mov [esp+0x4], edx
 	lea ecx, [ebp-0x224]
 	mov [esp], ecx
 	call strcpy
-	jmp Z13FS_GetModListPci:F(0,2)_380
-Z13FS_GetModListPci:F(0,2)_280:
+	jmp Z13FS_GetModListPci_F0_2_380
+Z13FS_GetModListPci_F0_2_280:
 	mov [esp], eax
-	call Z16FS_FileForHandlei:F(0,33)
+	call Z16FS_FileForHandlei_F0_33
 	mov ebx, eax
 	mov dword [esp+0x8], 0x100
 	mov dword [esp+0x4], 0x0
 	lea edx, [ebp-0x224]
 	mov [esp], edx
-	call Z10Com_MemsetPvii:F(0,12)
+	call Z10Com_MemsetPvii_F0_12
 	mov [esp+0xc], ebx
 	mov dword [esp+0x8], 0x30
 	mov dword [esp+0x4], 0x1
 	lea ecx, [ebp-0x224]
 	mov [esp], ecx
-	call FS_FileRead:F(0,1)
+	call FS_FileRead_F0_1
 	test eax, eax
-	js Z13FS_GetModListPci:F(0,2)_390
+	js Z13FS_GetModListPci_F0_2_390
 	mov byte [ebp+eax-0x224], 0x0
-Z13FS_GetModListPci:F(0,2)_390:
+Z13FS_GetModListPci_F0_2_390:
 	mov eax, [ebp-0x20]
 	mov [esp], eax
-	call Z13FS_FCloseFilei:F(0,3)
-	jmp Z13FS_GetModListPci:F(0,2)_380
-Z13FS_GetModListPci:F(0,2)_260:
+	call Z13FS_FCloseFilei_F0_3
+	jmp Z13FS_GetModListPci_F0_2_380
+Z13FS_GetModListPci_F0_2_260:
 	lea edx, [ebp-0x124]
 	mov [esp+0xc], edx
 	mov dword [esp+0x8], _cstring_null
@@ -9078,7 +9367,7 @@ Z13FS_GetModListPci:F(0,2)_260:
 	mov eax, [eax]
 	mov eax, [eax+0x8]
 	mov [esp], eax
-	call Z14FS_BuildOSPathPKcS0_S0_Pc:F(0,3)
+	call Z14FS_BuildOSPathPKcS0_S0_Pc_F0_3
 	mov dword [ebp-0x1c], 0x0
 	mov dword [esp+0x10], 0x0
 	lea eax, [ebp-0x1c]
@@ -9087,12 +9376,12 @@ Z13FS_GetModListPci:F(0,2)_260:
 	mov dword [esp+0x4], _cstring_iwd
 	lea edx, [ebp-0x124]
 	mov [esp], edx
-	call Z13Sys_ListFilesPKcS0_S0_Pii:F(0,12)
+	call Z13Sys_ListFilesPKcS0_S0_Pii_F0_12
 	mov [esp], eax
-	call Z16Sys_FreeFileListPPc:F(0,1)
+	call Z16Sys_FreeFileListPPc_F0_1
 	mov edx, [ebp-0x1c]
 	test edx, edx
-	jg Z13FS_GetModListPci:F(0,2)_400
+	jg Z13FS_GetModListPci_F0_2_400
 	lea ecx, [ebp-0x124]
 	mov [esp+0xc], ecx
 	mov dword [esp+0x8], _cstring_null
@@ -9102,7 +9391,7 @@ Z13FS_GetModListPci:F(0,2)_260:
 	mov eax, [eax]
 	mov eax, [eax+0x8]
 	mov [esp], eax
-	call Z14FS_BuildOSPathPKcS0_S0_Pc:F(0,3)
+	call Z14FS_BuildOSPathPKcS0_S0_Pc_F0_3
 	mov dword [ebp-0x1c], 0x0
 	mov dword [esp+0x10], 0x0
 	lea edx, [ebp-0x1c]
@@ -9111,18 +9400,18 @@ Z13FS_GetModListPci:F(0,2)_260:
 	mov dword [esp+0x4], _cstring_iwd
 	lea ecx, [ebp-0x124]
 	mov [esp], ecx
-	call Z13Sys_ListFilesPKcS0_S0_Pii:F(0,12)
+	call Z13Sys_ListFilesPKcS0_S0_Pii_F0_12
 	mov [esp], eax
-	call Z16Sys_FreeFileListPPc:F(0,1)
+	call Z16Sys_FreeFileListPPc_F0_1
 	mov eax, [ebp-0x1c]
 	test eax, eax
-	jle Z13FS_GetModListPci:F(0,2)_250
-	jmp Z13FS_GetModListPci:F(0,2)_400
+	jle Z13FS_GetModListPci_F0_2_250
+	jmp Z13FS_GetModListPci_F0_2_400
 
 
-;Z14FS_CompareIwdsPcii:F(0,1)
+;Z14FS_CompareIwdsPcii_F0_1
 
-Z14FS_CompareIwdsPcii:F(0,1):
+Z14FS_CompareIwdsPcii_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -9132,17 +9421,17 @@ Z14FS_CompareIwdsPcii:F(0,1):
 	mov eax, [0x1accd61]
 	mov esi, [eax]
 	test esi, esi
-	jz Z14FS_CompareIwdsPcii:F(0,1)_10
+	jz Z14FS_CompareIwdsPcii_F0_1_10
 	mov edx, [ebp+0x8]
 	mov byte [edx], 0x0
 	mov ebx, [eax]
 	test ebx, ebx
-	jg Z14FS_CompareIwdsPcii:F(0,1)_20
-Z14FS_CompareIwdsPcii:F(0,1)_50:
+	jg Z14FS_CompareIwdsPcii_F0_1_20
+Z14FS_CompareIwdsPcii_F0_1_50:
 	mov eax, [ebp+0x8]
 	cmp byte [eax], 0x0
-	jnz Z14FS_CompareIwdsPcii:F(0,1)_30
-Z14FS_CompareIwdsPcii:F(0,1)_10:
+	jnz Z14FS_CompareIwdsPcii_F0_1_30
+Z14FS_CompareIwdsPcii_F0_1_10:
 	xor eax, eax
 	add esp, 0x13c
 	pop ebx
@@ -9150,10 +9439,10 @@ Z14FS_CompareIwdsPcii:F(0,1)_10:
 	pop edi
 	pop ebp
 	ret
-Z14FS_CompareIwdsPcii:F(0,1)_30:
+Z14FS_CompareIwdsPcii_F0_1_30:
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_need_iwds_s
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov eax, 0x1
 	add esp, 0x13c
 	pop ebx
@@ -9161,26 +9450,26 @@ Z14FS_CompareIwdsPcii:F(0,1)_30:
 	pop edi
 	pop ebp
 	ret
-Z14FS_CompareIwdsPcii:F(0,1)_20:
+Z14FS_CompareIwdsPcii_F0_1_20:
 	xor esi, esi
 	mov ebx, [0x1accd41]
 	mov ecx, [0x1accd55]
 	mov [ebp-0x11c], ecx
-	jmp Z14FS_CompareIwdsPcii:F(0,1)_40
-Z14FS_CompareIwdsPcii:F(0,1)_60:
+	jmp Z14FS_CompareIwdsPcii_F0_1_40
+Z14FS_CompareIwdsPcii_F0_1_60:
 	add esi, 0x1
 	add ebx, 0x4
 	add dword [ebp-0x11c], 0x4
 	mov eax, [0x1accd61]
 	cmp esi, [eax]
-	jge Z14FS_CompareIwdsPcii:F(0,1)_50
-Z14FS_CompareIwdsPcii:F(0,1)_40:
+	jge Z14FS_CompareIwdsPcii_F0_1_50
+Z14FS_CompareIwdsPcii_F0_1_40:
 	mov dword [esp+0x4], _cstring_main
 	mov eax, [ebx]
 	mov [esp], eax
-	call Z8FS_iwIwdPcS_:F(0,1)
+	call Z8FS_iwIwdPcS__F0_1
 	test eax, eax
-	jnz Z14FS_CompareIwdsPcii:F(0,1)_60
+	jnz Z14FS_CompareIwdsPcii_F0_1_60
 	mov eax, [ebx]
 	mov [esp+0x4], eax
 	lea eax, [ebp-0x118]
@@ -9188,54 +9477,54 @@ Z14FS_CompareIwdsPcii:F(0,1)_40:
 	call strcpy
 	lea edx, [ebp-0x118]
 	mov [esp], edx
-	call Z8I_strlwrPc:F(0,3)
+	call Z8I_strlwrPc_F0_3
 	mov dword [esp+0x4], _cstring__svr_
 	lea ecx, [ebp-0x118]
 	mov [esp], ecx
 	call strstr
 	test eax, eax
-	jnz Z14FS_CompareIwdsPcii:F(0,1)_60
+	jnz Z14FS_CompareIwdsPcii_F0_1_60
 	mov eax, [0x1accd4d]
 	mov edx, [eax]
 	test edx, edx
-	jz Z14FS_CompareIwdsPcii:F(0,1)_70
-Z14FS_CompareIwdsPcii:F(0,1)_90:
+	jz Z14FS_CompareIwdsPcii_F0_1_70
+Z14FS_CompareIwdsPcii_F0_1_90:
 	mov eax, [edx+0x4]
 	test eax, eax
-	jz Z14FS_CompareIwdsPcii:F(0,1)_80
+	jz Z14FS_CompareIwdsPcii_F0_1_80
 	mov eax, [eax+0x304]
 	mov ecx, [ebp-0x11c]
 	cmp eax, [ecx]
-	jz Z14FS_CompareIwdsPcii:F(0,1)_60
-Z14FS_CompareIwdsPcii:F(0,1)_80:
+	jz Z14FS_CompareIwdsPcii_F0_1_60
+Z14FS_CompareIwdsPcii_F0_1_80:
 	mov edx, [edx]
 	test edx, edx
-	jnz Z14FS_CompareIwdsPcii:F(0,1)_90
-Z14FS_CompareIwdsPcii:F(0,1)_70:
+	jnz Z14FS_CompareIwdsPcii_F0_1_90
+Z14FS_CompareIwdsPcii_F0_1_70:
 	mov eax, [ebx]
 	test eax, eax
-	jz Z14FS_CompareIwdsPcii:F(0,1)_60
+	jz Z14FS_CompareIwdsPcii_F0_1_60
 	cmp byte [eax], 0x0
-	jz Z14FS_CompareIwdsPcii:F(0,1)_60
+	jz Z14FS_CompareIwdsPcii_F0_1_60
 	mov ecx, [ebp+0x10]
 	test ecx, ecx
-	jnz Z14FS_CompareIwdsPcii:F(0,1)_100
+	jnz Z14FS_CompareIwdsPcii_F0_1_100
 	mov [esp+0x8], eax
 	mov ecx, [ebp+0xc]
 	mov [esp+0x4], ecx
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z9I_strncatPciPKc:F(0,15)
+	call Z9I_strncatPciPKc_F0_15
 	mov dword [esp+0x8], _cstring_iwd1
 	mov edx, [ebp+0xc]
 	mov [esp+0x4], edx
 	mov ecx, [ebp+0x8]
 	mov [esp], ecx
-	call Z9I_strncatPciPKc:F(0,15)
+	call Z9I_strncatPciPKc_F0_15
 	mov eax, [ebx]
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_siwd
-	call va:F(0,3)
+	call va_F0_3
 	lea edx, [ebp-0x118]
 	mov [esp+0xc], edx
 	mov dword [esp+0x8], _cstring_null
@@ -9244,7 +9533,7 @@ Z14FS_CompareIwdsPcii:F(0,1)_70:
 	mov eax, [eax]
 	mov eax, [eax+0x8]
 	mov [esp], eax
-	call Z14FS_BuildOSPathPKcS0_S0_Pc:F(0,3)
+	call Z14FS_BuildOSPathPKcS0_S0_Pc_F0_3
 	cld
 	mov ecx, 0xffffffff
 	lea edi, [ebp-0x118]
@@ -9255,55 +9544,55 @@ Z14FS_CompareIwdsPcii:F(0,1)_70:
 	mov dword [esp+0x4], _cstring_rb
 	lea edx, [ebp-0x118]
 	mov [esp], edx
-	call FS_FileOpen:F(0,4)
+	call FS_FileOpen_F0_4
 	test eax, eax
-	jz Z14FS_CompareIwdsPcii:F(0,1)_110
+	jz Z14FS_CompareIwdsPcii_F0_1_110
 	mov [esp], eax
-	call FS_FileClose:F(0,10)
+	call FS_FileClose_F0_10
 	mov dword [esp+0x8], _cstring__local_file_exis
 	mov ecx, [ebp+0xc]
 	mov [esp+0x4], ecx
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z9I_strncatPciPKc:F(0,15)
-Z14FS_CompareIwdsPcii:F(0,1)_110:
+	call Z9I_strncatPciPKc_F0_15
+Z14FS_CompareIwdsPcii_F0_1_110:
 	mov dword [esp+0x8], _cstring_4
 	mov edx, [ebp+0xc]
 	mov [esp+0x4], edx
 	mov ecx, [ebp+0x8]
 	mov [esp], ecx
-	call Z9I_strncatPciPKc:F(0,15)
-	jmp Z14FS_CompareIwdsPcii:F(0,1)_60
-Z14FS_CompareIwdsPcii:F(0,1)_100:
+	call Z9I_strncatPciPKc_F0_15
+	jmp Z14FS_CompareIwdsPcii_F0_1_60
+Z14FS_CompareIwdsPcii_F0_1_100:
 	mov dword [esp+0x8], _cstring_15
 	mov eax, [ebp+0xc]
 	mov [esp+0x4], eax
 	mov edx, [ebp+0x8]
 	mov [esp], edx
-	call Z9I_strncatPciPKc:F(0,15)
+	call Z9I_strncatPciPKc_F0_15
 	mov eax, [ebx]
 	mov [esp+0x8], eax
 	mov ecx, [ebp+0xc]
 	mov [esp+0x4], ecx
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z9I_strncatPciPKc:F(0,15)
+	call Z9I_strncatPciPKc_F0_15
 	mov dword [esp+0x8], _cstring_iwd1
 	mov edx, [ebp+0xc]
 	mov [esp+0x4], edx
 	mov ecx, [ebp+0x8]
 	mov [esp], ecx
-	call Z9I_strncatPciPKc:F(0,15)
+	call Z9I_strncatPciPKc_F0_15
 	mov dword [esp+0x8], _cstring_15
 	mov eax, [ebp+0xc]
 	mov [esp+0x4], eax
 	mov edx, [ebp+0x8]
 	mov [esp], edx
-	call Z9I_strncatPciPKc:F(0,15)
+	call Z9I_strncatPciPKc_F0_15
 	mov eax, [ebx]
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_siwd
-	call va:F(0,3)
+	call va_F0_3
 	lea ecx, [ebp-0x118]
 	mov [esp+0xc], ecx
 	mov dword [esp+0x8], _cstring_null
@@ -9312,7 +9601,7 @@ Z14FS_CompareIwdsPcii:F(0,1)_100:
 	mov eax, [eax]
 	mov eax, [eax+0x8]
 	mov [esp], eax
-	call Z14FS_BuildOSPathPKcS0_S0_Pc:F(0,3)
+	call Z14FS_BuildOSPathPKcS0_S0_Pc_F0_3
 	cld
 	mov ecx, 0xffffffff
 	lea edi, [ebp-0x118]
@@ -9323,11 +9612,11 @@ Z14FS_CompareIwdsPcii:F(0,1)_100:
 	mov dword [esp+0x4], _cstring_rb
 	lea edx, [ebp-0x118]
 	mov [esp], edx
-	call FS_FileOpen:F(0,4)
+	call FS_FileOpen_F0_4
 	test eax, eax
-	jz Z14FS_CompareIwdsPcii:F(0,1)_120
+	jz Z14FS_CompareIwdsPcii_F0_1_120
 	mov [esp], eax
-	call FS_FileClose:F(0,10)
+	call FS_FileClose_F0_10
 	mov ecx, [ebp-0x11c]
 	mov eax, [ecx]
 	mov [esp+0x10], eax
@@ -9337,53 +9626,53 @@ Z14FS_CompareIwdsPcii:F(0,1)_100:
 	mov dword [esp+0x4], 0x100
 	lea eax, [ebp-0x118]
 	mov [esp], eax
-	call Z11Com_sprintfPciPKcz:F(0,2)
+	call Z11Com_sprintfPciPKcz_F0_2
 	lea edx, [ebp-0x118]
 	mov [esp+0x8], edx
 	mov ecx, [ebp+0xc]
 	mov [esp+0x4], ecx
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z9I_strncatPciPKc:F(0,15)
-	jmp Z14FS_CompareIwdsPcii:F(0,1)_60
-Z14FS_CompareIwdsPcii:F(0,1)_120:
+	call Z9I_strncatPciPKc_F0_15
+	jmp Z14FS_CompareIwdsPcii_F0_1_60
+Z14FS_CompareIwdsPcii_F0_1_120:
 	mov eax, [ebx]
 	mov [esp+0x8], eax
 	mov edx, [ebp+0xc]
 	mov [esp+0x4], edx
 	mov ecx, [ebp+0x8]
 	mov [esp], ecx
-	call Z9I_strncatPciPKc:F(0,15)
+	call Z9I_strncatPciPKc_F0_15
 	mov dword [esp+0x8], _cstring_iwd1
 	mov eax, [ebp+0xc]
 	mov [esp+0x4], eax
 	mov edx, [ebp+0x8]
 	mov [esp], edx
-	call Z9I_strncatPciPKc:F(0,15)
-	jmp Z14FS_CompareIwdsPcii:F(0,1)_60
+	call Z9I_strncatPciPKc_F0_15
+	jmp Z14FS_CompareIwdsPcii_F0_1_60
 
 
-;Z11Com_HashKeyPci:F(0,1)
+;Z11Com_HashKeyPci_F0_1
 
-Z15CompareCaseInfoPKvS0_:F(0,1):
+Z15CompareCaseInfoPKvS0__F0_1:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0xc]
 	mov edx, [eax]
 	mov eax, [ebp+0x8]
 	cmp [eax], edx
-	ja Z15CompareCaseInfoPKvS0_:F(0,1)_10
+	ja Z15CompareCaseInfoPKvS0__F0_1_10
 	setb al
 	movzx eax, al
 	pop ebp
 	ret
-Z15CompareCaseInfoPKvS0_:F(0,1)_10:
+Z15CompareCaseInfoPKvS0__F0_1_10:
 	mov eax, 0xffffffff
 	pop ebp
 	ret
 
 
-;Z19Scr_CompileShutdownv:F(0,10)
+;Z19Scr_CompileShutdownv_F0_10
 
 _Z27MemFile_WriteDataForArchiveP10MemoryFileiPv:
 	push ebp
@@ -9419,7 +9708,7 @@ _Z27MemFile_WriteDataForArchiveP10MemoryFileiPv_30:
 	mov [esp+0x8], esi
 	mov dword [esp+0x4], _cstring_couldnt_write_i_
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	mov byte [ebx+0xd], 0x1
 	jmp _Z27MemFile_WriteDataForArchiveP10MemoryFileiPv_10
 _Z27MemFile_WriteDataForArchiveP10MemoryFileiPv_20:
@@ -9438,9 +9727,9 @@ _Z27MemFile_WriteDataForArchiveP10MemoryFileiPv_20:
 	nop
 
 
-;Z22MemFile_InitForWritingP10MemoryFileiPvh:F(0,1)
+;Z22MemFile_InitForWritingP10MemoryFileiPvh_F0_1
 
-Z22MemFile_InitForWritingP10MemoryFileiPvh:F(0,1):
+Z22MemFile_InitForWritingP10MemoryFileiPvh_F0_1:
 	push ebp
 	mov ebp, esp
 	mov edx, [ebp+0x8]
@@ -9458,9 +9747,9 @@ Z22MemFile_InitForWritingP10MemoryFileiPvh:F(0,1):
 	add [eax], al
 
 
-;Z16MemFile_ReadDataP10MemoryFileiPv:F(0,1)
+;Z16MemFile_ReadDataP10MemoryFileiPv_F0_1
 
-Z16MemFile_ReadDataP10MemoryFileiPv:F(0,1):
+Z16MemFile_ReadDataP10MemoryFileiPv_F0_1:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -9469,24 +9758,24 @@ Z16MemFile_ReadDataP10MemoryFileiPv:F(0,1):
 	mov ebx, [ebp+0x8]
 	mov esi, [ebp+0xc]
 	test esi, esi
-	jz Z16MemFile_ReadDataP10MemoryFileiPv:F(0,1)_10
+	jz Z16MemFile_ReadDataP10MemoryFileiPv_F0_1_10
 	cmp byte [ebx+0xd], 0x0
-	jnz Z16MemFile_ReadDataP10MemoryFileiPv:F(0,1)_10
+	jnz Z16MemFile_ReadDataP10MemoryFileiPv_F0_1_10
 	mov ecx, [ebx+0x8]
 	mov edx, [ebx+0x4]
 	lea eax, [esi+ecx]
 	cmp eax, edx
-	jle Z16MemFile_ReadDataP10MemoryFileiPv:F(0,1)_20
+	jle Z16MemFile_ReadDataP10MemoryFileiPv_F0_1_20
 	cmp byte [ebx+0xc], 0x0
-	jnz Z16MemFile_ReadDataP10MemoryFileiPv:F(0,1)_30
+	jnz Z16MemFile_ReadDataP10MemoryFileiPv_F0_1_30
 	mov byte [ebx+0xd], 0x1
-Z16MemFile_ReadDataP10MemoryFileiPv:F(0,1)_10:
+Z16MemFile_ReadDataP10MemoryFileiPv_F0_1_10:
 	add esp, 0x20
 	pop ebx
 	pop esi
 	pop ebp
 	ret
-Z16MemFile_ReadDataP10MemoryFileiPv:F(0,1)_30:
+Z16MemFile_ReadDataP10MemoryFileiPv_F0_1_30:
 	mov eax, edx
 	sub eax, ecx
 	mov [esp+0x10], eax
@@ -9494,10 +9783,10 @@ Z16MemFile_ReadDataP10MemoryFileiPv:F(0,1)_30:
 	mov [esp+0x8], esi
 	mov dword [esp+0x4], _cstring_couldnt_read_i_b
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	mov byte [ebx+0xd], 0x1
-	jmp Z16MemFile_ReadDataP10MemoryFileiPv:F(0,1)_10
-Z16MemFile_ReadDataP10MemoryFileiPv:F(0,1)_20:
+	jmp Z16MemFile_ReadDataP10MemoryFileiPv_F0_1_10
+Z16MemFile_ReadDataP10MemoryFileiPv_F0_1_20:
 	add ecx, [ebx]
 	mov [esp+0x8], esi
 	mov [esp+0x4], ecx
@@ -9513,9 +9802,9 @@ Z16MemFile_ReadDataP10MemoryFileiPv:F(0,1)_20:
 	nop
 
 
-;Z17MemFile_WriteDataP10MemoryFileiPKv:F(0,1)
+;Z17MemFile_WriteDataP10MemoryFileiPKv_F0_1
 
-Z17MemFile_WriteDataP10MemoryFileiPKv:F(0,1):
+Z17MemFile_WriteDataP10MemoryFileiPKv_F0_1:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -9524,24 +9813,24 @@ Z17MemFile_WriteDataP10MemoryFileiPKv:F(0,1):
 	mov ebx, [ebp+0x8]
 	mov esi, [ebp+0xc]
 	test esi, esi
-	jz Z17MemFile_WriteDataP10MemoryFileiPKv:F(0,1)_10
+	jz Z17MemFile_WriteDataP10MemoryFileiPKv_F0_1_10
 	cmp byte [ebx+0xd], 0x0
-	jnz Z17MemFile_WriteDataP10MemoryFileiPKv:F(0,1)_10
+	jnz Z17MemFile_WriteDataP10MemoryFileiPKv_F0_1_10
 	mov ecx, [ebx+0x8]
 	mov edx, [ebx+0x4]
 	lea eax, [esi+ecx]
 	cmp eax, edx
-	jle Z17MemFile_WriteDataP10MemoryFileiPKv:F(0,1)_20
+	jle Z17MemFile_WriteDataP10MemoryFileiPKv_F0_1_20
 	cmp byte [ebx+0xc], 0x0
-	jnz Z17MemFile_WriteDataP10MemoryFileiPKv:F(0,1)_30
+	jnz Z17MemFile_WriteDataP10MemoryFileiPKv_F0_1_30
 	mov byte [ebx+0xd], 0x1
-Z17MemFile_WriteDataP10MemoryFileiPKv:F(0,1)_10:
+Z17MemFile_WriteDataP10MemoryFileiPKv_F0_1_10:
 	add esp, 0x20
 	pop ebx
 	pop esi
 	pop ebp
 	ret
-Z17MemFile_WriteDataP10MemoryFileiPKv:F(0,1)_30:
+Z17MemFile_WriteDataP10MemoryFileiPKv_F0_1_30:
 	mov eax, edx
 	sub eax, ecx
 	mov [esp+0x10], eax
@@ -9549,10 +9838,10 @@ Z17MemFile_WriteDataP10MemoryFileiPKv:F(0,1)_30:
 	mov [esp+0x8], esi
 	mov dword [esp+0x4], _cstring_couldnt_write_i_
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	mov byte [ebx+0xd], 0x1
-	jmp Z17MemFile_WriteDataP10MemoryFileiPKv:F(0,1)_10
-Z17MemFile_WriteDataP10MemoryFileiPKv:F(0,1)_20:
+	jmp Z17MemFile_WriteDataP10MemoryFileiPKv_F0_1_10
+Z17MemFile_WriteDataP10MemoryFileiPKv_F0_1_20:
 	add ecx, [ebx]
 	mov [esp+0x8], esi
 	mov eax, [ebp+0x10]
@@ -9569,36 +9858,36 @@ Z17MemFile_WriteDataP10MemoryFileiPKv:F(0,1)_20:
 	add [eax], al
 
 
-;Z19MemFile_ReadCStringP10MemoryFile:F(0,14)
+;Z19MemFile_ReadCStringP10MemoryFile_F0_14
 
-Z19MemFile_ReadCStringP10MemoryFile:F(0,14):
+Z19MemFile_ReadCStringP10MemoryFile_F0_14:
 	push ebp
 	mov ebp, esp
 	push ebx
 	sub esp, 0x14
 	mov ebx, [ebp+0x8]
 	cmp byte [ebx+0xd], 0x0
-	jnz Z19MemFile_ReadCStringP10MemoryFile:F(0,14)_10
+	jnz Z19MemFile_ReadCStringP10MemoryFile_F0_14_10
 	mov ecx, [ebx+0x8]
 	mov eax, ecx
 	mov edx, [ebx]
-Z19MemFile_ReadCStringP10MemoryFile:F(0,14)_30:
+Z19MemFile_ReadCStringP10MemoryFile_F0_14_30:
 	cmp byte [edx+eax], 0x0
-	jz Z19MemFile_ReadCStringP10MemoryFile:F(0,14)_20
+	jz Z19MemFile_ReadCStringP10MemoryFile_F0_14_20
 	add eax, 0x1
 	mov [ebx+0x8], eax
 	cmp [ebx+0x4], eax
-	jnz Z19MemFile_ReadCStringP10MemoryFile:F(0,14)_30
+	jnz Z19MemFile_ReadCStringP10MemoryFile_F0_14_30
 	cmp byte [ebx+0xc], 0x0
-	jnz Z19MemFile_ReadCStringP10MemoryFile:F(0,14)_40
+	jnz Z19MemFile_ReadCStringP10MemoryFile_F0_14_40
 	mov byte [ebx+0xd], 0x1
-Z19MemFile_ReadCStringP10MemoryFile:F(0,14)_10:
+Z19MemFile_ReadCStringP10MemoryFile_F0_14_10:
 	mov eax, _cstring_null
 	add esp, 0x14
 	pop ebx
 	pop ebp
 	ret
-Z19MemFile_ReadCStringP10MemoryFile:F(0,14)_20:
+Z19MemFile_ReadCStringP10MemoryFile_F0_14_20:
 	add eax, 0x1
 	mov [ebx+0x8], eax
 	lea eax, [ecx+edx]
@@ -9606,19 +9895,19 @@ Z19MemFile_ReadCStringP10MemoryFile:F(0,14)_20:
 	pop ebx
 	pop ebp
 	ret
-Z19MemFile_ReadCStringP10MemoryFile:F(0,14)_40:
+Z19MemFile_ReadCStringP10MemoryFile_F0_14_40:
 	sub eax, ecx
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], _cstring_end_of_memory_fi
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	mov byte [ebx+0xd], 0x1
-	jmp Z19MemFile_ReadCStringP10MemoryFile:F(0,14)_10
+	jmp Z19MemFile_ReadCStringP10MemoryFile_F0_14_10
 
 
-;Z22MemFile_InitForReadingP10MemoryFileiPv:F(0,1)
+;Z22MemFile_InitForReadingP10MemoryFileiPv_F0_1
 
-Z22MemFile_InitForReadingP10MemoryFileiPv:F(0,1):
+Z22MemFile_InitForReadingP10MemoryFileiPv_F0_1:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -9635,9 +9924,9 @@ Z22MemFile_InitForReadingP10MemoryFileiPv:F(0,1):
 	nop
 
 
-;Z20MemFile_WriteCStringP10MemoryFilePKc:F(0,1)
+;Z20MemFile_WriteCStringP10MemoryFilePKc_F0_1
 
-Z20MemFile_WriteCStringP10MemoryFilePKc:F(0,1):
+Z20MemFile_WriteCStringP10MemoryFilePKc_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -9651,24 +9940,24 @@ Z20MemFile_WriteCStringP10MemoryFilePKc:F(0,1):
 	repne scasb
 	mov edi, ecx
 	xor edi, 0xffffffff
-	jz Z20MemFile_WriteCStringP10MemoryFilePKc:F(0,1)_10
+	jz Z20MemFile_WriteCStringP10MemoryFilePKc_F0_1_10
 	cmp byte [ebx+0xd], 0x0
-	jnz Z20MemFile_WriteCStringP10MemoryFilePKc:F(0,1)_10
+	jnz Z20MemFile_WriteCStringP10MemoryFilePKc_F0_1_10
 	mov ecx, [ebx+0x8]
 	mov edx, [ebx+0x4]
 	lea eax, [edi+ecx]
 	cmp eax, edx
-	jle Z20MemFile_WriteCStringP10MemoryFilePKc:F(0,1)_20
+	jle Z20MemFile_WriteCStringP10MemoryFilePKc_F0_1_20
 	cmp byte [ebx+0xc], 0x0
-	jnz Z20MemFile_WriteCStringP10MemoryFilePKc:F(0,1)_30
+	jnz Z20MemFile_WriteCStringP10MemoryFilePKc_F0_1_30
 	mov byte [ebx+0xd], 0x1
-Z20MemFile_WriteCStringP10MemoryFilePKc:F(0,1)_10:
+Z20MemFile_WriteCStringP10MemoryFilePKc_F0_1_10:
 	add esp, 0x20
 	pop ebx
 	pop edi
 	pop ebp
 	ret
-Z20MemFile_WriteCStringP10MemoryFilePKc:F(0,1)_30:
+Z20MemFile_WriteCStringP10MemoryFilePKc_F0_1_30:
 	mov eax, edx
 	sub eax, ecx
 	mov [esp+0x10], eax
@@ -9676,10 +9965,10 @@ Z20MemFile_WriteCStringP10MemoryFilePKc:F(0,1)_30:
 	mov [esp+0x8], edi
 	mov dword [esp+0x4], _cstring_couldnt_write_i_
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	mov byte [ebx+0xd], 0x1
-	jmp Z20MemFile_WriteCStringP10MemoryFilePKc:F(0,1)_10
-Z20MemFile_WriteCStringP10MemoryFilePKc:F(0,1)_20:
+	jmp Z20MemFile_WriteCStringP10MemoryFilePKc_F0_1_10
+Z20MemFile_WriteCStringP10MemoryFilePKc_F0_1_20:
 	add ecx, [ebx]
 	mov [esp+0x8], edi
 	mov eax, [ebp+0xc]

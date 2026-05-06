@@ -2,671 +2,747 @@
 ;Symbols in this file: 26
 ;
 ;Imports (over-declared, NASM-safe):
-	extern __keymgr_dwarf2_register_sections
-	extern atexit
-	extern exit
-	extern AEDisposeDesc
-	extern AECreateDesc
-	extern __cxa_allocate_exception
-	extern __cxa_throw
-	extern _Unwind_Resume
 	extern AECoerceDesc
+	extern AECreateAppleEvent
+	extern AECreateDesc
+	extern AEDisposeDesc
 	extern AEGetDescData
 	extern AEGetDescDataSize
-	extern CreateObjSpecifier
-	extern AEPutParamDesc
-	extern AECreateAppleEvent
-	extern AESend
-	extern AEPutParamPtr
-	extern AEGetParamPtr
 	extern AEGetParamDesc
-	extern GetControlBounds
-	extern PtInRect
-	extern GetEventKind
-	extern GetEventClass
-	extern GetEventParameter
-	extern GetControlOwner
-	extern AdvanceKeyboardFocus
-	extern SetWRefCon
-	extern QuitAppModalLoopForWindow
-	extern HIViewGetRoot
-	extern HIViewGetViewForMouseEvent
-	extern GetControlKind
-	extern SetThemeCursor
-	extern CFBundleGetMainBundle
-	extern CreateNibReferenceWithCFBundle
-	extern CreateWindowFromNib
-	extern DisposeNibReference
-	extern GetWindowEventTarget
-	extern InstallEventHandler
-	extern GetWindowResizeLimits
-	extern SetWindowResizeLimits
-	extern InitCursor
-	extern ShowWindow
-	extern RunAppModalLoopForWindow
-	extern HideWindow
-	extern GetWRefCon
-	extern DisposeWindow
-	extern GetControlByID
-	extern GetControlMaximum
-	extern GetControlDataSize
-	extern SetControlData
-	extern HandleControlKey
-	extern GetControlReference
-	extern GetControlData
-	extern AlertSoundPlay
-	extern HITextViewGetTXNObject
-	extern TXNSetTypeAttributes
-	extern HideControl
-	extern ShowControl
-	extern DisableControl
-	extern EnableControl
-	extern SetControlFontStyle
-	extern SetKeyboardFocus
-	extern NewControlUserPaneDrawUPP
-	extern NewControlUserPaneHitTestUPP
-	extern NewControlUserPaneTrackingUPP
-	extern SetControlReference
-	extern SetControlMaximum
-	extern NewControlKeyFilterUPP
-	extern NewControlEditTextValidationUPP
-	extern GetWindowPort
-	extern CGDisplayBounds
-	extern DMGetFirstScreenDevice
-	extern EqualRect
-	extern DMGetNextScreenDevice
-	extern GetMainDevice
-	extern GetWindowPortBounds
-	extern CGDisplayFade
-	extern CGReleaseDisplayFadeReservation
-	extern CGAcquireDisplayFadeReservation
-	extern CGDisplayPixelsWide
-	extern CGDisplayPixelsHigh
-	extern CGDisplayBitsPerPixel
-	extern aglSwapBuffers
-	extern EndMediaEdits
-	extern GetMediaDuration
-	extern InsertMediaIntoTrack
-	extern AddMovieResource
-	extern CloseMovieFile
-	extern MoveWindow
-	extern GetAvailableWindowPositioningBounds
-	extern CreateNewWindow
-	extern SetPortWindowPort
-	extern SetWindowContentColor
-	extern SetWindowTitleWithCFString
-	extern gluCheckExtension
-	extern _Znam
-	extern CGSetDisplayTransferByTable
-	extern _ZdaPv
-	extern CGGetDisplayTransferByTable
-	extern QDLocalToGlobalPoint
-	extern QDGlobalToLocalPoint
-	extern _Znwm
-	extern _ZdlPv
-	extern _ZSt17__throw_bad_allocv
-	extern _ZSt20__throw_length_errorPKc
-	extern NormalizeThemeDrawingState
-	extern ForeColor
-	extern FrameRoundRect
-	extern RGBForeColor
-	extern PaintRoundRect
-	extern NewRgn
-	extern OpenRgn
-	extern CloseRgn
-	extern SetClip
-	extern DisposeRgn
-	extern ClipRect
-	extern DrawThemeMenuBarBackground
-	extern InsetRect
-	extern DrawThemeFocusRect
-	extern GetIconRefFromFileInfo
-	extern PlotIconRef
-	extern ReleaseIconRef
-	extern CGRectIsEmpty
-	extern CGRectUnion
-	extern CGRectGetWidth
-	extern CGRectGetHeight
-	extern OffsetRect
-	extern MapRect
-	extern glFinish
-	extern aglSetCurrentContext
-	extern aglSetDrawable
-	extern aglDestroyContext
-	extern ShowMenuBar
-	extern SetSystemUIMode
-	extern aglChoosePixelFormat
-	extern aglCreateContext
-	extern aglSetFullScreen
-	extern CGDisplayCurrentMode
-	extern aglSetInteger
-	extern HideMenuBar
-	extern aglDescribePixelFormat
-	extern aglDestroyPixelFormat
-	extern glEnable
-	extern glHint
-	extern aglGetDrawable
-	extern glDisable
-	extern IsWindowVisible
-	extern SizeWindow
-	extern PaintRect
-	extern _ZNSs6assignERKSs
-	extern CGDisplayIDToOpenGLDisplayMask
-	extern CGLQueryRendererInfo
-	extern CGLDescribeRenderer
-	extern CGLDestroyRendererInfo
-	extern CGDisplayAvailableModes
-	extern CFArrayGetCount
-	extern CGDisplayIOServicePort
-	extern CGLGetCurrentContext
-	extern CGLChoosePixelFormat
-	extern CGLCreateContext
-	extern CGLDestroyPixelFormat
-	extern CGLSetCurrentContext
-	extern glGetString
-	extern _ZNSs6assignEPKcm
-	extern glGetIntegerv
-	extern CGLDestroyContext
-	extern _ZNSsC1ERKSs
-	extern strstr
-	extern _ZNSsD1Ev
-	extern CFArrayGetValueAtIndex
-	extern IOObjectConformsTo
-	extern IORegistryEntryGetParentEntry
-	extern glGetFloatv
-	extern _ZN9__gnu_cxx18__exchange_and_addEPVii
-	extern _ZNSs4_Rep10_M_destroyERKSaIcE
-	extern __cxa_begin_catch
-	extern __cxa_rethrow
-	extern __cxa_end_catch
-	extern CGGetActiveDisplayList
-	extern NewMenu
-	extern InsertMenu
-	extern InvalMenuBar
-	extern GetCurrentKeyModifiers
-	extern CGRectEqualToRect
-	extern Gestalt
-	extern sysctl
-	extern FSOpenIterator
-	extern FSGetCatalogInfoBulk
-	extern FSCloseIterator
-	extern FSDeleteObject
-	extern FSSetCatalogInfo
-	extern FSPathMakeRef
-	extern access
-	extern CFBundleCopyExecutableURL
-	extern CFURLGetFSRef
-	extern CFRelease
-	extern FSGetCatalogInfo
-	extern GetCurrentProcess
-	extern strcat
-	extern GetProcessBundleLocation
-	extern FSRefMakePath
-	extern PBGetCatInfoSync
-	extern FSMakeFSSpec
-	extern FSpMakeFSRef
-	extern memcpy
-	extern CFStringCreateWithCString
-	extern CFPreferencesCopyAppValue
-	extern CFGetTypeID
-	extern CFStringGetTypeID
-	extern strcpy
-	extern CFStringGetCString
-	extern CFPreferencesSetAppValue
-	extern atoi
-	extern sprintf
-	extern CFPreferencesAppSynchronize
-	extern atof
-	extern CFBundleCopyLocalizedString
-	extern CFStringGetPascalString
-	extern StringToNum
-	extern CFStringCreateWithFormat
-	extern GetPort
-	extern SetPort
-	extern CFStringCreateWithCharacters
-	extern GetCursor
-	extern SetCursor
-	extern CGAssociateMouseAndMouseCursorPosition
-	extern CGWarpMouseCursorPosition
-	extern HideCursor
-	extern GetGlobalMouse
-	extern UpTime
+	extern AEGetParamPtr
+	extern AEInstallEventHandler
+	extern AEPutParamDesc
+	extern AEPutParamPtr
+	extern AESend
+	extern AUGraphConnectNodeInput
+	extern AUGraphGetCPULoad
+	extern AUGraphGetNodeInfo
+	extern AUGraphInitialize
+	extern AUGraphNewNode
+	extern AUGraphOpen
+	extern AUGraphStart
+	extern AUGraphStop
+	extern AUGraphUpdate
 	extern AddDurationToAbsolute
-	extern MPDelayUntil
-	extern GetNextProcess
-	extern GetProcessInformation
-	extern CFDictionaryGetValue
-	extern CFNumberGetValue
-	extern lround
-	extern IORegistryEntryCreateCFProperty
+	extern AddMovieResource
+	extern AdvanceKeyboardFocus
+	extern AlertSoundPlay
+	extern AppendMenuItemTextWithCFString
+	extern AudioConverterDispose
+	extern AudioConverterFillBuffer
+	extern AudioConverterFillComplexBuffer
+	extern AudioConverterNew
+	extern AudioConverterReset
+	extern AudioDeviceGetProperty
+	extern AudioDeviceGetPropertyInfo
+	extern AudioDeviceSetProperty
+	extern AudioHardwareGetProperty
+	extern AudioOutputUnitStart
+	extern AudioOutputUnitStop
+	extern AudioUnitAddRenderNotify
+	extern AudioUnitGetProperty
+	extern AudioUnitInitialize
+	extern AudioUnitRemoveRenderNotify
+	extern AudioUnitRender
+	extern AudioUnitSetParameter
+	extern AudioUnitSetProperty
+	extern AudioUnitUninitialize
+	extern CFArrayGetCount
+	extern CFArrayGetValueAtIndex
+	extern CFBundleCopyExecutableURL
+	extern CFBundleCopyLocalizedString
+	extern CFBundleGetMainBundle
 	extern CFDataGetBytePtr
-	extern CreateEvent
-	extern SetEventParameter
-	extern GetMainEventQueue
-	extern PostEventToQueue
-	extern ReleaseEvent
-	extern pthread_main_np
-	extern GetStandardAlertDefaultParams
-	extern CreateStandardAlert
-	extern RunStandardAlert
-	extern LSCopyItemInfoForRef
-	extern pthread_self
-	extern OTAtomicAdd32
-	extern OTCompareAndSwap32
-	extern calloc
-	extern free
-	extern strrchr
-	extern Microseconds
-	extern __udivdi3
-	extern memset
-	extern strncpy
-	extern getcwd
-	extern NewGWorld
-	extern GetGWorldPixMap
-	extern LockPixels
-	extern GetPixRowBytes
-	extern QDRegisterNamedPixMapCursor
-	extern DisposeGWorld
-	extern TickCount
-	extern QDSetNamedPixMapCursor
-	extern GetMainEventLoop
-	extern InstallEventLoopTimer
-	extern GetQDGlobalsArrow
-	extern ShowCursor
-	extern fopen
-	extern fseek
-	extern fclose
-	extern ftell
-	extern rewind
-	extern malloc
-	extern fread
-	extern _ZNKSs7compareEPKc
-	extern glStencilMask
-	extern glDepthMask
-	extern glFlushVertexArrayRangeAPPLE
-	extern glTexParameterfv
-	extern glLightfv
-	extern glColor4f
-	extern glMatrixMode
-	extern glLoadMatrixf
-	extern glTexParameteri
-	extern glGenTextures
-	extern _ZNSt15_List_node_base4hookEPS_
-	extern glTexParameterf
-	extern glTexEnvf
-	extern glPushMatrix
-	extern glLoadIdentity
-	extern glTexCoord2f
-	extern glPopMatrix
-	extern glTexEnvfv
-	extern glPointSize
-	extern glDrawRangeElements
-	extern memmove
-	extern glBindTexture
-	extern glColorMask
-	extern glActiveTextureARB
-	extern glDepthFunc
-	extern glShadeModel
-	extern glViewport
-	extern glDepthRange
-	extern glAlphaFunc
-	extern glClearDepth
-	extern glScissor
-	extern glClear
-	extern glClearColor
-	extern glClearStencil
-	extern glMaterialfv
-	extern glMaterialf
-	extern glPixelStorei
-	extern glCopyTexSubImage2D
-	extern gluOrtho2D
-	extern glTexEnvi
-	extern glBlendFuncSeparateEXT
-	extern glBlendFunc
-	extern glBegin
-	extern glVertex3f
-	extern glEnd
-	extern cos
-	extern log
-	extern cosf
-	extern glPolygonMode
-	extern glFogf
-	extern glLightModelfv
-	extern glBlendEquationEXT
-	extern glPolygonOffset
-	extern glFogfv
-	extern glPointParameterfvARB
-	extern glStencilFunc
-	extern glPointParameterfARB
-	extern glStencilOp
-	extern glFrontFace
-	extern glColorMaterial
-	extern glPushAttrib
-	extern glPushClientAttrib
-	extern glDrawBuffer
-	extern glReadBuffer
-	extern __dynamic_cast
-	extern glScalef
-	extern glVertex2f
-	extern glPopClientAttrib
-	extern glPopAttrib
-	extern glProgramEnvParameter4fvARB
-	extern glTexGenfv
-	extern _ZNSsC1EPKcRKSaIcE
-	extern _ZNKSs4findEPKcmm
-	extern _ZNSsC1ERKSsmm
-	extern _ZSt20__throw_out_of_rangePKc
-	extern glCombinerParameterfvNV
-	extern glCombinerStageParameterfvNV
-	extern glBindProgramARB
-	extern glDeleteProgramsARB
-	extern glGetProgramivARB
-	extern glGenProgramsARB
-	extern glProgramStringARB
-	extern _ZNSs6appendEPKcm
-	extern _ZNSs6appendERKSs
-	extern glTexImage2D
-	extern glCompressedTexImage2DARB
-	extern glTexSubImage2D
-	extern glCompressedTexSubImage2D
-	extern _ZNSt15_List_node_base6unhookEv
-	extern ceilf
-	extern glFinishFenceAPPLE
-	extern glSetFenceAPPLE
-	extern glGenFencesAPPLE
-	extern glDeleteFencesAPPLE
-	extern glVertexArrayRangeAPPLE
-	extern glDisableVertexAttribArrayARB
-	extern glVertexAttribPointerARB
-	extern glEnableVertexAttribArrayARB
-	extern glTexGeni
-	extern glBindVertexArrayAPPLE
-	extern glLightf
-	extern glClientActiveTextureARB
-	extern glDeleteTextures
-	extern glDeleteVertexArraysAPPLE
-	extern glDisableClientState
-	extern glFogi
-	extern glLightModeli
-	extern glClipPlane
-	extern glEnableClientState
-	extern glVertexArrayParameteriAPPLE
-	extern strcasecmp
-	extern strncasecmp
-	extern tolower
-	extern toupper
-	extern RemoveEventHandler
-	extern FlushEventQueue
-	extern SendEventToEventTarget
-	extern ReceiveNextEvent
+	extern CFDictionaryGetValue
+	extern CFGetTypeID
+	extern CFNumberGetValue
+	extern CFPreferencesAppSynchronize
+	extern CFPreferencesCopyAppValue
+	extern CFPreferencesSetAppValue
+	extern CFRelease
+	extern CFStringCreateWithCString
+	extern CFStringCreateWithCharacters
+	extern CFStringCreateWithFormat
+	extern CFStringGetCString
+	extern CFStringGetPascalString
+	extern CFStringGetTypeID
 	extern CFURLCreateFromFSRef
-	extern CGDataProviderCreateWithURL
-	extern CGImageCreateWithPNGDataProvider
-	extern QDBeginCGContext
-	extern CGImageRelease
-	extern CGDataProviderRelease
+	extern CFURLCreateWithBytes
+	extern CFURLGetFSRef
+	extern CGAcquireDisplayFadeReservation
+	extern CGAssociateMouseAndMouseCursorPosition
 	extern CGContextClearRect
 	extern CGContextDrawImage
 	extern CGContextFlush
-	extern QDEndCGContext
-	extern EventAvail
-	extern strcmp
-	extern getrlimit
-	extern setrlimit
-	extern EnterMovies
-	extern FSGetVolumeInfo
-	extern GetCompressionInfo
-	extern RunApplicationEventLoop
-	extern GetEventDispatcherTarget
-	extern GetApplicationEventTarget
-	extern GetMenuHandle
-	extern AppendMenuItemTextWithCFString
-	extern SetItemCmd
-	extern GetIndMenuItemWithCommandID
-	extern GetMenuEventTarget
-	extern AEInstallEventHandler
-	extern chdir
-	extern QuitApplicationEventLoop
+	extern CGDataProviderCreateWithURL
+	extern CGDataProviderRelease
+	extern CGDisplayAvailableModes
+	extern CGDisplayBitsPerPixel
+	extern CGDisplayBounds
+	extern CGDisplayCurrentMode
+	extern CGDisplayFade
+	extern CGDisplayIDToOpenGLDisplayMask
+	extern CGDisplayIOServicePort
+	extern CGDisplayPixelsHigh
+	extern CGDisplayPixelsWide
+	extern CGGetActiveDisplayList
+	extern CGGetDisplayTransferByTable
+	extern CGImageCreateWithPNGDataProvider
+	extern CGImageRelease
+	extern CGLChoosePixelFormat
+	extern CGLCreateContext
+	extern CGLDescribeRenderer
+	extern CGLDestroyContext
+	extern CGLDestroyPixelFormat
+	extern CGLDestroyRendererInfo
+	extern CGLGetCurrentContext
+	extern CGLQueryRendererInfo
+	extern CGLSetCurrentContext
+	extern CGRectEqualToRect
+	extern CGRectGetHeight
+	extern CGRectGetWidth
+	extern CGRectIsEmpty
+	extern CGRectUnion
+	extern CGReleaseDisplayFadeReservation
+	extern CGSetDisplayTransferByTable
+	extern CGWarpMouseCursorPosition
+	extern ClipRect
+	extern CloseComponent
+	extern CloseMovieFile
+	extern CloseRgn
+	extern CollapseWindow
+	extern CreateEvent
+	extern CreateNewWindow
+	extern CreateNibReferenceWithCFBundle
+	extern CreateObjSpecifier
+	extern CreateStandardAlert
+	extern CreateWindowFromNib
+	extern DMGetFirstScreenDevice
+	extern DMGetNextScreenDevice
+	extern DisableControl
 	extern DisableMenuItem
-	extern close
-	extern ioctl
-	extern __error
-	extern vsnprintf
-	extern strchr
-	extern rand
-	extern acosf
-	extern atan2
-	extern tan
-	extern sinf
-	extern time
-	extern localtime
-	extern asctime
-	extern longjmp
-	extern __maskrune
-	extern snprintf
-	extern floorf
-	extern setjmp
-	extern remove
-	extern fflush
-	extern qsort
-	extern fwrite
-	extern rename
-	extern isspace
-	extern _ZNSs9_M_mutateEmmm
+	extern DisposeAUGraph
+	extern DisposeGWorld
+	extern DisposeHandle
+	extern DisposeMovie
+	extern DisposeNibReference
+	extern DisposeRgn
+	extern DisposeWindow
+	extern DrawThemeFocusRect
+	extern DrawThemeMenuBarBackground
+	extern EnableControl
+	extern EndMediaEdits
+	extern EnterMovies
+	extern EqualRect
+	extern EventAvail
+	extern FSCloseIterator
+	extern FSDeleteObject
+	extern FSGetCatalogInfo
+	extern FSGetCatalogInfoBulk
+	extern FSGetVolumeInfo
+	extern FSMakeFSSpec
+	extern FSOpenIterator
+	extern FSPathMakeRef
+	extern FSRefMakePath
+	extern FSSetCatalogInfo
+	extern FSpMakeFSRef
+	extern FindNextComponent
+	extern FlushEventQueue
+	extern ForeColor
+	extern FrameRoundRect
+	extern Gestalt
+	extern GetApplicationEventTarget
+	extern GetAvailableWindowPositioningBounds
+	extern GetComponentVersion
+	extern GetCompressionInfo
+	extern GetControlBounds
+	extern GetControlByID
+	extern GetControlData
+	extern GetControlDataSize
+	extern GetControlKind
+	extern GetControlMaximum
+	extern GetControlOwner
+	extern GetControlReference
+	extern GetCurrentEventTime
+	extern GetCurrentKeyModifiers
+	extern GetCurrentProcess
+	extern GetCursor
+	extern GetEventClass
+	extern GetEventDispatcherTarget
+	extern GetEventKind
+	extern GetEventParameter
+	extern GetGWorldPixMap
+	extern GetGlobalMouse
+	extern GetHandleSize
+	extern GetIconRefFromFileInfo
+	extern GetIndMenuItemWithCommandID
+	extern GetMainDevice
+	extern GetMainEventLoop
+	extern GetMainEventQueue
+	extern GetMediaDuration
+	extern GetMediaHandler
+	extern GetMediaSampleDescription
+	extern GetMenuEventTarget
+	extern GetMenuHandle
+	extern GetMovieDuration
+	extern GetMovieIndTrackType
+	extern GetMoviePreferredRate
+	extern GetMovieTime
+	extern GetMovieTimeScale
+	extern GetNextProcess
+	extern GetPixRowBytes
+	extern GetPort
+	extern GetProcessBundleLocation
+	extern GetProcessInformation
+	extern GetQDGlobalsArrow
+	extern GetStandardAlertDefaultParams
+	extern GetTrackMedia
+	extern GetWRefCon
+	extern GetWindowEventTarget
+	extern GetWindowPort
+	extern GetWindowPortBounds
+	extern GetWindowResizeLimits
+	extern GoToBeginningOfMovie
+	extern HITextViewGetTXNObject
+	extern HIViewGetRoot
+	extern HIViewGetViewForMouseEvent
+	extern HandleControlKey
+	extern HideControl
+	extern HideCursor
+	extern HideMenuBar
+	extern HideWindow
+	extern IOObjectConformsTo
+	extern IORegistryEntryCreateCFProperty
+	extern IORegistryEntryGetParentEntry
+	extern InitCursor
+	extern InsertMediaIntoTrack
+	extern InsertMenu
+	extern InsetRect
+	extern InstallEventHandler
+	extern InstallEventLoopTimer
+	extern InvalMenuBar
+	extern IsMovieDone
+	extern IsWindowVisible
+	extern LSCopyItemInfoForRef
+	extern LSOpenCFURLRef
+	extern LSOpenFSRef
+	extern LockPixels
+	extern MPDelayUntil
+	extern MapRect
+	extern MediaSetSoundBalance
+	extern Microseconds
+	extern MoveWindow
+	extern MoviesTask
+	extern NewAUGraph
+	extern NewControlEditTextValidationUPP
+	extern NewControlKeyFilterUPP
+	extern NewControlUserPaneDrawUPP
+	extern NewControlUserPaneHitTestUPP
+	extern NewControlUserPaneTrackingUPP
+	extern NewGWorld
+	extern NewHandle
+	extern NewMenu
+	extern NewMovieFromFile
+	extern NewRgn
+	extern NormalizeThemeDrawingState
+	extern OTAtomicAdd32
+	extern OTCompareAndSwap32
+	extern OffsetRect
+	extern OpenAComponent
+	extern OpenComponent
+	extern OpenMovieFile
+	extern OpenRgn
+	extern PBGetCatInfoSync
+	extern PaintRect
+	extern PaintRoundRect
+	extern PlotIconRef
+	extern PostEventToQueue
+	extern PrerollMovie
+	extern PtInRect
+	extern PtrAndHand
+	extern QDBeginCGContext
+	extern QDEndCGContext
+	extern QDGlobalToLocalPoint
+	extern QDLocalToGlobalPoint
+	extern QDRegisterNamedPixMapCursor
+	extern QDSetNamedPixMapCursor
+	extern QuitAppModalLoopForWindow
+	extern QuitApplicationEventLoop
+	extern RGBForeColor
+	extern ReceiveNextEvent
+	extern ReleaseEvent
+	extern ReleaseIconRef
+	extern RemoveEventHandler
+	extern RemoveEventLoopTimer
+	extern RunAppModalLoopForWindow
+	extern RunApplicationEventLoop
+	extern RunStandardAlert
+	extern SECTION
+	extern SendEventToEventTarget
+	extern SetClip
+	extern SetControlData
+	extern SetControlFontStyle
+	extern SetControlMaximum
+	extern SetControlReference
+	extern SetCursor
+	extern SetEventParameter
+	extern SetFrontProcess
+	extern SetItemCmd
+	extern SetKeyboardFocus
+	extern SetMovieRate
+	extern SetMovieTimeValue
+	extern SetPort
+	extern SetPortWindowPort
+	extern SetSystemUIMode
+	extern SetThemeCursor
+	extern SetTrackVolume
+	extern SetWRefCon
+	extern SetWindowContentColor
+	extern SetWindowResizeLimits
+	extern SetWindowTitleWithCFString
+	extern ShowControl
+	extern ShowCursor
+	extern ShowMenuBar
+	extern ShowWindow
+	extern SizeWindow
+	extern StartMovie
+	extern StopMovie
+	extern StringToNum
+	extern TXNSetData
+	extern TXNSetSelection
+	extern TXNSetTypeAttributes
+	extern TXNShowSelection
+	extern TickCount
+	extern UpTime
+	extern UpdateSystemActivity
+	extern Z6strlwrPc_F0_8
+	extern Z8strnicmpPKcS0_m_F0_1
+	extern ZN10MacDisplay20GetCurrentDimensionsERiS0__F0_39
+	extern ZN10MacFolders20GetDataFolderItemRefEPKcR5FSRef_F0_3
+	extern ZN10MacStrings10GetCStringERK12HFSUniStr255Pcs_F0_1
+	extern ZN10MacStrings12CopyAndCleanEPKcPcs_F0_1
+	extern ZN12MacResources15GetLanguageCodeEv_F0_13
+	extern ZN12StShowCursorC1Ev_F0_1
+	extern ZN12StShowCursorD1Ev_F0_1
+	extern ZN8MacFiles6accessEPKci_F0_4
+	extern ZN8MacFiles9CleanPathEPKcPch_F0_1
+	extern ZN8MacFiles9CleanPathEPch_F0_1
+	extern ZN8MacTools12MessageAlertEPKcS1_h_F0_1
+	extern ZN8MacTools13QuestionAlertEPKcS1__F0_16
+	extern ZN9WinCursor4LoadEPKc_F0_28
+	extern ZNSt6vectorI6FFItemSaIS0_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS0_S2_EERKS0__F0_18
+	extern ZNSt6vectorI9WinCursorSaIS0_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS0_S2_EERKS0__F0_12
+	extern _Unwind_Resume
+	extern _Z15CursorTimerProcP16__EventLoopTimerPv
+	extern _ZN9__gnu_cxx18__exchange_and_addEPVii
+	extern _ZNKSs4findEPKcmm
+	extern _ZNKSs7compareEPKc
 	extern _ZNSs12_M_leak_hardEv
-	extern _ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_
+	extern _ZNSs4_Rep10_M_destroyERKSaIcE
+	extern _ZNSs6appendEPKcm
+	extern _ZNSs6appendERKSs
+	extern _ZNSs6assignEPKcm
+	extern _ZNSs6assignERKSs
+	extern _ZNSs7replaceEmmPKcm
+	extern _ZNSs7reserveEm
+	extern _ZNSs9_M_mutateEmmm
+	extern _ZNSsC1EPKcRKSaIcE
+	extern _ZNSsC1ERKSs
+	extern _ZNSsC1ERKSsmm
+	extern _ZNSsD1Ev
+	extern _ZNSt15_List_node_base4hookEPS_
+	extern _ZNSt15_List_node_base6unhookEv
+	extern _ZSt17__throw_bad_allocv
 	extern _ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base
 	extern _ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base
-	extern sscanf
-	extern sin
-	extern acos
-	extern vsprintf
-	extern _ZNSs7reserveEm
-	extern strncat
-	extern ctime
-	extern strncmp
-	extern LSOpenFSRef
-	extern CFURLCreateWithBytes
-	extern LSOpenCFURLRef
-	extern UpdateSystemActivity
-	extern GetHandleSize
-	extern TXNSetData
-	extern NewHandle
-	extern DisposeHandle
-	extern RemoveEventLoopTimer
-	extern CollapseWindow
-	extern TXNSetSelection
-	extern TXNShowSelection
-	extern PtrAndHand
-	extern mkdir
-	extern opendir
-	extern readdir
-	extern stat
-	extern closedir
-	extern pow
-	extern glTestFenceAPPLE
-	extern glReadPixels
-	extern glGetError
-	extern asin
-	extern printf
-	extern _ZNSs7replaceEmmPKcm
-	extern expf
-	extern exp
-	extern isprint
-	extern fileno
-	extern isatty
-	extern fprintf
-	extern realloc
+	extern _ZSt20__throw_length_errorPKc
+	extern _ZSt20__throw_out_of_rangePKc
+	extern _ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_
+	extern _ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_
+	extern _ZZ12SetWinCursorE14sVisibleCursor
+	extern _ZZ12SetWinCursorE17sCurrentWinCursor
+	extern _ZZ12SetWinCursorE9sTimerRef
+	extern _ZZ14MapVirtualKeyAE13sCachedKeyMap
+	extern _ZZ20TranslateKeyCodeToVKmE12sCachedVKMap
+	extern _ZZN9WinCursorC4EvE11sNextHandle
+	extern _ZdaPv
+	extern _ZdlPv
+	extern _Znam
+	extern _Znwm
+	extern __cxa_allocate_exception
+	extern __cxa_begin_catch
+	extern __cxa_end_catch
+	extern __cxa_guard_abort
 	extern __cxa_guard_acquire
 	extern __cxa_guard_release
-	extern __cxa_guard_abort
-	extern GetCurrentEventTime
-	extern SetFrontProcess
-	extern glGenVertexArraysAPPLE
-	extern glColorPointer
-	extern glNormalPointer
-	extern glVertexPointer
-	extern glTexCoordPointer
-	extern _ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_
-	extern AudioConverterReset
-	extern AudioUnitGetProperty
-	extern AudioConverterDispose
-	extern AudioConverterNew
-	extern log10f
-	extern AudioUnitSetParameter
-	extern AudioConverterFillComplexBuffer
-	extern AudioUnitSetProperty
-	extern AudioUnitAddRenderNotify
-	extern AudioUnitRemoveRenderNotify
-	extern usleep
-	extern AUGraphGetCPULoad
-	extern strdup
-	extern AUGraphStop
-	extern DisposeAUGraph
-	extern AudioDeviceGetPropertyInfo
-	extern AudioDeviceGetProperty
-	extern FindNextComponent
-	extern OpenComponent
-	extern GetComponentVersion
-	extern CloseComponent
-	extern NewAUGraph
-	extern AUGraphNewNode
-	extern AUGraphOpen
-	extern AUGraphGetNodeInfo
-	extern AUGraphUpdate
-	extern AUGraphConnectNodeInput
-	extern AUGraphInitialize
-	extern AUGraphStart
-	extern pthread_mutex_destroy
-	extern pthread_create
-	extern pthread_mutexattr_init
-	extern pthread_mutexattr_settype
-	extern pthread_mutex_init
-	extern pthread_mutexattr_destroy
-	extern pthread_mutex_unlock
-	extern pthread_mutex_lock
-	extern glTexImage3D
-	extern glCompressedTexImage3DARB
-	extern glTexSubImage3D
-	extern glCompressedTexSubImage3D
-	extern strtok
-	extern StopMovie
-	extern GoToBeginningOfMovie
-	extern GetMovieTimeScale
-	extern GetMovieDuration
-	extern GetMovieTime
-	extern SetMovieTimeValue
-	extern SetTrackVolume
-	extern GetMediaHandler
-	extern MediaSetSoundBalance
-	extern MoviesTask
-	extern IsMovieDone
-	extern StartMovie
-	extern DisposeMovie
-	extern SetMovieRate
-	extern OpenMovieFile
-	extern NewMovieFromFile
-	extern GetMoviePreferredRate
-	extern PrerollMovie
-	extern GetMovieIndTrackType
-	extern GetTrackMedia
-	extern GetMediaSampleDescription
-	extern srand
-	extern putenv
-	extern getenv
-	extern puts
-	extern asinf
-	extern atanf
-	extern tanf
-	extern select
-	extern inet_addr
-	extern gethostbyname
-	extern recvfrom
-	extern strerror
-	extern sendto
-	extern setsockopt
-	extern bind
-	extern socket
-	extern connect
-	extern send
-	extern recv
+	extern __cxa_rethrow
+	extern __cxa_throw
+	extern __dynamic_cast
+	extern __error
 	extern __isnanf
-	extern floor
-	extern logf
-	extern AudioOutputUnitStart
-	extern AudioOutputUnitStop
-	extern AudioDeviceSetProperty
-	extern AudioConverterFillBuffer
-	extern AudioUnitRender
-	extern AudioUnitUninitialize
-	extern OpenAComponent
-	extern AudioHardwareGetProperty
-	extern AudioUnitInitialize
+	extern __keymgr_dwarf2_register_sections
+	extern __maskrune
+	extern __udivdi3
+	extern _cstring_
+	extern _cstring_1
+	extern _cstring_2
+	extern _cstring_ani
+	extern abort
+	extern accept
+	extern access
+	extern acos
+	extern acosf
+	extern adc
+	extern add
+	extern aglChoosePixelFormat
+	extern aglCreateContext
+	extern aglDescribePixelFormat
+	extern aglDestroyContext
+	extern aglDestroyPixelFormat
+	extern aglGetDrawable
+	extern aglSetCurrentContext
+	extern aglSetDrawable
+	extern aglSetFullScreen
+	extern aglSetInteger
+	extern aglSwapBuffers
+	extern and
+	extern asctime
+	extern asin
+	extern asinf
+	extern atan2
+	extern atanf
+	extern atexit
+	extern atof
+	extern atoi
+	extern atol
+	extern bind
+	extern call
+	extern calloc
+	extern ceilf
+	extern chdir
+	extern cld
+	extern close
+	extern closedir
+	extern cmovbe
+	extern cmovnz
+	extern cmovz
+	extern cmp
+	extern cmpsb
+	extern connect
+	extern cos
+	extern cosf
+	extern ctime
 	extern dlclose
 	extern dlopen
 	extern dlsym
-	extern abort
-	extern vfprintf
-	extern getsockname
-	extern read
-	extern atol
-	extern strtol
-	extern getpid
-	extern tmpnam
-	extern strftime
-	extern gmtime
-	extern mktime
+	extern exit
+	extern exp
+	extern expf
+	extern fclose
 	extern fcntl
-	extern accept
-	extern listen
-	extern gethostname
-	extern getdomainname
-	extern getlogin
-	extern getuid
-	extern getpwuid
+	extern fflush
 	extern fgets
-	extern gettimeofday
-	extern regcomp
-	extern regerror
-	extern regfree
-	extern regexec
-	extern getpass
-	extern getsockopt
-	extern write
-	extern unlink
+	extern fileno
+	extern floor
+	extern floorf
+	extern fopen
+	extern fprintf
 	extern fputc
 	extern fputs
+	extern fread
+	extern free
+	extern fseek
+	extern ftell
+	extern fwrite
+	extern getcwd
+	extern getdomainname
+	extern getenv
+	extern gethostbyname
+	extern gethostname
+	extern getlogin
+	extern getpass
+	extern getpid
+	extern getpwuid
+	extern getrlimit
+	extern getsockname
+	extern getsockopt
+	extern gettimeofday
+	extern getuid
+	extern glActiveTextureARB
+	extern glAlphaFunc
+	extern glBegin
+	extern glBindProgramARB
+	extern glBindTexture
+	extern glBindVertexArrayAPPLE
+	extern glBlendEquationEXT
+	extern glBlendFunc
+	extern glBlendFuncSeparateEXT
+	extern glClear
+	extern glClearColor
+	extern glClearDepth
+	extern glClearStencil
+	extern glClientActiveTextureARB
+	extern glClipPlane
+	extern glColor4f
+	extern glColorMask
+	extern glColorMaterial
+	extern glColorPointer
+	extern glCombinerParameterfvNV
+	extern glCombinerStageParameterfvNV
+	extern glCompressedTexImage2DARB
+	extern glCompressedTexImage3DARB
+	extern glCompressedTexSubImage2D
+	extern glCompressedTexSubImage3D
+	extern glCopyTexSubImage2D
+	extern glDeleteFencesAPPLE
+	extern glDeleteProgramsARB
+	extern glDeleteTextures
+	extern glDeleteVertexArraysAPPLE
+	extern glDepthFunc
+	extern glDepthMask
+	extern glDepthRange
+	extern glDisable
+	extern glDisableClientState
+	extern glDisableVertexAttribArrayARB
+	extern glDrawBuffer
+	extern glDrawRangeElements
+	extern glEnable
+	extern glEnableClientState
+	extern glEnableVertexAttribArrayARB
+	extern glEnd
+	extern glFinish
+	extern glFinishFenceAPPLE
+	extern glFlushVertexArrayRangeAPPLE
+	extern glFogf
+	extern glFogfv
+	extern glFogi
+	extern glFrontFace
+	extern glGenFencesAPPLE
+	extern glGenProgramsARB
+	extern glGenTextures
+	extern glGenVertexArraysAPPLE
+	extern glGetError
+	extern glGetFloatv
+	extern glGetIntegerv
+	extern glGetProgramivARB
+	extern glGetString
+	extern glHint
+	extern glLightModelfv
+	extern glLightModeli
+	extern glLightf
+	extern glLightfv
+	extern glLoadIdentity
+	extern glLoadMatrixf
+	extern glMaterialf
+	extern glMaterialfv
+	extern glMatrixMode
+	extern glNormalPointer
+	extern glPixelStorei
+	extern glPointParameterfARB
+	extern glPointParameterfvARB
+	extern glPointSize
+	extern glPolygonMode
+	extern glPolygonOffset
+	extern glPopAttrib
+	extern glPopClientAttrib
+	extern glPopMatrix
+	extern glProgramEnvParameter4fvARB
+	extern glProgramStringARB
+	extern glPushAttrib
+	extern glPushClientAttrib
+	extern glPushMatrix
+	extern glReadBuffer
+	extern glReadPixels
+	extern glScalef
+	extern glScissor
+	extern glSetFenceAPPLE
+	extern glShadeModel
+	extern glStencilFunc
+	extern glStencilMask
+	extern glStencilOp
+	extern glTestFenceAPPLE
+	extern glTexCoord2f
+	extern glTexCoordPointer
+	extern glTexEnvf
+	extern glTexEnvfv
+	extern glTexEnvi
+	extern glTexGenfv
+	extern glTexGeni
+	extern glTexImage2D
+	extern glTexImage3D
+	extern glTexParameterf
+	extern glTexParameterfv
+	extern glTexParameteri
+	extern glTexSubImage2D
+	extern glTexSubImage3D
+	extern glVertex2f
+	extern glVertex3f
+	extern glVertexArrayParameteriAPPLE
+	extern glVertexArrayRangeAPPLE
+	extern glVertexAttribPointerARB
+	extern glVertexPointer
+	extern glViewport
+	extern gluCheckExtension
+	extern gluOrtho2D
+	extern gmtime
+	extern inet_addr
+	extern ioctl
+	extern isatty
+	extern isprint
+	extern isspace
+	extern ja
+	extern jb
+	extern jg
+	extern jmp
+	extern jnz
+	extern jz
+	extern lea
+	extern leave
+	extern listen
+	extern localtime
+	extern log
+	extern log10f
+	extern logf
+	extern longjmp
+	extern lround
+	extern malloc
+	extern memcpy
+	extern memmove
+	extern memset
+	extern mkdir
+	extern mktime
+	extern mov
+	extern movzx
+	extern nop
+	extern not
+	extern opendir
+	extern or
+	extern pop
+	extern pow
+	extern printf
+	extern pthread_create
+	extern pthread_main_np
+	extern pthread_mutex_destroy
+	extern pthread_mutex_init
+	extern pthread_mutex_lock
+	extern pthread_mutex_unlock
+	extern pthread_mutexattr_destroy
+	extern pthread_mutexattr_init
+	extern pthread_mutexattr_settype
+	extern pthread_self
+	extern push
+	extern putenv
+	extern puts
+	extern qsort
+	extern rand
+	extern read
+	extern readdir
+	extern realloc
+	extern recv
+	extern recvfrom
+	extern regcomp
+	extern regerror
+	extern regexec
+	extern regfree
+	extern remove
+	extern rename
+	extern rep
+	extern repe
+	extern repne
+	extern ret
+	extern rewind
+	extern sANSI_VK_Map
+	extern sCurrentCursor
+	extern sCursorList
+	extern sDefaultKeyMap
+	extern sFrenchKeyMap
+	extern sFrench_ISO_VK_Map
+	extern sGermanKeyMap
+	extern sGerman_ISO_VK_Map
+	extern sSavedWinCursor
+	extern sbb
+	extern scasb
+	extern select
+	extern send
+	extern sendto
+	extern setjmp
+	extern setnz
+	extern setrlimit
+	extern setsockopt
+	extern setz
+	extern sin
+	extern sinf
+	extern snprintf
+	extern socket
+	extern sprintf
+	extern srand
+	extern sscanf
+	extern stat
+	extern stosd
+	extern strcasecmp
+	extern strcat
+	extern strchr
+	extern strcmp
+	extern strcpy
+	extern strdup
+	extern strerror
+	extern strftime
+	extern strncasecmp
+	extern strncat
+	extern strncmp
+	extern strncpy
+	extern strrchr
+	extern strstr
+	extern strtok
+	extern strtol
+	extern sub
+	extern sysctl
+	extern tan
+	extern tanf
+	extern test
+	extern text
+	extern time
+	extern tmpnam
+	extern tolower
+	extern toupper
+	extern unlink
+	extern usleep
+	extern vfprintf
+	extern vsnprintf
+	extern vsprintf
+	extern write
+	extern xor
 
 ;Exports defined in this file:
-	global timeBeginPeriod:F(0,28)
-	global timeEndPeriod:F(0,28)
-	global QueryPerformanceFrequency:F(0,3)
-	global MessageBoxA:F(0,4)
-	global SetFileAttributesA:F(0,3)
-	global GetFileAttributesA:F(0,1)
-	global GetCurrentThreadId:F(0,1)
-	global WinSleep:F(0,18)
-	global InterlockedExchangeAdd:F(0,41)
-	global InterlockedCompareExchange:F(0,41)
-	global MapVirtualKeyA:F(0,29)
-	global VirtualAlloc:F(0,62)
-	global VirtualFree:F(0,3)
-	global GetSystemMetrics:F(0,4)
-	global FindNextFileA:F(0,3)
-	global timeGetTime:F(0,1)
-	global QueryPerformanceCounter:F(0,3)
-	global InterlockedExchange:F(0,41)
-	global FindFirstFileA:F(0,60)
-	global SetWinCursor:F(0,120)
-	global Z17SwitchToWinCursorv:F(0,12)
-	global Z17SwitchToMacCursorv:F(0,12)
-	global LoadCursorFromFileA:F(0,120)
-	global Z20TranslateKeyCodeToVKm:F(0,1)
-	global WSAStartup:F(0,1)
-	global WSAGetLastError:F(0,1)
+	global timeBeginPeriod_F0_28
+	global timeEndPeriod_F0_28
+	global QueryPerformanceFrequency_F0_3
+	global MessageBoxA_F0_4
+	global SetFileAttributesA_F0_3
+	global GetFileAttributesA_F0_1
+	global GetCurrentThreadId_F0_1
+	global WinSleep_F0_18
+	global InterlockedExchangeAdd_F0_41
+	global InterlockedCompareExchange_F0_41
+	global MapVirtualKeyA_F0_29
+	global VirtualAlloc_F0_62
+	global VirtualFree_F0_3
+	global GetSystemMetrics_F0_4
+	global FindNextFileA_F0_3
+	global timeGetTime_F0_1
+	global QueryPerformanceCounter_F0_3
+	global InterlockedExchange_F0_41
+	global FindFirstFileA_F0_60
+	global SetWinCursor_F0_120
+	global Z17SwitchToWinCursorv_F0_12
+	global Z17SwitchToMacCursorv_F0_12
+	global LoadCursorFromFileA_F0_120
+	global Z20TranslateKeyCodeToVKm_F0_1
+	global WSAStartup_F0_1
+	global WSAGetLastError_F0_1
 
 SECTION .text
-timeBeginPeriod:F(0,28):
+timeBeginPeriod_F0_28:
 	push ebp
 	mov ebp, esp
 	xor eax, eax
@@ -675,9 +751,9 @@ timeBeginPeriod:F(0,28):
 	nop
 
 
-;timeEndPeriod:F(0,28)
+;timeEndPeriod_F0_28
 
-timeEndPeriod:F(0,28):
+timeEndPeriod_F0_28:
 	push ebp
 	mov ebp, esp
 	xor eax, eax
@@ -687,9 +763,9 @@ timeEndPeriod:F(0,28):
 	add [eax], al
 
 
-;QueryPerformanceFrequency:F(0,3)
+;QueryPerformanceFrequency_F0_3
 
-QueryPerformanceFrequency:F(0,3):
+QueryPerformanceFrequency_F0_3:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -701,9 +777,9 @@ QueryPerformanceFrequency:F(0,3):
 	add [eax], al
 
 
-;MessageBoxA:F(0,4)
+;MessageBoxA_F0_4
 
-MessageBoxA:F(0,4):
+MessageBoxA_F0_4:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -717,32 +793,32 @@ MessageBoxA:F(0,4):
 	and eax, 0xf0
 	mov [ebp-0x42c], eax
 	test edx, edx
-	jz MessageBoxA:F(0,4)_10
+	jz MessageBoxA_F0_4_10
 	cmp byte [edx], 0x0
-	jnz MessageBoxA:F(0,4)_20
-MessageBoxA:F(0,4)_10:
+	jnz MessageBoxA_F0_4_20
+MessageBoxA_F0_4_10:
 	mov dword [esp+0x8], 0x200
 	lea eax, [ebp-0x219]
 	mov [esp+0x4], eax
 	mov eax, [ebp+0xc]
 	mov [esp], eax
-	call ZN10MacStrings12CopyAndCleanEPKcPcs:F(0,1)
+	call ZN10MacStrings12CopyAndCleanEPKcPcs_F0_1
 	xor ebx, ebx
-MessageBoxA:F(0,4)_70:
+MessageBoxA_F0_4_70:
 	lea edi, [ebp-0x19]
 	mov [esp], edi
-	call ZN12StShowCursorC1Ev:F(0,1)
+	call ZN12StShowCursorC1Ev_F0_1
 	test esi, esi
-	jz MessageBoxA:F(0,4)_30
+	jz MessageBoxA_F0_4_30
 	cmp esi, 0x1
-	jz MessageBoxA:F(0,4)_40
+	jz MessageBoxA_F0_4_40
 	cmp esi, 0x4
-	jz MessageBoxA:F(0,4)_50
-MessageBoxA:F(0,4)_60:
+	jz MessageBoxA_F0_4_50
+MessageBoxA_F0_4_60:
 	mov ebx, 0x1
-MessageBoxA:F(0,4)_80:
+MessageBoxA_F0_4_80:
 	mov [esp], edi
-	call ZN12StShowCursorD1Ev:F(0,1)
+	call ZN12StShowCursorD1Ev_F0_1
 	mov eax, ebx
 	add esp, 0x43c
 	pop ebx
@@ -750,7 +826,7 @@ MessageBoxA:F(0,4)_80:
 	pop edi
 	pop ebp
 	ret
-MessageBoxA:F(0,4)_30:
+MessageBoxA_F0_4_30:
 	xor eax, eax
 	cmp dword [ebp-0x42c], 0x10
 	setz al
@@ -758,32 +834,32 @@ MessageBoxA:F(0,4)_30:
 	mov [esp+0x4], ebx
 	lea eax, [ebp-0x219]
 	mov [esp], eax
-	call ZN8MacTools12MessageAlertEPKcS1_h:F(0,1)
-	jmp MessageBoxA:F(0,4)_60
-MessageBoxA:F(0,4)_20:
+	call ZN8MacTools12MessageAlertEPKcS1_h_F0_1
+	jmp MessageBoxA_F0_4_60
+MessageBoxA_F0_4_20:
 	mov dword [esp+0x8], 0x200
 	lea eax, [ebp-0x219]
 	mov [esp+0x4], eax
 	mov [esp], edx
-	call ZN10MacStrings12CopyAndCleanEPKcPcs:F(0,1)
+	call ZN10MacStrings12CopyAndCleanEPKcPcs_F0_1
 	mov dword [esp+0x8], 0x200
 	lea ebx, [ebp-0x419]
 	mov [esp+0x4], ebx
 	mov eax, [ebp+0xc]
 	mov [esp], eax
-	call ZN10MacStrings12CopyAndCleanEPKcPcs:F(0,1)
-	jmp MessageBoxA:F(0,4)_70
-MessageBoxA:F(0,4)_50:
+	call ZN10MacStrings12CopyAndCleanEPKcPcs_F0_1
+	jmp MessageBoxA_F0_4_70
+MessageBoxA_F0_4_50:
 	mov [esp+0x4], ebx
 	lea eax, [ebp-0x219]
 	mov [esp], eax
-	call ZN8MacTools13QuestionAlertEPKcS1_:F(0,16)
+	call ZN8MacTools13QuestionAlertEPKcS1__F0_16
 	cmp al, 0x1
 	sbb ebx, ebx
 	not ebx
 	add ebx, 0x7
 	mov [esp], edi
-	call ZN12StShowCursorD1Ev:F(0,1)
+	call ZN12StShowCursorD1Ev_F0_1
 	mov eax, ebx
 	add esp, 0x43c
 	pop ebx
@@ -791,27 +867,27 @@ MessageBoxA:F(0,4)_50:
 	pop edi
 	pop ebp
 	ret
-MessageBoxA:F(0,4)_40:
+MessageBoxA_F0_4_40:
 	mov [esp+0x4], ebx
 	lea eax, [ebp-0x219]
 	mov [esp], eax
-	call ZN8MacTools13QuestionAlertEPKcS1_:F(0,16)
+	call ZN8MacTools13QuestionAlertEPKcS1__F0_16
 	test al, al
-	jnz MessageBoxA:F(0,4)_60
+	jnz MessageBoxA_F0_4_60
 	mov ebx, 0x2
-	jmp MessageBoxA:F(0,4)_80
+	jmp MessageBoxA_F0_4_80
 	mov ebx, eax
 	mov [esp], edi
-	call ZN12StShowCursorD1Ev:F(0,1)
+	call ZN12StShowCursorD1Ev_F0_1
 	mov [esp], ebx
 	call _Unwind_Resume
 	nop
 	add [eax], al
 
 
-;SetFileAttributesA:F(0,3)
+;SetFileAttributesA_F0_3
 
-SetFileAttributesA:F(0,3):
+SetFileAttributesA_F0_3:
 	push ebp
 	mov ebp, esp
 	xor eax, eax
@@ -820,16 +896,16 @@ SetFileAttributesA:F(0,3):
 	nop
 
 
-;GetFileAttributesA:F(0,1)
+;GetFileAttributesA_F0_1
 
-GetFileAttributesA:F(0,1):
+GetFileAttributesA_F0_1:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
 	mov dword [esp+0x4], 0x4
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call ZN8MacFiles6accessEPKci:F(0,4)
+	call ZN8MacFiles6accessEPKci_F0_4
 	add eax, 0x1
 	setnz al
 	movzx eax, al
@@ -839,9 +915,9 @@ GetFileAttributesA:F(0,1):
 	add [eax], al
 
 
-;GetCurrentThreadId:F(0,1)
+;GetCurrentThreadId_F0_1
 
-GetCurrentThreadId:F(0,1):
+GetCurrentThreadId_F0_1:
 	push ebp
 	mov ebp, esp
 	pop ebp
@@ -849,9 +925,9 @@ GetCurrentThreadId:F(0,1):
 	nop
 
 
-;WinSleep:F(0,18)
+;WinSleep_F0_18
 
-WinSleep:F(0,18):
+WinSleep_F0_18:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x28
@@ -872,9 +948,9 @@ WinSleep:F(0,18):
 	add [eax], al
 
 
-;InterlockedExchangeAdd:F(0,41)
+;InterlockedExchangeAdd_F0_41
 
-InterlockedExchangeAdd:F(0,41):
+InterlockedExchangeAdd_F0_41:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -892,9 +968,9 @@ InterlockedExchangeAdd:F(0,41):
 	nop
 
 
-;InterlockedCompareExchange:F(0,41)
+;InterlockedCompareExchange_F0_41
 
-InterlockedCompareExchange:F(0,41):
+InterlockedCompareExchange_F0_41:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -918,9 +994,9 @@ InterlockedCompareExchange:F(0,41):
 	nop
 
 
-;MapVirtualKeyA:F(0,29)
+;MapVirtualKeyA_F0_29
 
-MapVirtualKeyA:F(0,29):
+MapVirtualKeyA_F0_29:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -928,91 +1004,91 @@ MapVirtualKeyA:F(0,29):
 	mov esi, [ebp+0x8]
 	mov eax, [_ZZ14MapVirtualKeyAE13sCachedKeyMap]
 	test eax, eax
-	jz MapVirtualKeyA:F(0,29)_10
+	jz MapVirtualKeyA_F0_29_10
 	mov ebx, [_ZZ14MapVirtualKeyAE13sCachedKeyMap]
-MapVirtualKeyA:F(0,29)_70:
+MapVirtualKeyA_F0_29_70:
 	mov eax, [ebx]
 	test eax, eax
-	jz MapVirtualKeyA:F(0,29)_20
+	jz MapVirtualKeyA_F0_29_20
 	cmp esi, eax
-	jz MapVirtualKeyA:F(0,29)_30
+	jz MapVirtualKeyA_F0_29_30
 	lea eax, [ebx+0x8]
 	mov ecx, eax
-	jmp MapVirtualKeyA:F(0,29)_40
-MapVirtualKeyA:F(0,29)_50:
+	jmp MapVirtualKeyA_F0_29_40
+MapVirtualKeyA_F0_29_50:
 	add eax, 0x8
-MapVirtualKeyA:F(0,29)_40:
+MapVirtualKeyA_F0_29_40:
 	mov ebx, eax
 	mov edx, [ecx]
 	test edx, edx
-	jz MapVirtualKeyA:F(0,29)_20
+	jz MapVirtualKeyA_F0_29_20
 	add ecx, 0x8
 	cmp edx, esi
-	jnz MapVirtualKeyA:F(0,29)_50
-MapVirtualKeyA:F(0,29)_30:
+	jnz MapVirtualKeyA_F0_29_50
+MapVirtualKeyA_F0_29_30:
 	mov eax, [ebx+0x4]
 	pop ebx
 	pop esi
 	pop ebp
 	ret
-MapVirtualKeyA:F(0,29)_20:
+MapVirtualKeyA_F0_29_20:
 	xor eax, eax
 	pop ebx
 	pop esi
 	pop ebp
 	ret
-MapVirtualKeyA:F(0,29)_10:
-	call ZN12MacResources15GetLanguageCodeEv:F(0,13)
+MapVirtualKeyA_F0_29_10:
+	call ZN12MacResources15GetLanguageCodeEv_F0_13
 	sub eax, 0x1
-	jz MapVirtualKeyA:F(0,29)_60
-	call ZN12MacResources15GetLanguageCodeEv:F(0,13)
+	jz MapVirtualKeyA_F0_29_60
+	call ZN12MacResources15GetLanguageCodeEv_F0_13
 	mov edx, sGermanKeyMap
 	cmp eax, 0x2
 	mov eax, sDefaultKeyMap
 	cmovnz edx, eax
 	mov [_ZZ14MapVirtualKeyAE13sCachedKeyMap], edx
 	mov ebx, edx
-	jmp MapVirtualKeyA:F(0,29)_70
-MapVirtualKeyA:F(0,29)_60:
+	jmp MapVirtualKeyA_F0_29_70
+MapVirtualKeyA_F0_29_60:
 	mov dword [_ZZ14MapVirtualKeyAE13sCachedKeyMap], sFrenchKeyMap
 	mov ebx, [_ZZ14MapVirtualKeyAE13sCachedKeyMap]
-	jmp MapVirtualKeyA:F(0,29)_70
+	jmp MapVirtualKeyA_F0_29_70
 	add [eax], al
 
 
-;VirtualAlloc:F(0,62)
+;VirtualAlloc_F0_62
 
-VirtualAlloc:F(0,62):
+VirtualAlloc_F0_62:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
 	test eax, eax
-	jz VirtualAlloc:F(0,62)_10
+	jz VirtualAlloc_F0_62_10
 	pop ebp
 	ret
-VirtualAlloc:F(0,62)_10:
+VirtualAlloc_F0_62_10:
 	mov dword [ebp+0x8], 0x1
 	pop ebp
 	jmp calloc
 	nop
 
 
-;VirtualFree:F(0,3)
+;VirtualFree_F0_3
 
-VirtualFree:F(0,3):
+VirtualFree_F0_3:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
 	mov eax, [ebp+0x8]
 	test eax, eax
-	jz VirtualFree:F(0,3)_10
+	jz VirtualFree_F0_3_10
 	cmp dword [ebp+0x10], 0x8000
-	jz VirtualFree:F(0,3)_20
-VirtualFree:F(0,3)_10:
+	jz VirtualFree_F0_3_20
+VirtualFree_F0_3_10:
 	mov eax, 0x1
 	leave
 	ret
-VirtualFree:F(0,3)_20:
+VirtualFree_F0_3_20:
 	mov [esp], eax
 	call free
 	mov eax, 0x1
@@ -1020,43 +1096,43 @@ VirtualFree:F(0,3)_20:
 	ret
 
 
-;GetSystemMetrics:F(0,4)
+;GetSystemMetrics_F0_4
 
-GetSystemMetrics:F(0,4):
+GetSystemMetrics_F0_4:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x28
 	mov eax, [ebp+0x8]
 	test eax, eax
-	jz GetSystemMetrics:F(0,4)_10
+	jz GetSystemMetrics_F0_4_10
 	sub eax, 0x1
-	jz GetSystemMetrics:F(0,4)_20
+	jz GetSystemMetrics_F0_4_20
 	xor eax, eax
 	leave
 	ret
-GetSystemMetrics:F(0,4)_10:
+GetSystemMetrics_F0_4_10:
 	lea eax, [ebp-0xc]
 	mov [esp+0x4], eax
 	lea eax, [ebp-0x10]
 	mov [esp], eax
-	call ZN10MacDisplay20GetCurrentDimensionsERiS0_:F(0,39)
+	call ZN10MacDisplay20GetCurrentDimensionsERiS0__F0_39
 	mov eax, [ebp-0x10]
 	leave
 	ret
-GetSystemMetrics:F(0,4)_20:
+GetSystemMetrics_F0_4_20:
 	lea eax, [ebp-0x10]
 	mov [esp+0x4], eax
 	lea eax, [ebp-0xc]
 	mov [esp], eax
-	call ZN10MacDisplay20GetCurrentDimensionsERiS0_:F(0,39)
+	call ZN10MacDisplay20GetCurrentDimensionsERiS0__F0_39
 	mov eax, [ebp-0x10]
 	leave
 	ret
 
 
-;FindNextFileA:F(0,3)
+;FindNextFileA_F0_3
 
-FindNextFileA:F(0,3):
+FindNextFileA_F0_3:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1066,59 +1142,59 @@ FindNextFileA:F(0,3):
 	mov ebx, [ebp+0x8]
 	lea eax, [ebx-0x1]
 	cmp eax, 0xfffffffd
-	ja FindNextFileA:F(0,3)_10
+	ja FindNextFileA_F0_3_10
 	mov eax, [ebp+0xc]
 	test eax, eax
-	jz FindNextFileA:F(0,3)_10
+	jz FindNextFileA_F0_3_10
 	mov eax, [ebx]
 	test eax, eax
-	jz FindNextFileA:F(0,3)_10
+	jz FindNextFileA_F0_3_10
 	lea eax, [ebx+0x28]
 	mov [ebp-0x28], eax
 	mov edx, [ebp+0xc]
 	add edx, 0x2c
 	mov [ebp-0x20], edx
-FindNextFileA:F(0,3)_70:
+FindNextFileA_F0_3_70:
 	cmp byte [ebx+0x2c], 0x0
-	jnz FindNextFileA:F(0,3)_20
+	jnz FindNextFileA_F0_3_20
 	mov edx, [ebx+0x24]
 	mov eax, [edx]
 	mov [ebx+0x28], eax
 	mov byte [ebx+0x2c], 0x1
-FindNextFileA:F(0,3)_50:
+FindNextFileA_F0_3_50:
 	mov eax, [edx+0x4]
 	cmp [ebx+0x28], eax
-	jz FindNextFileA:F(0,3)_10
+	jz FindNextFileA_F0_3_10
 	mov eax, [ebx]
 	cmp eax, 0x1
-	jz FindNextFileA:F(0,3)_30
+	jz FindNextFileA_F0_3_30
 	cmp eax, 0x2
-	jz FindNextFileA:F(0,3)_40
-FindNextFileA:F(0,3)_10:
+	jz FindNextFileA_F0_3_40
+FindNextFileA_F0_3_10:
 	xor eax, eax
-FindNextFileA:F(0,3)_80:
+FindNextFileA_F0_3_80:
 	add esp, 0x2c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-FindNextFileA:F(0,3)_20:
+FindNextFileA_F0_3_20:
 	add dword [ebx+0x28], 0x15e
 	mov edx, [ebx+0x24]
-	jmp FindNextFileA:F(0,3)_50
-FindNextFileA:F(0,3)_40:
+	jmp FindNextFileA_F0_3_50
+FindNextFileA_F0_3_40:
 	mov eax, [ebx+0x28]
 	mov [ebp-0x24], eax
 	test byte [eax+0x15c], 0x10
-	jnz FindNextFileA:F(0,3)_60
+	jnz FindNextFileA_F0_3_60
 	lea eax, [ebx+0x4]
 	mov dword [esp+0x4], 0x2e
 	mov [esp], eax
 	call strrchr
 	mov esi, eax
 	test eax, eax
-	jz FindNextFileA:F(0,3)_10
+	jz FindNextFileA_F0_3_10
 	mov edi, eax
 	cld
 	mov ecx, 0xffffffff
@@ -1146,12 +1222,12 @@ FindNextFileA:F(0,3)_40:
 	lea ecx, [ecx+edx-0x1]
 	sub ecx, [ebp-0x1c]
 	mov [esp], ecx
-	call Z8strnicmpPKcS0_m:F(0,1)
+	call Z8strnicmpPKcS0_m_F0_1
 	test eax, eax
-	jnz FindNextFileA:F(0,3)_70
+	jnz FindNextFileA_F0_3_70
 	mov eax, [ebp+0xc]
 	mov dword [eax], 0x0
-FindNextFileA:F(0,3)_90:
+FindNextFileA_F0_3_90:
 	mov eax, [ebx+0x28]
 	mov eax, [eax+0x156]
 	mov edx, [ebp+0xc]
@@ -1160,8 +1236,8 @@ FindNextFileA:F(0,3)_90:
 	movzx eax, word [eax+0x154]
 	mov [edx+0x18], eax
 	mov eax, 0x1
-	jmp FindNextFileA:F(0,3)_80
-FindNextFileA:F(0,3)_30:
+	jmp FindNextFileA_F0_3_80
+FindNextFileA_F0_3_30:
 	mov eax, [ebx+0x28]
 	movzx eax, word [eax+0x15c]
 	and eax, 0x10
@@ -1195,7 +1271,7 @@ FindNextFileA:F(0,3)_30:
 	pop edi
 	pop ebp
 	ret
-FindNextFileA:F(0,3)_60:
+FindNextFileA_F0_3_60:
 	mov eax, [ebp+0xc]
 	mov dword [eax], 0x10
 	mov eax, [ebx+0x28]
@@ -1205,13 +1281,13 @@ FindNextFileA:F(0,3)_60:
 	add eax, 0x2c
 	mov [esp], eax
 	call strcpy
-	jmp FindNextFileA:F(0,3)_90
+	jmp FindNextFileA_F0_3_90
 	nop
 
 
-;timeGetTime:F(0,1)
+;timeGetTime_F0_1
 
-timeGetTime:F(0,1):
+timeGetTime_F0_1:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -1238,9 +1314,9 @@ timeGetTime:F(0,1):
 	nop
 
 
-;QueryPerformanceCounter:F(0,3)
+;QueryPerformanceCounter_F0_3
 
-QueryPerformanceCounter:F(0,3):
+QueryPerformanceCounter_F0_3:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -1262,9 +1338,9 @@ QueryPerformanceCounter:F(0,3):
 	ret
 
 
-;InterlockedExchange:F(0,41)
+;InterlockedExchange_F0_41
 
-InterlockedExchange:F(0,41):
+InterlockedExchange_F0_41:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -1287,9 +1363,9 @@ InterlockedExchange:F(0,41):
 	ret
 
 
-;ZNSt6vectorI6FFItemSaIS0_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS0_S2_EERKS0_:F(0,18)
+;ZNSt6vectorI6FFItemSaIS0_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS0_S2_EERKS0__F0_18
 
-FindFirstFileA:F(0,60):
+FindFirstFileA_F0_60:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1298,15 +1374,15 @@ FindFirstFileA:F(0,60):
 	sub esp, 0xcac
 	mov eax, [ebp+0x8]
 	test eax, eax
-	jz FindFirstFileA:F(0,60)_10
+	jz FindFirstFileA_F0_60_10
 	mov edx, [ebp+0xc]
 	test edx, edx
-	jz FindFirstFileA:F(0,60)_10
+	jz FindFirstFileA_F0_60_10
 	mov dword [esp+0x8], 0x0
 	lea edx, [ebp-0xc62]
 	mov [esp+0x4], edx
 	mov [esp], eax
-	call ZN8MacFiles9CleanPathEPKcPch:F(0,1)
+	call ZN8MacFiles9CleanPathEPKcPch_F0_1
 	mov dword [esp+0x8], 0x14c
 	mov dword [esp+0x4], 0x0
 	mov ecx, [ebp+0xc]
@@ -1318,16 +1394,16 @@ FindFirstFileA:F(0,60):
 	call strstr
 	mov edi, eax
 	test eax, eax
-	jz FindFirstFileA:F(0,60)_20
-FindFirstFileA:F(0,60)_320:
+	jz FindFirstFileA_F0_60_20
+FindFirstFileA_F0_60_320:
 	mov dword [ebp-0xc84], 0x1
-FindFirstFileA:F(0,60)_260:
+FindFirstFileA_F0_60_260:
 	mov dword [esp+0x4], 0x2f
 	lea eax, [ebp-0xc62]
 	mov [esp], eax
 	call strrchr
 	test eax, eax
-	jz FindFirstFileA:F(0,60)_30
+	jz FindFirstFileA_F0_60_30
 	mov ebx, eax
 	lea eax, [ebp-0xc62]
 	sub ebx, eax
@@ -1343,8 +1419,8 @@ FindFirstFileA:F(0,60)_260:
 	mov [esp], esi
 	call FSPathMakeRef
 	test eax, eax
-	jnz FindFirstFileA:F(0,60)_40
-FindFirstFileA:F(0,60)_160:
+	jnz FindFirstFileA_F0_60_40
+FindFirstFileA_F0_60_160:
 	mov dword [esp+0x14], 0x0
 	mov dword [esp+0x10], 0x0
 	lea ebx, [ebp-0x462]
@@ -1356,9 +1432,9 @@ FindFirstFileA:F(0,60)_160:
 	mov [esp], eax
 	call FSGetCatalogInfo
 	test ax, ax
-	jnz FindFirstFileA:F(0,60)_10
+	jnz FindFirstFileA_F0_60_10
 	test byte [ebp-0x104], 0x10
-	jz FindFirstFileA:F(0,60)_50
+	jz FindFirstFileA_F0_60_50
 	mov dword [esp], 0x30
 	call _Znwm
 	mov [ebp-0xc80], eax
@@ -1379,7 +1455,7 @@ FindFirstFileA:F(0,60)_160:
 	mov [esp], ecx
 	call FSOpenIterator
 	test ax, ax
-	jnz FindFirstFileA:F(0,60)_60
+	jnz FindFirstFileA_F0_60_60
 	mov dword [esp], 0x1c20
 	call _Znam
 	mov [ebp-0xc78], eax
@@ -1396,7 +1472,7 @@ FindFirstFileA:F(0,60)_160:
 	mov dword [eax+0x8], 0x0
 	mov edi, [ebp-0xc80]
 	mov [edi+0x24], eax
-FindFirstFileA:F(0,60)_230:
+FindFirstFileA_F0_60_230:
 	mov eax, [ebp-0xc70]
 	mov [esp+0x20], eax
 	mov dword [esp+0x1c], 0x0
@@ -1415,64 +1491,64 @@ FindFirstFileA:F(0,60)_230:
 	call FSGetCatalogInfoBulk
 	mov [ebp-0xc86], ax
 	test ax, ax
-	jz FindFirstFileA:F(0,60)_70
+	jz FindFirstFileA_F0_60_70
 	cmp ax, 0xfa77
-	jz FindFirstFileA:F(0,60)_70
-FindFirstFileA:F(0,60)_240:
+	jz FindFirstFileA_F0_60_70
+FindFirstFileA_F0_60_240:
 	mov eax, [ebp-0x20]
 	mov [esp], eax
 	call FSCloseIterator
 	mov eax, [ebp-0xc70]
 	test eax, eax
-	jz FindFirstFileA:F(0,60)_80
+	jz FindFirstFileA_F0_60_80
 	mov ecx, [ebp-0xc70]
 	mov [esp], ecx
 	call _ZdaPv
-FindFirstFileA:F(0,60)_80:
+FindFirstFileA_F0_60_80:
 	mov eax, [ebp-0xc74]
 	test eax, eax
-	jz FindFirstFileA:F(0,60)_90
+	jz FindFirstFileA_F0_60_90
 	mov eax, [ebp-0xc74]
 	mov [esp], eax
 	call _ZdaPv
-FindFirstFileA:F(0,60)_90:
+FindFirstFileA_F0_60_90:
 	mov esi, [ebp-0xc78]
 	test esi, esi
-	jz FindFirstFileA:F(0,60)_60
+	jz FindFirstFileA_F0_60_60
 	mov ecx, [ebp-0xc78]
 	mov [esp], ecx
 	call _ZdaPv
-FindFirstFileA:F(0,60)_60:
+FindFirstFileA_F0_60_60:
 	mov edi, [ebp+0xc]
 	mov [esp+0x4], edi
 	mov eax, [ebp-0xc80]
 	mov [esp], eax
-	call FindNextFileA:F(0,3)
+	call FindNextFileA_F0_3
 	test eax, eax
-	jnz FindFirstFileA:F(0,60)_100
+	jnz FindFirstFileA_F0_60_100
 	mov edx, [ebp-0xc80]
 	mov ebx, [edx+0x24]
 	test ebx, ebx
-	jz FindFirstFileA:F(0,60)_110
+	jz FindFirstFileA_F0_60_110
 	mov edx, [ebx+0x4]
 	mov ecx, [ebx]
 	mov eax, ecx
 	cmp edx, ecx
-	jz FindFirstFileA:F(0,60)_120
-FindFirstFileA:F(0,60)_130:
+	jz FindFirstFileA_F0_60_120
+FindFirstFileA_F0_60_130:
 	add eax, 0x15e
 	cmp edx, eax
-	jnz FindFirstFileA:F(0,60)_130
-FindFirstFileA:F(0,60)_120:
+	jnz FindFirstFileA_F0_60_130
+FindFirstFileA_F0_60_120:
 	test ecx, ecx
-	jz FindFirstFileA:F(0,60)_140
+	jz FindFirstFileA_F0_60_140
 	mov [esp], ecx
 	call _ZdlPv
-FindFirstFileA:F(0,60)_140:
+FindFirstFileA_F0_60_140:
 	mov [esp], ebx
 	call _ZdlPv
 	mov ecx, [ebp-0xc80]
-FindFirstFileA:F(0,60)_280:
+FindFirstFileA_F0_60_280:
 	mov [esp], ecx
 	call _ZdlPv
 	mov eax, 0xffffffff
@@ -1482,31 +1558,31 @@ FindFirstFileA:F(0,60)_280:
 	pop edi
 	pop ebp
 	ret
-FindFirstFileA:F(0,60)_30:
+FindFirstFileA_F0_60_30:
 	mov dword [esp+0x4], 0x400
 	lea ebx, [ebp-0x862]
 	mov [esp], ebx
 	call getcwd
 	test eax, eax
-	jz FindFirstFileA:F(0,60)_150
+	jz FindFirstFileA_F0_60_150
 	mov dword [esp+0x8], 0x0
 	lea edx, [ebp-0x74]
 	mov [esp+0x4], edx
 	mov [esp], ebx
 	call FSPathMakeRef
-FindFirstFileA:F(0,60)_290:
+FindFirstFileA_F0_60_290:
 	test eax, eax
-	jz FindFirstFileA:F(0,60)_160
-FindFirstFileA:F(0,60)_10:
+	jz FindFirstFileA_F0_60_160
+FindFirstFileA_F0_60_10:
 	mov eax, 0xffffffff
-FindFirstFileA:F(0,60)_270:
+FindFirstFileA_F0_60_270:
 	add esp, 0xcac
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-FindFirstFileA:F(0,60)_100:
+FindFirstFileA_F0_60_100:
 	mov eax, [ebp-0xc80]
 	add esp, 0xcac
 	pop ebx
@@ -1514,28 +1590,28 @@ FindFirstFileA:F(0,60)_100:
 	pop edi
 	pop ebp
 	ret
-FindFirstFileA:F(0,60)_40:
+FindFirstFileA_F0_60_40:
 	lea eax, [ebp-0x74]
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call ZN10MacFolders20GetDataFolderItemRefEPKcR5FSRef:F(0,3)
+	call ZN10MacFolders20GetDataFolderItemRefEPKcR5FSRef_F0_3
 	test eax, eax
-	jz FindFirstFileA:F(0,60)_160
-	jmp FindFirstFileA:F(0,60)_10
-FindFirstFileA:F(0,60)_70:
+	jz FindFirstFileA_F0_60_160
+	jmp FindFirstFileA_F0_60_10
+FindFirstFileA_F0_60_70:
 	mov eax, [ebp-0x24]
 	test eax, eax
-	jz FindFirstFileA:F(0,60)_170
+	jz FindFirstFileA_F0_60_170
 	mov edx, [ebp-0xc74]
 	mov [ebp-0xc6c], edx
 	mov edi, [ebp-0xc70]
 	mov esi, [ebp-0xc78]
 	mov dword [ebp-0xc7c], 0x0
 	mov ecx, edx
-	jmp FindFirstFileA:F(0,60)_180
-FindFirstFileA:F(0,60)_220:
+	jmp FindFirstFileA_F0_60_180
+FindFirstFileA_F0_60_220:
 	mov ecx, [ebp-0xc6c]
-FindFirstFileA:F(0,60)_180:
+FindFirstFileA_F0_60_180:
 	mov dword [esp+0x8], 0x50
 	mov [esp+0x4], ecx
 	lea eax, [ebp-0x262]
@@ -1545,7 +1621,7 @@ FindFirstFileA:F(0,60)_180:
 	lea edx, [ebp-0x212]
 	mov [esp+0x4], edx
 	mov [esp], edi
-	call ZN10MacStrings10GetCStringERK12HFSUniStr255Pcs:F(0,1)
+	call ZN10MacStrings10GetCStringERK12HFSUniStr255Pcs_F0_1
 	mov eax, [esi+0x18]
 	mov edx, [esi+0x1c]
 	mov [ebp-0x10e], eax
@@ -1553,53 +1629,53 @@ FindFirstFileA:F(0,60)_180:
 	movzx eax, word [esi]
 	mov [ebp-0x106], ax
 	cmp byte [ebp-0x212], 0x2e
-	jz FindFirstFileA:F(0,60)_190
+	jz FindFirstFileA_F0_60_190
 	mov ecx, [ebp-0xc80]
 	mov ebx, [ecx+0x24]
 	mov eax, [ebx+0x4]
 	cmp eax, [ebx+0x8]
-	jz FindFirstFileA:F(0,60)_200
+	jz FindFirstFileA_F0_60_200
 	test eax, eax
-	jz FindFirstFileA:F(0,60)_210
+	jz FindFirstFileA_F0_60_210
 	mov dword [esp+0x8], 0x15e
 	lea edx, [ebp-0x262]
 	mov [esp+0x4], edx
 	mov [esp], eax
 	call memcpy
 	mov eax, [ebx+0x4]
-FindFirstFileA:F(0,60)_210:
+FindFirstFileA_F0_60_210:
 	add eax, 0x15e
 	mov [ebx+0x4], eax
-FindFirstFileA:F(0,60)_190:
+FindFirstFileA_F0_60_190:
 	add dword [ebp-0xc7c], 0x1
 	add dword [ebp-0xc6c], 0x50
 	add edi, 0x200
 	add esi, 0x90
 	mov eax, [ebp-0xc7c]
 	cmp eax, [ebp-0x24]
-	jb FindFirstFileA:F(0,60)_220
-FindFirstFileA:F(0,60)_170:
+	jb FindFirstFileA_F0_60_220
+FindFirstFileA_F0_60_170:
 	cmp word [ebp-0xc86], 0x0
-	jz FindFirstFileA:F(0,60)_230
-	jmp FindFirstFileA:F(0,60)_240
-FindFirstFileA:F(0,60)_20:
+	jz FindFirstFileA_F0_60_230
+	jmp FindFirstFileA_F0_60_240
+FindFirstFileA_F0_60_20:
 	mov dword [esp+0x4], _cstring_1
 	lea eax, [ebp-0xc62]
 	mov [esp], eax
 	call strstr
 	mov edi, eax
 	test eax, eax
-	jz FindFirstFileA:F(0,60)_250
+	jz FindFirstFileA_F0_60_250
 	mov dword [ebp-0xc84], 0x2
-	jmp FindFirstFileA:F(0,60)_260
-FindFirstFileA:F(0,60)_200:
+	jmp FindFirstFileA_F0_60_260
+FindFirstFileA_F0_60_200:
 	lea ecx, [ebp-0x262]
 	mov [esp+0x8], ecx
 	mov [esp+0x4], eax
 	mov [esp], ebx
-	call ZNSt6vectorI6FFItemSaIS0_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS0_S2_EERKS0_:F(0,18)
-	jmp FindFirstFileA:F(0,60)_190
-FindFirstFileA:F(0,60)_50:
+	call ZNSt6vectorI6FFItemSaIS0_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS0_S2_EERKS0__F0_18
+	jmp FindFirstFileA_F0_60_190
+FindFirstFileA_F0_60_50:
 	mov edx, [ebp+0xc]
 	mov dword [edx], 0x0
 	mov dword [esp+0x8], 0x104
@@ -1607,24 +1683,24 @@ FindFirstFileA:F(0,60)_50:
 	add eax, 0x2c
 	mov [esp+0x4], eax
 	mov [esp], ebx
-	call ZN10MacStrings10GetCStringERK12HFSUniStr255Pcs:F(0,1)
+	call ZN10MacStrings10GetCStringERK12HFSUniStr255Pcs_F0_1
 	mov eax, [ebp-0xea]
 	mov ecx, [ebp+0xc]
 	mov [ecx+0x14], eax
 	movzx eax, word [ebp-0xec]
 	mov [ecx+0x18], eax
 	xor eax, eax
-	jmp FindFirstFileA:F(0,60)_270
-FindFirstFileA:F(0,60)_110:
+	jmp FindFirstFileA_F0_60_270
+FindFirstFileA_F0_60_110:
 	mov ecx, edx
-	jmp FindFirstFileA:F(0,60)_280
-FindFirstFileA:F(0,60)_150:
+	jmp FindFirstFileA_F0_60_280
+FindFirstFileA_F0_60_150:
 	lea ecx, [ebp-0x74]
 	mov [esp+0x4], ecx
 	mov [esp], ebx
-	call ZN10MacFolders20GetDataFolderItemRefEPKcR5FSRef:F(0,3)
-	jmp FindFirstFileA:F(0,60)_290
-FindFirstFileA:F(0,60)_250:
+	call ZN10MacFolders20GetDataFolderItemRefEPKcR5FSRef_F0_3
+	jmp FindFirstFileA_F0_60_290
+FindFirstFileA_F0_60_250:
 	mov ecx, 0x2
 	cld
 	mov ebx, _cstring_2
@@ -1632,16 +1708,16 @@ FindFirstFileA:F(0,60)_250:
 	mov edi, ebx
 	repe cmpsb
 	mov ebx, 0x0
-	jz FindFirstFileA:F(0,60)_300
+	jz FindFirstFileA_F0_60_300
 	movzx ebx, byte [esi-0x1]
 	movzx ecx, byte [edi-0x1]
 	sub ebx, ecx
-FindFirstFileA:F(0,60)_300:
+FindFirstFileA_F0_60_300:
 	test ebx, ebx
-	jnz FindFirstFileA:F(0,60)_310
+	jnz FindFirstFileA_F0_60_310
 	mov edi, _cstring_2
-	jmp FindFirstFileA:F(0,60)_320
-FindFirstFileA:F(0,60)_310:
+	jmp FindFirstFileA_F0_60_320
+FindFirstFileA_F0_60_310:
 	mov dword [esp+0x8], 0x0
 	lea edi, [ebp-0x74]
 	mov [esp+0x4], edi
@@ -1649,15 +1725,15 @@ FindFirstFileA:F(0,60)_310:
 	mov [esp], eax
 	call FSPathMakeRef
 	test eax, eax
-	jz FindFirstFileA:F(0,60)_330
+	jz FindFirstFileA_F0_60_330
 	lea edx, [ebp-0x74]
 	mov [esp+0x4], edx
 	lea ecx, [ebp-0xc62]
 	mov [esp], ecx
-	call ZN10MacFolders20GetDataFolderItemRefEPKcR5FSRef:F(0,3)
+	call ZN10MacFolders20GetDataFolderItemRefEPKcR5FSRef_F0_3
 	test eax, eax
-	jnz FindFirstFileA:F(0,60)_10
-FindFirstFileA:F(0,60)_330:
+	jnz FindFirstFileA_F0_60_10
+FindFirstFileA_F0_60_330:
 	mov dword [esp+0x14], 0x0
 	mov dword [esp+0x10], 0x0
 	lea ebx, [ebp-0x462]
@@ -1669,7 +1745,7 @@ FindFirstFileA:F(0,60)_330:
 	mov [esp], edi
 	call FSGetCatalogInfo
 	test ax, ax
-	jnz FindFirstFileA:F(0,60)_10
+	jnz FindFirstFileA_F0_60_10
 	movzx eax, word [ebp-0x104]
 	and eax, 0x10
 	cmp eax, 0x1
@@ -1683,7 +1759,7 @@ FindFirstFileA:F(0,60)_330:
 	add eax, 0x2c
 	mov [esp+0x4], eax
 	mov [esp], ebx
-	call ZN10MacStrings10GetCStringERK12HFSUniStr255Pcs:F(0,1)
+	call ZN10MacStrings10GetCStringERK12HFSUniStr255Pcs_F0_1
 	mov eax, [ebp-0xea]
 	mov ecx, [ebp+0xc]
 	mov [ecx+0x14], eax
@@ -1699,41 +1775,41 @@ FindFirstFileA:F(0,60)_330:
 	mov dword [eax+0x28], 0x0
 	mov byte [eax+0x2c], 0x0
 	mov dword [eax], 0x0
-	jmp FindFirstFileA:F(0,60)_270
+	jmp FindFirstFileA_F0_60_270
 	mov ebx, eax
-FindFirstFileA:F(0,60)_360:
+FindFirstFileA_F0_60_360:
 	mov edi, [ebp-0xc78]
 	test edi, edi
-	jz FindFirstFileA:F(0,60)_340
+	jz FindFirstFileA_F0_60_340
 	mov edx, [ebp-0xc78]
 	mov [esp], edx
 	call _ZdaPv
-FindFirstFileA:F(0,60)_340:
+FindFirstFileA_F0_60_340:
 	mov [esp], ebx
 	call _Unwind_Resume
 	mov ebx, eax
 	mov eax, [ebp-0xc70]
 	test eax, eax
-	jz FindFirstFileA:F(0,60)_350
+	jz FindFirstFileA_F0_60_350
 	mov edx, [ebp-0xc70]
 	mov [esp], edx
 	call _ZdaPv
-FindFirstFileA:F(0,60)_350:
+FindFirstFileA_F0_60_350:
 	mov eax, [ebp-0xc74]
 	test eax, eax
-	jz FindFirstFileA:F(0,60)_360
+	jz FindFirstFileA_F0_60_360
 	mov edi, [ebp-0xc74]
 	mov [esp], edi
 	call _ZdaPv
-	jmp FindFirstFileA:F(0,60)_360
+	jmp FindFirstFileA_F0_60_360
 	mov ebx, eax
-	jmp FindFirstFileA:F(0,60)_350
+	jmp FindFirstFileA_F0_60_350
 	add [eax], al
 
 
 ;global constructors keyed to LoadCursorFromFileA
 
-SetWinCursor:F(0,120):
+SetWinCursor_F0_120:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1743,12 +1819,12 @@ SetWinCursor:F(0,120):
 	mov ecx, [ebp+0x8]
 	mov edi, [_ZZ12SetWinCursorE17sCurrentWinCursor]
 	cmp edi, ecx
-	jz SetWinCursor:F(0,120)_10
+	jz SetWinCursor_F0_120_10
 	mov edx, [sSavedWinCursor]
 	test edx, edx
-	jz SetWinCursor:F(0,120)_20
+	jz SetWinCursor_F0_120_20
 	mov edi, ecx
-SetWinCursor:F(0,120)_10:
+SetWinCursor_F0_120_10:
 	mov eax, edi
 	add esp, 0x7c
 	pop ebx
@@ -1756,27 +1832,27 @@ SetWinCursor:F(0,120)_10:
 	pop edi
 	pop ebp
 	ret
-SetWinCursor:F(0,120)_20:
+SetWinCursor_F0_120_20:
 	mov [_ZZ12SetWinCursorE17sCurrentWinCursor], ecx
 	test ecx, ecx
-	jz SetWinCursor:F(0,120)_30
+	jz SetWinCursor_F0_120_30
 	mov eax, [sCursorList]
 	mov ebx, eax
 	mov esi, [sCursorList+0x4]
 	cmp esi, eax
-	jz SetWinCursor:F(0,120)_40
+	jz SetWinCursor_F0_120_40
 	cmp ecx, [eax]
-	jz SetWinCursor:F(0,120)_50
+	jz SetWinCursor_F0_120_50
 	lea edx, [eax+0x44]
-SetWinCursor:F(0,120)_60:
+SetWinCursor_F0_120_60:
 	add ebx, 0x44
 	cmp ebx, esi
-	jz SetWinCursor:F(0,120)_40
+	jz SetWinCursor_F0_120_40
 	mov eax, [edx]
 	add edx, 0x44
 	cmp ecx, eax
-	jnz SetWinCursor:F(0,120)_60
-SetWinCursor:F(0,120)_50:
+	jnz SetWinCursor_F0_120_60
+SetWinCursor_F0_120_50:
 	mov dword [ebx+0x38], 0x0
 	call TickCount
 	mov ecx, [ebx+0x38]
@@ -1790,13 +1866,13 @@ SetWinCursor:F(0,120)_50:
 	mov [esp], eax
 	call QDSetNamedPixMapCursor
 	mov [sCurrentCursor], ebx
-SetWinCursor:F(0,120)_80:
+SetWinCursor_F0_120_80:
 	cmp byte [_ZZ12SetWinCursorE14sVisibleCursor], 0x0
-	jz SetWinCursor:F(0,120)_70
-SetWinCursor:F(0,120)_90:
+	jz SetWinCursor_F0_120_70
+SetWinCursor_F0_120_90:
 	mov eax, [_ZZ12SetWinCursorE9sTimerRef]
 	test eax, eax
-	jnz SetWinCursor:F(0,120)_10
+	jnz SetWinCursor_F0_120_10
 	call GetMainEventLoop
 	mov dword [esp+0x1c], _ZZ12SetWinCursorE9sTimerRef
 	mov dword [esp+0x18], 0x0
@@ -1807,64 +1883,64 @@ SetWinCursor:F(0,120)_90:
 	mov dword [esp+0x8], 0x0
 	mov [esp], eax
 	call InstallEventLoopTimer
-	jmp SetWinCursor:F(0,120)_10
-SetWinCursor:F(0,120)_40:
+	jmp SetWinCursor_F0_120_10
+SetWinCursor_F0_120_40:
 	lea eax, [ebp-0x5c]
 	mov [esp], eax
 	call GetQDGlobalsArrow
 	mov [esp], eax
 	call SetCursor
-	jmp SetWinCursor:F(0,120)_80
-SetWinCursor:F(0,120)_70:
+	jmp SetWinCursor_F0_120_80
+SetWinCursor_F0_120_70:
 	call ShowCursor
 	mov byte [_ZZ12SetWinCursorE14sVisibleCursor], 0x1
-	jmp SetWinCursor:F(0,120)_90
-SetWinCursor:F(0,120)_30:
+	jmp SetWinCursor_F0_120_90
+SetWinCursor_F0_120_30:
 	cmp byte [_ZZ12SetWinCursorE14sVisibleCursor], 0x0
-	jz SetWinCursor:F(0,120)_10
+	jz SetWinCursor_F0_120_10
 	call HideCursor
 	mov byte [_ZZ12SetWinCursorE14sVisibleCursor], 0x0
-	jmp SetWinCursor:F(0,120)_10
+	jmp SetWinCursor_F0_120_10
 
 
-;Z17SwitchToWinCursorv:F(0,12)
+;Z17SwitchToWinCursorv_F0_12
 
-Z17SwitchToWinCursorv:F(0,12):
+Z17SwitchToWinCursorv_F0_12:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
 	mov eax, [sSavedWinCursor]
 	mov dword [sSavedWinCursor], 0x0
 	mov [esp], eax
-	call SetWinCursor:F(0,120)
+	call SetWinCursor_F0_120
 	leave
 	ret
 	nop
 
 
-;Z17SwitchToMacCursorv:F(0,12)
+;Z17SwitchToMacCursorv_F0_12
 
-Z17SwitchToMacCursorv:F(0,12):
+Z17SwitchToMacCursorv_F0_12:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
 	mov ecx, [sSavedWinCursor]
 	test ecx, ecx
-	jz Z17SwitchToMacCursorv:F(0,12)_10
+	jz Z17SwitchToMacCursorv_F0_12_10
 	leave
 	ret
-Z17SwitchToMacCursorv:F(0,12)_10:
+Z17SwitchToMacCursorv_F0_12_10:
 	mov dword [esp], 0xffffffff
-	call SetWinCursor:F(0,120)
+	call SetWinCursor_F0_120
 	mov [sSavedWinCursor], eax
 	leave
 	ret
 	nop
 
 
-;ZNSt6vectorI9WinCursorSaIS0_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS0_S2_EERKS0_:F(0,12)
+;ZNSt6vectorI9WinCursorSaIS0_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS0_S2_EERKS0__F0_12
 
-LoadCursorFromFileA:F(0,120):
+LoadCursorFromFileA_F0_120:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1878,28 +1954,28 @@ LoadCursorFromFileA:F(0,120):
 	call strcpy
 	mov dword [esp+0x4], 0x0
 	mov [esp], ebx
-	call ZN8MacFiles9CleanPathEPch:F(0,1)
+	call ZN8MacFiles9CleanPathEPch_F0_1
 	mov [esp], ebx
-	call Z6strlwrPc:F(0,8)
+	call Z6strlwrPc_F0_8
 	mov dword [esp+0x4], _cstring_ani
 	mov [esp], ebx
 	call strstr
 	test eax, eax
-	jz LoadCursorFromFileA:F(0,120)_10
+	jz LoadCursorFromFileA_F0_120_10
 	mov edi, [sCursorList]
 	cmp edi, [sCursorList+0x4]
-	jz LoadCursorFromFileA:F(0,120)_20
-LoadCursorFromFileA:F(0,120)_40:
+	jz LoadCursorFromFileA_F0_120_20
+LoadCursorFromFileA_F0_120_40:
 	lea eax, [edi+0x4]
 	mov [esp+0x4], ebx
 	mov [esp], eax
 	call _ZNKSs7compareEPKc
 	test eax, eax
-	jz LoadCursorFromFileA:F(0,120)_30
+	jz LoadCursorFromFileA_F0_120_30
 	add edi, 0x44
 	cmp edi, [sCursorList+0x4]
-	jnz LoadCursorFromFileA:F(0,120)_40
-LoadCursorFromFileA:F(0,120)_20:
+	jnz LoadCursorFromFileA_F0_120_40
+LoadCursorFromFileA_F0_120_20:
 	mov eax, [0x1accc69]
 	mov [ebp-0x470], eax
 	add eax, 0xc
@@ -1923,14 +1999,14 @@ LoadCursorFromFileA:F(0,120)_20:
 	mov byte [ebp-0x20], 0x0
 	mov [esp+0x4], ebx
 	mov [esp], esi
-	call ZN9WinCursor4LoadEPKc:F(0,28)
+	call ZN9WinCursor4LoadEPKc_F0_28
 	test al, al
-	jz LoadCursorFromFileA:F(0,120)_50
+	jz LoadCursorFromFileA_F0_120_50
 	mov edi, [sCursorList+0x4]
 	cmp edi, [sCursorList+0x8]
-	jz LoadCursorFromFileA:F(0,120)_60
+	jz LoadCursorFromFileA_F0_120_60
 	test edi, edi
-	jz LoadCursorFromFileA:F(0,120)_70
+	jz LoadCursorFromFileA_F0_120_70
 	lea eax, [edi+0x4]
 	mov edx, [ebp-0x46c]
 	mov [edi+0x4], edx
@@ -1971,17 +2047,17 @@ LoadCursorFromFileA:F(0,120)_20:
 	movzx eax, byte [ebp-0x20]
 	mov [edi+0x40], al
 	mov edi, [sCursorList+0x4]
-LoadCursorFromFileA:F(0,120)_70:
+LoadCursorFromFileA_F0_120_70:
 	add edi, 0x44
 	mov [sCursorList+0x4], edi
-LoadCursorFromFileA:F(0,120)_100:
+LoadCursorFromFileA_F0_120_100:
 	mov ebx, [ebp-0x60]
-LoadCursorFromFileA:F(0,120)_90:
+LoadCursorFromFileA_F0_120_90:
 	mov eax, [ebp-0x5c]
 	lea edi, [eax-0xc]
 	cmp [ebp-0x470], edi
-	jnz LoadCursorFromFileA:F(0,120)_80
-LoadCursorFromFileA:F(0,120)_110:
+	jnz LoadCursorFromFileA_F0_120_80
+LoadCursorFromFileA_F0_120_110:
 	mov eax, ebx
 	add esp, 0x47c
 	pop ebx
@@ -1989,10 +2065,10 @@ LoadCursorFromFileA:F(0,120)_110:
 	pop edi
 	pop ebp
 	ret
-LoadCursorFromFileA:F(0,120)_50:
+LoadCursorFromFileA_F0_120_50:
 	xor ebx, ebx
-	jmp LoadCursorFromFileA:F(0,120)_90
-LoadCursorFromFileA:F(0,120)_30:
+	jmp LoadCursorFromFileA_F0_120_90
+LoadCursorFromFileA_F0_120_30:
 	mov ebx, [edi]
 	mov eax, ebx
 	add esp, 0x47c
@@ -2001,7 +2077,7 @@ LoadCursorFromFileA:F(0,120)_30:
 	pop edi
 	pop ebp
 	ret
-LoadCursorFromFileA:F(0,120)_10:
+LoadCursorFromFileA_F0_120_10:
 	xor ebx, ebx
 	mov eax, ebx
 	add esp, 0x47c
@@ -2010,102 +2086,102 @@ LoadCursorFromFileA:F(0,120)_10:
 	pop edi
 	pop ebp
 	ret
-LoadCursorFromFileA:F(0,120)_60:
+LoadCursorFromFileA_F0_120_60:
 	mov [esp+0x8], esi
 	mov [esp+0x4], edi
 	mov dword [esp], sCursorList
-	call ZNSt6vectorI9WinCursorSaIS0_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS0_S2_EERKS0_:F(0,12)
-	jmp LoadCursorFromFileA:F(0,120)_100
-LoadCursorFromFileA:F(0,120)_80:
+	call ZNSt6vectorI9WinCursorSaIS0_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS0_S2_EERKS0__F0_12
+	jmp LoadCursorFromFileA_F0_120_100
+LoadCursorFromFileA_F0_120_80:
 	sub eax, 0x4
 	mov dword [esp+0x4], 0xffffffff
 	mov [esp], eax
 	call _ZN9__gnu_cxx18__exchange_and_addEPVii
 	test eax, eax
-	jg LoadCursorFromFileA:F(0,120)_110
+	jg LoadCursorFromFileA_F0_120_110
 	lea eax, [ebp-0x19]
 	mov [esp+0x4], eax
 	mov [esp], edi
 	call _ZNSs4_Rep10_M_destroyERKSaIcE
-	jmp LoadCursorFromFileA:F(0,120)_110
+	jmp LoadCursorFromFileA_F0_120_110
 	mov ebx, eax
-LoadCursorFromFileA:F(0,120)_130:
+LoadCursorFromFileA_F0_120_130:
 	mov eax, [ebp-0x5c]
 	lea esi, [eax-0xc]
 	cmp [ebp-0x470], esi
-	jnz LoadCursorFromFileA:F(0,120)_120
-LoadCursorFromFileA:F(0,120)_140:
+	jnz LoadCursorFromFileA_F0_120_120
+LoadCursorFromFileA_F0_120_140:
 	mov [esp], ebx
 	call _Unwind_Resume
 	mov ebx, eax
 	mov eax, [edi+0x4]
 	lea esi, [eax-0xc]
 	cmp [ebp-0x470], esi
-	jz LoadCursorFromFileA:F(0,120)_130
+	jz LoadCursorFromFileA_F0_120_130
 	sub eax, 0x4
 	mov dword [esp+0x4], 0xffffffff
 	mov [esp], eax
 	call _ZN9__gnu_cxx18__exchange_and_addEPVii
 	test eax, eax
-	jg LoadCursorFromFileA:F(0,120)_130
+	jg LoadCursorFromFileA_F0_120_130
 	lea eax, [ebp-0x1a]
 	mov [esp+0x4], eax
 	mov [esp], esi
 	call _ZNSs4_Rep10_M_destroyERKSaIcE
-	jmp LoadCursorFromFileA:F(0,120)_130
+	jmp LoadCursorFromFileA_F0_120_130
 	mov ebx, eax
-	jmp LoadCursorFromFileA:F(0,120)_140
-LoadCursorFromFileA:F(0,120)_120:
+	jmp LoadCursorFromFileA_F0_120_140
+LoadCursorFromFileA_F0_120_120:
 	sub eax, 0x4
 	mov dword [esp+0x4], 0xffffffff
 	mov [esp], eax
 	call _ZN9__gnu_cxx18__exchange_and_addEPVii
 	test eax, eax
-	jg LoadCursorFromFileA:F(0,120)_140
+	jg LoadCursorFromFileA_F0_120_140
 	lea eax, [ebp-0x19]
 	mov [esp+0x4], eax
 	mov [esp], esi
 	call _ZNSs4_Rep10_M_destroyERKSaIcE
-	jmp LoadCursorFromFileA:F(0,120)_140
+	jmp LoadCursorFromFileA_F0_120_140
 	nop
 
 
-;ZN7WinIconD2Ev:F(0,12)
+;ZN7WinIconD2Ev_F0_12
 
-Z20TranslateKeyCodeToVKm:F(0,1):
+Z20TranslateKeyCodeToVKm_F0_1:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x8
 	mov eax, [_ZZ20TranslateKeyCodeToVKmE12sCachedVKMap]
 	test eax, eax
-	jz Z20TranslateKeyCodeToVKm:F(0,1)_10
+	jz Z20TranslateKeyCodeToVKm_F0_1_10
 	mov eax, [_ZZ20TranslateKeyCodeToVKmE12sCachedVKMap]
-Z20TranslateKeyCodeToVKm:F(0,1)_30:
+Z20TranslateKeyCodeToVKm_F0_1_30:
 	mov edx, [ebp+0x8]
 	movzx eax, byte [eax+edx]
 	leave
 	ret
-Z20TranslateKeyCodeToVKm:F(0,1)_10:
-	call ZN12MacResources15GetLanguageCodeEv:F(0,13)
+Z20TranslateKeyCodeToVKm_F0_1_10:
+	call ZN12MacResources15GetLanguageCodeEv_F0_13
 	sub eax, 0x1
-	jnz Z20TranslateKeyCodeToVKm:F(0,1)_20
+	jnz Z20TranslateKeyCodeToVKm_F0_1_20
 	mov dword [_ZZ20TranslateKeyCodeToVKmE12sCachedVKMap], sFrench_ISO_VK_Map
 	mov eax, [_ZZ20TranslateKeyCodeToVKmE12sCachedVKMap]
-	jmp Z20TranslateKeyCodeToVKm:F(0,1)_30
-Z20TranslateKeyCodeToVKm:F(0,1)_20:
-	call ZN12MacResources15GetLanguageCodeEv:F(0,13)
+	jmp Z20TranslateKeyCodeToVKm_F0_1_30
+Z20TranslateKeyCodeToVKm_F0_1_20:
+	call ZN12MacResources15GetLanguageCodeEv_F0_13
 	mov edx, sGerman_ISO_VK_Map
 	cmp eax, 0x2
 	mov eax, sANSI_VK_Map
 	cmovnz edx, eax
 	mov [_ZZ20TranslateKeyCodeToVKmE12sCachedVKMap], edx
 	mov eax, edx
-	jmp Z20TranslateKeyCodeToVKm:F(0,1)_30
+	jmp Z20TranslateKeyCodeToVKm_F0_1_30
 
 
 ;global constructors keyed to CColorConverter::GetColorConverter(CColorConverter::Format)
 
-WSAStartup:F(0,1):
+WSAStartup_F0_1:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -2126,9 +2202,9 @@ WSAStartup:F(0,1):
 	ret
 
 
-;WSAGetLastError:F(0,1)
+;WSAGetLastError_F0_1
 
-WSAGetLastError:F(0,1):
+WSAGetLastError_F0_1:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x8
@@ -2142,5 +2218,5 @@ WSAGetLastError:F(0,1):
 	ret
 
 
-;Z10ColorIndexh:F(0,1)
+;Z10ColorIndexh_F0_1
 

@@ -4762,8 +4762,8 @@ public:
       fprintf(f, "AT CFString.isa, dd %x\n", (uint32_t)CFStringtab.strings[i].cfs->isa);
       fprintf(f, "AT CFString.flags, dd 0x%x\n", CFStringtab.strings[i].cfs->flags);
       const char* cstringname = addStringToTable(CFStringtab.strings[i].cfs->str);
-      fprintf(f, "AT CFString.str dd %s\n", cstringname);
-      fprintf(f, "AT CFString.length dd %d\n", (uint32_t)CFStringtab.strings[i].cfs->length);
+      fprintf(f, "AT CFString.str, dd %s\n", cstringname);
+      fprintf(f, "AT CFString.length, dd %d\n", (uint32_t)CFStringtab.strings[i].cfs->length);
       fprintf(f, "IEND\n\n");
     }
     fprintf(f, "\n");

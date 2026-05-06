@@ -2,651 +2,733 @@
 ;Symbols in this file: 6
 ;
 ;Imports (over-declared, NASM-safe):
-	extern __keymgr_dwarf2_register_sections
-	extern atexit
-	extern exit
-	extern AEDisposeDesc
-	extern AECreateDesc
-	extern __cxa_allocate_exception
-	extern __cxa_throw
-	extern _Unwind_Resume
 	extern AECoerceDesc
+	extern AECreateAppleEvent
+	extern AECreateDesc
+	extern AEDisposeDesc
 	extern AEGetDescData
 	extern AEGetDescDataSize
-	extern CreateObjSpecifier
-	extern AEPutParamDesc
-	extern AECreateAppleEvent
-	extern AESend
-	extern AEPutParamPtr
-	extern AEGetParamPtr
 	extern AEGetParamDesc
-	extern GetControlBounds
-	extern PtInRect
-	extern GetEventKind
-	extern GetEventClass
-	extern GetEventParameter
-	extern GetControlOwner
-	extern AdvanceKeyboardFocus
-	extern SetWRefCon
-	extern QuitAppModalLoopForWindow
-	extern HIViewGetRoot
-	extern HIViewGetViewForMouseEvent
-	extern GetControlKind
-	extern SetThemeCursor
-	extern CFBundleGetMainBundle
-	extern CreateNibReferenceWithCFBundle
-	extern CreateWindowFromNib
-	extern DisposeNibReference
-	extern GetWindowEventTarget
-	extern InstallEventHandler
-	extern GetWindowResizeLimits
-	extern SetWindowResizeLimits
-	extern InitCursor
-	extern ShowWindow
-	extern RunAppModalLoopForWindow
-	extern HideWindow
-	extern GetWRefCon
-	extern DisposeWindow
-	extern GetControlByID
-	extern GetControlMaximum
-	extern GetControlDataSize
-	extern SetControlData
-	extern HandleControlKey
-	extern GetControlReference
-	extern GetControlData
-	extern AlertSoundPlay
-	extern HITextViewGetTXNObject
-	extern TXNSetTypeAttributes
-	extern HideControl
-	extern ShowControl
-	extern DisableControl
-	extern EnableControl
-	extern SetControlFontStyle
-	extern SetKeyboardFocus
-	extern NewControlUserPaneDrawUPP
-	extern NewControlUserPaneHitTestUPP
-	extern NewControlUserPaneTrackingUPP
-	extern SetControlReference
-	extern SetControlMaximum
-	extern NewControlKeyFilterUPP
-	extern NewControlEditTextValidationUPP
-	extern GetWindowPort
-	extern CGDisplayBounds
-	extern DMGetFirstScreenDevice
-	extern EqualRect
-	extern DMGetNextScreenDevice
-	extern GetMainDevice
-	extern GetWindowPortBounds
-	extern CGDisplayFade
-	extern CGReleaseDisplayFadeReservation
-	extern CGAcquireDisplayFadeReservation
-	extern CGDisplayPixelsWide
-	extern CGDisplayPixelsHigh
-	extern CGDisplayBitsPerPixel
-	extern aglSwapBuffers
-	extern EndMediaEdits
-	extern GetMediaDuration
-	extern InsertMediaIntoTrack
-	extern AddMovieResource
-	extern CloseMovieFile
-	extern MoveWindow
-	extern GetAvailableWindowPositioningBounds
-	extern CreateNewWindow
-	extern SetPortWindowPort
-	extern SetWindowContentColor
-	extern SetWindowTitleWithCFString
-	extern gluCheckExtension
-	extern _Znam
-	extern CGSetDisplayTransferByTable
-	extern _ZdaPv
-	extern CGGetDisplayTransferByTable
-	extern QDLocalToGlobalPoint
-	extern QDGlobalToLocalPoint
-	extern _Znwm
-	extern _ZdlPv
-	extern _ZSt17__throw_bad_allocv
-	extern _ZSt20__throw_length_errorPKc
-	extern NormalizeThemeDrawingState
-	extern ForeColor
-	extern FrameRoundRect
-	extern RGBForeColor
-	extern PaintRoundRect
-	extern NewRgn
-	extern OpenRgn
-	extern CloseRgn
-	extern SetClip
-	extern DisposeRgn
-	extern ClipRect
-	extern DrawThemeMenuBarBackground
-	extern InsetRect
-	extern DrawThemeFocusRect
-	extern GetIconRefFromFileInfo
-	extern PlotIconRef
-	extern ReleaseIconRef
-	extern CGRectIsEmpty
-	extern CGRectUnion
-	extern CGRectGetWidth
-	extern CGRectGetHeight
-	extern OffsetRect
-	extern MapRect
-	extern glFinish
-	extern aglSetCurrentContext
-	extern aglSetDrawable
-	extern aglDestroyContext
-	extern ShowMenuBar
-	extern SetSystemUIMode
-	extern aglChoosePixelFormat
-	extern aglCreateContext
-	extern aglSetFullScreen
-	extern CGDisplayCurrentMode
-	extern aglSetInteger
-	extern HideMenuBar
-	extern aglDescribePixelFormat
-	extern aglDestroyPixelFormat
-	extern glEnable
-	extern glHint
-	extern aglGetDrawable
-	extern glDisable
-	extern IsWindowVisible
-	extern SizeWindow
-	extern PaintRect
-	extern _ZNSs6assignERKSs
-	extern CGDisplayIDToOpenGLDisplayMask
-	extern CGLQueryRendererInfo
-	extern CGLDescribeRenderer
-	extern CGLDestroyRendererInfo
-	extern CGDisplayAvailableModes
-	extern CFArrayGetCount
-	extern CGDisplayIOServicePort
-	extern CGLGetCurrentContext
-	extern CGLChoosePixelFormat
-	extern CGLCreateContext
-	extern CGLDestroyPixelFormat
-	extern CGLSetCurrentContext
-	extern glGetString
-	extern _ZNSs6assignEPKcm
-	extern glGetIntegerv
-	extern CGLDestroyContext
-	extern _ZNSsC1ERKSs
-	extern strstr
-	extern _ZNSsD1Ev
-	extern CFArrayGetValueAtIndex
-	extern IOObjectConformsTo
-	extern IORegistryEntryGetParentEntry
-	extern glGetFloatv
-	extern _ZN9__gnu_cxx18__exchange_and_addEPVii
-	extern _ZNSs4_Rep10_M_destroyERKSaIcE
-	extern __cxa_begin_catch
-	extern __cxa_rethrow
-	extern __cxa_end_catch
-	extern CGGetActiveDisplayList
-	extern NewMenu
-	extern InsertMenu
-	extern InvalMenuBar
-	extern GetCurrentKeyModifiers
-	extern CGRectEqualToRect
-	extern Gestalt
-	extern sysctl
-	extern FSOpenIterator
-	extern FSGetCatalogInfoBulk
-	extern FSCloseIterator
-	extern FSDeleteObject
-	extern FSSetCatalogInfo
-	extern FSPathMakeRef
-	extern access
-	extern CFBundleCopyExecutableURL
-	extern CFURLGetFSRef
-	extern CFRelease
-	extern FSGetCatalogInfo
-	extern GetCurrentProcess
-	extern strcat
-	extern GetProcessBundleLocation
-	extern FSRefMakePath
-	extern PBGetCatInfoSync
-	extern FSMakeFSSpec
-	extern FSpMakeFSRef
-	extern memcpy
-	extern CFStringCreateWithCString
-	extern CFPreferencesCopyAppValue
-	extern CFGetTypeID
-	extern CFStringGetTypeID
-	extern strcpy
-	extern CFStringGetCString
-	extern CFPreferencesSetAppValue
-	extern atoi
-	extern sprintf
-	extern CFPreferencesAppSynchronize
-	extern atof
-	extern CFBundleCopyLocalizedString
-	extern CFStringGetPascalString
-	extern StringToNum
-	extern CFStringCreateWithFormat
-	extern GetPort
-	extern SetPort
-	extern CFStringCreateWithCharacters
-	extern GetCursor
-	extern SetCursor
-	extern CGAssociateMouseAndMouseCursorPosition
-	extern CGWarpMouseCursorPosition
-	extern HideCursor
-	extern GetGlobalMouse
-	extern UpTime
+	extern AEGetParamPtr
+	extern AEInstallEventHandler
+	extern AEPutParamDesc
+	extern AEPutParamPtr
+	extern AESend
+	extern AUGraphConnectNodeInput
+	extern AUGraphGetCPULoad
+	extern AUGraphGetNodeInfo
+	extern AUGraphInitialize
+	extern AUGraphNewNode
+	extern AUGraphOpen
+	extern AUGraphStart
+	extern AUGraphStop
+	extern AUGraphUpdate
 	extern AddDurationToAbsolute
-	extern MPDelayUntil
-	extern GetNextProcess
-	extern GetProcessInformation
-	extern CFDictionaryGetValue
-	extern CFNumberGetValue
-	extern lround
-	extern IORegistryEntryCreateCFProperty
+	extern AddMovieResource
+	extern AdvanceKeyboardFocus
+	extern AlertSoundPlay
+	extern AppendMenuItemTextWithCFString
+	extern AudioConverterDispose
+	extern AudioConverterFillBuffer
+	extern AudioConverterFillComplexBuffer
+	extern AudioConverterNew
+	extern AudioConverterReset
+	extern AudioDeviceGetProperty
+	extern AudioDeviceGetPropertyInfo
+	extern AudioDeviceSetProperty
+	extern AudioHardwareGetProperty
+	extern AudioOutputUnitStart
+	extern AudioOutputUnitStop
+	extern AudioUnitAddRenderNotify
+	extern AudioUnitGetProperty
+	extern AudioUnitInitialize
+	extern AudioUnitRemoveRenderNotify
+	extern AudioUnitRender
+	extern AudioUnitSetParameter
+	extern AudioUnitSetProperty
+	extern AudioUnitUninitialize
+	extern CFArrayGetCount
+	extern CFArrayGetValueAtIndex
+	extern CFBundleCopyExecutableURL
+	extern CFBundleCopyLocalizedString
+	extern CFBundleGetMainBundle
 	extern CFDataGetBytePtr
-	extern CreateEvent
-	extern SetEventParameter
-	extern GetMainEventQueue
-	extern PostEventToQueue
-	extern ReleaseEvent
-	extern pthread_main_np
-	extern GetStandardAlertDefaultParams
-	extern CreateStandardAlert
-	extern RunStandardAlert
-	extern LSCopyItemInfoForRef
-	extern pthread_self
-	extern OTAtomicAdd32
-	extern OTCompareAndSwap32
-	extern calloc
-	extern free
-	extern strrchr
-	extern Microseconds
-	extern __udivdi3
-	extern memset
-	extern strncpy
-	extern getcwd
-	extern NewGWorld
-	extern GetGWorldPixMap
-	extern LockPixels
-	extern GetPixRowBytes
-	extern QDRegisterNamedPixMapCursor
-	extern DisposeGWorld
-	extern TickCount
-	extern QDSetNamedPixMapCursor
-	extern GetMainEventLoop
-	extern InstallEventLoopTimer
-	extern GetQDGlobalsArrow
-	extern ShowCursor
-	extern fopen
-	extern fseek
-	extern fclose
-	extern ftell
-	extern rewind
-	extern malloc
-	extern fread
-	extern _ZNKSs7compareEPKc
-	extern glStencilMask
-	extern glDepthMask
-	extern glFlushVertexArrayRangeAPPLE
-	extern glTexParameterfv
-	extern glLightfv
-	extern glColor4f
-	extern glMatrixMode
-	extern glLoadMatrixf
-	extern glTexParameteri
-	extern glGenTextures
-	extern _ZNSt15_List_node_base4hookEPS_
-	extern glTexParameterf
-	extern glTexEnvf
-	extern glPushMatrix
-	extern glLoadIdentity
-	extern glTexCoord2f
-	extern glPopMatrix
-	extern glTexEnvfv
-	extern glPointSize
-	extern glDrawRangeElements
-	extern memmove
-	extern glBindTexture
-	extern glColorMask
-	extern glActiveTextureARB
-	extern glDepthFunc
-	extern glShadeModel
-	extern glViewport
-	extern glDepthRange
-	extern glAlphaFunc
-	extern glClearDepth
-	extern glScissor
-	extern glClear
-	extern glClearColor
-	extern glClearStencil
-	extern glMaterialfv
-	extern glMaterialf
-	extern glPixelStorei
-	extern glCopyTexSubImage2D
-	extern gluOrtho2D
-	extern glTexEnvi
-	extern glBlendFuncSeparateEXT
-	extern glBlendFunc
-	extern glBegin
-	extern glVertex3f
-	extern glEnd
-	extern cos
-	extern log
-	extern cosf
-	extern glPolygonMode
-	extern glFogf
-	extern glLightModelfv
-	extern glBlendEquationEXT
-	extern glPolygonOffset
-	extern glFogfv
-	extern glPointParameterfvARB
-	extern glStencilFunc
-	extern glPointParameterfARB
-	extern glStencilOp
-	extern glFrontFace
-	extern glColorMaterial
-	extern glPushAttrib
-	extern glPushClientAttrib
-	extern glDrawBuffer
-	extern glReadBuffer
-	extern __dynamic_cast
-	extern glScalef
-	extern glVertex2f
-	extern glPopClientAttrib
-	extern glPopAttrib
-	extern glProgramEnvParameter4fvARB
-	extern glTexGenfv
-	extern _ZNSsC1EPKcRKSaIcE
-	extern _ZNKSs4findEPKcmm
-	extern _ZNSsC1ERKSsmm
-	extern _ZSt20__throw_out_of_rangePKc
-	extern glCombinerParameterfvNV
-	extern glCombinerStageParameterfvNV
-	extern glBindProgramARB
-	extern glDeleteProgramsARB
-	extern glGetProgramivARB
-	extern glGenProgramsARB
-	extern glProgramStringARB
-	extern _ZNSs6appendEPKcm
-	extern _ZNSs6appendERKSs
-	extern glTexImage2D
-	extern glCompressedTexImage2DARB
-	extern glTexSubImage2D
-	extern glCompressedTexSubImage2D
-	extern _ZNSt15_List_node_base6unhookEv
-	extern ceilf
-	extern glFinishFenceAPPLE
-	extern glSetFenceAPPLE
-	extern glGenFencesAPPLE
-	extern glDeleteFencesAPPLE
-	extern glVertexArrayRangeAPPLE
-	extern glDisableVertexAttribArrayARB
-	extern glVertexAttribPointerARB
-	extern glEnableVertexAttribArrayARB
-	extern glTexGeni
-	extern glBindVertexArrayAPPLE
-	extern glLightf
-	extern glClientActiveTextureARB
-	extern glDeleteTextures
-	extern glDeleteVertexArraysAPPLE
-	extern glDisableClientState
-	extern glFogi
-	extern glLightModeli
-	extern glClipPlane
-	extern glEnableClientState
-	extern glVertexArrayParameteriAPPLE
-	extern strcasecmp
-	extern strncasecmp
-	extern tolower
-	extern toupper
-	extern RemoveEventHandler
-	extern FlushEventQueue
-	extern SendEventToEventTarget
-	extern ReceiveNextEvent
+	extern CFDictionaryGetValue
+	extern CFGetTypeID
+	extern CFNumberGetValue
+	extern CFPreferencesAppSynchronize
+	extern CFPreferencesCopyAppValue
+	extern CFPreferencesSetAppValue
+	extern CFRelease
+	extern CFStringCreateWithCString
+	extern CFStringCreateWithCharacters
+	extern CFStringCreateWithFormat
+	extern CFStringGetCString
+	extern CFStringGetPascalString
+	extern CFStringGetTypeID
 	extern CFURLCreateFromFSRef
-	extern CGDataProviderCreateWithURL
-	extern CGImageCreateWithPNGDataProvider
-	extern QDBeginCGContext
-	extern CGImageRelease
-	extern CGDataProviderRelease
+	extern CFURLCreateWithBytes
+	extern CFURLGetFSRef
+	extern CGAcquireDisplayFadeReservation
+	extern CGAssociateMouseAndMouseCursorPosition
 	extern CGContextClearRect
 	extern CGContextDrawImage
 	extern CGContextFlush
-	extern QDEndCGContext
-	extern EventAvail
-	extern strcmp
-	extern getrlimit
-	extern setrlimit
-	extern EnterMovies
-	extern FSGetVolumeInfo
-	extern GetCompressionInfo
-	extern RunApplicationEventLoop
-	extern GetEventDispatcherTarget
-	extern GetApplicationEventTarget
-	extern GetMenuHandle
-	extern AppendMenuItemTextWithCFString
-	extern SetItemCmd
-	extern GetIndMenuItemWithCommandID
-	extern GetMenuEventTarget
-	extern AEInstallEventHandler
-	extern chdir
-	extern QuitApplicationEventLoop
+	extern CGDataProviderCreateWithURL
+	extern CGDataProviderRelease
+	extern CGDisplayAvailableModes
+	extern CGDisplayBitsPerPixel
+	extern CGDisplayBounds
+	extern CGDisplayCurrentMode
+	extern CGDisplayFade
+	extern CGDisplayIDToOpenGLDisplayMask
+	extern CGDisplayIOServicePort
+	extern CGDisplayPixelsHigh
+	extern CGDisplayPixelsWide
+	extern CGGetActiveDisplayList
+	extern CGGetDisplayTransferByTable
+	extern CGImageCreateWithPNGDataProvider
+	extern CGImageRelease
+	extern CGLChoosePixelFormat
+	extern CGLCreateContext
+	extern CGLDescribeRenderer
+	extern CGLDestroyContext
+	extern CGLDestroyPixelFormat
+	extern CGLDestroyRendererInfo
+	extern CGLGetCurrentContext
+	extern CGLQueryRendererInfo
+	extern CGLSetCurrentContext
+	extern CGRectEqualToRect
+	extern CGRectGetHeight
+	extern CGRectGetWidth
+	extern CGRectIsEmpty
+	extern CGRectUnion
+	extern CGReleaseDisplayFadeReservation
+	extern CGSetDisplayTransferByTable
+	extern CGWarpMouseCursorPosition
+	extern ClipRect
+	extern CloseComponent
+	extern CloseMovieFile
+	extern CloseRgn
+	extern CollapseWindow
+	extern CreateEvent
+	extern CreateNewWindow
+	extern CreateNibReferenceWithCFBundle
+	extern CreateObjSpecifier
+	extern CreateStandardAlert
+	extern CreateWindowFromNib
+	extern DMGetFirstScreenDevice
+	extern DMGetNextScreenDevice
+	extern DisableControl
 	extern DisableMenuItem
-	extern close
-	extern ioctl
-	extern __error
-	extern vsnprintf
-	extern strchr
-	extern rand
-	extern acosf
-	extern atan2
-	extern tan
-	extern sinf
-	extern time
-	extern localtime
-	extern asctime
-	extern longjmp
-	extern __maskrune
-	extern snprintf
-	extern floorf
-	extern setjmp
-	extern remove
-	extern fflush
-	extern qsort
-	extern fwrite
-	extern rename
-	extern isspace
-	extern _ZNSs9_M_mutateEmmm
+	extern DisposeAUGraph
+	extern DisposeGWorld
+	extern DisposeHandle
+	extern DisposeMovie
+	extern DisposeNibReference
+	extern DisposeRgn
+	extern DisposeWindow
+	extern DrawThemeFocusRect
+	extern DrawThemeMenuBarBackground
+	extern EnableControl
+	extern EndMediaEdits
+	extern EnterMovies
+	extern EqualRect
+	extern EventAvail
+	extern FSCloseIterator
+	extern FSDeleteObject
+	extern FSGetCatalogInfo
+	extern FSGetCatalogInfoBulk
+	extern FSGetVolumeInfo
+	extern FSMakeFSSpec
+	extern FSOpenIterator
+	extern FSPathMakeRef
+	extern FSRefMakePath
+	extern FSSetCatalogInfo
+	extern FSpMakeFSRef
+	extern FindNextComponent
+	extern FlushEventQueue
+	extern ForeColor
+	extern FrameRoundRect
+	extern Gestalt
+	extern GetApplicationEventTarget
+	extern GetAvailableWindowPositioningBounds
+	extern GetComponentVersion
+	extern GetCompressionInfo
+	extern GetControlBounds
+	extern GetControlByID
+	extern GetControlData
+	extern GetControlDataSize
+	extern GetControlKind
+	extern GetControlMaximum
+	extern GetControlOwner
+	extern GetControlReference
+	extern GetCurrentEventTime
+	extern GetCurrentKeyModifiers
+	extern GetCurrentProcess
+	extern GetCursor
+	extern GetEventClass
+	extern GetEventDispatcherTarget
+	extern GetEventKind
+	extern GetEventParameter
+	extern GetGWorldPixMap
+	extern GetGlobalMouse
+	extern GetHandleSize
+	extern GetIconRefFromFileInfo
+	extern GetIndMenuItemWithCommandID
+	extern GetMainDevice
+	extern GetMainEventLoop
+	extern GetMainEventQueue
+	extern GetMediaDuration
+	extern GetMediaHandler
+	extern GetMediaSampleDescription
+	extern GetMenuEventTarget
+	extern GetMenuHandle
+	extern GetMovieDuration
+	extern GetMovieIndTrackType
+	extern GetMoviePreferredRate
+	extern GetMovieTime
+	extern GetMovieTimeScale
+	extern GetNextProcess
+	extern GetPixRowBytes
+	extern GetPort
+	extern GetProcessBundleLocation
+	extern GetProcessInformation
+	extern GetQDGlobalsArrow
+	extern GetStandardAlertDefaultParams
+	extern GetTrackMedia
+	extern GetWRefCon
+	extern GetWindowEventTarget
+	extern GetWindowPort
+	extern GetWindowPortBounds
+	extern GetWindowResizeLimits
+	extern GoToBeginningOfMovie
+	extern HITextViewGetTXNObject
+	extern HIViewGetRoot
+	extern HIViewGetViewForMouseEvent
+	extern HandleControlKey
+	extern HideControl
+	extern HideCursor
+	extern HideMenuBar
+	extern HideWindow
+	extern IOObjectConformsTo
+	extern IORegistryEntryCreateCFProperty
+	extern IORegistryEntryGetParentEntry
+	extern InitCursor
+	extern InsertMediaIntoTrack
+	extern InsertMenu
+	extern InsetRect
+	extern InstallEventHandler
+	extern InstallEventLoopTimer
+	extern InvalMenuBar
+	extern IsMovieDone
+	extern IsWindowVisible
+	extern LSCopyItemInfoForRef
+	extern LSOpenCFURLRef
+	extern LSOpenFSRef
+	extern LockPixels
+	extern MPDelayUntil
+	extern MapRect
+	extern MediaSetSoundBalance
+	extern Microseconds
+	extern MoveWindow
+	extern MoviesTask
+	extern NewAUGraph
+	extern NewControlEditTextValidationUPP
+	extern NewControlKeyFilterUPP
+	extern NewControlUserPaneDrawUPP
+	extern NewControlUserPaneHitTestUPP
+	extern NewControlUserPaneTrackingUPP
+	extern NewGWorld
+	extern NewHandle
+	extern NewMenu
+	extern NewMovieFromFile
+	extern NewRgn
+	extern NormalizeThemeDrawingState
+	extern OTAtomicAdd32
+	extern OTCompareAndSwap32
+	extern OffsetRect
+	extern OpenAComponent
+	extern OpenComponent
+	extern OpenMovieFile
+	extern OpenRgn
+	extern PBGetCatInfoSync
+	extern PaintRect
+	extern PaintRoundRect
+	extern PlotIconRef
+	extern PostEventToQueue
+	extern PrerollMovie
+	extern PtInRect
+	extern PtrAndHand
+	extern QDBeginCGContext
+	extern QDEndCGContext
+	extern QDGlobalToLocalPoint
+	extern QDLocalToGlobalPoint
+	extern QDRegisterNamedPixMapCursor
+	extern QDSetNamedPixMapCursor
+	extern QuitAppModalLoopForWindow
+	extern QuitApplicationEventLoop
+	extern RGBForeColor
+	extern ReceiveNextEvent
+	extern ReleaseEvent
+	extern ReleaseIconRef
+	extern RemoveEventHandler
+	extern RemoveEventLoopTimer
+	extern RunAppModalLoopForWindow
+	extern RunApplicationEventLoop
+	extern RunStandardAlert
+	extern SECTION
+	extern SendEventToEventTarget
+	extern SetClip
+	extern SetControlData
+	extern SetControlFontStyle
+	extern SetControlMaximum
+	extern SetControlReference
+	extern SetCursor
+	extern SetEventParameter
+	extern SetFrontProcess
+	extern SetItemCmd
+	extern SetKeyboardFocus
+	extern SetMovieRate
+	extern SetMovieTimeValue
+	extern SetPort
+	extern SetPortWindowPort
+	extern SetSystemUIMode
+	extern SetThemeCursor
+	extern SetTrackVolume
+	extern SetWRefCon
+	extern SetWindowContentColor
+	extern SetWindowResizeLimits
+	extern SetWindowTitleWithCFString
+	extern ShowControl
+	extern ShowCursor
+	extern ShowMenuBar
+	extern ShowWindow
+	extern SizeWindow
+	extern StartMovie
+	extern StopMovie
+	extern StringToNum
+	extern TXNSetData
+	extern TXNSetSelection
+	extern TXNSetTypeAttributes
+	extern TXNShowSelection
+	extern TickCount
+	extern UpTime
+	extern UpdateSystemActivity
+	extern Vec3Normalize_F0_7
+	extern Z10OnSameTeamP9gentity_sS0__F0_1
+	extern Z11Com_DPrintfPKcz_F0_1
+	extern Z11Dvar_GetIntPKc_F0_2
+	extern Z11fire_rocketP9gentity_sPfS1__F0_2
+	extern Z12G_TempEntityPKfi_F0_12
+	extern Z13SV_LinkEntityP9gentity_s_F0_23
+	extern Z15BG_GetWeaponDefi_F0_2
+	extern Z15SV_UnlinkEntityP9gentity_s_F0_23
+	extern Z17G_LocationalTraceP7trace_tPKfS2_iiPh_F0_2
+	extern Z23G_CheckHitTriggerDamageP9gentity_sPfS1_ii_F0_1
+	extern Z26SV_GetClientPositionAtTimeiiPf_F0_27
+	extern Z7randomfv_F0_4
+	extern Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1
+	extern Z9DirToBytePKf_F0_61
+	extern _Unwind_Resume
+	extern _ZN9__gnu_cxx18__exchange_and_addEPVii
+	extern _ZNKSs4findEPKcmm
+	extern _ZNKSs7compareEPKc
 	extern _ZNSs12_M_leak_hardEv
-	extern _ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_
+	extern _ZNSs4_Rep10_M_destroyERKSaIcE
+	extern _ZNSs6appendEPKcm
+	extern _ZNSs6appendERKSs
+	extern _ZNSs6assignEPKcm
+	extern _ZNSs6assignERKSs
+	extern _ZNSs7replaceEmmPKcm
+	extern _ZNSs7reserveEm
+	extern _ZNSs9_M_mutateEmmm
+	extern _ZNSsC1EPKcRKSaIcE
+	extern _ZNSsC1ERKSs
+	extern _ZNSsC1ERKSsmm
+	extern _ZNSsD1Ev
+	extern _ZNSt15_List_node_base4hookEPS_
+	extern _ZNSt15_List_node_base6unhookEv
+	extern _ZSt17__throw_bad_allocv
 	extern _ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base
 	extern _ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base
-	extern sscanf
-	extern sin
-	extern acos
-	extern vsprintf
-	extern _ZNSs7reserveEm
-	extern strncat
-	extern ctime
-	extern strncmp
-	extern LSOpenFSRef
-	extern CFURLCreateWithBytes
-	extern LSOpenCFURLRef
-	extern UpdateSystemActivity
-	extern GetHandleSize
-	extern TXNSetData
-	extern NewHandle
-	extern DisposeHandle
-	extern RemoveEventLoopTimer
-	extern CollapseWindow
-	extern TXNSetSelection
-	extern TXNShowSelection
-	extern PtrAndHand
-	extern mkdir
-	extern opendir
-	extern readdir
-	extern stat
-	extern closedir
-	extern pow
-	extern glTestFenceAPPLE
-	extern glReadPixels
-	extern glGetError
-	extern asin
-	extern printf
-	extern _ZNSs7replaceEmmPKcm
-	extern expf
-	extern exp
-	extern isprint
-	extern fileno
-	extern isatty
-	extern fprintf
-	extern realloc
+	extern _ZSt20__throw_length_errorPKc
+	extern _ZSt20__throw_out_of_rangePKc
+	extern _ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_
+	extern _ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_
+	extern _ZZ11Melee_TraceP9gentity_sP11weaponParmsifffP7trace_tPfE12traceOffsets
+	extern _ZdaPv
+	extern _ZdlPv
+	extern _Znam
+	extern _Znwm
+	extern __cxa_allocate_exception
+	extern __cxa_begin_catch
+	extern __cxa_end_catch
+	extern __cxa_guard_abort
 	extern __cxa_guard_acquire
 	extern __cxa_guard_release
-	extern __cxa_guard_abort
-	extern GetCurrentEventTime
-	extern SetFrontProcess
-	extern glGenVertexArraysAPPLE
-	extern glColorPointer
-	extern glNormalPointer
-	extern glVertexPointer
-	extern glTexCoordPointer
-	extern _ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_
-	extern AudioConverterReset
-	extern AudioUnitGetProperty
-	extern AudioConverterDispose
-	extern AudioConverterNew
-	extern log10f
-	extern AudioUnitSetParameter
-	extern AudioConverterFillComplexBuffer
-	extern AudioUnitSetProperty
-	extern AudioUnitAddRenderNotify
-	extern AudioUnitRemoveRenderNotify
-	extern usleep
-	extern AUGraphGetCPULoad
-	extern strdup
-	extern AUGraphStop
-	extern DisposeAUGraph
-	extern AudioDeviceGetPropertyInfo
-	extern AudioDeviceGetProperty
-	extern FindNextComponent
-	extern OpenComponent
-	extern GetComponentVersion
-	extern CloseComponent
-	extern NewAUGraph
-	extern AUGraphNewNode
-	extern AUGraphOpen
-	extern AUGraphGetNodeInfo
-	extern AUGraphUpdate
-	extern AUGraphConnectNodeInput
-	extern AUGraphInitialize
-	extern AUGraphStart
-	extern pthread_mutex_destroy
-	extern pthread_create
-	extern pthread_mutexattr_init
-	extern pthread_mutexattr_settype
-	extern pthread_mutex_init
-	extern pthread_mutexattr_destroy
-	extern pthread_mutex_unlock
-	extern pthread_mutex_lock
-	extern glTexImage3D
-	extern glCompressedTexImage3DARB
-	extern glTexSubImage3D
-	extern glCompressedTexSubImage3D
-	extern strtok
-	extern StopMovie
-	extern GoToBeginningOfMovie
-	extern GetMovieTimeScale
-	extern GetMovieDuration
-	extern GetMovieTime
-	extern SetMovieTimeValue
-	extern SetTrackVolume
-	extern GetMediaHandler
-	extern MediaSetSoundBalance
-	extern MoviesTask
-	extern IsMovieDone
-	extern StartMovie
-	extern DisposeMovie
-	extern SetMovieRate
-	extern OpenMovieFile
-	extern NewMovieFromFile
-	extern GetMoviePreferredRate
-	extern PrerollMovie
-	extern GetMovieIndTrackType
-	extern GetTrackMedia
-	extern GetMediaSampleDescription
-	extern srand
-	extern putenv
-	extern getenv
-	extern puts
-	extern asinf
-	extern atanf
-	extern tanf
-	extern select
-	extern inet_addr
-	extern gethostbyname
-	extern recvfrom
-	extern strerror
-	extern sendto
-	extern setsockopt
-	extern bind
-	extern socket
-	extern connect
-	extern send
-	extern recv
+	extern __cxa_rethrow
+	extern __cxa_throw
+	extern __dynamic_cast
+	extern __error
 	extern __isnanf
-	extern floor
-	extern logf
-	extern AudioOutputUnitStart
-	extern AudioOutputUnitStop
-	extern AudioDeviceSetProperty
-	extern AudioConverterFillBuffer
-	extern AudioUnitRender
-	extern AudioUnitUninitialize
-	extern OpenAComponent
-	extern AudioHardwareGetProperty
-	extern AudioUnitInitialize
+	extern __keymgr_dwarf2_register_sections
+	extern __maskrune
+	extern __udivdi3
+	extern _cstring_bullet_fire_exte
+	extern _cstring_scr_friendlyfire
+	extern _double_0_01745329
+	extern _float_0_00000000
+	extern _float_0_12500000
+	extern _float_0_25000000
+	extern _float_0_50000000
+	extern _float_16_00000000
+	extern _float_1_00000000
+	extern _float_360_00000000
+	extern _float__2_00000000
+	extern _float__64_00000000
+	extern abort
+	extern accept
+	extern access
+	extern acos
+	extern acosf
+	extern add
+	extern addss
+	extern aglChoosePixelFormat
+	extern aglCreateContext
+	extern aglDescribePixelFormat
+	extern aglDestroyContext
+	extern aglDestroyPixelFormat
+	extern aglGetDrawable
+	extern aglSetCurrentContext
+	extern aglSetDrawable
+	extern aglSetFullScreen
+	extern aglSetInteger
+	extern aglSwapBuffers
+	extern and
+	extern asctime
+	extern asin
+	extern asinf
+	extern atan2
+	extern atanf
+	extern atexit
+	extern atof
+	extern atoi
+	extern atol
+	extern bind
+	extern call
+	extern calloc
+	extern cdq
+	extern ceilf
+	extern chdir
+	extern close
+	extern closedir
+	extern cmovz
+	extern cmp
+	extern connect
+	extern cos
+	extern cosf
+	extern ctime
+	extern cvtsd2ss
+	extern cvtsi2ss
+	extern cvtss2sd
+	extern cvttss2si
+	extern divss
 	extern dlclose
 	extern dlopen
 	extern dlsym
-	extern abort
-	extern vfprintf
-	extern getsockname
-	extern read
-	extern atol
-	extern strtol
-	extern getpid
-	extern tmpnam
-	extern strftime
-	extern gmtime
-	extern mktime
+	extern exit
+	extern exp
+	extern expf
+	extern fclose
 	extern fcntl
-	extern accept
-	extern listen
-	extern gethostname
-	extern getdomainname
-	extern getlogin
-	extern getuid
-	extern getpwuid
+	extern fflush
 	extern fgets
-	extern gettimeofday
-	extern regcomp
-	extern regerror
-	extern regfree
-	extern regexec
-	extern getpass
-	extern getsockopt
-	extern write
-	extern unlink
+	extern fileno
+	extern floor
+	extern floorf
+	extern fopen
+	extern fprintf
 	extern fputc
 	extern fputs
+	extern fread
+	extern free
+	extern fseek
+	extern fstp
+	extern ftell
+	extern fwrite
+	extern getcwd
+	extern getdomainname
+	extern getenv
+	extern gethostbyname
+	extern gethostname
+	extern getlogin
+	extern getpass
+	extern getpid
+	extern getpwuid
+	extern getrlimit
+	extern getsockname
+	extern getsockopt
+	extern gettimeofday
+	extern getuid
+	extern glActiveTextureARB
+	extern glAlphaFunc
+	extern glBegin
+	extern glBindProgramARB
+	extern glBindTexture
+	extern glBindVertexArrayAPPLE
+	extern glBlendEquationEXT
+	extern glBlendFunc
+	extern glBlendFuncSeparateEXT
+	extern glClear
+	extern glClearColor
+	extern glClearDepth
+	extern glClearStencil
+	extern glClientActiveTextureARB
+	extern glClipPlane
+	extern glColor4f
+	extern glColorMask
+	extern glColorMaterial
+	extern glColorPointer
+	extern glCombinerParameterfvNV
+	extern glCombinerStageParameterfvNV
+	extern glCompressedTexImage2DARB
+	extern glCompressedTexImage3DARB
+	extern glCompressedTexSubImage2D
+	extern glCompressedTexSubImage3D
+	extern glCopyTexSubImage2D
+	extern glDeleteFencesAPPLE
+	extern glDeleteProgramsARB
+	extern glDeleteTextures
+	extern glDeleteVertexArraysAPPLE
+	extern glDepthFunc
+	extern glDepthMask
+	extern glDepthRange
+	extern glDisable
+	extern glDisableClientState
+	extern glDisableVertexAttribArrayARB
+	extern glDrawBuffer
+	extern glDrawRangeElements
+	extern glEnable
+	extern glEnableClientState
+	extern glEnableVertexAttribArrayARB
+	extern glEnd
+	extern glFinish
+	extern glFinishFenceAPPLE
+	extern glFlushVertexArrayRangeAPPLE
+	extern glFogf
+	extern glFogfv
+	extern glFogi
+	extern glFrontFace
+	extern glGenFencesAPPLE
+	extern glGenProgramsARB
+	extern glGenTextures
+	extern glGenVertexArraysAPPLE
+	extern glGetError
+	extern glGetFloatv
+	extern glGetIntegerv
+	extern glGetProgramivARB
+	extern glGetString
+	extern glHint
+	extern glLightModelfv
+	extern glLightModeli
+	extern glLightf
+	extern glLightfv
+	extern glLoadIdentity
+	extern glLoadMatrixf
+	extern glMaterialf
+	extern glMaterialfv
+	extern glMatrixMode
+	extern glNormalPointer
+	extern glPixelStorei
+	extern glPointParameterfARB
+	extern glPointParameterfvARB
+	extern glPointSize
+	extern glPolygonMode
+	extern glPolygonOffset
+	extern glPopAttrib
+	extern glPopClientAttrib
+	extern glPopMatrix
+	extern glProgramEnvParameter4fvARB
+	extern glProgramStringARB
+	extern glPushAttrib
+	extern glPushClientAttrib
+	extern glPushMatrix
+	extern glReadBuffer
+	extern glReadPixels
+	extern glScalef
+	extern glScissor
+	extern glSetFenceAPPLE
+	extern glShadeModel
+	extern glStencilFunc
+	extern glStencilMask
+	extern glStencilOp
+	extern glTestFenceAPPLE
+	extern glTexCoord2f
+	extern glTexCoordPointer
+	extern glTexEnvf
+	extern glTexEnvfv
+	extern glTexEnvi
+	extern glTexGenfv
+	extern glTexGeni
+	extern glTexImage2D
+	extern glTexImage3D
+	extern glTexParameterf
+	extern glTexParameterfv
+	extern glTexParameteri
+	extern glTexSubImage2D
+	extern glTexSubImage3D
+	extern glVertex2f
+	extern glVertex3f
+	extern glVertexArrayParameteriAPPLE
+	extern glVertexArrayRangeAPPLE
+	extern glVertexAttribPointerARB
+	extern glVertexPointer
+	extern glViewport
+	extern gluCheckExtension
+	extern gluOrtho2D
+	extern gmtime
+	extern idiv
+	extern imul
+	extern inet_addr
+	extern ioctl
+	extern isatty
+	extern isprint
+	extern isspace
+	extern ja
+	extern jae
+	extern jbe
+	extern jg
+	extern jge
+	extern jl
+	extern jle
+	extern jmp
+	extern jnp
+	extern jnz
+	extern jp
+	extern jz
+	extern lea
+	extern listen
+	extern localtime
+	extern log
+	extern log10f
+	extern logf
+	extern longjmp
+	extern lround
+	extern malloc
+	extern memcpy
+	extern memmove
+	extern memset
+	extern mkdir
+	extern mktime
+	extern mov
+	extern movaps
+	extern movsd
+	extern movss
+	extern movzx
+	extern mulsd
+	extern mulss
+	extern nop
+	extern opendir
+	extern or
+	extern pop
+	extern pow
+	extern printf
+	extern pthread_create
+	extern pthread_main_np
+	extern pthread_mutex_destroy
+	extern pthread_mutex_init
+	extern pthread_mutex_lock
+	extern pthread_mutex_unlock
+	extern pthread_mutexattr_destroy
+	extern pthread_mutexattr_init
+	extern pthread_mutexattr_settype
+	extern pthread_self
+	extern push
+	extern putenv
+	extern puts
+	extern pxor
+	extern qsort
+	extern rand
+	extern read
+	extern readdir
+	extern realloc
+	extern recv
+	extern recvfrom
+	extern regcomp
+	extern regerror
+	extern regexec
+	extern regfree
+	extern remove
+	extern rename
+	extern ret
+	extern rewind
+	extern sar
+	extern sbb
+	extern select
+	extern send
+	extern sendto
+	extern setjmp
+	extern setrlimit
+	extern setsockopt
+	extern shl
+	extern shr
+	extern sin
+	extern sinf
+	extern snprintf
+	extern socket
+	extern sprintf
+	extern sqrtss
+	extern srand
+	extern sscanf
+	extern stat
+	extern strcasecmp
+	extern strcat
+	extern strchr
+	extern strcmp
+	extern strcpy
+	extern strdup
+	extern strerror
+	extern strftime
+	extern strncasecmp
+	extern strncat
+	extern strncmp
+	extern strncpy
+	extern strrchr
+	extern strstr
+	extern strtok
+	extern strtol
+	extern sub
+	extern subss
+	extern sysctl
+	extern tan
+	extern tanf
+	extern test
+	extern text
+	extern time
+	extern tmpnam
+	extern tolower
+	extern toupper
+	extern ucomiss
+	extern unlink
+	extern usleep
+	extern vfprintf
+	extern vsnprintf
+	extern vsprintf
+	extern write
+	extern xor
+	extern xorps
 
 ;Exports defined in this file:
-	global Z26Weapon_RocketLauncher_FireP9gentity_sfP11weaponParms:F(0,1)
+	global Z26Weapon_RocketLauncher_FireP9gentity_sfP11weaponParms_F0_1
 	global _Z11Melee_TraceP9gentity_sP11weaponParmsifffP7trace_tPf
-	global Z12Weapon_MeleeP9gentity_sP11weaponParmsfff:F(0,1)
+	global Z12Weapon_MeleeP9gentity_sP11weaponParmsfff_F0_1
 	global _Z20Bullet_Fire_ExtendedPK9gentity_sPS_PfS3_fiPK11weaponParmsS1_i
-	global Z13Bullet_EndposfPfPK11weaponParmsf:F(0,1)
-	global Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)
+	global Z13Bullet_EndposfPfPK11weaponParmsf_F0_1
+	global Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i_F0_1
 
 SECTION .text
-Z26Weapon_RocketLauncher_FireP9gentity_sfP11weaponParms:F(0,1):
+Z26Weapon_RocketLauncher_FireP9gentity_sfP11weaponParms_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -665,11 +747,11 @@ Z26Weapon_RocketLauncher_FireP9gentity_sfP11weaponParms:F(0,1):
 	movss xmm0, dword [_float_16_00000000]
 	mulss xmm0, [ebp-0x44]
 	movss [ebp-0x44], xmm0
-	call Z7randomfv:F(0,4)
+	call Z7randomfv_F0_4
 	fstp dword [ebp-0x7c]
 	movss xmm0, dword [ebp-0x7c]
 	movss [ebp-0x68], xmm0
-	call Z7randomfv:F(0,4)
+	call Z7randomfv_F0_4
 	fstp dword [ebp-0x40]
 	movss xmm0, dword [ebp-0x68]
 	mulss xmm0, [_float_360_00000000]
@@ -727,7 +809,7 @@ Z26Weapon_RocketLauncher_FireP9gentity_sfP11weaponParms:F(0,1):
 	movss [ebp-0x1c], xmm2
 	lea ebx, [ebp-0x24]
 	mov [esp], ebx
-	call Vec3Normalize:F(0,7)
+	call Vec3Normalize_F0_7
 	fstp st0
 	lea edx, [edi+0x24]
 	mov eax, [edi+0x24]
@@ -740,10 +822,10 @@ Z26Weapon_RocketLauncher_FireP9gentity_sfP11weaponParms:F(0,1):
 	lea eax, [ebp-0x30]
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call Z11fire_rocketP9gentity_sPfS1_:F(0,2)
+	call Z11fire_rocketP9gentity_sPfS1__F0_2
 	mov edx, [esi+0x158]
 	test edx, edx
-	jz Z26Weapon_RocketLauncher_FireP9gentity_sfP11weaponParms:F(0,1)_10
+	jz Z26Weapon_RocketLauncher_FireP9gentity_sfP11weaponParms_F0_1_10
 	lea eax, [edx+0x20]
 	movss xmm1, dword [_float__64_00000000]
 	movss xmm0, dword [edi]
@@ -757,7 +839,7 @@ Z26Weapon_RocketLauncher_FireP9gentity_sfP11weaponParms:F(0,1):
 	mulss xmm1, [edi+0x8]
 	addss xmm1, [eax+0x8]
 	movss [eax+0x8], xmm1
-Z26Weapon_RocketLauncher_FireP9gentity_sfP11weaponParms:F(0,1)_10:
+Z26Weapon_RocketLauncher_FireP9gentity_sfP11weaponParms_F0_1_10:
 	add esp, 0x8c
 	pop ebx
 	pop esi
@@ -766,7 +848,7 @@ Z26Weapon_RocketLauncher_FireP9gentity_sfP11weaponParms:F(0,1)_10:
 	ret
 
 
-;Z27weapon_grenadelauncher_fireP9gentity_siP11weaponParms:F(0,36)
+;Z27weapon_grenadelauncher_fireP9gentity_siP11weaponParms_F0_36
 
 _Z11Melee_TraceP9gentity_sP11weaponParmsifffP7trace_tPf:
 	push ebp
@@ -869,7 +951,7 @@ _Z11Melee_TraceP9gentity_sP11weaponParmsifffP7trace_tPf_30:
 	mov [esp+0x4], edx
 	mov eax, [ebp+0x20]
 	mov [esp], eax
-	call Z17G_LocationalTraceP7trace_tPKfS2_iiPh:F(0,2)
+	call Z17G_LocationalTraceP7trace_tPKfS2_iiPh_F0_2
 	mov edx, [ebp+0x20]
 	movss xmm2, dword [edx]
 	movss xmm1, dword [ebx+0x24]
@@ -904,7 +986,7 @@ _Z11Melee_TraceP9gentity_sP11weaponParmsifffP7trace_tPf_30:
 	mov [esp+0x4], edx
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z23G_CheckHitTriggerDamageP9gentity_sPfS1_ii:F(0,1)
+	call Z23G_CheckHitTriggerDamageP9gentity_sPfS1_ii_F0_1
 	jmp _Z11Melee_TraceP9gentity_sP11weaponParmsifffP7trace_tPf_70
 _Z11Melee_TraceP9gentity_sP11weaponParmsifffP7trace_tPf_60:
 	xor eax, eax
@@ -927,9 +1009,9 @@ _Z11Melee_TraceP9gentity_sP11weaponParmsifffP7trace_tPf_50:
 	ret
 
 
-;Z12Weapon_MeleeP9gentity_sP11weaponParmsfff:F(0,1)
+;Z12Weapon_MeleeP9gentity_sP11weaponParmsfff_F0_1
 
-Z12Weapon_MeleeP9gentity_sP11weaponParmsfff:F(0,1):
+Z12Weapon_MeleeP9gentity_sP11weaponParmsfff_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -939,7 +1021,7 @@ Z12Weapon_MeleeP9gentity_sP11weaponParmsfff:F(0,1):
 	mov edi, [ebp+0x8]
 	mov eax, [edi+0xc8]
 	mov [esp], eax
-	call Z15BG_GetWeaponDefi:F(0,2)
+	call Z15BG_GetWeaponDefi_F0_2
 	mov eax, [eax+0x1f4]
 	mov [ebp-0x4c], eax
 	lea eax, [ebp-0x24]
@@ -959,7 +1041,7 @@ Z12Weapon_MeleeP9gentity_sP11weaponParmsfff:F(0,1):
 	mov [esp], edi
 	call _Z11Melee_TraceP9gentity_sP11weaponParmsifffP7trace_tPf
 	test al, al
-	jz Z12Weapon_MeleeP9gentity_sP11weaponParmsfff:F(0,1)_10
+	jz Z12Weapon_MeleeP9gentity_sP11weaponParmsfff_F0_1_10
 	movzx eax, word [ebp-0x2c]
 	lea eax, [eax+eax*4]
 	lea esi, [eax*8]
@@ -968,34 +1050,34 @@ Z12Weapon_MeleeP9gentity_sP11weaponParmsfff:F(0,1):
 	add esi, [0x1acd709]
 	mov edx, [esi+0x158]
 	test edx, edx
-	jz Z12Weapon_MeleeP9gentity_sP11weaponParmsfff:F(0,1)_20
+	jz Z12Weapon_MeleeP9gentity_sP11weaponParmsfff_F0_1_20
 	mov dword [esp+0x4], 0xad
 	lea eax, [ebp-0x24]
 	mov [esp], eax
-	call Z12G_TempEntityPKfi:F(0,12)
+	call Z12G_TempEntityPKfi_F0_12
 	mov ebx, eax
-Z12Weapon_MeleeP9gentity_sP11weaponParmsfff:F(0,1)_40:
+Z12Weapon_MeleeP9gentity_sP11weaponParmsfff_F0_1_40:
 	movzx eax, word [ebp-0x2c]
 	mov [ebx+0x74], eax
 	lea eax, [ebp-0x44]
 	mov [esp], eax
-	call Z9DirToBytePKf:F(0,61)
+	call Z9DirToBytePKf_F0_61
 	movzx eax, al
 	mov [ebx+0xa0], eax
 	mov eax, [edi+0xc8]
 	mov [ebx+0xc8], eax
 	cmp word [ebp-0x2c], 0x3fe
-	jz Z12Weapon_MeleeP9gentity_sP11weaponParmsfff:F(0,1)_10
+	jz Z12Weapon_MeleeP9gentity_sP11weaponParmsfff_F0_1_10
 	cmp byte [esi+0x161], 0x0
-	jnz Z12Weapon_MeleeP9gentity_sP11weaponParmsfff:F(0,1)_30
-Z12Weapon_MeleeP9gentity_sP11weaponParmsfff:F(0,1)_10:
+	jnz Z12Weapon_MeleeP9gentity_sP11weaponParmsfff_F0_1_30
+Z12Weapon_MeleeP9gentity_sP11weaponParmsfff_F0_1_10:
 	add esp, 0x8c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z12Weapon_MeleeP9gentity_sP11weaponParmsfff:F(0,1)_30:
+Z12Weapon_MeleeP9gentity_sP11weaponParmsfff_F0_1_30:
 	movzx ebx, word [ebp-0x28]
 	call rand
 	mov [ebp-0x5c], eax
@@ -1021,23 +1103,23 @@ Z12Weapon_MeleeP9gentity_sP11weaponParmsfff:F(0,1)_30:
 	mov [esp+0x8], edi
 	mov [esp+0x4], edi
 	mov [esp], esi
-	call Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)
+	call Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1
 	add esp, 0x8c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z12Weapon_MeleeP9gentity_sP11weaponParmsfff:F(0,1)_20:
+Z12Weapon_MeleeP9gentity_sP11weaponParmsfff_F0_1_20:
 	mov dword [esp+0x4], 0xae
 	lea eax, [ebp-0x24]
 	mov [esp], eax
-	call Z12G_TempEntityPKfi:F(0,12)
+	call Z12G_TempEntityPKfi_F0_12
 	mov ebx, eax
-	jmp Z12Weapon_MeleeP9gentity_sP11weaponParmsfff:F(0,1)_40
+	jmp Z12Weapon_MeleeP9gentity_sP11weaponParmsfff_F0_1_40
 
 
-;Z15FireWeaponMeleeP9gentity_s:F(0,1)
+;Z15FireWeaponMeleeP9gentity_s_F0_1
 
 _Z20Bullet_Fire_ExtendedPK9gentity_sPS_PfS3_fiPK11weaponParmsS1_i:
 _Z20Bullet_Fire_ExtendedPK9gentity_sPS_PfS3_fiPK11weaponParmsS1_i_100:
@@ -1081,7 +1163,7 @@ _Z20Bullet_Fire_ExtendedPK9gentity_sPS_PfS3_fiPK11weaponParmsS1_i_120:
 	mov [esp+0x4], ebx
 	lea eax, [ebp-0x54]
 	mov [esp], eax
-	call Z17G_LocationalTraceP7trace_tPKfS2_iiPh:F(0,2)
+	call Z17G_LocationalTraceP7trace_tPKfS2_iiPh_F0_2
 	movss xmm2, dword [ebp-0x54]
 	movss xmm1, dword [ebx]
 	movss xmm0, dword [edi]
@@ -1120,7 +1202,7 @@ _Z20Bullet_Fire_ExtendedPK9gentity_sPS_PfS3_fiPK11weaponParmsS1_i_120:
 	mov [esp+0x4], ebx
 	mov edx, [ebp-0x7c]
 	mov [esp], edx
-	call Z23G_CheckHitTriggerDamageP9gentity_sPfS1_ii:F(0,1)
+	call Z23G_CheckHitTriggerDamageP9gentity_sPfS1_ii_F0_1
 	movzx eax, word [ebp-0x38]
 	lea eax, [eax+eax*4]
 	lea esi, [eax*8]
@@ -1138,7 +1220,7 @@ _Z20Bullet_Fire_ExtendedPK9gentity_sPS_PfS3_fiPK11weaponParmsS1_i_120:
 	movss [ebp-0x28], xmm0
 	lea eax, [ebp-0x30]
 	mov [esp], eax
-	call Vec3Normalize:F(0,7)
+	call Vec3Normalize_F0_7
 	fstp st0
 	movss xmm5, dword [ebp-0x30]
 	movss xmm3, dword [ebp-0x50]
@@ -1218,20 +1300,20 @@ _Z20Bullet_Fire_ExtendedPK9gentity_sPS_PfS3_fiPK11weaponParmsS1_i_170:
 	mov [esp+0x8], edx
 	mov [esp+0x4], edx
 	mov [esp], esi
-	call Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)
+	call Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1
 	mov ecx, [esi+0x158]
 	test ecx, ecx
 	jz _Z20Bullet_Fire_ExtendedPK9gentity_sPS_PfS3_fiPK11weaponParmsS1_i_70
 	test byte [ebp-0x70], 0x20
 	jz _Z20Bullet_Fire_ExtendedPK9gentity_sPS_PfS3_fiPK11weaponParmsS1_i_70
 	mov dword [esp], _cstring_scr_friendlyfire
-	call Z11Dvar_GetIntPKc:F(0,2)
+	call Z11Dvar_GetIntPKc_F0_2
 	test eax, eax
 	jnz _Z20Bullet_Fire_ExtendedPK9gentity_sPS_PfS3_fiPK11weaponParmsS1_i_90
 	mov eax, [ebp-0x7c]
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call Z10OnSameTeamP9gentity_sS0_:F(0,1)
+	call Z10OnSameTeamP9gentity_sS0__F0_1
 	test eax, eax
 	jnz _Z20Bullet_Fire_ExtendedPK9gentity_sPS_PfS3_fiPK11weaponParmsS1_i_70
 _Z20Bullet_Fire_ExtendedPK9gentity_sPS_PfS3_fiPK11weaponParmsS1_i_90:
@@ -1275,7 +1357,7 @@ _Z20Bullet_Fire_ExtendedPK9gentity_sPS_PfS3_fiPK11weaponParmsS1_i_30:
 	jmp _Z20Bullet_Fire_ExtendedPK9gentity_sPS_PfS3_fiPK11weaponParmsS1_i_120
 _Z20Bullet_Fire_ExtendedPK9gentity_sPS_PfS3_fiPK11weaponParmsS1_i_10:
 	mov dword [esp], _cstring_bullet_fire_exte
-	call Z11Com_DPrintfPKcz:F(0,1)
+	call Z11Com_DPrintfPKcz_F0_1
 	add esp, 0xac
 	pop ebx
 	pop esi
@@ -1298,7 +1380,7 @@ _Z20Bullet_Fire_ExtendedPK9gentity_sPS_PfS3_fiPK11weaponParmsS1_i_60:
 	movss [ebp-0x28], xmm0
 	lea eax, [ebp-0x30]
 	mov [esp], eax
-	call Vec3Normalize:F(0,7)
+	call Vec3Normalize_F0_7
 	fstp st0
 	movss xmm3, dword [ebp-0x30]
 	movaps xmm1, xmm3
@@ -1356,11 +1438,11 @@ _Z20Bullet_Fire_ExtendedPK9gentity_sPS_PfS3_fiPK11weaponParmsS1_i_80:
 _Z20Bullet_Fire_ExtendedPK9gentity_sPS_PfS3_fiPK11weaponParmsS1_i_150:
 	subss xmm1, xmm0
 	divss xmm1, xmm2
-	cvtsi2ss xmm2, dword [eax+0x1ec]
+	cvtsi2ss xmm2, [eax+0x1ec]
 	movss xmm0, dword [_float_1_00000000]
 	subss xmm0, xmm1
 	mulss xmm2, xmm0
-	cvtsi2ss xmm0, dword [eax+0x590]
+	cvtsi2ss xmm0, [eax+0x590]
 	mulss xmm1, xmm0
 	addss xmm2, xmm1
 	cvttss2si edx, xmm2
@@ -1381,17 +1463,17 @@ _Z20Bullet_Fire_ExtendedPK9gentity_sPS_PfS3_fiPK11weaponParmsS1_i_50:
 	mov [esp+0x4], eax
 	lea eax, [ebp-0x24]
 	mov [esp], eax
-	call Z12G_TempEntityPKfi:F(0,12)
+	call Z12G_TempEntityPKfi_F0_12
 	mov [ebp-0x74], eax
 	lea eax, [ebp-0x50]
 	mov [esp], eax
-	call Z9DirToBytePKf:F(0,61)
+	call Z9DirToBytePKf_F0_61
 	movzx eax, al
 	mov edx, [ebp-0x74]
 	mov [edx+0xa0], eax
 	lea eax, [ebp-0x30]
 	mov [esp], eax
-	call Z9DirToBytePKf:F(0,61)
+	call Z9DirToBytePKf_F0_61
 	movzx eax, al
 	mov edx, [ebp-0x74]
 	mov [edx+0xd8], eax
@@ -1417,9 +1499,9 @@ _Z20Bullet_Fire_ExtendedPK9gentity_sPS_PfS3_fiPK11weaponParmsS1_i_190:
 	nop
 
 
-;Z16G_SetupWeaponDefv:F(0,1)
+;Z16G_SetupWeaponDefv_F0_1
 
-Z13Bullet_EndposfPfPK11weaponParmsf:F(0,1):
+Z13Bullet_EndposfPfPK11weaponParmsf_F0_1:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -1435,11 +1517,11 @@ Z13Bullet_EndposfPfPK11weaponParmsf:F(0,1):
 	cvtsd2ss xmm0, [ebp-0x20]
 	mulss xmm0, [ebp+0x14]
 	movss [ebp-0x14], xmm0
-	call Z7randomfv:F(0,4)
+	call Z7randomfv_F0_4
 	fstp dword [ebp-0x4c]
 	movss xmm0, dword [ebp-0x4c]
 	movss [ebp-0x38], xmm0
-	call Z7randomfv:F(0,4)
+	call Z7randomfv_F0_4
 	fstp dword [ebp-0x10]
 	movss xmm0, dword [ebp-0x38]
 	mulss xmm0, [_float_360_00000000]
@@ -1507,9 +1589,9 @@ Z13Bullet_EndposfPfPK11weaponParmsf:F(0,1):
 	ret
 
 
-;Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)
+;Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i_F0_1
 
-Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1):
+Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1519,19 +1601,19 @@ Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1):
 	mov eax, [0x1acd761]
 	mov eax, [eax]
 	cmp byte [eax+0x8], 0x0
-	jnz Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_10
-Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_80:
+	jnz Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i_F0_1_10
+Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i_F0_1_80:
 	mov ebx, [ebp+0x10]
 	mov ecx, [ebx+0x3c]
 	cmp dword [ecx+0x7c], 0x3
-	jz Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_20
+	jz Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i_F0_1_20
 	mov dword [esp+0xc], 0x46000000
 	mov [esp+0x8], ebx
 	lea ebx, [ebp-0x24]
 	mov [esp+0x4], ebx
 	movss xmm0, dword [ebp+0xc]
 	movss [esp], xmm0
-	call Z13Bullet_EndposfPfPK11weaponParmsf:F(0,1)
+	call Z13Bullet_EndposfPfPK11weaponParmsf_F0_1
 	mov ecx, [ebp+0x10]
 	add ecx, 0x24
 	mov eax, [ebp+0x18]
@@ -1546,24 +1628,24 @@ Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_80:
 	mov edx, [ebp+0x8]
 	mov eax, [ebp+0x14]
 	call _Z20Bullet_Fire_ExtendedPK9gentity_sPS_PfS3_fiPK11weaponParmsS1_i
-Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_60:
+Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i_F0_1_60:
 	mov eax, [0x1acd761]
 	mov eax, [eax]
 	cmp byte [eax+0x8], 0x0
-	jz Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_30
+	jz Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i_F0_1_30
 	mov ebx, [0x1acd721]
 	mov esi, [ebx+0x1e4]
 	test esi, esi
-	jle Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_30
+	jle Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i_F0_1_30
 	xor edi, edi
-	jmp Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_40
-Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_50:
+	jmp Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i_F0_1_40
+Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i_F0_1_50:
 	add edi, 0x1
 	cmp edi, [ebx+0x1e4]
-	jge Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_30
-Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_40:
+	jge Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i_F0_1_30
+Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i_F0_1_40:
 	cmp byte [ebp+edi-0x7c], 0x0
-	jz Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_50
+	jz Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i_F0_1_50
 	lea eax, [edi+edi*4]
 	lea ebx, [eax*8]
 	sub ebx, eax
@@ -1572,7 +1654,7 @@ Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_40:
 	lea eax, [ebx+esi]
 	mov [ebp-0x390], eax
 	mov [esp], eax
-	call Z15SV_UnlinkEntityP9gentity_s:F(0,23)
+	call Z15SV_UnlinkEntityP9gentity_s_F0_23
 	lea ebx, [ebx+esi+0x130]
 	lea ecx, [ebx+0x8]
 	lea eax, [edi+edi*2]
@@ -1585,19 +1667,19 @@ Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_40:
 	mov [ecx+0x8], eax
 	mov edx, [ebp-0x390]
 	mov [esp], edx
-	call Z13SV_LinkEntityP9gentity_s:F(0,23)
+	call Z13SV_LinkEntityP9gentity_s_F0_23
 	mov ebx, [0x1acd721]
 	add edi, 0x1
 	cmp edi, [ebx+0x1e4]
-	jl Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_40
-Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_30:
+	jl Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i_F0_1_40
+Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i_F0_1_30:
 	add esp, 0x3ac
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_20:
+Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i_F0_1_20:
 	mov edx, ebx
 	add edx, 0x24
 	mov eax, [ebx+0x24]
@@ -1609,11 +1691,11 @@ Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_20:
 	mov eax, ecx
 	mov edx, [ecx+0x1dc]
 	test edx, edx
-	jle Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_60
+	jle Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i_F0_1_60
 	xor ebx, ebx
 	lea esi, [ebp-0x30]
 	lea edi, [ebp-0x3c]
-Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_70:
+Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i_F0_1_70:
 	mov eax, [eax+0x59c]
 	mov [esp+0xc], eax
 	mov eax, [ebp+0x10]
@@ -1621,7 +1703,7 @@ Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_70:
 	mov [esp+0x4], esi
 	movss xmm0, dword [ebp+0xc]
 	movss [esp], xmm0
-	call Z13Bullet_EndposfPfPK11weaponParmsf:F(0,1)
+	call Z13Bullet_EndposfPfPK11weaponParmsf_F0_1
 	mov eax, [ebp+0x18]
 	mov [esp+0x10], eax
 	mov edx, [ebp+0x14]
@@ -1639,9 +1721,9 @@ Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_70:
 	mov edx, [ebp+0x10]
 	mov eax, [edx+0x3c]
 	cmp ebx, [eax+0x1dc]
-	jl Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_70
-	jmp Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_60
-Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_10:
+	jl Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i_F0_1_70
+	jmp Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i_F0_1_60
+Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i_F0_1_10:
 	mov dword [esp+0x8], 0x340
 	mov dword [esp+0x4], 0x0
 	lea eax, [ebp-0x37c]
@@ -1656,39 +1738,39 @@ Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_10:
 	cdq
 	idiv dword [esi+0x8]
 	cmp ecx, eax
-	jle Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_80
+	jle Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i_F0_1_80
 	mov edi, [ebx+0x1e4]
 	test edi, edi
-	jle Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_80
+	jle Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i_F0_1_80
 	mov dword [ebp-0x394], 0x0
 	mov dword [ebp-0x38c], 0x0
-	jmp Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_90
-Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_100:
+	jmp Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i_F0_1_90
+Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i_F0_1_100:
 	add dword [ebp-0x394], 0x1
 	add dword [ebp-0x38c], 0x28a4
 	mov edx, [ebp-0x394]
 	cmp edx, [ebx+0x1e4]
-	jge Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_80
-Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_90:
+	jge Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i_F0_1_80
+Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i_F0_1_90:
 	mov eax, [ebp-0x38c]
 	add eax, [ebx]
 	cmp dword [eax+0x26c4], 0x2
-	jnz Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_100
+	jnz Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i_F0_1_100
 	mov ecx, [eax+0x26a8]
 	test ecx, ecx
-	jnz Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_100
+	jnz Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i_F0_1_100
 	lea esi, [ebp-0x30]
 	mov [esp+0x8], esi
 	mov ebx, [ebp+0x18]
 	mov [esp+0x4], ebx
 	mov edi, [ebp-0x394]
 	mov [esp], edi
-	call Z26SV_GetClientPositionAtTimeiiPf:F(0,27)
+	call Z26SV_GetClientPositionAtTimeiiPf_F0_27
 	test al, al
-	jnz Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_110
+	jnz Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i_F0_1_110
 	mov ebx, [0x1acd721]
-	jmp Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_100
-Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_110:
+	jmp Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i_F0_1_100
+Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i_F0_1_110:
 	lea eax, [edi+edi*4]
 	lea ebx, [eax*8]
 	sub ebx, eax
@@ -1708,7 +1790,7 @@ Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_110:
 	mov [edx+0x8], eax
 	add ebx, ecx
 	mov [esp], ebx
-	call Z15SV_UnlinkEntityP9gentity_s:F(0,23)
+	call Z15SV_UnlinkEntityP9gentity_s_F0_23
 	mov eax, [ebp-0x30]
 	mov [esi+0x8], eax
 	mov eax, [ebp-0x2c]
@@ -1716,13 +1798,13 @@ Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_110:
 	mov eax, [ebp-0x28]
 	mov [edi+0x8], eax
 	mov [esp], ebx
-	call Z13SV_LinkEntityP9gentity_s:F(0,23)
+	call Z13SV_LinkEntityP9gentity_s_F0_23
 	mov eax, [ebp-0x394]
 	mov byte [ebp+eax-0x7c], 0x1
 	mov ebx, [0x1acd721]
-	jmp Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)_100
+	jmp Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i_F0_1_100
 	nop
 
 
-;Z17FireWeaponAntiLagP9gentity_si:F(0,1)
+;Z17FireWeaponAntiLagP9gentity_si_F0_1
 

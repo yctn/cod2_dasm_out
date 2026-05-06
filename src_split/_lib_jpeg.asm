@@ -2,668 +2,781 @@
 ;Symbols in this file: 239
 ;
 ;Imports (over-declared, NASM-safe):
-	extern __keymgr_dwarf2_register_sections
-	extern atexit
-	extern exit
-	extern AEDisposeDesc
-	extern AECreateDesc
-	extern __cxa_allocate_exception
-	extern __cxa_throw
-	extern _Unwind_Resume
 	extern AECoerceDesc
+	extern AECreateAppleEvent
+	extern AECreateDesc
+	extern AEDisposeDesc
 	extern AEGetDescData
 	extern AEGetDescDataSize
-	extern CreateObjSpecifier
-	extern AEPutParamDesc
-	extern AECreateAppleEvent
-	extern AESend
-	extern AEPutParamPtr
-	extern AEGetParamPtr
 	extern AEGetParamDesc
-	extern GetControlBounds
-	extern PtInRect
-	extern GetEventKind
-	extern GetEventClass
-	extern GetEventParameter
-	extern GetControlOwner
-	extern AdvanceKeyboardFocus
-	extern SetWRefCon
-	extern QuitAppModalLoopForWindow
-	extern HIViewGetRoot
-	extern HIViewGetViewForMouseEvent
-	extern GetControlKind
-	extern SetThemeCursor
-	extern CFBundleGetMainBundle
-	extern CreateNibReferenceWithCFBundle
-	extern CreateWindowFromNib
-	extern DisposeNibReference
-	extern GetWindowEventTarget
-	extern InstallEventHandler
-	extern GetWindowResizeLimits
-	extern SetWindowResizeLimits
-	extern InitCursor
-	extern ShowWindow
-	extern RunAppModalLoopForWindow
-	extern HideWindow
-	extern GetWRefCon
-	extern DisposeWindow
-	extern GetControlByID
-	extern GetControlMaximum
-	extern GetControlDataSize
-	extern SetControlData
-	extern HandleControlKey
-	extern GetControlReference
-	extern GetControlData
-	extern AlertSoundPlay
-	extern HITextViewGetTXNObject
-	extern TXNSetTypeAttributes
-	extern HideControl
-	extern ShowControl
-	extern DisableControl
-	extern EnableControl
-	extern SetControlFontStyle
-	extern SetKeyboardFocus
-	extern NewControlUserPaneDrawUPP
-	extern NewControlUserPaneHitTestUPP
-	extern NewControlUserPaneTrackingUPP
-	extern SetControlReference
-	extern SetControlMaximum
-	extern NewControlKeyFilterUPP
-	extern NewControlEditTextValidationUPP
-	extern GetWindowPort
-	extern CGDisplayBounds
-	extern DMGetFirstScreenDevice
-	extern EqualRect
-	extern DMGetNextScreenDevice
-	extern GetMainDevice
-	extern GetWindowPortBounds
-	extern CGDisplayFade
-	extern CGReleaseDisplayFadeReservation
-	extern CGAcquireDisplayFadeReservation
-	extern CGDisplayPixelsWide
-	extern CGDisplayPixelsHigh
-	extern CGDisplayBitsPerPixel
-	extern aglSwapBuffers
-	extern EndMediaEdits
-	extern GetMediaDuration
-	extern InsertMediaIntoTrack
-	extern AddMovieResource
-	extern CloseMovieFile
-	extern MoveWindow
-	extern GetAvailableWindowPositioningBounds
-	extern CreateNewWindow
-	extern SetPortWindowPort
-	extern SetWindowContentColor
-	extern SetWindowTitleWithCFString
-	extern gluCheckExtension
-	extern _Znam
-	extern CGSetDisplayTransferByTable
-	extern _ZdaPv
-	extern CGGetDisplayTransferByTable
-	extern QDLocalToGlobalPoint
-	extern QDGlobalToLocalPoint
-	extern _Znwm
-	extern _ZdlPv
-	extern _ZSt17__throw_bad_allocv
-	extern _ZSt20__throw_length_errorPKc
-	extern NormalizeThemeDrawingState
-	extern ForeColor
-	extern FrameRoundRect
-	extern RGBForeColor
-	extern PaintRoundRect
-	extern NewRgn
-	extern OpenRgn
-	extern CloseRgn
-	extern SetClip
-	extern DisposeRgn
-	extern ClipRect
-	extern DrawThemeMenuBarBackground
-	extern InsetRect
-	extern DrawThemeFocusRect
-	extern GetIconRefFromFileInfo
-	extern PlotIconRef
-	extern ReleaseIconRef
-	extern CGRectIsEmpty
-	extern CGRectUnion
-	extern CGRectGetWidth
-	extern CGRectGetHeight
-	extern OffsetRect
-	extern MapRect
-	extern glFinish
-	extern aglSetCurrentContext
-	extern aglSetDrawable
-	extern aglDestroyContext
-	extern ShowMenuBar
-	extern SetSystemUIMode
-	extern aglChoosePixelFormat
-	extern aglCreateContext
-	extern aglSetFullScreen
-	extern CGDisplayCurrentMode
-	extern aglSetInteger
-	extern HideMenuBar
-	extern aglDescribePixelFormat
-	extern aglDestroyPixelFormat
-	extern glEnable
-	extern glHint
-	extern aglGetDrawable
-	extern glDisable
-	extern IsWindowVisible
-	extern SizeWindow
-	extern PaintRect
-	extern _ZNSs6assignERKSs
-	extern CGDisplayIDToOpenGLDisplayMask
-	extern CGLQueryRendererInfo
-	extern CGLDescribeRenderer
-	extern CGLDestroyRendererInfo
-	extern CGDisplayAvailableModes
-	extern CFArrayGetCount
-	extern CGDisplayIOServicePort
-	extern CGLGetCurrentContext
-	extern CGLChoosePixelFormat
-	extern CGLCreateContext
-	extern CGLDestroyPixelFormat
-	extern CGLSetCurrentContext
-	extern glGetString
-	extern _ZNSs6assignEPKcm
-	extern glGetIntegerv
-	extern CGLDestroyContext
-	extern _ZNSsC1ERKSs
-	extern strstr
-	extern _ZNSsD1Ev
-	extern CFArrayGetValueAtIndex
-	extern IOObjectConformsTo
-	extern IORegistryEntryGetParentEntry
-	extern glGetFloatv
-	extern _ZN9__gnu_cxx18__exchange_and_addEPVii
-	extern _ZNSs4_Rep10_M_destroyERKSaIcE
-	extern __cxa_begin_catch
-	extern __cxa_rethrow
-	extern __cxa_end_catch
-	extern CGGetActiveDisplayList
-	extern NewMenu
-	extern InsertMenu
-	extern InvalMenuBar
-	extern GetCurrentKeyModifiers
-	extern CGRectEqualToRect
-	extern Gestalt
-	extern sysctl
-	extern FSOpenIterator
-	extern FSGetCatalogInfoBulk
-	extern FSCloseIterator
-	extern FSDeleteObject
-	extern FSSetCatalogInfo
-	extern FSPathMakeRef
-	extern access
-	extern CFBundleCopyExecutableURL
-	extern CFURLGetFSRef
-	extern CFRelease
-	extern FSGetCatalogInfo
-	extern GetCurrentProcess
-	extern strcat
-	extern GetProcessBundleLocation
-	extern FSRefMakePath
-	extern PBGetCatInfoSync
-	extern FSMakeFSSpec
-	extern FSpMakeFSRef
-	extern memcpy
-	extern CFStringCreateWithCString
-	extern CFPreferencesCopyAppValue
-	extern CFGetTypeID
-	extern CFStringGetTypeID
-	extern strcpy
-	extern CFStringGetCString
-	extern CFPreferencesSetAppValue
-	extern atoi
-	extern sprintf
-	extern CFPreferencesAppSynchronize
-	extern atof
-	extern CFBundleCopyLocalizedString
-	extern CFStringGetPascalString
-	extern StringToNum
-	extern CFStringCreateWithFormat
-	extern GetPort
-	extern SetPort
-	extern CFStringCreateWithCharacters
-	extern GetCursor
-	extern SetCursor
-	extern CGAssociateMouseAndMouseCursorPosition
-	extern CGWarpMouseCursorPosition
-	extern HideCursor
-	extern GetGlobalMouse
-	extern UpTime
+	extern AEGetParamPtr
+	extern AEInstallEventHandler
+	extern AEPutParamDesc
+	extern AEPutParamPtr
+	extern AESend
+	extern AUGraphConnectNodeInput
+	extern AUGraphGetCPULoad
+	extern AUGraphGetNodeInfo
+	extern AUGraphInitialize
+	extern AUGraphNewNode
+	extern AUGraphOpen
+	extern AUGraphStart
+	extern AUGraphStop
+	extern AUGraphUpdate
 	extern AddDurationToAbsolute
-	extern MPDelayUntil
-	extern GetNextProcess
-	extern GetProcessInformation
-	extern CFDictionaryGetValue
-	extern CFNumberGetValue
-	extern lround
-	extern IORegistryEntryCreateCFProperty
+	extern AddMovieResource
+	extern AdvanceKeyboardFocus
+	extern AlertSoundPlay
+	extern AppendMenuItemTextWithCFString
+	extern AudioConverterDispose
+	extern AudioConverterFillBuffer
+	extern AudioConverterFillComplexBuffer
+	extern AudioConverterNew
+	extern AudioConverterReset
+	extern AudioDeviceGetProperty
+	extern AudioDeviceGetPropertyInfo
+	extern AudioDeviceSetProperty
+	extern AudioHardwareGetProperty
+	extern AudioOutputUnitStart
+	extern AudioOutputUnitStop
+	extern AudioUnitAddRenderNotify
+	extern AudioUnitGetProperty
+	extern AudioUnitInitialize
+	extern AudioUnitRemoveRenderNotify
+	extern AudioUnitRender
+	extern AudioUnitSetParameter
+	extern AudioUnitSetProperty
+	extern AudioUnitUninitialize
+	extern CFArrayGetCount
+	extern CFArrayGetValueAtIndex
+	extern CFBundleCopyExecutableURL
+	extern CFBundleCopyLocalizedString
+	extern CFBundleGetMainBundle
 	extern CFDataGetBytePtr
-	extern CreateEvent
-	extern SetEventParameter
-	extern GetMainEventQueue
-	extern PostEventToQueue
-	extern ReleaseEvent
-	extern pthread_main_np
-	extern GetStandardAlertDefaultParams
-	extern CreateStandardAlert
-	extern RunStandardAlert
-	extern LSCopyItemInfoForRef
-	extern pthread_self
-	extern OTAtomicAdd32
-	extern OTCompareAndSwap32
-	extern calloc
-	extern free
-	extern strrchr
-	extern Microseconds
-	extern __udivdi3
-	extern memset
-	extern strncpy
-	extern getcwd
-	extern NewGWorld
-	extern GetGWorldPixMap
-	extern LockPixels
-	extern GetPixRowBytes
-	extern QDRegisterNamedPixMapCursor
-	extern DisposeGWorld
-	extern TickCount
-	extern QDSetNamedPixMapCursor
-	extern GetMainEventLoop
-	extern InstallEventLoopTimer
-	extern GetQDGlobalsArrow
-	extern ShowCursor
-	extern fopen
-	extern fseek
-	extern fclose
-	extern ftell
-	extern rewind
-	extern malloc
-	extern fread
-	extern _ZNKSs7compareEPKc
-	extern glStencilMask
-	extern glDepthMask
-	extern glFlushVertexArrayRangeAPPLE
-	extern glTexParameterfv
-	extern glLightfv
-	extern glColor4f
-	extern glMatrixMode
-	extern glLoadMatrixf
-	extern glTexParameteri
-	extern glGenTextures
-	extern _ZNSt15_List_node_base4hookEPS_
-	extern glTexParameterf
-	extern glTexEnvf
-	extern glPushMatrix
-	extern glLoadIdentity
-	extern glTexCoord2f
-	extern glPopMatrix
-	extern glTexEnvfv
-	extern glPointSize
-	extern glDrawRangeElements
-	extern memmove
-	extern glBindTexture
-	extern glColorMask
-	extern glActiveTextureARB
-	extern glDepthFunc
-	extern glShadeModel
-	extern glViewport
-	extern glDepthRange
-	extern glAlphaFunc
-	extern glClearDepth
-	extern glScissor
-	extern glClear
-	extern glClearColor
-	extern glClearStencil
-	extern glMaterialfv
-	extern glMaterialf
-	extern glPixelStorei
-	extern glCopyTexSubImage2D
-	extern gluOrtho2D
-	extern glTexEnvi
-	extern glBlendFuncSeparateEXT
-	extern glBlendFunc
-	extern glBegin
-	extern glVertex3f
-	extern glEnd
-	extern cos
-	extern log
-	extern cosf
-	extern glPolygonMode
-	extern glFogf
-	extern glLightModelfv
-	extern glBlendEquationEXT
-	extern glPolygonOffset
-	extern glFogfv
-	extern glPointParameterfvARB
-	extern glStencilFunc
-	extern glPointParameterfARB
-	extern glStencilOp
-	extern glFrontFace
-	extern glColorMaterial
-	extern glPushAttrib
-	extern glPushClientAttrib
-	extern glDrawBuffer
-	extern glReadBuffer
-	extern __dynamic_cast
-	extern glScalef
-	extern glVertex2f
-	extern glPopClientAttrib
-	extern glPopAttrib
-	extern glProgramEnvParameter4fvARB
-	extern glTexGenfv
-	extern _ZNSsC1EPKcRKSaIcE
-	extern _ZNKSs4findEPKcmm
-	extern _ZNSsC1ERKSsmm
-	extern _ZSt20__throw_out_of_rangePKc
-	extern glCombinerParameterfvNV
-	extern glCombinerStageParameterfvNV
-	extern glBindProgramARB
-	extern glDeleteProgramsARB
-	extern glGetProgramivARB
-	extern glGenProgramsARB
-	extern glProgramStringARB
-	extern _ZNSs6appendEPKcm
-	extern _ZNSs6appendERKSs
-	extern glTexImage2D
-	extern glCompressedTexImage2DARB
-	extern glTexSubImage2D
-	extern glCompressedTexSubImage2D
-	extern _ZNSt15_List_node_base6unhookEv
-	extern ceilf
-	extern glFinishFenceAPPLE
-	extern glSetFenceAPPLE
-	extern glGenFencesAPPLE
-	extern glDeleteFencesAPPLE
-	extern glVertexArrayRangeAPPLE
-	extern glDisableVertexAttribArrayARB
-	extern glVertexAttribPointerARB
-	extern glEnableVertexAttribArrayARB
-	extern glTexGeni
-	extern glBindVertexArrayAPPLE
-	extern glLightf
-	extern glClientActiveTextureARB
-	extern glDeleteTextures
-	extern glDeleteVertexArraysAPPLE
-	extern glDisableClientState
-	extern glFogi
-	extern glLightModeli
-	extern glClipPlane
-	extern glEnableClientState
-	extern glVertexArrayParameteriAPPLE
-	extern strcasecmp
-	extern strncasecmp
-	extern tolower
-	extern toupper
-	extern RemoveEventHandler
-	extern FlushEventQueue
-	extern SendEventToEventTarget
-	extern ReceiveNextEvent
+	extern CFDictionaryGetValue
+	extern CFGetTypeID
+	extern CFNumberGetValue
+	extern CFPreferencesAppSynchronize
+	extern CFPreferencesCopyAppValue
+	extern CFPreferencesSetAppValue
+	extern CFRelease
+	extern CFStringCreateWithCString
+	extern CFStringCreateWithCharacters
+	extern CFStringCreateWithFormat
+	extern CFStringGetCString
+	extern CFStringGetPascalString
+	extern CFStringGetTypeID
 	extern CFURLCreateFromFSRef
-	extern CGDataProviderCreateWithURL
-	extern CGImageCreateWithPNGDataProvider
-	extern QDBeginCGContext
-	extern CGImageRelease
-	extern CGDataProviderRelease
+	extern CFURLCreateWithBytes
+	extern CFURLGetFSRef
+	extern CGAcquireDisplayFadeReservation
+	extern CGAssociateMouseAndMouseCursorPosition
 	extern CGContextClearRect
 	extern CGContextDrawImage
 	extern CGContextFlush
-	extern QDEndCGContext
-	extern EventAvail
-	extern strcmp
-	extern getrlimit
-	extern setrlimit
-	extern EnterMovies
-	extern FSGetVolumeInfo
-	extern GetCompressionInfo
-	extern RunApplicationEventLoop
-	extern GetEventDispatcherTarget
-	extern GetApplicationEventTarget
-	extern GetMenuHandle
-	extern AppendMenuItemTextWithCFString
-	extern SetItemCmd
-	extern GetIndMenuItemWithCommandID
-	extern GetMenuEventTarget
-	extern AEInstallEventHandler
-	extern chdir
-	extern QuitApplicationEventLoop
+	extern CGDataProviderCreateWithURL
+	extern CGDataProviderRelease
+	extern CGDisplayAvailableModes
+	extern CGDisplayBitsPerPixel
+	extern CGDisplayBounds
+	extern CGDisplayCurrentMode
+	extern CGDisplayFade
+	extern CGDisplayIDToOpenGLDisplayMask
+	extern CGDisplayIOServicePort
+	extern CGDisplayPixelsHigh
+	extern CGDisplayPixelsWide
+	extern CGGetActiveDisplayList
+	extern CGGetDisplayTransferByTable
+	extern CGImageCreateWithPNGDataProvider
+	extern CGImageRelease
+	extern CGLChoosePixelFormat
+	extern CGLCreateContext
+	extern CGLDescribeRenderer
+	extern CGLDestroyContext
+	extern CGLDestroyPixelFormat
+	extern CGLDestroyRendererInfo
+	extern CGLGetCurrentContext
+	extern CGLQueryRendererInfo
+	extern CGLSetCurrentContext
+	extern CGRectEqualToRect
+	extern CGRectGetHeight
+	extern CGRectGetWidth
+	extern CGRectIsEmpty
+	extern CGRectUnion
+	extern CGReleaseDisplayFadeReservation
+	extern CGSetDisplayTransferByTable
+	extern CGWarpMouseCursorPosition
+	extern ClipRect
+	extern CloseComponent
+	extern CloseMovieFile
+	extern CloseRgn
+	extern CollapseWindow
+	extern CreateEvent
+	extern CreateNewWindow
+	extern CreateNibReferenceWithCFBundle
+	extern CreateObjSpecifier
+	extern CreateStandardAlert
+	extern CreateWindowFromNib
+	extern DMGetFirstScreenDevice
+	extern DMGetNextScreenDevice
+	extern DisableControl
 	extern DisableMenuItem
-	extern close
-	extern ioctl
-	extern __error
-	extern vsnprintf
-	extern strchr
-	extern rand
-	extern acosf
-	extern atan2
-	extern tan
-	extern sinf
-	extern time
-	extern localtime
-	extern asctime
-	extern longjmp
-	extern __maskrune
-	extern snprintf
-	extern floorf
-	extern setjmp
-	extern remove
-	extern fflush
-	extern qsort
-	extern fwrite
-	extern rename
-	extern isspace
-	extern _ZNSs9_M_mutateEmmm
+	extern DisposeAUGraph
+	extern DisposeGWorld
+	extern DisposeHandle
+	extern DisposeMovie
+	extern DisposeNibReference
+	extern DisposeRgn
+	extern DisposeWindow
+	extern DrawThemeFocusRect
+	extern DrawThemeMenuBarBackground
+	extern EnableControl
+	extern EndMediaEdits
+	extern EnterMovies
+	extern EqualRect
+	extern EventAvail
+	extern FSCloseIterator
+	extern FSDeleteObject
+	extern FSGetCatalogInfo
+	extern FSGetCatalogInfoBulk
+	extern FSGetVolumeInfo
+	extern FSMakeFSSpec
+	extern FSOpenIterator
+	extern FSPathMakeRef
+	extern FSRefMakePath
+	extern FSSetCatalogInfo
+	extern FSpMakeFSRef
+	extern FindNextComponent
+	extern FlushEventQueue
+	extern ForeColor
+	extern FrameRoundRect
+	extern Gestalt
+	extern GetApplicationEventTarget
+	extern GetAvailableWindowPositioningBounds
+	extern GetComponentVersion
+	extern GetCompressionInfo
+	extern GetControlBounds
+	extern GetControlByID
+	extern GetControlData
+	extern GetControlDataSize
+	extern GetControlKind
+	extern GetControlMaximum
+	extern GetControlOwner
+	extern GetControlReference
+	extern GetCurrentEventTime
+	extern GetCurrentKeyModifiers
+	extern GetCurrentProcess
+	extern GetCursor
+	extern GetEventClass
+	extern GetEventDispatcherTarget
+	extern GetEventKind
+	extern GetEventParameter
+	extern GetGWorldPixMap
+	extern GetGlobalMouse
+	extern GetHandleSize
+	extern GetIconRefFromFileInfo
+	extern GetIndMenuItemWithCommandID
+	extern GetMainDevice
+	extern GetMainEventLoop
+	extern GetMainEventQueue
+	extern GetMediaDuration
+	extern GetMediaHandler
+	extern GetMediaSampleDescription
+	extern GetMenuEventTarget
+	extern GetMenuHandle
+	extern GetMovieDuration
+	extern GetMovieIndTrackType
+	extern GetMoviePreferredRate
+	extern GetMovieTime
+	extern GetMovieTimeScale
+	extern GetNextProcess
+	extern GetPixRowBytes
+	extern GetPort
+	extern GetProcessBundleLocation
+	extern GetProcessInformation
+	extern GetQDGlobalsArrow
+	extern GetStandardAlertDefaultParams
+	extern GetTrackMedia
+	extern GetWRefCon
+	extern GetWindowEventTarget
+	extern GetWindowPort
+	extern GetWindowPortBounds
+	extern GetWindowResizeLimits
+	extern GoToBeginningOfMovie
+	extern HITextViewGetTXNObject
+	extern HIViewGetRoot
+	extern HIViewGetViewForMouseEvent
+	extern HTNetCount
+	extern HandleControlKey
+	extern HideControl
+	extern HideCursor
+	extern HideMenuBar
+	extern HideWindow
+	extern IOObjectConformsTo
+	extern IORegistryEntryCreateCFProperty
+	extern IORegistryEntryGetParentEntry
+	extern InitCursor
+	extern InsertMediaIntoTrack
+	extern InsertMenu
+	extern InsetRect
+	extern InstallEventHandler
+	extern InstallEventLoopTimer
+	extern InvalMenuBar
+	extern IsMovieDone
+	extern IsWindowVisible
+	extern LSCopyItemInfoForRef
+	extern LSOpenCFURLRef
+	extern LSOpenFSRef
+	extern LockPixels
+	extern MPDelayUntil
+	extern MapRect
+	extern MediaSetSoundBalance
+	extern Microseconds
+	extern MoveWindow
+	extern MoviesTask
+	extern NetTable
+	extern NewAUGraph
+	extern NewControlEditTextValidationUPP
+	extern NewControlKeyFilterUPP
+	extern NewControlUserPaneDrawUPP
+	extern NewControlUserPaneHitTestUPP
+	extern NewControlUserPaneTrackingUPP
+	extern NewGWorld
+	extern NewHandle
+	extern NewMenu
+	extern NewMovieFromFile
+	extern NewRgn
+	extern NormalizeThemeDrawingState
+	extern OTAtomicAdd32
+	extern OTCompareAndSwap32
+	extern OffsetRect
+	extern OpenAComponent
+	extern OpenComponent
+	extern OpenMovieFile
+	extern OpenRgn
+	extern PBGetCatInfoSync
+	extern PaintRect
+	extern PaintRoundRect
+	extern PlotIconRef
+	extern PostEventToQueue
+	extern PrerollMovie
+	extern PtInRect
+	extern PtrAndHand
+	extern QDBeginCGContext
+	extern QDEndCGContext
+	extern QDGlobalToLocalPoint
+	extern QDLocalToGlobalPoint
+	extern QDRegisterNamedPixMapCursor
+	extern QDSetNamedPixMapCursor
+	extern QuitAppModalLoopForWindow
+	extern QuitApplicationEventLoop
+	extern RGBForeColor
+	extern ReceiveNextEvent
+	extern ReleaseEvent
+	extern ReleaseIconRef
+	extern RemoveEventHandler
+	extern RemoveEventLoopTimer
+	extern RunAppModalLoopForWindow
+	extern RunApplicationEventLoop
+	extern RunStandardAlert
+	extern SECTION
+	extern SendEventToEventTarget
+	extern SetClip
+	extern SetControlData
+	extern SetControlFontStyle
+	extern SetControlMaximum
+	extern SetControlReference
+	extern SetCursor
+	extern SetEventParameter
+	extern SetFrontProcess
+	extern SetItemCmd
+	extern SetKeyboardFocus
+	extern SetMovieRate
+	extern SetMovieTimeValue
+	extern SetPort
+	extern SetPortWindowPort
+	extern SetSystemUIMode
+	extern SetThemeCursor
+	extern SetTrackVolume
+	extern SetWRefCon
+	extern SetWindowContentColor
+	extern SetWindowResizeLimits
+	extern SetWindowTitleWithCFString
+	extern ShowControl
+	extern ShowCursor
+	extern ShowMenuBar
+	extern ShowWindow
+	extern SizeWindow
+	extern StartMovie
+	extern StopMovie
+	extern StringToNum
+	extern TXNSetData
+	extern TXNSetSelection
+	extern TXNSetTypeAttributes
+	extern TXNShowSelection
+	extern TickCount
+	extern UpTime
+	extern UpdateSystemActivity
+	extern Z10HTList_newv_F0_1
+	extern Z13HTMemory_freePv_F0_6
+	extern Z15HTMemory_callocmm_F0_7
+	extern Z16HTList_addObjectP7_HTListPv_F0_6
+	extern Z17HTMemory_outofmemPcS_m_F0_6
+	extern Z7HTParsePKcS0_i_F0_2
+	extern Z7HTSACatPPcPKc_F0_5
+	extern Z7stricmpPKcS0__F0_1
+	extern Z8HTSACopyPPcPKc_F0_5
+	extern _Unwind_Resume
+	extern _ZN9__gnu_cxx18__exchange_and_addEPVii
+	extern _ZNKSs4findEPKcmm
+	extern _ZNKSs7compareEPKc
 	extern _ZNSs12_M_leak_hardEv
-	extern _ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_
+	extern _ZNSs4_Rep10_M_destroyERKSaIcE
+	extern _ZNSs6appendEPKcm
+	extern _ZNSs6appendERKSs
+	extern _ZNSs6assignEPKcm
+	extern _ZNSs6assignERKSs
+	extern _ZNSs7replaceEmmPKcm
+	extern _ZNSs7reserveEm
+	extern _ZNSs9_M_mutateEmmm
+	extern _ZNSsC1EPKcRKSaIcE
+	extern _ZNSsC1ERKSs
+	extern _ZNSsC1ERKSsmm
+	extern _ZNSsD1Ev
+	extern _ZNSt15_List_node_base4hookEPS_
+	extern _ZNSt15_List_node_base6unhookEv
+	extern _ZSt17__throw_bad_allocv
 	extern _ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base
 	extern _ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base
-	extern sscanf
-	extern sin
-	extern acos
-	extern vsprintf
-	extern _ZNSs7reserveEm
-	extern strncat
-	extern ctime
-	extern strncmp
-	extern LSOpenFSRef
-	extern CFURLCreateWithBytes
-	extern LSOpenCFURLRef
-	extern UpdateSystemActivity
-	extern GetHandleSize
-	extern TXNSetData
-	extern NewHandle
-	extern DisposeHandle
-	extern RemoveEventLoopTimer
-	extern CollapseWindow
-	extern TXNSetSelection
-	extern TXNShowSelection
-	extern PtrAndHand
-	extern mkdir
-	extern opendir
-	extern readdir
-	extern stat
-	extern closedir
-	extern pow
-	extern glTestFenceAPPLE
-	extern glReadPixels
-	extern glGetError
-	extern asin
-	extern printf
-	extern _ZNSs7replaceEmmPKcm
-	extern expf
-	extern exp
-	extern isprint
-	extern fileno
-	extern isatty
-	extern fprintf
-	extern realloc
+	extern _ZSt20__throw_length_errorPKc
+	extern _ZSt20__throw_out_of_rangePKc
+	extern _ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_
+	extern _ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_
+	extern _ZZ13create_objectvE8net_hash
+	extern _ZdaPv
+	extern _ZdlPv
+	extern _Znam
+	extern _Znwm
+	extern __cxa_allocate_exception
+	extern __cxa_begin_catch
+	extern __cxa_end_catch
+	extern __cxa_guard_abort
 	extern __cxa_guard_acquire
 	extern __cxa_guard_release
-	extern __cxa_guard_abort
-	extern GetCurrentEventTime
-	extern SetFrontProcess
-	extern glGenVertexArraysAPPLE
-	extern glColorPointer
-	extern glNormalPointer
-	extern glVertexPointer
-	extern glTexCoordPointer
-	extern _ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_
-	extern AudioConverterReset
-	extern AudioUnitGetProperty
-	extern AudioConverterDispose
-	extern AudioConverterNew
-	extern log10f
-	extern AudioUnitSetParameter
-	extern AudioConverterFillComplexBuffer
-	extern AudioUnitSetProperty
-	extern AudioUnitAddRenderNotify
-	extern AudioUnitRemoveRenderNotify
-	extern usleep
-	extern AUGraphGetCPULoad
-	extern strdup
-	extern AUGraphStop
-	extern DisposeAUGraph
-	extern AudioDeviceGetPropertyInfo
-	extern AudioDeviceGetProperty
-	extern FindNextComponent
-	extern OpenComponent
-	extern GetComponentVersion
-	extern CloseComponent
-	extern NewAUGraph
-	extern AUGraphNewNode
-	extern AUGraphOpen
-	extern AUGraphGetNodeInfo
-	extern AUGraphUpdate
-	extern AUGraphConnectNodeInput
-	extern AUGraphInitialize
-	extern AUGraphStart
-	extern pthread_mutex_destroy
-	extern pthread_create
-	extern pthread_mutexattr_init
-	extern pthread_mutexattr_settype
-	extern pthread_mutex_init
-	extern pthread_mutexattr_destroy
-	extern pthread_mutex_unlock
-	extern pthread_mutex_lock
-	extern glTexImage3D
-	extern glCompressedTexImage3DARB
-	extern glTexSubImage3D
-	extern glCompressedTexSubImage3D
-	extern strtok
-	extern StopMovie
-	extern GoToBeginningOfMovie
-	extern GetMovieTimeScale
-	extern GetMovieDuration
-	extern GetMovieTime
-	extern SetMovieTimeValue
-	extern SetTrackVolume
-	extern GetMediaHandler
-	extern MediaSetSoundBalance
-	extern MoviesTask
-	extern IsMovieDone
-	extern StartMovie
-	extern DisposeMovie
-	extern SetMovieRate
-	extern OpenMovieFile
-	extern NewMovieFromFile
-	extern GetMoviePreferredRate
-	extern PrerollMovie
-	extern GetMovieIndTrackType
-	extern GetTrackMedia
-	extern GetMediaSampleDescription
-	extern srand
-	extern putenv
-	extern getenv
-	extern puts
-	extern asinf
-	extern atanf
-	extern tanf
-	extern select
-	extern inet_addr
-	extern gethostbyname
-	extern recvfrom
-	extern strerror
-	extern sendto
-	extern setsockopt
-	extern bind
-	extern socket
-	extern connect
-	extern send
-	extern recv
+	extern __cxa_rethrow
+	extern __cxa_throw
+	extern __dynamic_cast
+	extern __error
+	extern __i686_get_pc_thunk_bx
+	extern __i686_get_pc_thunk_cx
 	extern __isnanf
-	extern floor
-	extern logf
-	extern AudioOutputUnitStart
-	extern AudioOutputUnitStop
-	extern AudioDeviceSetProperty
-	extern AudioConverterFillBuffer
-	extern AudioUnitRender
-	extern AudioUnitUninitialize
-	extern OpenAComponent
-	extern AudioHardwareGetProperty
-	extern AudioUnitInitialize
+	extern __keymgr_dwarf2_register_sections
+	extern __maskrune
+	extern __udivdi3
+	extern _cstring_2
+	extern _cstring_create_object
+	extern _cstring_htnet_new
+	extern _cstring_jpeg_internal_er
+	extern _cstring_null
+	extern _cstring_r0mov_r0w_v0wmov
+	extern _cstring_userskevindevelo5
+	extern aam
+	extern abort
+	extern accept
+	extern access
+	extern acos
+	extern acosf
+	extern adc
+	extern add
+	extern addss
+	extern aglChoosePixelFormat
+	extern aglCreateContext
+	extern aglDescribePixelFormat
+	extern aglDestroyContext
+	extern aglDestroyPixelFormat
+	extern aglGetDrawable
+	extern aglSetCurrentContext
+	extern aglSetDrawable
+	extern aglSetFullScreen
+	extern aglSetInteger
+	extern aglSwapBuffers
+	extern and
+	extern asctime
+	extern asin
+	extern asinf
+	extern atan2
+	extern atanf
+	extern atexit
+	extern atof
+	extern atoi
+	extern atol
+	extern bind
+	extern call
+	extern calloc
+	extern cdq
+	extern ceilf
+	extern cg_entitiesArray
+	extern chdir
+	extern cin
+	extern cl_serverStatusList
+	extern cld
+	extern close
+	extern closedir
+	extern cmova
+	extern cmovae
+	extern cmovb
+	extern cmovbe
+	extern cmovg
+	extern cmovge
+	extern cmovl
+	extern cmovle
+	extern cmovns
+	extern cmovnz
+	extern cmovs
+	extern cmovz
+	extern cmp
+	extern connect
+	extern cos
+	extern cosf
+	extern ctime
+	extern cvtsd2ss
+	extern cvtsi2sd
+	extern cvtsi2ss
+	extern cvttss2si
+	extern dec
+	extern div
+	extern divsd
 	extern dlclose
 	extern dlopen
 	extern dlsym
-	extern abort
-	extern vfprintf
-	extern getsockname
-	extern read
-	extern atol
-	extern strtol
-	extern getpid
-	extern tmpnam
-	extern strftime
-	extern gmtime
-	extern mktime
+	extern exit
+	extern exp
+	extern expf
+	extern fadd
+	extern fclose
 	extern fcntl
-	extern accept
-	extern listen
-	extern gethostname
-	extern getdomainname
-	extern getlogin
-	extern getuid
-	extern getpwuid
+	extern fflush
 	extern fgets
-	extern gettimeofday
-	extern regcomp
-	extern regerror
-	extern regfree
-	extern regexec
-	extern getpass
-	extern getsockopt
-	extern write
-	extern unlink
+	extern fileno
+	extern floor
+	extern floorf
+	extern fopen
+	extern fprintf
 	extern fputc
 	extern fputs
+	extern fread
+	extern free
+	extern fseek
+	extern ftell
+	extern fwrite
+	extern g_skinBuffers
+	extern getcwd
+	extern getdomainname
+	extern getenv
+	extern gethostbyname
+	extern gethostname
+	extern getlogin
+	extern getpass
+	extern getpid
+	extern getpwuid
+	extern getrlimit
+	extern getsockname
+	extern getsockopt
+	extern gettimeofday
+	extern getuid
+	extern glActiveTextureARB
+	extern glAlphaFunc
+	extern glBegin
+	extern glBindProgramARB
+	extern glBindTexture
+	extern glBindVertexArrayAPPLE
+	extern glBlendEquationEXT
+	extern glBlendFunc
+	extern glBlendFuncSeparateEXT
+	extern glClear
+	extern glClearColor
+	extern glClearDepth
+	extern glClearStencil
+	extern glClientActiveTextureARB
+	extern glClipPlane
+	extern glColor4f
+	extern glColorMask
+	extern glColorMaterial
+	extern glColorPointer
+	extern glCombinerParameterfvNV
+	extern glCombinerStageParameterfvNV
+	extern glCompressedTexImage2DARB
+	extern glCompressedTexImage3DARB
+	extern glCompressedTexSubImage2D
+	extern glCompressedTexSubImage3D
+	extern glCopyTexSubImage2D
+	extern glDeleteFencesAPPLE
+	extern glDeleteProgramsARB
+	extern glDeleteTextures
+	extern glDeleteVertexArraysAPPLE
+	extern glDepthFunc
+	extern glDepthMask
+	extern glDepthRange
+	extern glDisable
+	extern glDisableClientState
+	extern glDisableVertexAttribArrayARB
+	extern glDrawBuffer
+	extern glDrawRangeElements
+	extern glEnable
+	extern glEnableClientState
+	extern glEnableVertexAttribArrayARB
+	extern glEnd
+	extern glFinish
+	extern glFinishFenceAPPLE
+	extern glFlushVertexArrayRangeAPPLE
+	extern glFogf
+	extern glFogfv
+	extern glFogi
+	extern glFrontFace
+	extern glGenFencesAPPLE
+	extern glGenProgramsARB
+	extern glGenTextures
+	extern glGenVertexArraysAPPLE
+	extern glGetError
+	extern glGetFloatv
+	extern glGetIntegerv
+	extern glGetProgramivARB
+	extern glGetString
+	extern glHint
+	extern glLightModelfv
+	extern glLightModeli
+	extern glLightf
+	extern glLightfv
+	extern glLoadIdentity
+	extern glLoadMatrixf
+	extern glMaterialf
+	extern glMaterialfv
+	extern glMatrixMode
+	extern glNormalPointer
+	extern glPixelStorei
+	extern glPointParameterfARB
+	extern glPointParameterfvARB
+	extern glPointSize
+	extern glPolygonMode
+	extern glPolygonOffset
+	extern glPopAttrib
+	extern glPopClientAttrib
+	extern glPopMatrix
+	extern glProgramEnvParameter4fvARB
+	extern glProgramStringARB
+	extern glPushAttrib
+	extern glPushClientAttrib
+	extern glPushMatrix
+	extern glReadBuffer
+	extern glReadPixels
+	extern glScalef
+	extern glScissor
+	extern glSetFenceAPPLE
+	extern glShadeModel
+	extern glStencilFunc
+	extern glStencilMask
+	extern glStencilOp
+	extern glTestFenceAPPLE
+	extern glTexCoord2f
+	extern glTexCoordPointer
+	extern glTexEnvf
+	extern glTexEnvfv
+	extern glTexEnvi
+	extern glTexGenfv
+	extern glTexGeni
+	extern glTexImage2D
+	extern glTexImage3D
+	extern glTexParameterf
+	extern glTexParameterfv
+	extern glTexParameteri
+	extern glTexSubImage2D
+	extern glTexSubImage3D
+	extern glVertex2f
+	extern glVertex3f
+	extern glVertexArrayParameteriAPPLE
+	extern glVertexArrayRangeAPPLE
+	extern glVertexAttribPointerARB
+	extern glVertexPointer
+	extern glViewport
+	extern gluCheckExtension
+	extern gluOrtho2D
+	extern gmtime
+	extern hackSize
+	extern idiv
+	extern imul
+	extern inc
+	extern inet_addr
+	extern ioctl
+	extern iretd
+	extern isatty
+	extern isprint
+	extern isspace
+	extern ja
+	extern jae
+	extern jb
+	extern jbe
+	extern jg
+	extern jge
+	extern jl
+	extern jle
+	extern jmp
+	extern jns
+	extern jnz
+	extern jpeg_memory_src_F0_1_20
+	extern jpeg_suppress_tables_F0_1
+	extern js
+	extern jz
+	extern lea
+	extern leave
+	extern listen
+	extern localtime
+	extern log
+	extern log10f
+	extern logf
+	extern longjmp
+	extern lround
+	extern malloc
+	extern markVerts
+	extern memcpy
+	extern memmove
+	extern memset
+	extern mkdir
+	extern mktime
+	extern mov
+	extern movapd
+	extern movaps
+	extern movsd
+	extern movss
+	extern movsx
+	extern movzx
+	extern mulsd
+	extern mulss
+	extern neg
+	extern nop
+	extern not
+	extern opendir
+	extern or
+	extern out
+	extern pop
+	extern pow
+	extern printf
+	extern pthread_create
+	extern pthread_main_np
+	extern pthread_mutex_destroy
+	extern pthread_mutex_init
+	extern pthread_mutex_lock
+	extern pthread_mutex_unlock
+	extern pthread_mutexattr_destroy
+	extern pthread_mutexattr_init
+	extern pthread_mutexattr_settype
+	extern pthread_self
+	extern push
+	extern putenv
+	extern puts
+	extern qsort
+	extern rand
+	extern read
+	extern readdir
+	extern realloc
+	extern recv
+	extern recvfrom
+	extern regcomp
+	extern regerror
+	extern regexec
+	extern regfree
+	extern remove
+	extern rename
+	extern rep
+	extern ret
+	extern rewind
+	extern rol
+	extern ror
+	extern sar
+	extern sbb
+	extern select
+	extern send
+	extern sendto
+	extern setg
+	extern setge
+	extern setjmp
+	extern setrlimit
+	extern setsockopt
+	extern setz
+	extern shl
+	extern shr
+	extern sin
+	extern sinf
+	extern snprintf
+	extern socket
+	extern sprintf
+	extern srand
+	extern sscanf
+	extern stat
+	extern stosb
+	extern stosd
+	extern strcasecmp
+	extern strcat
+	extern strchr
+	extern strcmp
+	extern strcpy
+	extern strdup
+	extern strerror
+	extern strftime
+	extern strncasecmp
+	extern strncat
+	extern strncmp
+	extern strncpy
+	extern strrchr
+	extern strstr
+	extern strtok
+	extern strtol
+	extern sub
+	extern subss
+	extern sysctl
+	extern tan
+	extern tanf
+	extern test
+	extern text
+	extern time
+	extern tmpnam
+	extern tolower
+	extern toupper
+	extern unlink
+	extern usleep
+	extern vfprintf
+	extern vsnprintf
+	extern vsprintf
+	extern write
+	extern xchg
+	extern xor
 
 ;Exports defined in this file:
 	global _Z11compare_usePKvS0_
 	global _Z20compare_impact_filesPKvS0_
 	global _Z16init_destinationP20jpeg_compress_struct
-	global Z19empty_output_bufferP20jpeg_compress_struct:F(0,21)
+	global Z19empty_output_bufferP20jpeg_compress_struct_F0_21
 	global _Z16term_destinationP20jpeg_compress_struct
 	global _Z8ExitJpegv
 	global _Z9TransformPmS_
 	global _Z13make_templatePKc
 	global _Z13create_objectv
-	global jpeg_memory_src:F(0,1)_10
+	global jpeg_memory_src_F0_1_10
 	global output_pass_setup
-	global jpeg_start_decompress:F(0,1)
-	global jpeg_read_scanlines:F(0,5)
-	global jpeg_add_quant_table:F(0,1)
-	global jpeg_set_colorspace:F(0,1)
-	global jpeg_default_colorspace:F(0,1)
-	global jpeg_set_quality:F(0,1)
-	global jpeg_set_defaults:F(0,1)
-	global jpeg_start_compress:F(0,1)
-	global jpeg_write_scanlines:F(0,15)
+	global jpeg_start_decompress_F0_1
+	global jpeg_read_scanlines_F0_5
+	global jpeg_add_quant_table_F0_1
+	global jpeg_set_colorspace_F0_1
+	global jpeg_default_colorspace_F0_1
+	global jpeg_set_quality_F0_1
+	global jpeg_set_defaults_F0_1
+	global jpeg_start_compress_F0_1
+	global jpeg_write_scanlines_F0_15
 	global error_exit
 	global output_message
 	global emit_message
 	global format_message
 	global reset_error_mgr
-	global jpeg_std_error:F(0,5)
+	global jpeg_std_error_F0_5
 	global write_marker_byte
 	global write_file_header
 	global write_frame_header
@@ -671,7 +784,7 @@
 	global write_file_trailer
 	global write_tables_only
 	global write_marker_header
-	global jinit_marker_writer:F(0,1)
+	global jinit_marker_writer_F0_1
 	global emit_sof
 	global emit_dht
 	global emit_dqt
@@ -686,16 +799,16 @@
 	global realize_virt_arrays
 	global access_virt_sarray
 	global access_virt_barray
-	global jinit_memory_mgr:F(0,1)
-	global jpeg_abort:F(0,1)
-	global jpeg_destroy:F(0,1)
-	global jpeg_alloc_quant_table:F(0,74)
-	global jpeg_alloc_huff_table:F(0,80)
+	global jinit_memory_mgr_F0_1
+	global jpeg_abort_F0_1
+	global jpeg_destroy_F0_1
+	global jpeg_alloc_quant_table_F0_74
+	global jpeg_alloc_huff_table_F0_80
 	global start_input_pass
 	global finish_input_pass
 	global consume_markers
 	global reset_input_controller
-	global jinit_input_controller:F(0,1)
+	global jinit_input_controller_F0_1
 	global get_sof
 	global examine_app0
 	global get_interesting_appn
@@ -703,27 +816,27 @@
 	global next_marker
 	global read_markers
 	global read_restart_marker
-	global jpeg_resync_to_restart:F(0,1)
+	global jpeg_resync_to_restart_F0_1
 	global reset_marker_reader
-	global jinit_marker_reader:F(0,54)
+	global jinit_marker_reader_F0_54
 	global prepare_for_output_pass
 	global finish_output_pass
-	global jpeg_calc_output_dimensions:F(0,1)
-	global jinit_master_decompress:F(0,1)
-	global jinit_compress_master:F(0,1)
-	global jdiv_round_up:F(0,1)
-	global jround_up:F(0,1)
-	global jcopy_sample_rows:F(0,2)
-	global jcopy_block_row:F(0,2)
-	global jzero_far:F(0,2)
-	global jpeg_get_small:F(0,1)
-	global jpeg_free_small:F(0,6)
-	global jpeg_get_large:F(0,1)
-	global jpeg_free_large:F(0,6)
-	global jpeg_mem_available:F(0,25)
-	global jpeg_open_backing_store:F(0,6)
-	global jpeg_mem_init:F(0,25)
-	global jpeg_mem_term:F(0,6)
+	global jpeg_calc_output_dimensions_F0_1
+	global jinit_master_decompress_F0_1
+	global jinit_compress_master_F0_1
+	global jdiv_round_up_F0_1
+	global jround_up_F0_1
+	global jcopy_sample_rows_F0_2
+	global jcopy_block_row_F0_2
+	global jzero_far_F0_2
+	global jpeg_get_small_F0_1
+	global jpeg_free_small_F0_6
+	global jpeg_get_large_F0_1
+	global jpeg_free_large_F0_6
+	global jpeg_mem_available_F0_25
+	global jpeg_open_backing_store_F0_6
+	global jpeg_mem_init_F0_25
+	global jpeg_mem_term_F0_6
 	global color_quantize
 	global color_quantize3
 	global quantize_ord_dither
@@ -733,7 +846,7 @@
 	global new_color_map_1_quant
 	global create_colorindex
 	global start_pass_1_quant
-	global jinit_1pass_quantizer:F(0,1)
+	global jinit_1pass_quantizer_F0_1
 	global prescan_quantize
 	global update_box
 	global fill_inverse_cmap
@@ -743,7 +856,7 @@
 	global finish_pass2
 	global new_color_map_2_quant
 	global start_pass_2_quant
-	global jinit_2pass_quantizer:F(0,1)
+	global jinit_2pass_quantizer_F0_1
 	global build_ycc_rgb_table
 	global ycc_rgb_convert
 	global null_convert
@@ -751,7 +864,7 @@
 	global gray_rgb_convert
 	global ycck_cmyk_convert
 	global start_pass_dcolor
-	global jinit_color_deconverter:F(0,1)
+	global jinit_color_deconverter_F0_1
 	global start_output_pass
 	global decompress_data
 	global decompress_smooth_data
@@ -759,37 +872,37 @@
 	global dummy_consume_data
 	global start_input_pass__addr_2312f2
 	global consume_data
-	global jinit_d_coef_controller:F(0,1)
+	global jinit_d_coef_controller_F0_1
 	global start_pass_main
 	global process_data_simple_main
 	global process_data_context_main
 	global process_data_crank_post
-	global jinit_d_main_controller:F(0,1)
+	global jinit_d_main_controller_F0_1
 	global start_pass_dpost
 	global post_process_2pass
 	global post_process_prepass
 	global post_process_1pass
-	global jinit_d_post_controller:F(0,1)
-	global jpeg_make_d_derived_tbl:F(0,1)
+	global jinit_d_post_controller_F0_1
+	global jpeg_make_d_derived_tbl_F0_1
 	global start_pass_huff_decoder
-	global jpeg_fill_bit_buffer:F(0,15)
-	global jpeg_huff_decode:F(0,4)
+	global jpeg_fill_bit_buffer_F0_15
+	global jpeg_huff_decode_F0_4
 	global decode_mcu
-	global jinit_huff_decoder:F(0,1)
+	global jinit_huff_decoder_F0_1
 	global start_pass
-	global jinit_inverse_dct:F(0,1)
+	global jinit_inverse_dct_F0_1
 	global start_pass_merged_upsample
 	global merged_2v_upsample
 	global merged_1v_upsample
 	global h2v1_merged_upsample
 	global h2v2_merged_upsample
-	global jinit_merged_upsampler:F(0,1)
+	global jinit_merged_upsampler_F0_1
 	global start_pass_phuff_decoder
 	global decode_mcu_AC_first
 	global decode_mcu_DC_refine
 	global decode_mcu_AC_refine
 	global decode_mcu_DC_first
-	global jinit_phuff_decoder:F(0,1)
+	global jinit_phuff_decoder_F0_1
 	global start_pass_upsample
 	global sep_upsample
 	global fullsize_upsample
@@ -799,26 +912,26 @@
 	global h2v2_upsample
 	global h2v1_fancy_upsample
 	global h2v2_fancy_upsample
-	global jinit_upsampler:F(0,1)
+	global jinit_upsampler_F0_1
 	global start_pass_coef
 	global compress_data
 	global compress_output
 	global compress_first_pass
-	global jinit_c_coef_controller:F(0,1)
+	global jinit_c_coef_controller_F0_1
 	global start_pass_main__addr_236608
 	global start_pass_main__addr_236608_20
 	global start_pass_main__addr_236608_10
 	global process_data_simple_main__addr_23665f
-	global jinit_c_main_controller:F(0,1)
+	global jinit_c_main_controller_F0_1
 	global per_scan_setup
 	global pass_startup
 	global finish_pass_master
 	global prepare_for_pass
-	global jinit_c_master_control:F(0,1)
+	global jinit_c_master_control_F0_1
 	global start_pass_prep
 	global pre_process_data
 	global pre_process_context
-	global jinit_c_prep_controller:F(0,1)
+	global jinit_c_prep_controller_F0_1
 	global rgb_ycc_start
 	global rgb_ycc_convert
 	global rgb_gray_convert
@@ -836,7 +949,7 @@
 	global null_convert__addr_238662_20
 	global null_convert__addr_238662_10
 	global null_method
-	global jinit_color_converter:F(0,1)
+	global jinit_color_converter_F0_1
 	global start_pass_downsample
 	global sep_downsample
 	global int_downsample
@@ -845,19 +958,19 @@
 	global h2v1_downsample
 	global fullsize_smooth_downsample
 	global h2v2_smooth_downsample
-	global jinit_downsampler:F(0,1)
+	global jinit_downsampler_F0_1
 	global start_pass_fdctmgr
 	global forward_DCT
 	global forward_DCT_float
-	global jinit_forward_dct:F(0,1)
-	global jpeg_make_c_derived_tbl:F(0,1)
+	global jinit_forward_dct_F0_1
+	global jpeg_make_c_derived_tbl_F0_1
 	global start_pass_huff
 	global encode_mcu_gather
 	global finish_pass_gather
 	global encode_mcu_huff
 	global finish_pass_huff
-	global jpeg_gen_optimal_table:F(0,1)
-	global jinit_huff_encoder:F(0,1)
+	global jpeg_gen_optimal_table_F0_1
+	global jinit_huff_encoder_F0_1
 	global start_pass_phuff
 	global encode_mcu_AC_first
 	global finish_pass_phuff
@@ -865,18 +978,18 @@
 	global finish_pass_gather_phuff
 	global encode_mcu_AC_refine
 	global encode_mcu_DC_first
-	global jinit_phuff_encoder:F(0,1)
+	global jinit_phuff_encoder_F0_1
 	global emit_eobrun
 	global emit_restart
-	global jpeg_idct_4x4:F(0,1)
-	global jpeg_idct_2x2:F(0,1)
-	global jpeg_idct_1x1:F(0,1)
-	global jpeg_idct_float:F(0,1)
-	global jpeg_idct_ifast:F(0,1)
-	global jpeg_idct_islow:F(0,1)
-	global jpeg_fdct_float:F(0,1)
-	global jpeg_fdct_ifast:F(0,1)
-	global jpeg_fdct_islow:F(0,1)
+	global jpeg_idct_4x4_F0_1
+	global jpeg_idct_2x2_F0_1
+	global jpeg_idct_1x1_F0_1
+	global jpeg_idct_float_F0_1
+	global jpeg_idct_ifast_F0_1
+	global jpeg_idct_islow_F0_1
+	global jpeg_fdct_float_F0_1
+	global jpeg_fdct_ifast_F0_1
+	global jpeg_fdct_islow_F0_1
 
 SECTION .text
 _Z11compare_usePKvS0_:
@@ -904,7 +1017,7 @@ _Z20compare_impact_filesPKvS0_:
 	mov eax, [eax]
 	mov [ebp+0x8], eax
 	pop ebp
-	jmp Z7stricmpPKcS0_:F(0,1)
+	jmp Z7stricmpPKcS0__F0_1
 	nop
 
 
@@ -923,9 +1036,9 @@ _Z16init_destinationP20jpeg_compress_struct:
 	ret
 
 
-;Z19empty_output_bufferP20jpeg_compress_struct:F(0,21)
+;Z19empty_output_bufferP20jpeg_compress_struct_F0_21
 
-Z19empty_output_bufferP20jpeg_compress_struct:F(0,21):
+Z19empty_output_bufferP20jpeg_compress_struct_F0_21:
 	push ebp
 	mov ebp, esp
 	mov eax, 0x1
@@ -1624,7 +1737,7 @@ _Z9TransformPmS_:
 	ret
 
 
-;Z7MD5InitP7MD5_CTXm:F(0,1)
+;Z7MD5InitP7MD5_CTXm_F0_1
 
 _Z13make_templatePKc:
 	push ebp
@@ -1639,12 +1752,12 @@ _Z13make_templatePKc:
 	mov dword [esp+0x8], 0x19
 	mov dword [esp+0x4], _cstring_null
 	mov [esp], eax
-	call Z7HTParsePKcS0_i:F(0,2)
+	call Z7HTParsePKcS0_i_F0_2
 	mov [ebp-0x10], eax
 	mov dword [esp+0x8], 0x5
 	mov dword [esp+0x4], _cstring_null
 	mov [esp], ebx
-	call Z7HTParsePKcS0_i:F(0,2)
+	call Z7HTParsePKcS0_i_F0_2
 	mov esi, eax
 	mov dword [esp+0x4], 0x2f
 	mov [esp], eax
@@ -1656,13 +1769,13 @@ _Z13make_templatePKc:
 	mov [esp+0x4], esi
 	lea ebx, [ebp-0x10]
 	mov [esp], ebx
-	call Z7HTSACatPPcPKc:F(0,5)
+	call Z7HTSACatPPcPKc_F0_5
 	mov dword [esp+0x4], _cstring_2
 	mov [esp], ebx
-	call Z7HTSACatPPcPKc:F(0,5)
+	call Z7HTSACatPPcPKc_F0_5
 _Z13make_templatePKc_20:
 	mov [esp], esi
-	call Z13HTMemory_freePv:F(0,6)
+	call Z13HTMemory_freePv_F0_6
 	mov eax, [ebp-0x10]
 	mov [ebp-0xc], eax
 	add esp, 0x20
@@ -1675,13 +1788,13 @@ _Z13make_templatePKc_30:
 	mov [esp+0x4], esi
 	lea eax, [ebp-0x10]
 	mov [esp], eax
-	call Z7HTSACatPPcPKc:F(0,5)
+	call Z7HTSACatPPcPKc_F0_5
 	jmp _Z13make_templatePKc_20
 _Z13make_templatePKc_10:
 	mov dword [esp+0x4], _cstring_2
 	lea eax, [ebp-0xc]
 	mov [esp], eax
-	call Z8HTSACopyPPcPKc:F(0,5)
+	call Z8HTSACopyPPcPKc_F0_5
 	mov eax, [ebp-0xc]
 	add esp, 0x20
 	pop ebx
@@ -1690,7 +1803,7 @@ _Z13make_templatePKc_10:
 	ret
 
 
-;Z11HTBasic_newv:F(0,5)
+;Z11HTBasic_newv_F0_5
 
 _Z13create_objectv:
 	push ebp
@@ -1700,7 +1813,7 @@ _Z13create_objectv:
 	sub esp, 0x10
 	mov dword [esp+0x4], 0x54
 	mov dword [esp], 0x1
-	call Z15HTMemory_callocmm:F(0,7)
+	call Z15HTMemory_callocmm_F0_7
 	mov esi, eax
 	test eax, eax
 	jz _Z13create_objectv_10
@@ -1738,7 +1851,7 @@ _Z13create_objectv_60:
 	mov eax, [esi]
 	mov eax, [edx+eax*4]
 	mov [esp], eax
-	call Z16HTList_addObjectP7_HTListPv:F(0,6)
+	call Z16HTList_addObjectP7_HTListPv_F0_6
 	add dword [HTNetCount], 0x1
 	mov eax, esi
 	add esp, 0x10
@@ -1747,14 +1860,14 @@ _Z13create_objectv_60:
 	pop ebp
 	ret
 _Z13create_objectv_30:
-	call Z10HTList_newv:F(0,1)
+	call Z10HTList_newv_F0_1
 	mov [ebx], eax
 	mov edx, [NetTable]
 	mov [esp+0x4], esi
 	mov eax, [esi]
 	mov eax, [edx+eax*4]
 	mov [esp], eax
-	call Z16HTList_addObjectP7_HTListPv:F(0,6)
+	call Z16HTList_addObjectP7_HTListPv_F0_6
 	add dword [HTNetCount], 0x1
 	mov eax, esi
 	add esp, 0x10
@@ -1766,12 +1879,12 @@ _Z13create_objectv_10:
 	mov dword [esp+0x8], 0x21c
 	mov dword [esp+0x4], _cstring_userskevindevelo5
 	mov dword [esp], _cstring_htnet_new
-	call Z17HTMemory_outofmemPcS_m:F(0,6)
+	call Z17HTMemory_outofmemPcS_m_F0_6
 	jmp _Z13create_objectv_40
 _Z13create_objectv_20:
 	mov dword [esp+0x4], 0x4
 	mov dword [esp], 0x257
-	call Z15HTMemory_callocmm:F(0,7)
+	call Z15HTMemory_callocmm_F0_7
 	mov [NetTable], eax
 	test eax, eax
 	jz _Z13create_objectv_50
@@ -1781,14 +1894,14 @@ _Z13create_objectv_50:
 	mov dword [esp+0x8], 0x222
 	mov dword [esp+0x4], _cstring_userskevindevelo5
 	mov dword [esp], _cstring_create_object
-	call Z17HTMemory_outofmemPcS_m:F(0,6)
+	call Z17HTMemory_outofmemPcS_m_F0_6
 	mov edx, [NetTable]
 	jmp _Z13create_objectv_60
 
 
-;Z9HTNet_dupP6_HTNet:F(0,38)
+;Z9HTNet_dupP6_HTNet_F0_38
 
-jpeg_memory_src:F(0,1)_10:
+jpeg_memory_src_F0_1_10:
 	mov eax, [esi+0x4]
 	mov dword [esp+0x8], 0x20
 	mov dword [esp+0x4], 0x0
@@ -1796,7 +1909,7 @@ jpeg_memory_src:F(0,1)_10:
 	call dword [eax]
 	mov [esi+0x20], eax
 	mov edx, eax
-	jmp jpeg_memory_src:F(0,1)_20
+	jmp jpeg_memory_src_F0_1_20
 	add [eax], al
 
 
@@ -1876,22 +1989,22 @@ output_pass_setup_30:
 	jmp output_pass_setup_10
 
 
-;jpeg_start_decompress:F(0,1)
+;jpeg_start_decompress_F0_1
 
-jpeg_start_decompress:F(0,1):
+jpeg_start_decompress_F0_1:
 	push ebp
 	mov ebp, esp
 	push esi
 	sub esp, 0x14
 	mov esi, [ebp+0x8]
 	cmp dword [esi+0x14], 0xca
-	jz jpeg_start_decompress:F(0,1)_10
-jpeg_start_decompress:F(0,1)_110:
+	jz jpeg_start_decompress_F0_1_10
+jpeg_start_decompress_F0_1_110:
 	mov eax, [esi+0x14]
 	cmp eax, 0xcb
-	jz jpeg_start_decompress:F(0,1)_20
+	jz jpeg_start_decompress_F0_1_20
 	cmp eax, 0xcc
-	jz jpeg_start_decompress:F(0,1)_30
+	jz jpeg_start_decompress_F0_1_30
 	mov eax, [esi]
 	mov dword [eax+0x14], 0x14
 	mov edx, [esi]
@@ -1900,82 +2013,82 @@ jpeg_start_decompress:F(0,1)_110:
 	mov eax, [esi]
 	mov [esp], esi
 	call dword [eax]
-jpeg_start_decompress:F(0,1)_30:
+jpeg_start_decompress_F0_1_30:
 	mov eax, esi
 	call output_pass_setup
 	movzx eax, al
-jpeg_start_decompress:F(0,1)_100:
+jpeg_start_decompress_F0_1_100:
 	add esp, 0x14
 	pop esi
 	pop ebp
 	ret
-jpeg_start_decompress:F(0,1)_20:
+jpeg_start_decompress_F0_1_20:
 	mov eax, [esi+0x198]
 	cmp byte [eax+0x10], 0x0
-	jz jpeg_start_decompress:F(0,1)_40
+	jz jpeg_start_decompress_F0_1_40
 	mov edx, [esi+0x8]
-jpeg_start_decompress:F(0,1)_80:
+jpeg_start_decompress_F0_1_80:
 	test edx, edx
-	jz jpeg_start_decompress:F(0,1)_50
+	jz jpeg_start_decompress_F0_1_50
 	mov [esp], esi
 	call dword [edx]
-jpeg_start_decompress:F(0,1)_50:
+jpeg_start_decompress_F0_1_50:
 	mov eax, [esi+0x198]
 	mov [esp], esi
 	call dword [eax]
 	test eax, eax
-	jz jpeg_start_decompress:F(0,1)_60
+	jz jpeg_start_decompress_F0_1_60
 	cmp eax, 0x2
-	jz jpeg_start_decompress:F(0,1)_40
+	jz jpeg_start_decompress_F0_1_40
 	mov edx, [esi+0x8]
 	test edx, edx
-	jz jpeg_start_decompress:F(0,1)_50
+	jz jpeg_start_decompress_F0_1_50
 	cmp eax, 0x3
-	jz jpeg_start_decompress:F(0,1)_70
+	jz jpeg_start_decompress_F0_1_70
 	sub eax, 0x1
-	jnz jpeg_start_decompress:F(0,1)_80
-jpeg_start_decompress:F(0,1)_70:
+	jnz jpeg_start_decompress_F0_1_80
+jpeg_start_decompress_F0_1_70:
 	mov eax, [edx+0x4]
 	add eax, 0x1
 	mov [edx+0x4], eax
 	mov edx, [esi+0x8]
 	mov ecx, [edx+0x8]
 	cmp eax, ecx
-	jl jpeg_start_decompress:F(0,1)_80
+	jl jpeg_start_decompress_F0_1_80
 	add ecx, [esi+0x124]
 	mov [edx+0x8], ecx
 	mov edx, [esi+0x8]
-	jmp jpeg_start_decompress:F(0,1)_80
-jpeg_start_decompress:F(0,1)_40:
+	jmp jpeg_start_decompress_F0_1_80
+jpeg_start_decompress_F0_1_40:
 	mov eax, [esi+0x84]
 	mov [esi+0x8c], eax
-	jmp jpeg_start_decompress:F(0,1)_30
-jpeg_start_decompress:F(0,1)_10:
+	jmp jpeg_start_decompress_F0_1_30
+jpeg_start_decompress_F0_1_10:
 	mov [esp], esi
-	call jinit_master_decompress:F(0,1)
+	call jinit_master_decompress_F0_1
 	cmp byte [esi+0x48], 0x0
-	jz jpeg_start_decompress:F(0,1)_90
+	jz jpeg_start_decompress_F0_1_90
 	mov dword [esi+0x14], 0xcf
 	mov eax, 0x1
-	jmp jpeg_start_decompress:F(0,1)_100
-jpeg_start_decompress:F(0,1)_90:
+	jmp jpeg_start_decompress_F0_1_100
+jpeg_start_decompress_F0_1_90:
 	mov dword [esi+0x14], 0xcb
-	jmp jpeg_start_decompress:F(0,1)_110
-jpeg_start_decompress:F(0,1)_60:
+	jmp jpeg_start_decompress_F0_1_110
+jpeg_start_decompress_F0_1_60:
 	xor eax, eax
-	jmp jpeg_start_decompress:F(0,1)_100
+	jmp jpeg_start_decompress_F0_1_100
 
 
-;jpeg_read_scanlines:F(0,5)
+;jpeg_read_scanlines_F0_5
 
-jpeg_read_scanlines:F(0,5):
+jpeg_read_scanlines_F0_5:
 	push ebp
 	mov ebp, esp
 	push esi
 	sub esp, 0x24
 	mov esi, [ebp+0x8]
 	cmp dword [esi+0x14], 0xcd
-	jz jpeg_read_scanlines:F(0,5)_10
+	jz jpeg_read_scanlines_F0_5_10
 	mov eax, [esi]
 	mov dword [eax+0x14], 0x14
 	mov edx, [esi]
@@ -1984,13 +2097,13 @@ jpeg_read_scanlines:F(0,5):
 	mov eax, [esi]
 	mov [esp], esi
 	call dword [eax]
-jpeg_read_scanlines:F(0,5)_10:
+jpeg_read_scanlines_F0_5_10:
 	mov edx, [esi+0x80]
 	cmp edx, [esi+0x68]
-	jae jpeg_read_scanlines:F(0,5)_20
+	jae jpeg_read_scanlines_F0_5_20
 	mov eax, [esi+0x8]
 	test eax, eax
-	jz jpeg_read_scanlines:F(0,5)_30
+	jz jpeg_read_scanlines_F0_5_30
 	mov [eax+0x4], edx
 	mov eax, [esi+0x8]
 	mov edx, [esi+0x68]
@@ -1998,7 +2111,7 @@ jpeg_read_scanlines:F(0,5)_10:
 	mov eax, [esi+0x8]
 	mov [esp], esi
 	call dword [eax]
-jpeg_read_scanlines:F(0,5)_30:
+jpeg_read_scanlines_F0_5_30:
 	mov dword [ebp-0xc], 0x0
 	mov edx, [esi+0x18c]
 	mov eax, [ebp+0x10]
@@ -2015,7 +2128,7 @@ jpeg_read_scanlines:F(0,5)_30:
 	pop esi
 	pop ebp
 	ret
-jpeg_read_scanlines:F(0,5)_20:
+jpeg_read_scanlines_F0_5_20:
 	mov eax, [esi]
 	mov dword [eax+0x14], 0x7b
 	mov eax, [esi]
@@ -2029,9 +2142,9 @@ jpeg_read_scanlines:F(0,5)_20:
 	ret
 
 
-;jpeg_add_quant_table:F(0,1)
+;jpeg_add_quant_table_F0_1
 
-jpeg_add_quant_table:F(0,1):
+jpeg_add_quant_table_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -2042,7 +2155,7 @@ jpeg_add_quant_table:F(0,1):
 	movzx eax, byte [ebp+0x18]
 	mov [ebp-0x9], al
 	cmp dword [edi+0x14], 0x64
-	jz jpeg_add_quant_table:F(0,1)_10
+	jz jpeg_add_quant_table_F0_1_10
 	mov eax, [edi]
 	mov dword [eax+0x14], 0x14
 	mov edx, [edi]
@@ -2051,31 +2164,31 @@ jpeg_add_quant_table:F(0,1):
 	mov eax, [edi]
 	mov [esp], edi
 	call dword [eax]
-jpeg_add_quant_table:F(0,1)_10:
+jpeg_add_quant_table_F0_1_10:
 	cmp esi, 0x3
-	ja jpeg_add_quant_table:F(0,1)_20
-jpeg_add_quant_table:F(0,1)_90:
+	ja jpeg_add_quant_table_F0_1_20
+jpeg_add_quant_table_F0_1_90:
 	lea esi, [edi+esi*4+0x4c]
 	mov eax, [esi]
 	test eax, eax
-	jz jpeg_add_quant_table:F(0,1)_30
-jpeg_add_quant_table:F(0,1)_100:
+	jz jpeg_add_quant_table_F0_1_30
+jpeg_add_quant_table_F0_1_100:
 	cmp byte [ebp-0x9], 0x0
-	jnz jpeg_add_quant_table:F(0,1)_40
+	jnz jpeg_add_quant_table_F0_1_40
 	xor ecx, ecx
 	mov edi, 0x51eb851f
-	jmp jpeg_add_quant_table:F(0,1)_50
-jpeg_add_quant_table:F(0,1)_80:
+	jmp jpeg_add_quant_table_F0_1_50
+jpeg_add_quant_table_F0_1_80:
 	cmp edx, 0x7fff
-	jle jpeg_add_quant_table:F(0,1)_60
+	jle jpeg_add_quant_table_F0_1_60
 	mov edx, 0x7fff
-jpeg_add_quant_table:F(0,1)_60:
+jpeg_add_quant_table_F0_1_60:
 	mov eax, [esi]
 	mov [eax+ecx*2], dx
 	add ecx, 0x1
 	cmp ecx, 0x40
-	jz jpeg_add_quant_table:F(0,1)_70
-jpeg_add_quant_table:F(0,1)_50:
+	jz jpeg_add_quant_table_F0_1_70
+jpeg_add_quant_table_F0_1_50:
 	mov eax, [ebp+0x14]
 	mov edx, [ebp+0x10]
 	imul eax, [edx+ecx*4]
@@ -2087,14 +2200,14 @@ jpeg_add_quant_table:F(0,1)_50:
 	sar eax, 0x1f
 	sub edx, eax
 	test edx, edx
-	jg jpeg_add_quant_table:F(0,1)_80
+	jg jpeg_add_quant_table_F0_1_80
 	mov edx, 0x1
 	mov eax, [esi]
 	mov [eax+ecx*2], dx
 	add ecx, 0x1
 	cmp ecx, 0x40
-	jnz jpeg_add_quant_table:F(0,1)_50
-jpeg_add_quant_table:F(0,1)_70:
+	jnz jpeg_add_quant_table_F0_1_50
+jpeg_add_quant_table_F0_1_70:
 	mov eax, [esi]
 	mov byte [eax+0x80], 0x0
 	add esp, 0x30
@@ -2102,7 +2215,7 @@ jpeg_add_quant_table:F(0,1)_70:
 	pop edi
 	pop ebp
 	ret
-jpeg_add_quant_table:F(0,1)_20:
+jpeg_add_quant_table_F0_1_20:
 	mov eax, [edi]
 	mov dword [eax+0x14], 0x1f
 	mov eax, [edi]
@@ -2110,16 +2223,16 @@ jpeg_add_quant_table:F(0,1)_20:
 	mov eax, [edi]
 	mov [esp], edi
 	call dword [eax]
-	jmp jpeg_add_quant_table:F(0,1)_90
-jpeg_add_quant_table:F(0,1)_30:
+	jmp jpeg_add_quant_table_F0_1_90
+jpeg_add_quant_table_F0_1_30:
 	mov [esp], edi
-	call jpeg_alloc_quant_table:F(0,74)
+	call jpeg_alloc_quant_table_F0_74
 	mov [esi], eax
-	jmp jpeg_add_quant_table:F(0,1)_100
-jpeg_add_quant_table:F(0,1)_40:
+	jmp jpeg_add_quant_table_F0_1_100
+jpeg_add_quant_table_F0_1_40:
 	xor ecx, ecx
 	mov edi, 0x51eb851f
-jpeg_add_quant_table:F(0,1)_140:
+jpeg_add_quant_table_F0_1_140:
 	mov eax, [ebp+0x14]
 	mov edx, [ebp+0x10]
 	imul eax, [edx+ecx*4]
@@ -2131,39 +2244,39 @@ jpeg_add_quant_table:F(0,1)_140:
 	sar eax, 0x1f
 	sub edx, eax
 	test edx, edx
-	jle jpeg_add_quant_table:F(0,1)_110
+	jle jpeg_add_quant_table_F0_1_110
 	cmp edx, 0x7fff
-	jg jpeg_add_quant_table:F(0,1)_120
+	jg jpeg_add_quant_table_F0_1_120
 	cmp edx, 0xff
-	jle jpeg_add_quant_table:F(0,1)_130
-jpeg_add_quant_table:F(0,1)_120:
+	jle jpeg_add_quant_table_F0_1_130
+jpeg_add_quant_table_F0_1_120:
 	mov edx, 0xff
-jpeg_add_quant_table:F(0,1)_130:
+jpeg_add_quant_table_F0_1_130:
 	mov eax, [esi]
 	mov [eax+ecx*2], dx
 	add ecx, 0x1
 	cmp ecx, 0x40
-	jnz jpeg_add_quant_table:F(0,1)_140
-	jmp jpeg_add_quant_table:F(0,1)_70
-jpeg_add_quant_table:F(0,1)_110:
+	jnz jpeg_add_quant_table_F0_1_140
+	jmp jpeg_add_quant_table_F0_1_70
+jpeg_add_quant_table_F0_1_110:
 	mov edx, 0x1
-	jmp jpeg_add_quant_table:F(0,1)_130
+	jmp jpeg_add_quant_table_F0_1_130
 
 
-;jpeg_set_colorspace:F(0,1)
+;jpeg_set_colorspace_F0_1
 
-jpeg_set_colorspace:F(0,1):
+jpeg_set_colorspace_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
 	push esi
 	push ebx
 	sub esp, 0x1c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov esi, [ebp+0x8]
 	mov edi, [ebp+0xc]
 	cmp dword [esi+0x14], 0x64
-	jz jpeg_set_colorspace:F(0,1)_10
+	jz jpeg_set_colorspace_F0_1_10
 	mov eax, [esi]
 	mov dword [eax+0x14], 0x14
 	mov edx, [esi]
@@ -2172,18 +2285,18 @@ jpeg_set_colorspace:F(0,1):
 	mov eax, [esi]
 	mov [esp], esi
 	call dword [eax]
-jpeg_set_colorspace:F(0,1)_10:
+jpeg_set_colorspace_F0_1_10:
 	mov [esi+0x44], edi
 	mov byte [esi+0xc8], 0x0
 	mov byte [esi+0xd0], 0x0
 	cmp edi, 0x5
-	ja jpeg_set_colorspace:F(0,1)_20
+	ja jpeg_set_colorspace_F0_1_20
 	mov eax, [ebx+edi*4+0x46]
 	add eax, ebx
 	jmp eax
 	nop
-	ja jpeg_set_colorspace:F(0,1)_30
-jpeg_set_colorspace:F(0,1)_30:
+	ja jpeg_set_colorspace_F0_1_30
+jpeg_set_colorspace_F0_1_30:
 	add [eax], al
 	mov ch, 0x3
 	add [eax], al
@@ -2195,7 +2308,7 @@ jpeg_set_colorspace:F(0,1)_30:
 	add [eax], al
 	rol byte [eax], cl
 	add [eax], al
-jpeg_set_colorspace:F(0,1)_20:
+jpeg_set_colorspace_F0_1_20:
 	mov eax, [esi]
 	mov dword [eax+0x14], 0xa
 	mov eax, [esi]
@@ -2211,14 +2324,14 @@ jpeg_set_colorspace:F(0,1)_20:
 	mov [esi+0x40], eax
 	sub eax, 0x1
 	cmp eax, 0x9
-	ja jpeg_set_colorspace:F(0,1)_40
-jpeg_set_colorspace:F(0,1)_80:
+	ja jpeg_set_colorspace_F0_1_40
+jpeg_set_colorspace_F0_1_80:
 	mov edx, [esi+0x40]
 	test edx, edx
-	jle jpeg_set_colorspace:F(0,1)_50
+	jle jpeg_set_colorspace_F0_1_50
 	xor edx, edx
 	xor ecx, ecx
-jpeg_set_colorspace:F(0,1)_60:
+jpeg_set_colorspace_F0_1_60:
 	mov eax, ecx
 	add eax, [esi+0x48]
 	mov [eax], edx
@@ -2230,8 +2343,8 @@ jpeg_set_colorspace:F(0,1)_60:
 	add edx, 0x1
 	add ecx, 0x54
 	cmp [esi+0x40], edx
-	jg jpeg_set_colorspace:F(0,1)_60
-	jmp jpeg_set_colorspace:F(0,1)_50
+	jg jpeg_set_colorspace_F0_1_60
+	jmp jpeg_set_colorspace_F0_1_50
 	mov byte [esi+0xd0], 0x1
 	mov dword [esi+0x40], 0x4
 	mov eax, [esi+0x48]
@@ -2265,7 +2378,7 @@ jpeg_set_colorspace:F(0,1)_60:
 	mov dword [eax+0x10], 0x0
 	mov dword [eax+0x14], 0x0
 	mov dword [eax+0x18], 0x0
-jpeg_set_colorspace:F(0,1)_50:
+jpeg_set_colorspace_F0_1_50:
 	add esp, 0x1c
 	pop ebx
 	pop esi
@@ -2300,7 +2413,7 @@ jpeg_set_colorspace:F(0,1)_50:
 	mov edx, [esi+0x48]
 	lea eax, [edx+0xfc]
 	mov dword [edx+0xfc], 0x4b
-jpeg_set_colorspace:F(0,1)_70:
+jpeg_set_colorspace_F0_1_70:
 	mov dword [eax+0x8], 0x1
 	mov dword [eax+0xc], 0x1
 	mov dword [eax+0x10], 0x0
@@ -2337,7 +2450,7 @@ jpeg_set_colorspace:F(0,1)_70:
 	mov dword [eax+0x10], 0x1
 	mov dword [eax+0x14], 0x1
 	mov dword [eax+0x18], 0x1
-	jmp jpeg_set_colorspace:F(0,1)_50
+	jmp jpeg_set_colorspace_F0_1_50
 	mov byte [esi+0xd0], 0x1
 	mov dword [esi+0x40], 0x3
 	mov eax, [esi+0x48]
@@ -2358,13 +2471,13 @@ jpeg_set_colorspace:F(0,1)_70:
 	mov edx, [esi+0x48]
 	lea eax, [edx+0xa8]
 	mov dword [edx+0xa8], 0x42
-	jmp jpeg_set_colorspace:F(0,1)_70
+	jmp jpeg_set_colorspace_F0_1_70
 	mov byte [esi+0xc8], 0x1
 	mov dword [esi+0x40], 0x1
 	mov eax, [esi+0x48]
 	mov dword [eax], 0x1
-	jmp jpeg_set_colorspace:F(0,1)_70
-jpeg_set_colorspace:F(0,1)_40:
+	jmp jpeg_set_colorspace_F0_1_70
+jpeg_set_colorspace_F0_1_40:
 	mov eax, [esi]
 	mov dword [eax+0x14], 0x1a
 	mov edx, [esi]
@@ -2375,20 +2488,20 @@ jpeg_set_colorspace:F(0,1)_40:
 	mov eax, [esi]
 	mov [esp], esi
 	call dword [eax]
-	jmp jpeg_set_colorspace:F(0,1)_80
+	jmp jpeg_set_colorspace_F0_1_80
 
 
-;jpeg_default_colorspace:F(0,1)
+;jpeg_default_colorspace_F0_1
 
-jpeg_default_colorspace:F(0,1):
+jpeg_default_colorspace_F0_1:
 	push ebp
 	mov ebp, esp
 	push ebx
 	sub esp, 0x14
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov edx, [ebp+0x8]
 	cmp dword [edx+0x30], 0x5
-	ja 0x223c8c
+	; [sanitized: stripped ja 0x223c8c --Win32 COFF cannot relocate absolute jumps]
 	mov eax, [edx+0x30]
 	mov eax, [ebx+eax*4+0x17]
 	add eax, ebx
@@ -2416,54 +2529,54 @@ jpeg_default_colorspace:F(0,1):
 	jmp ecx
 	mov dword [esp+0x4], 0x3
 	mov [esp], edx
-	call jpeg_set_colorspace:F(0,1)
-jpeg_default_colorspace:F(0,1)_10:
+	call jpeg_set_colorspace_F0_1
+jpeg_default_colorspace_F0_1_10:
 	add esp, 0x14
 	pop ebx
 	pop ebp
 	ret
 	mov dword [esp+0x4], 0x0
 	mov [esp], edx
-	call jpeg_set_colorspace:F(0,1)
-	jmp jpeg_default_colorspace:F(0,1)_10
+	call jpeg_set_colorspace_F0_1
+	jmp jpeg_default_colorspace_F0_1_10
 	mov dword [esp+0x4], 0x1
 	mov [esp], edx
-	call jpeg_set_colorspace:F(0,1)
-	jmp jpeg_default_colorspace:F(0,1)_10
+	call jpeg_set_colorspace_F0_1
+	jmp jpeg_default_colorspace_F0_1_10
 	mov dword [esp+0x4], 0x5
 	mov [esp], edx
-	call jpeg_set_colorspace:F(0,1)
-	jmp jpeg_default_colorspace:F(0,1)_10
+	call jpeg_set_colorspace_F0_1
+	jmp jpeg_default_colorspace_F0_1_10
 	mov dword [esp+0x4], 0x4
 	mov [esp], edx
-	call jpeg_set_colorspace:F(0,1)
-	jmp jpeg_default_colorspace:F(0,1)_10
+	call jpeg_set_colorspace_F0_1
+	jmp jpeg_default_colorspace_F0_1_10
 	add [eax], al
 
 
-;jpeg_set_quality:F(0,1)
+;jpeg_set_quality_F0_1
 
-jpeg_set_quality:F(0,1):
+jpeg_set_quality_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
 	push esi
 	push ebx
 	sub esp, 0x2c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov edx, [ebp+0xc]
 	movzx ecx, byte [ebp+0x10]
 	test edx, edx
-	jle jpeg_set_quality:F(0,1)_10
+	jle jpeg_set_quality_F0_1_10
 	cmp edx, 0x64
-	jg jpeg_set_quality:F(0,1)_20
+	jg jpeg_set_quality_F0_1_20
 	cmp edx, 0x31
-	jle jpeg_set_quality:F(0,1)_30
+	jle jpeg_set_quality_F0_1_30
 	lea eax, [edx+edx]
-jpeg_set_quality:F(0,1)_40:
+jpeg_set_quality_F0_1_40:
 	mov edi, 0xc8
 	sub edi, eax
-jpeg_set_quality:F(0,1)_50:
+jpeg_set_quality_F0_1_50:
 	movzx esi, cl
 	mov [esp+0x10], esi
 	mov [esp+0xc], edi
@@ -2472,7 +2585,7 @@ jpeg_set_quality:F(0,1)_50:
 	mov dword [esp+0x4], 0x0
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call jpeg_add_quant_table:F(0,1)
+	call jpeg_add_quant_table_F0_1
 	mov [esp+0x10], esi
 	mov [esp+0xc], edi
 	lea eax, [ebx+0x11bdce]
@@ -2480,42 +2593,42 @@ jpeg_set_quality:F(0,1)_50:
 	mov dword [esp+0x4], 0x1
 	mov esi, [ebp+0x8]
 	mov [esp], esi
-	call jpeg_add_quant_table:F(0,1)
+	call jpeg_add_quant_table_F0_1
 	add esp, 0x2c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-jpeg_set_quality:F(0,1)_20:
+jpeg_set_quality_F0_1_20:
 	mov eax, 0xc8
-	jmp jpeg_set_quality:F(0,1)_40
-jpeg_set_quality:F(0,1)_10:
+	jmp jpeg_set_quality_F0_1_40
+jpeg_set_quality_F0_1_10:
 	mov edi, 0x1388
-	jmp jpeg_set_quality:F(0,1)_50
-jpeg_set_quality:F(0,1)_30:
+	jmp jpeg_set_quality_F0_1_50
+jpeg_set_quality_F0_1_30:
 	mov edi, 0x1388
 	mov eax, edi
 	mov esi, edx
 	cdq
 	idiv esi
 	mov edi, eax
-	jmp jpeg_set_quality:F(0,1)_50
+	jmp jpeg_set_quality_F0_1_50
 
 
-;jpeg_set_defaults:F(0,1)
+;jpeg_set_defaults_F0_1
 
-jpeg_set_defaults:F(0,1):
+jpeg_set_defaults_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
 	push esi
 	push ebx
 	sub esp, 0x3c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov edi, [ebp+0x8]
 	cmp dword [edi+0x14], 0x64
-	jz jpeg_set_defaults:F(0,1)_10
+	jz jpeg_set_defaults_F0_1_10
 	mov eax, [edi]
 	mov dword [eax+0x14], 0x14
 	mov edx, [edi]
@@ -2524,11 +2637,11 @@ jpeg_set_defaults:F(0,1):
 	mov eax, [edi]
 	mov [esp], edi
 	call dword [eax]
-jpeg_set_defaults:F(0,1)_10:
+jpeg_set_defaults_F0_1_10:
 	mov eax, [edi+0x48]
 	test eax, eax
-	jz jpeg_set_defaults:F(0,1)_20
-jpeg_set_defaults:F(0,1)_240:
+	jz jpeg_set_defaults_F0_1_20
+jpeg_set_defaults_F0_1_240:
 	mov dword [edi+0x3c], 0x8
 	mov dword [esp+0x10], 0x1
 	mov dword [esp+0xc], 0x32
@@ -2536,21 +2649,21 @@ jpeg_set_defaults:F(0,1)_240:
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], 0x0
 	mov [esp], edi
-	call jpeg_add_quant_table:F(0,1)
+	call jpeg_add_quant_table_F0_1
 	mov dword [esp+0x10], 0x1
 	mov dword [esp+0xc], 0x32
 	lea eax, [ebx+0x11bd2e]
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], 0x1
 	mov [esp], edi
-	call jpeg_add_quant_table:F(0,1)
+	call jpeg_add_quant_table_F0_1
 	lea eax, [edi+0x5c]
 	mov [ebp-0x28], eax
 	mov eax, [edi+0x5c]
 	test eax, eax
-	jz jpeg_set_defaults:F(0,1)_30
+	jz jpeg_set_defaults_F0_1_30
 	mov edx, [edi+0x5c]
-jpeg_set_defaults:F(0,1)_250:
+jpeg_set_defaults_F0_1_250:
 	mov eax, [ebx+0x11c0ca]
 	mov [edx], eax
 	mov eax, [ebx+0x11c0ce]
@@ -2564,16 +2677,16 @@ jpeg_set_defaults:F(0,1)_250:
 	xor esi, esi
 	lea edx, [ebx+0x11c0ca]
 	lea ecx, [edx+0x10]
-jpeg_set_defaults:F(0,1)_40:
+jpeg_set_defaults_F0_1_40:
 	movzx eax, byte [edx+0x1]
 	add esi, eax
 	add edx, 0x1
 	cmp edx, ecx
-	jnz jpeg_set_defaults:F(0,1)_40
+	jnz jpeg_set_defaults_F0_1_40
 	lea eax, [esi-0x1]
 	cmp eax, 0xff
-	ja jpeg_set_defaults:F(0,1)_50
-jpeg_set_defaults:F(0,1)_170:
+	ja jpeg_set_defaults_F0_1_50
+jpeg_set_defaults_F0_1_170:
 	mov edx, [ebp-0x28]
 	mov eax, [edx]
 	add eax, 0x11
@@ -2589,9 +2702,9 @@ jpeg_set_defaults:F(0,1)_170:
 	mov [ebp-0x24], eax
 	mov eax, [edi+0x6c]
 	test eax, eax
-	jz jpeg_set_defaults:F(0,1)_60
+	jz jpeg_set_defaults_F0_1_60
 	mov edx, [edi+0x6c]
-jpeg_set_defaults:F(0,1)_210:
+jpeg_set_defaults_F0_1_210:
 	mov eax, [ebx+0x11c090]
 	mov [edx], eax
 	mov eax, [ebx+0x11c094]
@@ -2605,16 +2718,16 @@ jpeg_set_defaults:F(0,1)_210:
 	xor esi, esi
 	lea edx, [ebx+0x11c090]
 	lea ecx, [edx+0x10]
-jpeg_set_defaults:F(0,1)_70:
+jpeg_set_defaults_F0_1_70:
 	movzx eax, byte [edx+0x1]
 	add esi, eax
 	add edx, 0x1
 	cmp edx, ecx
-	jnz jpeg_set_defaults:F(0,1)_70
+	jnz jpeg_set_defaults_F0_1_70
 	lea eax, [esi-0x1]
 	cmp eax, 0xff
-	ja jpeg_set_defaults:F(0,1)_80
-jpeg_set_defaults:F(0,1)_200:
+	ja jpeg_set_defaults_F0_1_80
+jpeg_set_defaults_F0_1_200:
 	mov edx, [ebp-0x24]
 	mov eax, [edx]
 	add eax, 0x11
@@ -2632,9 +2745,9 @@ jpeg_set_defaults:F(0,1)_200:
 	mov edx, [ebp-0x28]
 	mov eax, [edx+0x4]
 	test eax, eax
-	jz jpeg_set_defaults:F(0,1)_90
+	jz jpeg_set_defaults_F0_1_90
 	mov eax, edx
-jpeg_set_defaults:F(0,1)_220:
+jpeg_set_defaults_F0_1_220:
 	mov edx, [eax+0x4]
 	mov eax, [ebx+0x11c0ad]
 	mov [edx], eax
@@ -2649,16 +2762,16 @@ jpeg_set_defaults:F(0,1)_220:
 	xor esi, esi
 	lea edx, [ebx+0x11c0ad]
 	lea ecx, [edx+0x10]
-jpeg_set_defaults:F(0,1)_100:
+jpeg_set_defaults_F0_1_100:
 	movzx eax, byte [edx+0x1]
 	add esi, eax
 	add edx, 0x1
 	cmp edx, ecx
-	jnz jpeg_set_defaults:F(0,1)_100
+	jnz jpeg_set_defaults_F0_1_100
 	lea eax, [esi-0x1]
 	cmp eax, 0xff
-	ja jpeg_set_defaults:F(0,1)_110
-jpeg_set_defaults:F(0,1)_190:
+	ja jpeg_set_defaults_F0_1_110
+jpeg_set_defaults_F0_1_190:
 	mov edx, [ebp-0x20]
 	mov eax, [edx]
 	add eax, 0x11
@@ -2676,9 +2789,9 @@ jpeg_set_defaults:F(0,1)_190:
 	mov edx, [ebp-0x24]
 	mov esi, [edx+0x4]
 	test esi, esi
-	jz jpeg_set_defaults:F(0,1)_120
+	jz jpeg_set_defaults_F0_1_120
 	mov eax, edx
-jpeg_set_defaults:F(0,1)_230:
+jpeg_set_defaults_F0_1_230:
 	mov edx, [eax+0x4]
 	mov eax, [ebx+0x11bfd0]
 	mov [edx], eax
@@ -2693,16 +2806,16 @@ jpeg_set_defaults:F(0,1)_230:
 	xor esi, esi
 	lea edx, [ebx+0x11bfd0]
 	lea ecx, [edx+0x10]
-jpeg_set_defaults:F(0,1)_130:
+jpeg_set_defaults_F0_1_130:
 	movzx eax, byte [edx+0x1]
 	add esi, eax
 	add edx, 0x1
 	cmp edx, ecx
-	jnz jpeg_set_defaults:F(0,1)_130
+	jnz jpeg_set_defaults_F0_1_130
 	lea eax, [esi-0x1]
 	cmp eax, 0xff
-	ja jpeg_set_defaults:F(0,1)_140
-jpeg_set_defaults:F(0,1)_180:
+	ja jpeg_set_defaults_F0_1_140
+jpeg_set_defaults_F0_1_180:
 	mov edx, [ebp-0x1c]
 	mov eax, [edx]
 	add eax, 0x11
@@ -2716,22 +2829,22 @@ jpeg_set_defaults:F(0,1)_180:
 	mov byte [eax+0x111], 0x0
 	mov eax, edi
 	mov edx, 0x10
-jpeg_set_defaults:F(0,1)_150:
+jpeg_set_defaults_F0_1_150:
 	mov byte [eax+0x7c], 0x0
 	mov byte [eax+0x8c], 0x1
 	mov byte [eax+0x9c], 0x5
 	add eax, 0x1
 	sub edx, 0x1
-	jnz jpeg_set_defaults:F(0,1)_150
+	jnz jpeg_set_defaults_F0_1_150
 	mov dword [edi+0xb0], 0x0
 	mov dword [edi+0xac], 0x0
 	mov byte [edi+0xb4], 0x0
 	mov byte [edi+0xb5], 0x0
 	mov byte [edi+0xb6], 0x0
 	cmp dword [edi+0x3c], 0x8
-	jle jpeg_set_defaults:F(0,1)_160
+	jle jpeg_set_defaults_F0_1_160
 	mov byte [edi+0xb6], 0x1
-jpeg_set_defaults:F(0,1)_160:
+jpeg_set_defaults_F0_1_160:
 	mov byte [edi+0xb7], 0x0
 	mov dword [edi+0xb8], 0x0
 	mov dword [edi+0xbc], 0x0
@@ -2748,75 +2861,75 @@ jpeg_set_defaults:F(0,1)_160:
 	pop esi
 	pop edi
 	pop ebp
-	jmp jpeg_default_colorspace:F(0,1)
-jpeg_set_defaults:F(0,1)_50:
+	jmp jpeg_default_colorspace_F0_1
+jpeg_set_defaults_F0_1_50:
 	mov eax, [edi]
 	mov dword [eax+0x14], 0x8
 	mov eax, [edi]
 	mov [esp], edi
 	call dword [eax]
-	jmp jpeg_set_defaults:F(0,1)_170
-jpeg_set_defaults:F(0,1)_140:
+	jmp jpeg_set_defaults_F0_1_170
+jpeg_set_defaults_F0_1_140:
 	mov eax, [edi]
 	mov dword [eax+0x14], 0x8
 	mov eax, [edi]
 	mov [esp], edi
 	call dword [eax]
-	jmp jpeg_set_defaults:F(0,1)_180
-jpeg_set_defaults:F(0,1)_110:
+	jmp jpeg_set_defaults_F0_1_180
+jpeg_set_defaults_F0_1_110:
 	mov eax, [edi]
 	mov dword [eax+0x14], 0x8
 	mov eax, [edi]
 	mov [esp], edi
 	call dword [eax]
-	jmp jpeg_set_defaults:F(0,1)_190
-jpeg_set_defaults:F(0,1)_80:
+	jmp jpeg_set_defaults_F0_1_190
+jpeg_set_defaults_F0_1_80:
 	mov eax, [edi]
 	mov dword [eax+0x14], 0x8
 	mov eax, [edi]
 	mov [esp], edi
 	call dword [eax]
-	jmp jpeg_set_defaults:F(0,1)_200
-jpeg_set_defaults:F(0,1)_60:
+	jmp jpeg_set_defaults_F0_1_200
+jpeg_set_defaults_F0_1_60:
 	mov [esp], edi
-	call jpeg_alloc_huff_table:F(0,80)
+	call jpeg_alloc_huff_table_F0_80
 	mov [edi+0x6c], eax
 	mov edx, eax
-	jmp jpeg_set_defaults:F(0,1)_210
-jpeg_set_defaults:F(0,1)_90:
+	jmp jpeg_set_defaults_F0_1_210
+jpeg_set_defaults_F0_1_90:
 	mov [esp], edi
-	call jpeg_alloc_huff_table:F(0,80)
+	call jpeg_alloc_huff_table_F0_80
 	mov edx, [ebp-0x28]
 	mov [edx+0x4], eax
 	mov eax, [ebp-0x28]
-	jmp jpeg_set_defaults:F(0,1)_220
-jpeg_set_defaults:F(0,1)_120:
+	jmp jpeg_set_defaults_F0_1_220
+jpeg_set_defaults_F0_1_120:
 	mov [esp], edi
-	call jpeg_alloc_huff_table:F(0,80)
+	call jpeg_alloc_huff_table_F0_80
 	mov edx, [ebp-0x24]
 	mov [edx+0x4], eax
 	mov eax, [ebp-0x24]
-	jmp jpeg_set_defaults:F(0,1)_230
-jpeg_set_defaults:F(0,1)_20:
+	jmp jpeg_set_defaults_F0_1_230
+jpeg_set_defaults_F0_1_20:
 	mov eax, [edi+0x4]
 	mov dword [esp+0x8], 0x348
 	mov dword [esp+0x4], 0x0
 	mov [esp], edi
 	call dword [eax]
 	mov [edi+0x48], eax
-	jmp jpeg_set_defaults:F(0,1)_240
-jpeg_set_defaults:F(0,1)_30:
+	jmp jpeg_set_defaults_F0_1_240
+jpeg_set_defaults_F0_1_30:
 	mov [esp], edi
-	call jpeg_alloc_huff_table:F(0,80)
+	call jpeg_alloc_huff_table_F0_80
 	mov [edi+0x5c], eax
 	mov edx, eax
-	jmp jpeg_set_defaults:F(0,1)_250
+	jmp jpeg_set_defaults_F0_1_250
 	add [eax], al
 
 
-;jpeg_start_compress:F(0,1)
+;jpeg_start_compress_F0_1
 
-jpeg_start_compress:F(0,1):
+jpeg_start_compress_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -2825,7 +2938,7 @@ jpeg_start_compress:F(0,1):
 	mov esi, [ebp+0x8]
 	movzx edi, byte [ebp+0xc]
 	cmp dword [esi+0x14], 0x64
-	jz jpeg_start_compress:F(0,1)_10
+	jz jpeg_start_compress_F0_1_10
 	mov eax, [esi]
 	mov dword [eax+0x14], 0x14
 	mov edx, [esi]
@@ -2834,11 +2947,11 @@ jpeg_start_compress:F(0,1):
 	mov eax, [esi]
 	mov [esp], esi
 	call dword [eax]
-jpeg_start_compress:F(0,1)_10:
+jpeg_start_compress_F0_1_10:
 	mov eax, edi
 	test al, al
-	jnz jpeg_start_compress:F(0,1)_20
-jpeg_start_compress:F(0,1)_30:
+	jnz jpeg_start_compress_F0_1_20
+jpeg_start_compress_F0_1_30:
 	mov eax, [esi]
 	mov [esp], esi
 	call dword [eax+0x10]
@@ -2846,7 +2959,7 @@ jpeg_start_compress:F(0,1)_30:
 	mov [esp], esi
 	call dword [eax+0x8]
 	mov [esp], esi
-	call jinit_compress_master:F(0,1)
+	call jinit_compress_master_F0_1
 	mov eax, [esi+0x140]
 	mov [esp], esi
 	call dword [eax]
@@ -2860,16 +2973,16 @@ jpeg_start_compress:F(0,1)_30:
 	pop edi
 	pop ebp
 	ret
-jpeg_start_compress:F(0,1)_20:
+jpeg_start_compress_F0_1_20:
 	mov dword [esp+0x4], 0x0
 	mov [esp], esi
-	call jpeg_suppress_tables:F(0,1)
-	jmp jpeg_start_compress:F(0,1)_30
+	call jpeg_suppress_tables_F0_1
+	jmp jpeg_start_compress_F0_1_30
 
 
-;jpeg_write_scanlines:F(0,15)
+;jpeg_write_scanlines_F0_15
 
-jpeg_write_scanlines:F(0,15):
+jpeg_write_scanlines_F0_15:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -2878,7 +2991,7 @@ jpeg_write_scanlines:F(0,15):
 	mov esi, [ebp+0x8]
 	mov edi, [ebp+0x10]
 	cmp dword [esi+0x14], 0x65
-	jz jpeg_write_scanlines:F(0,15)_10
+	jz jpeg_write_scanlines_F0_15_10
 	mov eax, [esi]
 	mov dword [eax+0x14], 0x14
 	mov edx, [esi]
@@ -2887,14 +3000,14 @@ jpeg_write_scanlines:F(0,15):
 	mov eax, [esi]
 	mov [esp], esi
 	call dword [eax]
-jpeg_write_scanlines:F(0,15)_10:
+jpeg_write_scanlines_F0_15_10:
 	mov eax, [esi+0xd4]
 	cmp eax, [esi+0x28]
-	jae jpeg_write_scanlines:F(0,15)_20
-jpeg_write_scanlines:F(0,15)_50:
+	jae jpeg_write_scanlines_F0_15_20
+jpeg_write_scanlines_F0_15_50:
 	mov edx, [esi+0x8]
 	test edx, edx
-	jz jpeg_write_scanlines:F(0,15)_30
+	jz jpeg_write_scanlines_F0_15_30
 	mov eax, [esi+0xd4]
 	mov [edx+0x4], eax
 	mov edx, [esi+0x8]
@@ -2903,11 +3016,11 @@ jpeg_write_scanlines:F(0,15)_50:
 	mov eax, [esi+0x8]
 	mov [esp], esi
 	call dword [eax]
-jpeg_write_scanlines:F(0,15)_30:
+jpeg_write_scanlines_F0_15_30:
 	mov eax, [esi+0x140]
 	cmp byte [eax+0xc], 0x0
-	jnz jpeg_write_scanlines:F(0,15)_40
-jpeg_write_scanlines:F(0,15)_60:
+	jnz jpeg_write_scanlines_F0_15_40
+jpeg_write_scanlines_F0_15_60:
 	mov eax, [esi+0x28]
 	sub eax, [esi+0xd4]
 	cmp eax, edi
@@ -2928,18 +3041,18 @@ jpeg_write_scanlines:F(0,15)_60:
 	pop edi
 	pop ebp
 	ret
-jpeg_write_scanlines:F(0,15)_20:
+jpeg_write_scanlines_F0_15_20:
 	mov eax, [esi]
 	mov dword [eax+0x14], 0x7b
 	mov eax, [esi]
 	mov dword [esp+0x4], 0xffffffff
 	mov [esp], esi
 	call dword [eax+0x4]
-	jmp jpeg_write_scanlines:F(0,15)_50
-jpeg_write_scanlines:F(0,15)_40:
+	jmp jpeg_write_scanlines_F0_15_50
+jpeg_write_scanlines_F0_15_40:
 	mov [esp], esi
 	call dword [eax+0x4]
-	jmp jpeg_write_scanlines:F(0,15)_60
+	jmp jpeg_write_scanlines_F0_15_60
 	add [eax], al
 
 
@@ -2954,7 +3067,7 @@ error_exit:
 	mov [esp], esi
 	call dword [eax+0x8]
 	mov [esp], esi
-	call jpeg_destroy:F(0,1)
+	call jpeg_destroy_F0_1
 	mov eax, [esi]
 	mov ecx, [eax+0x84]
 	add esp, 0x14
@@ -3129,12 +3242,12 @@ reset_error_mgr:
 	ret
 
 
-;jpeg_std_error:F(0,5)
+;jpeg_std_error_F0_5
 
-jpeg_std_error:F(0,5):
+jpeg_std_error_F0_5:
 	push ebp
 	mov ebp, esp
-	call __i686.get_pc_thunk.cx
+	call __i686_get_pc_thunk_cx
 	mov eax, [ebp+0x8]
 	lea edx, [ecx-0x19b]
 	mov [eax], edx
@@ -3163,7 +3276,7 @@ jpeg_std_error:F(0,5):
 	ret
 
 
-;adler32:F(0,1)
+;adler32_F0_1
 
 ;write_marker_byte
 write_marker_byte:
@@ -5017,15 +5130,15 @@ write_marker_header_10:
 	jmp write_marker_header_100
 
 
-;jinit_marker_writer:F(0,1)
+;jinit_marker_writer_F0_1
 
-jinit_marker_writer:F(0,1):
+jinit_marker_writer_F0_1:
 	push ebp
 	mov ebp, esp
 	push esi
 	push ebx
 	sub esp, 0x10
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov esi, [ebp+0x8]
 	mov eax, [esi+0x4]
 	mov dword [esp+0x8], 0x20
@@ -5706,7 +5819,7 @@ emit_dqt:
 	push esi
 	push ebx
 	sub esp, 0x2c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov [ebp-0x28], eax
 	mov edi, edx
 	mov eax, [eax+edx*4+0x4c]
@@ -5994,7 +6107,7 @@ free_pool_30:
 	mov [esp+0x4], eax
 	mov ecx, [ebp+0x8]
 	mov [esp], ecx
-	call jpeg_free_large:F(0,6)
+	call jpeg_free_large_F0_6
 	mov eax, [ebp-0xc]
 	sub [eax+0x4c], esi
 	test edi, edi
@@ -6018,7 +6131,7 @@ free_pool_60:
 	mov [esp+0x4], eax
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call jpeg_free_small:F(0,6)
+	call jpeg_free_small_F0_6
 	mov edx, [ebp-0xc]
 	sub [edx+0x4c], esi
 	test edi, edi
@@ -6104,14 +6217,14 @@ self_destruct_10:
 	mov eax, [edi+0x4]
 	mov [esp+0x4], eax
 	mov [esp], edi
-	call jpeg_free_small:F(0,6)
+	call jpeg_free_small_F0_6
 	mov dword [edi+0x4], 0x0
 	mov [ebp+0x8], edi
 	add esp, 0x10
 	pop esi
 	pop edi
 	pop ebp
-	jmp jpeg_mem_term:F(0,6)
+	jmp jpeg_mem_term_F0_6
 
 
 ;alloc_small
@@ -6122,7 +6235,7 @@ alloc_small:
 	push esi
 	push ebx
 	sub esp, 0x2c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov eax, [ebp+0x8]
 	mov eax, [eax+0x4]
 	mov [ebp-0x24], eax
@@ -6228,7 +6341,7 @@ alloc_small_100:
 	mov [esp+0x4], esi
 	mov ecx, [ebp+0x8]
 	mov [esp], ecx
-	call jpeg_get_small:F(0,1)
+	call jpeg_get_small_F0_1
 	mov ecx, eax
 	test eax, eax
 	jnz alloc_small_110
@@ -6249,7 +6362,7 @@ alloc_small_120:
 	mov [esp+0x4], esi
 	mov ecx, [ebp+0x8]
 	mov [esp], ecx
-	call jpeg_get_small:F(0,1)
+	call jpeg_get_small_F0_1
 	mov ecx, eax
 	test eax, eax
 	jz alloc_small_120
@@ -6330,7 +6443,7 @@ alloc_large_30:
 	mov [esp+0x4], eax
 	mov ecx, [ebp+0x8]
 	mov [esp], ecx
-	call jpeg_get_large:F(0,1)
+	call jpeg_get_large_F0_1
 	mov esi, eax
 	test eax, eax
 	jz alloc_large_40
@@ -6710,7 +6823,7 @@ realize_virt_arrays_60:
 	mov [esp+0x4], esi
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call jpeg_mem_available:F(0,25)
+	call jpeg_mem_available_F0_25
 	cmp eax, edi
 	jl realize_virt_arrays_90
 	mov dword [ebp-0x20], 0x3b9aca00
@@ -6850,7 +6963,7 @@ realize_virt_arrays_190:
 	mov [esp+0x4], eax
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call jpeg_open_backing_store:F(0,6)
+	call jpeg_open_backing_store_F0_6
 	mov byte [esi+0x22], 0x1
 	mov eax, [esi+0x10]
 	jmp realize_virt_arrays_210
@@ -6899,7 +7012,7 @@ realize_virt_arrays_140:
 	mov [esp+0x4], eax
 	mov ecx, [ebp+0x8]
 	mov [esp], ecx
-	call jpeg_open_backing_store:F(0,6)
+	call jpeg_open_backing_store_F0_6
 	mov byte [edi+0x22], 0x1
 	mov esi, [edi+0x10]
 	mov [ebp-0xc], esi
@@ -7230,7 +7343,7 @@ access_virt_sarray_290:
 	mov eax, [edx]
 	mov eax, [eax+esi]
 	mov [esp], eax
-	call jzero_far:F(0,2)
+	call jzero_far_F0_2
 	add edi, 0x1
 	add esi, 0x4
 	cmp [ebp-0x24], edi
@@ -7579,7 +7692,7 @@ access_virt_barray_290:
 	mov eax, [edx]
 	mov eax, [eax+esi]
 	mov [esp], eax
-	call jzero_far:F(0,2)
+	call jzero_far_F0_2
 	add edi, 0x1
 	add esi, 0x4
 	cmp [ebp-0x2c], edi
@@ -7624,28 +7737,28 @@ access_virt_barray_200:
 	jmp access_virt_barray_190
 
 
-;jinit_memory_mgr:F(0,1)
+;jinit_memory_mgr_F0_1
 
-jinit_memory_mgr:F(0,1):
+jinit_memory_mgr_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
 	push esi
 	push ebx
 	sub esp, 0x2c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov edi, [ebp+0x8]
 	mov dword [edi+0x4], 0x0
 	mov [esp], edi
-	call jpeg_mem_init:F(0,25)
+	call jpeg_mem_init_F0_25
 	mov [ebp-0x1c], eax
 	mov dword [esp+0x4], 0x54
 	mov [esp], edi
-	call jpeg_get_small:F(0,1)
+	call jpeg_get_small_F0_1
 	mov esi, eax
 	test eax, eax
-	jz jinit_memory_mgr:F(0,1)_10
-jinit_memory_mgr:F(0,1)_30:
+	jz jinit_memory_mgr_F0_1_10
+jinit_memory_mgr_F0_1_30:
 	lea eax, [ebx+0x101]
 	mov [esi], eax
 	lea eax, [ebx+0x3d4]
@@ -7673,12 +7786,12 @@ jinit_memory_mgr:F(0,1)_30:
 	mov [esi+0x2c], eax
 	mov eax, esi
 	mov edx, 0x2
-jinit_memory_mgr:F(0,1)_20:
+jinit_memory_mgr_F0_1_20:
 	mov dword [eax+0x38], 0x0
 	mov dword [eax+0x40], 0x0
 	sub eax, 0x4
 	sub edx, 0x1
-	jnz jinit_memory_mgr:F(0,1)_20
+	jnz jinit_memory_mgr_F0_1_20
 	mov dword [esi+0x44], 0x0
 	mov dword [esi+0x48], 0x0
 	mov dword [esi+0x4c], 0x54
@@ -7689,9 +7802,9 @@ jinit_memory_mgr:F(0,1)_20:
 	pop edi
 	pop ebp
 	ret
-jinit_memory_mgr:F(0,1)_10:
+jinit_memory_mgr_F0_1_10:
 	mov [esp], edi
-	call jpeg_mem_term:F(0,6)
+	call jpeg_mem_term_F0_6
 	mov eax, [edi]
 	mov dword [eax+0x14], 0x36
 	mov eax, [edi]
@@ -7699,12 +7812,12 @@ jinit_memory_mgr:F(0,1)_10:
 	mov eax, [edi]
 	mov [esp], edi
 	call dword [eax]
-	jmp jinit_memory_mgr:F(0,1)_30
+	jmp jinit_memory_mgr_F0_1_30
 
 
-;jpeg_abort:F(0,1)
+;jpeg_abort_F0_1
 
-jpeg_abort:F(0,1):
+jpeg_abort_F0_1:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -7712,19 +7825,19 @@ jpeg_abort:F(0,1):
 	mov esi, [ebp+0x8]
 	mov eax, [esi+0x4]
 	test eax, eax
-	jz jpeg_abort:F(0,1)_10
+	jz jpeg_abort_F0_1_10
 	mov dword [esp+0x4], 0x1
 	mov [esp], esi
 	call dword [eax+0x24]
 	cmp byte [esi+0x10], 0x0
-	jnz jpeg_abort:F(0,1)_20
+	jnz jpeg_abort_F0_1_20
 	mov dword [esi+0x14], 0x64
-jpeg_abort:F(0,1)_10:
+jpeg_abort_F0_1_10:
 	add esp, 0x14
 	pop esi
 	pop ebp
 	ret
-jpeg_abort:F(0,1)_20:
+jpeg_abort_F0_1_20:
 	mov dword [esi+0x14], 0xc8
 	mov dword [esi+0x114], 0x0
 	add esp, 0x14
@@ -7733,9 +7846,9 @@ jpeg_abort:F(0,1)_20:
 	ret
 
 
-;jpeg_destroy:F(0,1)
+;jpeg_destroy_F0_1
 
-jpeg_destroy:F(0,1):
+jpeg_destroy_F0_1:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -7743,10 +7856,10 @@ jpeg_destroy:F(0,1):
 	mov esi, [ebp+0x8]
 	mov eax, [esi+0x4]
 	test eax, eax
-	jz jpeg_destroy:F(0,1)_10
+	jz jpeg_destroy_F0_1_10
 	mov [esp], esi
 	call dword [eax+0x28]
-jpeg_destroy:F(0,1)_10:
+jpeg_destroy_F0_1_10:
 	mov dword [esi+0x4], 0x0
 	mov dword [esi+0x14], 0x0
 	add esp, 0x14
@@ -7755,9 +7868,9 @@ jpeg_destroy:F(0,1)_10:
 	ret
 
 
-;jpeg_alloc_quant_table:F(0,74)
+;jpeg_alloc_quant_table_F0_74
 
-jpeg_alloc_quant_table:F(0,74):
+jpeg_alloc_quant_table_F0_74:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -7772,9 +7885,9 @@ jpeg_alloc_quant_table:F(0,74):
 	ret
 
 
-;jpeg_alloc_huff_table:F(0,80)
+;jpeg_alloc_huff_table_F0_80
 
-jpeg_alloc_huff_table:F(0,80):
+jpeg_alloc_huff_table_F0_80:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -7810,7 +7923,7 @@ start_input_pass_160:
 	mov [esp+0x4], eax
 	mov eax, [edx+0x24]
 	mov [esp], eax
-	call jdiv_round_up:F(0,1)
+	call jdiv_round_up_F0_1
 	mov ecx, [ebp+0x8]
 	mov [ecx+0x140], eax
 	mov eax, [ecx+0x11c]
@@ -7818,7 +7931,7 @@ start_input_pass_160:
 	mov [esp+0x4], eax
 	mov eax, [ecx+0x28]
 	mov [esp], eax
-	call jdiv_round_up:F(0,1)
+	call jdiv_round_up_F0_1
 	mov esi, [ebp+0x8]
 	mov [esi+0x144], eax
 	mov dword [esi+0x148], 0x0
@@ -8026,7 +8139,7 @@ start_input_pass_150:
 finish_input_pass:
 	push ebp
 	mov ebp, esp
-	call __i686.get_pc_thunk.cx
+	call __i686_get_pc_thunk_cx
 	mov eax, [ebp+0x8]
 	mov edx, [eax+0x198]
 	lea eax, [ecx+0x13]
@@ -8161,7 +8274,7 @@ consume_markers_220:
 	mov [esp+0x4], eax
 	mov eax, [edi+0x28]
 	mov [esp], eax
-	call jdiv_round_up:F(0,1)
+	call jdiv_round_up_F0_1
 	mov [edi+0x124], eax
 	mov eax, [edi+0x12c]
 	cmp eax, [edi+0x2c]
@@ -8222,7 +8335,7 @@ consume_markers_210:
 	mov eax, [edi+0x24]
 	imul eax, [esi+0x8]
 	mov [esp], eax
-	call jdiv_round_up:F(0,1)
+	call jdiv_round_up_F0_1
 	mov [esi+0x1c], eax
 	mov eax, [edi+0x11c]
 	shl eax, 0x3
@@ -8230,21 +8343,21 @@ consume_markers_210:
 	mov eax, [edi+0x28]
 	imul eax, [esi+0xc]
 	mov [esp], eax
-	call jdiv_round_up:F(0,1)
+	call jdiv_round_up_F0_1
 	mov [esi+0x20], eax
 	mov eax, [edi+0x118]
 	mov [esp+0x4], eax
 	mov eax, [edi+0x24]
 	imul eax, [esi+0x8]
 	mov [esp], eax
-	call jdiv_round_up:F(0,1)
+	call jdiv_round_up_F0_1
 	mov [esi+0x28], eax
 	mov eax, [edi+0x11c]
 	mov [esp+0x4], eax
 	mov eax, [edi+0x28]
 	imul eax, [esi+0xc]
 	mov [esp], eax
-	call jdiv_round_up:F(0,1)
+	call jdiv_round_up_F0_1
 	mov [esi+0x2c], eax
 	mov byte [esi+0x30], 0x1
 	mov dword [esi+0x4c], 0x0
@@ -8267,7 +8380,7 @@ reset_input_controller:
 	push esi
 	push ebx
 	sub esp, 0x10
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov esi, [ebp+0x8]
 	mov eax, [esi+0x198]
 	lea edx, [ebx-0x2fe]
@@ -8289,15 +8402,15 @@ reset_input_controller:
 	ret
 
 
-;jinit_input_controller:F(0,1)
+;jinit_input_controller_F0_1
 
-jinit_input_controller:F(0,1):
+jinit_input_controller_F0_1:
 	push ebp
 	mov ebp, esp
 	push esi
 	push ebx
 	sub esp, 0x10
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov esi, [ebp+0x8]
 	mov eax, [esi+0x4]
 	mov dword [esp+0x8], 0x18
@@ -9332,7 +9445,7 @@ read_markers:
 	push esi
 	push ebx
 	sub esp, 0x1dc
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	lea eax, [ebp-0x29]
 	mov [ebp-0x1c4], eax
 	mov edx, [ebp+0x8]
@@ -10450,7 +10563,7 @@ read_markers_880:
 	jmp read_markers_1120
 read_markers_620:
 	mov [esp], eax
-	call jpeg_alloc_quant_table:F(0,74)
+	call jpeg_alloc_quant_table_F0_74
 	mov edx, [ebp+0x8]
 	mov [edx+esi*4+0x98], eax
 	mov ecx, [ebp+0x8]
@@ -10515,7 +10628,7 @@ read_markers_290:
 read_markers_1020:
 	mov ecx, [ebp+0x8]
 	mov [esp], ecx
-	call jpeg_alloc_huff_table:F(0,80)
+	call jpeg_alloc_huff_table_F0_80
 	mov [esi], eax
 	mov edx, eax
 	jmp read_markers_1190
@@ -10662,9 +10775,9 @@ read_restart_marker_20:
 	jmp read_restart_marker_50
 
 
-;jpeg_resync_to_restart:F(0,1)
+;jpeg_resync_to_restart_F0_1
 
-jpeg_resync_to_restart:F(0,1):
+jpeg_resync_to_restart_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -10700,25 +10813,25 @@ jpeg_resync_to_restart:F(0,1):
 	and esi, 0x7
 	add esi, 0xd0
 	mov [ebp-0x18], esi
-jpeg_resync_to_restart:F(0,1)_60:
+jpeg_resync_to_restart_F0_1_60:
 	cmp edi, 0xbf
-	jle jpeg_resync_to_restart:F(0,1)_10
+	jle jpeg_resync_to_restart_F0_1_10
 	lea eax, [edi-0xd0]
 	cmp eax, 0x7
-	ja jpeg_resync_to_restart:F(0,1)_20
+	ja jpeg_resync_to_restart_F0_1_20
 	cmp edi, [ebp-0xc]
-	jz jpeg_resync_to_restart:F(0,1)_20
+	jz jpeg_resync_to_restart_F0_1_20
 	cmp edi, [ebp-0x10]
-	jz jpeg_resync_to_restart:F(0,1)_20
+	jz jpeg_resync_to_restart_F0_1_20
 	cmp edi, [ebp-0x14]
-	jz jpeg_resync_to_restart:F(0,1)_10
+	jz jpeg_resync_to_restart_F0_1_10
 	cmp edi, [ebp-0x18]
-	jz jpeg_resync_to_restart:F(0,1)_10
+	jz jpeg_resync_to_restart_F0_1_10
 	mov esi, 0x1
-	jmp jpeg_resync_to_restart:F(0,1)_30
-jpeg_resync_to_restart:F(0,1)_20:
+	jmp jpeg_resync_to_restart_F0_1_30
+jpeg_resync_to_restart_F0_1_20:
 	mov esi, 0x3
-jpeg_resync_to_restart:F(0,1)_30:
+jpeg_resync_to_restart_F0_1_30:
 	mov edx, [ebp+0x8]
 	mov eax, [edx]
 	mov dword [eax+0x14], 0x61
@@ -10731,35 +10844,35 @@ jpeg_resync_to_restart:F(0,1)_30:
 	mov [esp], edx
 	call dword [eax+0x4]
 	cmp esi, 0x2
-	jz jpeg_resync_to_restart:F(0,1)_40
+	jz jpeg_resync_to_restart_F0_1_40
 	cmp esi, 0x3
-	jz jpeg_resync_to_restart:F(0,1)_50
+	jz jpeg_resync_to_restart_F0_1_50
 	sub esi, 0x1
-	jnz jpeg_resync_to_restart:F(0,1)_60
+	jnz jpeg_resync_to_restart_F0_1_60
 	mov eax, [ebp+0x8]
 	mov dword [eax+0x184], 0x0
-jpeg_resync_to_restart:F(0,1)_50:
+jpeg_resync_to_restart_F0_1_50:
 	mov eax, 0x1
-jpeg_resync_to_restart:F(0,1)_80:
+jpeg_resync_to_restart_F0_1_80:
 	add esp, 0x20
 	pop esi
 	pop edi
 	pop ebp
 	ret
-jpeg_resync_to_restart:F(0,1)_10:
+jpeg_resync_to_restart_F0_1_10:
 	mov esi, 0x2
-	jmp jpeg_resync_to_restart:F(0,1)_30
-jpeg_resync_to_restart:F(0,1)_40:
+	jmp jpeg_resync_to_restart_F0_1_30
+jpeg_resync_to_restart_F0_1_40:
 	mov eax, [ebp+0x8]
 	call next_marker
 	test al, al
-	jz jpeg_resync_to_restart:F(0,1)_70
+	jz jpeg_resync_to_restart_F0_1_70
 	mov edx, [ebp+0x8]
 	mov edi, [edx+0x184]
-	jmp jpeg_resync_to_restart:F(0,1)_60
-jpeg_resync_to_restart:F(0,1)_70:
+	jmp jpeg_resync_to_restart_F0_1_60
+jpeg_resync_to_restart_F0_1_70:
 	xor eax, eax
-	jmp jpeg_resync_to_restart:F(0,1)_80
+	jmp jpeg_resync_to_restart_F0_1_80
 
 
 ;reset_marker_reader
@@ -10779,16 +10892,16 @@ reset_marker_reader:
 	ret
 
 
-;jinit_marker_reader:F(0,54)
+;jinit_marker_reader_F0_54
 
-jinit_marker_reader:F(0,54):
+jinit_marker_reader_F0_54:
 	push ebp
 	mov ebp, esp
 	push edi
 	push esi
 	push ebx
 	sub esp, 0x1c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov edi, [ebp+0x8]
 	mov eax, [edi+0x4]
 	mov dword [esp+0x8], 0xa8
@@ -10808,12 +10921,12 @@ jinit_marker_reader:F(0,54):
 	mov dword [ecx+0x5c], 0x0
 	mov eax, ecx
 	mov edx, 0x10
-jinit_marker_reader:F(0,54)_10:
+jinit_marker_reader_F0_54_10:
 	mov [eax+0x1c], esi
 	mov dword [eax+0x60], 0x0
 	add eax, 0x4
 	sub edx, 0x1
-	jnz jinit_marker_reader:F(0,54)_10
+	jnz jinit_marker_reader_F0_54_10
 	lea eax, [ebx-0x18b6]
 	mov [ecx+0x1c], eax
 	mov [ecx+0x54], eax
@@ -10984,19 +11097,19 @@ finish_output_pass_10:
 	add [eax], al
 
 
-;jpeg_calc_output_dimensions:F(0,1)
+;jpeg_calc_output_dimensions_F0_1
 
-jpeg_calc_output_dimensions:F(0,1):
+jpeg_calc_output_dimensions_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
 	push esi
 	push ebx
 	sub esp, 0x3c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov edi, [ebp+0x8]
 	cmp dword [edi+0x14], 0xca
-	jz jpeg_calc_output_dimensions:F(0,1)_10
+	jz jpeg_calc_output_dimensions_F0_1_10
 	mov eax, [edi]
 	mov dword [eax+0x14], 0x14
 	mov edx, [edi]
@@ -11005,34 +11118,34 @@ jpeg_calc_output_dimensions:F(0,1):
 	mov eax, [edi]
 	mov [esp], edi
 	call dword [eax]
-jpeg_calc_output_dimensions:F(0,1)_10:
+jpeg_calc_output_dimensions_F0_1_10:
 	mov ecx, [edi+0x38]
 	mov edx, [edi+0x3c]
 	lea eax, [ecx*8]
 	cmp eax, edx
-	jbe jpeg_calc_output_dimensions:F(0,1)_20
+	jbe jpeg_calc_output_dimensions_F0_1_20
 	lea eax, [ecx*4]
 	cmp edx, eax
-	jae 0x22b4b8
+	; [sanitized: stripped jae 0x22b4b8 --Win32 COFF cannot relocate absolute jumps]
 	lea eax, [ecx+ecx]
 	cmp edx, eax
-	jae jpeg_calc_output_dimensions:F(0,1)_30
+	jae jpeg_calc_output_dimensions_F0_1_30
 	mov eax, [edi+0x24]
 	mov [edi+0x64], eax
 	mov eax, [edi+0x28]
 	mov [edi+0x68], eax
 	mov dword [edi+0x120], 0x8
-jpeg_calc_output_dimensions:F(0,1)_170:
+jpeg_calc_output_dimensions_F0_1_170:
 	mov ecx, [edi+0xcc]
 	mov esi, [edi+0x2c]
 	test esi, esi
-	jle jpeg_calc_output_dimensions:F(0,1)_40
-jpeg_calc_output_dimensions:F(0,1)_110:
+	jle jpeg_calc_output_dimensions_F0_1_40
+jpeg_calc_output_dimensions_F0_1_110:
 	xor esi, esi
-jpeg_calc_output_dimensions:F(0,1)_70:
+jpeg_calc_output_dimensions_F0_1_70:
 	mov edx, [edi+0x120]
 	cmp edx, 0x7
-	jg jpeg_calc_output_dimensions:F(0,1)_50
+	jg jpeg_calc_output_dimensions_F0_1_50
 	mov eax, [ecx+0x8]
 	mov [ebp-0x20], eax
 	mov eax, edx
@@ -11042,38 +11155,38 @@ jpeg_calc_output_dimensions:F(0,1)_70:
 	imul eax, edx
 	add eax, eax
 	cmp eax, [ebp-0x2c]
-	jg jpeg_calc_output_dimensions:F(0,1)_50
+	jg jpeg_calc_output_dimensions_F0_1_50
 	mov eax, [ecx+0xc]
 	mov [ebp-0x24], eax
 	mov eax, edx
 	imul eax, [edi+0x11c]
 	mov [ebp-0x28], eax
-jpeg_calc_output_dimensions:F(0,1)_60:
+jpeg_calc_output_dimensions_F0_1_60:
 	mov eax, [ebp-0x24]
 	imul eax, edx
 	add eax, eax
 	cmp eax, [ebp-0x28]
-	jg jpeg_calc_output_dimensions:F(0,1)_50
+	jg jpeg_calc_output_dimensions_F0_1_50
 	add edx, edx
 	cmp edx, 0x7
-	jg jpeg_calc_output_dimensions:F(0,1)_50
+	jg jpeg_calc_output_dimensions_F0_1_50
 	mov eax, [ebp-0x20]
 	imul eax, edx
 	add eax, eax
 	cmp eax, [ebp-0x2c]
-	jle jpeg_calc_output_dimensions:F(0,1)_60
-jpeg_calc_output_dimensions:F(0,1)_50:
+	jle jpeg_calc_output_dimensions_F0_1_60
+jpeg_calc_output_dimensions_F0_1_50:
 	mov [ecx+0x24], edx
 	add esi, 0x1
 	add ecx, 0x54
 	cmp [edi+0x2c], esi
-	jg jpeg_calc_output_dimensions:F(0,1)_70
+	jg jpeg_calc_output_dimensions_F0_1_70
 	mov esi, [edi+0xcc]
 	mov edx, [edi+0x2c]
 	test edx, edx
-	jle jpeg_calc_output_dimensions:F(0,1)_80
+	jle jpeg_calc_output_dimensions_F0_1_80
 	mov dword [ebp-0x1c], 0x0
-jpeg_calc_output_dimensions:F(0,1)_90:
+jpeg_calc_output_dimensions_F0_1_90:
 	mov eax, [edi+0x118]
 	shl eax, 0x3
 	mov [esp+0x4], eax
@@ -11081,7 +11194,7 @@ jpeg_calc_output_dimensions:F(0,1)_90:
 	imul eax, [esi+0x24]
 	imul eax, [edi+0x24]
 	mov [esp], eax
-	call jdiv_round_up:F(0,1)
+	call jdiv_round_up_F0_1
 	mov [esi+0x28], eax
 	mov eax, [edi+0x11c]
 	shl eax, 0x3
@@ -11090,17 +11203,17 @@ jpeg_calc_output_dimensions:F(0,1)_90:
 	imul eax, [esi+0x24]
 	imul eax, [edi+0x28]
 	mov [esp], eax
-	call jdiv_round_up:F(0,1)
+	call jdiv_round_up_F0_1
 	mov [esi+0x2c], eax
 	add dword [ebp-0x1c], 0x1
 	add esi, 0x54
 	mov edx, [edi+0x2c]
 	cmp edx, [ebp-0x1c]
-	jg jpeg_calc_output_dimensions:F(0,1)_90
-jpeg_calc_output_dimensions:F(0,1)_80:
+	jg jpeg_calc_output_dimensions_F0_1_90
+jpeg_calc_output_dimensions_F0_1_80:
 	cmp dword [edi+0x34], 0x5
-	ja jpeg_calc_output_dimensions:F(0,1)_100
-jpeg_calc_output_dimensions:F(0,1)_120:
+	ja jpeg_calc_output_dimensions_F0_1_100
+jpeg_calc_output_dimensions_F0_1_120:
 	mov eax, [edi+0x34]
 	mov eax, [ebx+eax*4+0x167]
 	add eax, ebx
@@ -11126,124 +11239,124 @@ jpeg_calc_output_dimensions:F(0,1)_120:
 	add [eax], al
 	mov eax, [edi+0x24]
 	mov [esp], eax
-	call jdiv_round_up:F(0,1)
+	call jdiv_round_up_F0_1
 	mov [edi+0x64], eax
 	mov dword [esp+0x4], 0x4
 	mov eax, [edi+0x28]
 	mov [esp], eax
-	call jdiv_round_up:F(0,1)
+	call jdiv_round_up_F0_1
 	mov [edi+0x68], eax
 	mov dword [edi+0x120], 0x2
 	mov ecx, [edi+0xcc]
 	mov esi, [edi+0x2c]
 	test esi, esi
-	jg jpeg_calc_output_dimensions:F(0,1)_110
-jpeg_calc_output_dimensions:F(0,1)_40:
+	jg jpeg_calc_output_dimensions_F0_1_110
+jpeg_calc_output_dimensions_F0_1_40:
 	mov edx, [edi+0x2c]
 	cmp dword [edi+0x34], 0x5
-	jbe jpeg_calc_output_dimensions:F(0,1)_120
-jpeg_calc_output_dimensions:F(0,1)_100:
+	jbe jpeg_calc_output_dimensions_F0_1_120
+jpeg_calc_output_dimensions_F0_1_100:
 	mov [edi+0x6c], edx
-jpeg_calc_output_dimensions:F(0,1)_180:
+jpeg_calc_output_dimensions_F0_1_180:
 	cmp byte [edi+0x52], 0x0
-	jz jpeg_calc_output_dimensions:F(0,1)_130
+	jz jpeg_calc_output_dimensions_F0_1_130
 	mov eax, 0x1
-jpeg_calc_output_dimensions:F(0,1)_160:
+jpeg_calc_output_dimensions_F0_1_160:
 	mov [edi+0x70], eax
 	cmp byte [edi+0x50], 0x0
-	jnz jpeg_calc_output_dimensions:F(0,1)_140
+	jnz jpeg_calc_output_dimensions_F0_1_140
 	cmp byte [edi+0x112], 0x0
-	jnz jpeg_calc_output_dimensions:F(0,1)_140
+	jnz jpeg_calc_output_dimensions_F0_1_140
 	cmp dword [edi+0x30], 0x3
-	jz jpeg_calc_output_dimensions:F(0,1)_150
-jpeg_calc_output_dimensions:F(0,1)_140:
+	jz jpeg_calc_output_dimensions_F0_1_150
+jpeg_calc_output_dimensions_F0_1_140:
 	mov dword [edi+0x74], 0x1
-jpeg_calc_output_dimensions:F(0,1)_190:
+jpeg_calc_output_dimensions_F0_1_190:
 	add esp, 0x3c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-jpeg_calc_output_dimensions:F(0,1)_130:
+jpeg_calc_output_dimensions_F0_1_130:
 	mov eax, [edi+0x6c]
-	jmp jpeg_calc_output_dimensions:F(0,1)_160
-jpeg_calc_output_dimensions:F(0,1)_20:
+	jmp jpeg_calc_output_dimensions_F0_1_160
+jpeg_calc_output_dimensions_F0_1_20:
 	mov dword [esp+0x4], 0x8
 	mov eax, [edi+0x24]
 	mov [esp], eax
-	call jdiv_round_up:F(0,1)
+	call jdiv_round_up_F0_1
 	mov [edi+0x64], eax
 	mov dword [esp+0x4], 0x8
 	mov eax, [edi+0x28]
 	mov [esp], eax
-	call jdiv_round_up:F(0,1)
+	call jdiv_round_up_F0_1
 	mov [edi+0x68], eax
 	mov dword [edi+0x120], 0x1
-	jmp jpeg_calc_output_dimensions:F(0,1)_170
+	jmp jpeg_calc_output_dimensions_F0_1_170
 	mov dword [edi+0x6c], 0x1
-	jmp jpeg_calc_output_dimensions:F(0,1)_180
+	jmp jpeg_calc_output_dimensions_F0_1_180
 	mov dword [edi+0x6c], 0x3
-	jmp jpeg_calc_output_dimensions:F(0,1)_180
+	jmp jpeg_calc_output_dimensions_F0_1_180
 	mov dword [edi+0x6c], 0x4
-	jmp jpeg_calc_output_dimensions:F(0,1)_180
-jpeg_calc_output_dimensions:F(0,1)_150:
+	jmp jpeg_calc_output_dimensions_F0_1_180
+jpeg_calc_output_dimensions_F0_1_150:
 	cmp dword [edi+0x2c], 0x3
-	jnz jpeg_calc_output_dimensions:F(0,1)_140
+	jnz jpeg_calc_output_dimensions_F0_1_140
 	cmp dword [edi+0x34], 0x2
-	jnz jpeg_calc_output_dimensions:F(0,1)_140
+	jnz jpeg_calc_output_dimensions_F0_1_140
 	cmp dword [edi+0x6c], 0x3
-	jnz jpeg_calc_output_dimensions:F(0,1)_140
+	jnz jpeg_calc_output_dimensions_F0_1_140
 	mov eax, [edi+0xcc]
 	cmp dword [eax+0x8], 0x2
-	jnz jpeg_calc_output_dimensions:F(0,1)_140
+	jnz jpeg_calc_output_dimensions_F0_1_140
 	lea ecx, [eax+0x54]
 	cmp dword [ecx+0x8], 0x1
-	jnz jpeg_calc_output_dimensions:F(0,1)_140
+	jnz jpeg_calc_output_dimensions_F0_1_140
 	lea edx, [eax+0xa8]
 	cmp dword [edx+0x8], 0x1
-	jnz jpeg_calc_output_dimensions:F(0,1)_140
+	jnz jpeg_calc_output_dimensions_F0_1_140
 	cmp dword [eax+0xc], 0x2
-	jg jpeg_calc_output_dimensions:F(0,1)_140
+	jg jpeg_calc_output_dimensions_F0_1_140
 	cmp dword [ecx+0xc], 0x1
-	jnz jpeg_calc_output_dimensions:F(0,1)_140
+	jnz jpeg_calc_output_dimensions_F0_1_140
 	cmp dword [edx+0xc], 0x1
-	jnz jpeg_calc_output_dimensions:F(0,1)_140
+	jnz jpeg_calc_output_dimensions_F0_1_140
 	mov eax, [eax+0x24]
 	cmp eax, [edi+0x120]
-	jnz jpeg_calc_output_dimensions:F(0,1)_140
+	jnz jpeg_calc_output_dimensions_F0_1_140
 	cmp eax, [ecx+0x24]
-	jnz jpeg_calc_output_dimensions:F(0,1)_140
+	jnz jpeg_calc_output_dimensions_F0_1_140
 	cmp eax, [edx+0x24]
-	jnz jpeg_calc_output_dimensions:F(0,1)_140
+	jnz jpeg_calc_output_dimensions_F0_1_140
 	mov eax, [edi+0x11c]
 	mov [edi+0x74], eax
-	jmp jpeg_calc_output_dimensions:F(0,1)_190
-jpeg_calc_output_dimensions:F(0,1)_30:
+	jmp jpeg_calc_output_dimensions_F0_1_190
+jpeg_calc_output_dimensions_F0_1_30:
 	mov dword [esp+0x4], 0x2
 	mov eax, [edi+0x24]
 	mov [esp], eax
-	call jdiv_round_up:F(0,1)
+	call jdiv_round_up_F0_1
 	mov [edi+0x64], eax
 	mov dword [esp+0x4], 0x2
 	mov eax, [edi+0x28]
 	mov [esp], eax
-	call jdiv_round_up:F(0,1)
+	call jdiv_round_up_F0_1
 	mov [edi+0x68], eax
 	mov dword [edi+0x120], 0x4
-	jmp jpeg_calc_output_dimensions:F(0,1)_170
+	jmp jpeg_calc_output_dimensions_F0_1_170
 
 
-;jinit_master_decompress:F(0,1)
+;jinit_master_decompress_F0_1
 
-jinit_master_decompress:F(0,1):
+jinit_master_decompress_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
 	push esi
 	push ebx
 	sub esp, 0x2c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov edi, [ebp+0x8]
 	mov eax, [edi+0x4]
 	mov dword [esp+0x8], 0x1c
@@ -11259,7 +11372,7 @@ jinit_master_decompress:F(0,1):
 	mov eax, [edi+0x188]
 	mov [ebp-0x20], eax
 	mov [esp], edi
-	call jpeg_calc_output_dimensions:F(0,1)
+	call jpeg_calc_output_dimensions_F0_1
 	mov eax, [edi+0x4]
 	mov dword [esp+0x8], 0x580
 	mov dword [esp+0x4], 0x1
@@ -11274,19 +11387,19 @@ jinit_master_decompress:F(0,1):
 	mov [esp], eax
 	call memset
 	xor eax, eax
-jinit_master_decompress:F(0,1)_10:
+jinit_master_decompress_F0_1_10:
 	mov [esi+eax], al
 	add eax, 0x1
 	cmp eax, 0x100
-	jnz jinit_master_decompress:F(0,1)_10
+	jnz jinit_master_decompress_F0_1_10
 	mov edx, [ebp-0x1c]
 	add edx, 0x180
 	xor ax, ax
-jinit_master_decompress:F(0,1)_20:
+jinit_master_decompress_F0_1_20:
 	mov byte [edx+eax+0x80], 0xff
 	add eax, 0x1
 	cmp eax, 0x180
-	jnz jinit_master_decompress:F(0,1)_20
+	jnz jinit_master_decompress_F0_1_20
 	mov eax, [ebp-0x1c]
 	add eax, 0x380
 	mov dword [esp+0x8], 0x180
@@ -11303,78 +11416,78 @@ jinit_master_decompress:F(0,1)_20:
 	mov edx, [ebp-0x20]
 	mov dword [edx+0xc], 0x0
 	cmp byte [edi+0x50], 0x0
-	jnz jinit_master_decompress:F(0,1)_30
+	jnz jinit_master_decompress_F0_1_30
 	cmp byte [edi+0x112], 0x0
-	jz jinit_master_decompress:F(0,1)_40
-jinit_master_decompress:F(0,1)_30:
+	jz jinit_master_decompress_F0_1_40
+jinit_master_decompress_F0_1_30:
 	xor eax, eax
-jinit_master_decompress:F(0,1)_210:
+jinit_master_decompress_F0_1_210:
 	mov edx, [ebp-0x20]
 	mov [edx+0x10], al
 	mov dword [edx+0x14], 0x0
 	mov dword [edx+0x18], 0x0
 	cmp byte [edi+0x52], 0x0
-	jz jinit_master_decompress:F(0,1)_50
+	jz jinit_master_decompress_F0_1_50
 	cmp byte [edi+0x48], 0x0
-	jz jinit_master_decompress:F(0,1)_50
+	jz jinit_master_decompress_F0_1_50
 	cmp byte [edi+0x49], 0x0
-	jnz jinit_master_decompress:F(0,1)_60
-jinit_master_decompress:F(0,1)_180:
+	jnz jinit_master_decompress_F0_1_60
+jinit_master_decompress_F0_1_180:
 	cmp dword [edi+0x6c], 0x3
-	jz jinit_master_decompress:F(0,1)_70
-jinit_master_decompress:F(0,1)_250:
+	jz jinit_master_decompress_F0_1_70
+jinit_master_decompress_F0_1_250:
 	mov byte [edi+0x60], 0x1
 	mov byte [edi+0x61], 0x0
 	mov byte [edi+0x62], 0x0
 	mov dword [edi+0x7c], 0x0
-jinit_master_decompress:F(0,1)_290:
+jinit_master_decompress_F0_1_290:
 	cmp byte [edi+0x60], 0x0
-	jnz jinit_master_decompress:F(0,1)_80
-jinit_master_decompress:F(0,1)_240:
+	jnz jinit_master_decompress_F0_1_80
+jinit_master_decompress_F0_1_240:
 	test dword [edi+0x60], 0xffff00
-	jz jinit_master_decompress:F(0,1)_90
+	jz jinit_master_decompress_F0_1_90
 	mov [esp], edi
-	call jinit_2pass_quantizer:F(0,1)
+	call jinit_2pass_quantizer_F0_1
 	mov eax, [edi+0x1b0]
 	mov edx, [ebp-0x20]
 	mov [edx+0x18], eax
-jinit_master_decompress:F(0,1)_90:
+jinit_master_decompress_F0_1_90:
 	cmp byte [edi+0x49], 0x0
-	jnz jinit_master_decompress:F(0,1)_100
+	jnz jinit_master_decompress_F0_1_100
 	mov eax, [ebp-0x20]
 	cmp byte [eax+0x10], 0x0
-	jz jinit_master_decompress:F(0,1)_110
+	jz jinit_master_decompress_F0_1_110
 	mov [esp], edi
-	call jinit_merged_upsampler:F(0,1)
-jinit_master_decompress:F(0,1)_220:
+	call jinit_merged_upsampler_F0_1
+jinit_master_decompress_F0_1_220:
 	movzx eax, byte [edi+0x62]
 	mov [esp+0x4], eax
 	mov [esp], edi
-	call jinit_d_post_controller:F(0,1)
-jinit_master_decompress:F(0,1)_100:
+	call jinit_d_post_controller_F0_1
+jinit_master_decompress_F0_1_100:
 	mov [esp], edi
-	call jinit_inverse_dct:F(0,1)
+	call jinit_inverse_dct_F0_1
 	cmp byte [edi+0xd1], 0x0
-	jnz jinit_master_decompress:F(0,1)_120
+	jnz jinit_master_decompress_F0_1_120
 	cmp byte [edi+0xd0], 0x0
-	jz jinit_master_decompress:F(0,1)_130
+	jz jinit_master_decompress_F0_1_130
 	mov [esp], edi
-	call jinit_phuff_decoder:F(0,1)
-jinit_master_decompress:F(0,1)_260:
+	call jinit_phuff_decoder_F0_1
+jinit_master_decompress_F0_1_260:
 	mov eax, [edi+0x198]
 	cmp byte [eax+0x10], 0x0
-	jnz jinit_master_decompress:F(0,1)_140
-jinit_master_decompress:F(0,1)_190:
+	jnz jinit_master_decompress_F0_1_140
+jinit_master_decompress_F0_1_190:
 	cmp byte [edi+0x48], 0x0
-	jnz jinit_master_decompress:F(0,1)_140
+	jnz jinit_master_decompress_F0_1_140
 	xor eax, eax
 	movzx eax, al
 	mov [esp+0x4], eax
 	mov [esp], edi
-	call jinit_d_coef_controller:F(0,1)
+	call jinit_d_coef_controller_F0_1
 	cmp byte [edi+0x49], 0x0
-	jz jinit_master_decompress:F(0,1)_150
-jinit_master_decompress:F(0,1)_200:
+	jz jinit_master_decompress_F0_1_150
+jinit_master_decompress_F0_1_200:
 	mov eax, [edi+0x4]
 	mov [esp], edi
 	call dword [eax+0x18]
@@ -11383,17 +11496,17 @@ jinit_master_decompress:F(0,1)_200:
 	call dword [eax+0x8]
 	mov ecx, [edi+0x8]
 	test ecx, ecx
-	jz jinit_master_decompress:F(0,1)_160
+	jz jinit_master_decompress_F0_1_160
 	cmp byte [edi+0x48], 0x0
-	jnz jinit_master_decompress:F(0,1)_160
+	jnz jinit_master_decompress_F0_1_160
 	mov eax, [edi+0x198]
 	cmp byte [eax+0x10], 0x0
-	jz jinit_master_decompress:F(0,1)_160
+	jz jinit_master_decompress_F0_1_160
 	cmp byte [edi+0xd0], 0x0
-	jz jinit_master_decompress:F(0,1)_170
+	jz jinit_master_decompress_F0_1_170
 	mov eax, [edi+0x2c]
 	lea edx, [eax+eax*2+0x2]
-jinit_master_decompress:F(0,1)_270:
+jinit_master_decompress_F0_1_270:
 	mov dword [ecx+0x4], 0x0
 	mov eax, [edi+0x8]
 	imul edx, [edi+0x124]
@@ -11407,127 +11520,127 @@ jinit_master_decompress:F(0,1)_270:
 	mov [edx+0x10], eax
 	mov edx, [ebp-0x20]
 	add dword [edx+0xc], 0x1
-jinit_master_decompress:F(0,1)_160:
+jinit_master_decompress_F0_1_160:
 	add esp, 0x2c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-jinit_master_decompress:F(0,1)_50:
+jinit_master_decompress_F0_1_50:
 	mov byte [edi+0x60], 0x0
 	mov byte [edi+0x61], 0x0
 	mov byte [edi+0x62], 0x0
 	cmp byte [edi+0x52], 0x0
-	jz jinit_master_decompress:F(0,1)_90
+	jz jinit_master_decompress_F0_1_90
 	cmp byte [edi+0x49], 0x0
-	jz jinit_master_decompress:F(0,1)_180
-	jmp jinit_master_decompress:F(0,1)_60
-jinit_master_decompress:F(0,1)_130:
+	jz jinit_master_decompress_F0_1_180
+	jmp jinit_master_decompress_F0_1_60
+jinit_master_decompress_F0_1_130:
 	mov [esp], edi
-	call jinit_huff_decoder:F(0,1)
+	call jinit_huff_decoder_F0_1
 	mov eax, [edi+0x198]
 	cmp byte [eax+0x10], 0x0
-	jz jinit_master_decompress:F(0,1)_190
-jinit_master_decompress:F(0,1)_140:
+	jz jinit_master_decompress_F0_1_190
+jinit_master_decompress_F0_1_140:
 	mov eax, 0x1
 	movzx eax, al
 	mov [esp+0x4], eax
 	mov [esp], edi
-	call jinit_d_coef_controller:F(0,1)
+	call jinit_d_coef_controller_F0_1
 	cmp byte [edi+0x49], 0x0
-	jnz jinit_master_decompress:F(0,1)_200
-jinit_master_decompress:F(0,1)_150:
+	jnz jinit_master_decompress_F0_1_200
+jinit_master_decompress_F0_1_150:
 	mov dword [esp+0x4], 0x0
 	mov [esp], edi
-	call jinit_d_main_controller:F(0,1)
-	jmp jinit_master_decompress:F(0,1)_200
-jinit_master_decompress:F(0,1)_40:
+	call jinit_d_main_controller_F0_1
+	jmp jinit_master_decompress_F0_1_200
+jinit_master_decompress_F0_1_40:
 	cmp dword [edi+0x30], 0x3
-	jnz jinit_master_decompress:F(0,1)_30
+	jnz jinit_master_decompress_F0_1_30
 	cmp dword [edi+0x2c], 0x3
-	jnz jinit_master_decompress:F(0,1)_30
+	jnz jinit_master_decompress_F0_1_30
 	cmp dword [edi+0x34], 0x2
-	jnz jinit_master_decompress:F(0,1)_30
+	jnz jinit_master_decompress_F0_1_30
 	cmp dword [edi+0x6c], 0x3
-	jnz jinit_master_decompress:F(0,1)_30
+	jnz jinit_master_decompress_F0_1_30
 	mov eax, [edi+0xcc]
 	cmp dword [eax+0x8], 0x2
-	jnz jinit_master_decompress:F(0,1)_30
+	jnz jinit_master_decompress_F0_1_30
 	lea ecx, [eax+0x54]
 	cmp dword [ecx+0x8], 0x1
-	jnz jinit_master_decompress:F(0,1)_30
+	jnz jinit_master_decompress_F0_1_30
 	lea edx, [eax+0xa8]
 	cmp dword [edx+0x8], 0x1
-	jnz jinit_master_decompress:F(0,1)_30
+	jnz jinit_master_decompress_F0_1_30
 	cmp dword [eax+0xc], 0x2
-	jg jinit_master_decompress:F(0,1)_30
+	jg jinit_master_decompress_F0_1_30
 	cmp dword [ecx+0xc], 0x1
-	jnz jinit_master_decompress:F(0,1)_30
+	jnz jinit_master_decompress_F0_1_30
 	cmp dword [edx+0xc], 0x1
-	jnz jinit_master_decompress:F(0,1)_30
+	jnz jinit_master_decompress_F0_1_30
 	mov eax, [eax+0x24]
 	cmp eax, [edi+0x120]
-	jnz jinit_master_decompress:F(0,1)_30
+	jnz jinit_master_decompress_F0_1_30
 	cmp eax, [ecx+0x24]
-	jnz jinit_master_decompress:F(0,1)_30
+	jnz jinit_master_decompress_F0_1_30
 	cmp eax, [edx+0x24]
-	jnz jinit_master_decompress:F(0,1)_30
+	jnz jinit_master_decompress_F0_1_30
 	mov eax, 0x1
-	jmp jinit_master_decompress:F(0,1)_210
-jinit_master_decompress:F(0,1)_110:
+	jmp jinit_master_decompress_F0_1_210
+jinit_master_decompress_F0_1_110:
 	mov [esp], edi
-	call jinit_color_deconverter:F(0,1)
+	call jinit_color_deconverter_F0_1
 	mov [esp], edi
-	call jinit_upsampler:F(0,1)
-	jmp jinit_master_decompress:F(0,1)_220
-jinit_master_decompress:F(0,1)_70:
+	call jinit_upsampler_F0_1
+	jmp jinit_master_decompress_F0_1_220
+jinit_master_decompress_F0_1_70:
 	mov eax, [edi+0x7c]
 	test eax, eax
-	jz jinit_master_decompress:F(0,1)_230
+	jz jinit_master_decompress_F0_1_230
 	mov byte [edi+0x61], 0x1
 	cmp byte [edi+0x60], 0x0
-	jz jinit_master_decompress:F(0,1)_240
-jinit_master_decompress:F(0,1)_80:
+	jz jinit_master_decompress_F0_1_240
+jinit_master_decompress_F0_1_80:
 	mov [esp], edi
-	call jinit_1pass_quantizer:F(0,1)
+	call jinit_1pass_quantizer_F0_1
 	mov eax, [edi+0x1b0]
 	mov edx, [ebp-0x20]
 	mov [edx+0x14], eax
-	jmp jinit_master_decompress:F(0,1)_240
-jinit_master_decompress:F(0,1)_60:
+	jmp jinit_master_decompress_F0_1_240
+jinit_master_decompress_F0_1_60:
 	mov eax, [edi]
 	mov dword [eax+0x14], 0x2f
 	mov eax, [edi]
 	mov [esp], edi
 	call dword [eax]
 	cmp dword [edi+0x6c], 0x3
-	jnz jinit_master_decompress:F(0,1)_250
-	jmp jinit_master_decompress:F(0,1)_70
-jinit_master_decompress:F(0,1)_120:
+	jnz jinit_master_decompress_F0_1_250
+	jmp jinit_master_decompress_F0_1_70
+jinit_master_decompress_F0_1_120:
 	mov eax, [edi]
 	mov dword [eax+0x14], 0x1
 	mov eax, [edi]
 	mov [esp], edi
 	call dword [eax]
-	jmp jinit_master_decompress:F(0,1)_260
-jinit_master_decompress:F(0,1)_170:
+	jmp jinit_master_decompress_F0_1_260
+jinit_master_decompress_F0_1_170:
 	mov edx, [edi+0x2c]
-	jmp jinit_master_decompress:F(0,1)_270
-jinit_master_decompress:F(0,1)_230:
+	jmp jinit_master_decompress_F0_1_270
+jinit_master_decompress_F0_1_230:
 	cmp byte [edi+0x58], 0x0
-	jz jinit_master_decompress:F(0,1)_280
+	jz jinit_master_decompress_F0_1_280
 	mov byte [edi+0x62], 0x1
-	jmp jinit_master_decompress:F(0,1)_290
-jinit_master_decompress:F(0,1)_280:
+	jmp jinit_master_decompress_F0_1_290
+jinit_master_decompress_F0_1_280:
 	mov byte [edi+0x60], 0x1
-	jmp jinit_master_decompress:F(0,1)_290
+	jmp jinit_master_decompress_F0_1_290
 	add [eax], al
 
 
-;jinit_compress_master:F(0,1)
+;jinit_compress_master_F0_1
 
-jinit_compress_master:F(0,1):
+jinit_compress_master_F0_1:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -11535,33 +11648,33 @@ jinit_compress_master:F(0,1):
 	mov esi, [ebp+0x8]
 	mov dword [esp+0x4], 0x0
 	mov [esp], esi
-	call jinit_c_master_control:F(0,1)
+	call jinit_c_master_control_F0_1
 	cmp byte [esi+0xb4], 0x0
-	jz jinit_compress_master:F(0,1)_10
-jinit_compress_master:F(0,1)_80:
+	jz jinit_compress_master_F0_1_10
+jinit_compress_master_F0_1_80:
 	mov [esp], esi
-	call jinit_forward_dct:F(0,1)
+	call jinit_forward_dct_F0_1
 	cmp byte [esi+0xb5], 0x0
-	jnz jinit_compress_master:F(0,1)_20
+	jnz jinit_compress_master_F0_1_20
 	cmp byte [esi+0xd8], 0x0
-	jz jinit_compress_master:F(0,1)_30
+	jz jinit_compress_master_F0_1_30
 	mov [esp], esi
-	call jinit_phuff_encoder:F(0,1)
-jinit_compress_master:F(0,1)_70:
+	call jinit_phuff_encoder_F0_1
+jinit_compress_master_F0_1_70:
 	cmp dword [esi+0xac], 0x1
-	jle jinit_compress_master:F(0,1)_40
-jinit_compress_master:F(0,1)_50:
+	jle jinit_compress_master_F0_1_40
+jinit_compress_master_F0_1_50:
 	mov eax, 0x1
-jinit_compress_master:F(0,1)_60:
+jinit_compress_master_F0_1_60:
 	movzx eax, al
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call jinit_c_coef_controller:F(0,1)
+	call jinit_c_coef_controller_F0_1
 	mov dword [esp+0x4], 0x0
 	mov [esp], esi
-	call jinit_c_main_controller:F(0,1)
+	call jinit_c_main_controller_F0_1
 	mov [esp], esi
-	call jinit_marker_writer:F(0,1)
+	call jinit_marker_writer_F0_1
 	mov eax, [esi+0x4]
 	mov [esp], esi
 	call dword [eax+0x18]
@@ -11572,38 +11685,38 @@ jinit_compress_master:F(0,1)_60:
 	pop esi
 	pop ebp
 	jmp ecx
-jinit_compress_master:F(0,1)_30:
+jinit_compress_master_F0_1_30:
 	mov [esp], esi
-	call jinit_huff_encoder:F(0,1)
+	call jinit_huff_encoder_F0_1
 	cmp dword [esi+0xac], 0x1
-	jg jinit_compress_master:F(0,1)_50
-jinit_compress_master:F(0,1)_40:
+	jg jinit_compress_master_F0_1_50
+jinit_compress_master_F0_1_40:
 	cmp byte [esi+0xb6], 0x0
-	jnz jinit_compress_master:F(0,1)_50
+	jnz jinit_compress_master_F0_1_50
 	xor eax, eax
-	jmp jinit_compress_master:F(0,1)_60
-jinit_compress_master:F(0,1)_20:
+	jmp jinit_compress_master_F0_1_60
+jinit_compress_master_F0_1_20:
 	mov eax, [esi]
 	mov dword [eax+0x14], 0x1
 	mov eax, [esi]
 	mov [esp], esi
 	call dword [eax]
-	jmp jinit_compress_master:F(0,1)_70
-jinit_compress_master:F(0,1)_10:
+	jmp jinit_compress_master_F0_1_70
+jinit_compress_master_F0_1_10:
 	mov [esp], esi
-	call jinit_color_converter:F(0,1)
+	call jinit_color_converter_F0_1
 	mov [esp], esi
-	call jinit_downsampler:F(0,1)
+	call jinit_downsampler_F0_1
 	mov dword [esp+0x4], 0x0
 	mov [esp], esi
-	call jinit_c_prep_controller:F(0,1)
-	jmp jinit_compress_master:F(0,1)_80
+	call jinit_c_prep_controller_F0_1
+	jmp jinit_compress_master_F0_1_80
 	add [eax], al
 
 
-;inflate_codes_new:F(0,1)
+;inflate_codes_new_F0_1
 
-jdiv_round_up:F(0,1):
+jdiv_round_up_F0_1:
 	push ebp
 	mov ebp, esp
 	mov edx, [ebp+0xc]
@@ -11617,9 +11730,9 @@ jdiv_round_up:F(0,1):
 	ret
 
 
-;jround_up:F(0,1)
+;jround_up_F0_1
 
-jround_up:F(0,1):
+jround_up_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -11640,9 +11753,9 @@ jround_up:F(0,1):
 	ret
 
 
-;jcopy_sample_rows:F(0,2)
+;jcopy_sample_rows_F0_2
 
-jcopy_sample_rows:F(0,2):
+jcopy_sample_rows_F0_2:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -11656,9 +11769,9 @@ jcopy_sample_rows:F(0,2):
 	add esi, [ebp+0x10]
 	mov eax, [ebp+0x18]
 	test eax, eax
-	jle jcopy_sample_rows:F(0,2)_10
+	jle jcopy_sample_rows_F0_2_10
 	mov dword [ebp-0xc], 0x0
-jcopy_sample_rows:F(0,2)_20:
+jcopy_sample_rows_F0_2_20:
 	mov edx, [edi]
 	add edi, 0x4
 	mov eax, [esi]
@@ -11671,8 +11784,8 @@ jcopy_sample_rows:F(0,2)_20:
 	add dword [ebp-0xc], 0x1
 	mov eax, [ebp-0xc]
 	cmp [ebp+0x18], eax
-	jnz jcopy_sample_rows:F(0,2)_20
-jcopy_sample_rows:F(0,2)_10:
+	jnz jcopy_sample_rows_F0_2_20
+jcopy_sample_rows_F0_2_10:
 	add esp, 0x20
 	pop esi
 	pop edi
@@ -11680,9 +11793,9 @@ jcopy_sample_rows:F(0,2)_10:
 	ret
 
 
-;jcopy_block_row:F(0,2)
+;jcopy_block_row_F0_2
 
-jcopy_block_row:F(0,2):
+jcopy_block_row_F0_2:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -11698,9 +11811,9 @@ jcopy_block_row:F(0,2):
 	ret
 
 
-;jzero_far:F(0,2)
+;jzero_far_F0_2
 
-jzero_far:F(0,2):
+jzero_far_F0_2:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -11715,9 +11828,9 @@ jzero_far:F(0,2):
 	add [eax], al
 
 
-;jpeg_get_small:F(0,1)
+;jpeg_get_small_F0_1
 
-jpeg_get_small:F(0,1):
+jpeg_get_small_F0_1:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -11728,9 +11841,9 @@ jpeg_get_small:F(0,1):
 	jmp ecx
 
 
-;jpeg_free_small:F(0,6)
+;jpeg_free_small_F0_6
 
-jpeg_free_small:F(0,6):
+jpeg_free_small_F0_6:
 	push ebp
 	mov ebp, esp
 	mov ecx, [ebp+0x8]
@@ -11743,9 +11856,9 @@ jpeg_free_small:F(0,6):
 	jmp ecx
 
 
-;jpeg_get_large:F(0,1)
+;jpeg_get_large_F0_1
 
-jpeg_get_large:F(0,1):
+jpeg_get_large_F0_1:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -11756,9 +11869,9 @@ jpeg_get_large:F(0,1):
 	jmp ecx
 
 
-;jpeg_free_large:F(0,6)
+;jpeg_free_large_F0_6
 
-jpeg_free_large:F(0,6):
+jpeg_free_large_F0_6:
 	push ebp
 	mov ebp, esp
 	mov ecx, [ebp+0x8]
@@ -11771,9 +11884,9 @@ jpeg_free_large:F(0,6):
 	jmp ecx
 
 
-;jpeg_mem_available:F(0,25)
+;jpeg_mem_available_F0_25
 
-jpeg_mem_available:F(0,25):
+jpeg_mem_available_F0_25:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x10]
@@ -11781,9 +11894,9 @@ jpeg_mem_available:F(0,25):
 	ret
 
 
-;jpeg_open_backing_store:F(0,6)
+;jpeg_open_backing_store_F0_6
 
-jpeg_open_backing_store:F(0,6):
+jpeg_open_backing_store_F0_6:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -11796,9 +11909,9 @@ jpeg_open_backing_store:F(0,6):
 	jmp ecx
 
 
-;jpeg_mem_init:F(0,25)
+;jpeg_mem_init_F0_25
 
-jpeg_mem_init:F(0,25):
+jpeg_mem_init_F0_25:
 	push ebp
 	mov ebp, esp
 	xor eax, eax
@@ -11806,9 +11919,9 @@ jpeg_mem_init:F(0,25):
 	ret
 
 
-;jpeg_mem_term:F(0,6)
+;jpeg_mem_term_F0_6
 
-jpeg_mem_term:F(0,6):
+jpeg_mem_term_F0_6:
 	push ebp
 	mov ebp, esp
 	pop ebp
@@ -12002,7 +12115,7 @@ quantize_ord_dither_80:
 	mov [esp+0x4], edx
 	mov eax, [eax]
 	mov [esp], eax
-	call jzero_far:F(0,2)
+	call jzero_far_F0_2
 	mov esi, [ebp-0x38]
 	mov esi, [esi+0x30]
 	mov [ebp-0x28], esi
@@ -12241,7 +12354,7 @@ quantize_fs_dither_100:
 	mov [esp+0x4], ecx
 	mov eax, [edx]
 	mov [esp], eax
-	call jzero_far:F(0,2)
+	call jzero_far_F0_2
 	mov ecx, [ebp-0x40]
 	test ecx, ecx
 	jle quantize_fs_dither_20
@@ -12549,7 +12662,7 @@ start_pass_1_quant:
 	push esi
 	push ebx
 	sub esp, 0x4c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov eax, [ebp+0x8]
 	mov [ebp-0x3c], eax
 	mov esi, [eax+0x1b0]
@@ -12744,7 +12857,7 @@ start_pass_1_quant_200:
 	mov [esp+0x4], eax
 	mov eax, [esi+0x44]
 	mov [esp], eax
-	call jzero_far:F(0,2)
+	call jzero_far_F0_2
 	add edi, 0x1
 	add esi, 0x4
 	mov edx, [ebp-0x3c]
@@ -12792,16 +12905,16 @@ start_pass_1_quant_240:
 	add [eax], al
 
 
-;jinit_1pass_quantizer:F(0,1)
+;jinit_1pass_quantizer_F0_1
 
-jinit_1pass_quantizer:F(0,1):
+jinit_1pass_quantizer_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
 	push esi
 	push ebx
 	sub esp, 0x7c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov edx, [ebp+0x8]
 	mov eax, [edx+0x4]
 	mov dword [esp+0x8], 0x58
@@ -12819,14 +12932,14 @@ jinit_1pass_quantizer:F(0,1):
 	mov dword [eax+0x44], 0x0
 	mov dword [eax+0x34], 0x0
 	cmp dword [ecx+0x6c], 0x4
-	jg jinit_1pass_quantizer:F(0,1)_10
-jinit_1pass_quantizer:F(0,1)_280:
+	jg jinit_1pass_quantizer_F0_1_10
+jinit_1pass_quantizer_F0_1_280:
 	mov esi, [ebp+0x8]
 	cmp dword [esi+0x5c], 0x100
-	jg jinit_1pass_quantizer:F(0,1)_20
+	jg jinit_1pass_quantizer_F0_1_20
 	mov edi, esi
 	mov eax, esi
-jinit_1pass_quantizer:F(0,1)_270:
+jinit_1pass_quantizer_F0_1_270:
 	mov edi, [edi+0x1b0]
 	mov [ebp-0x58], edi
 	add edi, 0x20
@@ -12835,41 +12948,41 @@ jinit_1pass_quantizer:F(0,1)_270:
 	mov edx, [eax+0x5c]
 	mov [ebp-0x48], edx
 	mov ecx, 0x1
-	jmp jinit_1pass_quantizer:F(0,1)_30
-jinit_1pass_quantizer:F(0,1)_50:
+	jmp jinit_1pass_quantizer_F0_1_30
+jinit_1pass_quantizer_F0_1_50:
 	mov edx, ecx
 	cmp [ebp-0x48], edx
-	jl jinit_1pass_quantizer:F(0,1)_40
-jinit_1pass_quantizer:F(0,1)_30:
+	jl jinit_1pass_quantizer_F0_1_40
+jinit_1pass_quantizer_F0_1_30:
 	add ecx, 0x1
 	cmp esi, 0x1
-	jle jinit_1pass_quantizer:F(0,1)_50
+	jle jinit_1pass_quantizer_F0_1_50
 	mov edx, ecx
 	mov eax, 0x1
-jinit_1pass_quantizer:F(0,1)_60:
+jinit_1pass_quantizer_F0_1_60:
 	imul edx, ecx
 	add eax, 0x1
 	cmp esi, eax
-	jnz jinit_1pass_quantizer:F(0,1)_60
+	jnz jinit_1pass_quantizer_F0_1_60
 	cmp [ebp-0x48], edx
-	jge jinit_1pass_quantizer:F(0,1)_30
-jinit_1pass_quantizer:F(0,1)_40:
+	jge jinit_1pass_quantizer_F0_1_30
+jinit_1pass_quantizer_F0_1_40:
 	lea edi, [ecx-0x1]
 	cmp edi, 0x1
-	jle jinit_1pass_quantizer:F(0,1)_70
-jinit_1pass_quantizer:F(0,1)_290:
+	jle jinit_1pass_quantizer_F0_1_70
+jinit_1pass_quantizer_F0_1_290:
 	test esi, esi
-	jg jinit_1pass_quantizer:F(0,1)_80
+	jg jinit_1pass_quantizer_F0_1_80
 	mov dword [ebp-0x20], 0x1
-jinit_1pass_quantizer:F(0,1)_220:
+jinit_1pass_quantizer_F0_1_220:
 	test esi, esi
-	jg jinit_1pass_quantizer:F(0,1)_90
+	jg jinit_1pass_quantizer_F0_1_90
 	mov esi, [ebp-0x20]
 	mov [ebp-0x1c], esi
-jinit_1pass_quantizer:F(0,1)_350:
+jinit_1pass_quantizer_F0_1_350:
 	mov ecx, [ebp+0x8]
 	cmp dword [ecx+0x6c], 0x3
-	jz jinit_1pass_quantizer:F(0,1)_100
+	jz jinit_1pass_quantizer_F0_1_100
 	mov edx, ecx
 	mov eax, [ecx]
 	mov dword [eax+0x14], 0x5f
@@ -12880,7 +12993,7 @@ jinit_1pass_quantizer:F(0,1)_350:
 	mov dword [esp+0x4], 0x1
 	mov [esp], edx
 	call dword [eax+0x4]
-jinit_1pass_quantizer:F(0,1)_260:
+jinit_1pass_quantizer_F0_1_260:
 	mov esi, [ebp+0x8]
 	mov edx, [esi+0x4]
 	mov eax, [esi+0x6c]
@@ -12893,13 +13006,13 @@ jinit_1pass_quantizer:F(0,1)_260:
 	mov [ebp-0x54], eax
 	mov edx, [esi+0x6c]
 	test edx, edx
-	jle jinit_1pass_quantizer:F(0,1)_110
+	jle jinit_1pass_quantizer_F0_1_110
 	mov eax, [ebp-0x58]
 	mov [ebp-0x28], eax
 	mov dword [ebp-0x38], 0x0
 	mov edx, eax
 	mov eax, [ebp-0x1c]
-jinit_1pass_quantizer:F(0,1)_190:
+jinit_1pass_quantizer_F0_1_190:
 	mov edx, [edx+0x20]
 	mov [ebp-0x50], edx
 	cdq
@@ -12907,7 +13020,7 @@ jinit_1pass_quantizer:F(0,1)_190:
 	mov [ebp-0x74], eax
 	mov eax, [ebp-0x50]
 	test eax, eax
-	jle jinit_1pass_quantizer:F(0,1)_120
+	jle jinit_1pass_quantizer_F0_1_120
 	mov edx, [ebp-0x50]
 	sub edx, 0x1
 	mov [ebp-0x30], edx
@@ -12917,7 +13030,7 @@ jinit_1pass_quantizer:F(0,1)_190:
 	sar eax, 1
 	mov [ebp-0x2c], eax
 	mov dword [ebp-0x3c], 0x0
-jinit_1pass_quantizer:F(0,1)_170:
+jinit_1pass_quantizer_F0_1_170:
 	cdq
 	idiv dword [ebp-0x30]
 	mov [ebp-0x5c], eax
@@ -12926,15 +13039,15 @@ jinit_1pass_quantizer:F(0,1)_170:
 	mov [ebp-0x70], edx
 	mov ecx, [ebp-0x20]
 	cmp edx, ecx
-	jge jinit_1pass_quantizer:F(0,1)_130
-jinit_1pass_quantizer:F(0,1)_160:
+	jge jinit_1pass_quantizer_F0_1_130
+jinit_1pass_quantizer_F0_1_160:
 	mov eax, [ebp-0x74]
 	test eax, eax
-	jle jinit_1pass_quantizer:F(0,1)_140
+	jle jinit_1pass_quantizer_F0_1_140
 	movzx edx, byte [ebp-0x5c]
 	mov [ebp-0x69], dl
 	xor edx, edx
-jinit_1pass_quantizer:F(0,1)_150:
+jinit_1pass_quantizer_F0_1_150:
 	mov eax, edx
 	mov esi, [ebp-0x38]
 	mov edi, [ebp-0x54]
@@ -12944,33 +13057,33 @@ jinit_1pass_quantizer:F(0,1)_150:
 	mov [eax+esi], cl
 	add edx, 0x1
 	cmp [ebp-0x74], edx
-	jnz jinit_1pass_quantizer:F(0,1)_150
-jinit_1pass_quantizer:F(0,1)_140:
+	jnz jinit_1pass_quantizer_F0_1_150
+jinit_1pass_quantizer_F0_1_140:
 	mov edi, [ebp-0x1c]
 	add [ebp-0x70], edi
 	mov eax, [ebp-0x20]
 	cmp [ebp-0x70], eax
-	jl jinit_1pass_quantizer:F(0,1)_160
-jinit_1pass_quantizer:F(0,1)_130:
+	jl jinit_1pass_quantizer_F0_1_160
+jinit_1pass_quantizer_F0_1_130:
 	add dword [ebp-0x3c], 0x1
 	add dword [ebp-0x2c], 0xff
 	mov ecx, [ebp-0x3c]
 	cmp [ebp-0x50], ecx
-	jz jinit_1pass_quantizer:F(0,1)_120
+	jz jinit_1pass_quantizer_F0_1_120
 	mov eax, [ebp-0x2c]
-	jmp jinit_1pass_quantizer:F(0,1)_170
-jinit_1pass_quantizer:F(0,1)_120:
+	jmp jinit_1pass_quantizer_F0_1_170
+jinit_1pass_quantizer_F0_1_120:
 	add dword [ebp-0x38], 0x1
 	add dword [ebp-0x28], 0x4
 	mov esi, [ebp-0x38]
 	mov edi, [ebp+0x8]
 	cmp esi, [edi+0x6c]
-	jge jinit_1pass_quantizer:F(0,1)_180
+	jge jinit_1pass_quantizer_F0_1_180
 	mov eax, [ebp-0x74]
 	mov [ebp-0x1c], eax
 	mov edx, [ebp-0x28]
-	jmp jinit_1pass_quantizer:F(0,1)_190
-jinit_1pass_quantizer:F(0,1)_110:
+	jmp jinit_1pass_quantizer_F0_1_190
+jinit_1pass_quantizer_F0_1_110:
 	mov ecx, eax
 	mov edx, [ebp-0x58]
 	mov [edx+0x10], ecx
@@ -12980,18 +13093,18 @@ jinit_1pass_quantizer:F(0,1)_110:
 	call create_colorindex
 	mov edi, [ebp+0x8]
 	cmp dword [edi+0x54], 0x2
-	jz jinit_1pass_quantizer:F(0,1)_200
-jinit_1pass_quantizer:F(0,1)_230:
+	jz jinit_1pass_quantizer_F0_1_200
+jinit_1pass_quantizer_F0_1_230:
 	add esp, 0x7c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-jinit_1pass_quantizer:F(0,1)_80:
+jinit_1pass_quantizer_F0_1_80:
 	xor eax, eax
 	mov dword [ebp-0x20], 0x1
-jinit_1pass_quantizer:F(0,1)_210:
+jinit_1pass_quantizer_F0_1_210:
 	mov edx, [ebp-0x4c]
 	mov [edx+eax*4], edi
 	mov ecx, [ebp-0x20]
@@ -12999,9 +13112,9 @@ jinit_1pass_quantizer:F(0,1)_210:
 	mov [ebp-0x20], ecx
 	add eax, 0x1
 	cmp esi, eax
-	jnz jinit_1pass_quantizer:F(0,1)_210
-	jmp jinit_1pass_quantizer:F(0,1)_220
-jinit_1pass_quantizer:F(0,1)_180:
+	jnz jinit_1pass_quantizer_F0_1_210
+	jmp jinit_1pass_quantizer_F0_1_220
+jinit_1pass_quantizer_F0_1_180:
 	mov ecx, [ebp-0x54]
 	mov edx, [ebp-0x58]
 	mov [edx+0x10], ecx
@@ -13011,22 +13124,22 @@ jinit_1pass_quantizer:F(0,1)_180:
 	call create_colorindex
 	mov edi, [ebp+0x8]
 	cmp dword [edi+0x54], 0x2
-	jnz jinit_1pass_quantizer:F(0,1)_230
-jinit_1pass_quantizer:F(0,1)_200:
+	jnz jinit_1pass_quantizer_F0_1_230
+jinit_1pass_quantizer_F0_1_200:
 	mov edx, [edi+0x1b0]
 	mov eax, [edi+0x64]
 	lea eax, [eax+eax+0x4]
 	mov [ebp-0x34], eax
 	mov eax, [edi+0x6c]
 	test eax, eax
-	jle jinit_1pass_quantizer:F(0,1)_230
+	jle jinit_1pass_quantizer_F0_1_230
 	mov esi, edx
 	xor edi, edi
 	mov edx, [ebp+0x8]
-	jmp jinit_1pass_quantizer:F(0,1)_240
-jinit_1pass_quantizer:F(0,1)_250:
+	jmp jinit_1pass_quantizer_F0_1_240
+jinit_1pass_quantizer_F0_1_250:
 	mov edx, eax
-jinit_1pass_quantizer:F(0,1)_240:
+jinit_1pass_quantizer_F0_1_240:
 	mov eax, [edx+0x4]
 	mov ecx, [ebp-0x34]
 	mov [esp+0x8], ecx
@@ -13038,14 +13151,14 @@ jinit_1pass_quantizer:F(0,1)_240:
 	add esi, 0x4
 	mov eax, [ebp+0x8]
 	cmp [eax+0x6c], edi
-	jg jinit_1pass_quantizer:F(0,1)_250
+	jg jinit_1pass_quantizer_F0_1_250
 	add esp, 0x7c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-jinit_1pass_quantizer:F(0,1)_100:
+jinit_1pass_quantizer_F0_1_100:
 	mov eax, [ecx]
 	lea edx, [eax+0x18]
 	mov esi, [ebp-0x20]
@@ -13063,8 +13176,8 @@ jinit_1pass_quantizer:F(0,1)_100:
 	mov dword [esp+0x4], 0x1
 	mov [esp], ecx
 	call dword [eax+0x4]
-	jmp jinit_1pass_quantizer:F(0,1)_260
-jinit_1pass_quantizer:F(0,1)_20:
+	jmp jinit_1pass_quantizer_F0_1_260
+jinit_1pass_quantizer_F0_1_20:
 	mov eax, [esi]
 	mov dword [eax+0x14], 0x39
 	mov eax, [esi]
@@ -13074,8 +13187,8 @@ jinit_1pass_quantizer:F(0,1)_20:
 	call dword [eax]
 	mov edi, [ebp+0x8]
 	mov eax, [ebp+0x8]
-	jmp jinit_1pass_quantizer:F(0,1)_270
-jinit_1pass_quantizer:F(0,1)_10:
+	jmp jinit_1pass_quantizer_F0_1_270
+jinit_1pass_quantizer_F0_1_10:
 	mov eax, [ecx]
 	mov dword [eax+0x14], 0x37
 	mov eax, [ecx]
@@ -13083,8 +13196,8 @@ jinit_1pass_quantizer:F(0,1)_10:
 	mov eax, [ecx]
 	mov [esp], ecx
 	call dword [eax]
-	jmp jinit_1pass_quantizer:F(0,1)_280
-jinit_1pass_quantizer:F(0,1)_70:
+	jmp jinit_1pass_quantizer_F0_1_280
+jinit_1pass_quantizer_F0_1_70:
 	mov ecx, [ebp+0x8]
 	mov eax, [ecx]
 	mov dword [eax+0x14], 0x38
@@ -13093,23 +13206,23 @@ jinit_1pass_quantizer:F(0,1)_70:
 	mov eax, [ecx]
 	mov [esp], ecx
 	call dword [eax]
-	jmp jinit_1pass_quantizer:F(0,1)_290
-jinit_1pass_quantizer:F(0,1)_90:
+	jmp jinit_1pass_quantizer_F0_1_290
+jinit_1pass_quantizer_F0_1_90:
 	mov edi, [ebp-0x20]
 	mov [ebp-0x1c], edi
 	lea eax, [ebx+0x112823]
 	mov [ebp-0x60], eax
-jinit_1pass_quantizer:F(0,1)_330:
+jinit_1pass_quantizer_F0_1_330:
 	mov dword [ebp-0x44], 0x0
 	mov byte [ebp-0x3d], 0x0
 	mov edx, [ebp-0x60]
 	mov [ebp-0x24], edx
-jinit_1pass_quantizer:F(0,1)_320:
+jinit_1pass_quantizer_F0_1_320:
 	mov ecx, [ebp+0x8]
 	cmp dword [ecx+0x34], 0x2
-	jz jinit_1pass_quantizer:F(0,1)_300
+	jz jinit_1pass_quantizer_F0_1_300
 	mov eax, [ebp-0x44]
-jinit_1pass_quantizer:F(0,1)_340:
+jinit_1pass_quantizer_F0_1_340:
 	mov edx, [ebp-0x4c]
 	lea edi, [edx+eax*4]
 	mov eax, [ebp-0x1c]
@@ -13120,25 +13233,25 @@ jinit_1pass_quantizer:F(0,1)_340:
 	add eax, 0x1
 	imul ecx, eax
 	cmp [ebp-0x48], ecx
-	jl jinit_1pass_quantizer:F(0,1)_310
+	jl jinit_1pass_quantizer_F0_1_310
 	mov [edi], eax
 	add dword [ebp-0x44], 0x1
 	add dword [ebp-0x24], 0x4
 	mov byte [ebp-0x3d], 0x1
 	mov [ebp-0x1c], ecx
 	cmp esi, [ebp-0x44]
-	jnz jinit_1pass_quantizer:F(0,1)_320
-	jmp jinit_1pass_quantizer:F(0,1)_330
-jinit_1pass_quantizer:F(0,1)_300:
+	jnz jinit_1pass_quantizer_F0_1_320
+	jmp jinit_1pass_quantizer_F0_1_330
+jinit_1pass_quantizer_F0_1_300:
 	mov edi, [ebp-0x24]
 	mov eax, [edi]
-	jmp jinit_1pass_quantizer:F(0,1)_340
-jinit_1pass_quantizer:F(0,1)_310:
+	jmp jinit_1pass_quantizer_F0_1_340
+jinit_1pass_quantizer_F0_1_310:
 	cmp byte [ebp-0x3d], 0x0
-	jnz jinit_1pass_quantizer:F(0,1)_330
+	jnz jinit_1pass_quantizer_F0_1_330
 	mov edx, [ebp-0x1c]
 	mov [ebp-0x20], edx
-	jmp jinit_1pass_quantizer:F(0,1)_350
+	jmp jinit_1pass_quantizer_F0_1_350
 
 
 ;prescan_quantize
@@ -14803,7 +14916,7 @@ start_pass_2_quant:
 	push esi
 	push ebx
 	sub esp, 0x2c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov edi, [ebp+0x8]
 	movzx eax, byte [ebp+0xc]
 	mov edx, [edi+0x1b0]
@@ -14864,7 +14977,7 @@ start_pass_2_quant_180:
 	mov [esp+0x4], esi
 	mov eax, [ecx+0x20]
 	mov [esp], eax
-	call jzero_far:F(0,2)
+	call jzero_far_F0_2
 	mov eax, [ebp-0x28]
 	mov esi, [eax+0x28]
 	test esi, esi
@@ -14881,7 +14994,7 @@ start_pass_2_quant_110:
 	mov ecx, [ebp-0x24]
 	mov eax, [ecx+esi*4-0x4]
 	mov [esp], eax
-	call jzero_far:F(0,2)
+	call jzero_far_F0_2
 	add esi, 0x1
 	cmp esi, 0x21
 	jnz start_pass_2_quant_110
@@ -14992,16 +15105,16 @@ start_pass_2_quant_190:
 	add [eax], al
 
 
-;jinit_2pass_quantizer:F(0,1)
+;jinit_2pass_quantizer_F0_1
 
-jinit_2pass_quantizer:F(0,1):
+jinit_2pass_quantizer_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
 	push esi
 	push ebx
 	sub esp, 0x2c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov edx, [ebp+0x8]
 	mov eax, [edx+0x4]
 	mov dword [esp+0x8], 0x2c
@@ -15019,13 +15132,13 @@ jinit_2pass_quantizer:F(0,1):
 	mov dword [edx+0x20], 0x0
 	mov dword [edx+0x28], 0x0
 	cmp dword [ecx+0x6c], 0x3
-	jz jinit_2pass_quantizer:F(0,1)_10
+	jz jinit_2pass_quantizer_F0_1_10
 	mov eax, [ecx]
 	mov dword [eax+0x14], 0x2f
 	mov eax, [ecx]
 	mov [esp], ecx
 	call dword [eax]
-jinit_2pass_quantizer:F(0,1)_10:
+jinit_2pass_quantizer_F0_1_10:
 	mov ecx, [ebp+0x8]
 	mov eax, [ecx+0x4]
 	mov dword [esp+0x8], 0x80
@@ -15035,7 +15148,7 @@ jinit_2pass_quantizer:F(0,1)_10:
 	mov edx, [ebp-0x24]
 	mov [edx+0x18], eax
 	xor edi, edi
-jinit_2pass_quantizer:F(0,1)_20:
+jinit_2pass_quantizer_F0_1_20:
 	mov esi, edi
 	mov ecx, [ebp-0x24]
 	add esi, [ecx+0x18]
@@ -15048,18 +15161,18 @@ jinit_2pass_quantizer:F(0,1)_20:
 	mov [esi], eax
 	add edi, 0x4
 	cmp edi, 0x80
-	jnz jinit_2pass_quantizer:F(0,1)_20
+	jnz jinit_2pass_quantizer_F0_1_20
 	mov ecx, [ebp-0x24]
 	mov byte [ecx+0x1c], 0x1
 	mov eax, [ebp+0x8]
 	cmp byte [eax+0x62], 0x0
-	jz jinit_2pass_quantizer:F(0,1)_30
+	jz jinit_2pass_quantizer_F0_1_30
 	mov esi, [eax+0x5c]
 	cmp esi, 0x7
-	jle jinit_2pass_quantizer:F(0,1)_40
+	jle jinit_2pass_quantizer_F0_1_40
 	cmp esi, 0x100
-	jg jinit_2pass_quantizer:F(0,1)_50
-jinit_2pass_quantizer:F(0,1)_130:
+	jg jinit_2pass_quantizer_F0_1_50
+jinit_2pass_quantizer_F0_1_130:
 	mov edx, [ebp+0x8]
 	mov eax, [edx+0x4]
 	mov dword [esp+0xc], 0x3
@@ -15073,12 +15186,12 @@ jinit_2pass_quantizer:F(0,1)_130:
 	mov edx, [ebp+0x8]
 	mov ecx, [edx+0x54]
 	test ecx, ecx
-	jnz jinit_2pass_quantizer:F(0,1)_60
-jinit_2pass_quantizer:F(0,1)_110:
+	jnz jinit_2pass_quantizer_F0_1_60
+jinit_2pass_quantizer_F0_1_110:
 	mov ecx, edx
 	cmp dword [ecx+0x54], 0x2
-	jnz jinit_2pass_quantizer:F(0,1)_70
-jinit_2pass_quantizer:F(0,1)_120:
+	jnz jinit_2pass_quantizer_F0_1_70
+jinit_2pass_quantizer_F0_1_120:
 	mov edx, [ecx+0x4]
 	mov eax, [ecx+0x64]
 	lea eax, [eax+eax*2]
@@ -15100,19 +15213,19 @@ jinit_2pass_quantizer:F(0,1)_120:
 	mov [esi+0x28], ecx
 	xor eax, eax
 	xor edx, edx
-jinit_2pass_quantizer:F(0,1)_80:
+jinit_2pass_quantizer_F0_1_80:
 	mov [ecx+eax*4], eax
 	mov [ecx+edx*4], edx
 	add eax, 0x1
 	sub edx, 0x1
 	cmp eax, 0x10
-	jnz jinit_2pass_quantizer:F(0,1)_80
+	jnz jinit_2pass_quantizer_F0_1_80
 	lea esi, [ecx+0x40]
 	lea edx, [ecx-0x40]
 	mov dword [ebp-0x1c], 0x10
 	mov dword [ebp-0x20], 0x10
 	mov edi, 0x20
-jinit_2pass_quantizer:F(0,1)_90:
+jinit_2pass_quantizer_F0_1_90:
 	mov eax, [ebp-0x1c]
 	mov [esi], eax
 	mov eax, [ebp-0x1c]
@@ -15126,9 +15239,9 @@ jinit_2pass_quantizer:F(0,1)_90:
 	add esi, 0x4
 	sub edx, 0x4
 	sub edi, 0x1
-	jnz jinit_2pass_quantizer:F(0,1)_90
+	jnz jinit_2pass_quantizer_F0_1_90
 	cmp dword [ebp-0x20], 0xff
-	jg jinit_2pass_quantizer:F(0,1)_70
+	jg jinit_2pass_quantizer_F0_1_70
 	mov esi, [ebp-0x1c]
 	neg esi
 	mov eax, [ebp-0x20]
@@ -15136,7 +15249,7 @@ jinit_2pass_quantizer:F(0,1)_90:
 	lea edx, [ecx+eax]
 	sub ecx, eax
 	mov eax, ecx
-jinit_2pass_quantizer:F(0,1)_100:
+jinit_2pass_quantizer_F0_1_100:
 	mov ecx, [ebp-0x1c]
 	mov [edx], ecx
 	mov [eax], esi
@@ -15144,28 +15257,28 @@ jinit_2pass_quantizer:F(0,1)_100:
 	add edx, 0x4
 	sub eax, 0x4
 	cmp dword [ebp-0x20], 0x100
-	jnz jinit_2pass_quantizer:F(0,1)_100
-	jmp jinit_2pass_quantizer:F(0,1)_70
-jinit_2pass_quantizer:F(0,1)_30:
+	jnz jinit_2pass_quantizer_F0_1_100
+	jmp jinit_2pass_quantizer_F0_1_70
+jinit_2pass_quantizer_F0_1_30:
 	mov eax, [ebp-0x24]
 	mov dword [eax+0x10], 0x0
 	mov edx, [ebp+0x8]
 	mov ecx, [edx+0x54]
 	test ecx, ecx
-	jz jinit_2pass_quantizer:F(0,1)_110
-jinit_2pass_quantizer:F(0,1)_60:
+	jz jinit_2pass_quantizer_F0_1_110
+jinit_2pass_quantizer_F0_1_60:
 	mov dword [edx+0x54], 0x2
 	mov ecx, [ebp+0x8]
 	cmp dword [ecx+0x54], 0x2
-	jz jinit_2pass_quantizer:F(0,1)_120
-jinit_2pass_quantizer:F(0,1)_70:
+	jz jinit_2pass_quantizer_F0_1_120
+jinit_2pass_quantizer_F0_1_70:
 	add esp, 0x2c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-jinit_2pass_quantizer:F(0,1)_40:
+jinit_2pass_quantizer_F0_1_40:
 	mov edx, eax
 	mov eax, [eax]
 	mov dword [eax+0x14], 0x38
@@ -15174,8 +15287,8 @@ jinit_2pass_quantizer:F(0,1)_40:
 	mov eax, [edx]
 	mov [esp], edx
 	call dword [eax]
-	jmp jinit_2pass_quantizer:F(0,1)_130
-jinit_2pass_quantizer:F(0,1)_50:
+	jmp jinit_2pass_quantizer_F0_1_130
+jinit_2pass_quantizer_F0_1_50:
 	mov ecx, [ebp+0x8]
 	mov eax, [ecx]
 	mov dword [eax+0x14], 0x39
@@ -15184,7 +15297,7 @@ jinit_2pass_quantizer:F(0,1)_50:
 	mov eax, [ecx]
 	mov [esp], ecx
 	call dword [eax]
-	jmp jinit_2pass_quantizer:F(0,1)_130
+	jmp jinit_2pass_quantizer_F0_1_130
 
 
 ;build_ycc_rgb_table
@@ -15431,7 +15544,7 @@ grayscale_convert:
 	mov eax, [ebp+0xc]
 	mov eax, [eax]
 	mov [esp], eax
-	call jcopy_sample_rows:F(0,2)
+	call jcopy_sample_rows_F0_2
 	leave
 	ret
 
@@ -15607,16 +15720,16 @@ start_pass_dcolor:
 	ret
 
 
-;jinit_color_deconverter:F(0,1)
+;jinit_color_deconverter_F0_1
 
-jinit_color_deconverter:F(0,1):
+jinit_color_deconverter_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
 	push esi
 	push ebx
 	sub esp, 0x1c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov esi, [ebp+0x8]
 	mov eax, [esi+0x4]
 	mov dword [esp+0x8], 0x18
@@ -15628,7 +15741,7 @@ jinit_color_deconverter:F(0,1):
 	lea eax, [ebx-0x13]
 	mov [edi], eax
 	cmp dword [esi+0x30], 0x5
-	ja jinit_color_deconverter:F(0,1)_10
+	ja jinit_color_deconverter_F0_1_10
 	mov eax, [esi+0x30]
 	mov eax, [ebx+eax*4+0x41]
 	add eax, ebx
@@ -15643,31 +15756,31 @@ jinit_color_deconverter:F(0,1):
 	add [eax], eax
 	add [esi+0x1], dh
 	add [eax], al
-	jbe 0x23004f
+	; [sanitized: stripped jbe 0x23004f --Win32 COFF cannot relocate absolute jumps]
 	add [eax], al
-jinit_color_deconverter:F(0,1)_10:
+jinit_color_deconverter_F0_1_10:
 	mov eax, [esi+0x2c]
 	test eax, eax
-	jle jinit_color_deconverter:F(0,1)_20
-jinit_color_deconverter:F(0,1)_120:
+	jle jinit_color_deconverter_F0_1_20
+jinit_color_deconverter_F0_1_120:
 	mov eax, [esi+0x34]
 	cmp eax, 0x2
-	jz jinit_color_deconverter:F(0,1)_30
+	jz jinit_color_deconverter_F0_1_30
 	cmp eax, 0x4
-	jz jinit_color_deconverter:F(0,1)_40
+	jz jinit_color_deconverter_F0_1_40
 	cmp eax, 0x1
-	jz jinit_color_deconverter:F(0,1)_50
+	jz jinit_color_deconverter_F0_1_50
 	cmp eax, [esi+0x30]
-	jz jinit_color_deconverter:F(0,1)_60
-jinit_color_deconverter:F(0,1)_100:
+	jz jinit_color_deconverter_F0_1_60
+jinit_color_deconverter_F0_1_100:
 	mov eax, [esi]
 	mov dword [eax+0x14], 0x1b
 	mov eax, [esi]
 	mov [esp], esi
 	call dword [eax]
-jinit_color_deconverter:F(0,1)_140:
+jinit_color_deconverter_F0_1_140:
 	cmp byte [esi+0x52], 0x0
-	jz jinit_color_deconverter:F(0,1)_70
+	jz jinit_color_deconverter_F0_1_70
 	mov dword [esi+0x70], 0x1
 	add esp, 0x1c
 	pop ebx
@@ -15675,7 +15788,7 @@ jinit_color_deconverter:F(0,1)_140:
 	pop edi
 	pop ebp
 	ret
-jinit_color_deconverter:F(0,1)_70:
+jinit_color_deconverter_F0_1_70:
 	mov eax, [esi+0x6c]
 	mov [esi+0x70], eax
 	add esp, 0x1c
@@ -15684,84 +15797,84 @@ jinit_color_deconverter:F(0,1)_70:
 	pop edi
 	pop ebp
 	ret
-jinit_color_deconverter:F(0,1)_30:
+jinit_color_deconverter_F0_1_30:
 	mov dword [esi+0x6c], 0x3
 	mov eax, [esi+0x30]
 	cmp eax, 0x3
-	jz jinit_color_deconverter:F(0,1)_80
+	jz jinit_color_deconverter_F0_1_80
 	cmp eax, 0x1
-	jz jinit_color_deconverter:F(0,1)_90
+	jz jinit_color_deconverter_F0_1_90
 	cmp eax, 0x2
-	jnz jinit_color_deconverter:F(0,1)_100
-	jmp jinit_color_deconverter:F(0,1)_110
+	jnz jinit_color_deconverter_F0_1_100
+	jmp jinit_color_deconverter_F0_1_110
 	cmp dword [esi+0x2c], 0x1
-	jz jinit_color_deconverter:F(0,1)_120
-jinit_color_deconverter:F(0,1)_20:
+	jz jinit_color_deconverter_F0_1_120
+jinit_color_deconverter_F0_1_20:
 	mov eax, [esi]
 	mov dword [eax+0x14], 0xa
 	mov eax, [esi]
 	mov [esp], esi
 	call dword [eax]
-	jmp jinit_color_deconverter:F(0,1)_120
-jinit_color_deconverter:F(0,1)_40:
+	jmp jinit_color_deconverter_F0_1_120
+jinit_color_deconverter_F0_1_40:
 	mov dword [esi+0x6c], 0x4
 	mov eax, [esi+0x30]
 	cmp eax, 0x5
-	jz jinit_color_deconverter:F(0,1)_130
+	jz jinit_color_deconverter_F0_1_130
 	cmp eax, 0x4
-	jnz jinit_color_deconverter:F(0,1)_100
-jinit_color_deconverter:F(0,1)_110:
+	jnz jinit_color_deconverter_F0_1_100
+jinit_color_deconverter_F0_1_110:
 	lea eax, [ebx-0x28a]
 	mov [edi+0x4], eax
-	jmp jinit_color_deconverter:F(0,1)_140
-jinit_color_deconverter:F(0,1)_60:
+	jmp jinit_color_deconverter_F0_1_140
+jinit_color_deconverter_F0_1_60:
 	mov eax, [esi+0x2c]
 	mov [esi+0x6c], eax
-	jmp jinit_color_deconverter:F(0,1)_110
-jinit_color_deconverter:F(0,1)_50:
+	jmp jinit_color_deconverter_F0_1_110
+jinit_color_deconverter_F0_1_50:
 	mov dword [esi+0x6c], 0x1
 	mov eax, [esi+0x30]
 	cmp eax, 0x1
-	jz jinit_color_deconverter:F(0,1)_150
+	jz jinit_color_deconverter_F0_1_150
 	cmp eax, 0x3
-	jnz jinit_color_deconverter:F(0,1)_100
-jinit_color_deconverter:F(0,1)_150:
+	jnz jinit_color_deconverter_F0_1_100
+jinit_color_deconverter_F0_1_150:
 	lea eax, [ebx-0x1fe]
 	mov [edi+0x4], eax
 	cmp dword [esi+0x2c], 0x1
-	jle jinit_color_deconverter:F(0,1)_140
+	jle jinit_color_deconverter_F0_1_140
 	mov ecx, 0x1
 	mov edx, 0x54
-jinit_color_deconverter:F(0,1)_160:
+jinit_color_deconverter_F0_1_160:
 	mov eax, [esi+0xcc]
 	mov byte [edx+eax+0x30], 0x0
 	add ecx, 0x1
 	add edx, 0x54
 	cmp [esi+0x2c], ecx
-	jg jinit_color_deconverter:F(0,1)_160
-	jmp jinit_color_deconverter:F(0,1)_140
+	jg jinit_color_deconverter_F0_1_160
+	jmp jinit_color_deconverter_F0_1_140
 	cmp dword [esi+0x2c], 0x4
-	jnz jinit_color_deconverter:F(0,1)_20
-	jmp jinit_color_deconverter:F(0,1)_120
+	jnz jinit_color_deconverter_F0_1_20
+	jmp jinit_color_deconverter_F0_1_120
 	cmp dword [esi+0x2c], 0x3
-	jnz jinit_color_deconverter:F(0,1)_20
-	jmp jinit_color_deconverter:F(0,1)_120
-jinit_color_deconverter:F(0,1)_90:
+	jnz jinit_color_deconverter_F0_1_20
+	jmp jinit_color_deconverter_F0_1_120
+jinit_color_deconverter_F0_1_90:
 	lea eax, [ebx-0x1c2]
 	mov [edi+0x4], eax
-	jmp jinit_color_deconverter:F(0,1)_140
-jinit_color_deconverter:F(0,1)_130:
+	jmp jinit_color_deconverter_F0_1_140
+jinit_color_deconverter_F0_1_130:
 	lea eax, [ebx-0x15a]
 	mov [edi+0x4], eax
 	mov eax, esi
 	call build_ycc_rgb_table
-	jmp jinit_color_deconverter:F(0,1)_140
-jinit_color_deconverter:F(0,1)_80:
+	jmp jinit_color_deconverter_F0_1_140
+jinit_color_deconverter_F0_1_80:
 	lea eax, [ebx-0x395]
 	mov [edi+0x4], eax
 	mov eax, esi
 	call build_ycc_rgb_table
-	jmp jinit_color_deconverter:F(0,1)_140
+	jmp jinit_color_deconverter_F0_1_140
 
 
 ;start_output_pass
@@ -15772,7 +15885,7 @@ start_output_pass:
 	push esi
 	push ebx
 	sub esp, 0x6c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov esi, [ebp+0x8]
 	mov edi, [esi+0x190]
 	mov eax, [edi+0x10]
@@ -16255,7 +16368,7 @@ decompress_smooth_data_330:
 	mov eax, [ebp-0x120]
 	mov [esp+0x4], eax
 	mov [esp], edi
-	call jcopy_block_row:F(0,2)
+	call jcopy_block_row_F0_2
 	mov edx, [ebp-0x110]
 	cmp [ebp-0x10c], edx
 	ja decompress_smooth_data_160
@@ -16731,7 +16844,7 @@ decompress_onepass_160:
 	mov edx, [ebp-0x44]
 	mov eax, [edx+0x20]
 	mov [esp], eax
-	call jzero_far:F(0,2)
+	call jzero_far_F0_2
 	mov eax, [edi+0x1a0]
 	mov ecx, [ebp-0x48]
 	mov [esp+0x4], ecx
@@ -17179,16 +17292,16 @@ consume_data_170:
 	add [eax], al
 
 
-;jinit_d_coef_controller:F(0,1)
+;jinit_d_coef_controller_F0_1
 
-jinit_d_coef_controller:F(0,1):
+jinit_d_coef_controller_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
 	push esi
 	push ebx
 	sub esp, 0x4c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	movzx esi, byte [ebp+0xc]
 	mov edx, [ebp+0x8]
 	mov eax, [edx+0x4]
@@ -17207,19 +17320,19 @@ jinit_d_coef_controller:F(0,1):
 	mov dword [edx+0x70], 0x0
 	mov ecx, esi
 	test cl, cl
-	jz jinit_d_coef_controller:F(0,1)_10
+	jz jinit_d_coef_controller_F0_1_10
 	mov eax, [ebp+0x8]
 	mov edi, [eax+0xcc]
 	mov ecx, [eax+0x2c]
 	test ecx, ecx
-	jle jinit_d_coef_controller:F(0,1)_20
+	jle jinit_d_coef_controller_F0_1_20
 	mov [ebp-0x1c], edx
 	mov dword [ebp-0x24], 0x0
 	mov ecx, [ebp+0x8]
-	jmp jinit_d_coef_controller:F(0,1)_30
-jinit_d_coef_controller:F(0,1)_40:
+	jmp jinit_d_coef_controller_F0_1_30
+jinit_d_coef_controller_F0_1_40:
 	mov [ebp-0x20], edx
-jinit_d_coef_controller:F(0,1)_50:
+jinit_d_coef_controller_F0_1_50:
 	mov ecx, [ebp+0x8]
 	mov eax, [ecx+0x4]
 	mov eax, [eax+0x14]
@@ -17227,13 +17340,13 @@ jinit_d_coef_controller:F(0,1)_50:
 	mov [esp+0x4], edx
 	mov eax, [edi+0x20]
 	mov [esp], eax
-	call jround_up:F(0,1)
+	call jround_up_F0_1
 	mov esi, eax
 	mov eax, [edi+0x8]
 	mov [esp+0x4], eax
 	mov eax, [edi+0x1c]
 	mov [esp], eax
-	call jround_up:F(0,1)
+	call jround_up_F0_1
 	mov edx, [ebp-0x20]
 	mov [esp+0x14], edx
 	mov [esp+0x10], esi
@@ -17252,15 +17365,15 @@ jinit_d_coef_controller:F(0,1)_50:
 	mov eax, [ebp-0x24]
 	mov ecx, [ebp+0x8]
 	cmp [ecx+0x2c], eax
-	jle jinit_d_coef_controller:F(0,1)_20
-jinit_d_coef_controller:F(0,1)_30:
+	jle jinit_d_coef_controller_F0_1_20
+jinit_d_coef_controller_F0_1_30:
 	mov edx, [edi+0xc]
 	cmp byte [ecx+0xd0], 0x0
-	jz jinit_d_coef_controller:F(0,1)_40
+	jz jinit_d_coef_controller_F0_1_40
 	lea eax, [edx+edx*2]
 	mov [ebp-0x20], eax
-	jmp jinit_d_coef_controller:F(0,1)_50
-jinit_d_coef_controller:F(0,1)_20:
+	jmp jinit_d_coef_controller_F0_1_50
+jinit_d_coef_controller_F0_1_20:
 	lea eax, [ebx+0x1ea]
 	mov edx, [ebp-0x28]
 	mov [edx+0x4], eax
@@ -17275,7 +17388,7 @@ jinit_d_coef_controller:F(0,1)_20:
 	pop edi
 	pop ebp
 	ret
-jinit_d_coef_controller:F(0,1)_10:
+jinit_d_coef_controller_F0_1_10:
 	mov ecx, [ebp+0x8]
 	mov eax, [ecx+0x4]
 	mov dword [esp+0x8], 0x500
@@ -17284,12 +17397,12 @@ jinit_d_coef_controller:F(0,1)_10:
 	call dword [eax+0x4]
 	mov edx, [ebp-0x28]
 	mov ecx, 0xa
-jinit_d_coef_controller:F(0,1)_60:
+jinit_d_coef_controller_F0_1_60:
 	mov [edx+0x20], eax
 	add edx, 0x4
 	sub eax, 0xffffff80
 	sub ecx, 0x1
-	jnz jinit_d_coef_controller:F(0,1)_60
+	jnz jinit_d_coef_controller_F0_1_60
 	lea eax, [ebx-0xaef]
 	mov edx, [ebp-0x28]
 	mov [edx+0x4], eax
@@ -17312,7 +17425,7 @@ start_pass_main:
 	push esi
 	push ebx
 	sub esp, 0x38
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov eax, [ebp+0x8]
 	mov [ebp-0x3c], eax
 	mov eax, [ebp+0xc]
@@ -17841,16 +17954,16 @@ process_data_crank_post:
 	ret
 
 
-;jinit_d_main_controller:F(0,1)
+;jinit_d_main_controller_F0_1
 
-jinit_d_main_controller:F(0,1):
+jinit_d_main_controller_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
 	push esi
 	push ebx
 	sub esp, 0x5c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	movzx esi, byte [ebp+0xc]
 	mov edx, [ebp+0x8]
 	mov eax, [edx+0x4]
@@ -17866,15 +17979,15 @@ jinit_d_main_controller:F(0,1):
 	mov [edx], eax
 	mov ecx, esi
 	test cl, cl
-	jnz jinit_d_main_controller:F(0,1)_10
-jinit_d_main_controller:F(0,1)_90:
+	jnz jinit_d_main_controller_F0_1_10
+jinit_d_main_controller_F0_1_90:
 	mov edx, [ebp+0x8]
 	mov eax, [edx+0x1a8]
 	cmp byte [eax+0x8], 0x0
-	jz jinit_d_main_controller:F(0,1)_20
+	jz jinit_d_main_controller_F0_1_20
 	cmp dword [edx+0x120], 0x1
-	jle jinit_d_main_controller:F(0,1)_30
-jinit_d_main_controller:F(0,1)_120:
+	jle jinit_d_main_controller_F0_1_30
+jinit_d_main_controller_F0_1_120:
 	mov ecx, [ebp+0x8]
 	mov ecx, [ecx+0x18c]
 	mov [ebp-0x2c], ecx
@@ -17899,8 +18012,8 @@ jinit_d_main_controller:F(0,1)_120:
 	mov edi, eax
 	mov edx, [ecx+0x2c]
 	test edx, edx
-	jg jinit_d_main_controller:F(0,1)_40
-jinit_d_main_controller:F(0,1)_110:
+	jg jinit_d_main_controller_F0_1_40
+jinit_d_main_controller_F0_1_110:
 	mov esi, [ebp+0x8]
 	mov edx, [esi+0x120]
 	add edx, 0x2
@@ -17909,15 +18022,15 @@ jinit_d_main_controller:F(0,1)_110:
 	mov eax, [ebp+0x8]
 	mov eax, [eax+0x2c]
 	test eax, eax
-	jg jinit_d_main_controller:F(0,1)_50
-jinit_d_main_controller:F(0,1)_60:
+	jg jinit_d_main_controller_F0_1_50
+jinit_d_main_controller_F0_1_60:
 	add esp, 0x5c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-jinit_d_main_controller:F(0,1)_20:
+jinit_d_main_controller_F0_1_20:
 	mov ecx, [edx+0x120]
 	mov [ebp-0x30], ecx
 	mov eax, [edx+0xcc]
@@ -17925,16 +18038,16 @@ jinit_d_main_controller:F(0,1)_20:
 	mov eax, [ebp+0x8]
 	mov eax, [eax+0x2c]
 	test eax, eax
-	jle jinit_d_main_controller:F(0,1)_60
-jinit_d_main_controller:F(0,1)_50:
+	jle jinit_d_main_controller_F0_1_60
+jinit_d_main_controller_F0_1_50:
 	mov edx, [ebp-0x38]
 	mov [ebp-0x1c], edx
 	mov dword [ebp-0x34], 0x0
 	mov esi, [ebp+0x8]
-	jmp jinit_d_main_controller:F(0,1)_70
-jinit_d_main_controller:F(0,1)_80:
+	jmp jinit_d_main_controller_F0_1_70
+jinit_d_main_controller_F0_1_80:
 	mov esi, ecx
-jinit_d_main_controller:F(0,1)_70:
+jinit_d_main_controller_F0_1_70:
 	mov ecx, [edi+0x24]
 	mov [ebp-0x3c], ecx
 	mov ecx, [esi+0x4]
@@ -17960,29 +18073,29 @@ jinit_d_main_controller:F(0,1)_70:
 	mov esi, [ebp-0x34]
 	mov ecx, [ebp+0x8]
 	cmp esi, [ecx+0x2c]
-	jl jinit_d_main_controller:F(0,1)_80
+	jl jinit_d_main_controller_F0_1_80
 	add esp, 0x5c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-jinit_d_main_controller:F(0,1)_10:
+jinit_d_main_controller_F0_1_10:
 	mov esi, [ebp+0x8]
 	mov eax, [esi]
 	mov dword [eax+0x14], 0x4
 	mov eax, [esi]
 	mov [esp], esi
 	call dword [eax]
-	jmp jinit_d_main_controller:F(0,1)_90
-jinit_d_main_controller:F(0,1)_40:
+	jmp jinit_d_main_controller_F0_1_90
+jinit_d_main_controller_F0_1_40:
 	lea edx, [esi*8+0x20]
 	mov [ebp-0x24], edx
 	lea esi, [esi*4+0x10]
 	mov [ebp-0x20], esi
 	mov dword [ebp-0x28], 0x0
 	mov ecx, [ebp+0x8]
-jinit_d_main_controller:F(0,1)_100:
+jinit_d_main_controller_F0_1_100:
 	mov esi, [edi+0xc]
 	imul esi, [edi+0x24]
 	mov eax, esi
@@ -18014,16 +18127,16 @@ jinit_d_main_controller:F(0,1)_100:
 	mov edx, [ebp-0x28]
 	mov ecx, [ebp+0x8]
 	cmp [ecx+0x2c], edx
-	jg jinit_d_main_controller:F(0,1)_100
+	jg jinit_d_main_controller_F0_1_100
 	mov eax, [ecx+0xcc]
-	jmp jinit_d_main_controller:F(0,1)_110
-jinit_d_main_controller:F(0,1)_30:
+	jmp jinit_d_main_controller_F0_1_110
+jinit_d_main_controller_F0_1_30:
 	mov eax, [edx]
 	mov dword [eax+0x14], 0x2f
 	mov eax, [edx]
 	mov [esp], edx
 	call dword [eax]
-	jmp jinit_d_main_controller:F(0,1)_120
+	jmp jinit_d_main_controller_F0_1_120
 
 
 ;start_pass_dpost
@@ -18033,7 +18146,7 @@ start_pass_dpost:
 	push esi
 	push ebx
 	sub esp, 0x20
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov ecx, [ebp+0x8]
 	mov eax, [ebp+0xc]
 	mov esi, [ecx+0x194]
@@ -18336,16 +18449,16 @@ post_process_1pass:
 	ret
 
 
-;jinit_d_post_controller:F(0,1)
+;jinit_d_post_controller_F0_1
 
-jinit_d_post_controller:F(0,1):
+jinit_d_post_controller_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
 	push esi
 	push ebx
 	sub esp, 0x3c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	movzx eax, byte [ebp+0xc]
 	mov [ebp-0x1d], al
 	mov edx, [ebp+0x8]
@@ -18362,11 +18475,11 @@ jinit_d_post_controller:F(0,1):
 	mov dword [edi+0x8], 0x0
 	mov dword [edi+0xc], 0x0
 	cmp byte [ecx+0x52], 0x0
-	jz jinit_d_post_controller:F(0,1)_10
+	jz jinit_d_post_controller_F0_1_10
 	mov esi, [ecx+0x11c]
 	mov [edi+0x10], esi
 	cmp byte [ebp-0x1d], 0x0
-	jnz jinit_d_post_controller:F(0,1)_20
+	jnz jinit_d_post_controller_F0_1_20
 	mov ecx, [ebp+0x8]
 	mov eax, [ecx+0x4]
 	mov [esp+0xc], esi
@@ -18377,21 +18490,21 @@ jinit_d_post_controller:F(0,1):
 	mov [esp], ecx
 	call dword [eax+0x8]
 	mov [edi+0xc], eax
-jinit_d_post_controller:F(0,1)_10:
+jinit_d_post_controller_F0_1_10:
 	add esp, 0x3c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-jinit_d_post_controller:F(0,1)_20:
+jinit_d_post_controller_F0_1_20:
 	mov eax, [ecx+0x4]
 	mov eax, [eax+0x10]
 	mov [ebp-0x1c], eax
 	mov [esp+0x4], esi
 	mov eax, [ecx+0x68]
 	mov [esp], eax
-	call jround_up:F(0,1)
+	call jround_up_F0_1
 	mov [esp+0x14], esi
 	mov [esp+0x10], eax
 	mov edx, [ebp+0x8]
@@ -18411,9 +18524,9 @@ jinit_d_post_controller:F(0,1)_20:
 	ret
 
 
-;jpeg_make_d_derived_tbl:F(0,1)
+;jpeg_make_d_derived_tbl_F0_1
 
-jpeg_make_d_derived_tbl:F(0,1):
+jpeg_make_d_derived_tbl_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -18424,23 +18537,23 @@ jpeg_make_d_derived_tbl:F(0,1):
 	movzx eax, byte [ebp+0xc]
 	mov [ebp-0x549], al
 	cmp esi, 0x3
-	ja jpeg_make_d_derived_tbl:F(0,1)_10
-jpeg_make_d_derived_tbl:F(0,1)_330:
+	ja jpeg_make_d_derived_tbl_F0_1_10
+jpeg_make_d_derived_tbl_F0_1_330:
 	cmp byte [ebp-0x549], 0x0
-	jz jpeg_make_d_derived_tbl:F(0,1)_20
+	jz jpeg_make_d_derived_tbl_F0_1_20
 	mov ecx, [ebp+0x8]
 	mov ecx, [ecx+esi*4+0xa8]
 	mov [ebp-0x548], ecx
 	mov eax, [ebp-0x548]
 	test eax, eax
-	jz jpeg_make_d_derived_tbl:F(0,1)_30
-jpeg_make_d_derived_tbl:F(0,1)_300:
+	jz jpeg_make_d_derived_tbl_F0_1_30
+jpeg_make_d_derived_tbl_F0_1_300:
 	mov ecx, [edi]
 	test ecx, ecx
-	jz jpeg_make_d_derived_tbl:F(0,1)_40
-jpeg_make_d_derived_tbl:F(0,1)_310:
+	jz jpeg_make_d_derived_tbl_F0_1_40
+jpeg_make_d_derived_tbl_F0_1_310:
 	mov edi, [edi]
-jpeg_make_d_derived_tbl:F(0,1)_320:
+jpeg_make_d_derived_tbl_F0_1_320:
 	mov [ebp-0x544], edi
 	mov eax, [ebp-0x548]
 	mov [edi+0x8c], eax
@@ -18448,69 +18561,69 @@ jpeg_make_d_derived_tbl:F(0,1)_320:
 	mov dword [ebp-0x51c], 0x0
 	mov edi, 0x1
 	mov edx, eax
-jpeg_make_d_derived_tbl:F(0,1)_90:
+jpeg_make_d_derived_tbl_F0_1_90:
 	movzx esi, byte [edx+0x1]
 	mov ecx, [ebp-0x51c]
 	lea eax, [esi+ecx]
 	cmp eax, 0x100
-	jle jpeg_make_d_derived_tbl:F(0,1)_50
+	jle jpeg_make_d_derived_tbl_F0_1_50
 	mov edx, [ebp+0x8]
 	mov eax, [edx]
 	mov dword [eax+0x14], 0x8
 	mov eax, [edx]
 	mov [esp], edx
 	call dword [eax]
-jpeg_make_d_derived_tbl:F(0,1)_50:
+jpeg_make_d_derived_tbl_F0_1_50:
 	test esi, esi
-	jz jpeg_make_d_derived_tbl:F(0,1)_60
+	jz jpeg_make_d_derived_tbl_F0_1_60
 	mov ecx, [ebp-0x51c]
 	lea eax, [ebp+ecx-0x109]
 	xor edx, edx
-jpeg_make_d_derived_tbl:F(0,1)_70:
+jpeg_make_d_derived_tbl_F0_1_70:
 	mov ecx, edi
 	mov [eax], cl
 	add dword [ebp-0x51c], 0x1
 	add edx, 0x1
 	add eax, 0x1
 	cmp edx, esi
-	jnz jpeg_make_d_derived_tbl:F(0,1)_70
-jpeg_make_d_derived_tbl:F(0,1)_60:
+	jnz jpeg_make_d_derived_tbl_F0_1_70
+jpeg_make_d_derived_tbl_F0_1_60:
 	add edi, 0x1
 	add dword [ebp-0x528], 0x1
 	cmp edi, 0x11
-	jz jpeg_make_d_derived_tbl:F(0,1)_80
+	jz jpeg_make_d_derived_tbl_F0_1_80
 	mov edx, [ebp-0x528]
-	jmp jpeg_make_d_derived_tbl:F(0,1)_90
-jpeg_make_d_derived_tbl:F(0,1)_80:
+	jmp jpeg_make_d_derived_tbl_F0_1_90
+jpeg_make_d_derived_tbl_F0_1_80:
 	mov esi, [ebp-0x51c]
 	mov byte [ebp+esi-0x109], 0x0
 	movzx eax, byte [ebp-0x109]
 	movsx edx, al
 	mov [ebp-0x538], edx
 	test al, al
-	jz jpeg_make_d_derived_tbl:F(0,1)_100
+	jz jpeg_make_d_derived_tbl_F0_1_100
 	mov dword [ebp-0x540], 0x0
 	xor esi, esi
 	mov eax, [ebp-0x540]
-	jmp jpeg_make_d_derived_tbl:F(0,1)_110
-jpeg_make_d_derived_tbl:F(0,1)_130:
+	jmp jpeg_make_d_derived_tbl_F0_1_110
+jpeg_make_d_derived_tbl_F0_1_130:
 	add esi, esi
 	add dword [ebp-0x538], 0x1
 	mov ecx, [ebp-0x540]
 	cmp byte [ebp+ecx-0x109], 0x0
-	jz jpeg_make_d_derived_tbl:F(0,1)_100
-jpeg_make_d_derived_tbl:F(0,1)_140:
+	jz jpeg_make_d_derived_tbl_F0_1_100
+jpeg_make_d_derived_tbl_F0_1_140:
 	mov eax, ecx
-jpeg_make_d_derived_tbl:F(0,1)_110:
+jpeg_make_d_derived_tbl_F0_1_110:
 	movsx edi, byte [ebp+eax-0x109]
 	cmp edi, [ebp-0x538]
-	jz jpeg_make_d_derived_tbl:F(0,1)_120
-jpeg_make_d_derived_tbl:F(0,1)_240:
+	jz jpeg_make_d_derived_tbl_F0_1_120
+jpeg_make_d_derived_tbl_F0_1_240:
 	mov eax, 0x1
 	movzx ecx, byte [ebp-0x538]
 	shl eax, cl
 	cmp esi, eax
-	jl jpeg_make_d_derived_tbl:F(0,1)_130
+	jl jpeg_make_d_derived_tbl_F0_1_130
 	mov edx, [ebp+0x8]
 	mov eax, [edx]
 	mov dword [eax+0x14], 0x8
@@ -18521,14 +18634,14 @@ jpeg_make_d_derived_tbl:F(0,1)_240:
 	add dword [ebp-0x538], 0x1
 	mov ecx, [ebp-0x540]
 	cmp byte [ebp+ecx-0x109], 0x0
-	jnz jpeg_make_d_derived_tbl:F(0,1)_140
-jpeg_make_d_derived_tbl:F(0,1)_100:
+	jnz jpeg_make_d_derived_tbl_F0_1_140
+jpeg_make_d_derived_tbl_F0_1_100:
 	mov ecx, [ebp-0x548]
 	mov edx, [ebp-0x544]
 	xor edi, edi
 	mov esi, 0x10
-	jmp jpeg_make_d_derived_tbl:F(0,1)_150
-jpeg_make_d_derived_tbl:F(0,1)_170:
+	jmp jpeg_make_d_derived_tbl_F0_1_150
+jpeg_make_d_derived_tbl_F0_1_170:
 	mov eax, edi
 	sub eax, [ebp+edi*4-0x510]
 	mov [edx+0x4c], eax
@@ -18539,16 +18652,16 @@ jpeg_make_d_derived_tbl:F(0,1)_170:
 	add ecx, 0x1
 	add edx, 0x4
 	sub esi, 0x1
-	jz jpeg_make_d_derived_tbl:F(0,1)_160
-jpeg_make_d_derived_tbl:F(0,1)_150:
+	jz jpeg_make_d_derived_tbl_F0_1_160
+jpeg_make_d_derived_tbl_F0_1_150:
 	cmp byte [ecx+0x1], 0x0
-	jnz jpeg_make_d_derived_tbl:F(0,1)_170
+	jnz jpeg_make_d_derived_tbl_F0_1_170
 	mov dword [edx+0x4], 0xffffffff
 	add ecx, 0x1
 	add edx, 0x4
 	sub esi, 0x1
-	jnz jpeg_make_d_derived_tbl:F(0,1)_150
-jpeg_make_d_derived_tbl:F(0,1)_160:
+	jnz jpeg_make_d_derived_tbl_F0_1_150
+jpeg_make_d_derived_tbl_F0_1_160:
 	mov ecx, [ebp-0x544]
 	mov dword [ecx+0x44], 0xfffff
 	mov eax, ecx
@@ -18562,14 +18675,14 @@ jpeg_make_d_derived_tbl:F(0,1)_160:
 	mov dword [ebp-0x52c], 0x7
 	lea esi, [ebp-0x510]
 	mov [ebp-0x550], esi
-jpeg_make_d_derived_tbl:F(0,1)_250:
+jpeg_make_d_derived_tbl_F0_1_250:
 	mov edx, 0x8
 	sub edx, [ebp-0x52c]
 	mov [ebp-0x524], edx
 	lea ecx, [eax+0x1]
 	mov [ebp-0x554], ecx
 	cmp byte [eax+0x1], 0x0
-	jz jpeg_make_d_derived_tbl:F(0,1)_180
+	jz jpeg_make_d_derived_tbl_F0_1_180
 	mov esi, 0x1
 	movzx ecx, byte [ebp-0x52c]
 	shl esi, cl
@@ -18583,18 +18696,18 @@ jpeg_make_d_derived_tbl:F(0,1)_250:
 	lea edi, [edx+ecx+0x11]
 	mov dword [ebp-0x53c], 0x1
 	mov esi, eax
-jpeg_make_d_derived_tbl:F(0,1)_220:
+jpeg_make_d_derived_tbl_F0_1_220:
 	mov eax, [esi]
 	movzx ecx, byte [ebp-0x52c]
 	shl eax, cl
 	mov edx, [ebp-0x534]
 	test edx, edx
-	jle jpeg_make_d_derived_tbl:F(0,1)_190
+	jle jpeg_make_d_derived_tbl_F0_1_190
 	mov esi, [ebp-0x544]
 	lea ecx, [esi+eax*4+0x90]
 	lea edx, [eax+esi+0x490]
 	xor esi, esi
-jpeg_make_d_derived_tbl:F(0,1)_200:
+jpeg_make_d_derived_tbl_F0_1_200:
 	mov eax, [ebp-0x524]
 	mov [ecx], eax
 	movzx eax, byte [edi]
@@ -18603,55 +18716,55 @@ jpeg_make_d_derived_tbl:F(0,1)_200:
 	add ecx, 0x4
 	add edx, 0x1
 	cmp esi, [ebp-0x534]
-	jnz jpeg_make_d_derived_tbl:F(0,1)_200
-jpeg_make_d_derived_tbl:F(0,1)_190:
+	jnz jpeg_make_d_derived_tbl_F0_1_200
+jpeg_make_d_derived_tbl_F0_1_190:
 	add dword [ebp-0x53c], 0x1
 	add dword [ebp-0x530], 0x4
 	add edi, 0x1
 	mov edx, [ebp-0x554]
 	movzx eax, byte [edx]
 	cmp [ebp-0x53c], eax
-	jg jpeg_make_d_derived_tbl:F(0,1)_210
+	jg jpeg_make_d_derived_tbl_F0_1_210
 	mov esi, [ebp-0x530]
-	jmp jpeg_make_d_derived_tbl:F(0,1)_220
-jpeg_make_d_derived_tbl:F(0,1)_120:
+	jmp jpeg_make_d_derived_tbl_F0_1_220
+jpeg_make_d_derived_tbl_F0_1_120:
 	lea ecx, [ebp+eax*4-0x510]
 	lea edx, [ebp-0x109]
 	mov [ebp-0x558], edx
 	add edx, eax
-jpeg_make_d_derived_tbl:F(0,1)_230:
+jpeg_make_d_derived_tbl_F0_1_230:
 	mov [ecx], esi
 	add esi, 0x1
 	movsx eax, byte [edx+0x1]
 	add ecx, 0x4
 	add edx, 0x1
 	cmp edi, eax
-	jz jpeg_make_d_derived_tbl:F(0,1)_230
+	jz jpeg_make_d_derived_tbl_F0_1_230
 	sub edx, [ebp-0x558]
 	mov [ebp-0x540], edx
-	jmp jpeg_make_d_derived_tbl:F(0,1)_240
-jpeg_make_d_derived_tbl:F(0,1)_180:
+	jmp jpeg_make_d_derived_tbl_F0_1_240
+jpeg_make_d_derived_tbl_F0_1_180:
 	mov eax, ecx
-jpeg_make_d_derived_tbl:F(0,1)_290:
+jpeg_make_d_derived_tbl_F0_1_290:
 	sub dword [ebp-0x52c], 0x1
 	cmp dword [ebp-0x52c], 0xffffffff
-	jnz jpeg_make_d_derived_tbl:F(0,1)_250
+	jnz jpeg_make_d_derived_tbl_F0_1_250
 	cmp byte [ebp-0x549], 0x0
-	jz jpeg_make_d_derived_tbl:F(0,1)_260
+	jz jpeg_make_d_derived_tbl_F0_1_260
 	mov eax, [ebp-0x51c]
 	test eax, eax
-	jle jpeg_make_d_derived_tbl:F(0,1)_260
+	jle jpeg_make_d_derived_tbl_F0_1_260
 	mov edi, [ebp-0x548]
 	xor esi, esi
-	jmp jpeg_make_d_derived_tbl:F(0,1)_270
-jpeg_make_d_derived_tbl:F(0,1)_280:
+	jmp jpeg_make_d_derived_tbl_F0_1_270
+jpeg_make_d_derived_tbl_F0_1_280:
 	add esi, 0x1
 	add edi, 0x1
 	cmp esi, [ebp-0x51c]
-	jz jpeg_make_d_derived_tbl:F(0,1)_260
-jpeg_make_d_derived_tbl:F(0,1)_270:
+	jz jpeg_make_d_derived_tbl_F0_1_260
+jpeg_make_d_derived_tbl_F0_1_270:
 	cmp byte [edi+0x11], 0xf
-	jbe jpeg_make_d_derived_tbl:F(0,1)_280
+	jbe jpeg_make_d_derived_tbl_F0_1_280
 	mov edx, [ebp+0x8]
 	mov eax, [edx]
 	mov dword [eax+0x14], 0x8
@@ -18661,28 +18774,28 @@ jpeg_make_d_derived_tbl:F(0,1)_270:
 	add esi, 0x1
 	add edi, 0x1
 	cmp esi, [ebp-0x51c]
-	jnz jpeg_make_d_derived_tbl:F(0,1)_270
-jpeg_make_d_derived_tbl:F(0,1)_260:
+	jnz jpeg_make_d_derived_tbl_F0_1_270
+jpeg_make_d_derived_tbl_F0_1_260:
 	add esp, 0x560
 	pop esi
 	pop edi
 	pop ebp
 	ret
-jpeg_make_d_derived_tbl:F(0,1)_210:
+jpeg_make_d_derived_tbl_F0_1_210:
 	mov ecx, [ebp-0x520]
 	mov esi, [ebp-0x53c]
 	lea ecx, [ecx+esi-0x1]
 	mov [ebp-0x520], ecx
 	mov eax, [ebp-0x554]
-	jmp jpeg_make_d_derived_tbl:F(0,1)_290
-jpeg_make_d_derived_tbl:F(0,1)_20:
+	jmp jpeg_make_d_derived_tbl_F0_1_290
+jpeg_make_d_derived_tbl_F0_1_20:
 	mov eax, [ebp+0x8]
 	mov eax, [eax+esi*4+0xb8]
 	mov [ebp-0x548], eax
 	mov eax, [ebp-0x548]
 	test eax, eax
-	jnz jpeg_make_d_derived_tbl:F(0,1)_300
-jpeg_make_d_derived_tbl:F(0,1)_30:
+	jnz jpeg_make_d_derived_tbl_F0_1_300
+jpeg_make_d_derived_tbl_F0_1_30:
 	mov edx, [ebp+0x8]
 	mov eax, [edx]
 	mov dword [eax+0x14], 0x32
@@ -18693,8 +18806,8 @@ jpeg_make_d_derived_tbl:F(0,1)_30:
 	call dword [eax]
 	mov ecx, [edi]
 	test ecx, ecx
-	jnz jpeg_make_d_derived_tbl:F(0,1)_310
-jpeg_make_d_derived_tbl:F(0,1)_40:
+	jnz jpeg_make_d_derived_tbl_F0_1_310
+jpeg_make_d_derived_tbl_F0_1_40:
 	mov ecx, [ebp+0x8]
 	mov eax, [ecx+0x4]
 	mov dword [esp+0x8], 0x590
@@ -18703,8 +18816,8 @@ jpeg_make_d_derived_tbl:F(0,1)_40:
 	call dword [eax]
 	mov [edi], eax
 	mov edi, eax
-	jmp jpeg_make_d_derived_tbl:F(0,1)_320
-jpeg_make_d_derived_tbl:F(0,1)_10:
+	jmp jpeg_make_d_derived_tbl_F0_1_320
+jpeg_make_d_derived_tbl_F0_1_10:
 	mov edx, [ebp+0x8]
 	mov eax, [edx]
 	mov dword [eax+0x14], 0x32
@@ -18713,7 +18826,7 @@ jpeg_make_d_derived_tbl:F(0,1)_10:
 	mov eax, [edx]
 	mov [esp], edx
 	call dword [eax]
-	jmp jpeg_make_d_derived_tbl:F(0,1)_330
+	jmp jpeg_make_d_derived_tbl_F0_1_330
 
 
 ;start_pass_huff_decoder
@@ -18838,7 +18951,7 @@ start_pass_huff_decoder_100:
 	mov dword [esp+0x4], 0x1
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call jpeg_make_d_derived_tbl:F(0,1)
+	call jpeg_make_d_derived_tbl_F0_1
 	mov edx, [ebp-0x1c]
 	lea eax, [edx+esi*4]
 	mov [esp+0xc], eax
@@ -18846,7 +18959,7 @@ start_pass_huff_decoder_100:
 	mov dword [esp+0x4], 0x0
 	mov ecx, [ebp+0x8]
 	mov [esp], ecx
-	call jpeg_make_d_derived_tbl:F(0,1)
+	call jpeg_make_d_derived_tbl_F0_1
 	mov dword [edi+0x14], 0x0
 	add dword [ebp-0x14], 0x1
 	add dword [ebp-0xc], 0x4
@@ -18859,9 +18972,9 @@ start_pass_huff_decoder_100:
 	jmp start_pass_huff_decoder_110
 
 
-;jpeg_fill_bit_buffer:F(0,15)
+;jpeg_fill_bit_buffer_F0_15
 
-jpeg_fill_bit_buffer:F(0,15):
+jpeg_fill_bit_buffer_F0_15:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -18874,10 +18987,10 @@ jpeg_fill_bit_buffer:F(0,15):
 	mov [ebp-0xc], edx
 	mov edx, [edx+0x184]
 	test edx, edx
-	jnz jpeg_fill_bit_buffer:F(0,15)_10
+	jnz jpeg_fill_bit_buffer_F0_15_10
 	cmp dword [ebp+0x10], 0x18
-	jle jpeg_fill_bit_buffer:F(0,15)_20
-jpeg_fill_bit_buffer:F(0,15)_50:
+	jle jpeg_fill_bit_buffer_F0_15_20
+jpeg_fill_bit_buffer_F0_15_50:
 	mov eax, [ebp+0x8]
 	mov [eax], edi
 	mov [eax+0x4], esi
@@ -18886,47 +18999,47 @@ jpeg_fill_bit_buffer:F(0,15)_50:
 	mov edx, [ebp+0x10]
 	mov [eax+0xc], edx
 	mov eax, 0x1
-jpeg_fill_bit_buffer:F(0,15)_140:
+jpeg_fill_bit_buffer_F0_15_140:
 	add esp, 0x20
 	pop esi
 	pop edi
 	pop ebp
 	ret
-jpeg_fill_bit_buffer:F(0,15)_70:
+jpeg_fill_bit_buffer_F0_15_70:
 	mov edx, [ebp-0xc]
 	mov eax, [edx+0x20]
 	mov [esp], edx
 	call dword [eax+0xc]
 	test al, al
-	jz jpeg_fill_bit_buffer:F(0,15)_30
+	jz jpeg_fill_bit_buffer_F0_15_30
 	mov edx, [ebp-0xc]
 	mov eax, [edx+0x20]
 	mov edi, [eax]
 	mov esi, [eax+0x4]
-jpeg_fill_bit_buffer:F(0,15)_60:
+jpeg_fill_bit_buffer_F0_15_60:
 	sub esi, 0x1
 	movzx eax, byte [edi]
 	movzx edx, al
 	add edi, 0x1
 	add al, 0x1
-	jz jpeg_fill_bit_buffer:F(0,15)_40
-jpeg_fill_bit_buffer:F(0,15)_110:
+	jz jpeg_fill_bit_buffer_F0_15_40
+jpeg_fill_bit_buffer_F0_15_110:
 	shl dword [ebp+0xc], 0x8
 	or [ebp+0xc], edx
 	add dword [ebp+0x10], 0x8
 	cmp dword [ebp+0x10], 0x18
-	jg jpeg_fill_bit_buffer:F(0,15)_50
-jpeg_fill_bit_buffer:F(0,15)_20:
+	jg jpeg_fill_bit_buffer_F0_15_50
+jpeg_fill_bit_buffer_F0_15_20:
 	test esi, esi
-	jnz jpeg_fill_bit_buffer:F(0,15)_60
-	jmp jpeg_fill_bit_buffer:F(0,15)_70
-jpeg_fill_bit_buffer:F(0,15)_90:
+	jnz jpeg_fill_bit_buffer_F0_15_60
+	jmp jpeg_fill_bit_buffer_F0_15_70
+jpeg_fill_bit_buffer_F0_15_90:
 	mov edx, [ebp-0xc]
 	mov eax, [edx+0x20]
 	mov [esp], edx
 	call dword [eax+0xc]
 	test al, al
-	jz jpeg_fill_bit_buffer:F(0,15)_30
+	jz jpeg_fill_bit_buffer_F0_15_30
 	mov edx, [ebp-0xc]
 	mov eax, [edx+0x20]
 	mov edi, [eax]
@@ -18936,39 +19049,39 @@ jpeg_fill_bit_buffer:F(0,15)_90:
 	movzx edx, al
 	add edi, 0x1
 	cmp al, 0xff
-	jnz jpeg_fill_bit_buffer:F(0,15)_80
-jpeg_fill_bit_buffer:F(0,15)_40:
+	jnz jpeg_fill_bit_buffer_F0_15_80
+jpeg_fill_bit_buffer_F0_15_40:
 	test esi, esi
-	jz jpeg_fill_bit_buffer:F(0,15)_90
+	jz jpeg_fill_bit_buffer_F0_15_90
 	sub esi, 0x1
 	movzx eax, byte [edi]
 	movzx edx, al
 	add edi, 0x1
 	cmp al, 0xff
-	jz jpeg_fill_bit_buffer:F(0,15)_40
-jpeg_fill_bit_buffer:F(0,15)_80:
+	jz jpeg_fill_bit_buffer_F0_15_40
+jpeg_fill_bit_buffer_F0_15_80:
 	test al, al
-	jnz jpeg_fill_bit_buffer:F(0,15)_100
+	jnz jpeg_fill_bit_buffer_F0_15_100
 	mov edx, 0xff
-	jmp jpeg_fill_bit_buffer:F(0,15)_110
-jpeg_fill_bit_buffer:F(0,15)_100:
+	jmp jpeg_fill_bit_buffer_F0_15_110
+jpeg_fill_bit_buffer_F0_15_100:
 	mov eax, [ebp-0xc]
 	mov [eax+0x184], edx
-jpeg_fill_bit_buffer:F(0,15)_10:
+jpeg_fill_bit_buffer_F0_15_10:
 	mov edx, [ebp+0x10]
 	cmp edx, [ebp+0x14]
-	jge jpeg_fill_bit_buffer:F(0,15)_50
+	jge jpeg_fill_bit_buffer_F0_15_50
 	mov edx, [ebp-0xc]
 	mov eax, [edx+0x1a0]
 	cmp byte [eax+0x8], 0x0
-	jz jpeg_fill_bit_buffer:F(0,15)_120
-jpeg_fill_bit_buffer:F(0,15)_130:
+	jz jpeg_fill_bit_buffer_F0_15_120
+jpeg_fill_bit_buffer_F0_15_130:
 	mov ecx, 0x19
 	sub ecx, [ebp+0x10]
 	shl dword [ebp+0xc], cl
 	mov dword [ebp+0x10], 0x19
-	jmp jpeg_fill_bit_buffer:F(0,15)_50
-jpeg_fill_bit_buffer:F(0,15)_120:
+	jmp jpeg_fill_bit_buffer_F0_15_50
+jpeg_fill_bit_buffer_F0_15_120:
 	mov eax, [edx]
 	mov dword [eax+0x14], 0x75
 	mov eax, [edx]
@@ -18978,15 +19091,15 @@ jpeg_fill_bit_buffer:F(0,15)_120:
 	mov edx, [ebp-0xc]
 	mov eax, [edx+0x1a0]
 	mov byte [eax+0x8], 0x1
-	jmp jpeg_fill_bit_buffer:F(0,15)_130
-jpeg_fill_bit_buffer:F(0,15)_30:
+	jmp jpeg_fill_bit_buffer_F0_15_130
+jpeg_fill_bit_buffer_F0_15_30:
 	xor eax, eax
-	jmp jpeg_fill_bit_buffer:F(0,15)_140
+	jmp jpeg_fill_bit_buffer_F0_15_140
 
 
-;jpeg_huff_decode:F(0,4)
+;jpeg_huff_decode_F0_4
 
-jpeg_huff_decode:F(0,4):
+jpeg_huff_decode_F0_4:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -18995,9 +19108,9 @@ jpeg_huff_decode:F(0,4):
 	mov eax, [ebp+0x10]
 	mov esi, [ebp+0x18]
 	cmp esi, eax
-	jg jpeg_huff_decode:F(0,4)_10
+	jg jpeg_huff_decode_F0_4_10
 	mov edx, [ebp+0xc]
-jpeg_huff_decode:F(0,4)_90:
+jpeg_huff_decode_F0_4_90:
 	sub eax, esi
 	mov [ebp-0x1c], eax
 	mov ecx, eax
@@ -19009,17 +19122,17 @@ jpeg_huff_decode:F(0,4)_90:
 	and edx, eax
 	mov eax, [ebp+0x14]
 	cmp edx, [eax+esi*4]
-	jle jpeg_huff_decode:F(0,4)_20
+	jle jpeg_huff_decode_F0_4_20
 	mov edi, esi
 	lea esi, [eax+edi*4]
-jpeg_huff_decode:F(0,4)_40:
+jpeg_huff_decode_F0_4_40:
 	add edx, edx
 	mov [ebp-0xc], edx
 	mov ecx, [ebp-0x1c]
 	test ecx, ecx
-	jle jpeg_huff_decode:F(0,4)_30
+	jle jpeg_huff_decode_F0_4_30
 	mov edx, [ebp+0xc]
-jpeg_huff_decode:F(0,4)_80:
+jpeg_huff_decode_F0_4_80:
 	sub dword [ebp-0x1c], 0x1
 	movzx ecx, byte [ebp-0x1c]
 	sar edx, cl
@@ -19029,26 +19142,26 @@ jpeg_huff_decode:F(0,4)_80:
 	mov eax, [esi+0x4]
 	add esi, 0x4
 	cmp eax, edx
-	jl jpeg_huff_decode:F(0,4)_40
+	jl jpeg_huff_decode_F0_4_40
 	mov ecx, [ebp+0xc]
 	mov eax, [ebp+0x8]
 	mov [eax+0x8], ecx
 	mov ecx, [ebp-0x1c]
 	mov [eax+0xc], ecx
 	cmp edi, 0x10
-	jg jpeg_huff_decode:F(0,4)_50
-jpeg_huff_decode:F(0,4)_60:
+	jg jpeg_huff_decode_F0_4_50
+jpeg_huff_decode_F0_4_60:
 	mov ecx, [ebp+0x14]
 	mov eax, [ecx+edi*4+0x48]
 	add eax, [ecx+0x8c]
 	movzx eax, byte [eax+edx+0x11]
-jpeg_huff_decode:F(0,4)_100:
+jpeg_huff_decode_F0_4_100:
 	add esp, 0x30
 	pop esi
 	pop edi
 	pop ebp
 	ret
-jpeg_huff_decode:F(0,4)_20:
+jpeg_huff_decode_F0_4_20:
 	mov edi, esi
 	mov ecx, [ebp+0xc]
 	mov eax, [ebp+0x8]
@@ -19056,8 +19169,8 @@ jpeg_huff_decode:F(0,4)_20:
 	mov ecx, [ebp-0x1c]
 	mov [eax+0xc], ecx
 	cmp edi, 0x10
-	jle jpeg_huff_decode:F(0,4)_60
-jpeg_huff_decode:F(0,4)_50:
+	jle jpeg_huff_decode_F0_4_60
+jpeg_huff_decode_F0_4_50:
 	mov edx, [ebp+0x8]
 	mov eax, [edx+0x10]
 	mov eax, [eax]
@@ -19073,7 +19186,7 @@ jpeg_huff_decode:F(0,4)_50:
 	pop edi
 	pop ebp
 	ret
-jpeg_huff_decode:F(0,4)_30:
+jpeg_huff_decode_F0_4_30:
 	mov dword [esp+0xc], 0x1
 	mov edx, [ebp-0x1c]
 	mov [esp+0x8], edx
@@ -19081,36 +19194,36 @@ jpeg_huff_decode:F(0,4)_30:
 	mov [esp+0x4], ecx
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call jpeg_fill_bit_buffer:F(0,15)
+	call jpeg_fill_bit_buffer_F0_15
 	test al, al
-	jz jpeg_huff_decode:F(0,4)_70
+	jz jpeg_huff_decode_F0_4_70
 	mov edx, [ebp+0x8]
 	mov edx, [edx+0x8]
 	mov [ebp+0xc], edx
 	mov ecx, [ebp+0x8]
 	mov ecx, [ecx+0xc]
 	mov [ebp-0x1c], ecx
-	jmp jpeg_huff_decode:F(0,4)_80
-jpeg_huff_decode:F(0,4)_10:
+	jmp jpeg_huff_decode_F0_4_80
+jpeg_huff_decode_F0_4_10:
 	mov [esp+0xc], esi
 	mov [esp+0x8], eax
 	mov eax, [ebp+0xc]
 	mov [esp+0x4], eax
 	mov edx, [ebp+0x8]
 	mov [esp], edx
-	call jpeg_fill_bit_buffer:F(0,15)
+	call jpeg_fill_bit_buffer_F0_15
 	test al, al
-	jz jpeg_huff_decode:F(0,4)_70
+	jz jpeg_huff_decode_F0_4_70
 	mov ecx, [ebp+0x8]
 	mov ecx, [ecx+0x8]
 	mov [ebp+0xc], ecx
 	mov edx, [ebp+0x8]
 	mov eax, [edx+0xc]
 	mov edx, ecx
-	jmp jpeg_huff_decode:F(0,4)_90
-jpeg_huff_decode:F(0,4)_70:
+	jmp jpeg_huff_decode_F0_4_90
+jpeg_huff_decode_F0_4_70:
 	mov eax, 0xffffffff
-	jmp jpeg_huff_decode:F(0,4)_100
+	jmp jpeg_huff_decode_F0_4_100
 
 
 ;decode_mcu
@@ -19121,7 +19234,7 @@ decode_mcu:
 	push esi
 	push ebx
 	sub esp, 0xac
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov eax, [ebp+0x8]
 	mov eax, [eax+0x1a0]
 	mov [ebp-0x60], eax
@@ -19441,7 +19554,7 @@ decode_mcu_170:
 	mov [esp+0x4], ecx
 	mov eax, [ebp-0x8c]
 	mov [esp], eax
-	call jpeg_fill_bit_buffer:F(0,15)
+	call jpeg_fill_bit_buffer_F0_15
 	test al, al
 	jz decode_mcu_320
 	mov edx, [ebp-0x34]
@@ -19459,7 +19572,7 @@ decode_mcu_210:
 	mov [esp+0x4], ecx
 	mov eax, [ebp-0x94]
 	mov [esp], eax
-	call jpeg_fill_bit_buffer:F(0,15)
+	call jpeg_fill_bit_buffer_F0_15
 	test al, al
 	jz decode_mcu_320
 	mov edx, [ebp-0x34]
@@ -19474,7 +19587,7 @@ decode_mcu_190:
 	mov [esp+0x4], ecx
 	mov eax, [ebp-0x8c]
 	mov [esp], eax
-	call jpeg_fill_bit_buffer:F(0,15)
+	call jpeg_fill_bit_buffer_F0_15
 	test al, al
 	jz decode_mcu_320
 	mov edx, [ebp-0x34]
@@ -19503,7 +19616,7 @@ decode_mcu_250:
 	mov [esp+0x4], eax
 	mov edx, [ebp-0x8c]
 	mov [esp], edx
-	call jpeg_fill_bit_buffer:F(0,15)
+	call jpeg_fill_bit_buffer_F0_15
 	test al, al
 	jz decode_mcu_320
 	mov ecx, [ebp-0x34]
@@ -19605,7 +19718,7 @@ decode_mcu_400:
 	mov [esp+0x4], ecx
 	mov eax, [ebp-0x90]
 	mov [esp], eax
-	call jpeg_fill_bit_buffer:F(0,15)
+	call jpeg_fill_bit_buffer_F0_15
 	test al, al
 	jz decode_mcu_320
 	mov edx, [ebp-0x34]
@@ -19646,7 +19759,7 @@ decode_mcu_480:
 	mov [esp+0x4], edx
 	mov ecx, [ebp-0x90]
 	mov [esp], ecx
-	call jpeg_fill_bit_buffer:F(0,15)
+	call jpeg_fill_bit_buffer_F0_15
 	test al, al
 	jz decode_mcu_320
 	mov eax, [ebp-0x34]
@@ -19661,7 +19774,7 @@ decode_mcu_440:
 	mov [esp+0x4], ecx
 	mov eax, [ebp-0x98]
 	mov [esp], eax
-	call jpeg_fill_bit_buffer:F(0,15)
+	call jpeg_fill_bit_buffer_F0_15
 	test al, al
 	jz decode_mcu_320
 	mov edx, [ebp-0x34]
@@ -19676,7 +19789,7 @@ decode_mcu_420:
 	mov [esp+0x4], ecx
 	mov eax, [ebp-0x90]
 	mov [esp], eax
-	call jpeg_fill_bit_buffer:F(0,15)
+	call jpeg_fill_bit_buffer_F0_15
 	test al, al
 	jz decode_mcu_320
 	mov edx, [ebp-0x34]
@@ -19714,7 +19827,7 @@ decode_mcu_90:
 	mov [esp+0x4], ecx
 	mov eax, [ebp-0x88]
 	mov [esp], eax
-	call jpeg_fill_bit_buffer:F(0,15)
+	call jpeg_fill_bit_buffer_F0_15
 	test al, al
 	jnz decode_mcu_610
 decode_mcu_320:
@@ -19732,7 +19845,7 @@ decode_mcu_50:
 	mov [esp+0x4], eax
 	lea eax, [ebp-0x3c]
 	mov [esp], eax
-	call jpeg_fill_bit_buffer:F(0,15)
+	call jpeg_fill_bit_buffer_F0_15
 	test al, al
 	jz decode_mcu_320
 	mov edx, [ebp-0x34]
@@ -19750,7 +19863,7 @@ decode_mcu_70:
 	mov [esp+0x4], eax
 	lea eax, [ebp-0x3c]
 	mov [esp], eax
-	call jpeg_fill_bit_buffer:F(0,15)
+	call jpeg_fill_bit_buffer_F0_15
 	test al, al
 	jz decode_mcu_320
 	mov edx, [ebp-0x34]
@@ -19828,7 +19941,7 @@ decode_mcu_130:
 	mov [esp+0x4], ecx
 	lea eax, [ebp-0x3c]
 	mov [esp], eax
-	call jpeg_fill_bit_buffer:F(0,15)
+	call jpeg_fill_bit_buffer_F0_15
 	test al, al
 	jz decode_mcu_320
 	mov eax, [ebp-0x34]
@@ -19839,15 +19952,15 @@ decode_mcu_130:
 	add [eax], al
 
 
-;jinit_huff_decoder:F(0,1)
+;jinit_huff_decoder_F0_1
 
-jinit_huff_decoder:F(0,1):
+jinit_huff_decoder_F0_1:
 	push ebp
 	mov ebp, esp
 	push esi
 	push ebx
 	sub esp, 0x10
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov esi, [ebp+0x8]
 	mov eax, [esi+0x4]
 	mov dword [esp+0x8], 0xac
@@ -19860,12 +19973,12 @@ jinit_huff_decoder:F(0,1):
 	lea edx, [ebx+0x54]
 	mov [eax+0x4], edx
 	mov edx, 0x4
-jinit_huff_decoder:F(0,1)_10:
+jinit_huff_decoder_F0_1_10:
 	mov dword [eax+0x38], 0x0
 	mov dword [eax+0x28], 0x0
 	add eax, 0x4
 	sub edx, 0x1
-	jnz jinit_huff_decoder:F(0,1)_10
+	jnz jinit_huff_decoder_F0_1_10
 	add esp, 0x10
 	pop ebx
 	pop esi
@@ -19881,7 +19994,7 @@ start_pass:
 	push esi
 	push ebx
 	sub esp, 0x4c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov edx, [ebp+0x8]
 	mov eax, [edx+0x1a4]
 	mov edx, [edx+0xcc]
@@ -20105,16 +20218,16 @@ start_pass_150:
 	jmp start_pass_160
 
 
-;jinit_inverse_dct:F(0,1)
+;jinit_inverse_dct_F0_1
 
-jinit_inverse_dct:F(0,1):
+jinit_inverse_dct_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
 	push esi
 	push ebx
 	sub esp, 0x2c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov edx, [ebp+0x8]
 	mov eax, [edx+0x4]
 	mov dword [esp+0x8], 0x54
@@ -20130,21 +20243,21 @@ jinit_inverse_dct:F(0,1):
 	mov edi, [eax+0xcc]
 	mov ecx, [eax+0x2c]
 	test ecx, ecx
-	jg jinit_inverse_dct:F(0,1)_10
+	jg jinit_inverse_dct_F0_1_10
 	add esp, 0x2c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-jinit_inverse_dct:F(0,1)_10:
+jinit_inverse_dct_F0_1_10:
 	mov esi, edx
 	mov dword [ebp-0x1c], 0x0
 	mov edx, [ebp+0x8]
-	jmp jinit_inverse_dct:F(0,1)_20
-jinit_inverse_dct:F(0,1)_30:
+	jmp jinit_inverse_dct_F0_1_20
+jinit_inverse_dct_F0_1_30:
 	mov edx, eax
-jinit_inverse_dct:F(0,1)_20:
+jinit_inverse_dct_F0_1_20:
 	mov eax, [edx+0x4]
 	mov dword [esp+0x8], 0x100
 	mov dword [esp+0x4], 0x1
@@ -20162,7 +20275,7 @@ jinit_inverse_dct:F(0,1)_20:
 	mov edx, [ebp-0x1c]
 	mov eax, [ebp+0x8]
 	cmp [eax+0x2c], edx
-	jg jinit_inverse_dct:F(0,1)_30
+	jg jinit_inverse_dct_F0_1_30
 	add esp, 0x2c
 	pop ebx
 	pop esi
@@ -20250,7 +20363,7 @@ merged_2v_upsample_10:
 	mov dword [esp+0x4], 0x0
 	lea eax, [esi+0x20]
 	mov [esp], eax
-	call jcopy_sample_rows:F(0,2)
+	call jcopy_sample_rows_F0_2
 	mov byte [esi+0x24], 0x0
 	mov edi, 0x1
 	jmp merged_2v_upsample_40
@@ -20612,16 +20725,16 @@ h2v2_merged_upsample_40:
 	ret
 
 
-;jinit_merged_upsampler:F(0,1)
+;jinit_merged_upsampler_F0_1
 
-jinit_merged_upsampler:F(0,1):
+jinit_merged_upsampler_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
 	push esi
 	push ebx
 	sub esp, 0x2c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov edi, [ebp+0x8]
 	mov eax, [edi+0x4]
 	mov dword [esp+0x8], 0x30
@@ -20637,13 +20750,13 @@ jinit_merged_upsampler:F(0,1):
 	imul edx, [edi+0x6c]
 	mov [esi+0x28], edx
 	cmp dword [edi+0x11c], 0x2
-	jz jinit_merged_upsampler:F(0,1)_10
+	jz jinit_merged_upsampler_F0_1_10
 	lea eax, [ebx-0x3e6]
 	mov [esi+0x4], eax
 	lea eax, [ebx-0x3a3]
 	mov [esi+0xc], eax
 	mov dword [esi+0x20], 0x0
-jinit_merged_upsampler:F(0,1)_30:
+jinit_merged_upsampler_F0_1_30:
 	mov esi, [edi+0x1a8]
 	mov eax, [edi+0x4]
 	mov dword [esp+0x8], 0x400
@@ -20674,7 +20787,7 @@ jinit_merged_upsampler:F(0,1)_30:
 	mov dword [ebp-0x20], 0xff1daf00
 	mov dword [ebp-0x1c], cin+0x6340
 	mov edi, _cstring_r0mov_r0w_v0wmov
-jinit_merged_upsampler:F(0,1)_20:
+jinit_merged_upsampler_F0_1_20:
 	mov edx, [esi+0x10]
 	mov eax, [ebp-0x24]
 	sar eax, 0x10
@@ -20695,14 +20808,14 @@ jinit_merged_upsampler:F(0,1)_20:
 	mov [ebp-0x1c], edx
 	sub edi, 0x581a
 	cmp ecx, 0x400
-	jnz jinit_merged_upsampler:F(0,1)_20
+	jnz jinit_merged_upsampler_F0_1_20
 	add esp, 0x2c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-jinit_merged_upsampler:F(0,1)_10:
+jinit_merged_upsampler_F0_1_10:
 	lea eax, [ebx-0x4be]
 	mov [esi+0x4], eax
 	lea eax, [ebx-0x21f]
@@ -20713,7 +20826,7 @@ jinit_merged_upsampler:F(0,1)_10:
 	mov [esp], edi
 	call dword [eax+0x4]
 	mov [esi+0x20], eax
-	jmp jinit_merged_upsampler:F(0,1)_30
+	jmp jinit_merged_upsampler_F0_1_30
 	add [eax], al
 
 
@@ -20725,7 +20838,7 @@ start_pass_phuff_decoder:
 	push esi
 	push ebx
 	sub esp, 0x4c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov eax, [ebp+0x8]
 	mov eax, [eax+0x1a0]
 	mov [ebp-0x38], eax
@@ -20888,7 +21001,7 @@ start_pass_phuff_decoder_210:
 	mov dword [esp+0x4], 0x0
 	mov ecx, [ebp+0x8]
 	mov [esp], ecx
-	call jpeg_make_d_derived_tbl:F(0,1)
+	call jpeg_make_d_derived_tbl_F0_1
 	mov edx, [ebp-0x38]
 	mov eax, [edx+esi*4+0x2c]
 	mov [edx+0x3c], eax
@@ -20993,7 +21106,7 @@ start_pass_phuff_decoder_330:
 	mov dword [esp+0x4], 0x1
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call jpeg_make_d_derived_tbl:F(0,1)
+	call jpeg_make_d_derived_tbl_F0_1
 start_pass_phuff_decoder_320:
 	mov dword [esi+0x18], 0x0
 	add dword [ebp-0x20], 0x1
@@ -21014,7 +21127,7 @@ decode_mcu_AC_first:
 	push esi
 	push ebx
 	sub esp, 0x7c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov eax, [ebp+0x8]
 	mov eax, [eax+0x1a0]
 	mov [ebp-0x5c], eax
@@ -21155,7 +21268,7 @@ decode_mcu_AC_first_200:
 	mov eax, [ebp-0x48]
 	mov [esp+0x4], eax
 	mov [esp], edx
-	call jpeg_huff_decode:F(0,4)
+	call jpeg_huff_decode_F0_4
 	test eax, eax
 	js decode_mcu_AC_first_140
 	mov ecx, [ebp-0x24]
@@ -21186,7 +21299,7 @@ decode_mcu_AC_first_120:
 	lea edx, [ebp-0x2c]
 	mov [ebp-0x60], edx
 	mov [esp], edx
-	call jpeg_fill_bit_buffer:F(0,15)
+	call jpeg_fill_bit_buffer_F0_15
 	test al, al
 	jz decode_mcu_AC_first_140
 	mov ecx, [ebp-0x24]
@@ -21248,7 +21361,7 @@ decode_mcu_AC_first_90:
 	mov [esp+0x4], edx
 	lea ecx, [ebp-0x2c]
 	mov [esp], ecx
-	call jpeg_fill_bit_buffer:F(0,15)
+	call jpeg_fill_bit_buffer_F0_15
 	test al, al
 	jz decode_mcu_AC_first_140
 	mov eax, [ebp-0x24]
@@ -21293,7 +21406,7 @@ decode_mcu_AC_first_300:
 	mov [esp+0x4], edx
 	lea eax, [ebp-0x2c]
 	mov [esp], eax
-	call jpeg_fill_bit_buffer:F(0,15)
+	call jpeg_fill_bit_buffer_F0_15
 	test al, al
 	jz decode_mcu_AC_first_140
 	mov ecx, [ebp-0x24]
@@ -21390,7 +21503,7 @@ decode_mcu_DC_refine_50:
 	mov [esp+0x4], edi
 	mov edx, [ebp-0x38]
 	mov [esp], edx
-	call jpeg_fill_bit_buffer:F(0,15)
+	call jpeg_fill_bit_buffer_F0_15
 	test al, al
 	jz decode_mcu_DC_refine_80
 	mov edi, [ebp-0x14]
@@ -21451,7 +21564,7 @@ decode_mcu_AC_refine:
 	push esi
 	push ebx
 	sub esp, 0x18c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov eax, [ebp+0x8]
 	mov eax, [eax+0x1a0]
 	mov [ebp-0x13c], eax
@@ -21604,7 +21717,7 @@ decode_mcu_AC_refine_400:
 	mov ecx, [ebp-0x150]
 	mov [esp+0x4], ecx
 	mov [esp], esi
-	call jpeg_huff_decode:F(0,4)
+	call jpeg_huff_decode_F0_4
 	test eax, eax
 	js decode_mcu_AC_refine_150
 	mov edi, [ebp-0x24]
@@ -21762,7 +21875,7 @@ decode_mcu_AC_refine_210:
 	mov [esp+0x4], eax
 	mov edx, [ebp-0x170]
 	mov [esp], edx
-	call jpeg_fill_bit_buffer:F(0,15)
+	call jpeg_fill_bit_buffer_F0_15
 	test al, al
 	jz decode_mcu_AC_refine_150
 	mov ecx, [ebp-0x24]
@@ -21779,7 +21892,7 @@ decode_mcu_AC_refine_130:
 	mov [esp+0x4], ecx
 	lea esi, [ebp-0x2c]
 	mov [esp], esi
-	call jpeg_fill_bit_buffer:F(0,15)
+	call jpeg_fill_bit_buffer_F0_15
 	test al, al
 	jz decode_mcu_AC_refine_150
 	mov edi, [ebp-0x24]
@@ -21834,7 +21947,7 @@ decode_mcu_AC_refine_80:
 	mov [esp+0x4], edx
 	lea eax, [ebp-0x2c]
 	mov [esp], eax
-	call jpeg_fill_bit_buffer:F(0,15)
+	call jpeg_fill_bit_buffer_F0_15
 	test al, al
 	jz decode_mcu_AC_refine_150
 	mov ecx, [ebp-0x24]
@@ -21851,7 +21964,7 @@ decode_mcu_AC_refine_180:
 	mov [esp+0x4], edx
 	lea esi, [ebp-0x2c]
 	mov [esp], esi
-	call jpeg_fill_bit_buffer:F(0,15)
+	call jpeg_fill_bit_buffer_F0_15
 	test al, al
 	jz decode_mcu_AC_refine_150
 	mov ecx, [ebp-0x24]
@@ -21900,7 +22013,7 @@ decode_mcu_AC_refine_450:
 	mov [esp+0x4], edx
 	lea eax, [ebp-0x2c]
 	mov [esp], eax
-	call jpeg_fill_bit_buffer:F(0,15)
+	call jpeg_fill_bit_buffer_F0_15
 	test al, al
 	jz decode_mcu_AC_refine_150
 	mov ecx, [ebp-0x24]
@@ -21918,7 +22031,7 @@ decode_mcu_DC_first:
 	push esi
 	push ebx
 	sub esp, 0x7c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov eax, [ebp+0x8]
 	mov eax, [eax+0x1a0]
 	mov [ebp-0x60], eax
@@ -22000,7 +22113,7 @@ decode_mcu_DC_first_160:
 	mov [esp+0x4], ecx
 	mov eax, [ebp-0x64]
 	mov [esp], eax
-	call jpeg_huff_decode:F(0,4)
+	call jpeg_huff_decode_F0_4
 	mov esi, eax
 	test eax, eax
 	js decode_mcu_DC_first_70
@@ -22086,7 +22199,7 @@ decode_mcu_DC_first_50:
 	lea edx, [ebp-0x2c]
 	mov [ebp-0x64], edx
 	mov [esp], edx
-	call jpeg_fill_bit_buffer:F(0,15)
+	call jpeg_fill_bit_buffer_F0_15
 	test al, al
 	jz decode_mcu_DC_first_70
 	mov ecx, [ebp-0x24]
@@ -22103,7 +22216,7 @@ decode_mcu_DC_first_90:
 	mov [esp+0x4], ecx
 	lea eax, [ebp-0x2c]
 	mov [esp], eax
-	call jpeg_fill_bit_buffer:F(0,15)
+	call jpeg_fill_bit_buffer_F0_15
 	test al, al
 	jz decode_mcu_DC_first_70
 	mov edx, [ebp-0x24]
@@ -22166,16 +22279,16 @@ decode_mcu_DC_first_70:
 	ret
 
 
-;jinit_phuff_decoder:F(0,1)
+;jinit_phuff_decoder_F0_1
 
-jinit_phuff_decoder:F(0,1):
+jinit_phuff_decoder_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
 	push esi
 	push ebx
 	sub esp, 0x1c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov edi, [ebp+0x8]
 	mov eax, [edi+0x4]
 	mov dword [esp+0x8], 0x40
@@ -22186,11 +22299,11 @@ jinit_phuff_decoder:F(0,1):
 	lea edx, [ebx-0xad9]
 	mov [eax], edx
 	mov edx, 0x4
-jinit_phuff_decoder:F(0,1)_10:
+jinit_phuff_decoder_F0_1_10:
 	mov dword [eax+0x2c], 0x0
 	add eax, 0x4
 	sub edx, 0x1
-	jnz jinit_phuff_decoder:F(0,1)_10
+	jnz jinit_phuff_decoder_F0_1_10
 	mov edx, [edi+0x4]
 	mov eax, [edi+0x2c]
 	shl eax, 0x8
@@ -22201,21 +22314,21 @@ jinit_phuff_decoder:F(0,1)_10:
 	mov [edi+0x94], eax
 	mov esi, [edi+0x2c]
 	test esi, esi
-	jle jinit_phuff_decoder:F(0,1)_20
+	jle jinit_phuff_decoder_F0_1_20
 	xor esi, esi
-jinit_phuff_decoder:F(0,1)_40:
+jinit_phuff_decoder_F0_1_40:
 	mov edx, eax
 	mov ecx, 0x40
-jinit_phuff_decoder:F(0,1)_30:
+jinit_phuff_decoder_F0_1_30:
 	mov dword [edx], 0xffffffff
 	add edx, 0x4
 	sub ecx, 0x1
-	jnz jinit_phuff_decoder:F(0,1)_30
+	jnz jinit_phuff_decoder_F0_1_30
 	add esi, 0x1
 	add eax, 0x100
 	cmp esi, [edi+0x2c]
-	jl jinit_phuff_decoder:F(0,1)_40
-jinit_phuff_decoder:F(0,1)_20:
+	jl jinit_phuff_decoder_F0_1_40
+jinit_phuff_decoder_F0_1_20:
 	add esp, 0x1c
 	pop ebx
 	pop esi
@@ -22435,7 +22548,7 @@ int_upsample_20:
 	mov edi, [ebp-0x10]
 	mov [esp+0x4], edi
 	mov [esp], ecx
-	call jcopy_sample_rows:F(0,2)
+	call jcopy_sample_rows_F0_2
 int_upsample_60:
 	mov eax, [ebp-0x14]
 	add [ebp-0x10], eax
@@ -22549,7 +22662,7 @@ h2v2_upsample_20:
 	mov [esp+0x8], esi
 	mov [esp+0x4], edi
 	mov [esp], esi
-	call jcopy_sample_rows:F(0,2)
+	call jcopy_sample_rows_F0_2
 	add edi, 0x2
 	mov eax, [ebp+0x8]
 	cmp edi, [eax+0x11c]
@@ -22772,16 +22885,16 @@ h2v2_fancy_upsample_10:
 	ret
 
 
-;jinit_upsampler:F(0,1)
+;jinit_upsampler_F0_1
 
-jinit_upsampler:F(0,1):
+jinit_upsampler_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
 	push esi
 	push ebx
 	sub esp, 0x4c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov edx, [ebp+0x8]
 	mov eax, [edx+0x4]
 	mov dword [esp+0x8], 0xa0
@@ -22798,13 +22911,13 @@ jinit_upsampler:F(0,1):
 	mov [edi+0x4], eax
 	mov byte [edi+0x8], 0x0
 	cmp byte [esi+0x112], 0x0
-	jnz jinit_upsampler:F(0,1)_10
-jinit_upsampler:F(0,1)_170:
+	jnz jinit_upsampler_F0_1_10
+jinit_upsampler_F0_1_170:
 	mov eax, [ebp+0x8]
 	cmp byte [eax+0x50], 0x0
-	jz jinit_upsampler:F(0,1)_20
+	jz jinit_upsampler_F0_1_20
 	cmp dword [eax+0x120], 0x1
-	jle jinit_upsampler:F(0,1)_20
+	jle jinit_upsampler_F0_1_20
 	mov byte [ebp-0x25], 0x1
 	mov edx, [ebp+0x8]
 	mov edx, [edx+0xcc]
@@ -22812,15 +22925,15 @@ jinit_upsampler:F(0,1)_170:
 	mov esi, [ebp+0x8]
 	mov esi, [esi+0x2c]
 	test esi, esi
-	jg jinit_upsampler:F(0,1)_30
-jinit_upsampler:F(0,1)_40:
+	jg jinit_upsampler_F0_1_30
+jinit_upsampler_F0_1_40:
 	add esp, 0x4c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-jinit_upsampler:F(0,1)_20:
+jinit_upsampler_F0_1_20:
 	mov byte [ebp-0x25], 0x0
 	mov edx, [ebp+0x8]
 	mov edx, [edx+0xcc]
@@ -22828,19 +22941,19 @@ jinit_upsampler:F(0,1)_20:
 	mov esi, [ebp+0x8]
 	mov esi, [esi+0x2c]
 	test esi, esi
-	jle jinit_upsampler:F(0,1)_40
-jinit_upsampler:F(0,1)_30:
+	jle jinit_upsampler_F0_1_40
+jinit_upsampler_F0_1_30:
 	mov edi, [ebp-0x1c]
 	mov [ebp-0x20], edi
 	mov [ebp-0x24], edi
 	mov dword [ebp-0x30], 0x0
 	mov edx, [ebp+0x8]
-	jmp jinit_upsampler:F(0,1)_50
-jinit_upsampler:F(0,1)_60:
+	jmp jinit_upsampler_F0_1_50
+jinit_upsampler_F0_1_60:
 	lea eax, [ebx-0x44f]
 	mov edx, [ebp-0x24]
 	mov [edx+0x34], eax
-jinit_upsampler:F(0,1)_100:
+jinit_upsampler_F0_1_100:
 	add dword [ebp-0x30], 0x1
 	add dword [ebp-0x2c], 0x54
 	add dword [ebp-0x24], 0x4
@@ -22848,9 +22961,9 @@ jinit_upsampler:F(0,1)_100:
 	mov eax, [ebp-0x30]
 	mov edi, [ebp+0x8]
 	cmp eax, [edi+0x2c]
-	jge jinit_upsampler:F(0,1)_40
+	jge jinit_upsampler_F0_1_40
 	mov edx, edi
-jinit_upsampler:F(0,1)_50:
+jinit_upsampler_F0_1_50:
 	mov eax, [ebp-0x2c]
 	mov ecx, [eax+0x24]
 	mov edx, [edx+0x120]
@@ -22874,26 +22987,26 @@ jinit_upsampler:F(0,1)_50:
 	mov [eax+0x64], ecx
 	mov eax, [ebp-0x2c]
 	cmp byte [eax+0x30], 0x0
-	jz jinit_upsampler:F(0,1)_60
+	jz jinit_upsampler_F0_1_60
 	cmp esi, edx
-	jz jinit_upsampler:F(0,1)_70
-jinit_upsampler:F(0,1)_120:
+	jz jinit_upsampler_F0_1_70
+jinit_upsampler_F0_1_120:
 	lea eax, [esi+esi]
 	cmp edx, eax
-	jz jinit_upsampler:F(0,1)_80
-jinit_upsampler:F(0,1)_140:
+	jz jinit_upsampler_F0_1_80
+jinit_upsampler_F0_1_140:
 	mov eax, edx
 	cdq
 	idiv esi
 	mov esi, eax
 	test edx, edx
-	jnz jinit_upsampler:F(0,1)_90
+	jnz jinit_upsampler_F0_1_90
 	mov eax, edi
 	cdq
 	idiv ecx
 	mov ecx, eax
 	test edx, edx
-	jnz jinit_upsampler:F(0,1)_90
+	jnz jinit_upsampler_F0_1_90
 	lea eax, [ebx-0x441]
 	mov edx, [ebp-0x24]
 	mov [edx+0x34], eax
@@ -22901,7 +23014,7 @@ jinit_upsampler:F(0,1)_140:
 	mov edx, [ebp-0x20]
 	mov [edx+0x8c], al
 	mov [edx+0x96], cl
-jinit_upsampler:F(0,1)_110:
+jinit_upsampler_F0_1_110:
 	mov esi, [ebp+0x8]
 	mov eax, [esi+0x4]
 	mov edi, [eax+0x8]
@@ -22912,7 +23025,7 @@ jinit_upsampler:F(0,1)_110:
 	mov [esp+0x4], eax
 	mov eax, [edx+0x64]
 	mov [esp], eax
-	call jround_up:F(0,1)
+	call jround_up_F0_1
 	mov [esp+0xc], esi
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], 0x1
@@ -22921,68 +23034,68 @@ jinit_upsampler:F(0,1)_110:
 	call edi
 	mov edi, [ebp-0x24]
 	mov [edi+0xc], eax
-	jmp jinit_upsampler:F(0,1)_100
-jinit_upsampler:F(0,1)_90:
+	jmp jinit_upsampler_F0_1_100
+jinit_upsampler_F0_1_90:
 	mov esi, [ebp+0x8]
 	mov eax, [esi]
 	mov dword [eax+0x14], 0x26
 	mov eax, [esi]
 	mov [esp], esi
 	call dword [eax]
-	jmp jinit_upsampler:F(0,1)_110
-jinit_upsampler:F(0,1)_70:
+	jmp jinit_upsampler_F0_1_110
+jinit_upsampler_F0_1_70:
 	cmp ecx, edi
-	jnz jinit_upsampler:F(0,1)_120
+	jnz jinit_upsampler_F0_1_120
 	lea eax, [ebx-0x45c]
 	mov edx, [ebp-0x24]
 	mov [edx+0x34], eax
-	jmp jinit_upsampler:F(0,1)_100
-jinit_upsampler:F(0,1)_80:
+	jmp jinit_upsampler_F0_1_100
+jinit_upsampler_F0_1_80:
 	cmp ecx, edi
-	jz jinit_upsampler:F(0,1)_130
+	jz jinit_upsampler_F0_1_130
 	lea eax, [ecx+ecx]
 	cmp edi, eax
-	jnz jinit_upsampler:F(0,1)_140
+	jnz jinit_upsampler_F0_1_140
 	cmp byte [ebp-0x25], 0x0
-	jz jinit_upsampler:F(0,1)_150
+	jz jinit_upsampler_F0_1_150
 	mov esi, [ebp-0x2c]
 	cmp dword [esi+0x28], 0x2
-	ja jinit_upsampler:F(0,1)_160
-jinit_upsampler:F(0,1)_150:
+	ja jinit_upsampler_F0_1_160
+jinit_upsampler_F0_1_150:
 	lea eax, [ebx-0x2de]
 	mov edx, [ebp-0x24]
 	mov [edx+0x34], eax
-	jmp jinit_upsampler:F(0,1)_110
-jinit_upsampler:F(0,1)_10:
+	jmp jinit_upsampler_F0_1_110
+jinit_upsampler_F0_1_10:
 	mov eax, [esi]
 	mov dword [eax+0x14], 0x19
 	mov eax, [esi]
 	mov [esp], esi
 	call dword [eax]
-	jmp jinit_upsampler:F(0,1)_170
-jinit_upsampler:F(0,1)_130:
+	jmp jinit_upsampler_F0_1_170
+jinit_upsampler_F0_1_130:
 	cmp byte [ebp-0x25], 0x0
-	jz jinit_upsampler:F(0,1)_180
+	jz jinit_upsampler_F0_1_180
 	mov esi, [ebp-0x2c]
 	cmp dword [esi+0x28], 0x2
-	ja jinit_upsampler:F(0,1)_190
-jinit_upsampler:F(0,1)_180:
+	ja jinit_upsampler_F0_1_190
+jinit_upsampler_F0_1_180:
 	lea eax, [ebx-0x34e]
 	mov edx, [ebp-0x24]
 	mov [edx+0x34], eax
-	jmp jinit_upsampler:F(0,1)_110
-jinit_upsampler:F(0,1)_190:
+	jmp jinit_upsampler_F0_1_110
+jinit_upsampler_F0_1_190:
 	lea eax, [ebx-0x253]
 	mov edi, [ebp-0x24]
 	mov [edi+0x34], eax
-	jmp jinit_upsampler:F(0,1)_110
-jinit_upsampler:F(0,1)_160:
+	jmp jinit_upsampler_F0_1_110
+jinit_upsampler_F0_1_160:
 	lea eax, [ebx-0x182]
 	mov edi, [ebp-0x24]
 	mov [edi+0x34], eax
 	mov eax, [ebp-0x1c]
 	mov byte [eax+0x8], 0x1
-	jmp jinit_upsampler:F(0,1)_110
+	jmp jinit_upsampler_F0_1_110
 	add [eax], al
 
 
@@ -22994,7 +23107,7 @@ start_pass_coef:
 	push esi
 	push ebx
 	sub esp, 0x1c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov ecx, [ebp+0x8]
 	mov esi, [ebp+0xc]
 	mov edi, [ecx+0x14c]
@@ -23204,7 +23317,7 @@ compress_data_70:
 	mov ecx, [ebp-0x40]
 	mov eax, [ecx+edx*4+0x18]
 	mov [esp], eax
-	call jzero_far:F(0,2)
+	call jzero_far_F0_2
 	mov esi, [ebp-0x20]
 	cmp esi, [edi+0x34]
 	jge compress_data_100
@@ -23253,7 +23366,7 @@ compress_data_80:
 	mov esi, [ebp-0x40]
 	mov eax, [esi+ecx*4+0x18]
 	mov [esp], eax
-	call jzero_far:F(0,2)
+	call jzero_far_F0_2
 	mov ecx, [edi+0x34]
 	test ecx, ecx
 	jle compress_data_100
@@ -23713,7 +23826,7 @@ compress_first_pass_110:
 	mov edx, [ebp-0x4c]
 	mov [esp+0x4], edx
 	mov [esp], esi
-	call jzero_far:F(0,2)
+	call jzero_far_F0_2
 	movzx ecx, word [esi-0x80]
 	mov eax, esi
 	xor edx, edx
@@ -23759,7 +23872,7 @@ compress_first_pass_170:
 	mov ecx, [ebp-0x20]
 	mov [esp+0x4], ecx
 	mov [esp], edi
-	call jzero_far:F(0,2)
+	call jzero_far_F0_2
 	mov eax, [ebp-0x54]
 	test eax, eax
 	jz compress_first_pass_130
@@ -23808,16 +23921,16 @@ compress_first_pass_50:
 	ret
 
 
-;jinit_c_coef_controller:F(0,1)
+;jinit_c_coef_controller_F0_1
 
-jinit_c_coef_controller:F(0,1):
+jinit_c_coef_controller_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
 	push esi
 	push ebx
 	sub esp, 0x3c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	movzx esi, byte [ebp+0xc]
 	mov edx, [ebp+0x8]
 	mov eax, [edx+0x4]
@@ -23832,24 +23945,24 @@ jinit_c_coef_controller:F(0,1):
 	mov [edi], eax
 	mov edx, esi
 	test dl, dl
-	jz jinit_c_coef_controller:F(0,1)_10
+	jz jinit_c_coef_controller_F0_1_10
 	mov eax, [ebp+0x8]
 	mov eax, [eax+0x48]
 	mov [ebp-0x20], eax
 	mov edx, [ebp+0x8]
 	mov eax, [edx+0x40]
 	test eax, eax
-	jg jinit_c_coef_controller:F(0,1)_20
+	jg jinit_c_coef_controller_F0_1_20
 	add esp, 0x3c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-jinit_c_coef_controller:F(0,1)_20:
+jinit_c_coef_controller_F0_1_20:
 	mov [ebp-0x1c], edi
 	mov dword [ebp-0x24], 0x0
-jinit_c_coef_controller:F(0,1)_30:
+jinit_c_coef_controller_F0_1_30:
 	mov edx, [ebp+0x8]
 	mov eax, [edx+0x4]
 	mov eax, [eax+0x14]
@@ -23859,14 +23972,14 @@ jinit_c_coef_controller:F(0,1)_30:
 	mov [esp+0x4], esi
 	mov eax, [eax+0x20]
 	mov [esp], eax
-	call jround_up:F(0,1)
+	call jround_up_F0_1
 	mov edi, eax
 	mov edx, [ebp-0x20]
 	mov eax, [edx+0x8]
 	mov [esp+0x4], eax
 	mov eax, [edx+0x1c]
 	mov [esp], eax
-	call jround_up:F(0,1)
+	call jround_up_F0_1
 	mov [esp+0x14], esi
 	mov [esp+0x10], edi
 	mov [esp+0xc], eax
@@ -23884,14 +23997,14 @@ jinit_c_coef_controller:F(0,1)_30:
 	mov edx, [ebp-0x24]
 	mov eax, [ebp+0x8]
 	cmp [eax+0x40], edx
-	jg jinit_c_coef_controller:F(0,1)_30
+	jg jinit_c_coef_controller_F0_1_30
 	add esp, 0x3c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-jinit_c_coef_controller:F(0,1)_10:
+jinit_c_coef_controller_F0_1_10:
 	mov edx, [ebp+0x8]
 	mov eax, [edx+0x4]
 	mov dword [esp+0x8], 0x500
@@ -23900,12 +24013,12 @@ jinit_c_coef_controller:F(0,1)_10:
 	call dword [eax+0x4]
 	mov edx, edi
 	mov ecx, 0xa
-jinit_c_coef_controller:F(0,1)_40:
+jinit_c_coef_controller_F0_1_40:
 	mov [edx+0x18], eax
 	add edx, 0x4
 	sub eax, 0xffffff80
 	sub ecx, 0x1
-	jnz jinit_c_coef_controller:F(0,1)_40
+	jnz jinit_c_coef_controller_F0_1_40
 	mov dword [edi+0x40], 0x0
 	add esp, 0x3c
 	pop ebx
@@ -23920,7 +24033,7 @@ start_pass_main__addr_236608:
 	push ebp
 	mov ebp, esp
 	push ebx
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov ecx, [ebp+0x8]
 	mov eax, [ebp+0xc]
 	mov edx, [ecx+0x144]
@@ -24020,16 +24133,16 @@ process_data_simple_main__addr_23665f_10:
 	ret
 
 
-;jinit_c_main_controller:F(0,1)
+;jinit_c_main_controller_F0_1
 
-jinit_c_main_controller:F(0,1):
+jinit_c_main_controller_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
 	push esi
 	push ebx
 	sub esp, 0x2c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov esi, [ebp+0x8]
 	movzx edi, byte [ebp+0xc]
 	mov eax, [esi+0x4]
@@ -24042,22 +24155,22 @@ jinit_c_main_controller:F(0,1):
 	lea eax, [ebx-0x12f]
 	mov [edx], eax
 	cmp byte [esi+0xb4], 0x0
-	jnz jinit_c_main_controller:F(0,1)_10
+	jnz jinit_c_main_controller_F0_1_10
 	mov eax, edi
 	test al, al
-	jnz jinit_c_main_controller:F(0,1)_20
+	jnz jinit_c_main_controller_F0_1_20
 	mov edi, [esi+0x48]
 	mov eax, [esi+0x40]
 	test eax, eax
-	jg jinit_c_main_controller:F(0,1)_30
-jinit_c_main_controller:F(0,1)_10:
+	jg jinit_c_main_controller_F0_1_30
+jinit_c_main_controller_F0_1_10:
 	add esp, 0x2c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-jinit_c_main_controller:F(0,1)_20:
+jinit_c_main_controller_F0_1_20:
 	mov eax, [esi]
 	mov dword [eax+0x14], 0x4
 	mov eax, [esi]
@@ -24069,10 +24182,10 @@ jinit_c_main_controller:F(0,1)_20:
 	pop edi
 	pop ebp
 	jmp ecx
-jinit_c_main_controller:F(0,1)_30:
+jinit_c_main_controller_F0_1_30:
 	mov [ebp-0x1c], edx
 	mov dword [ebp-0x20], 0x0
-jinit_c_main_controller:F(0,1)_40:
+jinit_c_main_controller_F0_1_40:
 	mov edx, [esi+0x4]
 	mov eax, [edi+0xc]
 	shl eax, 0x3
@@ -24091,7 +24204,7 @@ jinit_c_main_controller:F(0,1)_40:
 	mov [ebp-0x1c], edx
 	mov eax, [ebp-0x20]
 	cmp [esi+0x40], eax
-	jg jinit_c_main_controller:F(0,1)_40
+	jg jinit_c_main_controller_F0_1_40
 	add esp, 0x2c
 	pop ebx
 	pop esi
@@ -24123,7 +24236,7 @@ per_scan_setup_110:
 	mov [esp+0x4], eax
 	mov eax, [edx+0x24]
 	mov [esp], eax
-	call jdiv_round_up:F(0,1)
+	call jdiv_round_up_F0_1
 	mov ecx, [ebp-0x14]
 	mov [ecx+0xfc], eax
 	mov eax, [ecx+0xe0]
@@ -24131,7 +24244,7 @@ per_scan_setup_110:
 	mov [esp+0x4], eax
 	mov eax, [ecx+0x28]
 	mov [esp], eax
-	call jdiv_round_up:F(0,1)
+	call jdiv_round_up_F0_1
 	mov esi, [ebp-0x14]
 	mov [esi+0x100], eax
 	mov dword [esi+0x104], 0x0
@@ -24785,16 +24898,16 @@ prepare_for_pass_390:
 	add [eax], al
 
 
-;jinit_c_master_control:F(0,1)
+;jinit_c_master_control_F0_1
 
-jinit_c_master_control:F(0,1):
+jinit_c_master_control_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
 	push esi
 	push ebx
 	sub esp, 0xa6c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	movzx eax, byte [ebp+0xc]
 	mov [ebp-0xa61], al
 	mov edx, [ebp+0x8]
@@ -24816,11 +24929,11 @@ jinit_c_master_control:F(0,1):
 	mov byte [edx+0xd], 0x0
 	mov edx, [ecx+0x28]
 	test edx, edx
-	jz jinit_c_master_control:F(0,1)_10
+	jz jinit_c_master_control_F0_1_10
 	mov eax, [ecx+0x24]
 	test eax, eax
-	jnz jinit_c_master_control:F(0,1)_20
-jinit_c_master_control:F(0,1)_10:
+	jnz jinit_c_master_control_F0_1_20
+jinit_c_master_control_F0_1_10:
 	mov ecx, [ebp+0x8]
 	mov eax, [ecx]
 	mov dword [eax+0x14], 0x20
@@ -24829,14 +24942,14 @@ jinit_c_master_control:F(0,1)_10:
 	call dword [eax]
 	mov eax, [ebp+0x8]
 	cmp dword [eax+0x28], 0xffdc
-	jg jinit_c_master_control:F(0,1)_30
-jinit_c_master_control:F(0,1)_440:
+	jg jinit_c_master_control_F0_1_30
+jinit_c_master_control_F0_1_440:
 	cmp dword [eax+0x24], 0xffdc
-	jg jinit_c_master_control:F(0,1)_40
+	jg jinit_c_master_control_F0_1_40
 	mov ecx, [ebp+0x8]
 	cmp dword [ecx+0x3c], 0x8
-	jz jinit_c_master_control:F(0,1)_50
-jinit_c_master_control:F(0,1)_420:
+	jz jinit_c_master_control_F0_1_50
+jinit_c_master_control_F0_1_420:
 	mov eax, [ecx]
 	mov dword [eax+0x14], 0xf
 	mov edx, [ecx]
@@ -24847,34 +24960,34 @@ jinit_c_master_control:F(0,1)_420:
 	call dword [eax]
 	mov eax, [ebp+0x8]
 	cmp dword [eax+0x40], 0xa
-	jg jinit_c_master_control:F(0,1)_60
-jinit_c_master_control:F(0,1)_430:
+	jg jinit_c_master_control_F0_1_60
+jinit_c_master_control_F0_1_430:
 	mov dword [eax+0xdc], 0x1
 	mov dword [eax+0xe0], 0x1
 	mov esi, [eax+0x48]
 	mov eax, [eax+0x40]
 	test eax, eax
-	jle jinit_c_master_control:F(0,1)_70
+	jle jinit_c_master_control_F0_1_70
 	mov dword [ebp-0xa5c], 0x0
-jinit_c_master_control:F(0,1)_100:
+jinit_c_master_control_F0_1_100:
 	lea edi, [esi+0x8]
 	mov eax, [esi+0x8]
 	sub eax, 0x1
 	cmp eax, 0x3
-	ja jinit_c_master_control:F(0,1)_80
+	ja jinit_c_master_control_F0_1_80
 	mov eax, [esi+0xc]
 	test eax, eax
-	jle jinit_c_master_control:F(0,1)_80
+	jle jinit_c_master_control_F0_1_80
 	cmp eax, 0x4
-	jle jinit_c_master_control:F(0,1)_90
-jinit_c_master_control:F(0,1)_80:
+	jle jinit_c_master_control_F0_1_90
+jinit_c_master_control_F0_1_80:
 	mov edx, [ebp+0x8]
 	mov eax, [edx]
 	mov dword [eax+0x14], 0x12
 	mov eax, [edx]
 	mov [esp], edx
 	call dword [eax]
-jinit_c_master_control:F(0,1)_90:
+jinit_c_master_control_F0_1_90:
 	mov ecx, [ebp+0x8]
 	mov edx, [ecx+0xdc]
 	mov eax, [edi]
@@ -24890,13 +25003,13 @@ jinit_c_master_control:F(0,1)_90:
 	add esi, 0x54
 	mov eax, [ebp-0xa5c]
 	cmp eax, [ecx+0x40]
-	jl jinit_c_master_control:F(0,1)_100
+	jl jinit_c_master_control_F0_1_100
 	mov esi, [ecx+0x48]
 	mov eax, [ecx+0x40]
 	test eax, eax
-	jle jinit_c_master_control:F(0,1)_70
+	jle jinit_c_master_control_F0_1_70
 	xor edi, edi
-jinit_c_master_control:F(0,1)_110:
+jinit_c_master_control_F0_1_110:
 	mov [esi+0x4], edi
 	mov dword [esi+0x24], 0x8
 	mov edx, [ebp+0x8]
@@ -24906,7 +25019,7 @@ jinit_c_master_control:F(0,1)_110:
 	mov eax, [edx+0x24]
 	imul eax, [esi+0x8]
 	mov [esp], eax
-	call jdiv_round_up:F(0,1)
+	call jdiv_round_up_F0_1
 	mov [esi+0x1c], eax
 	mov ecx, [ebp+0x8]
 	mov eax, [ecx+0xe0]
@@ -24915,7 +25028,7 @@ jinit_c_master_control:F(0,1)_110:
 	mov eax, [ecx+0x28]
 	imul eax, [esi+0xc]
 	mov [esp], eax
-	call jdiv_round_up:F(0,1)
+	call jdiv_round_up_F0_1
 	mov [esi+0x20], eax
 	mov edx, [ebp+0x8]
 	mov eax, [edx+0xdc]
@@ -24923,7 +25036,7 @@ jinit_c_master_control:F(0,1)_110:
 	mov eax, [edx+0x24]
 	imul eax, [esi+0x8]
 	mov [esp], eax
-	call jdiv_round_up:F(0,1)
+	call jdiv_round_up_F0_1
 	mov [esi+0x28], eax
 	mov ecx, [ebp+0x8]
 	mov eax, [ecx+0xe0]
@@ -24931,54 +25044,54 @@ jinit_c_master_control:F(0,1)_110:
 	mov eax, [ecx+0x28]
 	imul eax, [esi+0xc]
 	mov [esp], eax
-	call jdiv_round_up:F(0,1)
+	call jdiv_round_up_F0_1
 	mov [esi+0x2c], eax
 	mov byte [esi+0x30], 0x1
 	add edi, 0x1
 	add esi, 0x54
 	mov eax, [ebp+0x8]
 	cmp [eax+0x40], edi
-	jg jinit_c_master_control:F(0,1)_110
+	jg jinit_c_master_control_F0_1_110
 	mov edx, eax
-	jmp jinit_c_master_control:F(0,1)_120
-jinit_c_master_control:F(0,1)_70:
+	jmp jinit_c_master_control_F0_1_120
+jinit_c_master_control_F0_1_70:
 	mov edx, [ebp+0x8]
-jinit_c_master_control:F(0,1)_120:
+jinit_c_master_control_F0_1_120:
 	mov eax, [edx+0xe0]
 	shl eax, 0x3
 	mov [esp+0x4], eax
 	mov eax, [edx+0x28]
 	mov [esp], eax
-	call jdiv_round_up:F(0,1)
+	call jdiv_round_up_F0_1
 	mov ecx, [ebp+0x8]
 	mov [ecx+0xe4], eax
 	mov eax, [ecx+0xb0]
 	test eax, eax
-	jz jinit_c_master_control:F(0,1)_130
+	jz jinit_c_master_control_F0_1_130
 	mov edi, [ecx+0xac]
 	test edi, edi
-	jle jinit_c_master_control:F(0,1)_140
-jinit_c_master_control:F(0,1)_710:
+	jle jinit_c_master_control_F0_1_140
+jinit_c_master_control_F0_1_710:
 	mov eax, [ebp+0x8]
 	mov eax, [eax+0xb0]
 	mov [ebp-0xa54], eax
 	mov esi, [eax+0x14]
 	test esi, esi
-	jz jinit_c_master_control:F(0,1)_150
-jinit_c_master_control:F(0,1)_380:
+	jz jinit_c_master_control_F0_1_150
+jinit_c_master_control_F0_1_380:
 	mov edx, [ebp+0x8]
 	mov byte [edx+0xd8], 0x1
 	lea eax, [ebp-0xa24]
 	mov ecx, [edx+0x40]
 	test ecx, ecx
-	jg jinit_c_master_control:F(0,1)_160
-jinit_c_master_control:F(0,1)_410:
+	jg jinit_c_master_control_F0_1_160
+jinit_c_master_control_F0_1_410:
 	mov eax, [ebp+0x8]
-jinit_c_master_control:F(0,1)_720:
+jinit_c_master_control_F0_1_720:
 	mov edx, [eax+0xac]
 	test edx, edx
-	jle jinit_c_master_control:F(0,1)_170
-jinit_c_master_control:F(0,1)_480:
+	jle jinit_c_master_control_F0_1_170
+jinit_c_master_control_F0_1_480:
 	mov dword [ebp-0xa50], 0x1
 	lea edx, [ebp-0xa24]
 	mov [ebp-0xa68], edx
@@ -24988,29 +25101,29 @@ jinit_c_master_control:F(0,1)_480:
 	mov eax, ecx
 	sub eax, 0x1
 	cmp eax, 0x3
-	ja jinit_c_master_control:F(0,1)_180
-jinit_c_master_control:F(0,1)_560:
+	ja jinit_c_master_control_F0_1_180
+jinit_c_master_control_F0_1_560:
 	mov eax, [ebp-0xa4c]
 	test eax, eax
-	jle jinit_c_master_control:F(0,1)_190
+	jle jinit_c_master_control_F0_1_190
 	mov edi, [ebp-0xa54]
 	mov dword [ebp-0xa34], 0x0
-	jmp jinit_c_master_control:F(0,1)_200
-jinit_c_master_control:F(0,1)_230:
+	jmp jinit_c_master_control_F0_1_200
+jinit_c_master_control_F0_1_230:
 	add dword [ebp-0xa34], 0x1
 	add edi, 0x4
 	mov eax, [ebp-0xa34]
 	cmp [ebp-0xa4c], eax
-	jz jinit_c_master_control:F(0,1)_190
-jinit_c_master_control:F(0,1)_200:
+	jz jinit_c_master_control_F0_1_190
+jinit_c_master_control_F0_1_200:
 	mov esi, [edi+0x4]
 	test esi, esi
-	js jinit_c_master_control:F(0,1)_210
+	js jinit_c_master_control_F0_1_210
 	mov ecx, [ebp+0x8]
 	cmp esi, [ecx+0x40]
-	jl jinit_c_master_control:F(0,1)_220
+	jl jinit_c_master_control_F0_1_220
 	mov edx, ecx
-jinit_c_master_control:F(0,1)_610:
+jinit_c_master_control_F0_1_610:
 	mov eax, [edx]
 	mov dword [eax+0x14], 0x13
 	mov eax, [edx]
@@ -25019,12 +25132,12 @@ jinit_c_master_control:F(0,1)_610:
 	mov eax, [edx]
 	mov [esp], edx
 	call dword [eax]
-jinit_c_master_control:F(0,1)_220:
+jinit_c_master_control_F0_1_220:
 	mov eax, [ebp-0xa34]
 	test eax, eax
-	jle jinit_c_master_control:F(0,1)_230
+	jle jinit_c_master_control_F0_1_230
 	cmp esi, [edi]
-	jg jinit_c_master_control:F(0,1)_230
+	jg jinit_c_master_control_F0_1_230
 	mov edx, [ebp+0x8]
 	mov eax, [edx]
 	mov dword [eax+0x14], 0x13
@@ -25038,8 +25151,8 @@ jinit_c_master_control:F(0,1)_220:
 	add edi, 0x4
 	mov eax, [ebp-0xa34]
 	cmp [ebp-0xa4c], eax
-	jnz jinit_c_master_control:F(0,1)_200
-jinit_c_master_control:F(0,1)_190:
+	jnz jinit_c_master_control_F0_1_200
+jinit_c_master_control_F0_1_190:
 	mov edx, [ebp-0xa54]
 	mov edx, [edx+0x14]
 	mov [ebp-0xa38], edx
@@ -25054,20 +25167,20 @@ jinit_c_master_control:F(0,1)_190:
 	mov [ebp-0xa40], edx
 	mov ecx, [ebp+0x8]
 	cmp byte [ecx+0xd8], 0x0
-	jz jinit_c_master_control:F(0,1)_240
+	jz jinit_c_master_control_F0_1_240
 	cmp dword [ebp-0xa38], 0x3f
-	ja jinit_c_master_control:F(0,1)_250
+	ja jinit_c_master_control_F0_1_250
 	mov eax, [ebp-0xa48]
 	cmp [ebp-0xa38], eax
-	jg jinit_c_master_control:F(0,1)_250
+	jg jinit_c_master_control_F0_1_250
 	cmp eax, 0x3f
-	jg jinit_c_master_control:F(0,1)_250
+	jg jinit_c_master_control_F0_1_250
 	mov eax, [ebp-0xa44]
 	test eax, eax
-	js jinit_c_master_control:F(0,1)_250
+	js jinit_c_master_control_F0_1_250
 	cmp dword [ebp-0xa44], 0xa
-	jle jinit_c_master_control:F(0,1)_260
-jinit_c_master_control:F(0,1)_250:
+	jle jinit_c_master_control_F0_1_260
+jinit_c_master_control_F0_1_250:
 	mov edx, [ebp+0x8]
 	mov eax, [edx]
 	mov dword [eax+0x14], 0x11
@@ -25077,17 +25190,17 @@ jinit_c_master_control:F(0,1)_250:
 	mov eax, [edx]
 	mov [esp], edx
 	call dword [eax]
-jinit_c_master_control:F(0,1)_690:
+jinit_c_master_control_F0_1_690:
 	mov edi, [ebp-0xa38]
 	test edi, edi
-	jnz jinit_c_master_control:F(0,1)_270
+	jnz jinit_c_master_control_F0_1_270
 	mov esi, [ebp-0xa48]
 	test esi, esi
-	jnz jinit_c_master_control:F(0,1)_280
-jinit_c_master_control:F(0,1)_620:
+	jnz jinit_c_master_control_F0_1_280
+jinit_c_master_control_F0_1_620:
 	mov ecx, [ebp-0xa4c]
 	test ecx, ecx
-	jle jinit_c_master_control:F(0,1)_290
+	jle jinit_c_master_control_F0_1_290
 	mov eax, [ebp-0xa44]
 	sub eax, 0x1
 	mov [ebp-0xa58], eax
@@ -25095,32 +25208,32 @@ jinit_c_master_control:F(0,1)_620:
 	mov [ebp-0xa3c], edx
 	mov dword [ebp-0xa30], 0x0
 	mov ecx, edx
-jinit_c_master_control:F(0,1)_370:
+jinit_c_master_control_F0_1_370:
 	mov eax, [ecx+0x4]
 	shl eax, 0x8
 	mov esi, [ebp-0xa68]
 	add esi, eax
 	mov edx, [ebp-0xa38]
 	test edx, edx
-	jz jinit_c_master_control:F(0,1)_300
+	jz jinit_c_master_control_F0_1_300
 	mov eax, [esi]
 	test eax, eax
-	js jinit_c_master_control:F(0,1)_310
-jinit_c_master_control:F(0,1)_300:
+	js jinit_c_master_control_F0_1_310
+jinit_c_master_control_F0_1_300:
 	mov eax, [ebp-0xa48]
 	cmp [ebp-0xa38], eax
-	jg jinit_c_master_control:F(0,1)_320
+	jg jinit_c_master_control_F0_1_320
 	mov edx, [ebp-0xa38]
 	lea esi, [esi+edx*4]
 	mov edi, edx
-	jmp jinit_c_master_control:F(0,1)_330
-jinit_c_master_control:F(0,1)_360:
+	jmp jinit_c_master_control_F0_1_330
+jinit_c_master_control_F0_1_360:
 	cmp [ebp-0xa44], eax
-	jnz jinit_c_master_control:F(0,1)_340
+	jnz jinit_c_master_control_F0_1_340
 	mov ecx, [ebp-0xa58]
 	cmp [ebp-0xa40], ecx
-	jz jinit_c_master_control:F(0,1)_350
-jinit_c_master_control:F(0,1)_340:
+	jz jinit_c_master_control_F0_1_350
+jinit_c_master_control_F0_1_340:
 	mov edx, [ebp+0x8]
 	mov eax, [edx]
 	mov dword [eax+0x14], 0x11
@@ -25130,20 +25243,20 @@ jinit_c_master_control:F(0,1)_340:
 	mov eax, [edx]
 	mov [esp], edx
 	call dword [eax]
-jinit_c_master_control:F(0,1)_350:
+jinit_c_master_control_F0_1_350:
 	mov eax, [ebp-0xa40]
 	mov [esi], eax
 	add edi, 0x1
 	add esi, 0x4
 	cmp [ebp-0xa48], edi
-	jl jinit_c_master_control:F(0,1)_320
-jinit_c_master_control:F(0,1)_330:
+	jl jinit_c_master_control_F0_1_320
+jinit_c_master_control_F0_1_330:
 	mov eax, [esi]
 	test eax, eax
-	jns jinit_c_master_control:F(0,1)_360
+	jns jinit_c_master_control_F0_1_360
 	mov eax, [ebp-0xa44]
 	test eax, eax
-	jz jinit_c_master_control:F(0,1)_350
+	jz jinit_c_master_control_F0_1_350
 	mov ecx, [ebp+0x8]
 	mov eax, [ecx]
 	mov dword [eax+0x14], 0x11
@@ -25158,35 +25271,35 @@ jinit_c_master_control:F(0,1)_330:
 	add edi, 0x1
 	add esi, 0x4
 	cmp [ebp-0xa48], edi
-	jge jinit_c_master_control:F(0,1)_330
-jinit_c_master_control:F(0,1)_320:
+	jge jinit_c_master_control_F0_1_330
+jinit_c_master_control_F0_1_320:
 	add dword [ebp-0xa30], 0x1
 	add dword [ebp-0xa3c], 0x4
 	mov edx, [ebp-0xa30]
 	cmp [ebp-0xa4c], edx
-	jz jinit_c_master_control:F(0,1)_290
+	jz jinit_c_master_control_F0_1_290
 	mov ecx, [ebp-0xa3c]
-	jmp jinit_c_master_control:F(0,1)_370
-jinit_c_master_control:F(0,1)_150:
+	jmp jinit_c_master_control_F0_1_370
+jinit_c_master_control_F0_1_150:
 	cmp dword [eax+0x18], 0x3f
-	jnz jinit_c_master_control:F(0,1)_380
+	jnz jinit_c_master_control_F0_1_380
 	mov edx, [ebp+0x8]
 	mov byte [edx+0xd8], 0x0
 	mov ecx, [ebp+0x8]
 	mov edx, [ecx+0x40]
 	test edx, edx
-	jle jinit_c_master_control:F(0,1)_390
+	jle jinit_c_master_control_F0_1_390
 	xor eax, eax
 	lea edi, [ebp-0x22]
-jinit_c_master_control:F(0,1)_400:
+jinit_c_master_control_F0_1_400:
 	mov byte [eax+edi], 0x0
 	add eax, 0x1
 	cmp edx, eax
-	jnz jinit_c_master_control:F(0,1)_400
-	jmp jinit_c_master_control:F(0,1)_410
-jinit_c_master_control:F(0,1)_40:
+	jnz jinit_c_master_control_F0_1_400
+	jmp jinit_c_master_control_F0_1_410
+jinit_c_master_control_F0_1_40:
 	mov edx, [ebp+0x8]
-jinit_c_master_control:F(0,1)_450:
+jinit_c_master_control_F0_1_450:
 	mov eax, [edx]
 	mov dword [eax+0x14], 0x29
 	mov eax, [edx]
@@ -25196,12 +25309,12 @@ jinit_c_master_control:F(0,1)_450:
 	call dword [eax]
 	mov ecx, [ebp+0x8]
 	cmp dword [ecx+0x3c], 0x8
-	jnz jinit_c_master_control:F(0,1)_420
-jinit_c_master_control:F(0,1)_50:
+	jnz jinit_c_master_control_F0_1_420
+jinit_c_master_control_F0_1_50:
 	mov eax, ecx
 	cmp dword [eax+0x40], 0xa
-	jle jinit_c_master_control:F(0,1)_430
-jinit_c_master_control:F(0,1)_60:
+	jle jinit_c_master_control_F0_1_430
+jinit_c_master_control_F0_1_60:
 	mov eax, [eax]
 	mov dword [eax+0x14], 0x1a
 	mov ecx, [ebp+0x8]
@@ -25214,68 +25327,68 @@ jinit_c_master_control:F(0,1)_60:
 	mov [esp], ecx
 	call dword [eax]
 	mov eax, [ebp+0x8]
-	jmp jinit_c_master_control:F(0,1)_430
-jinit_c_master_control:F(0,1)_20:
+	jmp jinit_c_master_control_F0_1_430
+jinit_c_master_control_F0_1_20:
 	mov eax, [ecx+0x40]
 	test eax, eax
-	jle jinit_c_master_control:F(0,1)_10
+	jle jinit_c_master_control_F0_1_10
 	mov eax, [ecx+0x2c]
 	test eax, eax
-	jle jinit_c_master_control:F(0,1)_10
+	jle jinit_c_master_control_F0_1_10
 	mov eax, [ebp+0x8]
 	cmp dword [eax+0x28], 0xffdc
-	jle jinit_c_master_control:F(0,1)_440
-jinit_c_master_control:F(0,1)_30:
+	jle jinit_c_master_control_F0_1_440
+jinit_c_master_control_F0_1_30:
 	mov edx, eax
-	jmp jinit_c_master_control:F(0,1)_450
-jinit_c_master_control:F(0,1)_160:
+	jmp jinit_c_master_control_F0_1_450
+jinit_c_master_control_F0_1_160:
 	mov esi, eax
 	xor ecx, ecx
-jinit_c_master_control:F(0,1)_470:
+jinit_c_master_control_F0_1_470:
 	mov eax, esi
 	xor edx, edx
-jinit_c_master_control:F(0,1)_460:
+jinit_c_master_control_F0_1_460:
 	mov dword [eax], 0xffffffff
 	add eax, 0x4
 	add edx, 0x1
 	cmp edx, 0x40
-	jnz jinit_c_master_control:F(0,1)_460
+	jnz jinit_c_master_control_F0_1_460
 	add ecx, 0x1
 	add esi, 0x100
 	mov eax, [ebp+0x8]
 	cmp [eax+0x40], ecx
-	jg jinit_c_master_control:F(0,1)_470
+	jg jinit_c_master_control_F0_1_470
 	mov edx, [eax+0xac]
 	test edx, edx
-	jg jinit_c_master_control:F(0,1)_480
-jinit_c_master_control:F(0,1)_170:
+	jg jinit_c_master_control_F0_1_480
+jinit_c_master_control_F0_1_170:
 	cmp byte [eax+0xd8], 0x0
-	jz jinit_c_master_control:F(0,1)_490
+	jz jinit_c_master_control_F0_1_490
 	mov edx, eax
 	mov ecx, [eax+0x40]
 	test ecx, ecx
-	jle jinit_c_master_control:F(0,1)_500
+	jle jinit_c_master_control_F0_1_500
 	xor esi, esi
-jinit_c_master_control:F(0,1)_520:
+jinit_c_master_control_F0_1_520:
 	mov eax, esi
 	shl eax, 0x8
 	mov edi, [ebp+eax-0xa24]
 	test edi, edi
-	js jinit_c_master_control:F(0,1)_510
-jinit_c_master_control:F(0,1)_700:
+	js jinit_c_master_control_F0_1_510
+jinit_c_master_control_F0_1_700:
 	add esi, 0x1
 	mov ecx, [ebp+0x8]
 	cmp esi, [ecx+0x40]
-	jl jinit_c_master_control:F(0,1)_520
-jinit_c_master_control:F(0,1)_660:
+	jl jinit_c_master_control_F0_1_520
+jinit_c_master_control_F0_1_660:
 	mov edx, ecx
-jinit_c_master_control:F(0,1)_500:
+jinit_c_master_control_F0_1_500:
 	cmp byte [edx+0xd8], 0x0
-	jz jinit_c_master_control:F(0,1)_530
+	jz jinit_c_master_control_F0_1_530
 	mov byte [edx+0xb6], 0x1
-jinit_c_master_control:F(0,1)_530:
+jinit_c_master_control_F0_1_530:
 	cmp byte [ebp-0xa61], 0x0
-	jz jinit_c_master_control:F(0,1)_540
+	jz jinit_c_master_control_F0_1_540
 	mov ecx, [ebp+0x8]
 	cmp byte [ecx+0xb6], 0x1
 	sbb eax, eax
@@ -25283,13 +25396,13 @@ jinit_c_master_control:F(0,1)_530:
 	add eax, 0x2
 	mov edx, [ebp-0xa60]
 	mov [edx+0x10], eax
-jinit_c_master_control:F(0,1)_630:
+jinit_c_master_control_F0_1_630:
 	mov eax, [ebp-0xa60]
 	mov dword [eax+0x1c], 0x0
 	mov dword [eax+0x14], 0x0
 	mov edx, [ebp+0x8]
 	cmp byte [edx+0xb6], 0x0
-	jz jinit_c_master_control:F(0,1)_550
+	jz jinit_c_master_control_F0_1_550
 	mov eax, [edx+0xac]
 	add eax, eax
 	mov ecx, [ebp-0xa60]
@@ -25300,21 +25413,21 @@ jinit_c_master_control:F(0,1)_630:
 	pop edi
 	pop ebp
 	ret
-jinit_c_master_control:F(0,1)_290:
+jinit_c_master_control_F0_1_290:
 	add dword [ebp-0xa54], 0x24
 	add dword [ebp-0xa50], 0x1
 	mov edx, [ebp-0xa50]
 	mov eax, [ebp+0x8]
 	cmp edx, [eax+0xac]
-	jg jinit_c_master_control:F(0,1)_170
+	jg jinit_c_master_control_F0_1_170
 	mov ecx, [ebp-0xa54]
 	mov ecx, [ecx]
 	mov [ebp-0xa4c], ecx
 	mov eax, ecx
 	sub eax, 0x1
 	cmp eax, 0x3
-	jbe jinit_c_master_control:F(0,1)_560
-jinit_c_master_control:F(0,1)_180:
+	jbe jinit_c_master_control_F0_1_560
+jinit_c_master_control_F0_1_180:
 	mov edx, [ebp+0x8]
 	mov eax, [edx]
 	mov dword [eax+0x14], 0x1a
@@ -25325,14 +25438,14 @@ jinit_c_master_control:F(0,1)_180:
 	mov eax, [edx]
 	mov [esp], edx
 	call dword [eax]
-	jmp jinit_c_master_control:F(0,1)_560
-jinit_c_master_control:F(0,1)_240:
+	jmp jinit_c_master_control_F0_1_560
+jinit_c_master_control_F0_1_240:
 	mov eax, [ebp-0xa38]
 	test eax, eax
-	jnz jinit_c_master_control:F(0,1)_570
+	jnz jinit_c_master_control_F0_1_570
 	cmp dword [ebp-0xa48], 0x3f
-	jz jinit_c_master_control:F(0,1)_580
-jinit_c_master_control:F(0,1)_570:
+	jz jinit_c_master_control_F0_1_580
+jinit_c_master_control_F0_1_570:
 	mov ecx, [ebp+0x8]
 	mov eax, [ecx]
 	mov dword [eax+0x14], 0x11
@@ -25342,24 +25455,24 @@ jinit_c_master_control:F(0,1)_570:
 	mov eax, [ecx]
 	mov [esp], ecx
 	call dword [eax]
-jinit_c_master_control:F(0,1)_680:
+jinit_c_master_control_F0_1_680:
 	mov eax, [ebp-0xa4c]
 	test eax, eax
-	jle jinit_c_master_control:F(0,1)_290
+	jle jinit_c_master_control_F0_1_290
 	mov esi, [ebp-0xa54]
 	mov dword [ebp-0xa2c], 0x0
-	jmp jinit_c_master_control:F(0,1)_590
-jinit_c_master_control:F(0,1)_600:
+	jmp jinit_c_master_control_F0_1_590
+jinit_c_master_control_F0_1_600:
 	mov byte [ebp+edi-0x22], 0x1
 	add dword [ebp-0xa2c], 0x1
 	add esi, 0x4
 	mov ecx, [ebp-0xa2c]
 	cmp [ebp-0xa4c], ecx
-	jz jinit_c_master_control:F(0,1)_290
-jinit_c_master_control:F(0,1)_590:
+	jz jinit_c_master_control_F0_1_290
+jinit_c_master_control_F0_1_590:
 	mov edi, [esi+0x4]
 	cmp byte [ebp+edi-0x22], 0x0
-	jz jinit_c_master_control:F(0,1)_600
+	jz jinit_c_master_control_F0_1_600
 	mov ecx, [ebp+0x8]
 	mov eax, [ecx]
 	mov dword [eax+0x14], 0x13
@@ -25369,14 +25482,14 @@ jinit_c_master_control:F(0,1)_590:
 	mov eax, [ecx]
 	mov [esp], ecx
 	call dword [eax]
-	jmp jinit_c_master_control:F(0,1)_600
-jinit_c_master_control:F(0,1)_210:
+	jmp jinit_c_master_control_F0_1_600
+jinit_c_master_control_F0_1_210:
 	mov edx, [ebp+0x8]
-	jmp jinit_c_master_control:F(0,1)_610
-jinit_c_master_control:F(0,1)_270:
+	jmp jinit_c_master_control_F0_1_610
+jinit_c_master_control_F0_1_270:
 	cmp dword [ebp-0xa4c], 0x1
-	jz jinit_c_master_control:F(0,1)_620
-jinit_c_master_control:F(0,1)_280:
+	jz jinit_c_master_control_F0_1_620
+jinit_c_master_control_F0_1_280:
 	mov edx, [ebp+0x8]
 	mov eax, [edx]
 	mov dword [eax+0x14], 0x11
@@ -25386,8 +25499,8 @@ jinit_c_master_control:F(0,1)_280:
 	mov eax, [edx]
 	mov [esp], edx
 	call dword [eax]
-	jmp jinit_c_master_control:F(0,1)_620
-jinit_c_master_control:F(0,1)_550:
+	jmp jinit_c_master_control_F0_1_620
+jinit_c_master_control_F0_1_550:
 	mov eax, [edx+0xac]
 	mov ecx, [ebp-0xa60]
 	mov [ecx+0x18], eax
@@ -25397,11 +25510,11 @@ jinit_c_master_control:F(0,1)_550:
 	pop edi
 	pop ebp
 	ret
-jinit_c_master_control:F(0,1)_540:
+jinit_c_master_control_F0_1_540:
 	mov ecx, [ebp-0xa60]
 	mov dword [ecx+0x10], 0x0
-	jmp jinit_c_master_control:F(0,1)_630
-jinit_c_master_control:F(0,1)_310:
+	jmp jinit_c_master_control_F0_1_630
+jinit_c_master_control_F0_1_310:
 	mov edx, [ebp+0x8]
 	mov eax, [edx]
 	mov dword [eax+0x14], 0x11
@@ -25411,62 +25524,62 @@ jinit_c_master_control:F(0,1)_310:
 	mov eax, [edx]
 	mov [esp], edx
 	call dword [eax]
-	jmp jinit_c_master_control:F(0,1)_300
-jinit_c_master_control:F(0,1)_490:
+	jmp jinit_c_master_control_F0_1_300
+jinit_c_master_control_F0_1_490:
 	mov eax, [ebp+0x8]
 	mov esi, [eax+0x40]
 	test esi, esi
-	jle jinit_c_master_control:F(0,1)_640
+	jle jinit_c_master_control_F0_1_640
 	xor esi, esi
 	lea edi, [ebp-0x22]
-	jmp jinit_c_master_control:F(0,1)_650
-jinit_c_master_control:F(0,1)_670:
+	jmp jinit_c_master_control_F0_1_650
+jinit_c_master_control_F0_1_670:
 	add esi, 0x1
 	mov ecx, [ebp+0x8]
 	cmp esi, [ecx+0x40]
-	jge jinit_c_master_control:F(0,1)_660
-jinit_c_master_control:F(0,1)_650:
+	jge jinit_c_master_control_F0_1_660
+jinit_c_master_control_F0_1_650:
 	cmp byte [esi+edi], 0x0
-	jnz jinit_c_master_control:F(0,1)_670
+	jnz jinit_c_master_control_F0_1_670
 	mov edx, [ebp+0x8]
 	mov eax, [edx]
 	mov dword [eax+0x14], 0x2d
 	mov eax, [edx]
 	mov [esp], edx
 	call dword [eax]
-	jmp jinit_c_master_control:F(0,1)_670
-jinit_c_master_control:F(0,1)_580:
+	jmp jinit_c_master_control_F0_1_670
+jinit_c_master_control_F0_1_580:
 	mov eax, [ebp-0xa44]
 	test eax, eax
-	jnz jinit_c_master_control:F(0,1)_570
+	jnz jinit_c_master_control_F0_1_570
 	mov eax, [ebp-0xa40]
 	test eax, eax
-	jz jinit_c_master_control:F(0,1)_680
-	jmp jinit_c_master_control:F(0,1)_570
-jinit_c_master_control:F(0,1)_640:
+	jz jinit_c_master_control_F0_1_680
+	jmp jinit_c_master_control_F0_1_570
+jinit_c_master_control_F0_1_640:
 	mov edx, eax
-	jmp jinit_c_master_control:F(0,1)_500
-jinit_c_master_control:F(0,1)_260:
+	jmp jinit_c_master_control_F0_1_500
+jinit_c_master_control_F0_1_260:
 	test edx, edx
-	js jinit_c_master_control:F(0,1)_250
+	js jinit_c_master_control_F0_1_250
 	cmp edx, 0xa
-	jle jinit_c_master_control:F(0,1)_690
-	jmp jinit_c_master_control:F(0,1)_250
-jinit_c_master_control:F(0,1)_130:
+	jle jinit_c_master_control_F0_1_690
+	jmp jinit_c_master_control_F0_1_250
+jinit_c_master_control_F0_1_130:
 	mov eax, [ebp+0x8]
 	mov byte [eax+0xd8], 0x0
 	mov dword [eax+0xac], 0x1
 	mov edx, [ebp+0x8]
-	jmp jinit_c_master_control:F(0,1)_500
-jinit_c_master_control:F(0,1)_510:
+	jmp jinit_c_master_control_F0_1_500
+jinit_c_master_control_F0_1_510:
 	mov edx, [ebp+0x8]
 	mov eax, [edx]
 	mov dword [eax+0x14], 0x2d
 	mov eax, [edx]
 	mov [esp], edx
 	call dword [eax]
-	jmp jinit_c_master_control:F(0,1)_700
-jinit_c_master_control:F(0,1)_140:
+	jmp jinit_c_master_control_F0_1_700
+jinit_c_master_control_F0_1_140:
 	mov eax, [ecx]
 	mov dword [eax+0x14], 0x13
 	mov eax, [ecx]
@@ -25474,10 +25587,10 @@ jinit_c_master_control:F(0,1)_140:
 	mov eax, [ecx]
 	mov [esp], ecx
 	call dword [eax]
-	jmp jinit_c_master_control:F(0,1)_710
-jinit_c_master_control:F(0,1)_390:
+	jmp jinit_c_master_control_F0_1_710
+jinit_c_master_control_F0_1_390:
 	mov eax, ecx
-	jmp jinit_c_master_control:F(0,1)_720
+	jmp jinit_c_master_control_F0_1_720
 
 
 ;start_pass_prep
@@ -25611,7 +25724,7 @@ pre_process_data_70:
 	mov edx, [ebp-0x14]
 	mov [esp+0x4], edx
 	mov [esp], edi
-	call jcopy_sample_rows:F(0,2)
+	call jcopy_sample_rows_F0_2
 	add esi, 0x1
 	cmp esi, [ebp-0x34]
 	jnz pre_process_data_70
@@ -25688,7 +25801,7 @@ pre_process_data_140:
 	mov [esp+0x8], edi
 	mov [esp+0x4], ecx
 	mov [esp], edi
-	call jcopy_sample_rows:F(0,2)
+	call jcopy_sample_rows_F0_2
 	add esi, 0x1
 	cmp [ebp-0x38], esi
 	jnz pre_process_data_150
@@ -25803,7 +25916,7 @@ pre_process_context_80:
 	mov [esp+0x8], edi
 	mov [esp+0x4], edx
 	mov [esp], edi
-	call jcopy_sample_rows:F(0,2)
+	call jcopy_sample_rows_F0_2
 	add esi, 0x1
 	cmp [ebp-0x2c], esi
 	jnz pre_process_context_90
@@ -25956,7 +26069,7 @@ pre_process_context_190:
 	mov [esp+0x8], edx
 	mov dword [esp+0x4], 0x0
 	mov [esp], edx
-	call jcopy_sample_rows:F(0,2)
+	call jcopy_sample_rows_F0_2
 	mov eax, esi
 	add esi, 0x1
 	mov edx, [ebp+0x8]
@@ -25965,19 +26078,19 @@ pre_process_context_190:
 	jmp pre_process_context_180
 
 
-;jinit_c_prep_controller:F(0,1)
+;jinit_c_prep_controller_F0_1
 
-jinit_c_prep_controller:F(0,1):
+jinit_c_prep_controller_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
 	push esi
 	push ebx
 	sub esp, 0x8c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	cmp byte [ebp+0xc], 0x0
-	jnz jinit_c_prep_controller:F(0,1)_10
-jinit_c_prep_controller:F(0,1)_110:
+	jnz jinit_c_prep_controller_F0_1_10
+jinit_c_prep_controller_F0_1_110:
 	mov ecx, [ebp+0x8]
 	mov eax, [ecx+0x4]
 	mov dword [esp+0x8], 0x40
@@ -25991,29 +26104,29 @@ jinit_c_prep_controller:F(0,1)_110:
 	mov [edx], eax
 	mov eax, [esi+0x158]
 	cmp byte [eax+0x8], 0x0
-	jnz jinit_c_prep_controller:F(0,1)_20
+	jnz jinit_c_prep_controller_F0_1_20
 	lea eax, [ebx+0x510]
 	mov [edx+0x4], eax
 	mov eax, [ebp+0x8]
 	mov esi, [eax+0x48]
 	mov ecx, [eax+0x40]
 	test ecx, ecx
-	jg jinit_c_prep_controller:F(0,1)_30
-jinit_c_prep_controller:F(0,1)_60:
+	jg jinit_c_prep_controller_F0_1_30
+jinit_c_prep_controller_F0_1_60:
 	add esp, 0x8c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-jinit_c_prep_controller:F(0,1)_30:
+jinit_c_prep_controller_F0_1_30:
 	mov edi, edx
 	mov dword [ebp-0x3c], 0x0
 	mov edx, [ebp+0x8]
-	jmp jinit_c_prep_controller:F(0,1)_40
-jinit_c_prep_controller:F(0,1)_50:
+	jmp jinit_c_prep_controller_F0_1_40
+jinit_c_prep_controller_F0_1_50:
 	mov edx, ecx
-jinit_c_prep_controller:F(0,1)_40:
+jinit_c_prep_controller_F0_1_40:
 	mov edx, [edx+0x4]
 	mov [ebp-0x5c], edx
 	mov ecx, [ebp+0x8]
@@ -26036,14 +26149,14 @@ jinit_c_prep_controller:F(0,1)_40:
 	mov eax, [ebp-0x3c]
 	mov ecx, [ebp+0x8]
 	cmp eax, [ecx+0x40]
-	jl jinit_c_prep_controller:F(0,1)_50
+	jl jinit_c_prep_controller_F0_1_50
 	add esp, 0x8c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-jinit_c_prep_controller:F(0,1)_20:
+jinit_c_prep_controller_F0_1_20:
 	lea eax, [ebx+0x25a]
 	mov [edx+0x4], eax
 	mov eax, [ebp+0x8]
@@ -26067,7 +26180,7 @@ jinit_c_prep_controller:F(0,1)_20:
 	mov edx, [ebp+0x8]
 	mov edi, [edx+0x40]
 	test edi, edi
-	jle jinit_c_prep_controller:F(0,1)_60
+	jle jinit_c_prep_controller_F0_1_60
 	mov ecx, [ebp-0x34]
 	add ecx, ecx
 	mov [ebp-0x40], ecx
@@ -26083,7 +26196,7 @@ jinit_c_prep_controller:F(0,1)_20:
 	mov [ebp-0x4c], eax
 	mov [ebp-0x1c], esi
 	mov dword [ebp-0x30], 0x0
-jinit_c_prep_controller:F(0,1)_100:
+jinit_c_prep_controller_F0_1_100:
 	mov edx, [ebp+0x8]
 	mov edi, [edx+0x4]
 	mov ecx, [ebp-0x44]
@@ -26112,7 +26225,7 @@ jinit_c_prep_controller:F(0,1)_100:
 	call memcpy
 	mov esi, [ebp-0x34]
 	test esi, esi
-	jle jinit_c_prep_controller:F(0,1)_70
+	jle jinit_c_prep_controller_F0_1_70
 	mov eax, [ebp-0x40]
 	mov edx, [ebp-0x28]
 	lea esi, [edx+eax*4]
@@ -26122,10 +26235,10 @@ jinit_c_prep_controller:F(0,1)_100:
 	mov [ebp-0x7c], ecx
 	xor edi, edi
 	mov edx, eax
-	jmp jinit_c_prep_controller:F(0,1)_80
-jinit_c_prep_controller:F(0,1)_90:
+	jmp jinit_c_prep_controller_F0_1_80
+jinit_c_prep_controller_F0_1_90:
 	mov edx, [ebp-0x24]
-jinit_c_prep_controller:F(0,1)_80:
+jinit_c_prep_controller_F0_1_80:
 	lea eax, [edi*4]
 	mov [ebp-0x6c], eax
 	mov ecx, [esi]
@@ -26140,8 +26253,8 @@ jinit_c_prep_controller:F(0,1)_80:
 	add edx, 0x4
 	mov [ebp-0x7c], edx
 	cmp [ebp-0x34], edi
-	jnz jinit_c_prep_controller:F(0,1)_90
-jinit_c_prep_controller:F(0,1)_70:
+	jnz jinit_c_prep_controller_F0_1_90
+jinit_c_prep_controller_F0_1_70:
 	mov esi, [ebp-0x38]
 	mov ecx, [ebp-0x1c]
 	mov [ecx+0x8], esi
@@ -26154,21 +26267,21 @@ jinit_c_prep_controller:F(0,1)_70:
 	mov ecx, [ebp-0x30]
 	mov edx, [ebp+0x8]
 	cmp [edx+0x40], ecx
-	jg jinit_c_prep_controller:F(0,1)_100
+	jg jinit_c_prep_controller_F0_1_100
 	add esp, 0x8c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-jinit_c_prep_controller:F(0,1)_10:
+jinit_c_prep_controller_F0_1_10:
 	mov edx, [ebp+0x8]
 	mov eax, [edx]
 	mov dword [eax+0x14], 0x4
 	mov eax, [edx]
 	mov [esp], edx
 	call dword [eax]
-	jmp jinit_c_prep_controller:F(0,1)_110
+	jmp jinit_c_prep_controller_F0_1_110
 
 
 ;rgb_ycc_start
@@ -26616,16 +26729,16 @@ null_method:
 	ret
 
 
-;jinit_color_converter:F(0,1)
+;jinit_color_converter_F0_1
 
-jinit_color_converter:F(0,1):
+jinit_color_converter_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
 	push esi
 	push ebx
 	sub esp, 0x1c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov esi, [ebp+0x8]
 	mov eax, [esi+0x4]
 	mov dword [esp+0x8], 0xc
@@ -26637,7 +26750,7 @@ jinit_color_converter:F(0,1):
 	lea eax, [ebx-0x13]
 	mov [edi], eax
 	cmp dword [esi+0x30], 0x5
-	ja jinit_color_converter:F(0,1)_10
+	ja jinit_color_converter_F0_1_10
 	mov eax, [esi+0x30]
 	mov eax, [ebx+eax*4+0x40]
 	add eax, ebx
@@ -26653,14 +26766,14 @@ jinit_color_converter:F(0,1):
 	add [eax], al
 	aam 0x0
 	add [eax], al
-jinit_color_converter:F(0,1)_10:
+jinit_color_converter_F0_1_10:
 	mov eax, [esi+0x2c]
 	test eax, eax
-	jle jinit_color_converter:F(0,1)_20
-jinit_color_converter:F(0,1)_70:
+	jle jinit_color_converter_F0_1_20
+jinit_color_converter_F0_1_70:
 	mov edx, [esi+0x44]
 	cmp edx, 0x5
-	ja jinit_color_converter:F(0,1)_30
+	ja jinit_color_converter_F0_1_30
 	mov eax, [ebx+edx*4+0x74]
 	add eax, ebx
 	jmp eax
@@ -26676,59 +26789,59 @@ jinit_color_converter:F(0,1)_70:
 	add [eax], al
 	out 0x0, eax
 	add [eax], al
-jinit_color_converter:F(0,1)_30:
+jinit_color_converter_F0_1_30:
 	cmp edx, [esi+0x30]
-	jz jinit_color_converter:F(0,1)_40
-jinit_color_converter:F(0,1)_50:
+	jz jinit_color_converter_F0_1_40
+jinit_color_converter_F0_1_50:
 	mov eax, [esi]
 	mov dword [eax+0x14], 0x1b
 	mov eax, [esi]
 	mov [esp], esi
 	call dword [eax]
-jinit_color_converter:F(0,1)_60:
+jinit_color_converter_F0_1_60:
 	lea eax, [ebx-0x9a]
 	mov [edi+0x4], eax
-jinit_color_converter:F(0,1)_180:
+jinit_color_converter_F0_1_180:
 	add esp, 0x1c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-jinit_color_converter:F(0,1)_40:
+jinit_color_converter_F0_1_40:
 	mov eax, [esi+0x40]
 	cmp eax, [esi+0x2c]
-	jnz jinit_color_converter:F(0,1)_50
-	jmp jinit_color_converter:F(0,1)_60
+	jnz jinit_color_converter_F0_1_50
+	jmp jinit_color_converter_F0_1_60
 	cmp dword [esi+0x2c], 0x1
-	jz jinit_color_converter:F(0,1)_70
-jinit_color_converter:F(0,1)_20:
+	jz jinit_color_converter_F0_1_70
+jinit_color_converter_F0_1_20:
 	mov eax, [esi]
 	mov dword [eax+0x14], 0x9
 	mov eax, [esi]
 	mov [esp], esi
 	call dword [eax]
-	jmp jinit_color_converter:F(0,1)_70
+	jmp jinit_color_converter_F0_1_70
 	cmp dword [esi+0x2c], 0x4
-	jnz jinit_color_converter:F(0,1)_20
-	jmp jinit_color_converter:F(0,1)_70
+	jnz jinit_color_converter_F0_1_20
+	jmp jinit_color_converter_F0_1_70
 	cmp dword [esi+0x2c], 0x3
-	jnz jinit_color_converter:F(0,1)_20
-	jmp jinit_color_converter:F(0,1)_70
+	jnz jinit_color_converter_F0_1_20
+	jmp jinit_color_converter_F0_1_70
 	cmp dword [esi+0x40], 0x4
-	jz jinit_color_converter:F(0,1)_80
+	jz jinit_color_converter_F0_1_80
 	mov eax, [esi]
 	mov dword [eax+0x14], 0xa
 	mov eax, [esi]
 	mov [esp], esi
 	call dword [eax]
-jinit_color_converter:F(0,1)_80:
+jinit_color_converter_F0_1_80:
 	mov eax, [esi+0x30]
 	cmp eax, 0x4
-	jz jinit_color_converter:F(0,1)_90
+	jz jinit_color_converter_F0_1_90
 	cmp eax, 0x5
-	jz jinit_color_converter:F(0,1)_60
-jinit_color_converter:F(0,1)_110:
+	jz jinit_color_converter_F0_1_60
+jinit_color_converter_F0_1_110:
 	mov eax, [esi]
 	mov dword [eax+0x14], 0x1b
 	mov eax, [esi]
@@ -26741,78 +26854,78 @@ jinit_color_converter:F(0,1)_110:
 	pop ebp
 	jmp ecx
 	cmp dword [esi+0x40], 0x4
-	jz jinit_color_converter:F(0,1)_100
+	jz jinit_color_converter_F0_1_100
 	mov eax, [esi]
 	mov dword [eax+0x14], 0xa
 	mov eax, [esi]
 	mov [esp], esi
 	call dword [eax]
-jinit_color_converter:F(0,1)_100:
+jinit_color_converter_F0_1_100:
 	cmp dword [esi+0x30], 0x4
-	jnz jinit_color_converter:F(0,1)_110
-	jmp jinit_color_converter:F(0,1)_60
+	jnz jinit_color_converter_F0_1_110
+	jmp jinit_color_converter_F0_1_60
 	cmp dword [esi+0x40], 0x3
-	jz jinit_color_converter:F(0,1)_120
+	jz jinit_color_converter_F0_1_120
 	mov eax, [esi]
 	mov dword [eax+0x14], 0xa
 	mov eax, [esi]
 	mov [esp], esi
 	call dword [eax]
-jinit_color_converter:F(0,1)_120:
+jinit_color_converter_F0_1_120:
 	cmp dword [esi+0x30], 0x2
-	jnz jinit_color_converter:F(0,1)_110
-	jmp jinit_color_converter:F(0,1)_60
+	jnz jinit_color_converter_F0_1_110
+	jmp jinit_color_converter_F0_1_60
 	cmp dword [esi+0x40], 0x3
-	jz jinit_color_converter:F(0,1)_130
+	jz jinit_color_converter_F0_1_130
 	mov eax, [esi]
 	mov dword [eax+0x14], 0xa
 	mov eax, [esi]
 	mov [esp], esi
 	call dword [eax]
-jinit_color_converter:F(0,1)_130:
+jinit_color_converter_F0_1_130:
 	mov eax, [esi+0x30]
 	cmp eax, 0x2
-	jz jinit_color_converter:F(0,1)_140
+	jz jinit_color_converter_F0_1_140
 	cmp eax, 0x3
-	jnz jinit_color_converter:F(0,1)_110
-	jmp jinit_color_converter:F(0,1)_60
+	jnz jinit_color_converter_F0_1_110
+	jmp jinit_color_converter_F0_1_60
 	cmp dword [esi+0x40], 0x1
-	jz jinit_color_converter:F(0,1)_150
+	jz jinit_color_converter_F0_1_150
 	mov eax, [esi]
 	mov dword [eax+0x14], 0xa
 	mov eax, [esi]
 	mov [esp], esi
 	call dword [eax]
-jinit_color_converter:F(0,1)_150:
+jinit_color_converter_F0_1_150:
 	mov eax, [esi+0x30]
 	cmp eax, 0x1
-	jz jinit_color_converter:F(0,1)_160
+	jz jinit_color_converter_F0_1_160
 	cmp eax, 0x2
-	jz jinit_color_converter:F(0,1)_170
+	jz jinit_color_converter_F0_1_170
 	cmp eax, 0x3
-	jnz jinit_color_converter:F(0,1)_110
-jinit_color_converter:F(0,1)_160:
+	jnz jinit_color_converter_F0_1_110
+jinit_color_converter_F0_1_160:
 	lea eax, [ebx-0xfa]
 	mov [edi+0x4], eax
-	jmp jinit_color_converter:F(0,1)_180
-jinit_color_converter:F(0,1)_170:
+	jmp jinit_color_converter_F0_1_180
+jinit_color_converter_F0_1_170:
 	lea eax, [ebx-0x4e0]
 	mov [edi], eax
 	lea eax, [ebx-0x2da]
 	mov [edi+0x4], eax
-	jmp jinit_color_converter:F(0,1)_180
-jinit_color_converter:F(0,1)_140:
+	jmp jinit_color_converter_F0_1_180
+jinit_color_converter_F0_1_140:
 	lea eax, [ebx-0x4e0]
 	mov [edi], eax
 	lea eax, [ebx-0x3f7]
 	mov [edi+0x4], eax
-	jmp jinit_color_converter:F(0,1)_180
-jinit_color_converter:F(0,1)_90:
+	jmp jinit_color_converter_F0_1_180
+jinit_color_converter_F0_1_90:
 	lea eax, [ebx-0x4e0]
 	mov [edi], eax
 	lea eax, [ebx-0x23c]
 	mov [edi+0x4], eax
-	jmp jinit_color_converter:F(0,1)_180
+	jmp jinit_color_converter_F0_1_180
 	add [eax], al
 
 
@@ -27039,7 +27152,7 @@ fullsize_downsample:
 	mov dword [esp+0x4], 0x0
 	mov eax, [ebp+0x10]
 	mov [esp], eax
-	call jcopy_sample_rows:F(0,2)
+	call jcopy_sample_rows_F0_2
 	mov edx, [esi+0x24]
 	mov [ebp-0x10], edx
 	mov esi, [esi+0xe0]
@@ -27715,16 +27828,16 @@ h2v2_smooth_downsample_70:
 	jmp h2v2_smooth_downsample_10
 
 
-;jinit_downsampler:F(0,1)
+;jinit_downsampler_F0_1
 
-jinit_downsampler:F(0,1):
+jinit_downsampler_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
 	push esi
 	push ebx
 	sub esp, 0x3c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov edx, [ebp+0x8]
 	mov eax, [edx+0x4]
 	mov dword [esp+0x8], 0x34
@@ -27741,59 +27854,59 @@ jinit_downsampler:F(0,1):
 	mov [edx+0x4], eax
 	mov byte [edx+0x8], 0x0
 	cmp byte [edi+0xb7], 0x0
-	jnz jinit_downsampler:F(0,1)_10
-jinit_downsampler:F(0,1)_150:
+	jnz jinit_downsampler_F0_1_10
+jinit_downsampler_F0_1_150:
 	mov edi, [ebp+0x8]
 	mov esi, [edi+0x48]
 	mov edx, [edi+0x40]
 	test edx, edx
-	jle jinit_downsampler:F(0,1)_20
+	jle jinit_downsampler_F0_1_20
 	mov eax, [ebp-0x28]
 	mov [ebp-0x1c], eax
 	mov dword [ebp-0x24], 0x0
 	mov byte [ebp-0x1d], 0x1
-	jmp jinit_downsampler:F(0,1)_30
-jinit_downsampler:F(0,1)_70:
+	jmp jinit_downsampler_F0_1_30
+jinit_downsampler_F0_1_70:
 	lea eax, [edx+edx]
 	cmp ecx, eax
-	jz jinit_downsampler:F(0,1)_40
-jinit_downsampler:F(0,1)_120:
+	jz jinit_downsampler_F0_1_40
+jinit_downsampler_F0_1_120:
 	mov eax, ecx
 	mov edi, edx
 	cdq
 	idiv edi
 	test edx, edx
-	jnz jinit_downsampler:F(0,1)_50
+	jnz jinit_downsampler_F0_1_50
 	mov edx, [ebp+0x8]
 	mov eax, [edx+0xe0]
 	cdq
 	idiv dword [esi+0xc]
 	test edx, edx
-	jnz jinit_downsampler:F(0,1)_50
+	jnz jinit_downsampler_F0_1_50
 	lea eax, [ebx-0x16e]
 	mov edi, [ebp-0x1c]
 	mov [edi+0xc], eax
 	mov byte [ebp-0x1d], 0x0
-jinit_downsampler:F(0,1)_100:
+jinit_downsampler_F0_1_100:
 	add dword [ebp-0x24], 0x1
 	add esi, 0x54
 	add dword [ebp-0x1c], 0x4
 	mov eax, [ebp-0x24]
 	mov edi, [ebp+0x8]
 	cmp eax, [edi+0x40]
-	jge jinit_downsampler:F(0,1)_60
-jinit_downsampler:F(0,1)_30:
+	jge jinit_downsampler_F0_1_60
+jinit_downsampler_F0_1_30:
 	mov edx, [esi+0x8]
 	mov edi, [ebp+0x8]
 	mov ecx, [edi+0xdc]
 	cmp edx, ecx
-	jnz jinit_downsampler:F(0,1)_70
+	jnz jinit_downsampler_F0_1_70
 	mov eax, [esi+0xc]
 	cmp eax, [edi+0xe0]
-	jnz jinit_downsampler:F(0,1)_70
+	jnz jinit_downsampler_F0_1_70
 	mov eax, [edi+0xb8]
 	test eax, eax
-	jnz jinit_downsampler:F(0,1)_80
+	jnz jinit_downsampler_F0_1_80
 	lea eax, [ebx+0x421]
 	mov edx, [ebp-0x1c]
 	mov [edx+0xc], eax
@@ -27803,55 +27916,55 @@ jinit_downsampler:F(0,1)_30:
 	mov eax, [ebp-0x24]
 	mov edi, [ebp+0x8]
 	cmp eax, [edi+0x40]
-	jl jinit_downsampler:F(0,1)_30
-jinit_downsampler:F(0,1)_60:
+	jl jinit_downsampler_F0_1_30
+jinit_downsampler_F0_1_60:
 	mov edx, edi
 	mov eax, [edx+0xb8]
 	test eax, eax
-	jnz jinit_downsampler:F(0,1)_90
-jinit_downsampler:F(0,1)_140:
+	jnz jinit_downsampler_F0_1_90
+jinit_downsampler_F0_1_140:
 	add esp, 0x3c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-jinit_downsampler:F(0,1)_50:
+jinit_downsampler_F0_1_50:
 	mov edx, [ebp+0x8]
 	mov eax, [edx]
 	mov dword [eax+0x14], 0x26
 	mov eax, [edx]
 	mov [esp], edx
 	call dword [eax]
-	jmp jinit_downsampler:F(0,1)_100
-jinit_downsampler:F(0,1)_40:
+	jmp jinit_downsampler_F0_1_100
+jinit_downsampler_F0_1_40:
 	mov edi, [esi+0xc]
 	mov [ebp-0x2c], edi
 	mov eax, [ebp+0x8]
 	mov edi, [eax+0xe0]
 	cmp [ebp-0x2c], edi
-	jz jinit_downsampler:F(0,1)_110
+	jz jinit_downsampler_F0_1_110
 	mov eax, [ebp-0x2c]
 	add eax, eax
 	cmp eax, edi
-	jnz jinit_downsampler:F(0,1)_120
+	jnz jinit_downsampler_F0_1_120
 	mov edi, [ebp+0x8]
 	mov eax, [edi+0xb8]
 	test eax, eax
-	jnz jinit_downsampler:F(0,1)_130
+	jnz jinit_downsampler_F0_1_130
 	lea eax, [ebx+0x89d]
 	mov edx, [ebp-0x1c]
 	mov [edx+0xc], eax
-	jmp jinit_downsampler:F(0,1)_100
-jinit_downsampler:F(0,1)_20:
+	jmp jinit_downsampler_F0_1_100
+jinit_downsampler_F0_1_20:
 	mov byte [ebp-0x1d], 0x1
 	mov edx, [ebp+0x8]
 	mov eax, [edx+0xb8]
 	test eax, eax
-	jz jinit_downsampler:F(0,1)_140
-jinit_downsampler:F(0,1)_90:
+	jz jinit_downsampler_F0_1_140
+jinit_downsampler_F0_1_90:
 	cmp byte [ebp-0x1d], 0x0
-	jnz jinit_downsampler:F(0,1)_140
+	jnz jinit_downsampler_F0_1_140
 	mov eax, [edx]
 	mov dword [eax+0x14], 0x63
 	mov eax, [edx]
@@ -27864,33 +27977,33 @@ jinit_downsampler:F(0,1)_90:
 	pop edi
 	pop ebp
 	ret
-jinit_downsampler:F(0,1)_110:
+jinit_downsampler_F0_1_110:
 	lea eax, [ebx+0x4b2]
 	mov edx, [ebp-0x1c]
 	mov [edx+0xc], eax
 	mov byte [ebp-0x1d], 0x0
-	jmp jinit_downsampler:F(0,1)_100
-jinit_downsampler:F(0,1)_10:
+	jmp jinit_downsampler_F0_1_100
+jinit_downsampler_F0_1_10:
 	mov eax, [edi]
 	mov dword [eax+0x14], 0x19
 	mov eax, [edi]
 	mov [esp], edi
 	call dword [eax]
-	jmp jinit_downsampler:F(0,1)_150
-jinit_downsampler:F(0,1)_80:
+	jmp jinit_downsampler_F0_1_150
+jinit_downsampler_F0_1_80:
 	lea eax, [ebx+0x211]
 	mov edx, [ebp-0x1c]
 	mov [edx+0xc], eax
 	mov edi, [ebp-0x28]
 	mov byte [edi+0x8], 0x1
-	jmp jinit_downsampler:F(0,1)_100
-jinit_downsampler:F(0,1)_130:
+	jmp jinit_downsampler_F0_1_100
+jinit_downsampler_F0_1_130:
 	lea eax, [ebx+0x583]
 	mov edx, [ebp-0x1c]
 	mov [edx+0xc], eax
 	mov edi, [ebp-0x28]
 	mov byte [edi+0x8], 0x1
-	jmp jinit_downsampler:F(0,1)_100
+	jmp jinit_downsampler_F0_1_100
 
 
 ;start_pass_fdctmgr
@@ -27901,7 +28014,7 @@ start_pass_fdctmgr:
 	push esi
 	push ebx
 	sub esp, 0x4c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov eax, [ebp+0x8]
 	mov eax, [eax+0x15c]
 	mov [ebp-0x38], eax
@@ -28231,7 +28344,7 @@ forward_DCT_float:
 	push esi
 	push ebx
 	sub esp, 0x14c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov eax, [ebp+0x8]
 	mov edx, [eax+0x15c]
 	mov eax, [edx+0x1c]
@@ -28334,16 +28447,16 @@ forward_DCT_float_10:
 	ret
 
 
-;jinit_forward_dct:F(0,1)
+;jinit_forward_dct_F0_1
 
-jinit_forward_dct:F(0,1):
+jinit_forward_dct_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
 	push esi
 	push ebx
 	sub esp, 0x1c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov edi, [ebp+0x8]
 	mov eax, [edi+0x4]
 	mov dword [esp+0x8], 0x30
@@ -28356,53 +28469,53 @@ jinit_forward_dct:F(0,1):
 	mov [esi], eax
 	mov eax, [edi+0xbc]
 	cmp eax, 0x1
-	jz jinit_forward_dct:F(0,1)_10
-	jb jinit_forward_dct:F(0,1)_20
+	jz jinit_forward_dct_F0_1_10
+	jb jinit_forward_dct_F0_1_20
 	cmp eax, 0x2
-	jz jinit_forward_dct:F(0,1)_30
+	jz jinit_forward_dct_F0_1_30
 	mov eax, [edi]
 	mov dword [eax+0x14], 0x30
 	mov eax, [edi]
 	mov [esp], edi
 	call dword [eax]
-jinit_forward_dct:F(0,1)_50:
+jinit_forward_dct_F0_1_50:
 	mov eax, esi
 	mov edx, 0x4
-jinit_forward_dct:F(0,1)_40:
+jinit_forward_dct_F0_1_40:
 	mov dword [eax+0xc], 0x0
 	mov dword [eax+0x20], 0x0
 	add eax, 0x4
 	sub edx, 0x1
-	jnz jinit_forward_dct:F(0,1)_40
+	jnz jinit_forward_dct_F0_1_40
 	add esp, 0x1c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-jinit_forward_dct:F(0,1)_20:
+jinit_forward_dct_F0_1_20:
 	lea eax, [ebx-0x31a]
 	mov [esi+0x4], eax
 	mov eax, [ebx+cl_serverStatusList+0x1bd34]
 	mov [esi+0x8], eax
-	jmp jinit_forward_dct:F(0,1)_50
-jinit_forward_dct:F(0,1)_10:
+	jmp jinit_forward_dct_F0_1_50
+jinit_forward_dct_F0_1_10:
 	lea eax, [ebx-0x31a]
 	mov [esi+0x4], eax
 	mov eax, [ebx+cl_serverStatusList+0x1bd30]
 	mov [esi+0x8], eax
-	jmp jinit_forward_dct:F(0,1)_50
-jinit_forward_dct:F(0,1)_30:
+	jmp jinit_forward_dct_F0_1_50
+jinit_forward_dct_F0_1_30:
 	lea eax, [ebx-0x1b3]
 	mov [esi+0x4], eax
 	mov eax, [ebx+cl_serverStatusList+0x1bd2c]
 	mov [esi+0x1c], eax
-	jmp jinit_forward_dct:F(0,1)_50
+	jmp jinit_forward_dct_F0_1_50
 
 
-;jpeg_make_c_derived_tbl:F(0,1)
+;jpeg_make_c_derived_tbl_F0_1
 
-jpeg_make_c_derived_tbl:F(0,1):
+jpeg_make_c_derived_tbl_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -28413,23 +28526,23 @@ jpeg_make_c_derived_tbl:F(0,1):
 	movzx eax, byte [ebp+0xc]
 	mov [ebp-0x535], al
 	cmp esi, 0x3
-	ja jpeg_make_c_derived_tbl:F(0,1)_10
-jpeg_make_c_derived_tbl:F(0,1)_240:
+	ja jpeg_make_c_derived_tbl_F0_1_10
+jpeg_make_c_derived_tbl_F0_1_240:
 	cmp byte [ebp-0x535], 0x0
-	jz jpeg_make_c_derived_tbl:F(0,1)_20
+	jz jpeg_make_c_derived_tbl_F0_1_20
 	mov ecx, [ebp+0x8]
 	mov ecx, [ecx+esi*4+0x5c]
 	mov [ebp-0x534], ecx
 	mov ecx, [ebp-0x534]
 	test ecx, ecx
-	jz jpeg_make_c_derived_tbl:F(0,1)_30
-jpeg_make_c_derived_tbl:F(0,1)_210:
+	jz jpeg_make_c_derived_tbl_F0_1_30
+jpeg_make_c_derived_tbl_F0_1_210:
 	mov edx, [edi]
 	test edx, edx
-	jz jpeg_make_c_derived_tbl:F(0,1)_40
-jpeg_make_c_derived_tbl:F(0,1)_220:
+	jz jpeg_make_c_derived_tbl_F0_1_40
+jpeg_make_c_derived_tbl_F0_1_220:
 	mov edi, [edi]
-jpeg_make_c_derived_tbl:F(0,1)_230:
+jpeg_make_c_derived_tbl_F0_1_230:
 	mov [ebp-0x530], edi
 	mov eax, [ebp-0x534]
 	mov [ebp-0x524], eax
@@ -28438,68 +28551,68 @@ jpeg_make_c_derived_tbl:F(0,1)_230:
 	lea edx, [ebp-0x109]
 	mov [ebp-0x540], edx
 	mov ecx, eax
-jpeg_make_c_derived_tbl:F(0,1)_90:
+jpeg_make_c_derived_tbl_F0_1_90:
 	movzx esi, byte [ecx+0x1]
 	mov edx, [ebp-0x51c]
 	lea eax, [esi+edx]
 	cmp eax, 0x100
-	jle jpeg_make_c_derived_tbl:F(0,1)_50
+	jle jpeg_make_c_derived_tbl_F0_1_50
 	mov ecx, [ebp+0x8]
 	mov eax, [ecx]
 	mov dword [eax+0x14], 0x8
 	mov eax, [ecx]
 	mov [esp], ecx
 	call dword [eax]
-jpeg_make_c_derived_tbl:F(0,1)_50:
+jpeg_make_c_derived_tbl_F0_1_50:
 	test esi, esi
-	jz jpeg_make_c_derived_tbl:F(0,1)_60
+	jz jpeg_make_c_derived_tbl_F0_1_60
 	mov eax, [ebp-0x540]
 	add eax, [ebp-0x51c]
 	xor edx, edx
-jpeg_make_c_derived_tbl:F(0,1)_70:
+jpeg_make_c_derived_tbl_F0_1_70:
 	mov ecx, edi
 	mov [eax], cl
 	add dword [ebp-0x51c], 0x1
 	add edx, 0x1
 	add eax, 0x1
 	cmp edx, esi
-	jnz jpeg_make_c_derived_tbl:F(0,1)_70
-jpeg_make_c_derived_tbl:F(0,1)_60:
+	jnz jpeg_make_c_derived_tbl_F0_1_70
+jpeg_make_c_derived_tbl_F0_1_60:
 	add edi, 0x1
 	add dword [ebp-0x524], 0x1
 	cmp edi, 0x11
-	jz jpeg_make_c_derived_tbl:F(0,1)_80
+	jz jpeg_make_c_derived_tbl_F0_1_80
 	mov ecx, [ebp-0x524]
-	jmp jpeg_make_c_derived_tbl:F(0,1)_90
-jpeg_make_c_derived_tbl:F(0,1)_80:
+	jmp jpeg_make_c_derived_tbl_F0_1_90
+jpeg_make_c_derived_tbl_F0_1_80:
 	mov eax, [ebp-0x51c]
 	mov byte [ebp+eax-0x109], 0x0
 	movzx eax, byte [ebp-0x109]
 	movsx esi, al
 	test al, al
-	jz jpeg_make_c_derived_tbl:F(0,1)_100
+	jz jpeg_make_c_derived_tbl_F0_1_100
 	mov dword [ebp-0x52c], 0x0
 	xor di, di
 	mov edx, [ebp-0x52c]
-	jmp jpeg_make_c_derived_tbl:F(0,1)_110
-jpeg_make_c_derived_tbl:F(0,1)_130:
+	jmp jpeg_make_c_derived_tbl_F0_1_110
+jpeg_make_c_derived_tbl_F0_1_130:
 	add edi, edi
 	add esi, 0x1
 	mov ecx, [ebp-0x52c]
 	cmp byte [ebp+ecx-0x109], 0x0
-	jz jpeg_make_c_derived_tbl:F(0,1)_100
-jpeg_make_c_derived_tbl:F(0,1)_140:
+	jz jpeg_make_c_derived_tbl_F0_1_100
+jpeg_make_c_derived_tbl_F0_1_140:
 	mov edx, ecx
-jpeg_make_c_derived_tbl:F(0,1)_110:
+jpeg_make_c_derived_tbl_F0_1_110:
 	movsx eax, byte [ebp+edx-0x109]
 	cmp esi, eax
-	jz jpeg_make_c_derived_tbl:F(0,1)_120
-jpeg_make_c_derived_tbl:F(0,1)_200:
+	jz jpeg_make_c_derived_tbl_F0_1_120
+jpeg_make_c_derived_tbl_F0_1_200:
 	mov eax, 0x1
 	mov ecx, esi
 	shl eax, cl
 	cmp edi, eax
-	jl jpeg_make_c_derived_tbl:F(0,1)_130
+	jl jpeg_make_c_derived_tbl_F0_1_130
 	mov edx, [ebp+0x8]
 	mov eax, [edx]
 	mov dword [eax+0x14], 0x8
@@ -28510,8 +28623,8 @@ jpeg_make_c_derived_tbl:F(0,1)_200:
 	add esi, 0x1
 	mov ecx, [ebp-0x52c]
 	cmp byte [ebp+ecx-0x109], 0x0
-	jnz jpeg_make_c_derived_tbl:F(0,1)_140
-jpeg_make_c_derived_tbl:F(0,1)_100:
+	jnz jpeg_make_c_derived_tbl_F0_1_140
+jpeg_make_c_derived_tbl_F0_1_100:
 	mov eax, [ebp-0x530]
 	add eax, 0x400
 	mov dword [esp+0x8], 0x100
@@ -28525,13 +28638,13 @@ jpeg_make_c_derived_tbl:F(0,1)_100:
 	mov [ebp-0x528], edx
 	mov eax, [ebp-0x51c]
 	test eax, eax
-	jle jpeg_make_c_derived_tbl:F(0,1)_150
+	jle jpeg_make_c_derived_tbl_F0_1_150
 	mov edi, [ebp-0x534]
 	mov dword [ebp-0x520], 0x0
 	lea ecx, [ebp-0x109]
 	mov [ebp-0x53c], ecx
-	jmp jpeg_make_c_derived_tbl:F(0,1)_160
-jpeg_make_c_derived_tbl:F(0,1)_170:
+	jmp jpeg_make_c_derived_tbl_F0_1_160
+jpeg_make_c_derived_tbl_F0_1_170:
 	mov edx, [ebp+0x8]
 	mov eax, [edx]
 	mov dword [eax+0x14], 0x8
@@ -28539,7 +28652,7 @@ jpeg_make_c_derived_tbl:F(0,1)_170:
 	mov [esp], edx
 	call dword [eax]
 	mov edx, [ebp-0x530]
-jpeg_make_c_derived_tbl:F(0,1)_180:
+jpeg_make_c_derived_tbl_F0_1_180:
 	mov ecx, [ebp-0x520]
 	mov eax, [ebp+ecx*4-0x510]
 	mov [edx+esi*4], eax
@@ -28551,47 +28664,47 @@ jpeg_make_c_derived_tbl:F(0,1)_180:
 	add edi, 0x1
 	mov eax, [ebp-0x51c]
 	cmp [ebp-0x520], eax
-	jz jpeg_make_c_derived_tbl:F(0,1)_150
-jpeg_make_c_derived_tbl:F(0,1)_160:
+	jz jpeg_make_c_derived_tbl_F0_1_150
+jpeg_make_c_derived_tbl_F0_1_160:
 	movzx esi, byte [edi+0x11]
 	cmp [ebp-0x528], esi
-	jl jpeg_make_c_derived_tbl:F(0,1)_170
+	jl jpeg_make_c_derived_tbl_F0_1_170
 	mov eax, [ebp-0x530]
 	cmp byte [esi+eax+0x400], 0x0
-	jnz jpeg_make_c_derived_tbl:F(0,1)_170
+	jnz jpeg_make_c_derived_tbl_F0_1_170
 	mov edx, eax
-	jmp jpeg_make_c_derived_tbl:F(0,1)_180
-jpeg_make_c_derived_tbl:F(0,1)_120:
+	jmp jpeg_make_c_derived_tbl_F0_1_180
+jpeg_make_c_derived_tbl_F0_1_120:
 	lea ecx, [ebp+edx*4-0x510]
 	lea eax, [ebp-0x109]
 	mov [ebp-0x53c], eax
 	mov edx, eax
 	add edx, [ebp-0x52c]
-jpeg_make_c_derived_tbl:F(0,1)_190:
+jpeg_make_c_derived_tbl_F0_1_190:
 	mov [ecx], edi
 	add edi, 0x1
 	movsx eax, byte [edx+0x1]
 	add ecx, 0x4
 	add edx, 0x1
 	cmp esi, eax
-	jz jpeg_make_c_derived_tbl:F(0,1)_190
+	jz jpeg_make_c_derived_tbl_F0_1_190
 	sub edx, [ebp-0x53c]
 	mov [ebp-0x52c], edx
-	jmp jpeg_make_c_derived_tbl:F(0,1)_200
-jpeg_make_c_derived_tbl:F(0,1)_150:
+	jmp jpeg_make_c_derived_tbl_F0_1_200
+jpeg_make_c_derived_tbl_F0_1_150:
 	add esp, 0x550
 	pop esi
 	pop edi
 	pop ebp
 	ret
-jpeg_make_c_derived_tbl:F(0,1)_20:
+jpeg_make_c_derived_tbl_F0_1_20:
 	mov eax, [ebp+0x8]
 	mov eax, [eax+esi*4+0x6c]
 	mov [ebp-0x534], eax
 	mov ecx, [ebp-0x534]
 	test ecx, ecx
-	jnz jpeg_make_c_derived_tbl:F(0,1)_210
-jpeg_make_c_derived_tbl:F(0,1)_30:
+	jnz jpeg_make_c_derived_tbl_F0_1_210
+jpeg_make_c_derived_tbl_F0_1_30:
 	mov edx, [ebp+0x8]
 	mov eax, [edx]
 	mov dword [eax+0x14], 0x32
@@ -28602,8 +28715,8 @@ jpeg_make_c_derived_tbl:F(0,1)_30:
 	call dword [eax]
 	mov edx, [edi]
 	test edx, edx
-	jnz jpeg_make_c_derived_tbl:F(0,1)_220
-jpeg_make_c_derived_tbl:F(0,1)_40:
+	jnz jpeg_make_c_derived_tbl_F0_1_220
+jpeg_make_c_derived_tbl_F0_1_40:
 	mov ecx, [ebp+0x8]
 	mov eax, [ecx+0x4]
 	mov dword [esp+0x8], 0x500
@@ -28612,8 +28725,8 @@ jpeg_make_c_derived_tbl:F(0,1)_40:
 	call dword [eax]
 	mov [edi], eax
 	mov edi, eax
-	jmp jpeg_make_c_derived_tbl:F(0,1)_230
-jpeg_make_c_derived_tbl:F(0,1)_10:
+	jmp jpeg_make_c_derived_tbl_F0_1_230
+jpeg_make_c_derived_tbl_F0_1_10:
 	mov edx, [ebp+0x8]
 	mov eax, [edx]
 	mov dword [eax+0x14], 0x32
@@ -28622,7 +28735,7 @@ jpeg_make_c_derived_tbl:F(0,1)_10:
 	mov eax, [edx]
 	mov [esp], edx
 	call dword [eax]
-	jmp jpeg_make_c_derived_tbl:F(0,1)_240
+	jmp jpeg_make_c_derived_tbl_F0_1_240
 
 
 ;start_pass_huff
@@ -28633,7 +28746,7 @@ start_pass_huff:
 	push esi
 	push ebx
 	sub esp, 0x3c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	movzx eax, byte [ebp+0xc]
 	mov [ebp-0x29], al
 	mov edx, [ebp+0x8]
@@ -28706,7 +28819,7 @@ start_pass_huff_30:
 	mov dword [esp+0x4], 0x1
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call jpeg_make_c_derived_tbl:F(0,1)
+	call jpeg_make_c_derived_tbl_F0_1
 	mov edx, [ebp-0x24]
 	lea eax, [edi+edx*4+0x3c]
 	mov [esp+0xc], eax
@@ -28714,7 +28827,7 @@ start_pass_huff_30:
 	mov dword [esp+0x4], 0x0
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call jpeg_make_c_derived_tbl:F(0,1)
+	call jpeg_make_c_derived_tbl_F0_1
 	jmp start_pass_huff_90
 start_pass_huff_20:
 	mov dword [edi+0xc], 0x0
@@ -28796,7 +28909,7 @@ encode_mcu_gather:
 	push esi
 	push ebx
 	sub esp, 0x4c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov eax, [ebp+0x8]
 	mov eax, [eax+0x160]
 	mov [ebp-0x34], eax
@@ -29020,7 +29133,7 @@ finish_pass_gather_80:
 	mov eax, [edx+edi+0x5c]
 	mov [esp+0x4], eax
 	mov [esp], edx
-	call jpeg_gen_optimal_table:F(0,1)
+	call jpeg_gen_optimal_table_F0_1
 	mov byte [ebp+esi-0xc], 0x1
 	mov ecx, [ebp-0x20]
 finish_pass_gather_70:
@@ -29041,7 +29154,7 @@ finish_pass_gather_90:
 	mov eax, [ecx+esi+0x6c]
 	mov [esp+0x4], eax
 	mov [esp], ecx
-	call jpeg_gen_optimal_table:F(0,1)
+	call jpeg_gen_optimal_table_F0_1
 	mov eax, [ebp-0x20]
 	mov byte [ebp+eax-0x10], 0x1
 finish_pass_gather_40:
@@ -29069,14 +29182,14 @@ finish_pass_gather_10:
 	ret
 finish_pass_gather_30:
 	mov [esp], eax
-	call jpeg_alloc_huff_table:F(0,80)
+	call jpeg_alloc_huff_table_F0_80
 	mov edx, [ebp+0x8]
 	mov [edx+edi+0x5c], eax
 	mov edx, [ebp+0x8]
 	jmp finish_pass_gather_80
 finish_pass_gather_50:
 	mov [esp], eax
-	call jpeg_alloc_huff_table:F(0,80)
+	call jpeg_alloc_huff_table_F0_80
 	mov edx, [ebp+0x8]
 	mov [edx+esi+0x6c], eax
 	jmp finish_pass_gather_90
@@ -29090,7 +29203,7 @@ encode_mcu_huff:
 	push esi
 	push ebx
 	sub esp, 0xec
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov eax, [ebp+0x8]
 	mov eax, [eax+0x160]
 	mov [ebp-0xe4], eax
@@ -30102,9 +30215,9 @@ finish_pass_huff_50:
 	jmp finish_pass_huff_70
 
 
-;jpeg_gen_optimal_table:F(0,1)
+;jpeg_gen_optimal_table_F0_1
 
-jpeg_gen_optimal_table:F(0,1):
+jpeg_gen_optimal_table_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -30126,48 +30239,48 @@ jpeg_gen_optimal_table:F(0,1):
 	mov [esp], edx
 	call memset
 	xor eax, eax
-jpeg_gen_optimal_table:F(0,1)_10:
+jpeg_gen_optimal_table_F0_1_10:
 	mov dword [ebp+eax*4-0x834], 0xffffffff
 	add eax, 0x1
 	cmp eax, 0x101
-	jnz jpeg_gen_optimal_table:F(0,1)_10
+	jnz jpeg_gen_optimal_table_F0_1_10
 	mov dword [esi+0x400], 0x1
-jpeg_gen_optimal_table:F(0,1)_100:
+jpeg_gen_optimal_table_F0_1_100:
 	xor edx, edx
 	mov edi, 0xffffffff
 	mov ecx, 0x3b9aca00
-jpeg_gen_optimal_table:F(0,1)_30:
+jpeg_gen_optimal_table_F0_1_30:
 	mov eax, [esi+edx*4]
 	test eax, eax
-	jz jpeg_gen_optimal_table:F(0,1)_20
+	jz jpeg_gen_optimal_table_F0_1_20
 	cmp eax, ecx
-	jg jpeg_gen_optimal_table:F(0,1)_20
+	jg jpeg_gen_optimal_table_F0_1_20
 	mov edi, edx
 	mov ecx, eax
-jpeg_gen_optimal_table:F(0,1)_20:
+jpeg_gen_optimal_table_F0_1_20:
 	add edx, 0x1
 	cmp edx, 0x101
-	jnz jpeg_gen_optimal_table:F(0,1)_30
+	jnz jpeg_gen_optimal_table_F0_1_30
 	xor dx, dx
 	mov ecx, 0x3b9aca00
 	mov dword [ebp-0x83c], 0xffffffff
-jpeg_gen_optimal_table:F(0,1)_50:
+jpeg_gen_optimal_table_F0_1_50:
 	mov eax, [esi+edx*4]
 	test eax, eax
-	jz jpeg_gen_optimal_table:F(0,1)_40
+	jz jpeg_gen_optimal_table_F0_1_40
 	cmp eax, ecx
-	jg jpeg_gen_optimal_table:F(0,1)_40
+	jg jpeg_gen_optimal_table_F0_1_40
 	cmp edi, edx
-	jz jpeg_gen_optimal_table:F(0,1)_40
+	jz jpeg_gen_optimal_table_F0_1_40
 	mov ecx, eax
 	mov [ebp-0x83c], edx
-jpeg_gen_optimal_table:F(0,1)_40:
+jpeg_gen_optimal_table_F0_1_40:
 	add edx, 0x1
 	cmp edx, 0x101
-	jnz jpeg_gen_optimal_table:F(0,1)_50
+	jnz jpeg_gen_optimal_table_F0_1_50
 	mov eax, [ebp-0x83c]
 	test eax, eax
-	js jpeg_gen_optimal_table:F(0,1)_60
+	js jpeg_gen_optimal_table_F0_1_60
 	lea eax, [esi+edi*4]
 	mov edx, [ebp-0x83c]
 	lea ecx, [esi+edx*4]
@@ -30178,61 +30291,61 @@ jpeg_gen_optimal_table:F(0,1)_40:
 	add dword [ebp+edi*4-0x430], 0x1
 	mov eax, [ebp+edi*4-0x834]
 	test eax, eax
-	jns jpeg_gen_optimal_table:F(0,1)_70
-	jmp jpeg_gen_optimal_table:F(0,1)_80
-jpeg_gen_optimal_table:F(0,1)_90:
+	jns jpeg_gen_optimal_table_F0_1_70
+	jmp jpeg_gen_optimal_table_F0_1_80
+jpeg_gen_optimal_table_F0_1_90:
 	mov eax, edx
-jpeg_gen_optimal_table:F(0,1)_70:
+jpeg_gen_optimal_table_F0_1_70:
 	add dword [ebp+eax*4-0x430], 0x1
 	mov edx, [ebp+eax*4-0x834]
 	test edx, edx
-	jns jpeg_gen_optimal_table:F(0,1)_90
-jpeg_gen_optimal_table:F(0,1)_120:
+	jns jpeg_gen_optimal_table_F0_1_90
+jpeg_gen_optimal_table_F0_1_120:
 	mov edx, [ebp-0x83c]
 	mov [ebp+eax*4-0x834], edx
 	add dword [ebp+edx*4-0x430], 0x1
 	mov eax, [ebp+edx*4-0x834]
 	test eax, eax
-	js jpeg_gen_optimal_table:F(0,1)_100
-jpeg_gen_optimal_table:F(0,1)_110:
+	js jpeg_gen_optimal_table_F0_1_100
+jpeg_gen_optimal_table_F0_1_110:
 	add dword [ebp+eax*4-0x430], 0x1
 	mov eax, [ebp+eax*4-0x834]
 	test eax, eax
-	jns jpeg_gen_optimal_table:F(0,1)_110
-	jmp jpeg_gen_optimal_table:F(0,1)_100
-jpeg_gen_optimal_table:F(0,1)_80:
+	jns jpeg_gen_optimal_table_F0_1_110
+	jmp jpeg_gen_optimal_table_F0_1_100
+jpeg_gen_optimal_table_F0_1_80:
 	mov eax, edi
-	jmp jpeg_gen_optimal_table:F(0,1)_120
-jpeg_gen_optimal_table:F(0,1)_60:
+	jmp jpeg_gen_optimal_table_F0_1_120
+jpeg_gen_optimal_table_F0_1_60:
 	mov esi, 0x1
 	mov edi, [ebp-0x84c]
 	add edi, 0x4
-jpeg_gen_optimal_table:F(0,1)_150:
+jpeg_gen_optimal_table_F0_1_150:
 	mov eax, [edi-0x4]
 	test eax, eax
-	jz jpeg_gen_optimal_table:F(0,1)_130
+	jz jpeg_gen_optimal_table_F0_1_130
 	cmp eax, 0x20
-	jg jpeg_gen_optimal_table:F(0,1)_140
-jpeg_gen_optimal_table:F(0,1)_240:
+	jg jpeg_gen_optimal_table_F0_1_140
+jpeg_gen_optimal_table_F0_1_240:
 	add byte [ebp+eax-0x29], 0x1
-jpeg_gen_optimal_table:F(0,1)_130:
+jpeg_gen_optimal_table_F0_1_130:
 	add esi, 0x1
 	add edi, 0x4
 	cmp esi, 0x102
-	jnz jpeg_gen_optimal_table:F(0,1)_150
+	jnz jpeg_gen_optimal_table_F0_1_150
 	mov dword [ebp-0x844], 0x20
-	jmp jpeg_gen_optimal_table:F(0,1)_160
-jpeg_gen_optimal_table:F(0,1)_180:
+	jmp jpeg_gen_optimal_table_F0_1_160
+jpeg_gen_optimal_table_F0_1_180:
 	sub edx, 0x1
 	mov [ebp-0x844], edx
 	cmp dword [ebp-0x844], 0x10
-	jle jpeg_gen_optimal_table:F(0,1)_170
-jpeg_gen_optimal_table:F(0,1)_160:
+	jle jpeg_gen_optimal_table_F0_1_170
+jpeg_gen_optimal_table_F0_1_160:
 	mov edx, [ebp-0x844]
 	movzx edi, byte [ebp+edx-0x29]
 	mov eax, edi
 	test al, al
-	jz jpeg_gen_optimal_table:F(0,1)_180
+	jz jpeg_gen_optimal_table_F0_1_180
 	sub edx, 0x2
 	mov [ebp-0x840], edx
 	mov esi, [ebp-0x844]
@@ -30240,19 +30353,19 @@ jpeg_gen_optimal_table:F(0,1)_160:
 	mov [ebp-0x848], esi
 	mov esi, edx
 	cmp byte [ebp+esi-0x29], 0x0
-	jnz jpeg_gen_optimal_table:F(0,1)_190
-jpeg_gen_optimal_table:F(0,1)_220:
+	jnz jpeg_gen_optimal_table_F0_1_190
+jpeg_gen_optimal_table_F0_1_220:
 	mov ecx, esi
 	mov eax, [ebp-0x850]
 	lea edx, [eax+esi]
 	mov esi, 0xffffffff
-jpeg_gen_optimal_table:F(0,1)_200:
+jpeg_gen_optimal_table_F0_1_200:
 	sub ecx, 0x1
 	movzx eax, byte [esi+edx]
 	sub edx, 0x1
 	test al, al
-	jz jpeg_gen_optimal_table:F(0,1)_200
-jpeg_gen_optimal_table:F(0,1)_230:
+	jz jpeg_gen_optimal_table_F0_1_200
+jpeg_gen_optimal_table_F0_1_230:
 	lea eax, [edi-0x2]
 	mov edx, [ebp-0x844]
 	mov [ebp+edx-0x29], al
@@ -30263,14 +30376,14 @@ jpeg_gen_optimal_table:F(0,1)_230:
 	movzx edi, byte [ebp+edx-0x29]
 	mov eax, edi
 	test al, al
-	jz jpeg_gen_optimal_table:F(0,1)_210
+	jz jpeg_gen_optimal_table_F0_1_210
 	mov esi, [ebp-0x840]
 	cmp byte [ebp+esi-0x29], 0x0
-	jz jpeg_gen_optimal_table:F(0,1)_220
-jpeg_gen_optimal_table:F(0,1)_190:
+	jz jpeg_gen_optimal_table_F0_1_220
+jpeg_gen_optimal_table_F0_1_190:
 	mov ecx, esi
-	jmp jpeg_gen_optimal_table:F(0,1)_230
-jpeg_gen_optimal_table:F(0,1)_140:
+	jmp jpeg_gen_optimal_table_F0_1_230
+jpeg_gen_optimal_table_F0_1_140:
 	mov edx, [ebp+0x8]
 	mov eax, [edx]
 	mov dword [eax+0x14], 0x27
@@ -30278,30 +30391,30 @@ jpeg_gen_optimal_table:F(0,1)_140:
 	mov [esp], edx
 	call dword [eax]
 	mov eax, [edi-0x4]
-	jmp jpeg_gen_optimal_table:F(0,1)_240
-jpeg_gen_optimal_table:F(0,1)_210:
+	jmp jpeg_gen_optimal_table_F0_1_240
+jpeg_gen_optimal_table_F0_1_210:
 	mov [ebp-0x844], esi
 	cmp dword [ebp-0x844], 0x10
-	jg jpeg_gen_optimal_table:F(0,1)_160
-jpeg_gen_optimal_table:F(0,1)_170:
+	jg jpeg_gen_optimal_table_F0_1_160
+jpeg_gen_optimal_table_F0_1_170:
 	mov edx, [ebp-0x844]
 	cmp byte [ebp+edx-0x29], 0x0
-	jnz jpeg_gen_optimal_table:F(0,1)_250
+	jnz jpeg_gen_optimal_table_F0_1_250
 	mov ecx, [ebp-0x850]
 	add ecx, [ebp-0x844]
 	mov edx, [ebp-0x844]
 	mov esi, edx
 	sub esi, 0x1
 	mov [ebp-0x848], esi
-jpeg_gen_optimal_table:F(0,1)_260:
+jpeg_gen_optimal_table_F0_1_260:
 	sub edx, 0x1
 	mov eax, [ebp-0x848]
 	sub eax, [ebp-0x844]
 	movzx eax, byte [ecx+eax]
 	sub ecx, 0x1
 	test al, al
-	jz jpeg_gen_optimal_table:F(0,1)_260
-jpeg_gen_optimal_table:F(0,1)_250:
+	jz jpeg_gen_optimal_table_F0_1_260
+jpeg_gen_optimal_table_F0_1_250:
 	sub byte [ebp+edx-0x29], 0x1
 	mov eax, [ebp-0x29]
 	mov edx, [ebp+0xc]
@@ -30316,26 +30429,26 @@ jpeg_gen_optimal_table:F(0,1)_250:
 	mov [edx+0x10], al
 	mov edx, 0x1
 	xor ecx, ecx
-jpeg_gen_optimal_table:F(0,1)_300:
+jpeg_gen_optimal_table_F0_1_300:
 	xor eax, eax
-	jmp jpeg_gen_optimal_table:F(0,1)_270
-jpeg_gen_optimal_table:F(0,1)_290:
+	jmp jpeg_gen_optimal_table_F0_1_270
+jpeg_gen_optimal_table_F0_1_290:
 	add eax, 0x1
 	cmp eax, 0x100
-	jz jpeg_gen_optimal_table:F(0,1)_280
-jpeg_gen_optimal_table:F(0,1)_270:
+	jz jpeg_gen_optimal_table_F0_1_280
+jpeg_gen_optimal_table_F0_1_270:
 	cmp [ebp+eax*4-0x430], edx
-	jnz jpeg_gen_optimal_table:F(0,1)_290
+	jnz jpeg_gen_optimal_table_F0_1_290
 	mov esi, [ebp+0xc]
 	mov [esi+ecx+0x11], al
 	add ecx, 0x1
 	add eax, 0x1
 	cmp eax, 0x100
-	jnz jpeg_gen_optimal_table:F(0,1)_270
-jpeg_gen_optimal_table:F(0,1)_280:
+	jnz jpeg_gen_optimal_table_F0_1_270
+jpeg_gen_optimal_table_F0_1_280:
 	add edx, 0x1
 	cmp edx, 0x21
-	jnz jpeg_gen_optimal_table:F(0,1)_300
+	jnz jpeg_gen_optimal_table_F0_1_300
 	mov eax, [ebp+0xc]
 	mov byte [eax+0x111], 0x0
 	add esp, 0x860
@@ -30345,15 +30458,15 @@ jpeg_gen_optimal_table:F(0,1)_280:
 	ret
 
 
-;jinit_huff_encoder:F(0,1)
+;jinit_huff_encoder_F0_1
 
-jinit_huff_encoder:F(0,1):
+jinit_huff_encoder_F0_1:
 	push ebp
 	mov ebp, esp
 	push esi
 	push ebx
 	sub esp, 0x10
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov esi, [ebp+0x8]
 	mov eax, [esi+0x4]
 	mov dword [esp+0x8], 0x6c
@@ -30364,14 +30477,14 @@ jinit_huff_encoder:F(0,1):
 	lea edx, [ebx-0x8c0]
 	mov [eax], edx
 	mov edx, 0x4
-jinit_huff_encoder:F(0,1)_10:
+jinit_huff_encoder_F0_1_10:
 	mov dword [eax+0x3c], 0x0
 	mov dword [eax+0x2c], 0x0
 	mov dword [eax+0x5c], 0x0
 	mov dword [eax+0x4c], 0x0
 	add eax, 0x4
 	sub edx, 0x1
-	jnz jinit_huff_encoder:F(0,1)_10
+	jnz jinit_huff_encoder_F0_1_10
 	add esp, 0x10
 	pop ebx
 	pop esi
@@ -30387,7 +30500,7 @@ start_pass_phuff:
 	push esi
 	push ebx
 	sub esp, 0x2c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov eax, [ebp+0xc]
 	mov [ebp-0x26], al
 	mov edx, [ebp+0x8]
@@ -30527,7 +30640,7 @@ start_pass_phuff_60:
 	mov [esp+0x4], eax
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call jpeg_make_c_derived_tbl:F(0,1)
+	call jpeg_make_c_derived_tbl_F0_1
 	add dword [ebp-0x24], 0x1
 	add dword [ebp-0x20], 0x4
 	add dword [ebp-0x1c], 0x4
@@ -30582,7 +30695,7 @@ start_pass_phuff_160:
 	mov [esp+0x4], eax
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call jpeg_make_c_derived_tbl:F(0,1)
+	call jpeg_make_c_derived_tbl_F0_1
 	mov eax, [ebp+0x8]
 	jmp start_pass_phuff_190
 start_pass_phuff_170:
@@ -30625,7 +30738,7 @@ encode_mcu_AC_first:
 	push esi
 	push ebx
 	sub esp, 0x8c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov eax, [ebp+0x8]
 	mov esi, [eax+0x160]
 	mov edx, [eax+0x134]
@@ -31567,7 +31680,7 @@ finish_pass_gather_phuff_150:
 	mov [esp+0x4], eax
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call jpeg_gen_optimal_table:F(0,1)
+	call jpeg_gen_optimal_table_F0_1
 	mov byte [ebp+esi-0xc], 0x1
 	mov edx, [ebp+0x8]
 	jmp finish_pass_gather_phuff_50
@@ -31586,7 +31699,7 @@ finish_pass_gather_phuff_140:
 	mov [esp+0x4], eax
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call jpeg_gen_optimal_table:F(0,1)
+	call jpeg_gen_optimal_table_F0_1
 	mov byte [ebp+esi-0xc], 0x1
 finish_pass_gather_phuff_100:
 	add dword [ebp-0x20], 0x1
@@ -31613,13 +31726,13 @@ finish_pass_gather_phuff_70:
 finish_pass_gather_phuff_90:
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call jpeg_alloc_huff_table:F(0,80)
+	call jpeg_alloc_huff_table_F0_80
 	mov [edi], eax
 	jmp finish_pass_gather_phuff_140
 finish_pass_gather_phuff_80:
 	mov edx, [ebp+0x8]
 	mov [esp], edx
-	call jpeg_alloc_huff_table:F(0,80)
+	call jpeg_alloc_huff_table_F0_80
 	mov [edi], eax
 	jmp finish_pass_gather_phuff_150
 
@@ -31632,7 +31745,7 @@ encode_mcu_AC_refine:
 	push esi
 	push ebx
 	sub esp, 0x1dc
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov eax, [ebp+0x8]
 	mov edi, [eax+0x160]
 	mov edx, [eax+0x134]
@@ -32818,15 +32931,15 @@ encode_mcu_DC_first_250:
 	jmp encode_mcu_DC_first_370
 
 
-;jinit_phuff_encoder:F(0,1)
+;jinit_phuff_encoder_F0_1
 
-jinit_phuff_encoder:F(0,1):
+jinit_phuff_encoder_F0_1:
 	push ebp
 	mov ebp, esp
 	push esi
 	push ebx
 	sub esp, 0x10
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov esi, [ebp+0x8]
 	mov eax, [esi+0x4]
 	mov dword [esp+0x8], 0x6c
@@ -32839,12 +32952,12 @@ jinit_phuff_encoder:F(0,1):
 	mov [ecx], eax
 	mov eax, ecx
 	mov edx, 0x4
-jinit_phuff_encoder:F(0,1)_10:
+jinit_phuff_encoder_F0_1_10:
 	mov dword [eax+0x4c], 0x0
 	mov dword [eax+0x5c], 0x0
 	add eax, 0x4
 	sub edx, 0x1
-	jnz jinit_phuff_encoder:F(0,1)_10
+	jnz jinit_phuff_encoder_F0_1_10
 	mov dword [ecx+0x40], 0x0
 	add esp, 0x10
 	pop ebx
@@ -33477,9 +33590,9 @@ emit_restart_150:
 	jmp emit_restart_180
 
 
-;inflate_fast:F(0,1)
+;inflate_fast_F0_1
 
-jpeg_idct_4x4:F(0,1):
+jpeg_idct_4x4_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -33499,13 +33612,13 @@ jpeg_idct_4x4:F(0,1):
 	mov [ebp-0xf0], edx
 	mov [ebp-0x9c], edx
 	mov ecx, eax
-	jmp jpeg_idct_4x4:F(0,1)_10
-jpeg_idct_4x4:F(0,1)_50:
+	jmp jpeg_idct_4x4_F0_1_10
+jpeg_idct_4x4_F0_1_50:
 	mov eax, [ebp-0xd0]
 	add eax, 0x20
 	mov edi, [ebp-0xd0]
 	cmp word [edi+0x20], 0x0
-	jz jpeg_idct_4x4:F(0,1)_20
+	jz jpeg_idct_4x4_F0_1_20
 	mov edx, edi
 	mov ecx, edi
 	add edi, 0x60
@@ -33517,7 +33630,7 @@ jpeg_idct_4x4:F(0,1)_50:
 	add edx, 0x30
 	mov [ebp-0xa4], edx
 	mov edx, [ebp-0xd0]
-jpeg_idct_4x4:F(0,1)_60:
+jpeg_idct_4x4_F0_1_60:
 	movsx esi, word [edx]
 	mov ecx, [ebp-0xcc]
 	imul esi, [ecx]
@@ -33647,25 +33760,25 @@ jpeg_idct_4x4:F(0,1)_60:
 	add eax, 0x800
 	sar eax, 0xc
 	mov [edi+0x40], eax
-jpeg_idct_4x4:F(0,1)_170:
+jpeg_idct_4x4_F0_1_170:
 	mov eax, [ebp-0xbc]
-jpeg_idct_4x4:F(0,1)_40:
+jpeg_idct_4x4_F0_1_40:
 	add dword [ebp-0xd0], 0x2
 	add dword [ebp-0xcc], 0x4
 	add dword [ebp-0x9c], 0x4
 	sub eax, 0x1
 	mov [ebp-0xbc], eax
 	test eax, eax
-	jle jpeg_idct_4x4:F(0,1)_30
+	jle jpeg_idct_4x4_F0_1_30
 	mov eax, 0x4
 	cmp dword [ebp-0xbc], 0x4
-	jz jpeg_idct_4x4:F(0,1)_40
+	jz jpeg_idct_4x4_F0_1_40
 	mov ecx, [ebp-0xd0]
-jpeg_idct_4x4:F(0,1)_10:
+jpeg_idct_4x4_F0_1_10:
 	movzx ecx, word [ecx+0x10]
 	mov [ebp-0xe2], cx
 	test cx, cx
-	jz jpeg_idct_4x4:F(0,1)_50
+	jz jpeg_idct_4x4_F0_1_50
 	mov eax, [ebp-0xd0]
 	add eax, 0x20
 	mov edi, [ebp-0xd0]
@@ -33680,14 +33793,14 @@ jpeg_idct_4x4:F(0,1)_10:
 	add ecx, 0x30
 	mov [ebp-0xa4], ecx
 	mov edx, [ebp-0xd0]
-	jmp jpeg_idct_4x4:F(0,1)_60
-jpeg_idct_4x4:F(0,1)_20:
+	jmp jpeg_idct_4x4_F0_1_60
+jpeg_idct_4x4_F0_1_20:
 	mov ecx, edi
 	add ecx, 0x30
 	mov [ebp-0xa4], ecx
 	mov edi, [ebp-0xd0]
 	cmp word [edi+0x30], 0x0
-	jz jpeg_idct_4x4:F(0,1)_70
+	jz jpeg_idct_4x4_F0_1_70
 	mov edx, edi
 	mov ecx, edi
 	add edi, 0x60
@@ -33696,8 +33809,8 @@ jpeg_idct_4x4:F(0,1)_20:
 	add ecx, 0x50
 	mov [ebp-0xa8], ecx
 	mov edx, [ebp-0xd0]
-	jmp jpeg_idct_4x4:F(0,1)_60
-jpeg_idct_4x4:F(0,1)_30:
+	jmp jpeg_idct_4x4_F0_1_60
+jpeg_idct_4x4_F0_1_30:
 	mov ecx, [ebp-0xf0]
 	mov [ebp-0xc8], ecx
 	mov dword [ebp-0xa0], 0x1
@@ -33709,14 +33822,14 @@ jpeg_idct_4x4:F(0,1)_30:
 	mov ecx, [ecx+0x4]
 	mov [ebp-0xe0], ecx
 	test ecx, ecx
-	jnz jpeg_idct_4x4:F(0,1)_80
-jpeg_idct_4x4:F(0,1)_110:
+	jnz jpeg_idct_4x4_F0_1_80
+jpeg_idct_4x4_F0_1_110:
 	mov eax, [ebp-0xc8]
 	add eax, 0x8
 	mov edi, [ebp-0xc8]
 	mov edx, [edi+0x8]
 	test edx, edx
-	jz jpeg_idct_4x4:F(0,1)_90
+	jz jpeg_idct_4x4_F0_1_90
 	mov edx, edi
 	mov ecx, edi
 	mov esi, edi
@@ -33728,7 +33841,7 @@ jpeg_idct_4x4:F(0,1)_110:
 	add ecx, 0xc
 	mov [ebp-0xb0], ecx
 	mov edx, [ebp-0xc8]
-jpeg_idct_4x4:F(0,1)_120:
+jpeg_idct_4x4_F0_1_120:
 	mov edi, [edx]
 	shl edi, 0xe
 	mov eax, [eax]
@@ -33862,10 +33975,10 @@ jpeg_idct_4x4:F(0,1)_120:
 	movzx eax, byte [ecx+edi]
 	mov [edx+0x2], al
 	add dword [ebp-0xc8], 0x20
-jpeg_idct_4x4:F(0,1)_200:
+jpeg_idct_4x4_F0_1_200:
 	add dword [ebp-0xa0], 0x1
 	cmp dword [ebp-0xa0], 0x5
-	jz jpeg_idct_4x4:F(0,1)_100
+	jz jpeg_idct_4x4_F0_1_100
 	mov ecx, [ebp-0xc8]
 	mov edx, [ebp+0x18]
 	mov edi, [ebp-0xa0]
@@ -33875,8 +33988,8 @@ jpeg_idct_4x4:F(0,1)_200:
 	mov ecx, [ecx+0x4]
 	mov [ebp-0xe0], ecx
 	test ecx, ecx
-	jz jpeg_idct_4x4:F(0,1)_110
-jpeg_idct_4x4:F(0,1)_80:
+	jz jpeg_idct_4x4_F0_1_110
+jpeg_idct_4x4_F0_1_80:
 	mov eax, [ebp-0xc8]
 	add eax, 0x8
 	mov esi, [ebp-0xc8]
@@ -33891,20 +34004,20 @@ jpeg_idct_4x4:F(0,1)_80:
 	add edi, 0xc
 	mov [ebp-0xb0], edi
 	mov edx, [ebp-0xc8]
-	jmp jpeg_idct_4x4:F(0,1)_120
-jpeg_idct_4x4:F(0,1)_100:
+	jmp jpeg_idct_4x4_F0_1_120
+jpeg_idct_4x4_F0_1_100:
 	add esp, 0x100
 	pop esi
 	pop edi
 	pop ebp
 	ret
-jpeg_idct_4x4:F(0,1)_90:
+jpeg_idct_4x4_F0_1_90:
 	add edi, 0xc
 	mov [ebp-0xb0], edi
 	mov edx, [ebp-0xc8]
 	mov esi, [edx+0xc]
 	test esi, esi
-	jz jpeg_idct_4x4:F(0,1)_130
+	jz jpeg_idct_4x4_F0_1_130
 	mov ecx, edx
 	mov esi, edx
 	add esi, 0x18
@@ -33913,23 +34026,23 @@ jpeg_idct_4x4:F(0,1)_90:
 	add ecx, 0x14
 	mov [ebp-0xb4], ecx
 	mov edx, [ebp-0xc8]
-	jmp jpeg_idct_4x4:F(0,1)_120
-jpeg_idct_4x4:F(0,1)_70:
+	jmp jpeg_idct_4x4_F0_1_120
+jpeg_idct_4x4_F0_1_70:
 	add edi, 0x50
 	mov [ebp-0xa8], edi
 	mov edx, [ebp-0xd0]
 	cmp word [edx+0x50], 0x0
-	jnz jpeg_idct_4x4:F(0,1)_140
+	jnz jpeg_idct_4x4_F0_1_140
 	mov edi, edx
 	mov ecx, edx
 	add edi, 0x60
 	cmp word [edx+0x60], 0x0
-	jnz jpeg_idct_4x4:F(0,1)_150
+	jnz jpeg_idct_4x4_F0_1_150
 	add edx, 0x70
 	mov [ebp-0xac], edx
 	mov ecx, [ebp-0xd0]
 	cmp word [ecx+0x70], 0x0
-	jnz jpeg_idct_4x4:F(0,1)_160
+	jnz jpeg_idct_4x4_F0_1_160
 	movsx eax, word [ecx]
 	mov edi, [ebp-0xcc]
 	imul eax, [edi]
@@ -33939,27 +34052,27 @@ jpeg_idct_4x4:F(0,1)_70:
 	mov [edx+0x20], eax
 	mov [edx+0x40], eax
 	mov [edx+0x60], eax
-	jmp jpeg_idct_4x4:F(0,1)_170
-jpeg_idct_4x4:F(0,1)_130:
+	jmp jpeg_idct_4x4_F0_1_170
+jpeg_idct_4x4_F0_1_130:
 	mov edi, edx
 	add edi, 0x14
 	mov [ebp-0xb4], edi
 	mov edx, [ebp-0xc8]
 	mov ecx, [edx+0x14]
 	test ecx, ecx
-	jnz jpeg_idct_4x4:F(0,1)_180
+	jnz jpeg_idct_4x4_F0_1_180
 	mov esi, edx
 	mov ecx, edx
 	add esi, 0x18
 	mov edi, [edx+0x18]
 	test edi, edi
-	jnz jpeg_idct_4x4:F(0,1)_190
+	jnz jpeg_idct_4x4_F0_1_190
 	mov edi, edx
 	add edi, 0x1c
 	mov [ebp-0xb8], edi
 	mov ecx, [edx+0x1c]
 	test ecx, ecx
-	jnz jpeg_idct_4x4:F(0,1)_120
+	jnz jpeg_idct_4x4_F0_1_120
 	mov eax, [edx]
 	add eax, 0x10
 	sar eax, 0x5
@@ -33973,39 +34086,39 @@ jpeg_idct_4x4:F(0,1)_130:
 	mov [edi+0x3], al
 	add edx, 0x20
 	mov [ebp-0xc8], edx
-	jmp jpeg_idct_4x4:F(0,1)_200
-jpeg_idct_4x4:F(0,1)_140:
+	jmp jpeg_idct_4x4_F0_1_200
+jpeg_idct_4x4_F0_1_140:
 	mov edi, edx
 	add edi, 0x60
 	add edx, 0x70
 	mov [ebp-0xac], edx
 	mov edx, [ebp-0xd0]
-	jmp jpeg_idct_4x4:F(0,1)_60
-jpeg_idct_4x4:F(0,1)_180:
+	jmp jpeg_idct_4x4_F0_1_60
+jpeg_idct_4x4_F0_1_180:
 	mov esi, edx
 	add esi, 0x18
 	add edx, 0x1c
 	mov [ebp-0xb8], edx
 	mov edx, [ebp-0xc8]
-	jmp jpeg_idct_4x4:F(0,1)_120
-jpeg_idct_4x4:F(0,1)_150:
+	jmp jpeg_idct_4x4_F0_1_120
+jpeg_idct_4x4_F0_1_150:
 	add ecx, 0x70
 	mov [ebp-0xac], ecx
 	mov edx, [ebp-0xd0]
-	jmp jpeg_idct_4x4:F(0,1)_60
-jpeg_idct_4x4:F(0,1)_190:
+	jmp jpeg_idct_4x4_F0_1_60
+jpeg_idct_4x4_F0_1_190:
 	add ecx, 0x1c
 	mov [ebp-0xb8], ecx
 	mov edx, [ebp-0xc8]
-	jmp jpeg_idct_4x4:F(0,1)_120
-jpeg_idct_4x4:F(0,1)_160:
+	jmp jpeg_idct_4x4_F0_1_120
+jpeg_idct_4x4_F0_1_160:
 	mov edx, ecx
-	jmp jpeg_idct_4x4:F(0,1)_60
+	jmp jpeg_idct_4x4_F0_1_60
 
 
-;jpeg_idct_2x2:F(0,1)
+;jpeg_idct_2x2_F0_1
 
-jpeg_idct_2x2:F(0,1):
+jpeg_idct_2x2_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -34028,20 +34141,20 @@ jpeg_idct_2x2:F(0,1):
 	movzx ecx, word [ecx+0x10]
 	mov [ebp-0x76], cx
 	test cx, cx
-	jnz jpeg_idct_2x2:F(0,1)_10
-jpeg_idct_2x2:F(0,1)_50:
+	jnz jpeg_idct_2x2_F0_1_10
+jpeg_idct_2x2_F0_1_50:
 	mov eax, [ebp-0x70]
 	add eax, 0x30
 	mov [ebp-0x54], eax
 	mov edx, [ebp-0x70]
 	cmp word [edx+0x30], 0x0
-	jz jpeg_idct_2x2:F(0,1)_20
+	jz jpeg_idct_2x2_F0_1_20
 	mov eax, edx
 	add eax, 0x70
 	mov ecx, edx
 	add ecx, 0x50
 	mov edx, [ebp-0x70]
-jpeg_idct_2x2:F(0,1)_60:
+jpeg_idct_2x2_F0_1_60:
 	movsx edi, word [edx]
 	mov edx, [ebp-0x6c]
 	imul edi, [edx]
@@ -34093,26 +34206,26 @@ jpeg_idct_2x2:F(0,1)_60:
 	add edi, 0x1000
 	sar edi, 0xd
 	mov [ecx+0x20], edi
-jpeg_idct_2x2:F(0,1)_40:
+jpeg_idct_2x2_F0_1_40:
 	add dword [ebp-0x70], 0x2
 	add dword [ebp-0x6c], 0x4
 	add dword [ebp-0x4c], 0x4
 	sub dword [ebp-0x5c], 0x1
 	mov eax, [ebp-0x5c]
 	test eax, eax
-	jle jpeg_idct_2x2:F(0,1)_30
+	jle jpeg_idct_2x2_F0_1_30
 	cmp dword [ebp-0x5c], 0x6
-	jz jpeg_idct_2x2:F(0,1)_40
+	jz jpeg_idct_2x2_F0_1_40
 	cmp dword [ebp-0x5c], 0x4
-	jz jpeg_idct_2x2:F(0,1)_40
+	jz jpeg_idct_2x2_F0_1_40
 	cmp dword [ebp-0x5c], 0x2
-	jz jpeg_idct_2x2:F(0,1)_40
+	jz jpeg_idct_2x2_F0_1_40
 	mov ecx, [ebp-0x70]
 	movzx ecx, word [ecx+0x10]
 	mov [ebp-0x76], cx
 	test cx, cx
-	jz jpeg_idct_2x2:F(0,1)_50
-jpeg_idct_2x2:F(0,1)_10:
+	jz jpeg_idct_2x2_F0_1_50
+jpeg_idct_2x2_F0_1_10:
 	mov eax, [ebp-0x70]
 	add eax, 0x70
 	mov ecx, [ebp-0x70]
@@ -34121,12 +34234,12 @@ jpeg_idct_2x2:F(0,1)_10:
 	add edx, 0x30
 	mov [ebp-0x54], edx
 	mov edx, [ebp-0x70]
-	jmp jpeg_idct_2x2:F(0,1)_60
-jpeg_idct_2x2:F(0,1)_30:
+	jmp jpeg_idct_2x2_F0_1_60
+jpeg_idct_2x2_F0_1_30:
 	mov eax, [ebp-0x7c]
 	mov [ebp-0x68], eax
 	mov dword [ebp-0x50], 0x1
-jpeg_idct_2x2:F(0,1)_90:
+jpeg_idct_2x2_F0_1_90:
 	mov eax, [ebp+0x18]
 	mov edx, [ebp-0x50]
 	mov ecx, [ebp+0x14]
@@ -34135,18 +34248,18 @@ jpeg_idct_2x2:F(0,1)_90:
 	mov edx, [ebp-0x68]
 	mov esi, [edx+0x4]
 	test esi, esi
-	jnz jpeg_idct_2x2:F(0,1)_70
+	jnz jpeg_idct_2x2_F0_1_70
 	mov ecx, edx
 	add edx, 0xc
 	mov [ebp-0x58], edx
 	mov edi, [ecx+0xc]
 	test edi, edi
-	jz jpeg_idct_2x2:F(0,1)_80
+	jz jpeg_idct_2x2_F0_1_80
 	mov eax, ecx
 	add eax, 0x1c
 	add ecx, 0x14
 	mov edx, [ebp-0x68]
-jpeg_idct_2x2:F(0,1)_100:
+jpeg_idct_2x2_F0_1_100:
 	mov edx, [edx]
 	shl edx, 0xf
 	mov [ebp-0x74], edx
@@ -34198,16 +34311,16 @@ jpeg_idct_2x2:F(0,1)_100:
 	movzx eax, byte [ecx+eax]
 	mov [edx+0x1], al
 	add dword [ebp-0x68], 0x20
-jpeg_idct_2x2:F(0,1)_130:
+jpeg_idct_2x2_F0_1_130:
 	add dword [ebp-0x50], 0x1
 	cmp dword [ebp-0x50], 0x3
-	jnz jpeg_idct_2x2:F(0,1)_90
+	jnz jpeg_idct_2x2_F0_1_90
 	sub esp, 0xffffff80
 	pop esi
 	pop edi
 	pop ebp
 	ret
-jpeg_idct_2x2:F(0,1)_70:
+jpeg_idct_2x2_F0_1_70:
 	mov eax, edx
 	mov ecx, edx
 	add eax, 0x1c
@@ -34216,17 +34329,17 @@ jpeg_idct_2x2:F(0,1)_70:
 	add edx, 0xc
 	mov [ebp-0x58], edx
 	mov edx, [ebp-0x68]
-	jmp jpeg_idct_2x2:F(0,1)_100
-jpeg_idct_2x2:F(0,1)_20:
+	jmp jpeg_idct_2x2_F0_1_100
+jpeg_idct_2x2_F0_1_20:
 	mov ecx, edx
 	mov eax, edx
 	add ecx, 0x50
 	cmp word [edx+0x50], 0x0
-	jnz jpeg_idct_2x2:F(0,1)_110
+	jnz jpeg_idct_2x2_F0_1_110
 	add eax, 0x70
 	mov edx, [ebp-0x70]
 	cmp word [edx+0x70], 0x0
-	jnz jpeg_idct_2x2:F(0,1)_60
+	jnz jpeg_idct_2x2_F0_1_60
 	movsx eax, word [edx]
 	mov ecx, [ebp-0x6c]
 	imul eax, [ecx]
@@ -34234,18 +34347,18 @@ jpeg_idct_2x2:F(0,1)_20:
 	mov edx, [ebp-0x4c]
 	mov [edx], eax
 	mov [edx+0x20], eax
-	jmp jpeg_idct_2x2:F(0,1)_40
-jpeg_idct_2x2:F(0,1)_80:
+	jmp jpeg_idct_2x2_F0_1_40
+jpeg_idct_2x2_F0_1_80:
 	add ecx, 0x14
 	mov eax, [ebp-0x68]
 	mov edx, [eax+0x14]
 	test edx, edx
-	jnz jpeg_idct_2x2:F(0,1)_120
+	jnz jpeg_idct_2x2_F0_1_120
 	add eax, 0x1c
 	mov edx, [ebp-0x68]
 	mov edi, [edx+0x1c]
 	test edi, edi
-	jnz jpeg_idct_2x2:F(0,1)_100
+	jnz jpeg_idct_2x2_F0_1_100
 	mov eax, [edx]
 	add eax, 0x10
 	sar eax, 0x5
@@ -34256,20 +34369,20 @@ jpeg_idct_2x2:F(0,1)_80:
 	mov [edx], al
 	mov [edx+0x1], al
 	add dword [ebp-0x68], 0x20
-	jmp jpeg_idct_2x2:F(0,1)_130
-jpeg_idct_2x2:F(0,1)_110:
+	jmp jpeg_idct_2x2_F0_1_130
+jpeg_idct_2x2_F0_1_110:
 	add eax, 0x70
 	mov edx, [ebp-0x70]
-	jmp jpeg_idct_2x2:F(0,1)_60
-jpeg_idct_2x2:F(0,1)_120:
+	jmp jpeg_idct_2x2_F0_1_60
+jpeg_idct_2x2_F0_1_120:
 	add eax, 0x1c
 	mov edx, [ebp-0x68]
-	jmp jpeg_idct_2x2:F(0,1)_100
+	jmp jpeg_idct_2x2_F0_1_100
 
 
-;jpeg_idct_1x1:F(0,1)
+;jpeg_idct_1x1_F0_1
 
-jpeg_idct_1x1:F(0,1):
+jpeg_idct_1x1_F0_1:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x14]
@@ -34291,16 +34404,16 @@ jpeg_idct_1x1:F(0,1):
 	ret
 
 
-;jpeg_idct_float:F(0,1)
+;jpeg_idct_float_F0_1
 
-jpeg_idct_float:F(0,1):
+jpeg_idct_float_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
 	push esi
 	push ebx
 	sub esp, 0x14c
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov eax, [ebp+0x8]
 	mov eax, [eax+0x128]
 	sub eax, 0xffffff80
@@ -34310,12 +34423,12 @@ jpeg_idct_float:F(0,1):
 	mov edx, [ebp+0x10]
 	lea esi, [ebp-0x118]
 	mov dword [ebp-0x124], 0x8
-	jmp jpeg_idct_float:F(0,1)_10
-jpeg_idct_float:F(0,1)_40:
+	jmp jpeg_idct_float_F0_1_10
+jpeg_idct_float_F0_1_40:
 	lea edi, [edx+0x20]
 	mov [ebp-0x138], edi
 	cmp word [edx+0x20], 0x0
-	jz jpeg_idct_float:F(0,1)_20
+	jz jpeg_idct_float_F0_1_20
 	lea eax, [edx+0x40]
 	mov [ebp-0x134], eax
 	lea edi, [edx+0x60]
@@ -34325,7 +34438,7 @@ jpeg_idct_float:F(0,1)_40:
 	lea edi, [edx+0x50]
 	mov [ebp-0x128], edi
 	lea edi, [edx+0x70]
-jpeg_idct_float:F(0,1)_50:
+jpeg_idct_float_F0_1_50:
 	movsx eax, word [edx]
 	cvtsi2ss xmm4, eax
 	mulss xmm4, [ecx]
@@ -34421,14 +34534,14 @@ jpeg_idct_float:F(0,1)_50:
 	add edx, 0x2
 	add ecx, 0x4
 	add esi, 0x4
-jpeg_idct_float:F(0,1)_110:
+jpeg_idct_float_F0_1_110:
 	sub dword [ebp-0x124], 0x1
-	jz jpeg_idct_float:F(0,1)_30
-jpeg_idct_float:F(0,1)_10:
+	jz jpeg_idct_float_F0_1_30
+jpeg_idct_float_F0_1_10:
 	movzx eax, word [edx+0x10]
 	mov [ebp-0x146], ax
 	test ax, ax
-	jz jpeg_idct_float:F(0,1)_40
+	jz jpeg_idct_float_F0_1_40
 	lea eax, [edx+0x20]
 	mov [ebp-0x138], eax
 	lea edi, [edx+0x40]
@@ -34439,14 +34552,14 @@ jpeg_idct_float:F(0,1)_10:
 	mov [ebp-0x12c], edi
 	lea eax, [edx+0x50]
 	mov [ebp-0x128], eax
-jpeg_idct_float:F(0,1)_100:
+jpeg_idct_float_F0_1_100:
 	lea edi, [edx+0x70]
-	jmp jpeg_idct_float:F(0,1)_50
-jpeg_idct_float:F(0,1)_20:
+	jmp jpeg_idct_float_F0_1_50
+jpeg_idct_float_F0_1_20:
 	lea eax, [edx+0x30]
 	mov [ebp-0x12c], eax
 	cmp word [edx+0x30], 0x0
-	jz jpeg_idct_float:F(0,1)_60
+	jz jpeg_idct_float_F0_1_60
 	lea edi, [edx+0x40]
 	mov [ebp-0x134], edi
 	lea eax, [edx+0x60]
@@ -34454,11 +34567,11 @@ jpeg_idct_float:F(0,1)_20:
 	lea edi, [edx+0x50]
 	mov [ebp-0x128], edi
 	lea edi, [edx+0x70]
-	jmp jpeg_idct_float:F(0,1)_50
-jpeg_idct_float:F(0,1)_30:
+	jmp jpeg_idct_float_F0_1_50
+jpeg_idct_float_F0_1_30:
 	lea ecx, [ebp-0xf8]
 	mov esi, 0x1
-jpeg_idct_float:F(0,1)_70:
+jpeg_idct_float_F0_1_70:
 	mov edx, [ebp+0x18]
 	mov eax, [ebp+0x14]
 	add edx, [eax+esi*4-0x4]
@@ -34576,36 +34689,36 @@ jpeg_idct_float:F(0,1)_70:
 	add ecx, 0x20
 	add esi, 0x1
 	cmp esi, 0x9
-	jnz jpeg_idct_float:F(0,1)_70
+	jnz jpeg_idct_float_F0_1_70
 	add esp, 0x14c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-jpeg_idct_float:F(0,1)_60:
+jpeg_idct_float_F0_1_60:
 	lea eax, [edx+0x40]
 	mov [ebp-0x134], eax
 	cmp word [edx+0x40], 0x0
-	jz jpeg_idct_float:F(0,1)_80
+	jz jpeg_idct_float_F0_1_80
 	lea edi, [edx+0x60]
 	mov [ebp-0x130], edi
 	lea eax, [edx+0x50]
 	mov [ebp-0x128], eax
 	lea edi, [edx+0x70]
-	jmp jpeg_idct_float:F(0,1)_50
-jpeg_idct_float:F(0,1)_80:
+	jmp jpeg_idct_float_F0_1_50
+jpeg_idct_float_F0_1_80:
 	lea edi, [edx+0x50]
 	mov [ebp-0x128], edi
 	cmp word [edx+0x50], 0x0
-	jnz jpeg_idct_float:F(0,1)_90
+	jnz jpeg_idct_float_F0_1_90
 	lea edi, [edx+0x60]
 	mov [ebp-0x130], edi
 	cmp word [edx+0x60], 0x0
-	jnz jpeg_idct_float:F(0,1)_100
+	jnz jpeg_idct_float_F0_1_100
 	lea edi, [edx+0x70]
 	cmp word [edx+0x70], 0x0
-	jnz jpeg_idct_float:F(0,1)_50
+	jnz jpeg_idct_float_F0_1_50
 	movsx eax, word [edx]
 	cvtsi2ss xmm0, eax
 	mulss xmm0, [ecx]
@@ -34620,17 +34733,17 @@ jpeg_idct_float:F(0,1)_80:
 	add edx, 0x2
 	add ecx, 0x4
 	add esi, 0x4
-	jmp jpeg_idct_float:F(0,1)_110
-jpeg_idct_float:F(0,1)_90:
+	jmp jpeg_idct_float_F0_1_110
+jpeg_idct_float_F0_1_90:
 	lea eax, [edx+0x60]
 	mov [ebp-0x130], eax
 	lea edi, [edx+0x70]
-	jmp jpeg_idct_float:F(0,1)_50
+	jmp jpeg_idct_float_F0_1_50
 
 
-;jpeg_idct_ifast:F(0,1)
+;jpeg_idct_ifast_F0_1
 
-jpeg_idct_ifast:F(0,1):
+jpeg_idct_ifast_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -34650,13 +34763,13 @@ jpeg_idct_ifast:F(0,1):
 	mov [ebp-0x158], edx
 	mov dword [ebp-0x134], 0x8
 	mov ecx, eax
-	jmp jpeg_idct_ifast:F(0,1)_10
-jpeg_idct_ifast:F(0,1)_40:
+	jmp jpeg_idct_ifast_F0_1_10
+jpeg_idct_ifast_F0_1_40:
 	mov edx, [ebp-0x160]
 	add edx, 0x20
 	mov esi, [ebp-0x160]
 	cmp word [esi+0x20], 0x0
-	jz jpeg_idct_ifast:F(0,1)_20
+	jz jpeg_idct_ifast_F0_1_20
 	mov edi, esi
 	mov eax, esi
 	add eax, 0x40
@@ -34664,14 +34777,14 @@ jpeg_idct_ifast:F(0,1)_40:
 	add ecx, 0x60
 	add esi, 0x30
 	mov [ebp-0x140], esi
-jpeg_idct_ifast:F(0,1)_50:
+jpeg_idct_ifast_F0_1_50:
 	add edi, 0x50
 	mov [ebp-0x13c], edi
 	mov esi, [ebp-0x160]
 	add esi, 0x70
 	mov [ebp-0x138], esi
 	mov edi, [ebp-0x160]
-jpeg_idct_ifast:F(0,1)_70:
+jpeg_idct_ifast_F0_1_70:
 	movsx esi, word [edi]
 	mov edi, [ebp-0x15c]
 	imul esi, [edi]
@@ -34792,15 +34905,15 @@ jpeg_idct_ifast:F(0,1)_70:
 	add dword [ebp-0x15c], 0x4
 	add edi, 0x4
 	mov [ebp-0x158], edi
-jpeg_idct_ifast:F(0,1)_200:
+jpeg_idct_ifast_F0_1_200:
 	sub dword [ebp-0x134], 0x1
-	jz jpeg_idct_ifast:F(0,1)_30
+	jz jpeg_idct_ifast_F0_1_30
 	mov ecx, [ebp-0x160]
-jpeg_idct_ifast:F(0,1)_10:
+jpeg_idct_ifast_F0_1_10:
 	movzx ecx, word [ecx+0x10]
 	mov [ebp-0x186], cx
 	test cx, cx
-	jz jpeg_idct_ifast:F(0,1)_40
+	jz jpeg_idct_ifast_F0_1_40
 	mov edx, [ebp-0x160]
 	add edx, 0x20
 	mov eax, [ebp-0x160]
@@ -34811,39 +34924,39 @@ jpeg_idct_ifast:F(0,1)_10:
 	add esi, 0x30
 	mov [ebp-0x140], esi
 	mov edi, [ebp-0x160]
-	jmp jpeg_idct_ifast:F(0,1)_50
-jpeg_idct_ifast:F(0,1)_20:
+	jmp jpeg_idct_ifast_F0_1_50
+jpeg_idct_ifast_F0_1_20:
 	mov edi, esi
 	mov eax, esi
 	add edi, 0x30
 	mov [ebp-0x140], edi
 	cmp word [esi+0x30], 0x0
-	jz jpeg_idct_ifast:F(0,1)_60
+	jz jpeg_idct_ifast_F0_1_60
 	mov ecx, esi
 	mov edi, eax
 	add eax, 0x40
-jpeg_idct_ifast:F(0,1)_150:
+jpeg_idct_ifast_F0_1_150:
 	add ecx, 0x60
 	add esi, 0x50
 	mov [ebp-0x13c], esi
-jpeg_idct_ifast:F(0,1)_190:
+jpeg_idct_ifast_F0_1_190:
 	add edi, 0x70
 	mov [ebp-0x138], edi
 	mov edi, [ebp-0x160]
-	jmp jpeg_idct_ifast:F(0,1)_70
-jpeg_idct_ifast:F(0,1)_30:
+	jmp jpeg_idct_ifast_F0_1_70
+jpeg_idct_ifast_F0_1_30:
 	mov edi, [ebp-0x190]
 	mov [ebp-0x10c], edi
 	mov dword [ebp-0x130], 0x1
 	mov esi, edi
-	jmp jpeg_idct_ifast:F(0,1)_80
-jpeg_idct_ifast:F(0,1)_110:
+	jmp jpeg_idct_ifast_F0_1_80
+jpeg_idct_ifast_F0_1_110:
 	mov edx, [ebp-0x10c]
 	add edx, 0x8
 	mov edi, [ebp-0x10c]
 	mov eax, [edi+0x8]
 	test eax, eax
-	jz jpeg_idct_ifast:F(0,1)_90
+	jz jpeg_idct_ifast_F0_1_90
 	mov ecx, edi
 	mov eax, edi
 	add eax, 0x10
@@ -34857,7 +34970,7 @@ jpeg_idct_ifast:F(0,1)_110:
 	add edi, 0x1c
 	mov [ebp-0x144], edi
 	mov edi, [ebp-0x10c]
-jpeg_idct_ifast:F(0,1)_120:
+jpeg_idct_ifast_F0_1_120:
 	mov ecx, [edi]
 	mov eax, [eax]
 	lea edi, [ecx+eax]
@@ -34996,12 +35109,12 @@ jpeg_idct_ifast:F(0,1)_120:
 	movzx eax, byte [esi+edi]
 	mov [ecx+0x3], al
 	add dword [ebp-0x10c], 0x20
-jpeg_idct_ifast:F(0,1)_240:
+jpeg_idct_ifast_F0_1_240:
 	add dword [ebp-0x130], 0x1
 	cmp dword [ebp-0x130], 0x9
-	jz jpeg_idct_ifast:F(0,1)_100
+	jz jpeg_idct_ifast_F0_1_100
 	mov esi, [ebp-0x10c]
-jpeg_idct_ifast:F(0,1)_80:
+jpeg_idct_ifast_F0_1_80:
 	mov ecx, [ebp+0x18]
 	mov eax, [ebp-0x130]
 	mov edx, [ebp+0x14]
@@ -35010,7 +35123,7 @@ jpeg_idct_ifast:F(0,1)_80:
 	mov esi, [esi+0x4]
 	mov [ebp-0x184], esi
 	test esi, esi
-	jz jpeg_idct_ifast:F(0,1)_110
+	jz jpeg_idct_ifast_F0_1_110
 	mov eax, [ebp-0x10c]
 	add eax, 0x10
 	mov edx, [ebp-0x10c]
@@ -35024,23 +35137,23 @@ jpeg_idct_ifast:F(0,1)_80:
 	add edi, 0xc
 	mov [ebp-0x148], edi
 	mov ecx, [ebp-0x10c]
-jpeg_idct_ifast:F(0,1)_220:
+jpeg_idct_ifast_F0_1_220:
 	add ecx, 0x1c
 	mov [ebp-0x144], ecx
 	mov edi, [ebp-0x10c]
-	jmp jpeg_idct_ifast:F(0,1)_120
-jpeg_idct_ifast:F(0,1)_90:
+	jmp jpeg_idct_ifast_F0_1_120
+jpeg_idct_ifast_F0_1_90:
 	mov eax, edi
 	mov ecx, edi
 	add eax, 0xc
 	mov [ebp-0x148], eax
 	mov edi, [edi+0xc]
 	test edi, edi
-	jz jpeg_idct_ifast:F(0,1)_130
+	jz jpeg_idct_ifast_F0_1_130
 	mov edi, ecx
 	mov eax, ecx
 	add eax, 0x10
-jpeg_idct_ifast:F(0,1)_170:
+jpeg_idct_ifast_F0_1_170:
 	mov esi, ecx
 	add esi, 0x18
 	add ecx, 0x14
@@ -35048,46 +35161,46 @@ jpeg_idct_ifast:F(0,1)_170:
 	add edi, 0x1c
 	mov [ebp-0x144], edi
 	mov edi, [ebp-0x10c]
-	jmp jpeg_idct_ifast:F(0,1)_120
-jpeg_idct_ifast:F(0,1)_60:
+	jmp jpeg_idct_ifast_F0_1_120
+jpeg_idct_ifast_F0_1_60:
 	add eax, 0x40
 	mov ecx, [ebp-0x160]
 	cmp word [ecx+0x40], 0x0
-	jz jpeg_idct_ifast:F(0,1)_140
+	jz jpeg_idct_ifast_F0_1_140
 	mov esi, ecx
 	mov edi, ecx
-	jmp jpeg_idct_ifast:F(0,1)_150
-jpeg_idct_ifast:F(0,1)_100:
+	jmp jpeg_idct_ifast_F0_1_150
+jpeg_idct_ifast_F0_1_100:
 	add esp, 0x1a0
 	pop esi
 	pop edi
 	pop ebp
 	ret
-jpeg_idct_ifast:F(0,1)_130:
+jpeg_idct_ifast_F0_1_130:
 	mov eax, ecx
 	add eax, 0x10
 	mov ecx, [ebp-0x10c]
 	mov esi, [ecx+0x10]
 	test esi, esi
-	jz jpeg_idct_ifast:F(0,1)_160
+	jz jpeg_idct_ifast_F0_1_160
 	mov edi, ecx
-	jmp jpeg_idct_ifast:F(0,1)_170
-jpeg_idct_ifast:F(0,1)_140:
+	jmp jpeg_idct_ifast_F0_1_170
+jpeg_idct_ifast_F0_1_140:
 	add ecx, 0x50
 	mov [ebp-0x13c], ecx
 	mov esi, [ebp-0x160]
 	cmp word [esi+0x50], 0x0
-	jnz jpeg_idct_ifast:F(0,1)_180
+	jnz jpeg_idct_ifast_F0_1_180
 	mov ecx, esi
 	mov edi, esi
 	add ecx, 0x60
 	cmp word [esi+0x60], 0x0
-	jnz jpeg_idct_ifast:F(0,1)_190
+	jnz jpeg_idct_ifast_F0_1_190
 	add esi, 0x70
 	mov [ebp-0x138], esi
 	mov edi, [ebp-0x160]
 	cmp word [edi+0x70], 0x0
-	jnz jpeg_idct_ifast:F(0,1)_70
+	jnz jpeg_idct_ifast_F0_1_70
 	movsx eax, word [edi]
 	mov edx, [ebp-0x15c]
 	imul eax, [edx]
@@ -35106,26 +35219,26 @@ jpeg_idct_ifast:F(0,1)_140:
 	mov [ebp-0x15c], edx
 	add ecx, 0x4
 	mov [ebp-0x158], ecx
-	jmp jpeg_idct_ifast:F(0,1)_200
-jpeg_idct_ifast:F(0,1)_160:
+	jmp jpeg_idct_ifast_F0_1_200
+jpeg_idct_ifast_F0_1_160:
 	add ecx, 0x14
 	mov [ebp-0x14c], ecx
 	mov esi, [ebp-0x10c]
 	mov ecx, [esi+0x14]
 	test ecx, ecx
-	jnz jpeg_idct_ifast:F(0,1)_210
+	jnz jpeg_idct_ifast_F0_1_210
 	add esi, 0x18
 	mov ecx, [ebp-0x10c]
 	mov edi, [ecx+0x18]
 	test edi, edi
-	jnz jpeg_idct_ifast:F(0,1)_220
+	jnz jpeg_idct_ifast_F0_1_220
 	mov edi, ecx
 	add edi, 0x1c
 	mov [ebp-0x144], edi
 	mov ecx, [ebp-0x10c]
 	mov edi, [ecx+0x1c]
 	test edi, edi
-	jnz jpeg_idct_ifast:F(0,1)_230
+	jnz jpeg_idct_ifast_F0_1_230
 	mov eax, [ecx]
 	sar eax, 0x5
 	and eax, 0x3ff
@@ -35142,30 +35255,30 @@ jpeg_idct_ifast:F(0,1)_160:
 	mov [edi+0x7], al
 	add ecx, 0x20
 	mov [ebp-0x10c], ecx
-	jmp jpeg_idct_ifast:F(0,1)_240
-jpeg_idct_ifast:F(0,1)_180:
+	jmp jpeg_idct_ifast_F0_1_240
+jpeg_idct_ifast_F0_1_180:
 	mov ecx, esi
 	add ecx, 0x60
 	add esi, 0x70
 	mov [ebp-0x138], esi
 	mov edi, [ebp-0x160]
-	jmp jpeg_idct_ifast:F(0,1)_70
-jpeg_idct_ifast:F(0,1)_210:
+	jmp jpeg_idct_ifast_F0_1_70
+jpeg_idct_ifast_F0_1_210:
 	mov edi, esi
 	add esi, 0x18
 	add edi, 0x1c
 	mov [ebp-0x144], edi
 	mov edi, [ebp-0x10c]
-	jmp jpeg_idct_ifast:F(0,1)_120
-jpeg_idct_ifast:F(0,1)_230:
+	jmp jpeg_idct_ifast_F0_1_120
+jpeg_idct_ifast_F0_1_230:
 	mov edi, ecx
-	jmp jpeg_idct_ifast:F(0,1)_120
+	jmp jpeg_idct_ifast_F0_1_120
 	add [eax], al
 
 
-;jpeg_idct_islow:F(0,1)
+;jpeg_idct_islow_F0_1
 
-jpeg_idct_islow:F(0,1):
+jpeg_idct_islow_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -35185,13 +35298,13 @@ jpeg_idct_islow:F(0,1):
 	mov [ebp-0x188], edx
 	mov dword [ebp-0x15c], 0x8
 	mov ecx, eax
-	jmp jpeg_idct_islow:F(0,1)_10
-jpeg_idct_islow:F(0,1)_40:
+	jmp jpeg_idct_islow_F0_1_10
+jpeg_idct_islow_F0_1_40:
 	mov edx, [ebp-0x190]
 	add edx, 0x20
 	mov esi, [ebp-0x190]
 	cmp word [esi+0x20], 0x0
-	jz jpeg_idct_islow:F(0,1)_20
+	jz jpeg_idct_islow_F0_1_20
 	mov edi, esi
 	mov ecx, esi
 	mov eax, esi
@@ -35205,7 +35318,7 @@ jpeg_idct_islow:F(0,1)_40:
 	mov esi, [ebp-0x190]
 	add esi, 0x30
 	mov [ebp-0x160], esi
-jpeg_idct_islow:F(0,1)_50:
+jpeg_idct_islow_F0_1_50:
 	movsx esi, word [edx]
 	mov edi, [ebp-0x18c]
 	imul esi, [edi+0x40]
@@ -35419,15 +35532,15 @@ jpeg_idct_islow:F(0,1)_50:
 	add dword [ebp-0x18c], 0x4
 	add esi, 0x4
 	mov [ebp-0x188], esi
-jpeg_idct_islow:F(0,1)_180:
+jpeg_idct_islow_F0_1_180:
 	sub dword [ebp-0x15c], 0x1
-	jz jpeg_idct_islow:F(0,1)_30
+	jz jpeg_idct_islow_F0_1_30
 	mov ecx, [ebp-0x190]
-jpeg_idct_islow:F(0,1)_10:
+jpeg_idct_islow_F0_1_10:
 	movzx ecx, word [ecx+0x10]
 	mov [ebp-0x1aa], cx
 	test cx, cx
-	jz jpeg_idct_islow:F(0,1)_40
+	jz jpeg_idct_islow_F0_1_40
 	mov edx, [ebp-0x190]
 	add edx, 0x20
 	mov eax, [ebp-0x190]
@@ -35444,14 +35557,14 @@ jpeg_idct_islow:F(0,1)_10:
 	mov ecx, [ebp-0x190]
 	add ecx, 0x30
 	mov [ebp-0x160], ecx
-	jmp jpeg_idct_islow:F(0,1)_50
-jpeg_idct_islow:F(0,1)_20:
+	jmp jpeg_idct_islow_F0_1_50
+jpeg_idct_islow_F0_1_20:
 	mov edi, esi
 	mov eax, esi
 	add edi, 0x30
 	mov [ebp-0x160], edi
 	cmp word [esi+0x30], 0x0
-	jz jpeg_idct_islow:F(0,1)_60
+	jz jpeg_idct_islow_F0_1_60
 	mov ecx, esi
 	mov edi, eax
 	add eax, 0x60
@@ -35461,20 +35574,20 @@ jpeg_idct_islow:F(0,1)_20:
 	mov [ebp-0x168], esi
 	add edi, 0x50
 	mov [ebp-0x164], edi
-	jmp jpeg_idct_islow:F(0,1)_50
-jpeg_idct_islow:F(0,1)_30:
+	jmp jpeg_idct_islow_F0_1_50
+jpeg_idct_islow_F0_1_30:
 	mov ecx, [ebp-0x1d0]
 	mov [ebp-0x10c], ecx
 	mov dword [ebp-0x158], 0x1
 	mov edx, ecx
-	jmp jpeg_idct_islow:F(0,1)_70
-jpeg_idct_islow:F(0,1)_100:
+	jmp jpeg_idct_islow_F0_1_70
+jpeg_idct_islow_F0_1_100:
 	mov edx, [ebp-0x10c]
 	add edx, 0x8
 	mov ecx, [ebp-0x10c]
 	mov eax, [ecx+0x8]
 	test eax, eax
-	jz jpeg_idct_islow:F(0,1)_80
+	jz jpeg_idct_islow_F0_1_80
 	mov esi, ecx
 	mov edi, ecx
 	mov eax, ecx
@@ -35483,13 +35596,13 @@ jpeg_idct_islow:F(0,1)_100:
 	mov [ebp-0x17c], ecx
 	add esi, 0x1c
 	mov [ebp-0x178], esi
-jpeg_idct_islow:F(0,1)_110:
+jpeg_idct_islow_F0_1_110:
 	add edi, 0x14
 	mov [ebp-0x174], edi
 	mov ecx, [ebp-0x10c]
 	add ecx, 0xc
 	mov [ebp-0x170], ecx
-jpeg_idct_islow:F(0,1)_130:
+jpeg_idct_islow_F0_1_130:
 	mov edi, [edx]
 	mov ecx, [eax]
 	lea edx, [edi+ecx]
@@ -35705,12 +35818,12 @@ jpeg_idct_islow:F(0,1)_130:
 	movzx eax, byte [esi+eax]
 	mov [ecx+0x4], al
 	add dword [ebp-0x10c], 0x20
-jpeg_idct_islow:F(0,1)_210:
+jpeg_idct_islow_F0_1_210:
 	add dword [ebp-0x158], 0x1
 	cmp dword [ebp-0x158], 0x9
-	jz jpeg_idct_islow:F(0,1)_90
+	jz jpeg_idct_islow_F0_1_90
 	mov edx, [ebp-0x10c]
-jpeg_idct_islow:F(0,1)_70:
+jpeg_idct_islow_F0_1_70:
 	mov eax, [ebp+0x18]
 	mov esi, [ebp-0x158]
 	mov edi, [ebp+0x14]
@@ -35719,7 +35832,7 @@ jpeg_idct_islow:F(0,1)_70:
 	mov edx, [edx+0x4]
 	mov [ebp-0x1a8], edx
 	test edx, edx
-	jz jpeg_idct_islow:F(0,1)_100
+	jz jpeg_idct_islow_F0_1_100
 	mov edx, [ebp-0x10c]
 	add edx, 0x8
 	mov eax, [ebp-0x10c]
@@ -35731,15 +35844,15 @@ jpeg_idct_islow:F(0,1)_70:
 	add esi, 0x1c
 	mov [ebp-0x178], esi
 	mov edi, [ebp-0x10c]
-	jmp jpeg_idct_islow:F(0,1)_110
-jpeg_idct_islow:F(0,1)_80:
+	jmp jpeg_idct_islow_F0_1_110
+jpeg_idct_islow_F0_1_80:
 	mov esi, ecx
 	mov edi, ecx
 	add esi, 0xc
 	mov [ebp-0x170], esi
 	mov eax, [ecx+0xc]
 	test eax, eax
-	jz jpeg_idct_islow:F(0,1)_120
+	jz jpeg_idct_islow_F0_1_120
 	mov esi, edi
 	mov eax, edi
 	add eax, 0x18
@@ -35749,13 +35862,13 @@ jpeg_idct_islow:F(0,1)_80:
 	mov [ebp-0x178], ecx
 	add esi, 0x14
 	mov [ebp-0x174], esi
-	jmp jpeg_idct_islow:F(0,1)_130
-jpeg_idct_islow:F(0,1)_60:
+	jmp jpeg_idct_islow_F0_1_130
+jpeg_idct_islow_F0_1_60:
 	add eax, 0x40
 	mov [ebp-0x16c], eax
 	mov ecx, [ebp-0x190]
 	cmp word [ecx+0x40], 0x0
-	jz jpeg_idct_islow:F(0,1)_140
+	jz jpeg_idct_islow_F0_1_140
 	mov esi, ecx
 	mov eax, ecx
 	add eax, 0x60
@@ -35763,20 +35876,20 @@ jpeg_idct_islow:F(0,1)_60:
 	mov [ebp-0x168], ecx
 	add esi, 0x50
 	mov [ebp-0x164], esi
-	jmp jpeg_idct_islow:F(0,1)_50
-jpeg_idct_islow:F(0,1)_90:
+	jmp jpeg_idct_islow_F0_1_50
+jpeg_idct_islow_F0_1_90:
 	add esp, 0x1e0
 	pop esi
 	pop edi
 	pop ebp
 	ret
-jpeg_idct_islow:F(0,1)_120:
+jpeg_idct_islow_F0_1_120:
 	add edi, 0x10
 	mov [ebp-0x17c], edi
 	mov eax, [ebp-0x10c]
 	mov esi, [eax+0x10]
 	test esi, esi
-	jz jpeg_idct_islow:F(0,1)_150
+	jz jpeg_idct_islow_F0_1_150
 	mov ecx, eax
 	mov esi, eax
 	add eax, 0x18
@@ -35784,24 +35897,24 @@ jpeg_idct_islow:F(0,1)_120:
 	mov [ebp-0x178], ecx
 	add esi, 0x14
 	mov [ebp-0x174], esi
-	jmp jpeg_idct_islow:F(0,1)_130
-jpeg_idct_islow:F(0,1)_140:
+	jmp jpeg_idct_islow_F0_1_130
+jpeg_idct_islow_F0_1_140:
 	mov edi, ecx
 	mov eax, ecx
 	add edi, 0x50
 	mov [ebp-0x164], edi
 	cmp word [ecx+0x50], 0x0
-	jnz jpeg_idct_islow:F(0,1)_160
+	jnz jpeg_idct_islow_F0_1_160
 	add eax, 0x60
 	mov esi, [ebp-0x190]
 	cmp word [esi+0x60], 0x0
-	jnz jpeg_idct_islow:F(0,1)_170
+	jnz jpeg_idct_islow_F0_1_170
 	mov edi, esi
 	mov ecx, esi
 	add edi, 0x70
 	mov [ebp-0x168], edi
 	cmp word [esi+0x70], 0x0
-	jnz jpeg_idct_islow:F(0,1)_50
+	jnz jpeg_idct_islow_F0_1_50
 	movsx eax, word [esi]
 	mov esi, [ebp-0x18c]
 	imul eax, [esi]
@@ -35821,27 +35934,27 @@ jpeg_idct_islow:F(0,1)_140:
 	mov [ebp-0x18c], esi
 	add edi, 0x4
 	mov [ebp-0x188], edi
-	jmp jpeg_idct_islow:F(0,1)_180
-jpeg_idct_islow:F(0,1)_150:
+	jmp jpeg_idct_islow_F0_1_180
+jpeg_idct_islow_F0_1_150:
 	mov edi, eax
 	add edi, 0x14
 	mov [ebp-0x174], edi
 	mov eax, [ebp-0x10c]
 	mov ecx, [eax+0x14]
 	test ecx, ecx
-	jnz jpeg_idct_islow:F(0,1)_190
+	jnz jpeg_idct_islow_F0_1_190
 	add eax, 0x18
 	mov esi, [ebp-0x10c]
 	mov edi, [esi+0x18]
 	test edi, edi
-	jnz jpeg_idct_islow:F(0,1)_200
+	jnz jpeg_idct_islow_F0_1_200
 	mov edi, esi
 	mov ecx, esi
 	add edi, 0x1c
 	mov [ebp-0x178], edi
 	mov esi, [esi+0x1c]
 	test esi, esi
-	jnz jpeg_idct_islow:F(0,1)_130
+	jnz jpeg_idct_islow_F0_1_130
 	mov eax, [ecx]
 	add eax, 0x10
 	sar eax, 0x5
@@ -35859,42 +35972,42 @@ jpeg_idct_islow:F(0,1)_150:
 	mov [edi+0x7], al
 	add ecx, 0x20
 	mov [ebp-0x10c], ecx
-	jmp jpeg_idct_islow:F(0,1)_210
-jpeg_idct_islow:F(0,1)_160:
+	jmp jpeg_idct_islow_F0_1_210
+jpeg_idct_islow_F0_1_160:
 	add eax, 0x60
 	add ecx, 0x70
 	mov [ebp-0x168], ecx
-	jmp jpeg_idct_islow:F(0,1)_50
-jpeg_idct_islow:F(0,1)_190:
+	jmp jpeg_idct_islow_F0_1_50
+jpeg_idct_islow_F0_1_190:
 	mov ecx, eax
 	add eax, 0x18
 	add ecx, 0x1c
 	mov [ebp-0x178], ecx
-	jmp jpeg_idct_islow:F(0,1)_130
-jpeg_idct_islow:F(0,1)_170:
+	jmp jpeg_idct_islow_F0_1_130
+jpeg_idct_islow_F0_1_170:
 	add esi, 0x70
 	mov [ebp-0x168], esi
-	jmp jpeg_idct_islow:F(0,1)_50
-jpeg_idct_islow:F(0,1)_200:
+	jmp jpeg_idct_islow_F0_1_50
+jpeg_idct_islow_F0_1_200:
 	add esi, 0x1c
 	mov [ebp-0x178], esi
-	jmp jpeg_idct_islow:F(0,1)_130
+	jmp jpeg_idct_islow_F0_1_130
 	add [eax], al
 
 
-;jpeg_fdct_float:F(0,1)
+;jpeg_fdct_float_F0_1
 
-jpeg_fdct_float:F(0,1):
+jpeg_fdct_float_F0_1:
 	push ebp
 	mov ebp, esp
 	push esi
 	push ebx
 	sub esp, 0x18
-	call __i686.get_pc_thunk.bx
+	call __i686_get_pc_thunk_bx
 	mov ecx, [ebp+0x8]
 	mov eax, ecx
 	mov edx, 0x8
-jpeg_fdct_float:F(0,1)_10:
+jpeg_fdct_float_F0_1_10:
 	movss xmm7, dword [eax]
 	movss xmm0, dword [eax+0x1c]
 	movaps xmm4, xmm7
@@ -35967,10 +36080,10 @@ jpeg_fdct_float:F(0,1)_10:
 	movss [eax+0x1c], xmm2
 	add eax, 0x20
 	sub edx, 0x1
-	jnz jpeg_fdct_float:F(0,1)_10
+	jnz jpeg_fdct_float_F0_1_10
 	mov eax, ecx
 	mov edx, 0x8
-jpeg_fdct_float:F(0,1)_20:
+jpeg_fdct_float_F0_1_20:
 	movss xmm7, dword [eax]
 	movss xmm0, dword [eax+0xe0]
 	movaps xmm4, xmm7
@@ -36043,7 +36156,7 @@ jpeg_fdct_float:F(0,1)_20:
 	movss [eax+0xe0], xmm2
 	add eax, 0x4
 	sub edx, 0x1
-	jnz jpeg_fdct_float:F(0,1)_20
+	jnz jpeg_fdct_float_F0_1_20
 	add esp, 0x18
 	pop ebx
 	pop esi
@@ -36051,9 +36164,9 @@ jpeg_fdct_float:F(0,1)_20:
 	ret
 
 
-;jpeg_fdct_ifast:F(0,1)
+;jpeg_fdct_ifast_F0_1
 
-jpeg_fdct_ifast:F(0,1):
+jpeg_fdct_ifast_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -36064,11 +36177,11 @@ jpeg_fdct_ifast:F(0,1):
 	mov dword [ebp-0x28], 0x8
 	mov ecx, eax
 	mov edi, eax
-	jmp jpeg_fdct_ifast:F(0,1)_10
-jpeg_fdct_ifast:F(0,1)_20:
+	jmp jpeg_fdct_ifast_F0_1_10
+jpeg_fdct_ifast_F0_1_20:
 	mov ecx, edx
 	mov edi, edx
-jpeg_fdct_ifast:F(0,1)_10:
+jpeg_fdct_ifast_F0_1_10:
 	mov edx, [ecx]
 	mov eax, [ecx+0x1c]
 	lea esi, [edx+eax]
@@ -36166,17 +36279,17 @@ jpeg_fdct_ifast:F(0,1)_10:
 	add edx, 0x20
 	mov [ebp-0x20], edx
 	sub dword [ebp-0x28], 0x1
-	jnz jpeg_fdct_ifast:F(0,1)_20
+	jnz jpeg_fdct_ifast_F0_1_20
 	mov ecx, [ebp+0x8]
 	mov [ebp-0x2c], ecx
 	mov dword [ebp-0x24], 0x8
 	mov esi, ecx
 	mov edi, ecx
-	jmp jpeg_fdct_ifast:F(0,1)_30
-jpeg_fdct_ifast:F(0,1)_40:
+	jmp jpeg_fdct_ifast_F0_1_30
+jpeg_fdct_ifast_F0_1_40:
 	mov esi, edx
 	mov edi, edx
-jpeg_fdct_ifast:F(0,1)_30:
+jpeg_fdct_ifast_F0_1_30:
 	mov edx, [esi]
 	mov eax, [esi+0xe0]
 	lea esi, [edx+eax]
@@ -36274,7 +36387,7 @@ jpeg_fdct_ifast:F(0,1)_30:
 	add edx, 0x4
 	mov [ebp-0x2c], edx
 	sub dword [ebp-0x24], 0x1
-	jnz jpeg_fdct_ifast:F(0,1)_40
+	jnz jpeg_fdct_ifast_F0_1_40
 	add esp, 0x58
 	pop esi
 	pop edi
@@ -36282,9 +36395,9 @@ jpeg_fdct_ifast:F(0,1)_30:
 	ret
 
 
-;jpeg_fdct_islow:F(0,1)
+;jpeg_fdct_islow_F0_1
 
-jpeg_fdct_islow:F(0,1):
+jpeg_fdct_islow_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -36294,10 +36407,10 @@ jpeg_fdct_islow:F(0,1):
 	mov [ebp-0x34], eax
 	mov dword [ebp-0x3c], 0x8
 	mov ecx, eax
-	jmp jpeg_fdct_islow:F(0,1)_10
-jpeg_fdct_islow:F(0,1)_20:
+	jmp jpeg_fdct_islow_F0_1_10
+jpeg_fdct_islow_F0_1_20:
 	mov ecx, edx
-jpeg_fdct_islow:F(0,1)_10:
+jpeg_fdct_islow_F0_1_10:
 	mov edx, [ecx]
 	mov eax, [ecx+0x1c]
 	lea esi, [edx+eax]
@@ -36473,15 +36586,15 @@ jpeg_fdct_islow:F(0,1)_10:
 	add edx, 0x20
 	mov [ebp-0x34], edx
 	sub dword [ebp-0x3c], 0x1
-	jnz jpeg_fdct_islow:F(0,1)_20
+	jnz jpeg_fdct_islow_F0_1_20
 	mov ecx, [ebp+0x8]
 	mov [ebp-0x40], ecx
 	mov dword [ebp-0x38], 0x8
 	mov edi, ecx
-	jmp jpeg_fdct_islow:F(0,1)_30
-jpeg_fdct_islow:F(0,1)_40:
+	jmp jpeg_fdct_islow_F0_1_30
+jpeg_fdct_islow_F0_1_40:
 	mov edi, edx
-jpeg_fdct_islow:F(0,1)_30:
+jpeg_fdct_islow_F0_1_30:
 	mov edx, [edi]
 	mov eax, [edi+0xe0]
 	lea edi, [edx+eax]
@@ -36659,7 +36772,7 @@ jpeg_fdct_islow:F(0,1)_30:
 	add edx, 0x4
 	mov [ebp-0x40], edx
 	sub dword [ebp-0x38], 0x1
-	jnz jpeg_fdct_islow:F(0,1)_40
+	jnz jpeg_fdct_islow_F0_1_40
 	add esp, 0x64
 	pop esi
 	pop edi

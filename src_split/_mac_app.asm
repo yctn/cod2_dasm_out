@@ -2,660 +2,742 @@
 ;Symbols in this file: 28
 ;
 ;Imports (over-declared, NASM-safe):
-	extern __keymgr_dwarf2_register_sections
-	extern atexit
-	extern exit
-	extern AEDisposeDesc
-	extern AECreateDesc
-	extern __cxa_allocate_exception
-	extern __cxa_throw
-	extern _Unwind_Resume
 	extern AECoerceDesc
+	extern AECreateAppleEvent
+	extern AECreateDesc
+	extern AEDisposeDesc
 	extern AEGetDescData
 	extern AEGetDescDataSize
-	extern CreateObjSpecifier
-	extern AEPutParamDesc
-	extern AECreateAppleEvent
-	extern AESend
-	extern AEPutParamPtr
-	extern AEGetParamPtr
 	extern AEGetParamDesc
-	extern GetControlBounds
-	extern PtInRect
-	extern GetEventKind
-	extern GetEventClass
-	extern GetEventParameter
-	extern GetControlOwner
-	extern AdvanceKeyboardFocus
-	extern SetWRefCon
-	extern QuitAppModalLoopForWindow
-	extern HIViewGetRoot
-	extern HIViewGetViewForMouseEvent
-	extern GetControlKind
-	extern SetThemeCursor
-	extern CFBundleGetMainBundle
-	extern CreateNibReferenceWithCFBundle
-	extern CreateWindowFromNib
-	extern DisposeNibReference
-	extern GetWindowEventTarget
-	extern InstallEventHandler
-	extern GetWindowResizeLimits
-	extern SetWindowResizeLimits
-	extern InitCursor
-	extern ShowWindow
-	extern RunAppModalLoopForWindow
-	extern HideWindow
-	extern GetWRefCon
-	extern DisposeWindow
-	extern GetControlByID
-	extern GetControlMaximum
-	extern GetControlDataSize
-	extern SetControlData
-	extern HandleControlKey
-	extern GetControlReference
-	extern GetControlData
-	extern AlertSoundPlay
-	extern HITextViewGetTXNObject
-	extern TXNSetTypeAttributes
-	extern HideControl
-	extern ShowControl
-	extern DisableControl
-	extern EnableControl
-	extern SetControlFontStyle
-	extern SetKeyboardFocus
-	extern NewControlUserPaneDrawUPP
-	extern NewControlUserPaneHitTestUPP
-	extern NewControlUserPaneTrackingUPP
-	extern SetControlReference
-	extern SetControlMaximum
-	extern NewControlKeyFilterUPP
-	extern NewControlEditTextValidationUPP
-	extern GetWindowPort
-	extern CGDisplayBounds
-	extern DMGetFirstScreenDevice
-	extern EqualRect
-	extern DMGetNextScreenDevice
-	extern GetMainDevice
-	extern GetWindowPortBounds
-	extern CGDisplayFade
-	extern CGReleaseDisplayFadeReservation
-	extern CGAcquireDisplayFadeReservation
-	extern CGDisplayPixelsWide
-	extern CGDisplayPixelsHigh
-	extern CGDisplayBitsPerPixel
-	extern aglSwapBuffers
-	extern EndMediaEdits
-	extern GetMediaDuration
-	extern InsertMediaIntoTrack
-	extern AddMovieResource
-	extern CloseMovieFile
-	extern MoveWindow
-	extern GetAvailableWindowPositioningBounds
-	extern CreateNewWindow
-	extern SetPortWindowPort
-	extern SetWindowContentColor
-	extern SetWindowTitleWithCFString
-	extern gluCheckExtension
-	extern _Znam
-	extern CGSetDisplayTransferByTable
-	extern _ZdaPv
-	extern CGGetDisplayTransferByTable
-	extern QDLocalToGlobalPoint
-	extern QDGlobalToLocalPoint
-	extern _Znwm
-	extern _ZdlPv
-	extern _ZSt17__throw_bad_allocv
-	extern _ZSt20__throw_length_errorPKc
-	extern NormalizeThemeDrawingState
-	extern ForeColor
-	extern FrameRoundRect
-	extern RGBForeColor
-	extern PaintRoundRect
-	extern NewRgn
-	extern OpenRgn
-	extern CloseRgn
-	extern SetClip
-	extern DisposeRgn
-	extern ClipRect
-	extern DrawThemeMenuBarBackground
-	extern InsetRect
-	extern DrawThemeFocusRect
-	extern GetIconRefFromFileInfo
-	extern PlotIconRef
-	extern ReleaseIconRef
-	extern CGRectIsEmpty
-	extern CGRectUnion
-	extern CGRectGetWidth
-	extern CGRectGetHeight
-	extern OffsetRect
-	extern MapRect
-	extern glFinish
-	extern aglSetCurrentContext
-	extern aglSetDrawable
-	extern aglDestroyContext
-	extern ShowMenuBar
-	extern SetSystemUIMode
-	extern aglChoosePixelFormat
-	extern aglCreateContext
-	extern aglSetFullScreen
-	extern CGDisplayCurrentMode
-	extern aglSetInteger
-	extern HideMenuBar
-	extern aglDescribePixelFormat
-	extern aglDestroyPixelFormat
-	extern glEnable
-	extern glHint
-	extern aglGetDrawable
-	extern glDisable
-	extern IsWindowVisible
-	extern SizeWindow
-	extern PaintRect
-	extern _ZNSs6assignERKSs
-	extern CGDisplayIDToOpenGLDisplayMask
-	extern CGLQueryRendererInfo
-	extern CGLDescribeRenderer
-	extern CGLDestroyRendererInfo
-	extern CGDisplayAvailableModes
-	extern CFArrayGetCount
-	extern CGDisplayIOServicePort
-	extern CGLGetCurrentContext
-	extern CGLChoosePixelFormat
-	extern CGLCreateContext
-	extern CGLDestroyPixelFormat
-	extern CGLSetCurrentContext
-	extern glGetString
-	extern _ZNSs6assignEPKcm
-	extern glGetIntegerv
-	extern CGLDestroyContext
-	extern _ZNSsC1ERKSs
-	extern strstr
-	extern _ZNSsD1Ev
-	extern CFArrayGetValueAtIndex
-	extern IOObjectConformsTo
-	extern IORegistryEntryGetParentEntry
-	extern glGetFloatv
-	extern _ZN9__gnu_cxx18__exchange_and_addEPVii
-	extern _ZNSs4_Rep10_M_destroyERKSaIcE
-	extern __cxa_begin_catch
-	extern __cxa_rethrow
-	extern __cxa_end_catch
-	extern CGGetActiveDisplayList
-	extern NewMenu
-	extern InsertMenu
-	extern InvalMenuBar
-	extern GetCurrentKeyModifiers
-	extern CGRectEqualToRect
-	extern Gestalt
-	extern sysctl
-	extern FSOpenIterator
-	extern FSGetCatalogInfoBulk
-	extern FSCloseIterator
-	extern FSDeleteObject
-	extern FSSetCatalogInfo
-	extern FSPathMakeRef
-	extern access
-	extern CFBundleCopyExecutableURL
-	extern CFURLGetFSRef
-	extern CFRelease
-	extern FSGetCatalogInfo
-	extern GetCurrentProcess
-	extern strcat
-	extern GetProcessBundleLocation
-	extern FSRefMakePath
-	extern PBGetCatInfoSync
-	extern FSMakeFSSpec
-	extern FSpMakeFSRef
-	extern memcpy
-	extern CFStringCreateWithCString
-	extern CFPreferencesCopyAppValue
-	extern CFGetTypeID
-	extern CFStringGetTypeID
-	extern strcpy
-	extern CFStringGetCString
-	extern CFPreferencesSetAppValue
-	extern atoi
-	extern sprintf
-	extern CFPreferencesAppSynchronize
-	extern atof
-	extern CFBundleCopyLocalizedString
-	extern CFStringGetPascalString
-	extern StringToNum
-	extern CFStringCreateWithFormat
-	extern GetPort
-	extern SetPort
-	extern CFStringCreateWithCharacters
-	extern GetCursor
-	extern SetCursor
-	extern CGAssociateMouseAndMouseCursorPosition
-	extern CGWarpMouseCursorPosition
-	extern HideCursor
-	extern GetGlobalMouse
-	extern UpTime
+	extern AEGetParamPtr
+	extern AEInstallEventHandler
+	extern AEPutParamDesc
+	extern AEPutParamPtr
+	extern AESend
+	extern AUGraphConnectNodeInput
+	extern AUGraphGetCPULoad
+	extern AUGraphGetNodeInfo
+	extern AUGraphInitialize
+	extern AUGraphNewNode
+	extern AUGraphOpen
+	extern AUGraphStart
+	extern AUGraphStop
+	extern AUGraphUpdate
 	extern AddDurationToAbsolute
-	extern MPDelayUntil
-	extern GetNextProcess
-	extern GetProcessInformation
-	extern CFDictionaryGetValue
-	extern CFNumberGetValue
-	extern lround
-	extern IORegistryEntryCreateCFProperty
+	extern AddMovieResource
+	extern AdvanceKeyboardFocus
+	extern AlertSoundPlay
+	extern AppendMenuItemTextWithCFString
+	extern AudioConverterDispose
+	extern AudioConverterFillBuffer
+	extern AudioConverterFillComplexBuffer
+	extern AudioConverterNew
+	extern AudioConverterReset
+	extern AudioDeviceGetProperty
+	extern AudioDeviceGetPropertyInfo
+	extern AudioDeviceSetProperty
+	extern AudioHardwareGetProperty
+	extern AudioOutputUnitStart
+	extern AudioOutputUnitStop
+	extern AudioUnitAddRenderNotify
+	extern AudioUnitGetProperty
+	extern AudioUnitInitialize
+	extern AudioUnitRemoveRenderNotify
+	extern AudioUnitRender
+	extern AudioUnitSetParameter
+	extern AudioUnitSetProperty
+	extern AudioUnitUninitialize
+	extern CFArrayGetCount
+	extern CFArrayGetValueAtIndex
+	extern CFBundleCopyExecutableURL
+	extern CFBundleCopyLocalizedString
+	extern CFBundleGetMainBundle
 	extern CFDataGetBytePtr
-	extern CreateEvent
-	extern SetEventParameter
-	extern GetMainEventQueue
-	extern PostEventToQueue
-	extern ReleaseEvent
-	extern pthread_main_np
-	extern GetStandardAlertDefaultParams
-	extern CreateStandardAlert
-	extern RunStandardAlert
-	extern LSCopyItemInfoForRef
-	extern pthread_self
-	extern OTAtomicAdd32
-	extern OTCompareAndSwap32
-	extern calloc
-	extern free
-	extern strrchr
-	extern Microseconds
-	extern __udivdi3
-	extern memset
-	extern strncpy
-	extern getcwd
-	extern NewGWorld
-	extern GetGWorldPixMap
-	extern LockPixels
-	extern GetPixRowBytes
-	extern QDRegisterNamedPixMapCursor
-	extern DisposeGWorld
-	extern TickCount
-	extern QDSetNamedPixMapCursor
-	extern GetMainEventLoop
-	extern InstallEventLoopTimer
-	extern GetQDGlobalsArrow
-	extern ShowCursor
-	extern fopen
-	extern fseek
-	extern fclose
-	extern ftell
-	extern rewind
-	extern malloc
-	extern fread
-	extern _ZNKSs7compareEPKc
-	extern glStencilMask
-	extern glDepthMask
-	extern glFlushVertexArrayRangeAPPLE
-	extern glTexParameterfv
-	extern glLightfv
-	extern glColor4f
-	extern glMatrixMode
-	extern glLoadMatrixf
-	extern glTexParameteri
-	extern glGenTextures
-	extern _ZNSt15_List_node_base4hookEPS_
-	extern glTexParameterf
-	extern glTexEnvf
-	extern glPushMatrix
-	extern glLoadIdentity
-	extern glTexCoord2f
-	extern glPopMatrix
-	extern glTexEnvfv
-	extern glPointSize
-	extern glDrawRangeElements
-	extern memmove
-	extern glBindTexture
-	extern glColorMask
-	extern glActiveTextureARB
-	extern glDepthFunc
-	extern glShadeModel
-	extern glViewport
-	extern glDepthRange
-	extern glAlphaFunc
-	extern glClearDepth
-	extern glScissor
-	extern glClear
-	extern glClearColor
-	extern glClearStencil
-	extern glMaterialfv
-	extern glMaterialf
-	extern glPixelStorei
-	extern glCopyTexSubImage2D
-	extern gluOrtho2D
-	extern glTexEnvi
-	extern glBlendFuncSeparateEXT
-	extern glBlendFunc
-	extern glBegin
-	extern glVertex3f
-	extern glEnd
-	extern cos
-	extern log
-	extern cosf
-	extern glPolygonMode
-	extern glFogf
-	extern glLightModelfv
-	extern glBlendEquationEXT
-	extern glPolygonOffset
-	extern glFogfv
-	extern glPointParameterfvARB
-	extern glStencilFunc
-	extern glPointParameterfARB
-	extern glStencilOp
-	extern glFrontFace
-	extern glColorMaterial
-	extern glPushAttrib
-	extern glPushClientAttrib
-	extern glDrawBuffer
-	extern glReadBuffer
-	extern __dynamic_cast
-	extern glScalef
-	extern glVertex2f
-	extern glPopClientAttrib
-	extern glPopAttrib
-	extern glProgramEnvParameter4fvARB
-	extern glTexGenfv
-	extern _ZNSsC1EPKcRKSaIcE
-	extern _ZNKSs4findEPKcmm
-	extern _ZNSsC1ERKSsmm
-	extern _ZSt20__throw_out_of_rangePKc
-	extern glCombinerParameterfvNV
-	extern glCombinerStageParameterfvNV
-	extern glBindProgramARB
-	extern glDeleteProgramsARB
-	extern glGetProgramivARB
-	extern glGenProgramsARB
-	extern glProgramStringARB
-	extern _ZNSs6appendEPKcm
-	extern _ZNSs6appendERKSs
-	extern glTexImage2D
-	extern glCompressedTexImage2DARB
-	extern glTexSubImage2D
-	extern glCompressedTexSubImage2D
-	extern _ZNSt15_List_node_base6unhookEv
-	extern ceilf
-	extern glFinishFenceAPPLE
-	extern glSetFenceAPPLE
-	extern glGenFencesAPPLE
-	extern glDeleteFencesAPPLE
-	extern glVertexArrayRangeAPPLE
-	extern glDisableVertexAttribArrayARB
-	extern glVertexAttribPointerARB
-	extern glEnableVertexAttribArrayARB
-	extern glTexGeni
-	extern glBindVertexArrayAPPLE
-	extern glLightf
-	extern glClientActiveTextureARB
-	extern glDeleteTextures
-	extern glDeleteVertexArraysAPPLE
-	extern glDisableClientState
-	extern glFogi
-	extern glLightModeli
-	extern glClipPlane
-	extern glEnableClientState
-	extern glVertexArrayParameteriAPPLE
-	extern strcasecmp
-	extern strncasecmp
-	extern tolower
-	extern toupper
-	extern RemoveEventHandler
-	extern FlushEventQueue
-	extern SendEventToEventTarget
-	extern ReceiveNextEvent
+	extern CFDictionaryGetValue
+	extern CFGetTypeID
+	extern CFNumberGetValue
+	extern CFPreferencesAppSynchronize
+	extern CFPreferencesCopyAppValue
+	extern CFPreferencesSetAppValue
+	extern CFRelease
+	extern CFStringCreateWithCString
+	extern CFStringCreateWithCharacters
+	extern CFStringCreateWithFormat
+	extern CFStringGetCString
+	extern CFStringGetPascalString
+	extern CFStringGetTypeID
 	extern CFURLCreateFromFSRef
-	extern CGDataProviderCreateWithURL
-	extern CGImageCreateWithPNGDataProvider
-	extern QDBeginCGContext
-	extern CGImageRelease
-	extern CGDataProviderRelease
+	extern CFURLCreateWithBytes
+	extern CFURLGetFSRef
+	extern CGAcquireDisplayFadeReservation
+	extern CGAssociateMouseAndMouseCursorPosition
 	extern CGContextClearRect
 	extern CGContextDrawImage
 	extern CGContextFlush
-	extern QDEndCGContext
-	extern EventAvail
-	extern strcmp
-	extern getrlimit
-	extern setrlimit
-	extern EnterMovies
-	extern FSGetVolumeInfo
-	extern GetCompressionInfo
-	extern RunApplicationEventLoop
-	extern GetEventDispatcherTarget
-	extern GetApplicationEventTarget
-	extern GetMenuHandle
-	extern AppendMenuItemTextWithCFString
-	extern SetItemCmd
-	extern GetIndMenuItemWithCommandID
-	extern GetMenuEventTarget
-	extern AEInstallEventHandler
-	extern chdir
-	extern QuitApplicationEventLoop
+	extern CGDataProviderCreateWithURL
+	extern CGDataProviderRelease
+	extern CGDisplayAvailableModes
+	extern CGDisplayBitsPerPixel
+	extern CGDisplayBounds
+	extern CGDisplayCurrentMode
+	extern CGDisplayFade
+	extern CGDisplayIDToOpenGLDisplayMask
+	extern CGDisplayIOServicePort
+	extern CGDisplayPixelsHigh
+	extern CGDisplayPixelsWide
+	extern CGGetActiveDisplayList
+	extern CGGetDisplayTransferByTable
+	extern CGImageCreateWithPNGDataProvider
+	extern CGImageRelease
+	extern CGLChoosePixelFormat
+	extern CGLCreateContext
+	extern CGLDescribeRenderer
+	extern CGLDestroyContext
+	extern CGLDestroyPixelFormat
+	extern CGLDestroyRendererInfo
+	extern CGLGetCurrentContext
+	extern CGLQueryRendererInfo
+	extern CGLSetCurrentContext
+	extern CGRectEqualToRect
+	extern CGRectGetHeight
+	extern CGRectGetWidth
+	extern CGRectIsEmpty
+	extern CGRectUnion
+	extern CGReleaseDisplayFadeReservation
+	extern CGSetDisplayTransferByTable
+	extern CGWarpMouseCursorPosition
+	extern ClipRect
+	extern CloseComponent
+	extern CloseMovieFile
+	extern CloseRgn
+	extern CollapseWindow
+	extern CreateEvent
+	extern CreateNewWindow
+	extern CreateNibReferenceWithCFBundle
+	extern CreateObjSpecifier
+	extern CreateStandardAlert
+	extern CreateWindowFromNib
+	extern DMGetFirstScreenDevice
+	extern DMGetNextScreenDevice
+	extern DisableControl
 	extern DisableMenuItem
-	extern close
-	extern ioctl
-	extern __error
-	extern vsnprintf
-	extern strchr
-	extern rand
-	extern acosf
-	extern atan2
-	extern tan
-	extern sinf
-	extern time
-	extern localtime
-	extern asctime
-	extern longjmp
-	extern __maskrune
-	extern snprintf
-	extern floorf
-	extern setjmp
-	extern remove
-	extern fflush
-	extern qsort
-	extern fwrite
-	extern rename
-	extern isspace
-	extern _ZNSs9_M_mutateEmmm
+	extern DisposeAUGraph
+	extern DisposeGWorld
+	extern DisposeHandle
+	extern DisposeMovie
+	extern DisposeNibReference
+	extern DisposeRgn
+	extern DisposeWindow
+	extern DrawThemeFocusRect
+	extern DrawThemeMenuBarBackground
+	extern EnableControl
+	extern EndMediaEdits
+	extern EnterMovies
+	extern EqualRect
+	extern EventAvail
+	extern FSCloseIterator
+	extern FSDeleteObject
+	extern FSGetCatalogInfo
+	extern FSGetCatalogInfoBulk
+	extern FSGetVolumeInfo
+	extern FSMakeFSSpec
+	extern FSOpenIterator
+	extern FSPathMakeRef
+	extern FSRefMakePath
+	extern FSSetCatalogInfo
+	extern FSpMakeFSRef
+	extern FindNextComponent
+	extern FlushEventQueue
+	extern ForeColor
+	extern FrameRoundRect
+	extern Gestalt
+	extern GetApplicationEventTarget
+	extern GetAvailableWindowPositioningBounds
+	extern GetComponentVersion
+	extern GetCompressionInfo
+	extern GetControlBounds
+	extern GetControlByID
+	extern GetControlData
+	extern GetControlDataSize
+	extern GetControlKind
+	extern GetControlMaximum
+	extern GetControlOwner
+	extern GetControlReference
+	extern GetCurrentEventTime
+	extern GetCurrentKeyModifiers
+	extern GetCurrentProcess
+	extern GetCursor
+	extern GetEventClass
+	extern GetEventDispatcherTarget
+	extern GetEventKind
+	extern GetEventParameter
+	extern GetGWorldPixMap
+	extern GetGlobalMouse
+	extern GetHandleSize
+	extern GetIconRefFromFileInfo
+	extern GetIndMenuItemWithCommandID
+	extern GetMainDevice
+	extern GetMainEventLoop
+	extern GetMainEventQueue
+	extern GetMediaDuration
+	extern GetMediaHandler
+	extern GetMediaSampleDescription
+	extern GetMenuEventTarget
+	extern GetMenuHandle
+	extern GetMovieDuration
+	extern GetMovieIndTrackType
+	extern GetMoviePreferredRate
+	extern GetMovieTime
+	extern GetMovieTimeScale
+	extern GetNextProcess
+	extern GetPixRowBytes
+	extern GetPort
+	extern GetProcessBundleLocation
+	extern GetProcessInformation
+	extern GetQDGlobalsArrow
+	extern GetStandardAlertDefaultParams
+	extern GetTrackMedia
+	extern GetWRefCon
+	extern GetWindowEventTarget
+	extern GetWindowPort
+	extern GetWindowPortBounds
+	extern GetWindowResizeLimits
+	extern GoToBeginningOfMovie
+	extern HITextViewGetTXNObject
+	extern HIViewGetRoot
+	extern HIViewGetViewForMouseEvent
+	extern HandleControlKey
+	extern HideControl
+	extern HideCursor
+	extern HideMenuBar
+	extern HideWindow
+	extern IOObjectConformsTo
+	extern IORegistryEntryCreateCFProperty
+	extern IORegistryEntryGetParentEntry
+	extern InitCursor
+	extern InsertMediaIntoTrack
+	extern InsertMenu
+	extern InsetRect
+	extern InstallEventHandler
+	extern InstallEventLoopTimer
+	extern InvalMenuBar
+	extern IsMovieDone
+	extern IsWindowVisible
+	extern LSCopyItemInfoForRef
+	extern LSOpenCFURLRef
+	extern LSOpenFSRef
+	extern LockPixels
+	extern MPDelayUntil
+	extern MapRect
+	extern MediaSetSoundBalance
+	extern Microseconds
+	extern MoveWindow
+	extern MoviesTask
+	extern NewAUGraph
+	extern NewControlEditTextValidationUPP
+	extern NewControlKeyFilterUPP
+	extern NewControlUserPaneDrawUPP
+	extern NewControlUserPaneHitTestUPP
+	extern NewControlUserPaneTrackingUPP
+	extern NewGWorld
+	extern NewHandle
+	extern NewMenu
+	extern NewMovieFromFile
+	extern NewRgn
+	extern NormalizeThemeDrawingState
+	extern OTAtomicAdd32
+	extern OTCompareAndSwap32
+	extern OffsetRect
+	extern OpenAComponent
+	extern OpenComponent
+	extern OpenMovieFile
+	extern OpenRgn
+	extern PBGetCatInfoSync
+	extern PaintRect
+	extern PaintRoundRect
+	extern PlotIconRef
+	extern PostEventToQueue
+	extern PrerollMovie
+	extern PtInRect
+	extern PtrAndHand
+	extern QDBeginCGContext
+	extern QDEndCGContext
+	extern QDGlobalToLocalPoint
+	extern QDLocalToGlobalPoint
+	extern QDRegisterNamedPixMapCursor
+	extern QDSetNamedPixMapCursor
+	extern QuitAppModalLoopForWindow
+	extern QuitApplicationEventLoop
+	extern RGBForeColor
+	extern ReceiveNextEvent
+	extern ReleaseEvent
+	extern ReleaseIconRef
+	extern RemoveEventHandler
+	extern RemoveEventLoopTimer
+	extern RunAppModalLoopForWindow
+	extern RunApplicationEventLoop
+	extern RunStandardAlert
+	extern SECTION
+	extern SendEventToEventTarget
+	extern SetClip
+	extern SetControlData
+	extern SetControlFontStyle
+	extern SetControlMaximum
+	extern SetControlReference
+	extern SetCursor
+	extern SetEventParameter
+	extern SetFrontProcess
+	extern SetItemCmd
+	extern SetKeyboardFocus
+	extern SetMovieRate
+	extern SetMovieTimeValue
+	extern SetPort
+	extern SetPortWindowPort
+	extern SetSystemUIMode
+	extern SetThemeCursor
+	extern SetTrackVolume
+	extern SetWRefCon
+	extern SetWindowContentColor
+	extern SetWindowResizeLimits
+	extern SetWindowTitleWithCFString
+	extern ShowControl
+	extern ShowCursor
+	extern ShowMenuBar
+	extern ShowWindow
+	extern SizeWindow
+	extern StartMovie
+	extern StopMovie
+	extern StringToNum
+	extern TXNSetData
+	extern TXNSetSelection
+	extern TXNSetTypeAttributes
+	extern TXNShowSelection
+	extern TickCount
+	extern UpTime
+	extern UpdateSystemActivity
+	extern Z9Sys_PrintPKc_F0_1
+	extern ZN10MacDisplay14ReleaseDisplayEv_F0_39
+	extern ZN10MacDisplay15GetDeviceHandleEv_F0_14
+	extern ZN10MacFolders17GetApplicationRefER5FSRef_F0_16
+	extern ZN10MacGlobals10LockSystemEv_F0_1
+	extern ZN14CMacGameEngine4QuitEv_F0_1
+	extern ZN8MacTools24PostPrivateEventToWindowEP15OpaqueWindowPtrmmm_F0_16
+	extern ZNSt6vectorI5FSRefSaIS0_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS0_S2_EERKS0__F0_1
+	extern ZNSt6vectorI7MacRectSaIS0_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS0_S2_EERKS0__F0_39
+	extern _Unwind_Resume
+	extern _Z13TimerCallbackP16__EventLoopTimerPv
+	extern _ZN9__gnu_cxx18__exchange_and_addEPVii
+	extern _ZNKSs4findEPKcmm
+	extern _ZNKSs7compareEPKc
 	extern _ZNSs12_M_leak_hardEv
-	extern _ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_
+	extern _ZNSs4_Rep10_M_destroyERKSaIcE
+	extern _ZNSs6appendEPKcm
+	extern _ZNSs6appendERKSs
+	extern _ZNSs6assignEPKcm
+	extern _ZNSs6assignERKSs
+	extern _ZNSs7replaceEmmPKcm
+	extern _ZNSs7reserveEm
+	extern _ZNSs9_M_mutateEmmm
+	extern _ZNSsC1EPKcRKSaIcE
+	extern _ZNSsC1ERKSs
+	extern _ZNSsC1ERKSsmm
+	extern _ZNSsD1Ev
+	extern _ZNSt15_List_node_base4hookEPS_
+	extern _ZNSt15_List_node_base6unhookEv
+	extern _ZSt17__throw_bad_allocv
 	extern _ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base
 	extern _ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base
-	extern sscanf
-	extern sin
-	extern acos
-	extern vsprintf
-	extern _ZNSs7reserveEm
-	extern strncat
-	extern ctime
-	extern strncmp
-	extern LSOpenFSRef
-	extern CFURLCreateWithBytes
-	extern LSOpenCFURLRef
-	extern UpdateSystemActivity
-	extern GetHandleSize
-	extern TXNSetData
-	extern NewHandle
-	extern DisposeHandle
-	extern RemoveEventLoopTimer
-	extern CollapseWindow
-	extern TXNSetSelection
-	extern TXNShowSelection
-	extern PtrAndHand
-	extern mkdir
-	extern opendir
-	extern readdir
-	extern stat
-	extern closedir
-	extern pow
-	extern glTestFenceAPPLE
-	extern glReadPixels
-	extern glGetError
-	extern asin
-	extern printf
-	extern _ZNSs7replaceEmmPKcm
-	extern expf
-	extern exp
-	extern isprint
-	extern fileno
-	extern isatty
-	extern fprintf
-	extern realloc
+	extern _ZSt20__throw_length_errorPKc
+	extern _ZSt20__throw_out_of_rangePKc
+	extern _ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_
+	extern _ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_
+	extern _ZZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEsE20sControlKeyFilterUPP
+	extern _ZZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEsE21sControlValidationUPP
+	extern _ZdaPv
+	extern _ZdlPv
+	extern _Znam
+	extern _Znwm
+	extern __cxa_allocate_exception
+	extern __cxa_begin_catch
+	extern __cxa_end_catch
+	extern __cxa_guard_abort
 	extern __cxa_guard_acquire
 	extern __cxa_guard_release
-	extern __cxa_guard_abort
-	extern GetCurrentEventTime
-	extern SetFrontProcess
-	extern glGenVertexArraysAPPLE
-	extern glColorPointer
-	extern glNormalPointer
-	extern glVertexPointer
-	extern glTexCoordPointer
-	extern _ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_
-	extern AudioConverterReset
-	extern AudioUnitGetProperty
-	extern AudioConverterDispose
-	extern AudioConverterNew
-	extern log10f
-	extern AudioUnitSetParameter
-	extern AudioConverterFillComplexBuffer
-	extern AudioUnitSetProperty
-	extern AudioUnitAddRenderNotify
-	extern AudioUnitRemoveRenderNotify
-	extern usleep
-	extern AUGraphGetCPULoad
-	extern strdup
-	extern AUGraphStop
-	extern DisposeAUGraph
-	extern AudioDeviceGetPropertyInfo
-	extern AudioDeviceGetProperty
-	extern FindNextComponent
-	extern OpenComponent
-	extern GetComponentVersion
-	extern CloseComponent
-	extern NewAUGraph
-	extern AUGraphNewNode
-	extern AUGraphOpen
-	extern AUGraphGetNodeInfo
-	extern AUGraphUpdate
-	extern AUGraphConnectNodeInput
-	extern AUGraphInitialize
-	extern AUGraphStart
-	extern pthread_mutex_destroy
-	extern pthread_create
-	extern pthread_mutexattr_init
-	extern pthread_mutexattr_settype
-	extern pthread_mutex_init
-	extern pthread_mutexattr_destroy
-	extern pthread_mutex_unlock
-	extern pthread_mutex_lock
-	extern glTexImage3D
-	extern glCompressedTexImage3DARB
-	extern glTexSubImage3D
-	extern glCompressedTexSubImage3D
-	extern strtok
-	extern StopMovie
-	extern GoToBeginningOfMovie
-	extern GetMovieTimeScale
-	extern GetMovieDuration
-	extern GetMovieTime
-	extern SetMovieTimeValue
-	extern SetTrackVolume
-	extern GetMediaHandler
-	extern MediaSetSoundBalance
-	extern MoviesTask
-	extern IsMovieDone
-	extern StartMovie
-	extern DisposeMovie
-	extern SetMovieRate
-	extern OpenMovieFile
-	extern NewMovieFromFile
-	extern GetMoviePreferredRate
-	extern PrerollMovie
-	extern GetMovieIndTrackType
-	extern GetTrackMedia
-	extern GetMediaSampleDescription
-	extern srand
-	extern putenv
-	extern getenv
-	extern puts
-	extern asinf
-	extern atanf
-	extern tanf
-	extern select
-	extern inet_addr
-	extern gethostbyname
-	extern recvfrom
-	extern strerror
-	extern sendto
-	extern setsockopt
-	extern bind
-	extern socket
-	extern connect
-	extern send
-	extern recv
+	extern __cxa_rethrow
+	extern __cxa_throw
+	extern __dynamic_cast
+	extern __error
 	extern __isnanf
-	extern floor
-	extern logf
-	extern AudioOutputUnitStart
-	extern AudioOutputUnitStop
-	extern AudioDeviceSetProperty
-	extern AudioConverterFillBuffer
-	extern AudioUnitRender
-	extern AudioUnitUninitialize
-	extern OpenAComponent
-	extern AudioHardwareGetProperty
-	extern AudioUnitInitialize
+	extern __keymgr_dwarf2_register_sections
+	extern __maskrune
+	extern __udivdi3
+	extern _cfstring_call_of_duty_2_m
+	extern _cfstring_console
+	extern _cfstring_localized
+	extern _cstring_null
+	extern _cstring_s8
+	extern abort
+	extern accept
+	extern access
+	extern acos
+	extern acosf
+	extern add
+	extern aglChoosePixelFormat
+	extern aglCreateContext
+	extern aglDescribePixelFormat
+	extern aglDestroyContext
+	extern aglDestroyPixelFormat
+	extern aglGetDrawable
+	extern aglSetCurrentContext
+	extern aglSetDrawable
+	extern aglSetFullScreen
+	extern aglSetInteger
+	extern aglSwapBuffers
+	extern and
+	extern asctime
+	extern asin
+	extern asinf
+	extern atan2
+	extern atanf
+	extern atexit
+	extern atof
+	extern atoi
+	extern atol
+	extern bind
+	extern call
+	extern calloc
+	extern ceilf
+	extern chdir
+	extern cld
+	extern close
+	extern closedir
+	extern cmovz
+	extern cmp
+	extern connect
+	extern cos
+	extern cosf
+	extern ctime
+	extern cvtsi2ss
+	extern cvttss2si
+	extern cwde
+	extern divss
 	extern dlclose
 	extern dlopen
 	extern dlsym
-	extern abort
-	extern vfprintf
-	extern getsockname
-	extern read
-	extern atol
-	extern strtol
-	extern getpid
-	extern tmpnam
-	extern strftime
-	extern gmtime
-	extern mktime
+	extern exit
+	extern exp
+	extern expf
+	extern fclose
 	extern fcntl
-	extern accept
-	extern listen
-	extern gethostname
-	extern getdomainname
-	extern getlogin
-	extern getuid
-	extern getpwuid
+	extern fflush
 	extern fgets
-	extern gettimeofday
-	extern regcomp
-	extern regerror
-	extern regfree
-	extern regexec
-	extern getpass
-	extern getsockopt
-	extern write
-	extern unlink
+	extern fileno
+	extern floor
+	extern floorf
+	extern fopen
+	extern fprintf
 	extern fputc
 	extern fputs
+	extern fread
+	extern free
+	extern fseek
+	extern fstp
+	extern ftell
+	extern fwrite
+	extern getcwd
+	extern getdomainname
+	extern getenv
+	extern gethostbyname
+	extern gethostname
+	extern getlogin
+	extern getpass
+	extern getpid
+	extern getpwuid
+	extern getrlimit
+	extern getsockname
+	extern getsockopt
+	extern gettimeofday
+	extern getuid
+	extern glActiveTextureARB
+	extern glAlphaFunc
+	extern glBegin
+	extern glBindProgramARB
+	extern glBindTexture
+	extern glBindVertexArrayAPPLE
+	extern glBlendEquationEXT
+	extern glBlendFunc
+	extern glBlendFuncSeparateEXT
+	extern glClear
+	extern glClearColor
+	extern glClearDepth
+	extern glClearStencil
+	extern glClientActiveTextureARB
+	extern glClipPlane
+	extern glColor4f
+	extern glColorMask
+	extern glColorMaterial
+	extern glColorPointer
+	extern glCombinerParameterfvNV
+	extern glCombinerStageParameterfvNV
+	extern glCompressedTexImage2DARB
+	extern glCompressedTexImage3DARB
+	extern glCompressedTexSubImage2D
+	extern glCompressedTexSubImage3D
+	extern glCopyTexSubImage2D
+	extern glDeleteFencesAPPLE
+	extern glDeleteProgramsARB
+	extern glDeleteTextures
+	extern glDeleteVertexArraysAPPLE
+	extern glDepthFunc
+	extern glDepthMask
+	extern glDepthRange
+	extern glDisable
+	extern glDisableClientState
+	extern glDisableVertexAttribArrayARB
+	extern glDrawBuffer
+	extern glDrawRangeElements
+	extern glEnable
+	extern glEnableClientState
+	extern glEnableVertexAttribArrayARB
+	extern glEnd
+	extern glFinish
+	extern glFinishFenceAPPLE
+	extern glFlushVertexArrayRangeAPPLE
+	extern glFogf
+	extern glFogfv
+	extern glFogi
+	extern glFrontFace
+	extern glGenFencesAPPLE
+	extern glGenProgramsARB
+	extern glGenTextures
+	extern glGenVertexArraysAPPLE
+	extern glGetError
+	extern glGetFloatv
+	extern glGetIntegerv
+	extern glGetProgramivARB
+	extern glGetString
+	extern glHint
+	extern glLightModelfv
+	extern glLightModeli
+	extern glLightf
+	extern glLightfv
+	extern glLoadIdentity
+	extern glLoadMatrixf
+	extern glMaterialf
+	extern glMaterialfv
+	extern glMatrixMode
+	extern glNormalPointer
+	extern glPixelStorei
+	extern glPointParameterfARB
+	extern glPointParameterfvARB
+	extern glPointSize
+	extern glPolygonMode
+	extern glPolygonOffset
+	extern glPopAttrib
+	extern glPopClientAttrib
+	extern glPopMatrix
+	extern glProgramEnvParameter4fvARB
+	extern glProgramStringARB
+	extern glPushAttrib
+	extern glPushClientAttrib
+	extern glPushMatrix
+	extern glReadBuffer
+	extern glReadPixels
+	extern glScalef
+	extern glScissor
+	extern glSetFenceAPPLE
+	extern glShadeModel
+	extern glStencilFunc
+	extern glStencilMask
+	extern glStencilOp
+	extern glTestFenceAPPLE
+	extern glTexCoord2f
+	extern glTexCoordPointer
+	extern glTexEnvf
+	extern glTexEnvfv
+	extern glTexEnvi
+	extern glTexGenfv
+	extern glTexGeni
+	extern glTexImage2D
+	extern glTexImage3D
+	extern glTexParameterf
+	extern glTexParameterfv
+	extern glTexParameteri
+	extern glTexSubImage2D
+	extern glTexSubImage3D
+	extern glVertex2f
+	extern glVertex3f
+	extern glVertexArrayParameteriAPPLE
+	extern glVertexArrayRangeAPPLE
+	extern glVertexAttribPointerARB
+	extern glVertexPointer
+	extern glViewport
+	extern gluCheckExtension
+	extern gluOrtho2D
+	extern gmtime
+	extern imul
+	extern inet_addr
+	extern ioctl
+	extern isatty
+	extern isprint
+	extern isspace
+	extern ja
+	extern jae
+	extern jb
+	extern jbe
+	extern jge
+	extern jle
+	extern jmp
+	extern jnz
+	extern jz
+	extern lea
+	extern leave
+	extern listen
+	extern localtime
+	extern log
+	extern log10f
+	extern logf
+	extern longjmp
+	extern lround
+	extern malloc
+	extern memcpy
+	extern memmove
+	extern memset
+	extern mkdir
+	extern mktime
+	extern mov
+	extern movaps
+	extern movss
+	extern movsx
+	extern movzx
+	extern mulss
+	extern nop
+	extern not
+	extern opendir
+	extern pop
+	extern pow
+	extern printf
+	extern pthread_create
+	extern pthread_main_np
+	extern pthread_mutex_destroy
+	extern pthread_mutex_init
+	extern pthread_mutex_lock
+	extern pthread_mutex_unlock
+	extern pthread_mutexattr_destroy
+	extern pthread_mutexattr_init
+	extern pthread_mutexattr_settype
+	extern pthread_self
+	extern push
+	extern putenv
+	extern puts
+	extern qsort
+	extern rand
+	extern read
+	extern readdir
+	extern realloc
+	extern recv
+	extern recvfrom
+	extern regcomp
+	extern regerror
+	extern regexec
+	extern regfree
+	extern remove
+	extern rename
+	extern repne
+	extern ret
+	extern rewind
+	extern sBuilderProcPtr
+	extern sConsoleData
+	extern sConsoleEditText
+	extern sConsoleText
+	extern sConsoleTextView
+	extern sConsoleWindow
+	extern sCurrentCursor
+	extern sDisplayIndex
+	extern sDisplayList
+	extern sInWindowMode
+	extern sMainDisplayID
+	extern sMainRect
+	extern sMainWindow
+	extern sRectList
+	extern sReturnedText
+	extern sSavedWinCursor
+	extern sTimerRef
+	extern sar
+	extern scasb
+	extern select
+	extern send
+	extern sendto
+	extern setjmp
+	extern setnz
+	extern setrlimit
+	extern setsockopt
+	extern shl
+	extern shr
+	extern sin
+	extern sinf
+	extern snprintf
+	extern socket
+	extern sprintf
+	extern srand
+	extern sscanf
+	extern stat
+	extern strcasecmp
+	extern strcat
+	extern strchr
+	extern strcmp
+	extern strcpy
+	extern strdup
+	extern strerror
+	extern strftime
+	extern strncasecmp
+	extern strncat
+	extern strncmp
+	extern strncpy
+	extern strrchr
+	extern strstr
+	extern strtok
+	extern strtol
+	extern sub
+	extern subss
+	extern sysctl
+	extern tan
+	extern tanf
+	extern test
+	extern text
+	extern time
+	extern tmpnam
+	extern tolower
+	extern toupper
+	extern ucomiss
+	extern unlink
+	extern usleep
+	extern va_F0_3
+	extern vfprintf
+	extern vsnprintf
+	extern vsprintf
+	extern write
+	extern xor
 
 ;Exports defined in this file:
-	global Z19UserPaneHitTestProcP16OpaqueControlRef5Point:F(0,1)
+	global Z19UserPaneHitTestProcP16OpaqueControlRef5Point_F0_1
 	global _Z20HandleStandardEventsP25OpaqueEventHandlerCallRefP14OpaqueEventRefPv
-	global ZN10MacBuilder11BuildWindowEPK10__CFStringS2_hPFhP15OpaqueWindowPtrmE:F(0,17)
-	global ZN10MacBuilder14RunModalWindowEP15OpaqueWindowPtr:F(0,50)
-	global ZN10MacBuilder13ReleaseWindowEP15OpaqueWindowPtr:F(0,9)
-	global ZN10MacBuilder13GetControlRefEP15OpaqueWindowPtrl:F(0,3)
+	global ZN10MacBuilder11BuildWindowEPK10__CFStringS2_hPFhP15OpaqueWindowPtrmE_F0_17
+	global ZN10MacBuilder14RunModalWindowEP15OpaqueWindowPtr_F0_50
+	global ZN10MacBuilder13ReleaseWindowEP15OpaqueWindowPtr_F0_9
+	global ZN10MacBuilder13GetControlRefEP15OpaqueWindowPtrl_F0_3
 	global _Z14ValidationProcP16OpaqueControlRef
 	global _Z13KeyFilterProcP16OpaqueControlRefPsS1_Pt
-	global ZN10MacBuilder22SetTextObjectFontStyleEP15OpaqueWindowPtrlss:F(0,9)
-	global ZN10MacBuilder14GetControlTextEP15OpaqueWindowPtrlsPc:F(0,9)
-	global ZN10MacBuilder14SetControlTextEP15OpaqueWindowPtrlPKc:F(0,9)
-	global ZN10MacBuilder17SetControlVisibleEP15OpaqueWindowPtrlh:F(0,9)
-	global ZN10MacBuilder17SetControlEnabledEP15OpaqueWindowPtrlh:F(0,9)
-	global ZN10MacBuilder19SetControlFontStyleEP15OpaqueWindowPtrlss:F(0,9)
-	global ZN10MacBuilder15SetControlFocusEP15OpaqueWindowPtrl:F(0,9)
-	global ZN10MacBuilder20SetupUserPaneControlEP15OpaqueWindowPtrlPFvP16OpaqueControlRefsEPFsS3_5PointS5_E:F(0,9)
-	global ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs:F(0,9)
-	global ZN10MacBuilder13GetTextObjectEP15OpaqueWindowPtrl:F(0,84)
+	global ZN10MacBuilder22SetTextObjectFontStyleEP15OpaqueWindowPtrlss_F0_9
+	global ZN10MacBuilder14GetControlTextEP15OpaqueWindowPtrlsPc_F0_9
+	global ZN10MacBuilder14SetControlTextEP15OpaqueWindowPtrlPKc_F0_9
+	global ZN10MacBuilder17SetControlVisibleEP15OpaqueWindowPtrlh_F0_9
+	global ZN10MacBuilder17SetControlEnabledEP15OpaqueWindowPtrlh_F0_9
+	global ZN10MacBuilder19SetControlFontStyleEP15OpaqueWindowPtrlss_F0_9
+	global ZN10MacBuilder15SetControlFocusEP15OpaqueWindowPtrl_F0_9
+	global ZN10MacBuilder20SetupUserPaneControlEP15OpaqueWindowPtrlPFvP16OpaqueControlRefsEPFsS3_5PointS5_E_F0_9
+	global ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs_F0_9
+	global ZN10MacBuilder13GetTextObjectEP15OpaqueWindowPtrl_F0_84
 	global _Z21CenterWindowOnDisplayv
 	global _Z15BuilderCallbackP15OpaqueWindowPtrm
 	global _Z16UserPaneDrawProcP16OpaqueControlRefs
@@ -664,11 +746,11 @@
 	global _Z20SearchForApplicationRK5FSRefmRS_
 	global _Z15CursorTimerProcP16__EventLoopTimerPv
 	global _Z12EditTextHookP16OpaqueControlRefs
-	global Z15BuilderCallbackP15OpaqueWindowPtrm:F(0,1)
+	global Z15BuilderCallbackP15OpaqueWindowPtrm_F0_1
 	global _Z19CreateConsoleWindowv
 
 SECTION .text
-Z19UserPaneHitTestProcP16OpaqueControlRef5Point:F(0,1):
+Z19UserPaneHitTestProcP16OpaqueControlRef5Point_F0_1:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -850,9 +932,9 @@ _Z20HandleStandardEventsP25OpaqueEventHandlerCallRefP14OpaqueEventRefPv_70:
 	nop
 
 
-;ZN10MacBuilder11BuildWindowEPK10__CFStringS2_hPFhP15OpaqueWindowPtrmE:F(0,17)
+;ZN10MacBuilder11BuildWindowEPK10__CFStringS2_hPFhP15OpaqueWindowPtrmE_F0_17
 
-ZN10MacBuilder11BuildWindowEPK10__CFStringS2_hPFhP15OpaqueWindowPtrmE:F(0,17):
+ZN10MacBuilder11BuildWindowEPK10__CFStringS2_hPFhP15OpaqueWindowPtrmE_F0_17:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -871,14 +953,14 @@ ZN10MacBuilder11BuildWindowEPK10__CFStringS2_hPFhP15OpaqueWindowPtrmE:F(0,17):
 	mov [esp], eax
 	call CreateNibReferenceWithCFBundle
 	test eax, eax
-	jz ZN10MacBuilder11BuildWindowEPK10__CFStringS2_hPFhP15OpaqueWindowPtrmE:F(0,17)_10
+	jz ZN10MacBuilder11BuildWindowEPK10__CFStringS2_hPFhP15OpaqueWindowPtrmE_F0_17_10
 	mov eax, [ebp-0xc]
 	add esp, 0x60
 	pop ebx
 	pop esi
 	pop ebp
 	ret
-ZN10MacBuilder11BuildWindowEPK10__CFStringS2_hPFhP15OpaqueWindowPtrmE:F(0,17)_10:
+ZN10MacBuilder11BuildWindowEPK10__CFStringS2_hPFhP15OpaqueWindowPtrmE_F0_17_10:
 	lea eax, [ebp-0xc]
 	mov [esp+0x8], eax
 	mov eax, [ebp+0x8]
@@ -887,11 +969,11 @@ ZN10MacBuilder11BuildWindowEPK10__CFStringS2_hPFhP15OpaqueWindowPtrmE:F(0,17)_10
 	mov [esp], eax
 	call CreateWindowFromNib
 	test eax, eax
-	jnz ZN10MacBuilder11BuildWindowEPK10__CFStringS2_hPFhP15OpaqueWindowPtrmE:F(0,17)_20
+	jnz ZN10MacBuilder11BuildWindowEPK10__CFStringS2_hPFhP15OpaqueWindowPtrmE_F0_17_20
 	mov eax, esi
 	test al, al
-	jnz ZN10MacBuilder11BuildWindowEPK10__CFStringS2_hPFhP15OpaqueWindowPtrmE:F(0,17)_30
-ZN10MacBuilder11BuildWindowEPK10__CFStringS2_hPFhP15OpaqueWindowPtrmE:F(0,17)_20:
+	jnz ZN10MacBuilder11BuildWindowEPK10__CFStringS2_hPFhP15OpaqueWindowPtrmE_F0_17_30
+ZN10MacBuilder11BuildWindowEPK10__CFStringS2_hPFhP15OpaqueWindowPtrmE_F0_17_20:
 	mov eax, [ebp-0x10]
 	mov [esp], eax
 	call DisposeNibReference
@@ -901,7 +983,7 @@ ZN10MacBuilder11BuildWindowEPK10__CFStringS2_hPFhP15OpaqueWindowPtrmE:F(0,17)_20
 	pop esi
 	pop ebp
 	ret
-ZN10MacBuilder11BuildWindowEPK10__CFStringS2_hPFhP15OpaqueWindowPtrmE:F(0,17)_30:
+ZN10MacBuilder11BuildWindowEPK10__CFStringS2_hPFhP15OpaqueWindowPtrmE_F0_17_30:
 	mov dword [ebp-0x40], 0x6d6f7573
 	mov dword [ebp-0x3c], 0x5
 	mov dword [ebp-0x38], 0x77696e64
@@ -931,26 +1013,26 @@ ZN10MacBuilder11BuildWindowEPK10__CFStringS2_hPFhP15OpaqueWindowPtrmE:F(0,17)_30
 	mov [esp], eax
 	call GetWindowResizeLimits
 	test eax, eax
-	jnz ZN10MacBuilder11BuildWindowEPK10__CFStringS2_hPFhP15OpaqueWindowPtrmE:F(0,17)_20
+	jnz ZN10MacBuilder11BuildWindowEPK10__CFStringS2_hPFhP15OpaqueWindowPtrmE_F0_17_20
 	movss xmm1, dword [ebp-0x18]
 	movss xmm0, dword [ebp-0x20]
 	subss xmm0, xmm1
 	cvttss2si eax, xmm0
 	sub eax, 0x1
-	jnz ZN10MacBuilder11BuildWindowEPK10__CFStringS2_hPFhP15OpaqueWindowPtrmE:F(0,17)_20
+	jnz ZN10MacBuilder11BuildWindowEPK10__CFStringS2_hPFhP15OpaqueWindowPtrmE_F0_17_20
 	movss [ebp-0x20], xmm1
 	mov [esp+0x8], ebx
 	mov dword [esp+0x4], 0x0
 	mov eax, [ebp-0xc]
 	mov [esp], eax
 	call SetWindowResizeLimits
-	jmp ZN10MacBuilder11BuildWindowEPK10__CFStringS2_hPFhP15OpaqueWindowPtrmE:F(0,17)_20
+	jmp ZN10MacBuilder11BuildWindowEPK10__CFStringS2_hPFhP15OpaqueWindowPtrmE_F0_17_20
 	nop
 
 
-;ZN10MacBuilder14RunModalWindowEP15OpaqueWindowPtr:F(0,50)
+;ZN10MacBuilder14RunModalWindowEP15OpaqueWindowPtr_F0_50
 
-ZN10MacBuilder14RunModalWindowEP15OpaqueWindowPtr:F(0,50):
+ZN10MacBuilder14RunModalWindowEP15OpaqueWindowPtr_F0_50:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -970,9 +1052,9 @@ ZN10MacBuilder14RunModalWindowEP15OpaqueWindowPtr:F(0,50):
 	jmp GetWRefCon
 
 
-;ZN10MacBuilder13ReleaseWindowEP15OpaqueWindowPtr:F(0,9)
+;ZN10MacBuilder13ReleaseWindowEP15OpaqueWindowPtr_F0_9
 
-ZN10MacBuilder13ReleaseWindowEP15OpaqueWindowPtr:F(0,9):
+ZN10MacBuilder13ReleaseWindowEP15OpaqueWindowPtr_F0_9:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -985,9 +1067,9 @@ ZN10MacBuilder13ReleaseWindowEP15OpaqueWindowPtr:F(0,9):
 	nop
 
 
-;ZN10MacBuilder13GetControlRefEP15OpaqueWindowPtrl:F(0,3)
+;ZN10MacBuilder13GetControlRefEP15OpaqueWindowPtrl_F0_3
 
-ZN10MacBuilder13GetControlRefEP15OpaqueWindowPtrl:F(0,3):
+ZN10MacBuilder13GetControlRefEP15OpaqueWindowPtrl_F0_3:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x28
@@ -1173,14 +1255,14 @@ _Z13KeyFilterProcP16OpaqueControlRefPsS1_Pt_70:
 	mov [esp+0x8], ebx
 	mov dword [esp+0x4], 0x41647643
 	mov [esp], eax
-	call ZN8MacTools24PostPrivateEventToWindowEP15OpaqueWindowPtrmmm:F(0,16)
+	call ZN8MacTools24PostPrivateEventToWindowEP15OpaqueWindowPtrmmm_F0_16
 	mov eax, 0x1
 	jmp _Z13KeyFilterProcP16OpaqueControlRefPsS1_Pt_110
 
 
-;ZN10MacBuilder22SetTextObjectFontStyleEP15OpaqueWindowPtrlss:F(0,9)
+;ZN10MacBuilder22SetTextObjectFontStyleEP15OpaqueWindowPtrlss_F0_9
 
-ZN10MacBuilder22SetTextObjectFontStyleEP15OpaqueWindowPtrlss:F(0,9):
+ZN10MacBuilder22SetTextObjectFontStyleEP15OpaqueWindowPtrlss_F0_9:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1206,27 +1288,27 @@ ZN10MacBuilder22SetTextObjectFontStyleEP15OpaqueWindowPtrlss:F(0,9):
 	cmovz ebx, [ebp-0x1c]
 	mov [ebp-0x1c], ebx
 	test ebx, ebx
-	jz ZN10MacBuilder22SetTextObjectFontStyleEP15OpaqueWindowPtrlss:F(0,9)_10
+	jz ZN10MacBuilder22SetTextObjectFontStyleEP15OpaqueWindowPtrlss_F0_9_10
 	mov [esp+0x4], esi
 	mov [esp], ebx
 	call GetControlKind
 	test eax, eax
-	jz ZN10MacBuilder22SetTextObjectFontStyleEP15OpaqueWindowPtrlss:F(0,9)_20
-ZN10MacBuilder22SetTextObjectFontStyleEP15OpaqueWindowPtrlss:F(0,9)_10:
+	jz ZN10MacBuilder22SetTextObjectFontStyleEP15OpaqueWindowPtrlss_F0_9_20
+ZN10MacBuilder22SetTextObjectFontStyleEP15OpaqueWindowPtrlss_F0_9_10:
 	add esp, 0x5c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-ZN10MacBuilder22SetTextObjectFontStyleEP15OpaqueWindowPtrlss:F(0,9)_20:
+ZN10MacBuilder22SetTextObjectFontStyleEP15OpaqueWindowPtrlss_F0_9_20:
 	cmp dword [ebp-0x30], 0x68697478
-	jnz ZN10MacBuilder22SetTextObjectFontStyleEP15OpaqueWindowPtrlss:F(0,9)_10
+	jnz ZN10MacBuilder22SetTextObjectFontStyleEP15OpaqueWindowPtrlss_F0_9_10
 	mov [esp], ebx
 	call HITextViewGetTXNObject
 	mov edx, eax
 	test eax, eax
-	jz ZN10MacBuilder22SetTextObjectFontStyleEP15OpaqueWindowPtrlss:F(0,9)_10
+	jz ZN10MacBuilder22SetTextObjectFontStyleEP15OpaqueWindowPtrlss_F0_9_10
 	mov dword [ebp-0x34], 0x666f6e74
 	mov dword [ebp-0x30], 0x2
 	movsx eax, di
@@ -1242,13 +1324,13 @@ ZN10MacBuilder22SetTextObjectFontStyleEP15OpaqueWindowPtrlss:F(0,9)_20:
 	mov dword [esp+0x4], 0x2
 	mov [esp], edx
 	call TXNSetTypeAttributes
-	jmp ZN10MacBuilder22SetTextObjectFontStyleEP15OpaqueWindowPtrlss:F(0,9)_10
+	jmp ZN10MacBuilder22SetTextObjectFontStyleEP15OpaqueWindowPtrlss_F0_9_10
 	nop
 
 
-;ZN10MacBuilder14GetControlTextEP15OpaqueWindowPtrlsPc:F(0,9)
+;ZN10MacBuilder14GetControlTextEP15OpaqueWindowPtrlsPc_F0_9
 
-ZN10MacBuilder14GetControlTextEP15OpaqueWindowPtrlsPc:F(0,9):
+ZN10MacBuilder14GetControlTextEP15OpaqueWindowPtrlsPc_F0_9:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1274,7 +1356,7 @@ ZN10MacBuilder14GetControlTextEP15OpaqueWindowPtrlsPc:F(0,9):
 	cmovz edx, [ebp-0x1c]
 	mov [ebp-0x1c], edx
 	test edx, edx
-	jz ZN10MacBuilder14GetControlTextEP15OpaqueWindowPtrlsPc:F(0,9)_10
+	jz ZN10MacBuilder14GetControlTextEP15OpaqueWindowPtrlsPc_F0_9_10
 	mov [esp+0x14], esi
 	mov [esp+0x10], ebx
 	movsx eax, di
@@ -1285,10 +1367,10 @@ ZN10MacBuilder14GetControlTextEP15OpaqueWindowPtrlsPc:F(0,9):
 	mov [esp], edx
 	call GetControlData
 	test ax, ax
-	jnz ZN10MacBuilder14GetControlTextEP15OpaqueWindowPtrlsPc:F(0,9)_10
+	jnz ZN10MacBuilder14GetControlTextEP15OpaqueWindowPtrlsPc_F0_9_10
 	mov eax, [ebp-0x1c]
 	mov byte [ebx+eax], 0x0
-ZN10MacBuilder14GetControlTextEP15OpaqueWindowPtrlsPc:F(0,9)_10:
+ZN10MacBuilder14GetControlTextEP15OpaqueWindowPtrlsPc_F0_9_10:
 	add esp, 0x3c
 	pop ebx
 	pop esi
@@ -1297,9 +1379,9 @@ ZN10MacBuilder14GetControlTextEP15OpaqueWindowPtrlsPc:F(0,9)_10:
 	ret
 
 
-;ZN10MacBuilder14SetControlTextEP15OpaqueWindowPtrlPKc:F(0,9)
+;ZN10MacBuilder14SetControlTextEP15OpaqueWindowPtrlPKc_F0_9
 
-ZN10MacBuilder14SetControlTextEP15OpaqueWindowPtrlPKc:F(0,9):
+ZN10MacBuilder14SetControlTextEP15OpaqueWindowPtrlPKc_F0_9:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1322,7 +1404,7 @@ ZN10MacBuilder14SetControlTextEP15OpaqueWindowPtrlPKc:F(0,9):
 	cmovz edx, [ebp-0xc]
 	mov [ebp-0xc], edx
 	test edx, edx
-	jz ZN10MacBuilder14SetControlTextEP15OpaqueWindowPtrlPKc:F(0,9)_10
+	jz ZN10MacBuilder14SetControlTextEP15OpaqueWindowPtrlPKc_F0_9_10
 	mov [esp+0x10], ebx
 	cld
 	mov ecx, 0xffffffff
@@ -1336,7 +1418,7 @@ ZN10MacBuilder14SetControlTextEP15OpaqueWindowPtrlPKc:F(0,9):
 	mov dword [esp+0x4], 0x0
 	mov [esp], edx
 	call SetControlData
-ZN10MacBuilder14SetControlTextEP15OpaqueWindowPtrlPKc:F(0,9)_10:
+ZN10MacBuilder14SetControlTextEP15OpaqueWindowPtrlPKc_F0_9_10:
 	add esp, 0x30
 	pop ebx
 	pop edi
@@ -1345,9 +1427,9 @@ ZN10MacBuilder14SetControlTextEP15OpaqueWindowPtrlPKc:F(0,9)_10:
 	nop
 
 
-;ZN10MacBuilder17SetControlVisibleEP15OpaqueWindowPtrlh:F(0,9)
+;ZN10MacBuilder17SetControlVisibleEP15OpaqueWindowPtrlh_F0_9
 
-ZN10MacBuilder17SetControlVisibleEP15OpaqueWindowPtrlh:F(0,9):
+ZN10MacBuilder17SetControlVisibleEP15OpaqueWindowPtrlh_F0_9:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -1369,17 +1451,17 @@ ZN10MacBuilder17SetControlVisibleEP15OpaqueWindowPtrlh:F(0,9):
 	cmovz edx, [ebp-0xc]
 	mov [ebp-0xc], edx
 	test edx, edx
-	jz ZN10MacBuilder17SetControlVisibleEP15OpaqueWindowPtrlh:F(0,9)_10
+	jz ZN10MacBuilder17SetControlVisibleEP15OpaqueWindowPtrlh_F0_9_10
 	test bl, bl
-	jnz ZN10MacBuilder17SetControlVisibleEP15OpaqueWindowPtrlh:F(0,9)_20
+	jnz ZN10MacBuilder17SetControlVisibleEP15OpaqueWindowPtrlh_F0_9_20
 	mov [esp], edx
 	call HideControl
-ZN10MacBuilder17SetControlVisibleEP15OpaqueWindowPtrlh:F(0,9)_10:
+ZN10MacBuilder17SetControlVisibleEP15OpaqueWindowPtrlh_F0_9_10:
 	add esp, 0x24
 	pop ebx
 	pop ebp
 	ret
-ZN10MacBuilder17SetControlVisibleEP15OpaqueWindowPtrlh:F(0,9)_20:
+ZN10MacBuilder17SetControlVisibleEP15OpaqueWindowPtrlh_F0_9_20:
 	mov [esp], edx
 	call ShowControl
 	add esp, 0x24
@@ -1389,9 +1471,9 @@ ZN10MacBuilder17SetControlVisibleEP15OpaqueWindowPtrlh:F(0,9)_20:
 	nop
 
 
-;ZN10MacBuilder17SetControlEnabledEP15OpaqueWindowPtrlh:F(0,9)
+;ZN10MacBuilder17SetControlEnabledEP15OpaqueWindowPtrlh_F0_9
 
-ZN10MacBuilder17SetControlEnabledEP15OpaqueWindowPtrlh:F(0,9):
+ZN10MacBuilder17SetControlEnabledEP15OpaqueWindowPtrlh_F0_9:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -1413,17 +1495,17 @@ ZN10MacBuilder17SetControlEnabledEP15OpaqueWindowPtrlh:F(0,9):
 	cmovz edx, [ebp-0xc]
 	mov [ebp-0xc], edx
 	test edx, edx
-	jz ZN10MacBuilder17SetControlEnabledEP15OpaqueWindowPtrlh:F(0,9)_10
+	jz ZN10MacBuilder17SetControlEnabledEP15OpaqueWindowPtrlh_F0_9_10
 	test bl, bl
-	jnz ZN10MacBuilder17SetControlEnabledEP15OpaqueWindowPtrlh:F(0,9)_20
+	jnz ZN10MacBuilder17SetControlEnabledEP15OpaqueWindowPtrlh_F0_9_20
 	mov [esp], edx
 	call DisableControl
-ZN10MacBuilder17SetControlEnabledEP15OpaqueWindowPtrlh:F(0,9)_10:
+ZN10MacBuilder17SetControlEnabledEP15OpaqueWindowPtrlh_F0_9_10:
 	add esp, 0x24
 	pop ebx
 	pop ebp
 	ret
-ZN10MacBuilder17SetControlEnabledEP15OpaqueWindowPtrlh:F(0,9)_20:
+ZN10MacBuilder17SetControlEnabledEP15OpaqueWindowPtrlh_F0_9_20:
 	mov [esp], edx
 	call EnableControl
 	add esp, 0x24
@@ -1433,9 +1515,9 @@ ZN10MacBuilder17SetControlEnabledEP15OpaqueWindowPtrlh:F(0,9)_20:
 	nop
 
 
-;ZN10MacBuilder19SetControlFontStyleEP15OpaqueWindowPtrlss:F(0,9)
+;ZN10MacBuilder19SetControlFontStyleEP15OpaqueWindowPtrlss_F0_9
 
-ZN10MacBuilder19SetControlFontStyleEP15OpaqueWindowPtrlss:F(0,9):
+ZN10MacBuilder19SetControlFontStyleEP15OpaqueWindowPtrlss_F0_9:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1460,14 +1542,14 @@ ZN10MacBuilder19SetControlFontStyleEP15OpaqueWindowPtrlss:F(0,9):
 	cmovz edx, [ebp-0x1c]
 	mov [ebp-0x1c], edx
 	test edx, edx
-	jz ZN10MacBuilder19SetControlFontStyleEP15OpaqueWindowPtrlss:F(0,9)_10
+	jz ZN10MacBuilder19SetControlFontStyleEP15OpaqueWindowPtrlss_F0_9_10
 	mov word [ebp-0x34], 0x5
 	mov [ebp-0x32], si
 	mov [ebp-0x30], di
 	mov [esp+0x4], ebx
 	mov [esp], edx
 	call SetControlFontStyle
-ZN10MacBuilder19SetControlFontStyleEP15OpaqueWindowPtrlss:F(0,9)_10:
+ZN10MacBuilder19SetControlFontStyleEP15OpaqueWindowPtrlss_F0_9_10:
 	add esp, 0x3c
 	pop ebx
 	pop esi
@@ -1477,9 +1559,9 @@ ZN10MacBuilder19SetControlFontStyleEP15OpaqueWindowPtrlss:F(0,9)_10:
 	nop
 
 
-;ZN10MacBuilder15SetControlFocusEP15OpaqueWindowPtrl:F(0,9)
+;ZN10MacBuilder15SetControlFocusEP15OpaqueWindowPtrl_F0_9
 
-ZN10MacBuilder15SetControlFocusEP15OpaqueWindowPtrl:F(0,9):
+ZN10MacBuilder15SetControlFocusEP15OpaqueWindowPtrl_F0_9:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1502,23 +1584,23 @@ ZN10MacBuilder15SetControlFocusEP15OpaqueWindowPtrl:F(0,9):
 	cmovz ebx, [ebp-0x1c]
 	mov [ebp-0x1c], ebx
 	test ebx, ebx
-	jz ZN10MacBuilder15SetControlFocusEP15OpaqueWindowPtrl:F(0,9)_10
+	jz ZN10MacBuilder15SetControlFocusEP15OpaqueWindowPtrl_F0_9_10
 	mov [esp+0x4], esi
 	mov [esp], ebx
 	call GetControlKind
 	test eax, eax
-	jnz ZN10MacBuilder15SetControlFocusEP15OpaqueWindowPtrl:F(0,9)_10
+	jnz ZN10MacBuilder15SetControlFocusEP15OpaqueWindowPtrl_F0_9_10
 	mov eax, [ebp-0x20]
 	cmp eax, 0x65747874
-	jz ZN10MacBuilder15SetControlFocusEP15OpaqueWindowPtrl:F(0,9)_20
+	jz ZN10MacBuilder15SetControlFocusEP15OpaqueWindowPtrl_F0_9_20
 	cmp eax, 0x65757478
-	jnz ZN10MacBuilder15SetControlFocusEP15OpaqueWindowPtrl:F(0,9)_10
-ZN10MacBuilder15SetControlFocusEP15OpaqueWindowPtrl:F(0,9)_20:
+	jnz ZN10MacBuilder15SetControlFocusEP15OpaqueWindowPtrl_F0_9_10
+ZN10MacBuilder15SetControlFocusEP15OpaqueWindowPtrl_F0_9_20:
 	mov dword [esp+0x8], 0x5
 	mov [esp+0x4], ebx
 	mov [esp], edi
 	call SetKeyboardFocus
-ZN10MacBuilder15SetControlFocusEP15OpaqueWindowPtrl:F(0,9)_10:
+ZN10MacBuilder15SetControlFocusEP15OpaqueWindowPtrl_F0_9_10:
 	add esp, 0x2c
 	pop ebx
 	pop esi
@@ -1528,9 +1610,9 @@ ZN10MacBuilder15SetControlFocusEP15OpaqueWindowPtrl:F(0,9)_10:
 	add [eax], al
 
 
-;ZN10MacBuilder20SetupUserPaneControlEP15OpaqueWindowPtrlPFvP16OpaqueControlRefsEPFsS3_5PointS5_E:F(0,9)
+;ZN10MacBuilder20SetupUserPaneControlEP15OpaqueWindowPtrlPFvP16OpaqueControlRefsEPFsS3_5PointS5_E_F0_9
 
-ZN10MacBuilder20SetupUserPaneControlEP15OpaqueWindowPtrlPFvP16OpaqueControlRefsEPFsS3_5PointS5_E:F(0,9):
+ZN10MacBuilder20SetupUserPaneControlEP15OpaqueWindowPtrlPFvP16OpaqueControlRefsEPFsS3_5PointS5_E_F0_9:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1554,7 +1636,7 @@ ZN10MacBuilder20SetupUserPaneControlEP15OpaqueWindowPtrlPFvP16OpaqueControlRefsE
 	cmovz ebx, [ebp-0x1c]
 	mov [ebp-0x1c], ebx
 	test ebx, ebx
-	jz ZN10MacBuilder20SetupUserPaneControlEP15OpaqueWindowPtrlPFvP16OpaqueControlRefsEPFsS3_5PointS5_E:F(0,9)_10
+	jz ZN10MacBuilder20SetupUserPaneControlEP15OpaqueWindowPtrlPFvP16OpaqueControlRefsEPFsS3_5PointS5_E_F0_9_10
 	mov eax, [ebp+0x10]
 	mov [esp], eax
 	call NewControlUserPaneDrawUPP
@@ -1566,8 +1648,8 @@ ZN10MacBuilder20SetupUserPaneControlEP15OpaqueWindowPtrlPFvP16OpaqueControlRefsE
 	mov [esp], ebx
 	call SetControlData
 	test edi, edi
-	jz ZN10MacBuilder20SetupUserPaneControlEP15OpaqueWindowPtrlPFvP16OpaqueControlRefsEPFsS3_5PointS5_E:F(0,9)_10
-	mov dword [esp], Z19UserPaneHitTestProcP16OpaqueControlRef5Point:F(0,1)
+	jz ZN10MacBuilder20SetupUserPaneControlEP15OpaqueWindowPtrlPFvP16OpaqueControlRefsEPFsS3_5PointS5_E_F0_9_10
+	mov dword [esp], Z19UserPaneHitTestProcP16OpaqueControlRef5Point_F0_1
 	call NewControlUserPaneHitTestUPP
 	mov [ebp-0x20], eax
 	lea eax, [ebp-0x20]
@@ -1587,7 +1669,7 @@ ZN10MacBuilder20SetupUserPaneControlEP15OpaqueWindowPtrlPFvP16OpaqueControlRefsE
 	mov dword [esp+0x4], 0x0
 	mov [esp], ebx
 	call SetControlData
-ZN10MacBuilder20SetupUserPaneControlEP15OpaqueWindowPtrlPFvP16OpaqueControlRefsEPFsS3_5PointS5_E:F(0,9)_10:
+ZN10MacBuilder20SetupUserPaneControlEP15OpaqueWindowPtrlPFvP16OpaqueControlRefsEPFsS3_5PointS5_E_F0_9_10:
 	add esp, 0x4c
 	pop ebx
 	pop esi
@@ -1596,9 +1678,9 @@ ZN10MacBuilder20SetupUserPaneControlEP15OpaqueWindowPtrlPFvP16OpaqueControlRefsE
 	ret
 
 
-;ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs:F(0,9)
+;ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs_F0_9
 
-ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs:F(0,9):
+ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs_F0_9:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1624,11 +1706,11 @@ ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs:F(0
 	mov [ebp-0x1c], edx
 	mov ebx, edx
 	test edx, edx
-	jz ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs:F(0,9)_10
+	jz ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs_F0_9_10
 	mov edx, [_ZZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEsE20sControlKeyFilterUPP]
 	test edx, edx
-	jz ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs:F(0,9)_20
-ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs:F(0,9)_70:
+	jz ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs_F0_9_20
+ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs_F0_9_70:
 	mov dword [esp+0x10], _ZZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEsE20sControlKeyFilterUPP
 	mov dword [esp+0xc], 0x4
 	mov dword [esp+0x8], 0x666c7472
@@ -1637,8 +1719,8 @@ ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs:F(0
 	call SetControlData
 	mov eax, [_ZZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEsE21sControlValidationUPP]
 	test eax, eax
-	jz ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs:F(0,9)_30
-ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs:F(0,9)_80:
+	jz ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs_F0_9_30
+ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs_F0_9_80:
 	mov dword [esp+0x10], _ZZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEsE21sControlValidationUPP
 	mov dword [esp+0xc], 0x4
 	mov dword [esp+0x8], 0x76616c69
@@ -1646,25 +1728,25 @@ ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs:F(0
 	mov [esp], ebx
 	call SetControlData
 	test edi, edi
-	jz ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs:F(0,9)_40
+	jz ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs_F0_9_40
 	mov [esp+0x4], edi
 	mov [esp], ebx
 	call SetControlReference
-ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs:F(0,9)_60:
+ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs_F0_9_60:
 	test si, si
-	jle ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs:F(0,9)_50
+	jle ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs_F0_9_50
 	movsx eax, si
 	mov [esp+0x4], eax
 	mov [esp], ebx
 	call SetControlMaximum
-ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs:F(0,9)_10:
+ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs_F0_9_10:
 	add esp, 0x3c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs:F(0,9)_50:
+ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs_F0_9_50:
 	mov dword [esp+0x4], 0x0
 	mov [esp], ebx
 	call SetControlMaximum
@@ -1674,26 +1756,26 @@ ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs:F(0
 	pop edi
 	pop ebp
 	ret
-ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs:F(0,9)_40:
+ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs_F0_9_40:
 	mov dword [esp+0x4], 0x0
 	mov [esp], ebx
 	call SetControlReference
-	jmp ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs:F(0,9)_60
-ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs:F(0,9)_20:
+	jmp ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs_F0_9_60
+ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs_F0_9_20:
 	mov dword [esp], _Z13KeyFilterProcP16OpaqueControlRefPsS1_Pt
 	call NewControlKeyFilterUPP
 	mov [_ZZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEsE20sControlKeyFilterUPP], eax
-	jmp ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs:F(0,9)_70
-ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs:F(0,9)_30:
+	jmp ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs_F0_9_70
+ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs_F0_9_30:
 	mov dword [esp], _Z14ValidationProcP16OpaqueControlRef
 	call NewControlEditTextValidationUPP
 	mov [_ZZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEsE21sControlValidationUPP], eax
-	jmp ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs:F(0,9)_80
+	jmp ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs_F0_9_80
 
 
-;ZN10MacBuilder13GetTextObjectEP15OpaqueWindowPtrl:F(0,84)
+;ZN10MacBuilder13GetTextObjectEP15OpaqueWindowPtrl_F0_84
 
-ZN10MacBuilder13GetTextObjectEP15OpaqueWindowPtrl:F(0,84):
+ZN10MacBuilder13GetTextObjectEP15OpaqueWindowPtrl_F0_84:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -1715,30 +1797,30 @@ ZN10MacBuilder13GetTextObjectEP15OpaqueWindowPtrl:F(0,84):
 	cmovz ebx, [ebp-0xc]
 	mov [ebp-0xc], ebx
 	test ebx, ebx
-	jnz ZN10MacBuilder13GetTextObjectEP15OpaqueWindowPtrl:F(0,84)_10
-ZN10MacBuilder13GetTextObjectEP15OpaqueWindowPtrl:F(0,84)_20:
+	jnz ZN10MacBuilder13GetTextObjectEP15OpaqueWindowPtrl_F0_84_10
+ZN10MacBuilder13GetTextObjectEP15OpaqueWindowPtrl_F0_84_20:
 	xor eax, eax
-ZN10MacBuilder13GetTextObjectEP15OpaqueWindowPtrl:F(0,84)_30:
+ZN10MacBuilder13GetTextObjectEP15OpaqueWindowPtrl_F0_84_30:
 	add esp, 0x20
 	pop ebx
 	pop esi
 	pop ebp
 	ret
-ZN10MacBuilder13GetTextObjectEP15OpaqueWindowPtrl:F(0,84)_10:
+ZN10MacBuilder13GetTextObjectEP15OpaqueWindowPtrl_F0_84_10:
 	mov [esp+0x4], esi
 	mov [esp], ebx
 	call GetControlKind
 	test eax, eax
-	jnz ZN10MacBuilder13GetTextObjectEP15OpaqueWindowPtrl:F(0,84)_20
+	jnz ZN10MacBuilder13GetTextObjectEP15OpaqueWindowPtrl_F0_84_20
 	cmp dword [ebp-0x10], 0x68697478
-	jnz ZN10MacBuilder13GetTextObjectEP15OpaqueWindowPtrl:F(0,84)_20
+	jnz ZN10MacBuilder13GetTextObjectEP15OpaqueWindowPtrl_F0_84_20
 	mov [esp], ebx
 	call HITextViewGetTXNObject
-	jmp ZN10MacBuilder13GetTextObjectEP15OpaqueWindowPtrl:F(0,84)_30
+	jmp ZN10MacBuilder13GetTextObjectEP15OpaqueWindowPtrl_F0_84_30
 	add [eax], al
 
 
-;Z7dprintfPKcz:F(0,8)
+;Z7dprintfPKcz_F0_8
 
 _Z21CenterWindowOnDisplayv:
 	push ebp
@@ -1746,7 +1828,7 @@ _Z21CenterWindowOnDisplayv:
 	push esi
 	push ebx
 	sub esp, 0x20
-	call ZN10MacDisplay15GetDeviceHandleEv:F(0,14)
+	call ZN10MacDisplay15GetDeviceHandleEv_F0_14
 	mov ebx, eax
 	cmp byte [sInWindowMode], 0x0
 	jnz _Z21CenterWindowOnDisplayv_10
@@ -1809,7 +1891,7 @@ _Z21CenterWindowOnDisplayv_10:
 	jmp _Z21CenterWindowOnDisplayv_30
 
 
-;ZN10MacDisplay12SetupDisplayEii:F(0,156)
+;ZN10MacDisplay12SetupDisplayEii_F0_156
 
 _Z15BuilderCallbackP15OpaqueWindowPtrm:
 	push ebp
@@ -1820,7 +1902,7 @@ _Z15BuilderCallbackP15OpaqueWindowPtrm:
 	nop
 
 
-;ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIP8CResInfoSt6vectorIS2_SaIS2_EEEEiS2_EvT_T0_S9_T1_:F(0,39)
+;ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIP8CResInfoSt6vectorIS2_SaIS2_EEEEiS2_EvT_T0_S9_T1__F0_39
 
 _Z16UserPaneDrawProcP16OpaqueControlRefs:
 	push ebp
@@ -1940,7 +2022,7 @@ _Z16UserPaneDrawProcP16OpaqueControlRefs_80:
 	call DrawThemeFocusRect
 	lea ebx, [ebp-0x108]
 	mov [esp], ebx
-	call ZN10MacFolders17GetApplicationRefER5FSRef:F(0,16)
+	call ZN10MacFolders17GetApplicationRefER5FSRef_F0_16
 	lea eax, [ebp-0x1a]
 	mov [esp+0x1c], eax
 	lea eax, [ebp-0x20]
@@ -2155,7 +2237,7 @@ _Z16UserPaneDrawProcP16OpaqueControlRefs_90:
 	call CGRectGetHeight
 	fstp dword [ebp-0x14c]
 	movss xmm0, dword [ebp-0x14c]
-	divss xmm0, dword [ebp-0x134]
+	divss xmm0, [ebp-0x134]
 	mulss xmm0, [ebp-0x13c]
 	ucomiss xmm0, [ebp-0x138]
 	ja _Z16UserPaneDrawProcP16OpaqueControlRefs_120
@@ -2261,7 +2343,7 @@ _Z16UserPaneDrawProcP16OpaqueControlRefs_150:
 	mov [esp+0x8], edi
 	mov [esp+0x4], ecx
 	mov dword [esp], sRectList
-	call ZNSt6vectorI7MacRectSaIS0_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS0_S2_EERKS0_:F(0,39)
+	call ZNSt6vectorI7MacRectSaIS0_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS0_S2_EERKS0__F0_39
 	jmp _Z16UserPaneDrawProcP16OpaqueControlRefs_190
 	nop
 
@@ -2322,7 +2404,7 @@ _Z20UserPaneTrackingProcP16OpaqueControlRef5PointPFvS0_sE_20:
 	ret
 
 
-;ZN16OpaqueContextRefD1Ev:F(0,39)
+;ZN16OpaqueContextRefD1Ev_F0_39
 
 _Z23RemoveDirectoryContentsRK5FSRefR19RemoveDirectoryInfo:
 _Z23RemoveDirectoryContentsRK5FSRefR19RemoveDirectoryInfo_100:
@@ -2435,7 +2517,7 @@ _Z23RemoveDirectoryContentsRK5FSRefR19RemoveDirectoryInfo_60:
 	nop
 
 
-;ZN8MacFiles16RemoveDirectoryAEPKc:F(0,9)
+;ZN8MacFiles16RemoveDirectoryAEPKc_F0_9
 
 _Z20SearchForApplicationRK5FSRefmRS_:
 _Z20SearchForApplicationRK5FSRefmRS__30:
@@ -2636,7 +2718,7 @@ _Z20SearchForApplicationRK5FSRefmRS__200:
 	mov [esp+0x4], edx
 	lea eax, [ebp-0x30]
 	mov [esp], eax
-	call ZNSt6vectorI5FSRefSaIS0_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS0_S2_EERKS0_:F(0,1)
+	call ZNSt6vectorI5FSRefSaIS0_EE13_M_insert_auxEN9__gnu_cxx17__normal_iteratorIPS0_S2_EERKS0__F0_1
 	jmp _Z20SearchForApplicationRK5FSRefmRS__170
 	mov ebx, eax
 _Z20SearchForApplicationRK5FSRefmRS__260:
@@ -2674,7 +2756,7 @@ _Z20SearchForApplicationRK5FSRefmRS__250:
 	jmp _Z20SearchForApplicationRK5FSRefmRS__260
 
 
-;ZN12StShowCursorC1Ev:F(0,1)
+;ZN12StShowCursorC1Ev_F0_1
 
 _Z15CursorTimerProcP16__EventLoopTimerPv:
 	push ebp
@@ -2728,7 +2810,7 @@ _Z15CursorTimerProcP16__EventLoopTimerPv_30:
 	jmp _Z15CursorTimerProcP16__EventLoopTimerPv_10
 
 
-;SetWinCursor:F(0,120)
+;SetWinCursor_F0_120
 
 _Z12EditTextHookP16OpaqueControlRefs:
 	push ebp
@@ -2751,7 +2833,7 @@ _Z12EditTextHookP16OpaqueControlRefs_10:
 	mov dword [esp+0x4], 0x2
 	mov eax, [sConsoleWindow]
 	mov [esp], eax
-	call ZN10MacBuilder14GetControlTextEP15OpaqueWindowPtrlsPc:F(0,9)
+	call ZN10MacBuilder14GetControlTextEP15OpaqueWindowPtrlsPc_F0_9
 	cmp byte [sConsoleText], 0x0
 	jnz _Z12EditTextHookP16OpaqueControlRefs_20
 _Z12EditTextHookP16OpaqueControlRefs_30:
@@ -2763,9 +2845,9 @@ _Z12EditTextHookP16OpaqueControlRefs_30:
 _Z12EditTextHookP16OpaqueControlRefs_20:
 	mov dword [esp+0x4], sConsoleText
 	mov dword [esp], _cstring_s8
-	call va:F(0,3)
+	call va_F0_3
 	mov [esp], eax
-	call Z9Sys_PrintPKc:F(0,1)
+	call Z9Sys_PrintPKc_F0_1
 	mov edi, sConsoleText
 	cld
 	mov ecx, 0xffffffff
@@ -2777,23 +2859,23 @@ _Z12EditTextHookP16OpaqueControlRefs_20:
 	mov dword [esp+0x4], 0x2
 	mov eax, [sConsoleWindow]
 	mov [esp], eax
-	call ZN10MacBuilder14SetControlTextEP15OpaqueWindowPtrlPKc:F(0,9)
+	call ZN10MacBuilder14SetControlTextEP15OpaqueWindowPtrlPKc_F0_9
 	jmp _Z12EditTextHookP16OpaqueControlRefs_30
 
 
-;Z15BuilderCallbackP15OpaqueWindowPtrm:F(0,1)
+;Z15BuilderCallbackP15OpaqueWindowPtrm_F0_1
 
-Z15BuilderCallbackP15OpaqueWindowPtrm:F(0,1):
+Z15BuilderCallbackP15OpaqueWindowPtrm_F0_1:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x8
 	cmp dword [ebp+0xc], 0x636c6f73
-	jz Z15BuilderCallbackP15OpaqueWindowPtrm:F(0,1)_10
+	jz Z15BuilderCallbackP15OpaqueWindowPtrm_F0_1_10
 	xor eax, eax
 	leave
 	ret
-Z15BuilderCallbackP15OpaqueWindowPtrm:F(0,1)_10:
-	call ZN14CMacGameEngine4QuitEv:F(0,1)
+Z15BuilderCallbackP15OpaqueWindowPtrm_F0_1_10:
+	call ZN14CMacGameEngine4QuitEv_F0_1
 	mov eax, 0x1
 	leave
 	ret
@@ -2806,13 +2888,13 @@ _Z19CreateConsoleWindowv:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x28
-	call ZN10MacDisplay14ReleaseDisplayEv:F(0,39)
-	call ZN10MacGlobals10LockSystemEv:F(0,1)
-	mov dword [esp+0xc], Z15BuilderCallbackP15OpaqueWindowPtrm:F(0,1)
+	call ZN10MacDisplay14ReleaseDisplayEv_F0_39
+	call ZN10MacGlobals10LockSystemEv_F0_1
+	mov dword [esp+0xc], Z15BuilderCallbackP15OpaqueWindowPtrm_F0_1
 	mov dword [esp+0x8], 0x1
 	mov dword [esp+0x4], _cfstring_console
 	mov dword [esp], _cfstring_console
-	call ZN10MacBuilder11BuildWindowEPK10__CFStringS2_hPFhP15OpaqueWindowPtrmE:F(0,17)
+	call ZN10MacBuilder11BuildWindowEPK10__CFStringS2_hPFhP15OpaqueWindowPtrmE_F0_17
 	mov [sConsoleWindow], eax
 	test eax, eax
 	jz _Z19CreateConsoleWindowv_10
@@ -2822,7 +2904,7 @@ _Z19CreateConsoleWindowv:
 	mov dword [esp+0x4], 0x1
 	mov eax, [sConsoleWindow]
 	mov [esp], eax
-	call ZN10MacBuilder13GetTextObjectEP15OpaqueWindowPtrl:F(0,84)
+	call ZN10MacBuilder13GetTextObjectEP15OpaqueWindowPtrl_F0_84
 	mov [sConsoleTextView], eax
 	test eax, eax
 	jz _Z19CreateConsoleWindowv_20
@@ -2831,12 +2913,12 @@ _Z19CreateConsoleWindowv:
 	mov dword [esp+0x4], 0x1
 	mov eax, [sConsoleWindow]
 	mov [esp], eax
-	call ZN10MacBuilder22SetTextObjectFontStyleEP15OpaqueWindowPtrlss:F(0,9)
+	call ZN10MacBuilder22SetTextObjectFontStyleEP15OpaqueWindowPtrlss_F0_9
 _Z19CreateConsoleWindowv_20:
 	mov dword [esp+0x4], 0x2
 	mov eax, [sConsoleWindow]
 	mov [esp], eax
-	call ZN10MacBuilder13GetControlRefEP15OpaqueWindowPtrl:F(0,3)
+	call ZN10MacBuilder13GetControlRefEP15OpaqueWindowPtrl_F0_3
 	mov [sConsoleEditText], eax
 	test eax, eax
 	jz _Z19CreateConsoleWindowv_30
@@ -2845,13 +2927,13 @@ _Z19CreateConsoleWindowv_20:
 	mov dword [esp+0x4], 0x2
 	mov eax, [sConsoleWindow]
 	mov [esp], eax
-	call ZN10MacBuilder19SetControlFontStyleEP15OpaqueWindowPtrlss:F(0,9)
+	call ZN10MacBuilder19SetControlFontStyleEP15OpaqueWindowPtrlss_F0_9
 	mov dword [esp+0xc], 0x0
 	mov dword [esp+0x8], _Z12EditTextHookP16OpaqueControlRefs
 	mov dword [esp+0x4], 0x2
 	mov eax, [sConsoleWindow]
 	mov [esp], eax
-	call ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs:F(0,9)
+	call ZN10MacBuilder15SetEditTextHookEP15OpaqueWindowPtrlPFhP16OpaqueControlRefsEs_F0_9
 	mov eax, [sConsoleData]
 	test eax, eax
 	jz _Z19CreateConsoleWindowv_30
@@ -2897,5 +2979,5 @@ _Z19CreateConsoleWindowv_40:
 	nop
 
 
-;Z17Sys_CreateConsoleP11HINSTANCE__:F(0,15)
+;Z17Sys_CreateConsoleP11HINSTANCE___F0_15
 

@@ -2,702 +2,806 @@
 ;Symbols in this file: 40
 ;
 ;Imports (over-declared, NASM-safe):
-	extern __keymgr_dwarf2_register_sections
-	extern atexit
-	extern exit
-	extern AEDisposeDesc
-	extern AECreateDesc
-	extern __cxa_allocate_exception
-	extern __cxa_throw
-	extern _Unwind_Resume
 	extern AECoerceDesc
+	extern AECreateAppleEvent
+	extern AECreateDesc
+	extern AEDisposeDesc
 	extern AEGetDescData
 	extern AEGetDescDataSize
-	extern CreateObjSpecifier
-	extern AEPutParamDesc
-	extern AECreateAppleEvent
-	extern AESend
-	extern AEPutParamPtr
-	extern AEGetParamPtr
 	extern AEGetParamDesc
-	extern GetControlBounds
-	extern PtInRect
-	extern GetEventKind
-	extern GetEventClass
-	extern GetEventParameter
-	extern GetControlOwner
-	extern AdvanceKeyboardFocus
-	extern SetWRefCon
-	extern QuitAppModalLoopForWindow
-	extern HIViewGetRoot
-	extern HIViewGetViewForMouseEvent
-	extern GetControlKind
-	extern SetThemeCursor
-	extern CFBundleGetMainBundle
-	extern CreateNibReferenceWithCFBundle
-	extern CreateWindowFromNib
-	extern DisposeNibReference
-	extern GetWindowEventTarget
-	extern InstallEventHandler
-	extern GetWindowResizeLimits
-	extern SetWindowResizeLimits
-	extern InitCursor
-	extern ShowWindow
-	extern RunAppModalLoopForWindow
-	extern HideWindow
-	extern GetWRefCon
-	extern DisposeWindow
-	extern GetControlByID
-	extern GetControlMaximum
-	extern GetControlDataSize
-	extern SetControlData
-	extern HandleControlKey
-	extern GetControlReference
-	extern GetControlData
-	extern AlertSoundPlay
-	extern HITextViewGetTXNObject
-	extern TXNSetTypeAttributes
-	extern HideControl
-	extern ShowControl
-	extern DisableControl
-	extern EnableControl
-	extern SetControlFontStyle
-	extern SetKeyboardFocus
-	extern NewControlUserPaneDrawUPP
-	extern NewControlUserPaneHitTestUPP
-	extern NewControlUserPaneTrackingUPP
-	extern SetControlReference
-	extern SetControlMaximum
-	extern NewControlKeyFilterUPP
-	extern NewControlEditTextValidationUPP
-	extern GetWindowPort
-	extern CGDisplayBounds
-	extern DMGetFirstScreenDevice
-	extern EqualRect
-	extern DMGetNextScreenDevice
-	extern GetMainDevice
-	extern GetWindowPortBounds
-	extern CGDisplayFade
-	extern CGReleaseDisplayFadeReservation
-	extern CGAcquireDisplayFadeReservation
-	extern CGDisplayPixelsWide
-	extern CGDisplayPixelsHigh
-	extern CGDisplayBitsPerPixel
-	extern aglSwapBuffers
-	extern EndMediaEdits
-	extern GetMediaDuration
-	extern InsertMediaIntoTrack
-	extern AddMovieResource
-	extern CloseMovieFile
-	extern MoveWindow
-	extern GetAvailableWindowPositioningBounds
-	extern CreateNewWindow
-	extern SetPortWindowPort
-	extern SetWindowContentColor
-	extern SetWindowTitleWithCFString
-	extern gluCheckExtension
-	extern _Znam
-	extern CGSetDisplayTransferByTable
-	extern _ZdaPv
-	extern CGGetDisplayTransferByTable
-	extern QDLocalToGlobalPoint
-	extern QDGlobalToLocalPoint
-	extern _Znwm
-	extern _ZdlPv
-	extern _ZSt17__throw_bad_allocv
-	extern _ZSt20__throw_length_errorPKc
-	extern NormalizeThemeDrawingState
-	extern ForeColor
-	extern FrameRoundRect
-	extern RGBForeColor
-	extern PaintRoundRect
-	extern NewRgn
-	extern OpenRgn
-	extern CloseRgn
-	extern SetClip
-	extern DisposeRgn
-	extern ClipRect
-	extern DrawThemeMenuBarBackground
-	extern InsetRect
-	extern DrawThemeFocusRect
-	extern GetIconRefFromFileInfo
-	extern PlotIconRef
-	extern ReleaseIconRef
-	extern CGRectIsEmpty
-	extern CGRectUnion
-	extern CGRectGetWidth
-	extern CGRectGetHeight
-	extern OffsetRect
-	extern MapRect
-	extern glFinish
-	extern aglSetCurrentContext
-	extern aglSetDrawable
-	extern aglDestroyContext
-	extern ShowMenuBar
-	extern SetSystemUIMode
-	extern aglChoosePixelFormat
-	extern aglCreateContext
-	extern aglSetFullScreen
-	extern CGDisplayCurrentMode
-	extern aglSetInteger
-	extern HideMenuBar
-	extern aglDescribePixelFormat
-	extern aglDestroyPixelFormat
-	extern glEnable
-	extern glHint
-	extern aglGetDrawable
-	extern glDisable
-	extern IsWindowVisible
-	extern SizeWindow
-	extern PaintRect
-	extern _ZNSs6assignERKSs
-	extern CGDisplayIDToOpenGLDisplayMask
-	extern CGLQueryRendererInfo
-	extern CGLDescribeRenderer
-	extern CGLDestroyRendererInfo
-	extern CGDisplayAvailableModes
-	extern CFArrayGetCount
-	extern CGDisplayIOServicePort
-	extern CGLGetCurrentContext
-	extern CGLChoosePixelFormat
-	extern CGLCreateContext
-	extern CGLDestroyPixelFormat
-	extern CGLSetCurrentContext
-	extern glGetString
-	extern _ZNSs6assignEPKcm
-	extern glGetIntegerv
-	extern CGLDestroyContext
-	extern _ZNSsC1ERKSs
-	extern strstr
-	extern _ZNSsD1Ev
-	extern CFArrayGetValueAtIndex
-	extern IOObjectConformsTo
-	extern IORegistryEntryGetParentEntry
-	extern glGetFloatv
-	extern _ZN9__gnu_cxx18__exchange_and_addEPVii
-	extern _ZNSs4_Rep10_M_destroyERKSaIcE
-	extern __cxa_begin_catch
-	extern __cxa_rethrow
-	extern __cxa_end_catch
-	extern CGGetActiveDisplayList
-	extern NewMenu
-	extern InsertMenu
-	extern InvalMenuBar
-	extern GetCurrentKeyModifiers
-	extern CGRectEqualToRect
-	extern Gestalt
-	extern sysctl
-	extern FSOpenIterator
-	extern FSGetCatalogInfoBulk
-	extern FSCloseIterator
-	extern FSDeleteObject
-	extern FSSetCatalogInfo
-	extern FSPathMakeRef
-	extern access
-	extern CFBundleCopyExecutableURL
-	extern CFURLGetFSRef
-	extern CFRelease
-	extern FSGetCatalogInfo
-	extern GetCurrentProcess
-	extern strcat
-	extern GetProcessBundleLocation
-	extern FSRefMakePath
-	extern PBGetCatInfoSync
-	extern FSMakeFSSpec
-	extern FSpMakeFSRef
-	extern memcpy
-	extern CFStringCreateWithCString
-	extern CFPreferencesCopyAppValue
-	extern CFGetTypeID
-	extern CFStringGetTypeID
-	extern strcpy
-	extern CFStringGetCString
-	extern CFPreferencesSetAppValue
-	extern atoi
-	extern sprintf
-	extern CFPreferencesAppSynchronize
-	extern atof
-	extern CFBundleCopyLocalizedString
-	extern CFStringGetPascalString
-	extern StringToNum
-	extern CFStringCreateWithFormat
-	extern GetPort
-	extern SetPort
-	extern CFStringCreateWithCharacters
-	extern GetCursor
-	extern SetCursor
-	extern CGAssociateMouseAndMouseCursorPosition
-	extern CGWarpMouseCursorPosition
-	extern HideCursor
-	extern GetGlobalMouse
-	extern UpTime
+	extern AEGetParamPtr
+	extern AEInstallEventHandler
+	extern AEPutParamDesc
+	extern AEPutParamPtr
+	extern AESend
+	extern AUGraphConnectNodeInput
+	extern AUGraphGetCPULoad
+	extern AUGraphGetNodeInfo
+	extern AUGraphInitialize
+	extern AUGraphNewNode
+	extern AUGraphOpen
+	extern AUGraphStart
+	extern AUGraphStop
+	extern AUGraphUpdate
 	extern AddDurationToAbsolute
-	extern MPDelayUntil
-	extern GetNextProcess
-	extern GetProcessInformation
-	extern CFDictionaryGetValue
-	extern CFNumberGetValue
-	extern lround
-	extern IORegistryEntryCreateCFProperty
+	extern AddMovieResource
+	extern AdvanceKeyboardFocus
+	extern AlertSoundPlay
+	extern AppendMenuItemTextWithCFString
+	extern AudioConverterDispose
+	extern AudioConverterFillBuffer
+	extern AudioConverterFillComplexBuffer
+	extern AudioConverterNew
+	extern AudioConverterReset
+	extern AudioDeviceGetProperty
+	extern AudioDeviceGetPropertyInfo
+	extern AudioDeviceSetProperty
+	extern AudioHardwareGetProperty
+	extern AudioOutputUnitStart
+	extern AudioOutputUnitStop
+	extern AudioUnitAddRenderNotify
+	extern AudioUnitGetProperty
+	extern AudioUnitInitialize
+	extern AudioUnitRemoveRenderNotify
+	extern AudioUnitRender
+	extern AudioUnitSetParameter
+	extern AudioUnitSetProperty
+	extern AudioUnitUninitialize
+	extern CFArrayGetCount
+	extern CFArrayGetValueAtIndex
+	extern CFBundleCopyExecutableURL
+	extern CFBundleCopyLocalizedString
+	extern CFBundleGetMainBundle
 	extern CFDataGetBytePtr
-	extern CreateEvent
-	extern SetEventParameter
-	extern GetMainEventQueue
-	extern PostEventToQueue
-	extern ReleaseEvent
-	extern pthread_main_np
-	extern GetStandardAlertDefaultParams
-	extern CreateStandardAlert
-	extern RunStandardAlert
-	extern LSCopyItemInfoForRef
-	extern pthread_self
-	extern OTAtomicAdd32
-	extern OTCompareAndSwap32
-	extern calloc
-	extern free
-	extern strrchr
-	extern Microseconds
-	extern __udivdi3
-	extern memset
-	extern strncpy
-	extern getcwd
-	extern NewGWorld
-	extern GetGWorldPixMap
-	extern LockPixels
-	extern GetPixRowBytes
-	extern QDRegisterNamedPixMapCursor
-	extern DisposeGWorld
-	extern TickCount
-	extern QDSetNamedPixMapCursor
-	extern GetMainEventLoop
-	extern InstallEventLoopTimer
-	extern GetQDGlobalsArrow
-	extern ShowCursor
-	extern fopen
-	extern fseek
-	extern fclose
-	extern ftell
-	extern rewind
-	extern malloc
-	extern fread
-	extern _ZNKSs7compareEPKc
-	extern glStencilMask
-	extern glDepthMask
-	extern glFlushVertexArrayRangeAPPLE
-	extern glTexParameterfv
-	extern glLightfv
-	extern glColor4f
-	extern glMatrixMode
-	extern glLoadMatrixf
-	extern glTexParameteri
-	extern glGenTextures
-	extern _ZNSt15_List_node_base4hookEPS_
-	extern glTexParameterf
-	extern glTexEnvf
-	extern glPushMatrix
-	extern glLoadIdentity
-	extern glTexCoord2f
-	extern glPopMatrix
-	extern glTexEnvfv
-	extern glPointSize
-	extern glDrawRangeElements
-	extern memmove
-	extern glBindTexture
-	extern glColorMask
-	extern glActiveTextureARB
-	extern glDepthFunc
-	extern glShadeModel
-	extern glViewport
-	extern glDepthRange
-	extern glAlphaFunc
-	extern glClearDepth
-	extern glScissor
-	extern glClear
-	extern glClearColor
-	extern glClearStencil
-	extern glMaterialfv
-	extern glMaterialf
-	extern glPixelStorei
-	extern glCopyTexSubImage2D
-	extern gluOrtho2D
-	extern glTexEnvi
-	extern glBlendFuncSeparateEXT
-	extern glBlendFunc
-	extern glBegin
-	extern glVertex3f
-	extern glEnd
-	extern cos
-	extern log
-	extern cosf
-	extern glPolygonMode
-	extern glFogf
-	extern glLightModelfv
-	extern glBlendEquationEXT
-	extern glPolygonOffset
-	extern glFogfv
-	extern glPointParameterfvARB
-	extern glStencilFunc
-	extern glPointParameterfARB
-	extern glStencilOp
-	extern glFrontFace
-	extern glColorMaterial
-	extern glPushAttrib
-	extern glPushClientAttrib
-	extern glDrawBuffer
-	extern glReadBuffer
-	extern __dynamic_cast
-	extern glScalef
-	extern glVertex2f
-	extern glPopClientAttrib
-	extern glPopAttrib
-	extern glProgramEnvParameter4fvARB
-	extern glTexGenfv
-	extern _ZNSsC1EPKcRKSaIcE
-	extern _ZNKSs4findEPKcmm
-	extern _ZNSsC1ERKSsmm
-	extern _ZSt20__throw_out_of_rangePKc
-	extern glCombinerParameterfvNV
-	extern glCombinerStageParameterfvNV
-	extern glBindProgramARB
-	extern glDeleteProgramsARB
-	extern glGetProgramivARB
-	extern glGenProgramsARB
-	extern glProgramStringARB
-	extern _ZNSs6appendEPKcm
-	extern _ZNSs6appendERKSs
-	extern glTexImage2D
-	extern glCompressedTexImage2DARB
-	extern glTexSubImage2D
-	extern glCompressedTexSubImage2D
-	extern _ZNSt15_List_node_base6unhookEv
-	extern ceilf
-	extern glFinishFenceAPPLE
-	extern glSetFenceAPPLE
-	extern glGenFencesAPPLE
-	extern glDeleteFencesAPPLE
-	extern glVertexArrayRangeAPPLE
-	extern glDisableVertexAttribArrayARB
-	extern glVertexAttribPointerARB
-	extern glEnableVertexAttribArrayARB
-	extern glTexGeni
-	extern glBindVertexArrayAPPLE
-	extern glLightf
-	extern glClientActiveTextureARB
-	extern glDeleteTextures
-	extern glDeleteVertexArraysAPPLE
-	extern glDisableClientState
-	extern glFogi
-	extern glLightModeli
-	extern glClipPlane
-	extern glEnableClientState
-	extern glVertexArrayParameteriAPPLE
-	extern strcasecmp
-	extern strncasecmp
-	extern tolower
-	extern toupper
-	extern RemoveEventHandler
-	extern FlushEventQueue
-	extern SendEventToEventTarget
-	extern ReceiveNextEvent
+	extern CFDictionaryGetValue
+	extern CFGetTypeID
+	extern CFNumberGetValue
+	extern CFPreferencesAppSynchronize
+	extern CFPreferencesCopyAppValue
+	extern CFPreferencesSetAppValue
+	extern CFRelease
+	extern CFStringCreateWithCString
+	extern CFStringCreateWithCharacters
+	extern CFStringCreateWithFormat
+	extern CFStringGetCString
+	extern CFStringGetPascalString
+	extern CFStringGetTypeID
 	extern CFURLCreateFromFSRef
-	extern CGDataProviderCreateWithURL
-	extern CGImageCreateWithPNGDataProvider
-	extern QDBeginCGContext
-	extern CGImageRelease
-	extern CGDataProviderRelease
+	extern CFURLCreateWithBytes
+	extern CFURLGetFSRef
+	extern CGAcquireDisplayFadeReservation
+	extern CGAssociateMouseAndMouseCursorPosition
 	extern CGContextClearRect
 	extern CGContextDrawImage
 	extern CGContextFlush
-	extern QDEndCGContext
-	extern EventAvail
-	extern strcmp
-	extern getrlimit
-	extern setrlimit
-	extern EnterMovies
-	extern FSGetVolumeInfo
-	extern GetCompressionInfo
-	extern RunApplicationEventLoop
-	extern GetEventDispatcherTarget
-	extern GetApplicationEventTarget
-	extern GetMenuHandle
-	extern AppendMenuItemTextWithCFString
-	extern SetItemCmd
-	extern GetIndMenuItemWithCommandID
-	extern GetMenuEventTarget
-	extern AEInstallEventHandler
-	extern chdir
-	extern QuitApplicationEventLoop
+	extern CGDataProviderCreateWithURL
+	extern CGDataProviderRelease
+	extern CGDisplayAvailableModes
+	extern CGDisplayBitsPerPixel
+	extern CGDisplayBounds
+	extern CGDisplayCurrentMode
+	extern CGDisplayFade
+	extern CGDisplayIDToOpenGLDisplayMask
+	extern CGDisplayIOServicePort
+	extern CGDisplayPixelsHigh
+	extern CGDisplayPixelsWide
+	extern CGGetActiveDisplayList
+	extern CGGetDisplayTransferByTable
+	extern CGImageCreateWithPNGDataProvider
+	extern CGImageRelease
+	extern CGLChoosePixelFormat
+	extern CGLCreateContext
+	extern CGLDescribeRenderer
+	extern CGLDestroyContext
+	extern CGLDestroyPixelFormat
+	extern CGLDestroyRendererInfo
+	extern CGLGetCurrentContext
+	extern CGLQueryRendererInfo
+	extern CGLSetCurrentContext
+	extern CGRectEqualToRect
+	extern CGRectGetHeight
+	extern CGRectGetWidth
+	extern CGRectIsEmpty
+	extern CGRectUnion
+	extern CGReleaseDisplayFadeReservation
+	extern CGSetDisplayTransferByTable
+	extern CGWarpMouseCursorPosition
+	extern ClipRect
+	extern CloseComponent
+	extern CloseMovieFile
+	extern CloseRgn
+	extern CollapseWindow
+	extern CreateEvent
+	extern CreateNewWindow
+	extern CreateNibReferenceWithCFBundle
+	extern CreateObjSpecifier
+	extern CreateStandardAlert
+	extern CreateWindowFromNib
+	extern DMGetFirstScreenDevice
+	extern DMGetNextScreenDevice
+	extern DisableControl
 	extern DisableMenuItem
-	extern close
-	extern ioctl
-	extern __error
-	extern vsnprintf
-	extern strchr
-	extern rand
-	extern acosf
-	extern atan2
-	extern tan
-	extern sinf
-	extern time
-	extern localtime
-	extern asctime
-	extern longjmp
-	extern __maskrune
-	extern snprintf
-	extern floorf
-	extern setjmp
-	extern remove
-	extern fflush
-	extern qsort
-	extern fwrite
-	extern rename
-	extern isspace
-	extern _ZNSs9_M_mutateEmmm
+	extern DisposeAUGraph
+	extern DisposeGWorld
+	extern DisposeHandle
+	extern DisposeMovie
+	extern DisposeNibReference
+	extern DisposeRgn
+	extern DisposeWindow
+	extern DrawThemeFocusRect
+	extern DrawThemeMenuBarBackground
+	extern EnableControl
+	extern EndMediaEdits
+	extern EnterMovies
+	extern EqualRect
+	extern EventAvail
+	extern FSCloseIterator
+	extern FSDeleteObject
+	extern FSGetCatalogInfo
+	extern FSGetCatalogInfoBulk
+	extern FSGetVolumeInfo
+	extern FSMakeFSSpec
+	extern FSOpenIterator
+	extern FSPathMakeRef
+	extern FSRefMakePath
+	extern FSSetCatalogInfo
+	extern FSpMakeFSRef
+	extern FindNextComponent
+	extern FlushEventQueue
+	extern ForeColor
+	extern FrameRoundRect
+	extern Gestalt
+	extern GetApplicationEventTarget
+	extern GetAvailableWindowPositioningBounds
+	extern GetComponentVersion
+	extern GetCompressionInfo
+	extern GetControlBounds
+	extern GetControlByID
+	extern GetControlData
+	extern GetControlDataSize
+	extern GetControlKind
+	extern GetControlMaximum
+	extern GetControlOwner
+	extern GetControlReference
+	extern GetCurrentEventTime
+	extern GetCurrentKeyModifiers
+	extern GetCurrentProcess
+	extern GetCursor
+	extern GetEventClass
+	extern GetEventDispatcherTarget
+	extern GetEventKind
+	extern GetEventParameter
+	extern GetGWorldPixMap
+	extern GetGlobalMouse
+	extern GetHandleSize
+	extern GetIconRefFromFileInfo
+	extern GetIndMenuItemWithCommandID
+	extern GetMainDevice
+	extern GetMainEventLoop
+	extern GetMainEventQueue
+	extern GetMediaDuration
+	extern GetMediaHandler
+	extern GetMediaSampleDescription
+	extern GetMenuEventTarget
+	extern GetMenuHandle
+	extern GetMovieDuration
+	extern GetMovieIndTrackType
+	extern GetMoviePreferredRate
+	extern GetMovieTime
+	extern GetMovieTimeScale
+	extern GetNextProcess
+	extern GetPixRowBytes
+	extern GetPort
+	extern GetProcessBundleLocation
+	extern GetProcessInformation
+	extern GetQDGlobalsArrow
+	extern GetStandardAlertDefaultParams
+	extern GetTrackMedia
+	extern GetWRefCon
+	extern GetWindowEventTarget
+	extern GetWindowPort
+	extern GetWindowPortBounds
+	extern GetWindowResizeLimits
+	extern GoToBeginningOfMovie
+	extern HITextViewGetTXNObject
+	extern HIViewGetRoot
+	extern HIViewGetViewForMouseEvent
+	extern HandleControlKey
+	extern HideControl
+	extern HideCursor
+	extern HideMenuBar
+	extern HideWindow
+	extern IOObjectConformsTo
+	extern IORegistryEntryCreateCFProperty
+	extern IORegistryEntryGetParentEntry
+	extern InitCursor
+	extern InsertMediaIntoTrack
+	extern InsertMenu
+	extern InsetRect
+	extern InstallEventHandler
+	extern InstallEventLoopTimer
+	extern InvalMenuBar
+	extern IsMovieDone
+	extern IsWindowVisible
+	extern LSCopyItemInfoForRef
+	extern LSOpenCFURLRef
+	extern LSOpenFSRef
+	extern LockPixels
+	extern MPDelayUntil
+	extern MapRect
+	extern MediaSetSoundBalance
+	extern Microseconds
+	extern MoveWindow
+	extern MoviesTask
+	extern NewAUGraph
+	extern NewControlEditTextValidationUPP
+	extern NewControlKeyFilterUPP
+	extern NewControlUserPaneDrawUPP
+	extern NewControlUserPaneHitTestUPP
+	extern NewControlUserPaneTrackingUPP
+	extern NewGWorld
+	extern NewHandle
+	extern NewMenu
+	extern NewMovieFromFile
+	extern NewRgn
+	extern NormalizeThemeDrawingState
+	extern OTAtomicAdd32
+	extern OTCompareAndSwap32
+	extern OffsetRect
+	extern OpenAComponent
+	extern OpenComponent
+	extern OpenMovieFile
+	extern OpenRgn
+	extern PBGetCatInfoSync
+	extern PaintRect
+	extern PaintRoundRect
+	extern PlotIconRef
+	extern PostEventToQueue
+	extern PrerollMovie
+	extern PtInRect
+	extern PtrAndHand
+	extern QDBeginCGContext
+	extern QDEndCGContext
+	extern QDGlobalToLocalPoint
+	extern QDLocalToGlobalPoint
+	extern QDRegisterNamedPixMapCursor
+	extern QDSetNamedPixMapCursor
+	extern QuitAppModalLoopForWindow
+	extern QuitApplicationEventLoop
+	extern RGBForeColor
+	extern ReceiveNextEvent
+	extern ReleaseEvent
+	extern ReleaseIconRef
+	extern RemoveEventHandler
+	extern RemoveEventLoopTimer
+	extern RunAppModalLoopForWindow
+	extern RunApplicationEventLoop
+	extern RunStandardAlert
+	extern SECTION
+	extern SendEventToEventTarget
+	extern SetClip
+	extern SetControlData
+	extern SetControlFontStyle
+	extern SetControlMaximum
+	extern SetControlReference
+	extern SetCursor
+	extern SetEventParameter
+	extern SetFrontProcess
+	extern SetItemCmd
+	extern SetKeyboardFocus
+	extern SetMovieRate
+	extern SetMovieTimeValue
+	extern SetPort
+	extern SetPortWindowPort
+	extern SetSystemUIMode
+	extern SetThemeCursor
+	extern SetTrackVolume
+	extern SetWRefCon
+	extern SetWindowContentColor
+	extern SetWindowResizeLimits
+	extern SetWindowTitleWithCFString
+	extern ShowControl
+	extern ShowCursor
+	extern ShowMenuBar
+	extern ShowWindow
+	extern SizeWindow
+	extern StartMovie
+	extern StopMovie
+	extern StringToNum
+	extern TXNSetData
+	extern TXNSetSelection
+	extern TXNSetTypeAttributes
+	extern TXNShowSelection
+	extern TickCount
+	extern UpTime
+	extern UpdateSystemActivity
+	extern Z10Com_PrintfPKcz_F0_1
+	extern Z10PBdvar_setPKcS0__F0_1
+	extern Z13PB_DropClientiPc_F0_1
+	extern Z14Key_GetBindingi_F0_20
+	extern Z14PBget_cl_cdkeyPc_F0_1
+	extern Z15CL_ConsolePrint16print_msg_type_tPKcii_F0_1
+	extern Z15CL_SendPbPacketiPc_F0_1
+	extern Z15NET_AdrToString8netadr_t_F0_40
+	extern Z15PB_Q_Serveraddrv_F0_7
+	extern Z15PB_Q_Serverinfov_F0_12
+	extern Z15SV_SendPbPacketiPci_F0_6
+	extern Z16G_GetClientScorei_F0_1
+	extern Z16Info_ValueForKeyPKcS0__F0_3
+	extern Z17Cmd_ExecuteStringPKc_F0_1
+	extern Z17set_cl_punkbusterPc_F0_1
+	extern Z17set_sv_punkbusterPc_F0_3
+	extern Z18Dvar_ValueInDomainh9DvarValue10DvarLimits_F0_3
+	extern Z18Key_KeynumToStringii_F0_20
+	extern Z19Sys_PBSendUdpPacketPctiS__F0_17
+	extern Z21Dvar_DisplayableValuePK6dvar_s_F0_5
+	extern Z21Dvar_GetVariantStringPKc_F0_5
+	extern Z26Dvar_DisplayableResetValuePK6dvar_s_F0_5
+	extern ZN10LargeLocal6GetBufEv_F0_2
+	extern ZN10LargeLocalC1Ei_F0_1
+	extern ZN10LargeLocalD1Ev_F0_1
+	extern _Unwind_Resume
+	extern _ZN9__gnu_cxx18__exchange_and_addEPVii
+	extern _ZNKSs4findEPKcmm
+	extern _ZNKSs7compareEPKc
 	extern _ZNSs12_M_leak_hardEv
-	extern _ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_
+	extern _ZNSs4_Rep10_M_destroyERKSaIcE
+	extern _ZNSs6appendEPKcm
+	extern _ZNSs6appendERKSs
+	extern _ZNSs6assignEPKcm
+	extern _ZNSs6assignERKSs
+	extern _ZNSs7replaceEmmPKcm
+	extern _ZNSs7reserveEm
+	extern _ZNSs9_M_mutateEmmm
+	extern _ZNSsC1EPKcRKSaIcE
+	extern _ZNSsC1ERKSs
+	extern _ZNSsC1ERKSsmm
+	extern _ZNSsD1Ev
+	extern _ZNSt15_List_node_base4hookEPS_
+	extern _ZNSt15_List_node_base6unhookEv
+	extern _ZSt17__throw_bad_allocv
 	extern _ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base
 	extern _ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base
-	extern sscanf
-	extern sin
-	extern acos
-	extern vsprintf
-	extern _ZNSs7reserveEm
-	extern strncat
-	extern ctime
-	extern strncmp
-	extern LSOpenFSRef
-	extern CFURLCreateWithBytes
-	extern LSOpenCFURLRef
-	extern UpdateSystemActivity
-	extern GetHandleSize
-	extern TXNSetData
-	extern NewHandle
-	extern DisposeHandle
-	extern RemoveEventLoopTimer
-	extern CollapseWindow
-	extern TXNSetSelection
-	extern TXNShowSelection
-	extern PtrAndHand
-	extern mkdir
-	extern opendir
-	extern readdir
-	extern stat
-	extern closedir
-	extern pow
-	extern glTestFenceAPPLE
-	extern glReadPixels
-	extern glGetError
-	extern asin
-	extern printf
-	extern _ZNSs7replaceEmmPKcm
-	extern expf
-	extern exp
-	extern isprint
-	extern fileno
-	extern isatty
-	extern fprintf
-	extern realloc
+	extern _ZSt20__throw_length_errorPKc
+	extern _ZSt20__throw_out_of_rangePKc
+	extern _ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_
+	extern _ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_
+	extern _ZZ10PbDvarWalkPPcS0_PiS0_E3var
+	extern _ZdaPv
+	extern _ZdlPv
+	extern _Znam
+	extern _Znwm
+	extern __cxa_allocate_exception
+	extern __cxa_begin_catch
+	extern __cxa_end_catch
+	extern __cxa_guard_abort
 	extern __cxa_guard_acquire
 	extern __cxa_guard_release
-	extern __cxa_guard_abort
-	extern GetCurrentEventTime
-	extern SetFrontProcess
-	extern glGenVertexArraysAPPLE
-	extern glColorPointer
-	extern glNormalPointer
-	extern glVertexPointer
-	extern glTexCoordPointer
-	extern _ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_
-	extern AudioConverterReset
-	extern AudioUnitGetProperty
-	extern AudioConverterDispose
-	extern AudioConverterNew
-	extern log10f
-	extern AudioUnitSetParameter
-	extern AudioConverterFillComplexBuffer
-	extern AudioUnitSetProperty
-	extern AudioUnitAddRenderNotify
-	extern AudioUnitRemoveRenderNotify
-	extern usleep
-	extern AUGraphGetCPULoad
-	extern strdup
-	extern AUGraphStop
-	extern DisposeAUGraph
-	extern AudioDeviceGetPropertyInfo
-	extern AudioDeviceGetProperty
-	extern FindNextComponent
-	extern OpenComponent
-	extern GetComponentVersion
-	extern CloseComponent
-	extern NewAUGraph
-	extern AUGraphNewNode
-	extern AUGraphOpen
-	extern AUGraphGetNodeInfo
-	extern AUGraphUpdate
-	extern AUGraphConnectNodeInput
-	extern AUGraphInitialize
-	extern AUGraphStart
-	extern pthread_mutex_destroy
-	extern pthread_create
-	extern pthread_mutexattr_init
-	extern pthread_mutexattr_settype
-	extern pthread_mutex_init
-	extern pthread_mutexattr_destroy
-	extern pthread_mutex_unlock
-	extern pthread_mutex_lock
-	extern glTexImage3D
-	extern glCompressedTexImage3DARB
-	extern glTexSubImage3D
-	extern glCompressedTexSubImage3D
-	extern strtok
-	extern StopMovie
-	extern GoToBeginningOfMovie
-	extern GetMovieTimeScale
-	extern GetMovieDuration
-	extern GetMovieTime
-	extern SetMovieTimeValue
-	extern SetTrackVolume
-	extern GetMediaHandler
-	extern MediaSetSoundBalance
-	extern MoviesTask
-	extern IsMovieDone
-	extern StartMovie
-	extern DisposeMovie
-	extern SetMovieRate
-	extern OpenMovieFile
-	extern NewMovieFromFile
-	extern GetMoviePreferredRate
-	extern PrerollMovie
-	extern GetMovieIndTrackType
-	extern GetTrackMedia
-	extern GetMediaSampleDescription
-	extern srand
-	extern putenv
-	extern getenv
-	extern puts
-	extern asinf
-	extern atanf
-	extern tanf
-	extern select
-	extern inet_addr
-	extern gethostbyname
-	extern recvfrom
-	extern strerror
-	extern sendto
-	extern setsockopt
-	extern bind
-	extern socket
-	extern connect
-	extern send
-	extern recv
+	extern __cxa_rethrow
+	extern __cxa_throw
+	extern __dynamic_cast
+	extern __error
 	extern __isnanf
-	extern floor
-	extern logf
-	extern AudioOutputUnitStart
-	extern AudioOutputUnitStop
-	extern AudioDeviceSetProperty
-	extern AudioConverterFillBuffer
-	extern AudioUnitRender
-	extern AudioUnitUninitialize
-	extern OpenAComponent
-	extern AudioHardwareGetProperty
-	extern AudioUnitInitialize
+	extern __keymgr_dwarf2_register_sections
+	extern __maskrune
+	extern __udivdi3
+	extern _cstring_0
+	extern _cstring_ca
+	extern _cstring_cb
+	extern _cstring_cmd_exec
+	extern _cstring_concapbuf
+	extern _cstring_concapbuflen
+	extern _cstring_cvar_set
+	extern _cstring_dropclient
+	extern _cstring_dvar_set
+	extern _cstring_get_pb_cdkey
+	extern _cstring_null
+	extern _cstring_pb_
+	extern _cstring_pb_error_client_
+	extern _cstring_pb_error_client_1
+	extern _cstring_pb_error_query_f
+	extern _cstring_pb_error_server_
+	extern _cstring_pb_error_server_1
+	extern _cstring_pbsvmac
+	extern _cstring_pbsvnewmac
+	extern _cstring_pbsvoldmac
+	extern _cstring_pingd_scored
+	extern _cstring_rb
+	extern _cstring_s_s2
+	extern _cstring_s_s5
+	extern _cstring_sa
+	extern _cstring_sb
+	extern _cstring_set_cl_punkbuste
+	extern _cstring_set_sv_punkbuste
+	extern _cstring_skipnotify
+	extern _cstring_wb
+	extern _cstring_x
+	extern _cstring_x1
+	extern abort
+	extern accept
+	extern access
+	extern acos
+	extern acosf
+	extern add
+	extern aglChoosePixelFormat
+	extern aglCreateContext
+	extern aglDescribePixelFormat
+	extern aglDestroyContext
+	extern aglDestroyPixelFormat
+	extern aglGetDrawable
+	extern aglSetCurrentContext
+	extern aglSetDrawable
+	extern aglSetFullScreen
+	extern aglSetInteger
+	extern aglSwapBuffers
+	extern asctime
+	extern asin
+	extern asinf
+	extern atan2
+	extern atanf
+	extern atexit
+	extern atof
+	extern atoi
+	extern atol
+	extern bind
+	extern call
+	extern calloc
+	extern ceilf
+	extern chdir
+	extern cin
+	extern cld
+	extern close
+	extern closedir
+	extern cmovnz
+	extern cmovz
+	extern cmp
+	extern connect
+	extern cos
+	extern cosf
+	extern ctime
 	extern dlclose
 	extern dlopen
 	extern dlsym
-	extern abort
-	extern vfprintf
-	extern getsockname
-	extern read
-	extern atol
-	extern strtol
-	extern getpid
-	extern tmpnam
-	extern strftime
-	extern gmtime
-	extern mktime
+	extern exeInstance
+	extern exit
+	extern exp
+	extern expf
+	extern fclose
 	extern fcntl
-	extern accept
-	extern listen
-	extern gethostname
-	extern getdomainname
-	extern getlogin
-	extern getuid
-	extern getpwuid
+	extern fflush
 	extern fgets
-	extern gettimeofday
-	extern regcomp
-	extern regerror
-	extern regfree
-	extern regexec
-	extern getpass
-	extern getsockopt
-	extern write
-	extern unlink
+	extern fileno
+	extern floor
+	extern floorf
+	extern fopen
+	extern fprintf
 	extern fputc
 	extern fputs
+	extern fread
+	extern free
+	extern fseek
+	extern ftell
+	extern fwrite
+	extern g_ConsoleCaptureBuf
+	extern g_ConsoleCaptureBufLen
+	extern getcwd
+	extern getdomainname
+	extern getenv
+	extern gethostbyname
+	extern gethostname
+	extern getlogin
+	extern getpass
+	extern getpid
+	extern getpwuid
+	extern getrlimit
+	extern getsockname
+	extern getsockopt
+	extern gettimeofday
+	extern getuid
+	extern glActiveTextureARB
+	extern glAlphaFunc
+	extern glBegin
+	extern glBindProgramARB
+	extern glBindTexture
+	extern glBindVertexArrayAPPLE
+	extern glBlendEquationEXT
+	extern glBlendFunc
+	extern glBlendFuncSeparateEXT
+	extern glClear
+	extern glClearColor
+	extern glClearDepth
+	extern glClearStencil
+	extern glClientActiveTextureARB
+	extern glClipPlane
+	extern glColor4f
+	extern glColorMask
+	extern glColorMaterial
+	extern glColorPointer
+	extern glCombinerParameterfvNV
+	extern glCombinerStageParameterfvNV
+	extern glCompressedTexImage2DARB
+	extern glCompressedTexImage3DARB
+	extern glCompressedTexSubImage2D
+	extern glCompressedTexSubImage3D
+	extern glCopyTexSubImage2D
+	extern glDeleteFencesAPPLE
+	extern glDeleteProgramsARB
+	extern glDeleteTextures
+	extern glDeleteVertexArraysAPPLE
+	extern glDepthFunc
+	extern glDepthMask
+	extern glDepthRange
+	extern glDisable
+	extern glDisableClientState
+	extern glDisableVertexAttribArrayARB
+	extern glDrawBuffer
+	extern glDrawRangeElements
+	extern glEnable
+	extern glEnableClientState
+	extern glEnableVertexAttribArrayARB
+	extern glEnd
+	extern glFinish
+	extern glFinishFenceAPPLE
+	extern glFlushVertexArrayRangeAPPLE
+	extern glFogf
+	extern glFogfv
+	extern glFogi
+	extern glFrontFace
+	extern glGenFencesAPPLE
+	extern glGenProgramsARB
+	extern glGenTextures
+	extern glGenVertexArraysAPPLE
+	extern glGetError
+	extern glGetFloatv
+	extern glGetIntegerv
+	extern glGetProgramivARB
+	extern glGetString
+	extern glHint
+	extern glLightModelfv
+	extern glLightModeli
+	extern glLightf
+	extern glLightfv
+	extern glLoadIdentity
+	extern glLoadMatrixf
+	extern glMaterialf
+	extern glMaterialfv
+	extern glMatrixMode
+	extern glNormalPointer
+	extern glPixelStorei
+	extern glPointParameterfARB
+	extern glPointParameterfvARB
+	extern glPointSize
+	extern glPolygonMode
+	extern glPolygonOffset
+	extern glPopAttrib
+	extern glPopClientAttrib
+	extern glPopMatrix
+	extern glProgramEnvParameter4fvARB
+	extern glProgramStringARB
+	extern glPushAttrib
+	extern glPushClientAttrib
+	extern glPushMatrix
+	extern glReadBuffer
+	extern glReadPixels
+	extern glScalef
+	extern glScissor
+	extern glSetFenceAPPLE
+	extern glShadeModel
+	extern glStencilFunc
+	extern glStencilMask
+	extern glStencilOp
+	extern glTestFenceAPPLE
+	extern glTexCoord2f
+	extern glTexCoordPointer
+	extern glTexEnvf
+	extern glTexEnvfv
+	extern glTexEnvi
+	extern glTexGenfv
+	extern glTexGeni
+	extern glTexImage2D
+	extern glTexImage3D
+	extern glTexParameterf
+	extern glTexParameterfv
+	extern glTexParameteri
+	extern glTexSubImage2D
+	extern glTexSubImage3D
+	extern glVertex2f
+	extern glVertex3f
+	extern glVertexArrayParameteriAPPLE
+	extern glVertexArrayRangeAPPLE
+	extern glVertexAttribPointerARB
+	extern glVertexPointer
+	extern glViewport
+	extern gluCheckExtension
+	extern gluOrtho2D
+	extern gmtime
+	extern imul
+	extern inet_addr
+	extern ioctl
+	extern isatty
+	extern isprint
+	extern isspace
+	extern ja
+	extern jbe
+	extern jg
+	extern jge
+	extern jl
+	extern jle
+	extern jmp
+	extern jnz
+	extern js
+	extern jz
+	extern lea
+	extern leave
+	extern listen
+	extern localtime
+	extern log
+	extern log10f
+	extern logf
+	extern longjmp
+	extern lround
+	extern malloc
+	extern memcpy
+	extern memmove
+	extern memset
+	extern mkdir
+	extern mktime
+	extern mov
+	extern movsx
+	extern movzx
+	extern mul
+	extern neg
+	extern nop
+	extern not
+	extern opendir
+	extern pbcl
+	extern pbsv
+	extern pop
+	extern pow
+	extern printf
+	extern pthread_create
+	extern pthread_main_np
+	extern pthread_mutex_destroy
+	extern pthread_mutex_init
+	extern pthread_mutex_lock
+	extern pthread_mutex_unlock
+	extern pthread_mutexattr_destroy
+	extern pthread_mutexattr_init
+	extern pthread_mutexattr_settype
+	extern pthread_self
+	extern push
+	extern putenv
+	extern puts
+	extern qsort
+	extern rand
+	extern read
+	extern readdir
+	extern realloc
+	extern recv
+	extern recvfrom
+	extern regcomp
+	extern regerror
+	extern regexec
+	extern regfree
+	extern remove
+	extern rename
+	extern repne
+	extern ret
+	extern rewind
+	extern sar
+	extern scasb
+	extern select
+	extern send
+	extern sendto
+	extern setjmp
+	extern setrlimit
+	extern setsockopt
+	extern shl
+	extern shr
+	extern sin
+	extern sinf
+	extern snprintf
+	extern socket
+	extern sprintf
+	extern srand
+	extern sscanf
+	extern stat
+	extern strcasecmp
+	extern strcat
+	extern strchr
+	extern strcmp
+	extern strcpy
+	extern strdup
+	extern strerror
+	extern strftime
+	extern strncasecmp
+	extern strncat
+	extern strncmp
+	extern strncpy
+	extern strrchr
+	extern strstr
+	extern strtok
+	extern strtol
+	extern sub
+	extern sv_maxclients
+	extern sysctl
+	extern tan
+	extern tanf
+	extern test
+	extern text
+	extern time
+	extern tmpnam
+	extern tolower
+	extern toupper
+	extern unlink
+	extern usleep
+	extern vfprintf
+	extern vsnprintf
+	extern vsprintf
+	extern write
+	extern xor
 
 ;Exports defined in this file:
-	global Z10PbDvarWalkPPcS0_PiS0_:F(0,17)
-	global Z14PbDvarValidatePc:F(0,59)
-	global Z9PbMaxKeysv:F(0,2)
-	global Z15Pb_Q_maxclientsv:F(0,3)
-	global Z11Pb_Q_clientiP14Pb_Sv_Client_s:F(0,3)
-	global Z10Pb_Q_statsiPc:F(0,3)
-	global Z13PbMsgToScreenPcS_:F(0,1)
-	global Z19PbPassConnectStringPcS_:F(0,1)
-	global Z12PbAuthClientPciS_:F(0,2)
-	global Z22PbCaptureConsoleOutputPci:F(0,1)
-	global Z13PbSvGameQueryiPc:F(0,2)
-	global Z11PbSvGameMsgPci:F(0,2)
-	global Z16PbSvSendToClientiPci:F(0,2)
-	global Z18PbSvSendToAddrPortPctiS_:F(0,2)
-	global ZN6stPbSv6makefnEPcS0_:F(0,2)
-	global ZN6stPbSv10AddPbEventEiiiPci:F(0,2)
-	global Z11DisablePbSvv:F(0,1)
-	global Z10EnablePbSvv:F(0,1)
-	global Z23PbServerCompleteCommandPci:F(0,1)
-	global Z20PbServerForceProcessv:F(0,1)
-	global Z12PbSvAddEventiiiPc:F(0,1)
-	global Z18PbServerInitializev:F(0,1)
-	global Z15PbSvGameCommandPcS_:F(0,2)
-	global Z21PbServerProcessEventsv:F(0,1)
-	global Z15PbClGameCommandPcS_:F(0,1)
-	global Z11PbClGameMsgPci:F(0,1)
-	global Z16PbClSendToServeriPc:F(0,1)
-	global Z18PbClSendToAddrPortPctiS_:F(0,1)
-	global Z16PbTrapPreExecCmdPc:F(0,3)
-	global Z19PbClientTrapConsolePci:F(0,5)
-	global Z18PbClientConnectingiPcPi:F(0,5)
-	global Z13PbClGameQueryiPc:F(0,1)
-	global Z13PbClGameQueryiPc:F(0,1)_jumptab_0
-	global ZN6stPbCl10AddPbEventEiiPci:F(0,1)
-	global Z11DisablePbClv:F(0,5)
-	global Z10EnablePbClv:F(0,5)
-	global Z23PbClientCompleteCommandPci:F(0,5)
-	global Z12PbClAddEventiiPc:F(0,5)
-	global Z18PbClientInitializePv:F(0,5)
-	global Z21PbClientProcessEventsv:F(0,5)
+	global Z10PbDvarWalkPPcS0_PiS0__F0_17
+	global Z14PbDvarValidatePc_F0_59
+	global Z9PbMaxKeysv_F0_2
+	global Z15Pb_Q_maxclientsv_F0_3
+	global Z11Pb_Q_clientiP14Pb_Sv_Client_s_F0_3
+	global Z10Pb_Q_statsiPc_F0_3
+	global Z13PbMsgToScreenPcS__F0_1
+	global Z19PbPassConnectStringPcS__F0_1
+	global Z12PbAuthClientPciS__F0_2
+	global Z22PbCaptureConsoleOutputPci_F0_1
+	global Z13PbSvGameQueryiPc_F0_2
+	global Z11PbSvGameMsgPci_F0_2
+	global Z16PbSvSendToClientiPci_F0_2
+	global Z18PbSvSendToAddrPortPctiS__F0_2
+	global ZN6stPbSv6makefnEPcS0__F0_2
+	global ZN6stPbSv10AddPbEventEiiiPci_F0_2
+	global Z11DisablePbSvv_F0_1
+	global Z10EnablePbSvv_F0_1
+	global Z23PbServerCompleteCommandPci_F0_1
+	global Z20PbServerForceProcessv_F0_1
+	global Z12PbSvAddEventiiiPc_F0_1
+	global Z18PbServerInitializev_F0_1
+	global Z15PbSvGameCommandPcS__F0_2
+	global Z21PbServerProcessEventsv_F0_1
+	global Z15PbClGameCommandPcS__F0_1
+	global Z11PbClGameMsgPci_F0_1
+	global Z16PbClSendToServeriPc_F0_1
+	global Z18PbClSendToAddrPortPctiS__F0_1
+	global Z16PbTrapPreExecCmdPc_F0_3
+	global Z19PbClientTrapConsolePci_F0_5
+	global Z18PbClientConnectingiPcPi_F0_5
+	global Z13PbClGameQueryiPc_F0_1
+	global Z13PbClGameQueryiPc_F0_1_jumptab_0
+	global ZN6stPbCl10AddPbEventEiiPci_F0_1
+	global Z11DisablePbClv_F0_5
+	global Z10EnablePbClv_F0_5
+	global Z23PbClientCompleteCommandPci_F0_5
+	global Z12PbClAddEventiiPc_F0_5
+	global Z18PbClientInitializePv_F0_5
+	global Z21PbClientProcessEventsv_F0_5
 
 SECTION .text
-Z10PbDvarWalkPPcS0_PiS0_:F(0,17):
+Z10PbDvarWalkPPcS0_PiS0__F0_17:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
 	mov eax, [_ZZ10PbDvarWalkPPcS0_PiS0_E3var]
 	test eax, eax
-	jz Z10PbDvarWalkPPcS0_PiS0_:F(0,17)_10
+	jz Z10PbDvarWalkPPcS0_PiS0__F0_17_10
 	mov eax, [eax+0x1c]
 	mov [_ZZ10PbDvarWalkPPcS0_PiS0_E3var], eax
 	mov edx, eax
-Z10PbDvarWalkPPcS0_PiS0_:F(0,17)_30:
+Z10PbDvarWalkPPcS0_PiS0__F0_17_30:
 	test edx, edx
-	jz Z10PbDvarWalkPPcS0_PiS0_:F(0,17)_20
+	jz Z10PbDvarWalkPPcS0_PiS0__F0_17_20
 	mov eax, [edx]
 	mov ecx, [ebp+0x8]
 	mov [ecx], eax
 	mov [esp], edx
-	call Z21Dvar_DisplayableValuePK6dvar_s:F(0,5)
+	call Z21Dvar_DisplayableValuePK6dvar_s_F0_5
 	mov edx, [ebp+0xc]
 	mov [edx], eax
 	mov edx, [_ZZ10PbDvarWalkPPcS0_PiS0_E3var]
@@ -705,27 +809,27 @@ Z10PbDvarWalkPPcS0_PiS0_:F(0,17)_30:
 	mov ecx, [ebp+0x10]
 	mov [ecx], eax
 	mov [esp], edx
-	call Z26Dvar_DisplayableResetValuePK6dvar_s:F(0,5)
+	call Z26Dvar_DisplayableResetValuePK6dvar_s_F0_5
 	mov edx, [ebp+0x14]
 	mov [edx], eax
 	mov eax, 0x1
 	leave
 	ret
-Z10PbDvarWalkPPcS0_PiS0_:F(0,17)_20:
+Z10PbDvarWalkPPcS0_PiS0__F0_17_20:
 	xor eax, eax
 	leave
 	ret
-Z10PbDvarWalkPPcS0_PiS0_:F(0,17)_10:
+Z10PbDvarWalkPPcS0_PiS0__F0_17_10:
 	mov eax, [0x1accd91]
 	mov eax, [eax]
 	mov [_ZZ10PbDvarWalkPPcS0_PiS0_E3var], eax
 	mov edx, eax
-	jmp Z10PbDvarWalkPPcS0_PiS0_:F(0,17)_30
+	jmp Z10PbDvarWalkPPcS0_PiS0__F0_17_30
 
 
-;Z14PbDvarValidatePc:F(0,59)
+;Z14PbDvarValidatePc_F0_59
 
-Z14PbDvarValidatePc:F(0,59):
+Z14PbDvarValidatePc_F0_59:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -736,8 +840,8 @@ Z14PbDvarValidatePc:F(0,59):
 	mov ebx, [eax]
 	mov byte [esi], 0x0
 	test ebx, ebx
-	jz Z14PbDvarValidatePc:F(0,59)_10
-Z14PbDvarValidatePc:F(0,59)_30:
+	jz Z14PbDvarValidatePc_F0_59_10
+Z14PbDvarValidatePc_F0_59_30:
 	mov eax, [ebx+0x14]
 	mov edx, [ebx+0x18]
 	mov ecx, [ebx+0x8]
@@ -746,20 +850,20 @@ Z14PbDvarValidatePc:F(0,59)_30:
 	mov [esp+0x4], ecx
 	movzx eax, byte [ebx+0x6]
 	mov [esp], eax
-	call Z18Dvar_ValueInDomainh9DvarValue10DvarLimits:F(0,3)
+	call Z18Dvar_ValueInDomainh9DvarValue10DvarLimits_F0_3
 	test al, al
-	jz Z14PbDvarValidatePc:F(0,59)_20
+	jz Z14PbDvarValidatePc_F0_59_20
 	mov ebx, [ebx+0x1c]
 	test ebx, ebx
-	jnz Z14PbDvarValidatePc:F(0,59)_30
-Z14PbDvarValidatePc:F(0,59)_10:
+	jnz Z14PbDvarValidatePc_F0_59_30
+Z14PbDvarValidatePc_F0_59_10:
 	mov eax, esi
 	add esp, 0x10
 	pop ebx
 	pop esi
 	pop ebp
 	ret
-Z14PbDvarValidatePc:F(0,59)_20:
+Z14PbDvarValidatePc_F0_59_20:
 	mov eax, [ebx]
 	mov [esp+0x4], eax
 	mov [esp], esi
@@ -773,9 +877,9 @@ Z14PbDvarValidatePc:F(0,59)_20:
 	nop
 
 
-;Z12SV_SetConfigiii:F(0,1)
+;Z12SV_SetConfigiii_F0_1
 
-Z9PbMaxKeysv:F(0,2):
+Z9PbMaxKeysv_F0_2:
 	push ebp
 	mov ebp, esp
 	mov eax, 0x100
@@ -784,9 +888,9 @@ Z9PbMaxKeysv:F(0,2):
 	add [eax], al
 
 
-;Z18CL_InitKeyCommandsv:F(0,1)
+;Z18CL_InitKeyCommandsv_F0_1
 
-Z15Pb_Q_maxclientsv:F(0,3):
+Z15Pb_Q_maxclientsv_F0_3:
 	push ebp
 	mov ebp, esp
 	mov eax, [sv_maxclients]
@@ -796,9 +900,9 @@ Z15Pb_Q_maxclientsv:F(0,3):
 	nop
 
 
-;Z11Pb_Q_clientiP14Pb_Sv_Client_s:F(0,3)
+;Z11Pb_Q_clientiP14Pb_Sv_Client_s_F0_3
 
-Z11Pb_Q_clientiP14Pb_Sv_Client_s:F(0,3):
+Z11Pb_Q_clientiP14Pb_Sv_Client_s_F0_3:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -811,13 +915,13 @@ Z11Pb_Q_clientiP14Pb_Sv_Client_s:F(0,3):
 	mov [esp], esi
 	call memset
 	test ebx, ebx
-	js Z11Pb_Q_clientiP14Pb_Sv_Client_s:F(0,3)_10
+	js Z11Pb_Q_clientiP14Pb_Sv_Client_s_F0_3_10
 	mov eax, [sv_maxclients]
 	cmp ebx, [eax+0x8]
-	jge Z11Pb_Q_clientiP14Pb_Sv_Client_s:F(0,3)_10
+	jge Z11Pb_Q_clientiP14Pb_Sv_Client_s_F0_3_10
 	mov ecx, [0x185d28c]
 	test ecx, ecx
-	jz Z11Pb_Q_clientiP14Pb_Sv_Client_s:F(0,3)_10
+	jz Z11Pb_Q_clientiP14Pb_Sv_Client_s_F0_3_10
 	lea eax, [ebx+ebx*4]
 	lea eax, [ebx+eax*8]
 	mov edx, eax
@@ -831,15 +935,15 @@ Z11Pb_Q_clientiP14Pb_Sv_Client_s:F(0,3):
 	lea ebx, [eax*4]
 	lea eax, [ecx+ebx]
 	cmp dword [eax], 0x3
-	jg Z11Pb_Q_clientiP14Pb_Sv_Client_s:F(0,3)_20
-Z11Pb_Q_clientiP14Pb_Sv_Client_s:F(0,3)_10:
+	jg Z11Pb_Q_clientiP14Pb_Sv_Client_s_F0_3_20
+Z11Pb_Q_clientiP14Pb_Sv_Client_s_F0_3_10:
 	xor eax, eax
 	add esp, 0x20
 	pop ebx
 	pop esi
 	pop ebp
 	ret
-Z11Pb_Q_clientiP14Pb_Sv_Client_s:F(0,3)_20:
+Z11Pb_Q_clientiP14Pb_Sv_Client_s_F0_3_20:
 	add eax, 0x20c48
 	mov [esp+0x4], eax
 	mov [esp], esi
@@ -861,7 +965,7 @@ Z11Pb_Q_clientiP14Pb_Sv_Client_s:F(0,3)_20:
 	mov [esp], ecx
 	mov [esp+0x4], edx
 	mov [esp+0x8], eax
-	call Z15NET_AdrToString8netadr_t:F(0,40)
+	call Z15NET_AdrToString8netadr_t_F0_40
 	mov [esp+0x4], eax
 	lea eax, [esi+0x42]
 	mov [esp], eax
@@ -875,9 +979,9 @@ Z11Pb_Q_clientiP14Pb_Sv_Client_s:F(0,3)_20:
 	nop
 
 
-;Z10Pb_Q_statsiPc:F(0,3)
+;Z10Pb_Q_statsiPc_F0_3
 
-Z10Pb_Q_statsiPc:F(0,3):
+Z10Pb_Q_statsiPc_F0_3:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -888,13 +992,13 @@ Z10Pb_Q_statsiPc:F(0,3):
 	mov edi, [ebp+0xc]
 	mov byte [edi], 0x0
 	test ecx, ecx
-	js Z10Pb_Q_statsiPc:F(0,3)_10
+	js Z10Pb_Q_statsiPc_F0_3_10
 	mov eax, [sv_maxclients]
 	cmp ecx, [eax+0x8]
-	jge Z10Pb_Q_statsiPc:F(0,3)_10
+	jge Z10Pb_Q_statsiPc_F0_3_10
 	mov ebx, [0x185d28c]
 	test ebx, ebx
-	jz Z10Pb_Q_statsiPc:F(0,3)_10
+	jz Z10Pb_Q_statsiPc_F0_3_10
 	lea eax, [ecx+ecx*4]
 	lea eax, [ecx+eax*8]
 	mov edx, eax
@@ -907,13 +1011,13 @@ Z10Pb_Q_statsiPc:F(0,3):
 	add eax, edx
 	lea esi, [ebx+eax*4]
 	cmp dword [esi], 0x3
-	jle Z10Pb_Q_statsiPc:F(0,3)_10
+	jle Z10Pb_Q_statsiPc_F0_3_10
 	mov eax, [0x1acd60d]
 	mov eax, [eax]
 	test eax, eax
-	jnz Z10Pb_Q_statsiPc:F(0,3)_20
+	jnz Z10Pb_Q_statsiPc_F0_3_20
 	xor eax, eax
-Z10Pb_Q_statsiPc:F(0,3)_30:
+Z10Pb_Q_statsiPc_F0_3_30:
 	mov [esp+0xc], eax
 	mov eax, [esi+0x6e6b4]
 	mov [esp+0x8], eax
@@ -927,7 +1031,7 @@ Z10Pb_Q_statsiPc:F(0,3)_30:
 	pop edi
 	pop ebp
 	ret
-Z10Pb_Q_statsiPc:F(0,3)_10:
+Z10Pb_Q_statsiPc_F0_3_10:
 	xor eax, eax
 	add esp, 0x1c
 	pop ebx
@@ -935,20 +1039,20 @@ Z10Pb_Q_statsiPc:F(0,3)_10:
 	pop edi
 	pop ebp
 	ret
-Z10Pb_Q_statsiPc:F(0,3)_20:
+Z10Pb_Q_statsiPc_F0_3_20:
 	mov eax, esi
 	sub eax, ebx
 	sar eax, 0x2
 	imul eax, eax, 0x395ab3a7
 	mov [esp], eax
-	call Z16G_GetClientScorei:F(0,1)
-	jmp Z10Pb_Q_statsiPc:F(0,3)_30
+	call Z16G_GetClientScorei_F0_1
+	jmp Z10Pb_Q_statsiPc_F0_3_30
 	nop
 
 
-;Z15SV_SendPbPacketiPci:F(0,6)
+;Z15SV_SendPbPacketiPci_F0_6
 
-Z13PbMsgToScreenPcS_:F(0,1):
+Z13PbMsgToScreenPcS__F0_1:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -957,18 +1061,18 @@ Z13PbMsgToScreenPcS_:F(0,1):
 	mov dword [esp+0x4], 0x10000
 	lea esi, [ebp-0xc]
 	mov [esp], esi
-	call ZN10LargeLocalC1Ei:F(0,1)
+	call ZN10LargeLocalC1Ei_F0_1
 	mov [esp], esi
-	call ZN10LargeLocal6GetBufEv:F(0,2)
+	call ZN10LargeLocal6GetBufEv_F0_2
 	mov ebx, eax
 	mov eax, [0x1acccfd]
 	mov eax, [eax]
 	test eax, eax
-	jz Z13PbMsgToScreenPcS_:F(0,1)_10
+	jz Z13PbMsgToScreenPcS__F0_1_10
 	mov eax, [eax+0x8]
 	test eax, eax
-	jnz Z13PbMsgToScreenPcS_:F(0,1)_20
-Z13PbMsgToScreenPcS_:F(0,1)_10:
+	jnz Z13PbMsgToScreenPcS__F0_1_20
+Z13PbMsgToScreenPcS__F0_1_10:
 	mov eax, [ebp+0xc]
 	mov [esp+0xc], eax
 	mov eax, [ebp+0x8]
@@ -980,23 +1084,23 @@ Z13PbMsgToScreenPcS_:F(0,1)_10:
 	mov dword [esp+0x8], 0x0
 	mov [esp+0x4], ebx
 	mov dword [esp], 0x1
-	call Z15CL_ConsolePrint16print_msg_type_tPKcii:F(0,1)
+	call Z15CL_ConsolePrint16print_msg_type_tPKcii_F0_1
 	mov [esp], esi
-	call ZN10LargeLocalD1Ev:F(0,1)
+	call ZN10LargeLocalD1Ev_F0_1
 	add esp, 0x20
 	pop ebx
 	pop esi
 	pop ebp
 	ret
-Z13PbMsgToScreenPcS_:F(0,1)_20:
+Z13PbMsgToScreenPcS__F0_1_20:
 	mov eax, [ebp+0xc]
 	mov [esp+0x8], eax
 	mov eax, [ebp+0x8]
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_s_s2
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov [esp], esi
-	call ZN10LargeLocalD1Ev:F(0,1)
+	call ZN10LargeLocalD1Ev_F0_1
 	add esp, 0x20
 	pop ebx
 	pop esi
@@ -1004,7 +1108,7 @@ Z13PbMsgToScreenPcS_:F(0,1)_20:
 	ret
 	mov ebx, eax
 	mov [esp], esi
-	call ZN10LargeLocalD1Ev:F(0,1)
+	call ZN10LargeLocalD1Ev_F0_1
 	mov [esp], ebx
 	call _Unwind_Resume
 	nop
@@ -1012,33 +1116,33 @@ Z13PbMsgToScreenPcS_:F(0,1)_20:
 
 ;ConDrawInput_DetailedDvarMatch(char const*)
 
-Z19PbPassConnectStringPcS_:F(0,1):
+Z19PbPassConnectStringPcS__F0_1:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
 	mov eax, [pbsv+0x158]
 	test eax, eax
-	jz Z19PbPassConnectStringPcS_:F(0,1)_10
+	jz Z19PbPassConnectStringPcS__F0_1_10
 	mov edx, [ebp+0xc]
 	mov [esp+0x8], edx
 	mov edx, [ebp+0x8]
 	mov [esp+0x4], edx
 	mov dword [esp], pbsv
 	call eax
-Z19PbPassConnectStringPcS_:F(0,1)_10:
+Z19PbPassConnectStringPcS__F0_1_10:
 	leave
 	ret
 
 
-;Z12PbAuthClientPciS_:F(0,2)
+;Z12PbAuthClientPciS__F0_2
 
-Z12PbAuthClientPciS_:F(0,2):
+Z12PbAuthClientPciS__F0_2:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
 	mov eax, [pbsv+0x15c]
 	test eax, eax
-	jz Z12PbAuthClientPciS_:F(0,2)_10
+	jz Z12PbAuthClientPciS__F0_2_10
 	mov edx, [ebp+0x10]
 	mov [esp+0xc], edx
 	mov edx, [ebp+0xc]
@@ -1047,15 +1151,15 @@ Z12PbAuthClientPciS_:F(0,2):
 	mov [esp+0x4], edx
 	mov dword [esp], pbsv
 	call eax
-Z12PbAuthClientPciS_:F(0,2)_10:
+Z12PbAuthClientPciS__F0_2_10:
 	leave
 	ret
 	nop
 
 
-;Z22PbCaptureConsoleOutputPci:F(0,1)
+;Z22PbCaptureConsoleOutputPci_F0_1
 
-Z22PbCaptureConsoleOutputPci:F(0,1):
+Z22PbCaptureConsoleOutputPci_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1066,18 +1170,18 @@ Z22PbCaptureConsoleOutputPci:F(0,1):
 	mov ebx, [ebp+0xc]
 	mov [esp+0x4], ebx
 	mov [esp], esi
-	call Z19PbClientTrapConsolePci:F(0,5)
+	call Z19PbClientTrapConsolePci_F0_5
 	mov eax, [pbsv+0x160]
 	test eax, eax
-	jz Z22PbCaptureConsoleOutputPci:F(0,1)_10
+	jz Z22PbCaptureConsoleOutputPci_F0_1_10
 	mov [esp+0x8], ebx
 	mov [esp+0x4], esi
 	mov dword [esp], pbsv
 	call eax
-Z22PbCaptureConsoleOutputPci:F(0,1)_10:
+Z22PbCaptureConsoleOutputPci_F0_1_10:
 	mov ebx, [g_ConsoleCaptureBuf]
 	test ebx, ebx
-	jz Z22PbCaptureConsoleOutputPci:F(0,1)_20
+	jz Z22PbCaptureConsoleOutputPci_F0_1_20
 	xor eax, eax
 	cld
 	mov ecx, 0xffffffff
@@ -1091,15 +1195,15 @@ Z22PbCaptureConsoleOutputPci:F(0,1)_10:
 	not ecx
 	lea ecx, [ecx+edx-0x1]
 	cmp ecx, [g_ConsoleCaptureBufLen]
-	jl Z22PbCaptureConsoleOutputPci:F(0,1)_30
-Z22PbCaptureConsoleOutputPci:F(0,1)_20:
+	jl Z22PbCaptureConsoleOutputPci_F0_1_30
+Z22PbCaptureConsoleOutputPci_F0_1_20:
 	add esp, 0x1c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z22PbCaptureConsoleOutputPci:F(0,1)_30:
+Z22PbCaptureConsoleOutputPci_F0_1_30:
 	mov [esp+0x4], esi
 	lea eax, [ebx+edx]
 	mov [esp], eax
@@ -1112,9 +1216,9 @@ Z22PbCaptureConsoleOutputPci:F(0,1)_30:
 	ret
 
 
-;Z13PbSvGameQueryiPc:F(0,2)
+;Z13PbSvGameQueryiPc_F0_2
 
-Z13PbSvGameQueryiPc:F(0,2):
+Z13PbSvGameQueryiPc_F0_2:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1125,49 +1229,49 @@ Z13PbSvGameQueryiPc:F(0,2):
 	mov ebx, [ebp+0xc]
 	mov byte [ebx+0xff], 0x0
 	cmp eax, 0x66
-	jz Z13PbSvGameQueryiPc:F(0,2)_10
-	jle Z13PbSvGameQueryiPc:F(0,2)_20
+	jz Z13PbSvGameQueryiPc_F0_2_10
+	jle Z13PbSvGameQueryiPc_F0_2_20
 	cmp eax, 0x67
-	jz Z13PbSvGameQueryiPc:F(0,2)_30
+	jz Z13PbSvGameQueryiPc_F0_2_30
 	cmp eax, 0x72
-	jz Z13PbSvGameQueryiPc:F(0,2)_40
-Z13PbSvGameQueryiPc:F(0,2)_50:
+	jz Z13PbSvGameQueryiPc_F0_2_40
+Z13PbSvGameQueryiPc_F0_2_50:
 	xor eax, eax
-Z13PbSvGameQueryiPc:F(0,2)_140:
+Z13PbSvGameQueryiPc_F0_2_140:
 	add esp, 0x5c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z13PbSvGameQueryiPc:F(0,2)_20:
+Z13PbSvGameQueryiPc_F0_2_20:
 	cmp eax, 0x65
-	jnz Z13PbSvGameQueryiPc:F(0,2)_50
-	call Z15Pb_Q_maxclientsv:F(0,3)
+	jnz Z13PbSvGameQueryiPc_F0_2_50
+	call Z15Pb_Q_maxclientsv_F0_3
 	mov [ebp-0x4c], eax
 	test ebx, ebx
-	jz Z13PbSvGameQueryiPc:F(0,2)_50
+	jz Z13PbSvGameQueryiPc_F0_2_50
 	mov word [ebx], 0x30
 	cmp eax, 0x0
-	jz Z13PbSvGameQueryiPc:F(0,2)_50
+	jz Z13PbSvGameQueryiPc_F0_2_50
 	mov ecx, eax
 	mov byte [ebp-0x19], 0x0
-	jl Z13PbSvGameQueryiPc:F(0,2)_60
-Z13PbSvGameQueryiPc:F(0,2)_120:
+	jl Z13PbSvGameQueryiPc_F0_2_60
+Z13PbSvGameQueryiPc_F0_2_120:
 	mov esi, 0x22
 	mov edi, 0xcccccccd
-	jmp Z13PbSvGameQueryiPc:F(0,2)_70
-Z13PbSvGameQueryiPc:F(0,2)_90:
+	jmp Z13PbSvGameQueryiPc_F0_2_70
+Z13PbSvGameQueryiPc_F0_2_90:
 	add dl, 0x30
-Z13PbSvGameQueryiPc:F(0,2)_100:
+Z13PbSvGameQueryiPc_F0_2_100:
 	mov [ebp+esi-0x3b], dl
 	mov eax, ecx
 	mul edi
 	shr edx, 0x3
 	mov ecx, edx
 	test edx, edx
-	jz Z13PbSvGameQueryiPc:F(0,2)_80
-Z13PbSvGameQueryiPc:F(0,2)_70:
+	jz Z13PbSvGameQueryiPc_F0_2_80
+Z13PbSvGameQueryiPc_F0_2_70:
 	mov eax, ecx
 	mul edi
 	shr edx, 0x3
@@ -1178,38 +1282,38 @@ Z13PbSvGameQueryiPc:F(0,2)_70:
 	mov edx, eax
 	sub esi, 0x1
 	cmp eax, 0x9
-	jbe Z13PbSvGameQueryiPc:F(0,2)_90
+	jbe Z13PbSvGameQueryiPc_F0_2_90
 	add dl, 0x57
-	jmp Z13PbSvGameQueryiPc:F(0,2)_100
-Z13PbSvGameQueryiPc:F(0,2)_10:
+	jmp Z13PbSvGameQueryiPc_F0_2_100
+Z13PbSvGameQueryiPc_F0_2_10:
 	mov [esp], ebx
 	call atoi
 	mov [esp+0x4], ebx
 	mov [esp], eax
-	call Z11Pb_Q_clientiP14Pb_Sv_Client_s:F(0,3)
+	call Z11Pb_Q_clientiP14Pb_Sv_Client_s_F0_3
 	test eax, eax
-	jnz Z13PbSvGameQueryiPc:F(0,2)_50
+	jnz Z13PbSvGameQueryiPc_F0_2_50
 	mov eax, _cstring_pb_error_query_f
-Z13PbSvGameQueryiPc:F(0,2)_110:
+Z13PbSvGameQueryiPc_F0_2_110:
 	add esp, 0x5c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z13PbSvGameQueryiPc:F(0,2)_40:
+Z13PbSvGameQueryiPc_F0_2_40:
 	mov [esp], ebx
 	call atoi
 	mov [esp+0x4], ebx
 	mov [esp], eax
-	call Z10Pb_Q_statsiPc:F(0,3)
+	call Z10Pb_Q_statsiPc_F0_3
 	test eax, eax
-	jnz Z13PbSvGameQueryiPc:F(0,2)_50
+	jnz Z13PbSvGameQueryiPc_F0_2_50
 	mov eax, _cstring_pb_error_query_f
-	jmp Z13PbSvGameQueryiPc:F(0,2)_110
-Z13PbSvGameQueryiPc:F(0,2)_30:
+	jmp Z13PbSvGameQueryiPc_F0_2_110
+Z13PbSvGameQueryiPc_F0_2_30:
 	mov [esp], ebx
-	call Z21Dvar_GetVariantStringPKc:F(0,5)
+	call Z21Dvar_GetVariantStringPKc_F0_5
 	mov dword [esp+0x8], 0xff
 	mov [esp+0x4], eax
 	mov [esp], ebx
@@ -1221,30 +1325,30 @@ Z13PbSvGameQueryiPc:F(0,2)_30:
 	pop edi
 	pop ebp
 	ret
-Z13PbSvGameQueryiPc:F(0,2)_60:
+Z13PbSvGameQueryiPc_F0_2_60:
 	neg ecx
-	jnz Z13PbSvGameQueryiPc:F(0,2)_120
+	jnz Z13PbSvGameQueryiPc_F0_2_120
 	mov esi, 0x22
-Z13PbSvGameQueryiPc:F(0,2)_80:
+Z13PbSvGameQueryiPc_F0_2_80:
 	mov eax, [ebp-0x4c]
 	test eax, eax
-	js Z13PbSvGameQueryiPc:F(0,2)_130
-Z13PbSvGameQueryiPc:F(0,2)_150:
+	js Z13PbSvGameQueryiPc_F0_2_130
+Z13PbSvGameQueryiPc_F0_2_150:
 	lea eax, [ebp+esi-0x3b]
 	mov [esp+0x4], eax
 	mov [esp], ebx
 	call strcpy
 	xor eax, eax
-	jmp Z13PbSvGameQueryiPc:F(0,2)_140
-Z13PbSvGameQueryiPc:F(0,2)_130:
+	jmp Z13PbSvGameQueryiPc_F0_2_140
+Z13PbSvGameQueryiPc_F0_2_130:
 	sub esi, 0x1
 	mov byte [ebp+esi-0x3b], 0x2d
-	jmp Z13PbSvGameQueryiPc:F(0,2)_150
+	jmp Z13PbSvGameQueryiPc_F0_2_150
 
 
-;Z11PbSvGameMsgPci:F(0,2)
+;Z11PbSvGameMsgPci_F0_2
 
-Z11PbSvGameMsgPci:F(0,2):
+Z11PbSvGameMsgPci_F0_2:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -1255,20 +1359,20 @@ Z11PbSvGameMsgPci:F(0,2):
 	mov dword [esp], pbsv+0x14
 	call strncasecmp
 	test eax, eax
-	jz Z11PbSvGameMsgPci:F(0,2)_10
+	jz Z11PbSvGameMsgPci_F0_2_10
 	mov [esp+0x4], ebx
 	mov dword [esp], pbsv+0x14
-	call Z13PbMsgToScreenPcS_:F(0,1)
+	call Z13PbMsgToScreenPcS__F0_1
 	xor eax, eax
 	add esp, 0x14
 	pop ebx
 	pop ebp
 	ret
-Z11PbSvGameMsgPci:F(0,2)_10:
+Z11PbSvGameMsgPci_F0_2_10:
 	mov [esp+0x8], ebx
 	mov dword [esp+0x4], pbsv+0x20
 	mov dword [esp], _cstring_s_s2
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	xor eax, eax
 	add esp, 0x14
 	pop ebx
@@ -1276,9 +1380,9 @@ Z11PbSvGameMsgPci:F(0,2)_10:
 	ret
 
 
-;Z16PbSvSendToClientiPci:F(0,2)
+;Z16PbSvSendToClientiPci_F0_2
 
-Z16PbSvSendToClientiPci:F(0,2):
+Z16PbSvSendToClientiPci_F0_2:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -1288,16 +1392,16 @@ Z16PbSvSendToClientiPci:F(0,2):
 	mov [esp+0x4], eax
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z15SV_SendPbPacketiPci:F(0,6)
+	call Z15SV_SendPbPacketiPci_F0_6
 	xor eax, eax
 	leave
 	ret
 	nop
 
 
-;Z18PbSvSendToAddrPortPctiS_:F(0,2)
+;Z18PbSvSendToAddrPortPctiS__F0_2
 
-Z18PbSvSendToAddrPortPctiS_:F(0,2):
+Z18PbSvSendToAddrPortPctiS__F0_2:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -1309,14 +1413,14 @@ Z18PbSvSendToAddrPortPctiS_:F(0,2):
 	mov [esp+0x4], edx
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z19Sys_PBSendUdpPacketPctiS_:F(0,17)
+	call Z19Sys_PBSendUdpPacketPctiS__F0_17
 	xor eax, eax
 	leave
 	ret
 	nop
 
 
-ZN6stPbSv6makefnEPcS0_:F(0,2):
+ZN6stPbSv6makefnEPcS0__F0_2:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1325,10 +1429,10 @@ ZN6stPbSv6makefnEPcS0_:F(0,2):
 	sub esp, 0x54c
 	mov ebx, [ebp+0x8]
 	cmp byte [ebx+0x34], 0x0
-	jnz ZN6stPbSv6makefnEPcS0_:F(0,2)_10
+	jnz ZN6stPbSv6makefnEPcS0__F0_2_10
 	mov eax, [ebx+0x140]
 	test eax, eax
-	jz ZN6stPbSv6makefnEPcS0_:F(0,2)_20
+	jz ZN6stPbSv6makefnEPcS0__F0_2_20
 	lea esi, [ebx+0x34]
 	mov dword [ebx+0x34], 0x685f7366
 	mov dword [esi+0x4], 0x70656d6f
@@ -1337,13 +1441,13 @@ ZN6stPbSv6makefnEPcS0_:F(0,2):
 	mov dword [esp], 0x67
 	call eax
 	cmp byte [ebx+0x34], 0x0
-	jnz ZN6stPbSv6makefnEPcS0_:F(0,2)_30
+	jnz ZN6stPbSv6makefnEPcS0__F0_2_30
 	mov dword [esp+0x4], 0xfb
 	mov [esp], esi
 	call getcwd
 	cmp byte [ebx+0x34], 0x0
-	jnz ZN6stPbSv6makefnEPcS0_:F(0,2)_30
-ZN6stPbSv6makefnEPcS0_:F(0,2)_80:
+	jnz ZN6stPbSv6makefnEPcS0__F0_2_30
+ZN6stPbSv6makefnEPcS0__F0_2_80:
 	cld
 	mov ecx, 0xffffffff
 	xor eax, eax
@@ -1353,7 +1457,7 @@ ZN6stPbSv6makefnEPcS0_:F(0,2)_80:
 	mov dword [ecx+esi-0x1], 0x2f6270
 	mov eax, [ebx+0x140]
 	test eax, eax
-	jz ZN6stPbSv6makefnEPcS0_:F(0,2)_40
+	jz ZN6stPbSv6makefnEPcS0__F0_2_40
 	mov dword [ebp-0x11c], 0x625f7366
 	mov dword [ebp-0x118], 0x70657361
 	mov dword [ebp-0x114], cin+0xd6ea1
@@ -1361,10 +1465,10 @@ ZN6stPbSv6makefnEPcS0_:F(0,2)_80:
 	mov [esp+0x4], edx
 	mov dword [esp], 0x67
 	call eax
-	jmp ZN6stPbSv6makefnEPcS0_:F(0,2)_40
-ZN6stPbSv6makefnEPcS0_:F(0,2)_20:
+	jmp ZN6stPbSv6makefnEPcS0__F0_2_40
+ZN6stPbSv6makefnEPcS0__F0_2_20:
 	lea esi, [ebx+0x34]
-ZN6stPbSv6makefnEPcS0_:F(0,2)_40:
+ZN6stPbSv6makefnEPcS0__F0_2_40:
 	cld
 	mov ecx, 0xffffffff
 	lea edi, [ebp-0x11c]
@@ -1372,13 +1476,13 @@ ZN6stPbSv6makefnEPcS0_:F(0,2)_40:
 	repne scasb
 	not ecx
 	cmp byte [ecx+ebp-0x11e], 0x2f
-	jz ZN6stPbSv6makefnEPcS0_:F(0,2)_50
+	jz ZN6stPbSv6makefnEPcS0__F0_2_50
 	mov ecx, 0xffffffff
 	lea edi, [ebp-0x11c]
 	repne scasb
 	not ecx
 	mov word [ecx+ebp-0x11d], 0x2f
-ZN6stPbSv6makefnEPcS0_:F(0,2)_50:
+ZN6stPbSv6makefnEPcS0__F0_2_50:
 	cld
 	mov ecx, 0xffffffff
 	lea edi, [ebp-0x11c]
@@ -1391,12 +1495,12 @@ ZN6stPbSv6makefnEPcS0_:F(0,2)_50:
 	mov [esp], edx
 	call strcasecmp
 	test eax, eax
-	jz ZN6stPbSv6makefnEPcS0_:F(0,2)_60
+	jz ZN6stPbSv6makefnEPcS0__F0_2_60
 	cmp byte [ebp-0x11c], 0x0
-	jz ZN6stPbSv6makefnEPcS0_:F(0,2)_60
+	jz ZN6stPbSv6makefnEPcS0__F0_2_60
 	cmp byte [ebx+0x34], 0x0
-	jnz ZN6stPbSv6makefnEPcS0_:F(0,2)_70
-ZN6stPbSv6makefnEPcS0_:F(0,2)_60:
+	jnz ZN6stPbSv6makefnEPcS0__F0_2_70
+ZN6stPbSv6makefnEPcS0__F0_2_60:
 	mov [esp+0x4], esi
 	mov edx, [ebp+0xc]
 	mov [esp], edx
@@ -1413,7 +1517,7 @@ ZN6stPbSv6makefnEPcS0_:F(0,2)_60:
 	pop edi
 	pop ebp
 	ret
-ZN6stPbSv6makefnEPcS0_:F(0,2)_30:
+ZN6stPbSv6makefnEPcS0__F0_2_30:
 	mov edx, 0xffffffff
 	xor eax, eax
 	cld
@@ -1422,17 +1526,17 @@ ZN6stPbSv6makefnEPcS0_:F(0,2)_30:
 	repne scasb
 	not ecx
 	cmp byte [ecx+ebx+0x32], 0x2f
-	jz ZN6stPbSv6makefnEPcS0_:F(0,2)_80
+	jz ZN6stPbSv6makefnEPcS0__F0_2_80
 	mov ecx, edx
 	mov edi, esi
 	repne scasb
 	not ecx
 	mov word [ecx+esi-0x1], 0x2f
-	jmp ZN6stPbSv6makefnEPcS0_:F(0,2)_80
-ZN6stPbSv6makefnEPcS0_:F(0,2)_10:
+	jmp ZN6stPbSv6makefnEPcS0__F0_2_80
+ZN6stPbSv6makefnEPcS0__F0_2_10:
 	lea esi, [ebx+0x34]
-	jmp ZN6stPbSv6makefnEPcS0_:F(0,2)_60
-ZN6stPbSv6makefnEPcS0_:F(0,2)_70:
+	jmp ZN6stPbSv6makefnEPcS0__F0_2_60
+ZN6stPbSv6makefnEPcS0__F0_2_70:
 	cld
 	mov ecx, 0xffffffff
 	mov edi, esi
@@ -1441,8 +1545,8 @@ ZN6stPbSv6makefnEPcS0_:F(0,2)_70:
 	not ecx
 	lea eax, [ecx-0x2]
 	cmp byte [eax+ebx+0x34], 0x2f
-	jz ZN6stPbSv6makefnEPcS0_:F(0,2)_90
-ZN6stPbSv6makefnEPcS0_:F(0,2)_130:
+	jz ZN6stPbSv6makefnEPcS0__F0_2_90
+ZN6stPbSv6makefnEPcS0__F0_2_130:
 	mov dword [esp+0x4], 0x1ff
 	mov [esp], esi
 	call mkdir
@@ -1471,10 +1575,10 @@ ZN6stPbSv6makefnEPcS0_:F(0,2)_130:
 	mov [esp], ebx
 	call fopen
 	test eax, eax
-	jz ZN6stPbSv6makefnEPcS0_:F(0,2)_100
+	jz ZN6stPbSv6makefnEPcS0__F0_2_100
 	mov [esp], eax
 	call fclose
-ZN6stPbSv6makefnEPcS0_:F(0,2)_190:
+ZN6stPbSv6makefnEPcS0__F0_2_190:
 	mov [esp+0x4], esi
 	mov [esp], ebx
 	call strcpy
@@ -1492,10 +1596,10 @@ ZN6stPbSv6makefnEPcS0_:F(0,2)_190:
 	mov [esp], ebx
 	call fopen
 	test eax, eax
-	jz ZN6stPbSv6makefnEPcS0_:F(0,2)_110
+	jz ZN6stPbSv6makefnEPcS0__F0_2_110
 	mov [esp], eax
 	call fclose
-ZN6stPbSv6makefnEPcS0_:F(0,2)_160:
+ZN6stPbSv6makefnEPcS0__F0_2_160:
 	mov [esp+0x4], esi
 	lea edx, [ebp-0x51a]
 	mov [esp], edx
@@ -1515,14 +1619,14 @@ ZN6stPbSv6makefnEPcS0_:F(0,2)_160:
 	mov [esp], edx
 	call fopen
 	test eax, eax
-	jz ZN6stPbSv6makefnEPcS0_:F(0,2)_120
+	jz ZN6stPbSv6makefnEPcS0__F0_2_120
 	mov [esp], eax
 	call fclose
-	jmp ZN6stPbSv6makefnEPcS0_:F(0,2)_60
-ZN6stPbSv6makefnEPcS0_:F(0,2)_90:
+	jmp ZN6stPbSv6makefnEPcS0__F0_2_60
+ZN6stPbSv6makefnEPcS0__F0_2_90:
 	mov byte [eax+ebx+0x34], 0x0
-	jmp ZN6stPbSv6makefnEPcS0_:F(0,2)_130
-ZN6stPbSv6makefnEPcS0_:F(0,2)_120:
+	jmp ZN6stPbSv6makefnEPcS0__F0_2_130
+ZN6stPbSv6makefnEPcS0__F0_2_120:
 	lea eax, [ebp-0x11c]
 	mov [esp+0x4], eax
 	mov [esp], ebx
@@ -1542,14 +1646,14 @@ ZN6stPbSv6makefnEPcS0_:F(0,2)_120:
 	call fopen
 	mov edi, eax
 	test eax, eax
-	jz ZN6stPbSv6makefnEPcS0_:F(0,2)_60
+	jz ZN6stPbSv6makefnEPcS0__F0_2_60
 	mov dword [esp+0x4], _cstring_wb
 	lea edx, [ebp-0x51a]
 	mov [esp], edx
 	call fopen
 	mov [ebp-0x52c], eax
 	test eax, eax
-	jz ZN6stPbSv6makefnEPcS0_:F(0,2)_140
+	jz ZN6stPbSv6makefnEPcS0__F0_2_140
 	mov dword [esp+0x8], 0x2
 	mov dword [esp+0x4], 0x0
 	mov [esp], edi
@@ -1558,12 +1662,12 @@ ZN6stPbSv6makefnEPcS0_:F(0,2)_120:
 	call ftell
 	mov ebx, eax
 	test eax, eax
-	jle ZN6stPbSv6makefnEPcS0_:F(0,2)_150
+	jle ZN6stPbSv6makefnEPcS0__F0_2_150
 	mov [esp], eax
 	call _Znam
 	mov [ebp-0x530], eax
 	test eax, eax
-	jz ZN6stPbSv6makefnEPcS0_:F(0,2)_150
+	jz ZN6stPbSv6makefnEPcS0__F0_2_150
 	mov dword [esp+0x8], 0x0
 	mov dword [esp+0x4], 0x0
 	mov [esp], edi
@@ -1584,15 +1688,15 @@ ZN6stPbSv6makefnEPcS0_:F(0,2)_120:
 	mov edx, [ebp-0x530]
 	mov [esp], edx
 	call _ZdlPv
-ZN6stPbSv6makefnEPcS0_:F(0,2)_150:
+ZN6stPbSv6makefnEPcS0__F0_2_150:
 	mov eax, [ebp-0x52c]
 	mov [esp], eax
 	call fclose
-ZN6stPbSv6makefnEPcS0_:F(0,2)_140:
+ZN6stPbSv6makefnEPcS0__F0_2_140:
 	mov [esp], edi
 	call fclose
-	jmp ZN6stPbSv6makefnEPcS0_:F(0,2)_60
-ZN6stPbSv6makefnEPcS0_:F(0,2)_110:
+	jmp ZN6stPbSv6makefnEPcS0__F0_2_60
+ZN6stPbSv6makefnEPcS0__F0_2_110:
 	lea edx, [ebp-0x11c]
 	mov [esp+0x4], edx
 	lea eax, [ebp-0x51a]
@@ -1614,13 +1718,13 @@ ZN6stPbSv6makefnEPcS0_:F(0,2)_110:
 	call fopen
 	mov edi, eax
 	test eax, eax
-	jz ZN6stPbSv6makefnEPcS0_:F(0,2)_160
+	jz ZN6stPbSv6makefnEPcS0__F0_2_160
 	mov dword [esp+0x4], _cstring_wb
 	mov [esp], ebx
 	call fopen
 	mov [ebp-0x538], eax
 	test eax, eax
-	jz ZN6stPbSv6makefnEPcS0_:F(0,2)_170
+	jz ZN6stPbSv6makefnEPcS0__F0_2_170
 	mov dword [esp+0x8], 0x2
 	mov dword [esp+0x4], 0x0
 	mov [esp], edi
@@ -1629,12 +1733,12 @@ ZN6stPbSv6makefnEPcS0_:F(0,2)_110:
 	call ftell
 	mov [ebp-0x534], eax
 	test eax, eax
-	jle ZN6stPbSv6makefnEPcS0_:F(0,2)_180
+	jle ZN6stPbSv6makefnEPcS0__F0_2_180
 	mov [esp], eax
 	call _Znam
 	mov [ebp-0x53c], eax
 	test eax, eax
-	jz ZN6stPbSv6makefnEPcS0_:F(0,2)_180
+	jz ZN6stPbSv6makefnEPcS0__F0_2_180
 	mov dword [esp+0x8], 0x0
 	mov dword [esp+0x4], 0x0
 	mov [esp], edi
@@ -1656,15 +1760,15 @@ ZN6stPbSv6makefnEPcS0_:F(0,2)_110:
 	mov edx, [ebp-0x53c]
 	mov [esp], edx
 	call _ZdlPv
-ZN6stPbSv6makefnEPcS0_:F(0,2)_180:
+ZN6stPbSv6makefnEPcS0__F0_2_180:
 	mov eax, [ebp-0x538]
 	mov [esp], eax
 	call fclose
-ZN6stPbSv6makefnEPcS0_:F(0,2)_170:
+ZN6stPbSv6makefnEPcS0__F0_2_170:
 	mov [esp], edi
 	call fclose
-	jmp ZN6stPbSv6makefnEPcS0_:F(0,2)_160
-ZN6stPbSv6makefnEPcS0_:F(0,2)_100:
+	jmp ZN6stPbSv6makefnEPcS0__F0_2_160
+ZN6stPbSv6makefnEPcS0__F0_2_100:
 	lea edx, [ebp-0x11c]
 	mov [esp+0x4], edx
 	lea eax, [ebp-0x51a]
@@ -1686,13 +1790,13 @@ ZN6stPbSv6makefnEPcS0_:F(0,2)_100:
 	call fopen
 	mov edi, eax
 	test eax, eax
-	jz ZN6stPbSv6makefnEPcS0_:F(0,2)_190
+	jz ZN6stPbSv6makefnEPcS0__F0_2_190
 	mov dword [esp+0x4], _cstring_wb
 	mov [esp], ebx
 	call fopen
 	mov [ebp-0x544], eax
 	test eax, eax
-	jz ZN6stPbSv6makefnEPcS0_:F(0,2)_200
+	jz ZN6stPbSv6makefnEPcS0__F0_2_200
 	mov dword [esp+0x8], 0x2
 	mov dword [esp+0x4], 0x0
 	mov [esp], edi
@@ -1701,12 +1805,12 @@ ZN6stPbSv6makefnEPcS0_:F(0,2)_100:
 	call ftell
 	mov [ebp-0x540], eax
 	test eax, eax
-	jle ZN6stPbSv6makefnEPcS0_:F(0,2)_210
+	jle ZN6stPbSv6makefnEPcS0__F0_2_210
 	mov [esp], eax
 	call _Znam
 	mov [ebp-0x548], eax
 	test eax, eax
-	jz ZN6stPbSv6makefnEPcS0_:F(0,2)_210
+	jz ZN6stPbSv6makefnEPcS0__F0_2_210
 	mov dword [esp+0x8], 0x0
 	mov dword [esp+0x4], 0x0
 	mov [esp], edi
@@ -1728,19 +1832,19 @@ ZN6stPbSv6makefnEPcS0_:F(0,2)_100:
 	mov edx, [ebp-0x548]
 	mov [esp], edx
 	call _ZdlPv
-ZN6stPbSv6makefnEPcS0_:F(0,2)_210:
+ZN6stPbSv6makefnEPcS0__F0_2_210:
 	mov eax, [ebp-0x544]
 	mov [esp], eax
 	call fclose
-ZN6stPbSv6makefnEPcS0_:F(0,2)_200:
+ZN6stPbSv6makefnEPcS0__F0_2_200:
 	mov [esp], edi
 	call fclose
-	jmp ZN6stPbSv6makefnEPcS0_:F(0,2)_190
+	jmp ZN6stPbSv6makefnEPcS0__F0_2_190
 
 
-;ZN6stPbSv10AddPbEventEiiiPci:F(0,2)
+;ZN6stPbSv10AddPbEventEiiiPci_F0_2
 
-ZN6stPbSv10AddPbEventEiiiPci:F(0,2):
+ZN6stPbSv10AddPbEventEiiiPci_F0_2:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1750,14 +1854,14 @@ ZN6stPbSv10AddPbEventEiiiPci:F(0,2):
 	mov edi, [ebp+0x8]
 	mov eax, [edi+0x13c]
 	test eax, eax
-	jz ZN6stPbSv10AddPbEventEiiiPci:F(0,2)_10
+	jz ZN6stPbSv10AddPbEventEiiiPci_F0_2_10
 	mov esi, [edi+0x138]
 	test esi, esi
-	jz ZN6stPbSv10AddPbEventEiiiPci:F(0,2)_20
+	jz ZN6stPbSv10AddPbEventEiiiPci_F0_2_20
 	mov ecx, [edi+0x8]
 	test ecx, ecx
-	jnz ZN6stPbSv10AddPbEventEiiiPci:F(0,2)_30
-ZN6stPbSv10AddPbEventEiiiPci:F(0,2)_90:
+	jnz ZN6stPbSv10AddPbEventEiiiPci_F0_2_30
+ZN6stPbSv10AddPbEventEiiiPci_F0_2_90:
 	mov dword [edi+0x4], 0x0
 	mov dword [edi+0x150], 0x0
 	mov dword [edi+0x14c], 0x0
@@ -1766,80 +1870,80 @@ ZN6stPbSv10AddPbEventEiiiPci:F(0,2)_90:
 	mov dword [edi+0x160], 0x0
 	mov eax, [edi+0x8]
 	test eax, eax
-	jz ZN6stPbSv10AddPbEventEiiiPci:F(0,2)_40
+	jz ZN6stPbSv10AddPbEventEiiiPci_F0_2_40
 	mov [esp], eax
 	call dlclose
-ZN6stPbSv10AddPbEventEiiiPci:F(0,2)_40:
+ZN6stPbSv10AddPbEventEiiiPci_F0_2_40:
 	mov dword [edi+0x8], 0x0
 	mov dword [esp+0x8], _cstring_pbsvnewmac
 	lea esi, [ebp-0x217]
 	mov [esp+0x4], esi
 	mov [esp], edi
-	call ZN6stPbSv6makefnEPcS0_:F(0,2)
+	call ZN6stPbSv6makefnEPcS0__F0_2
 	mov dword [esp+0x4], _cstring_rb
 	mov [esp], eax
 	call fopen
 	test eax, eax
-	jz ZN6stPbSv10AddPbEventEiiiPci:F(0,2)_50
+	jz ZN6stPbSv10AddPbEventEiiiPci_F0_2_50
 	mov [esp], eax
 	call fclose
 	mov dword [esp+0x8], _cstring_pbsvoldmac
 	mov [esp+0x4], esi
 	mov [esp], edi
-	call ZN6stPbSv6makefnEPcS0_:F(0,2)
+	call ZN6stPbSv6makefnEPcS0__F0_2
 	mov dword [esp+0x8], _cstring_pbsvoldmac
 	mov [esp+0x4], esi
 	mov [esp], edi
-	call ZN6stPbSv6makefnEPcS0_:F(0,2)
+	call ZN6stPbSv6makefnEPcS0__F0_2
 	mov [esp], eax
 	call remove
 	mov dword [esp+0x8], _cstring_pbsvoldmac
 	lea eax, [ebp-0x416]
 	mov [esp+0x4], eax
 	mov [esp], edi
-	call ZN6stPbSv6makefnEPcS0_:F(0,2)
+	call ZN6stPbSv6makefnEPcS0__F0_2
 	mov ebx, eax
 	mov dword [esp+0x8], _cstring_pbsvmac
 	mov [esp+0x4], esi
 	mov [esp], edi
-	call ZN6stPbSv6makefnEPcS0_:F(0,2)
+	call ZN6stPbSv6makefnEPcS0__F0_2
 	mov [esp+0x4], ebx
 	mov [esp], eax
 	call rename
 	mov dword [esp+0x8], _cstring_pbsvmac
 	mov [esp+0x4], esi
 	mov [esp], edi
-	call ZN6stPbSv6makefnEPcS0_:F(0,2)
+	call ZN6stPbSv6makefnEPcS0__F0_2
 	mov dword [esp+0x8], _cstring_pbsvmac
 	mov [esp+0x4], esi
 	mov [esp], edi
-	call ZN6stPbSv6makefnEPcS0_:F(0,2)
+	call ZN6stPbSv6makefnEPcS0__F0_2
 	mov [esp], eax
 	call remove
 	mov dword [esp+0x8], _cstring_pbsvmac
 	lea eax, [ebp-0x416]
 	mov [esp+0x4], eax
 	mov [esp], edi
-	call ZN6stPbSv6makefnEPcS0_:F(0,2)
+	call ZN6stPbSv6makefnEPcS0__F0_2
 	mov ebx, eax
 	mov dword [esp+0x8], _cstring_pbsvnewmac
 	mov [esp+0x4], esi
 	mov [esp], edi
-	call ZN6stPbSv6makefnEPcS0_:F(0,2)
+	call ZN6stPbSv6makefnEPcS0__F0_2
 	mov [esp+0x4], ebx
 	mov [esp], eax
 	call rename
-ZN6stPbSv10AddPbEventEiiiPci:F(0,2)_50:
+ZN6stPbSv10AddPbEventEiiiPci_F0_2_50:
 	mov dword [esp+0x8], _cstring_pbsvmac
 	mov [esp+0x4], esi
 	mov [esp], edi
-	call ZN6stPbSv6makefnEPcS0_:F(0,2)
+	call ZN6stPbSv6makefnEPcS0__F0_2
 	mov dword [esp+0x4], 0x1
 	mov [esp], eax
 	call dlopen
 	mov [edi+0x8], eax
 	test eax, eax
-	jz ZN6stPbSv10AddPbEventEiiiPci:F(0,2)_60
+	jz ZN6stPbSv10AddPbEventEiiiPci_F0_2_60
 	mov dword [esp+0x4], _cstring_sa
 	mov [esp], eax
 	call dlsym
@@ -1851,16 +1955,16 @@ ZN6stPbSv10AddPbEventEiiiPci:F(0,2)_50:
 	mov [edi+0x14c], eax
 	mov edx, [edi+0x150]
 	test edx, edx
-	jz ZN6stPbSv10AddPbEventEiiiPci:F(0,2)_70
+	jz ZN6stPbSv10AddPbEventEiiiPci_F0_2_70
 	test eax, eax
-	jz ZN6stPbSv10AddPbEventEiiiPci:F(0,2)_70
+	jz ZN6stPbSv10AddPbEventEiiiPci_F0_2_70
 	mov dword [edi+0x138], 0x0
-	jmp ZN6stPbSv10AddPbEventEiiiPci:F(0,2)_80
-ZN6stPbSv10AddPbEventEiiiPci:F(0,2)_20:
+	jmp ZN6stPbSv10AddPbEventEiiiPci_F0_2_80
+ZN6stPbSv10AddPbEventEiiiPci_F0_2_20:
 	mov ebx, [edi+0x8]
 	test ebx, ebx
-	jz ZN6stPbSv10AddPbEventEiiiPci:F(0,2)_90
-ZN6stPbSv10AddPbEventEiiiPci:F(0,2)_80:
+	jz ZN6stPbSv10AddPbEventEiiiPci_F0_2_90
+ZN6stPbSv10AddPbEventEiiiPci_F0_2_80:
 	mov eax, [ebp+0x1c]
 	mov [esp+0x14], eax
 	mov eax, [ebp+0x18]
@@ -1874,7 +1978,7 @@ ZN6stPbSv10AddPbEventEiiiPci:F(0,2)_80:
 	mov [esp], edi
 	call dword [edi+0x14c]
 	mov edx, eax
-ZN6stPbSv10AddPbEventEiiiPci:F(0,2)_110:
+ZN6stPbSv10AddPbEventEiiiPci_F0_2_110:
 	mov eax, edx
 	add esp, 0x42c
 	pop ebx
@@ -1882,7 +1986,7 @@ ZN6stPbSv10AddPbEventEiiiPci:F(0,2)_110:
 	pop edi
 	pop ebp
 	ret
-ZN6stPbSv10AddPbEventEiiiPci:F(0,2)_70:
+ZN6stPbSv10AddPbEventEiiiPci_F0_2_70:
 	mov dword [edi+0x4], 0x0
 	mov dword [edi+0x150], 0x0
 	mov dword [edi+0x14c], 0x0
@@ -1891,18 +1995,18 @@ ZN6stPbSv10AddPbEventEiiiPci:F(0,2)_70:
 	mov dword [edi+0x160], 0x0
 	mov eax, [edi+0x8]
 	test eax, eax
-	jz ZN6stPbSv10AddPbEventEiiiPci:F(0,2)_100
+	jz ZN6stPbSv10AddPbEventEiiiPci_F0_2_100
 	mov [esp], eax
 	call dlclose
-ZN6stPbSv10AddPbEventEiiiPci:F(0,2)_100:
+ZN6stPbSv10AddPbEventEiiiPci_F0_2_100:
 	mov dword [edi+0x8], 0x0
 	mov edx, _cstring_pb_error_server_
-ZN6stPbSv10AddPbEventEiiiPci:F(0,2)_130:
+ZN6stPbSv10AddPbEventEiiiPci_F0_2_130:
 	mov eax, [ebp+0xc]
 	sub eax, 0x71
 	cmp eax, 0x1
-	ja ZN6stPbSv10AddPbEventEiiiPci:F(0,2)_110
-ZN6stPbSv10AddPbEventEiiiPci:F(0,2)_10:
+	ja ZN6stPbSv10AddPbEventEiiiPci_F0_2_110
+ZN6stPbSv10AddPbEventEiiiPci_F0_2_10:
 	xor edx, edx
 	mov eax, edx
 	add esp, 0x42c
@@ -1911,7 +2015,7 @@ ZN6stPbSv10AddPbEventEiiiPci:F(0,2)_10:
 	pop edi
 	pop ebp
 	ret
-ZN6stPbSv10AddPbEventEiiiPci:F(0,2)_30:
+ZN6stPbSv10AddPbEventEiiiPci_F0_2_30:
 	mov dword [edi+0x4], 0x0
 	mov dword [edi+0x150], 0x0
 	mov dword [edi+0x14c], 0x0
@@ -1919,10 +2023,10 @@ ZN6stPbSv10AddPbEventEiiiPci:F(0,2)_30:
 	mov dword [edi+0x15c], 0x0
 	mov dword [edi+0x160], 0x0
 	mov eax, [edi+0x8]
-	jz ZN6stPbSv10AddPbEventEiiiPci:F(0,2)_120
+	jz ZN6stPbSv10AddPbEventEiiiPci_F0_2_120
 	mov [esp], eax
 	call dlclose
-ZN6stPbSv10AddPbEventEiiiPci:F(0,2)_120:
+ZN6stPbSv10AddPbEventEiiiPci_F0_2_120:
 	mov dword [edi+0x8], 0x0
 	xor edx, edx
 	mov eax, edx
@@ -1932,14 +2036,14 @@ ZN6stPbSv10AddPbEventEiiiPci:F(0,2)_120:
 	pop edi
 	pop ebp
 	ret
-ZN6stPbSv10AddPbEventEiiiPci:F(0,2)_60:
+ZN6stPbSv10AddPbEventEiiiPci_F0_2_60:
 	mov edx, _cstring_pb_error_server_1
-	jmp ZN6stPbSv10AddPbEventEiiiPci:F(0,2)_130
+	jmp ZN6stPbSv10AddPbEventEiiiPci_F0_2_130
 
 
-;Z11DisablePbSvv:F(0,1)
+;Z11DisablePbSvv_F0_1
 
-Z11DisablePbSvv:F(0,1):
+Z11DisablePbSvv_F0_1:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x28
@@ -1949,14 +2053,14 @@ Z11DisablePbSvv:F(0,1):
 	mov dword [esp+0x8], 0xffffffff
 	mov dword [esp+0x4], 0x76
 	mov dword [esp], pbsv
-	call ZN6stPbSv10AddPbEventEiiiPci:F(0,2)
+	call ZN6stPbSv10AddPbEventEiiiPci_F0_2
 	leave
 	ret
 
 
-;Z10EnablePbSvv:F(0,1)
+;Z10EnablePbSvv_F0_1
 
-Z10EnablePbSvv:F(0,1):
+Z10EnablePbSvv_F0_1:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x28
@@ -1966,14 +2070,14 @@ Z10EnablePbSvv:F(0,1):
 	mov dword [esp+0x8], 0xffffffff
 	mov dword [esp+0x4], 0x75
 	mov dword [esp], pbsv
-	call ZN6stPbSv10AddPbEventEiiiPci:F(0,2)
+	call ZN6stPbSv10AddPbEventEiiiPci_F0_2
 	leave
 	ret
 
 
-;Z23PbServerCompleteCommandPci:F(0,1)
+;Z23PbServerCompleteCommandPci_F0_1
 
-Z23PbServerCompleteCommandPci:F(0,1):
+Z23PbServerCompleteCommandPci_F0_1:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x28
@@ -1985,26 +2089,26 @@ Z23PbServerCompleteCommandPci:F(0,1):
 	mov dword [esp+0x8], 0xffffffff
 	mov dword [esp+0x4], 0x33
 	mov dword [esp], pbsv
-	call ZN6stPbSv10AddPbEventEiiiPci:F(0,2)
+	call ZN6stPbSv10AddPbEventEiiiPci_F0_2
 	leave
 	ret
 
 
-;Z20PbServerForceProcessv:F(0,1)
+;Z20PbServerForceProcessv_F0_1
 
-Z20PbServerForceProcessv:F(0,1):
+Z20PbServerForceProcessv_F0_1:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x28
 	mov eax, [pbsv+0x13c]
 	test eax, eax
-	jz Z20PbServerForceProcessv:F(0,1)_10
+	jz Z20PbServerForceProcessv_F0_1_10
 	mov eax, [pbsv+0x8]
 	test eax, eax
-	jz Z20PbServerForceProcessv:F(0,1)_20
+	jz Z20PbServerForceProcessv_F0_1_20
 	mov eax, [pbsv+0x138]
 	test eax, eax
-	jz Z20PbServerForceProcessv:F(0,1)_30
+	jz Z20PbServerForceProcessv_F0_1_30
 	mov dword [pbsv+0x4], 0x0
 	mov dword [pbsv+0x150], 0x0
 	mov dword [pbsv+0x14c], 0x0
@@ -2013,38 +2117,38 @@ Z20PbServerForceProcessv:F(0,1):
 	mov dword [pbsv+0x160], 0x0
 	mov eax, [pbsv+0x8]
 	test eax, eax
-	jz Z20PbServerForceProcessv:F(0,1)_40
+	jz Z20PbServerForceProcessv_F0_1_40
 	mov [esp], eax
 	call dlclose
-Z20PbServerForceProcessv:F(0,1)_40:
+Z20PbServerForceProcessv_F0_1_40:
 	mov dword [pbsv+0x8], 0x0
-Z20PbServerForceProcessv:F(0,1)_10:
+Z20PbServerForceProcessv_F0_1_10:
 	leave
 	ret
-Z20PbServerForceProcessv:F(0,1)_30:
+Z20PbServerForceProcessv_F0_1_30:
 	mov dword [esp+0x4], 0xffffffff
 	mov dword [esp], pbsv
 	call dword [pbsv+0x150]
 	leave
 	ret
-Z20PbServerForceProcessv:F(0,1)_20:
+Z20PbServerForceProcessv_F0_1_20:
 	mov eax, [pbsv+0x138]
 	test eax, eax
-	jz Z20PbServerForceProcessv:F(0,1)_10
+	jz Z20PbServerForceProcessv_F0_1_10
 	mov dword [esp+0x14], 0x0
 	mov dword [esp+0x10], _cstring_null
 	mov dword [esp+0xc], 0x0
 	mov dword [esp+0x8], 0xffffffff
 	mov dword [esp+0x4], 0x10
 	mov dword [esp], pbsv
-	call ZN6stPbSv10AddPbEventEiiiPci:F(0,2)
+	call ZN6stPbSv10AddPbEventEiiiPci_F0_2
 	leave
 	ret
 
 
-;Z12PbSvAddEventiiiPc:F(0,1)
+;Z12PbSvAddEventiiiPc_F0_1
 
-Z12PbSvAddEventiiiPc:F(0,1):
+Z12PbSvAddEventiiiPc_F0_1:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x28
@@ -2058,15 +2162,15 @@ Z12PbSvAddEventiiiPc:F(0,1):
 	mov eax, [ebp+0x8]
 	mov [esp+0x4], eax
 	mov dword [esp], pbsv
-	call ZN6stPbSv10AddPbEventEiiiPci:F(0,2)
+	call ZN6stPbSv10AddPbEventEiiiPci_F0_2
 	leave
 	ret
 	add [eax], al
 
 
-;Z18PbServerInitializev:F(0,1)
+;Z18PbServerInitializev_F0_1
 
-Z18PbServerInitializev:F(0,1):
+Z18PbServerInitializev_F0_1:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x28
@@ -2081,23 +2185,23 @@ Z18PbServerInitializev:F(0,1):
 	mov dword [esp+0x8], 0xffffffff
 	mov dword [esp+0x4], 0x10
 	mov dword [esp], pbsv
-	call ZN6stPbSv10AddPbEventEiiiPci:F(0,2)
+	call ZN6stPbSv10AddPbEventEiiiPci_F0_2
 	mov eax, [pbsv+0x14c]
 	test eax, eax
-	jz Z18PbServerInitializev:F(0,1)_10
+	jz Z18PbServerInitializev_F0_1_10
 	leave
 	ret
-Z18PbServerInitializev:F(0,1)_10:
+Z18PbServerInitializev_F0_1_10:
 	mov dword [esp], _cstring_0
-	call Z17set_sv_punkbusterPc:F(0,3)
+	call Z17set_sv_punkbusterPc_F0_3
 	leave
 	ret
 	nop
 
 
-;Z15PbSvGameCommandPcS_:F(0,2)
+;Z15PbSvGameCommandPcS__F0_2
 
-Z15PbSvGameCommandPcS_:F(0,2):
+Z15PbSvGameCommandPcS__F0_2:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -2110,10 +2214,10 @@ Z15PbSvGameCommandPcS_:F(0,2):
 	mov [esp], ebx
 	call strcasecmp
 	test eax, eax
-	jnz Z15PbSvGameCommandPcS_:F(0,2)_10
+	jnz Z15PbSvGameCommandPcS__F0_2_10
 	mov [esp], esi
-	call Z17set_sv_punkbusterPc:F(0,3)
-Z15PbSvGameCommandPcS_:F(0,2)_90:
+	call Z17set_sv_punkbusterPc_F0_3
+Z15PbSvGameCommandPcS__F0_2_90:
 	xor eax, eax
 	add esp, 0x3c
 	pop ebx
@@ -2121,12 +2225,12 @@ Z15PbSvGameCommandPcS_:F(0,2)_90:
 	pop edi
 	pop ebp
 	ret
-Z15PbSvGameCommandPcS_:F(0,2)_10:
+Z15PbSvGameCommandPcS__F0_2_10:
 	mov dword [esp+0x4], _cstring_concapbuflen
 	mov [esp], ebx
 	call strcasecmp
 	test eax, eax
-	jnz Z15PbSvGameCommandPcS_:F(0,2)_20
+	jnz Z15PbSvGameCommandPcS__F0_2_20
 	mov [g_ConsoleCaptureBufLen], esi
 	xor eax, eax
 	add esp, 0x3c
@@ -2135,12 +2239,12 @@ Z15PbSvGameCommandPcS_:F(0,2)_10:
 	pop edi
 	pop ebp
 	ret
-Z15PbSvGameCommandPcS_:F(0,2)_20:
+Z15PbSvGameCommandPcS__F0_2_20:
 	mov dword [esp+0x4], _cstring_concapbuf
 	mov [esp], ebx
 	call strcasecmp
 	test eax, eax
-	jnz Z15PbSvGameCommandPcS_:F(0,2)_30
+	jnz Z15PbSvGameCommandPcS__F0_2_30
 	mov [g_ConsoleCaptureBuf], esi
 	xor eax, eax
 	add esp, 0x3c
@@ -2149,86 +2253,86 @@ Z15PbSvGameCommandPcS_:F(0,2)_20:
 	pop edi
 	pop ebp
 	ret
-Z15PbSvGameCommandPcS_:F(0,2)_30:
+Z15PbSvGameCommandPcS__F0_2_30:
 	mov dword [esp+0x4], _cstring_cmd_exec
 	mov [esp], ebx
 	call strcasecmp
 	test eax, eax
-	jz Z15PbSvGameCommandPcS_:F(0,2)_40
+	jz Z15PbSvGameCommandPcS__F0_2_40
 	cmp byte [esi], 0x20
-	jz Z15PbSvGameCommandPcS_:F(0,2)_50
+	jz Z15PbSvGameCommandPcS__F0_2_50
 	mov edi, esi
-Z15PbSvGameCommandPcS_:F(0,2)_190:
+Z15PbSvGameCommandPcS__F0_2_190:
 	movzx eax, byte [edi]
 	test al, al
-	jnz Z15PbSvGameCommandPcS_:F(0,2)_60
-Z15PbSvGameCommandPcS_:F(0,2)_100:
+	jnz Z15PbSvGameCommandPcS__F0_2_60
+Z15PbSvGameCommandPcS__F0_2_100:
 	cmp byte [edi], 0x20
-	jz Z15PbSvGameCommandPcS_:F(0,2)_70
+	jz Z15PbSvGameCommandPcS__F0_2_70
 	mov [ebp-0x1c], edi
-Z15PbSvGameCommandPcS_:F(0,2)_170:
+Z15PbSvGameCommandPcS__F0_2_170:
 	mov dword [esp+0x4], _cstring_dropclient
 	mov [esp], ebx
 	call strcasecmp
 	test eax, eax
-	jnz Z15PbSvGameCommandPcS_:F(0,2)_80
+	jnz Z15PbSvGameCommandPcS__F0_2_80
 	mov [esp], esi
 	call atoi
 	mov edx, [ebp-0x1c]
 	mov [esp+0x4], edx
 	mov [esp], eax
-	call Z13PB_DropClientiPc:F(0,1)
-	jmp Z15PbSvGameCommandPcS_:F(0,2)_90
-Z15PbSvGameCommandPcS_:F(0,2)_60:
+	call Z13PB_DropClientiPc_F0_1
+	jmp Z15PbSvGameCommandPcS__F0_2_90
+Z15PbSvGameCommandPcS__F0_2_60:
 	cmp al, 0x20
-	jz Z15PbSvGameCommandPcS_:F(0,2)_70
-Z15PbSvGameCommandPcS_:F(0,2)_110:
+	jz Z15PbSvGameCommandPcS__F0_2_70
+Z15PbSvGameCommandPcS__F0_2_110:
 	add edi, 0x1
 	movzx eax, byte [edi]
 	test al, al
-	jz Z15PbSvGameCommandPcS_:F(0,2)_100
+	jz Z15PbSvGameCommandPcS__F0_2_100
 	cmp al, 0x20
-	jnz Z15PbSvGameCommandPcS_:F(0,2)_110
-	jmp Z15PbSvGameCommandPcS_:F(0,2)_100
-Z15PbSvGameCommandPcS_:F(0,2)_80:
+	jnz Z15PbSvGameCommandPcS__F0_2_110
+	jmp Z15PbSvGameCommandPcS__F0_2_100
+Z15PbSvGameCommandPcS__F0_2_80:
 	mov dword [esp+0x4], _cstring_cvar_set
 	mov [esp], ebx
 	call strcasecmp
 	test eax, eax
-	jz Z15PbSvGameCommandPcS_:F(0,2)_120
+	jz Z15PbSvGameCommandPcS__F0_2_120
 	mov dword [esp+0x4], _cstring_dvar_set
 	mov [esp], ebx
 	call strcasecmp
 	test eax, eax
-	jnz Z15PbSvGameCommandPcS_:F(0,2)_90
-Z15PbSvGameCommandPcS_:F(0,2)_120:
+	jnz Z15PbSvGameCommandPcS__F0_2_90
+Z15PbSvGameCommandPcS__F0_2_120:
 	movzx ebx, byte [edi]
 	mov byte [edi], 0x0
 	mov eax, [ebp-0x1c]
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call Z10PBdvar_setPKcS0_:F(0,1)
+	call Z10PBdvar_setPKcS0__F0_1
 	mov [edi], bl
-	jmp Z15PbSvGameCommandPcS_:F(0,2)_90
-Z15PbSvGameCommandPcS_:F(0,2)_40:
+	jmp Z15PbSvGameCommandPcS__F0_2_90
+Z15PbSvGameCommandPcS__F0_2_40:
 	mov dword [esp+0x8], 0x3
 	mov dword [esp+0x4], _cstring_pb_
 	mov [esp], esi
 	call strncasecmp
 	mov ebx, eax
 	mov [esp], esi
-	call Z17Cmd_ExecuteStringPKc:F(0,1)
+	call Z17Cmd_ExecuteStringPKc_F0_1
 	test ebx, ebx
-	jnz Z15PbSvGameCommandPcS_:F(0,2)_90
+	jnz Z15PbSvGameCommandPcS__F0_2_90
 	mov esi, [pbsv+0x13c]
 	test esi, esi
-	jz Z15PbSvGameCommandPcS_:F(0,2)_90
+	jz Z15PbSvGameCommandPcS__F0_2_90
 	mov ebx, [pbsv+0x8]
 	test ebx, ebx
-	jz Z15PbSvGameCommandPcS_:F(0,2)_130
+	jz Z15PbSvGameCommandPcS__F0_2_130
 	mov edx, [pbsv+0x138]
 	test edx, edx
-	jz Z15PbSvGameCommandPcS_:F(0,2)_140
+	jz Z15PbSvGameCommandPcS__F0_2_140
 	mov dword [pbsv+0x4], 0x0
 	mov dword [pbsv+0x150], 0x0
 	mov dword [pbsv+0x14c], 0x0
@@ -2237,62 +2341,62 @@ Z15PbSvGameCommandPcS_:F(0,2)_40:
 	mov dword [pbsv+0x160], 0x0
 	mov eax, [pbsv+0x8]
 	test eax, eax
-	jz Z15PbSvGameCommandPcS_:F(0,2)_150
+	jz Z15PbSvGameCommandPcS__F0_2_150
 	mov [esp], eax
 	call dlclose
-Z15PbSvGameCommandPcS_:F(0,2)_150:
+Z15PbSvGameCommandPcS__F0_2_150:
 	mov dword [pbsv+0x8], 0x0
-	jmp Z15PbSvGameCommandPcS_:F(0,2)_90
-Z15PbSvGameCommandPcS_:F(0,2)_70:
+	jmp Z15PbSvGameCommandPcS__F0_2_90
+Z15PbSvGameCommandPcS__F0_2_70:
 	mov [ebp-0x1c], edi
-Z15PbSvGameCommandPcS_:F(0,2)_160:
+Z15PbSvGameCommandPcS__F0_2_160:
 	add dword [ebp-0x1c], 0x1
 	mov eax, [ebp-0x1c]
 	cmp byte [eax], 0x20
-	jz Z15PbSvGameCommandPcS_:F(0,2)_160
-	jmp Z15PbSvGameCommandPcS_:F(0,2)_170
-Z15PbSvGameCommandPcS_:F(0,2)_50:
+	jz Z15PbSvGameCommandPcS__F0_2_160
+	jmp Z15PbSvGameCommandPcS__F0_2_170
+Z15PbSvGameCommandPcS__F0_2_50:
 	mov edi, esi
-Z15PbSvGameCommandPcS_:F(0,2)_180:
+Z15PbSvGameCommandPcS__F0_2_180:
 	add edi, 0x1
 	cmp byte [edi], 0x20
-	jz Z15PbSvGameCommandPcS_:F(0,2)_180
-	jmp Z15PbSvGameCommandPcS_:F(0,2)_190
-Z15PbSvGameCommandPcS_:F(0,2)_140:
+	jz Z15PbSvGameCommandPcS__F0_2_180
+	jmp Z15PbSvGameCommandPcS__F0_2_190
+Z15PbSvGameCommandPcS__F0_2_140:
 	mov dword [esp+0x4], 0xffffffff
 	mov dword [esp], pbsv
 	call dword [pbsv+0x150]
-	jmp Z15PbSvGameCommandPcS_:F(0,2)_90
-Z15PbSvGameCommandPcS_:F(0,2)_130:
+	jmp Z15PbSvGameCommandPcS__F0_2_90
+Z15PbSvGameCommandPcS__F0_2_130:
 	mov ecx, [pbsv+0x138]
 	test ecx, ecx
-	jz Z15PbSvGameCommandPcS_:F(0,2)_90
+	jz Z15PbSvGameCommandPcS__F0_2_90
 	mov dword [esp+0x14], 0x0
 	mov dword [esp+0x10], _cstring_null
 	mov dword [esp+0xc], 0x0
 	mov dword [esp+0x8], 0xffffffff
 	mov dword [esp+0x4], 0x10
 	mov dword [esp], pbsv
-	call ZN6stPbSv10AddPbEventEiiiPci:F(0,2)
-	jmp Z15PbSvGameCommandPcS_:F(0,2)_90
+	call ZN6stPbSv10AddPbEventEiiiPci_F0_2
+	jmp Z15PbSvGameCommandPcS__F0_2_90
 	nop
 
 
-;Z21PbServerProcessEventsv:F(0,1)
+;Z21PbServerProcessEventsv_F0_1
 
-Z21PbServerProcessEventsv:F(0,1):
+Z21PbServerProcessEventsv_F0_1:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x28
 	mov eax, [pbsv+0x13c]
 	test eax, eax
-	jz Z21PbServerProcessEventsv:F(0,1)_10
+	jz Z21PbServerProcessEventsv_F0_1_10
 	mov eax, [pbsv+0x8]
 	test eax, eax
-	jz Z21PbServerProcessEventsv:F(0,1)_20
+	jz Z21PbServerProcessEventsv_F0_1_20
 	mov eax, [pbsv+0x138]
 	test eax, eax
-	jz Z21PbServerProcessEventsv:F(0,1)_30
+	jz Z21PbServerProcessEventsv_F0_1_30
 	mov dword [pbsv+0x4], 0x0
 	mov dword [pbsv+0x150], 0x0
 	mov dword [pbsv+0x14c], 0x0
@@ -2301,31 +2405,31 @@ Z21PbServerProcessEventsv:F(0,1):
 	mov dword [pbsv+0x160], 0x0
 	mov eax, [pbsv+0x8]
 	test eax, eax
-	jz Z21PbServerProcessEventsv:F(0,1)_40
+	jz Z21PbServerProcessEventsv_F0_1_40
 	mov [esp], eax
 	call dlclose
-Z21PbServerProcessEventsv:F(0,1)_40:
+Z21PbServerProcessEventsv_F0_1_40:
 	mov dword [pbsv+0x8], 0x0
-Z21PbServerProcessEventsv:F(0,1)_10:
+Z21PbServerProcessEventsv_F0_1_10:
 	leave
 	ret
-Z21PbServerProcessEventsv:F(0,1)_30:
+Z21PbServerProcessEventsv_F0_1_30:
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], pbsv
 	call dword [pbsv+0x150]
 	leave
 	ret
-Z21PbServerProcessEventsv:F(0,1)_20:
+Z21PbServerProcessEventsv_F0_1_20:
 	mov eax, [pbsv+0x138]
 	test eax, eax
-	jz Z21PbServerProcessEventsv:F(0,1)_10
+	jz Z21PbServerProcessEventsv_F0_1_10
 	mov dword [esp+0x14], 0x0
 	mov dword [esp+0x10], _cstring_null
 	mov dword [esp+0xc], 0x0
 	mov dword [esp+0x8], 0xffffffff
 	mov dword [esp+0x4], 0x10
 	mov dword [esp], pbsv
-	call ZN6stPbSv10AddPbEventEiiiPci:F(0,2)
+	call ZN6stPbSv10AddPbEventEiiiPci_F0_2
 	leave
 	ret
 	add [eax], al
@@ -2333,7 +2437,7 @@ Z21PbServerProcessEventsv:F(0,1)_20:
 
 ;Transform(unsigned long*, unsigned long*)
 
-Z15PbClGameCommandPcS_:F(0,1):
+Z15PbClGameCommandPcS__F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -2343,24 +2447,24 @@ Z15PbClGameCommandPcS_:F(0,1):
 	mov edi, [ebp+0x8]
 	mov esi, [ebp+0xc]
 	cmp byte [esi], 0x20
-	jz Z15PbClGameCommandPcS_:F(0,1)_10
+	jz Z15PbClGameCommandPcS__F0_1_10
 	mov ebx, esi
-Z15PbClGameCommandPcS_:F(0,1)_120:
+Z15PbClGameCommandPcS__F0_1_120:
 	movzx eax, byte [ebx]
 	test al, al
-	jnz Z15PbClGameCommandPcS_:F(0,1)_20
-Z15PbClGameCommandPcS_:F(0,1)_70:
+	jnz Z15PbClGameCommandPcS__F0_1_20
+Z15PbClGameCommandPcS__F0_1_70:
 	cmp byte [ebx], 0x20
-	jz Z15PbClGameCommandPcS_:F(0,1)_30
-Z15PbClGameCommandPcS_:F(0,1)_60:
+	jz Z15PbClGameCommandPcS__F0_1_30
+Z15PbClGameCommandPcS__F0_1_60:
 	mov dword [esp+0x4], _cstring_set_cl_punkbuste
 	mov [esp], edi
 	call strcasecmp
 	test eax, eax
-	jnz Z15PbClGameCommandPcS_:F(0,1)_40
+	jnz Z15PbClGameCommandPcS__F0_1_40
 	mov [esp], esi
-	call Z17set_cl_punkbusterPc:F(0,1)
-Z15PbClGameCommandPcS_:F(0,1)_100:
+	call Z17set_cl_punkbusterPc_F0_1
+Z15PbClGameCommandPcS__F0_1_100:
 	xor eax, eax
 	add esp, 0x1c
 	pop ebx
@@ -2368,35 +2472,35 @@ Z15PbClGameCommandPcS_:F(0,1)_100:
 	pop edi
 	pop ebp
 	ret
-Z15PbClGameCommandPcS_:F(0,1)_20:
+Z15PbClGameCommandPcS__F0_1_20:
 	cmp al, 0x20
-	jnz Z15PbClGameCommandPcS_:F(0,1)_50
-Z15PbClGameCommandPcS_:F(0,1)_30:
+	jnz Z15PbClGameCommandPcS__F0_1_50
+Z15PbClGameCommandPcS__F0_1_30:
 	add ebx, 0x1
 	cmp byte [ebx], 0x20
-	jnz Z15PbClGameCommandPcS_:F(0,1)_60
+	jnz Z15PbClGameCommandPcS__F0_1_60
 	add ebx, 0x1
 	cmp byte [ebx], 0x20
-	jz Z15PbClGameCommandPcS_:F(0,1)_30
-	jmp Z15PbClGameCommandPcS_:F(0,1)_60
-Z15PbClGameCommandPcS_:F(0,1)_50:
+	jz Z15PbClGameCommandPcS__F0_1_30
+	jmp Z15PbClGameCommandPcS__F0_1_60
+Z15PbClGameCommandPcS__F0_1_50:
 	add ebx, 0x1
 	movzx eax, byte [ebx]
 	test al, al
-	jz Z15PbClGameCommandPcS_:F(0,1)_70
+	jz Z15PbClGameCommandPcS__F0_1_70
 	cmp al, 0x20
-	jnz Z15PbClGameCommandPcS_:F(0,1)_50
-	jmp Z15PbClGameCommandPcS_:F(0,1)_70
-Z15PbClGameCommandPcS_:F(0,1)_40:
+	jnz Z15PbClGameCommandPcS__F0_1_50
+	jmp Z15PbClGameCommandPcS__F0_1_70
+Z15PbClGameCommandPcS__F0_1_40:
 	mov dword [esp+0x4], _cstring_cvar_set
 	mov [esp], edi
 	call strcasecmp
 	test eax, eax
-	jnz Z15PbClGameCommandPcS_:F(0,1)_80
-Z15PbClGameCommandPcS_:F(0,1)_90:
+	jnz Z15PbClGameCommandPcS__F0_1_80
+Z15PbClGameCommandPcS__F0_1_90:
 	mov [esp+0x4], ebx
 	mov [esp], esi
-	call Z10PBdvar_setPKcS0_:F(0,1)
+	call Z10PBdvar_setPKcS0__F0_1
 	xor eax, eax
 	add esp, 0x1c
 	pop ebx
@@ -2404,32 +2508,32 @@ Z15PbClGameCommandPcS_:F(0,1)_90:
 	pop edi
 	pop ebp
 	ret
-Z15PbClGameCommandPcS_:F(0,1)_80:
+Z15PbClGameCommandPcS__F0_1_80:
 	mov dword [esp+0x4], _cstring_dvar_set
 	mov [esp], edi
 	call strcasecmp
 	test eax, eax
-	jz Z15PbClGameCommandPcS_:F(0,1)_90
+	jz Z15PbClGameCommandPcS__F0_1_90
 	mov dword [esp+0x4], _cstring_get_pb_cdkey
 	mov [esp], edi
 	call strcasecmp
 	test eax, eax
-	jnz Z15PbClGameCommandPcS_:F(0,1)_100
+	jnz Z15PbClGameCommandPcS__F0_1_100
 	mov [esp], esi
-	call Z14PBget_cl_cdkeyPc:F(0,1)
-	jmp Z15PbClGameCommandPcS_:F(0,1)_100
-Z15PbClGameCommandPcS_:F(0,1)_10:
+	call Z14PBget_cl_cdkeyPc_F0_1
+	jmp Z15PbClGameCommandPcS__F0_1_100
+Z15PbClGameCommandPcS__F0_1_10:
 	mov ebx, esi
-Z15PbClGameCommandPcS_:F(0,1)_110:
+Z15PbClGameCommandPcS__F0_1_110:
 	add ebx, 0x1
 	cmp byte [ebx], 0x20
-	jz Z15PbClGameCommandPcS_:F(0,1)_110
-	jmp Z15PbClGameCommandPcS_:F(0,1)_120
+	jz Z15PbClGameCommandPcS__F0_1_110
+	jmp Z15PbClGameCommandPcS__F0_1_120
 
 
-;Z11PbClGameMsgPci:F(0,1)
+;Z11PbClGameMsgPci_F0_1
 
-Z11PbClGameMsgPci:F(0,1):
+Z11PbClGameMsgPci_F0_1:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -2440,20 +2544,20 @@ Z11PbClGameMsgPci:F(0,1):
 	mov dword [esp], pbcl+0x35
 	call strncasecmp
 	test eax, eax
-	jz Z11PbClGameMsgPci:F(0,1)_10
+	jz Z11PbClGameMsgPci_F0_1_10
 	mov [esp+0x4], ebx
 	mov dword [esp], pbcl+0x35
-	call Z13PbMsgToScreenPcS_:F(0,1)
+	call Z13PbMsgToScreenPcS__F0_1
 	xor eax, eax
 	add esp, 0x14
 	pop ebx
 	pop ebp
 	ret
-Z11PbClGameMsgPci:F(0,1)_10:
+Z11PbClGameMsgPci_F0_1_10:
 	mov [esp+0x8], ebx
 	mov dword [esp+0x4], pbcl+0x41
 	mov dword [esp], _cstring_s_s2
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	xor eax, eax
 	add esp, 0x14
 	pop ebx
@@ -2461,9 +2565,9 @@ Z11PbClGameMsgPci:F(0,1)_10:
 	ret
 
 
-;Z16PbClSendToServeriPc:F(0,1)
+;Z16PbClSendToServeriPc_F0_1
 
-Z16PbClSendToServeriPc:F(0,1):
+Z16PbClSendToServeriPc_F0_1:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -2471,15 +2575,15 @@ Z16PbClSendToServeriPc:F(0,1):
 	mov [esp+0x4], eax
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z15CL_SendPbPacketiPc:F(0,1)
+	call Z15CL_SendPbPacketiPc_F0_1
 	xor eax, eax
 	leave
 	ret
 
 
-;Z18PbClSendToAddrPortPctiS_:F(0,1)
+;Z18PbClSendToAddrPortPctiS__F0_1
 
-Z18PbClSendToAddrPortPctiS_:F(0,1):
+Z18PbClSendToAddrPortPctiS__F0_1:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -2491,61 +2595,61 @@ Z18PbClSendToAddrPortPctiS_:F(0,1):
 	mov [esp+0x4], edx
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z19Sys_PBSendUdpPacketPctiS_:F(0,17)
+	call Z19Sys_PBSendUdpPacketPctiS__F0_17
 	xor eax, eax
 	leave
 	ret
 	nop
 
 
-;Z16PbTrapPreExecCmdPc:F(0,3)
+;Z16PbTrapPreExecCmdPc_F0_3
 
-Z16PbTrapPreExecCmdPc:F(0,3):
+Z16PbTrapPreExecCmdPc_F0_3:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
 	mov eax, [pbcl+0x19c]
 	test eax, eax
-	jz Z16PbTrapPreExecCmdPc:F(0,3)_10
+	jz Z16PbTrapPreExecCmdPc_F0_3_10
 	mov edx, [ebp+0x8]
 	mov [esp+0x4], edx
 	mov dword [esp], pbcl
 	call eax
-Z16PbTrapPreExecCmdPc:F(0,3)_10:
+Z16PbTrapPreExecCmdPc_F0_3_10:
 	leave
 	ret
 	nop
 
 
-;Z19PbClientTrapConsolePci:F(0,5)
+;Z19PbClientTrapConsolePci_F0_5
 
-Z19PbClientTrapConsolePci:F(0,5):
+Z19PbClientTrapConsolePci_F0_5:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
 	mov eax, [pbcl+0x1a0]
 	test eax, eax
-	jz Z19PbClientTrapConsolePci:F(0,5)_10
+	jz Z19PbClientTrapConsolePci_F0_5_10
 	mov edx, [ebp+0xc]
 	mov [esp+0x8], edx
 	mov edx, [ebp+0x8]
 	mov [esp+0x4], edx
 	mov dword [esp], pbcl
 	call eax
-Z19PbClientTrapConsolePci:F(0,5)_10:
+Z19PbClientTrapConsolePci_F0_5_10:
 	leave
 	ret
 
 
-;Z18PbClientConnectingiPcPi:F(0,5)
+;Z18PbClientConnectingiPcPi_F0_5
 
-Z18PbClientConnectingiPcPi:F(0,5):
+Z18PbClientConnectingiPcPi_F0_5:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
 	mov eax, [pbcl+0x198]
 	test eax, eax
-	jz Z18PbClientConnectingiPcPi:F(0,5)_10
+	jz Z18PbClientConnectingiPcPi_F0_5_10
 	mov edx, [ebp+0x10]
 	mov [esp+0xc], edx
 	mov edx, [ebp+0xc]
@@ -2554,14 +2658,14 @@ Z18PbClientConnectingiPcPi:F(0,5):
 	mov [esp+0x4], edx
 	mov dword [esp], pbcl
 	call eax
-Z18PbClientConnectingiPcPi:F(0,5)_10:
+Z18PbClientConnectingiPcPi_F0_5_10:
 	leave
 	ret
 	nop
 	add [eax], al
 
 
-Z13PbClGameQueryiPc:F(0,1):
+Z13PbClGameQueryiPc_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -2570,91 +2674,91 @@ Z13PbClGameQueryiPc:F(0,1):
 	sub esp, 0x8c
 	mov ebx, [ebp+0xc]
 	test ebx, ebx
-	jz Z13PbClGameQueryiPc:F(0,1)_10
+	jz Z13PbClGameQueryiPc_F0_1_10
 	mov byte [ebx+0xff], 0x0
 	movzx edx, byte [ebx]
 	test dl, dl
-	jz Z13PbClGameQueryiPc:F(0,1)_20
+	jz Z13PbClGameQueryiPc_F0_1_20
 	cmp dl, 0x20
-	jz Z13PbClGameQueryiPc:F(0,1)_30
+	jz Z13PbClGameQueryiPc_F0_1_30
 	mov [ebp-0x7c], ebx
-Z13PbClGameQueryiPc:F(0,1)_50:
+Z13PbClGameQueryiPc_F0_1_50:
 	add dword [ebp-0x7c], 0x1
 	mov ecx, [ebp-0x7c]
 	movzx eax, byte [ecx]
 	test al, al
-	jz Z13PbClGameQueryiPc:F(0,1)_40
+	jz Z13PbClGameQueryiPc_F0_1_40
 	cmp al, 0x20
-	jnz Z13PbClGameQueryiPc:F(0,1)_50
+	jnz Z13PbClGameQueryiPc_F0_1_50
 	mov edi, [ebp-0x7c]
 	cmp byte [edi], 0x20
-	jnz Z13PbClGameQueryiPc:F(0,1)_60
-Z13PbClGameQueryiPc:F(0,1)_70:
+	jnz Z13PbClGameQueryiPc_F0_1_60
+Z13PbClGameQueryiPc_F0_1_70:
 	add dword [ebp-0x7c], 0x1
 	mov eax, [ebp-0x7c]
 	cmp byte [eax], 0x20
-	jnz Z13PbClGameQueryiPc:F(0,1)_60
-Z13PbClGameQueryiPc:F(0,1)_90:
+	jnz Z13PbClGameQueryiPc_F0_1_60
+Z13PbClGameQueryiPc_F0_1_90:
 	add dword [ebp-0x7c], 0x1
 	mov eax, [ebp-0x7c]
 	cmp byte [eax], 0x20
-	jz Z13PbClGameQueryiPc:F(0,1)_70
-	jmp Z13PbClGameQueryiPc:F(0,1)_60
-Z13PbClGameQueryiPc:F(0,1)_550:
+	jz Z13PbClGameQueryiPc_F0_1_70
+	jmp Z13PbClGameQueryiPc_F0_1_60
+Z13PbClGameQueryiPc_F0_1_550:
 	mov [esp], ebx
-	call Z21Dvar_GetVariantStringPKc:F(0,5)
-Z13PbClGameQueryiPc:F(0,1)_230:
+	call Z21Dvar_GetVariantStringPKc_F0_5
+Z13PbClGameQueryiPc_F0_1_230:
 	mov dword [esp+0x8], 0xff
 	mov [esp+0x4], eax
 	mov [esp], ebx
 	call strncpy
-Z13PbClGameQueryiPc:F(0,1)_10:
+Z13PbClGameQueryiPc_F0_1_10:
 	xor eax, eax
-Z13PbClGameQueryiPc:F(0,1)_110:
+Z13PbClGameQueryiPc_F0_1_110:
 	add esp, 0x8c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z13PbClGameQueryiPc:F(0,1)_20:
+Z13PbClGameQueryiPc_F0_1_20:
 	mov [ebp-0x7c], ebx
 	mov edi, ebx
-Z13PbClGameQueryiPc:F(0,1)_100:
+Z13PbClGameQueryiPc_F0_1_100:
 	cmp byte [edi], 0x20
-	jz Z13PbClGameQueryiPc:F(0,1)_70
-Z13PbClGameQueryiPc:F(0,1)_60:
+	jz Z13PbClGameQueryiPc_F0_1_70
+Z13PbClGameQueryiPc_F0_1_60:
 	mov eax, [ebp+0x8]
 	sub eax, 0x67
 	cmp eax, 0xc
-	ja Z13PbClGameQueryiPc:F(0,1)_80
-	jmp dword [eax*4+Z13PbClGameQueryiPc:F(0,1)_jumptab_0]
-Z13PbClGameQueryiPc:F(0,1)_80:
+	ja Z13PbClGameQueryiPc_F0_1_80
+	jmp dword [eax*4+Z13PbClGameQueryiPc_F0_1_jumptab_0]
+Z13PbClGameQueryiPc_F0_1_80:
 	mov byte [ebx], 0x0
-	jmp Z13PbClGameQueryiPc:F(0,1)_10
-Z13PbClGameQueryiPc:F(0,1)_30:
+	jmp Z13PbClGameQueryiPc_F0_1_10
+Z13PbClGameQueryiPc_F0_1_30:
 	mov [ebp-0x7c], ebx
 	add dword [ebp-0x7c], 0x1
 	mov eax, [ebp-0x7c]
 	cmp byte [eax], 0x20
-	jz Z13PbClGameQueryiPc:F(0,1)_90
-	jmp Z13PbClGameQueryiPc:F(0,1)_60
-Z13PbClGameQueryiPc:F(0,1)_40:
+	jz Z13PbClGameQueryiPc_F0_1_90
+	jmp Z13PbClGameQueryiPc_F0_1_60
+Z13PbClGameQueryiPc_F0_1_40:
 	mov edi, ecx
-	jmp Z13PbClGameQueryiPc:F(0,1)_100
-Z13PbClGameQueryiPc:F(0,1)_650:
+	jmp Z13PbClGameQueryiPc_F0_1_100
+Z13PbClGameQueryiPc_F0_1_650:
 	mov [esp], ebx
-	call Z14PbDvarValidatePc:F(0,59)
-	jmp Z13PbClGameQueryiPc:F(0,1)_110
-Z13PbClGameQueryiPc:F(0,1)_640:
+	call Z14PbDvarValidatePc_F0_59
+	jmp Z13PbClGameQueryiPc_F0_1_110
+Z13PbClGameQueryiPc_F0_1_640:
 	mov dword [esp+0x8], 0xff
 	mov eax, [exeInstance]
 	mov [esp+0x4], eax
 	mov [esp], ebx
 	call strncpy
 	xor eax, eax
-	jmp Z13PbClGameQueryiPc:F(0,1)_110
-Z13PbClGameQueryiPc:F(0,1)_630:
+	jmp Z13PbClGameQueryiPc_F0_1_110
+Z13PbClGameQueryiPc_F0_1_630:
 	lea eax, [ebp-0x28]
 	mov [esp+0xc], eax
 	lea eax, [ebp-0x2c]
@@ -2663,31 +2767,31 @@ Z13PbClGameQueryiPc:F(0,1)_630:
 	mov [esp+0x4], eax
 	lea eax, [ebp-0x20]
 	mov [esp], eax
-	call Z10PbDvarWalkPPcS0_PiS0_:F(0,17)
+	call Z10PbDvarWalkPPcS0_PiS0__F0_17
 	test eax, eax
-	jz Z13PbClGameQueryiPc:F(0,1)_10
+	jz Z13PbClGameQueryiPc_F0_1_10
 	mov ecx, [ebp-0x20]
 	test ecx, ecx
-	jz Z13PbClGameQueryiPc:F(0,1)_120
+	jz Z13PbClGameQueryiPc_F0_1_120
 	mov edx, [ebp-0x24]
 	test edx, edx
-	jz Z13PbClGameQueryiPc:F(0,1)_120
+	jz Z13PbClGameQueryiPc_F0_1_120
 	mov eax, [ebp-0x28]
 	test eax, eax
-	jz Z13PbClGameQueryiPc:F(0,1)_120
-Z13PbClGameQueryiPc:F(0,1)_400:
+	jz Z13PbClGameQueryiPc_F0_1_120
+Z13PbClGameQueryiPc_F0_1_400:
 	mov esi, [ebp-0x28]
 	mov [esp+0x4], esi
 	mov eax, [ebp-0x24]
 	mov [esp], eax
 	call strcmp
 	test eax, eax
-	jnz Z13PbClGameQueryiPc:F(0,1)_130
+	jnz Z13PbClGameQueryiPc_F0_1_130
 	mov byte [ebx], 0x0
-Z13PbClGameQueryiPc:F(0,1)_140:
+Z13PbClGameQueryiPc_F0_1_140:
 	mov eax, [ebp-0x20]
-	jmp Z13PbClGameQueryiPc:F(0,1)_110
-Z13PbClGameQueryiPc:F(0,1)_620:
+	jmp Z13PbClGameQueryiPc_F0_1_110
+Z13PbClGameQueryiPc_F0_1_620:
 	lea eax, [ebp-0x28]
 	mov [esp+0xc], eax
 	lea eax, [ebp-0x2c]
@@ -2696,9 +2800,9 @@ Z13PbClGameQueryiPc:F(0,1)_620:
 	mov [esp+0x4], eax
 	lea eax, [ebp-0x20]
 	mov [esp], eax
-	call Z10PbDvarWalkPPcS0_PiS0_:F(0,17)
+	call Z10PbDvarWalkPPcS0_PiS0__F0_17
 	test eax, eax
-	jz Z13PbClGameQueryiPc:F(0,1)_10
+	jz Z13PbClGameQueryiPc_F0_1_10
 	mov eax, _cstring_null
 	mov edx, [ebp-0x20]
 	test edx, edx
@@ -2708,25 +2812,25 @@ Z13PbClGameQueryiPc:F(0,1)_620:
 	mov [ebp-0x74], edi
 	mov word [ebx], 0x30
 	cmp edi, 0x0
-	jz Z13PbClGameQueryiPc:F(0,1)_140
+	jz Z13PbClGameQueryiPc_F0_1_140
 	mov ecx, edi
 	mov byte [ebp-0x2d], 0x0
-	jl Z13PbClGameQueryiPc:F(0,1)_150
-Z13PbClGameQueryiPc:F(0,1)_420:
+	jl Z13PbClGameQueryiPc_F0_1_150
+Z13PbClGameQueryiPc_F0_1_420:
 	mov esi, 0x22
 	mov edi, 0xcccccccd
-	jmp Z13PbClGameQueryiPc:F(0,1)_160
-Z13PbClGameQueryiPc:F(0,1)_180:
+	jmp Z13PbClGameQueryiPc_F0_1_160
+Z13PbClGameQueryiPc_F0_1_180:
 	add al, 0x30
-Z13PbClGameQueryiPc:F(0,1)_190:
+Z13PbClGameQueryiPc_F0_1_190:
 	mov [ebp+esi-0x4f], al
 	mov eax, ecx
 	mul edi
 	shr edx, 0x3
 	mov ecx, edx
 	test edx, edx
-	jz Z13PbClGameQueryiPc:F(0,1)_170
-Z13PbClGameQueryiPc:F(0,1)_160:
+	jz Z13PbClGameQueryiPc_F0_1_170
+Z13PbClGameQueryiPc_F0_1_160:
 	mov eax, ecx
 	mul edi
 	shr edx, 0x3
@@ -2736,13 +2840,13 @@ Z13PbClGameQueryiPc:F(0,1)_160:
 	sub eax, edx
 	sub esi, 0x1
 	cmp eax, 0x9
-	jbe Z13PbClGameQueryiPc:F(0,1)_180
+	jbe Z13PbClGameQueryiPc_F0_1_180
 	add al, 0x57
-	jmp Z13PbClGameQueryiPc:F(0,1)_190
-Z13PbClGameQueryiPc:F(0,1)_610:
+	jmp Z13PbClGameQueryiPc_F0_1_190
+Z13PbClGameQueryiPc_F0_1_610:
 	test dl, dl
-	jz Z13PbClGameQueryiPc:F(0,1)_10
-Z13PbClGameQueryiPc:F(0,1)_210:
+	jz Z13PbClGameQueryiPc_F0_1_10
+Z13PbClGameQueryiPc_F0_1_210:
 	lea edi, [ebp-0x28]
 	mov [esp+0xc], edi
 	lea eax, [ebp-0x2c]
@@ -2751,20 +2855,20 @@ Z13PbClGameQueryiPc:F(0,1)_210:
 	mov [esp+0x4], edx
 	lea ecx, [ebp-0x20]
 	mov [esp], ecx
-	call Z10PbDvarWalkPPcS0_PiS0_:F(0,17)
+	call Z10PbDvarWalkPPcS0_PiS0__F0_17
 	test eax, eax
-	jz Z13PbClGameQueryiPc:F(0,1)_200
+	jz Z13PbClGameQueryiPc_F0_1_200
 	mov edx, [ebp-0x20]
 	test edx, edx
-	jz Z13PbClGameQueryiPc:F(0,1)_210
+	jz Z13PbClGameQueryiPc_F0_1_210
 	mov ecx, [ebp-0x24]
 	mov [ebp-0x68], ecx
 	test ecx, ecx
-	jz Z13PbClGameQueryiPc:F(0,1)_210
+	jz Z13PbClGameQueryiPc_F0_1_210
 	cmp byte [edx], 0x0
-	jz Z13PbClGameQueryiPc:F(0,1)_210
+	jz Z13PbClGameQueryiPc_F0_1_210
 	cmp byte [ecx], 0x0
-	jz Z13PbClGameQueryiPc:F(0,1)_210
+	jz Z13PbClGameQueryiPc_F0_1_210
 	movzx eax, word [_cstring_x1]
 	mov [ebp-0x4f], ax
 	movzx eax, word [_cstring_x]
@@ -2772,45 +2876,45 @@ Z13PbClGameQueryiPc:F(0,1)_210:
 	movzx esi, byte [ebx]
 	mov eax, esi
 	test al, al
-	jnz Z13PbClGameQueryiPc:F(0,1)_220
-Z13PbClGameQueryiPc:F(0,1)_500:
+	jnz Z13PbClGameQueryiPc_F0_1_220
+Z13PbClGameQueryiPc_F0_1_500:
 	mov dword [esp+0x8], 0xff
 	mov [esp+0x4], edx
 	mov [esp], ebx
 	call strncpy
 	xor eax, eax
-	jmp Z13PbClGameQueryiPc:F(0,1)_110
-Z13PbClGameQueryiPc:F(0,1)_600:
+	jmp Z13PbClGameQueryiPc_F0_1_110
+Z13PbClGameQueryiPc_F0_1_600:
 	mov [esp], ebx
 	call atoi
 	mov dword [esp+0x4], 0x1
 	mov [esp], eax
-	call Z18Key_KeynumToStringii:F(0,20)
+	call Z18Key_KeynumToStringii_F0_20
 	mov dword [esp+0x8], 0xff
 	mov [esp+0x4], eax
 	mov [esp], ebx
 	call strncpy
 	xor eax, eax
-	jmp Z13PbClGameQueryiPc:F(0,1)_110
-Z13PbClGameQueryiPc:F(0,1)_590:
+	jmp Z13PbClGameQueryiPc_F0_1_110
+Z13PbClGameQueryiPc_F0_1_590:
 	mov [esp], ebx
 	call atoi
 	mov [esp], eax
-	call Z14Key_GetBindingi:F(0,20)
-	jmp Z13PbClGameQueryiPc:F(0,1)_230
-Z13PbClGameQueryiPc:F(0,1)_580:
-	call Z9PbMaxKeysv:F(0,2)
+	call Z14Key_GetBindingi_F0_20
+	jmp Z13PbClGameQueryiPc_F0_1_230
+Z13PbClGameQueryiPc_F0_1_580:
+	call Z9PbMaxKeysv_F0_2
 	mov esi, eax
 	mov [esp], ebx
 	call atoi
 	cmp esi, eax
-	jle Z13PbClGameQueryiPc:F(0,1)_240
+	jle Z13PbClGameQueryiPc_F0_1_240
 	mov [ebp-0x5c], eax
 	mov [ebp-0x78], esi
 	mov edx, eax
-Z13PbClGameQueryiPc:F(0,1)_360:
+Z13PbClGameQueryiPc_F0_1_360:
 	mov [esp], edx
-	call Z14Key_GetBindingi:F(0,20)
+	call Z14Key_GetBindingi_F0_20
 	mov [ebp-0x70], eax
 	movzx eax, word [_cstring_x1]
 	mov [ebp-0x4f], ax
@@ -2818,33 +2922,33 @@ Z13PbClGameQueryiPc:F(0,1)_360:
 	mov [ebp-0x1a], ax
 	mov eax, [ebp-0x70]
 	test eax, eax
-	jz Z13PbClGameQueryiPc:F(0,1)_250
+	jz Z13PbClGameQueryiPc_F0_1_250
 	mov ecx, [ebp-0x7c]
 	movzx edx, byte [ecx]
 	test dl, dl
-	jnz Z13PbClGameQueryiPc:F(0,1)_260
-Z13PbClGameQueryiPc:F(0,1)_340:
+	jnz Z13PbClGameQueryiPc_F0_1_260
+Z13PbClGameQueryiPc_F0_1_340:
 	mov word [ebx], 0x30
 	cmp dword [ebp-0x5c], 0x0
-	jz Z13PbClGameQueryiPc:F(0,1)_10
+	jz Z13PbClGameQueryiPc_F0_1_10
 	mov ecx, [ebp-0x5c]
 	mov byte [ebp-0x2d], 0x0
-	jl Z13PbClGameQueryiPc:F(0,1)_270
-Z13PbClGameQueryiPc:F(0,1)_510:
+	jl Z13PbClGameQueryiPc_F0_1_270
+Z13PbClGameQueryiPc_F0_1_510:
 	mov esi, 0x22
 	mov edi, 0xcccccccd
-	jmp Z13PbClGameQueryiPc:F(0,1)_280
-Z13PbClGameQueryiPc:F(0,1)_300:
+	jmp Z13PbClGameQueryiPc_F0_1_280
+Z13PbClGameQueryiPc_F0_1_300:
 	add al, 0x30
-Z13PbClGameQueryiPc:F(0,1)_310:
+Z13PbClGameQueryiPc_F0_1_310:
 	mov [ebp+esi-0x4f], al
 	mov eax, ecx
 	mul edi
 	shr edx, 0x3
 	mov ecx, edx
 	test edx, edx
-	jz Z13PbClGameQueryiPc:F(0,1)_290
-Z13PbClGameQueryiPc:F(0,1)_280:
+	jz Z13PbClGameQueryiPc_F0_1_290
+Z13PbClGameQueryiPc_F0_1_280:
 	mov eax, ecx
 	mul edi
 	shr edx, 0x3
@@ -2854,31 +2958,31 @@ Z13PbClGameQueryiPc:F(0,1)_280:
 	sub eax, edx
 	sub esi, 0x1
 	cmp eax, 0x9
-	jbe Z13PbClGameQueryiPc:F(0,1)_300
+	jbe Z13PbClGameQueryiPc_F0_1_300
 	add al, 0x57
-	jmp Z13PbClGameQueryiPc:F(0,1)_310
-Z13PbClGameQueryiPc:F(0,1)_570:
-	call Z15PB_Q_Serveraddrv:F(0,7)
-	jmp Z13PbClGameQueryiPc:F(0,1)_230
-Z13PbClGameQueryiPc:F(0,1)_560:
-	call Z15PB_Q_Serverinfov:F(0,12)
+	jmp Z13PbClGameQueryiPc_F0_1_310
+Z13PbClGameQueryiPc_F0_1_570:
+	call Z15PB_Q_Serveraddrv_F0_7
+	jmp Z13PbClGameQueryiPc_F0_1_230
+Z13PbClGameQueryiPc_F0_1_560:
+	call Z15PB_Q_Serverinfov_F0_12
 	mov [esp+0x4], ebx
 	mov [esp], eax
-	call Z16Info_ValueForKeyPKcS0_:F(0,3)
-	jmp Z13PbClGameQueryiPc:F(0,1)_230
-Z13PbClGameQueryiPc:F(0,1)_370:
+	call Z16Info_ValueForKeyPKcS0__F0_3
+	jmp Z13PbClGameQueryiPc_F0_1_230
+Z13PbClGameQueryiPc_F0_1_370:
 	mov dword [ebp-0x60], 0x0
-Z13PbClGameQueryiPc:F(0,1)_390:
+Z13PbClGameQueryiPc_F0_1_390:
 	mov edx, [ebp-0x7c]
 	movsx eax, byte [edx]
 	mov [esp], eax
 	call toupper
 	mov [ebp-0x1a], al
 	cmp [ebp-0x4f], al
-	jz Z13PbClGameQueryiPc:F(0,1)_320
+	jz Z13PbClGameQueryiPc_F0_1_320
 	mov edi, [ebp-0x70]
-	jmp Z13PbClGameQueryiPc:F(0,1)_330
-Z13PbClGameQueryiPc:F(0,1)_350:
+	jmp Z13PbClGameQueryiPc_F0_1_330
+Z13PbClGameQueryiPc_F0_1_350:
 	mov eax, [ebp-0x6c]
 	mov [esp+0x8], eax
 	mov edx, [ebp-0x7c]
@@ -2886,30 +2990,30 @@ Z13PbClGameQueryiPc:F(0,1)_350:
 	mov [esp], esi
 	call strncasecmp
 	test eax, eax
-	jz Z13PbClGameQueryiPc:F(0,1)_340
+	jz Z13PbClGameQueryiPc_F0_1_340
 	add esi, 0x1
 	mov [ebp-0x70], esi
 	mov edi, esi
-Z13PbClGameQueryiPc:F(0,1)_330:
+Z13PbClGameQueryiPc_F0_1_330:
 	lea ecx, [ebp-0x1a]
 	mov [esp+0x4], ecx
 	mov [esp], edi
 	call strstr
 	mov esi, eax
 	test eax, eax
-	jnz Z13PbClGameQueryiPc:F(0,1)_350
-Z13PbClGameQueryiPc:F(0,1)_320:
+	jnz Z13PbClGameQueryiPc_F0_1_350
+Z13PbClGameQueryiPc_F0_1_320:
 	mov esi, [ebp-0x60]
 	test esi, esi
-	jnz Z13PbClGameQueryiPc:F(0,1)_340
-Z13PbClGameQueryiPc:F(0,1)_250:
+	jnz Z13PbClGameQueryiPc_F0_1_340
+Z13PbClGameQueryiPc_F0_1_250:
 	add dword [ebp-0x5c], 0x1
 	mov edx, [ebp-0x78]
 	cmp [ebp-0x5c], edx
-	jz Z13PbClGameQueryiPc:F(0,1)_240
+	jz Z13PbClGameQueryiPc_F0_1_240
 	mov edx, [ebp-0x5c]
-	jmp Z13PbClGameQueryiPc:F(0,1)_360
-Z13PbClGameQueryiPc:F(0,1)_260:
+	jmp Z13PbClGameQueryiPc_F0_1_360
+Z13PbClGameQueryiPc_F0_1_260:
 	mov edi, ecx
 	cld
 	mov ecx, 0xffffffff
@@ -2923,14 +3027,14 @@ Z13PbClGameQueryiPc:F(0,1)_260:
 	call tolower
 	mov [ebp-0x4f], al
 	mov eax, [ebp-0x70]
-Z13PbClGameQueryiPc:F(0,1)_380:
+Z13PbClGameQueryiPc_F0_1_380:
 	lea edx, [ebp-0x4f]
 	mov [esp+0x4], edx
 	mov [esp], eax
 	call strstr
 	mov esi, eax
 	test eax, eax
-	jz Z13PbClGameQueryiPc:F(0,1)_370
+	jz Z13PbClGameQueryiPc_F0_1_370
 	mov ecx, [ebp-0x6c]
 	mov [esp+0x8], ecx
 	mov edi, [ebp-0x7c]
@@ -2944,25 +3048,25 @@ Z13PbClGameQueryiPc:F(0,1)_380:
 	lea eax, [esi+0x1]
 	mov edi, [ebp-0x60]
 	test edi, edi
-	jz Z13PbClGameQueryiPc:F(0,1)_380
-	jmp Z13PbClGameQueryiPc:F(0,1)_390
-Z13PbClGameQueryiPc:F(0,1)_120:
+	jz Z13PbClGameQueryiPc_F0_1_380
+	jmp Z13PbClGameQueryiPc_F0_1_390
+Z13PbClGameQueryiPc_F0_1_120:
 	mov dword [ebp-0x28], _cstring_null
 	mov dword [ebp-0x24], _cstring_null
 	mov dword [ebp-0x20], _cstring_null
-	jmp Z13PbClGameQueryiPc:F(0,1)_400
-Z13PbClGameQueryiPc:F(0,1)_170:
+	jmp Z13PbClGameQueryiPc_F0_1_400
+Z13PbClGameQueryiPc_F0_1_170:
 	mov edi, [ebp-0x74]
 	test edi, edi
-	js Z13PbClGameQueryiPc:F(0,1)_410
-Z13PbClGameQueryiPc:F(0,1)_430:
+	js Z13PbClGameQueryiPc_F0_1_410
+Z13PbClGameQueryiPc_F0_1_430:
 	lea eax, [ebp+esi-0x4f]
 	mov [esp+0x4], eax
 	mov [esp], ebx
 	call strcpy
 	mov eax, [ebp-0x20]
-	jmp Z13PbClGameQueryiPc:F(0,1)_110
-Z13PbClGameQueryiPc:F(0,1)_130:
+	jmp Z13PbClGameQueryiPc_F0_1_110
+Z13PbClGameQueryiPc_F0_1_130:
 	mov dword [esp+0x8], 0xfd
 	mov [esp+0x4], esi
 	lea eax, [ebx+0x1]
@@ -2977,8 +3081,8 @@ Z13PbClGameQueryiPc:F(0,1)_130:
 	not ecx
 	mov word [ecx+ebx-0x1], 0x22
 	mov eax, [ebp-0x20]
-	jmp Z13PbClGameQueryiPc:F(0,1)_110
-Z13PbClGameQueryiPc:F(0,1)_240:
+	jmp Z13PbClGameQueryiPc_F0_1_110
+Z13PbClGameQueryiPc_F0_1_240:
 	mov word [ebx], 0x30
 	mov byte [ebp-0x2d], 0x0
 	mov byte [ebp-0x2e], 0x31
@@ -2988,19 +3092,19 @@ Z13PbClGameQueryiPc:F(0,1)_240:
 	mov [esp], ebx
 	call strcpy
 	xor eax, eax
-	jmp Z13PbClGameQueryiPc:F(0,1)_110
-Z13PbClGameQueryiPc:F(0,1)_200:
+	jmp Z13PbClGameQueryiPc_F0_1_110
+Z13PbClGameQueryiPc_F0_1_200:
 	mov byte [ebx], 0x0
-	jmp Z13PbClGameQueryiPc:F(0,1)_110
-Z13PbClGameQueryiPc:F(0,1)_150:
+	jmp Z13PbClGameQueryiPc_F0_1_110
+Z13PbClGameQueryiPc_F0_1_150:
 	neg ecx
-	jnz Z13PbClGameQueryiPc:F(0,1)_420
+	jnz Z13PbClGameQueryiPc_F0_1_420
 	mov esi, 0x22
-Z13PbClGameQueryiPc:F(0,1)_410:
+Z13PbClGameQueryiPc_F0_1_410:
 	sub esi, 0x1
 	mov byte [ebp+esi-0x4f], 0x2d
-	jmp Z13PbClGameQueryiPc:F(0,1)_430
-Z13PbClGameQueryiPc:F(0,1)_220:
+	jmp Z13PbClGameQueryiPc_F0_1_430
+Z13PbClGameQueryiPc_F0_1_220:
 	cld
 	xor eax, eax
 	mov ecx, 0xffffffff
@@ -3015,14 +3119,14 @@ Z13PbClGameQueryiPc:F(0,1)_220:
 	call tolower
 	mov [ebp-0x4f], al
 	mov eax, [ebp-0x68]
-Z13PbClGameQueryiPc:F(0,1)_450:
+Z13PbClGameQueryiPc_F0_1_450:
 	lea ecx, [ebp-0x4f]
 	mov [esp+0x4], ecx
 	mov [esp], eax
 	call strstr
 	mov esi, eax
 	test eax, eax
-	jz Z13PbClGameQueryiPc:F(0,1)_440
+	jz Z13PbClGameQueryiPc_F0_1_440
 	mov edi, [ebp-0x64]
 	mov [esp+0x8], edi
 	mov [esp+0x4], ebx
@@ -3033,85 +3137,85 @@ Z13PbClGameQueryiPc:F(0,1)_450:
 	cmovz edi, esi
 	lea eax, [esi+0x1]
 	test edi, edi
-	jz Z13PbClGameQueryiPc:F(0,1)_450
-Z13PbClGameQueryiPc:F(0,1)_530:
+	jz Z13PbClGameQueryiPc_F0_1_450
+Z13PbClGameQueryiPc_F0_1_530:
 	movsx eax, byte [ebx]
 	mov [esp], eax
 	call toupper
 	mov [ebp-0x1a], al
 	cmp [ebp-0x4f], al
-	jz Z13PbClGameQueryiPc:F(0,1)_460
+	jz Z13PbClGameQueryiPc_F0_1_460
 	mov edx, [ebp-0x68]
-	jmp Z13PbClGameQueryiPc:F(0,1)_470
-Z13PbClGameQueryiPc:F(0,1)_490:
+	jmp Z13PbClGameQueryiPc_F0_1_470
+Z13PbClGameQueryiPc_F0_1_490:
 	mov ecx, [ebp-0x64]
 	mov [esp+0x8], ecx
 	mov [esp+0x4], ebx
 	mov [esp], eax
 	call strncasecmp
 	test eax, eax
-	jz Z13PbClGameQueryiPc:F(0,1)_480
+	jz Z13PbClGameQueryiPc_F0_1_480
 	add esi, 0x1
 	mov [ebp-0x68], esi
 	mov edx, esi
-Z13PbClGameQueryiPc:F(0,1)_470:
+Z13PbClGameQueryiPc_F0_1_470:
 	lea eax, [ebp-0x1a]
 	mov [esp+0x4], eax
 	mov [esp], edx
 	call strstr
 	mov esi, eax
 	test eax, eax
-	jnz Z13PbClGameQueryiPc:F(0,1)_490
-Z13PbClGameQueryiPc:F(0,1)_460:
+	jnz Z13PbClGameQueryiPc_F0_1_490
+Z13PbClGameQueryiPc_F0_1_460:
 	test edi, edi
-	jz Z13PbClGameQueryiPc:F(0,1)_210
-Z13PbClGameQueryiPc:F(0,1)_480:
+	jz Z13PbClGameQueryiPc_F0_1_210
+Z13PbClGameQueryiPc_F0_1_480:
 	mov edx, [ebp-0x20]
-	jmp Z13PbClGameQueryiPc:F(0,1)_500
-Z13PbClGameQueryiPc:F(0,1)_270:
+	jmp Z13PbClGameQueryiPc_F0_1_500
+Z13PbClGameQueryiPc_F0_1_270:
 	neg ecx
-	jnz Z13PbClGameQueryiPc:F(0,1)_510
+	jnz Z13PbClGameQueryiPc_F0_1_510
 	mov esi, 0x22
-Z13PbClGameQueryiPc:F(0,1)_290:
+Z13PbClGameQueryiPc_F0_1_290:
 	mov ecx, [ebp-0x5c]
 	test ecx, ecx
-	js Z13PbClGameQueryiPc:F(0,1)_520
-Z13PbClGameQueryiPc:F(0,1)_540:
+	js Z13PbClGameQueryiPc_F0_1_520
+Z13PbClGameQueryiPc_F0_1_540:
 	lea eax, [ebp+esi-0x4f]
 	mov [esp+0x4], eax
 	mov [esp], ebx
 	call strcpy
 	xor eax, eax
-	jmp Z13PbClGameQueryiPc:F(0,1)_110
-Z13PbClGameQueryiPc:F(0,1)_440:
+	jmp Z13PbClGameQueryiPc_F0_1_110
+Z13PbClGameQueryiPc_F0_1_440:
 	xor edi, edi
-	jmp Z13PbClGameQueryiPc:F(0,1)_530
-Z13PbClGameQueryiPc:F(0,1)_520:
+	jmp Z13PbClGameQueryiPc_F0_1_530
+Z13PbClGameQueryiPc_F0_1_520:
 	sub esi, 0x1
 	mov byte [ebp+esi-0x4f], 0x2d
-	jmp Z13PbClGameQueryiPc:F(0,1)_540
+	jmp Z13PbClGameQueryiPc_F0_1_540
 	
 	
 
-Z13PbClGameQueryiPc:F(0,1)_jumptab_0:
-	dd Z13PbClGameQueryiPc:F(0,1)_550
-	dd Z13PbClGameQueryiPc:F(0,1)_560
-	dd Z13PbClGameQueryiPc:F(0,1)_570
-	dd Z13PbClGameQueryiPc:F(0,1)_580
-	dd Z13PbClGameQueryiPc:F(0,1)_590
-	dd Z13PbClGameQueryiPc:F(0,1)_600
-	dd Z13PbClGameQueryiPc:F(0,1)_610
-	dd Z13PbClGameQueryiPc:F(0,1)_620
-	dd Z13PbClGameQueryiPc:F(0,1)_630
-	dd Z13PbClGameQueryiPc:F(0,1)_640
-	dd Z13PbClGameQueryiPc:F(0,1)_80
-	dd Z13PbClGameQueryiPc:F(0,1)_80
-	dd Z13PbClGameQueryiPc:F(0,1)_650
+Z13PbClGameQueryiPc_F0_1_jumptab_0:
+	dd Z13PbClGameQueryiPc_F0_1_550
+	dd Z13PbClGameQueryiPc_F0_1_560
+	dd Z13PbClGameQueryiPc_F0_1_570
+	dd Z13PbClGameQueryiPc_F0_1_580
+	dd Z13PbClGameQueryiPc_F0_1_590
+	dd Z13PbClGameQueryiPc_F0_1_600
+	dd Z13PbClGameQueryiPc_F0_1_610
+	dd Z13PbClGameQueryiPc_F0_1_620
+	dd Z13PbClGameQueryiPc_F0_1_630
+	dd Z13PbClGameQueryiPc_F0_1_640
+	dd Z13PbClGameQueryiPc_F0_1_80
+	dd Z13PbClGameQueryiPc_F0_1_80
+	dd Z13PbClGameQueryiPc_F0_1_650
 
 
-;ZN6stPbCl10AddPbEventEiiPci:F(0,1)
+;ZN6stPbCl10AddPbEventEiiPci_F0_1
 
-ZN6stPbCl10AddPbEventEiiPci:F(0,1):
+ZN6stPbCl10AddPbEventEiiPci_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -3121,14 +3225,14 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1):
 	mov esi, [ebp+0x8]
 	mov eax, [esi+0x178]
 	test eax, eax
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_10
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_10
 	mov edi, [esi+0x10]
 	test edi, edi
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_20
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_20
 	mov ecx, [esi+0x8]
 	test ecx, ecx
-	jnz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_30
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_330:
+	jnz ZN6stPbCl10AddPbEventEiiPci_F0_1_30
+ZN6stPbCl10AddPbEventEiiPci_F0_1_330:
 	mov dword [esi+0x18c], 0x0
 	mov dword [esi+0x188], 0x0
 	mov dword [esi+0x198], 0x0
@@ -3136,16 +3240,16 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_330:
 	mov dword [esi+0x1a0], 0x0
 	mov eax, [esi+0x8]
 	test eax, eax
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_40
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_40
 	mov [esp], eax
 	call dlclose
 	mov dword [esi+0x8], 0x0
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_40:
+ZN6stPbCl10AddPbEventEiiPci_F0_1_40:
 	cmp byte [esi+0x55], 0x0
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_50
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_370:
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_50
+ZN6stPbCl10AddPbEventEiiPci_F0_1_370:
 	lea ebx, [esi+0x55]
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_390:
+ZN6stPbCl10AddPbEventEiiPci_F0_1_390:
 	mov [esp+0x4], ebx
 	lea eax, [ebp-0x217]
 	mov [esp], eax
@@ -3165,14 +3269,14 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_390:
 	mov [esp], eax
 	call fopen
 	test eax, eax
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_60
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_60
 	mov [esp], eax
 	call fclose
 	cmp byte [esi+0x55], 0x0
-	jnz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_70
+	jnz ZN6stPbCl10AddPbEventEiiPci_F0_1_70
 	mov eax, [esi+0x17c]
 	test eax, eax
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_70
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_70
 	mov dword [esi+0x55], 0x685f7366
 	mov dword [ebx+0x4], 0x70656d6f
 	mov dword [ebx+0x8], cin+0xd6ea1
@@ -3180,8 +3284,8 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_390:
 	mov dword [esp], 0x67
 	call eax
 	cmp byte [esi+0x55], 0x0
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_80
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_530:
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_80
+ZN6stPbCl10AddPbEventEiiPci_F0_1_530:
 	cld
 	mov ecx, 0xffffffff
 	mov edi, ebx
@@ -3189,13 +3293,13 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_530:
 	repne scasb
 	not ecx
 	cmp byte [ecx+esi+0x53], 0x2f
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_90
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_90
 	mov ecx, 0xffffffff
 	mov edi, ebx
 	repne scasb
 	not ecx
 	mov word [ecx+ebx-0x1], 0x2f
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_90:
+ZN6stPbCl10AddPbEventEiiPci_F0_1_90:
 	cld
 	mov ecx, 0xffffffff
 	xor eax, eax
@@ -3203,7 +3307,7 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_90:
 	repne scasb
 	not ecx
 	mov dword [ecx+ebx-0x1], 0x2f6270
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_70:
+ZN6stPbCl10AddPbEventEiiPci_F0_1_70:
 	mov [esp+0x4], ebx
 	lea eax, [ebp-0x217]
 	mov [esp], eax
@@ -3219,10 +3323,10 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_70:
 	mov dword [ecx+0x4], 0x2e646c6f
 	mov dword [ecx+0x8], cin+0x85bad
 	cmp byte [esi+0x55], 0x0
-	jnz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_100
+	jnz ZN6stPbCl10AddPbEventEiiPci_F0_1_100
 	mov eax, [esi+0x17c]
 	test eax, eax
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_100
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_100
 	mov dword [ebx], 0x685f7366
 	mov dword [ebx+0x4], 0x70656d6f
 	mov dword [ebx+0x8], cin+0xd6ea1
@@ -3230,8 +3334,8 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_70:
 	mov dword [esp], 0x67
 	call eax
 	cmp byte [esi+0x55], 0x0
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_110
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_470:
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_110
+ZN6stPbCl10AddPbEventEiiPci_F0_1_470:
 	cld
 	mov ecx, 0xffffffff
 	mov edi, ebx
@@ -3239,13 +3343,13 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_470:
 	repne scasb
 	not ecx
 	cmp byte [ecx+esi+0x53], 0x2f
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_120
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_120
 	mov ecx, 0xffffffff
 	mov edi, ebx
 	repne scasb
 	not ecx
 	mov word [ecx+ebx-0x1], 0x2f
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_120:
+ZN6stPbCl10AddPbEventEiiPci_F0_1_120:
 	cld
 	mov ecx, 0xffffffff
 	xor eax, eax
@@ -3253,7 +3357,7 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_120:
 	repne scasb
 	not ecx
 	mov dword [ecx+ebx-0x1], 0x2f6270
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_100:
+ZN6stPbCl10AddPbEventEiiPci_F0_1_100:
 	mov [esp+0x4], ebx
 	lea eax, [ebp-0x217]
 	mov [esp], eax
@@ -3272,10 +3376,10 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_100:
 	mov [esp], eax
 	call remove
 	cmp byte [esi+0x55], 0x0
-	jnz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_130
+	jnz ZN6stPbCl10AddPbEventEiiPci_F0_1_130
 	mov eax, [esi+0x17c]
 	test eax, eax
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_130
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_130
 	mov dword [ebx], 0x685f7366
 	mov dword [ebx+0x4], 0x70656d6f
 	mov dword [ebx+0x8], cin+0xd6ea1
@@ -3283,8 +3387,8 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_100:
 	mov dword [esp], 0x67
 	call eax
 	cmp byte [esi+0x55], 0x0
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_140
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_480:
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_140
+ZN6stPbCl10AddPbEventEiiPci_F0_1_480:
 	cld
 	mov ecx, 0xffffffff
 	mov edi, ebx
@@ -3292,13 +3396,13 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_480:
 	repne scasb
 	not ecx
 	cmp byte [ecx+esi+0x53], 0x2f
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_150
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_150
 	mov ecx, 0xffffffff
 	mov edi, ebx
 	repne scasb
 	not ecx
 	mov word [ecx+ebx-0x1], 0x2f
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_150:
+ZN6stPbCl10AddPbEventEiiPci_F0_1_150:
 	cld
 	mov ecx, 0xffffffff
 	xor eax, eax
@@ -3306,7 +3410,7 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_150:
 	repne scasb
 	not ecx
 	mov dword [ecx+ebx-0x1], 0x2f6270
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_130:
+ZN6stPbCl10AddPbEventEiiPci_F0_1_130:
 	mov [esp+0x4], ebx
 	lea eax, [ebp-0x416]
 	mov [esp], eax
@@ -3322,10 +3426,10 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_130:
 	mov dword [ecx+0x4], 0x2e646c6f
 	mov dword [ecx+0x8], cin+0x85bad
 	cmp byte [esi+0x55], 0x0
-	jnz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_160
+	jnz ZN6stPbCl10AddPbEventEiiPci_F0_1_160
 	mov eax, [esi+0x17c]
 	test eax, eax
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_160
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_160
 	mov dword [ebx], 0x685f7366
 	mov dword [ebx+0x4], 0x70656d6f
 	mov dword [ebx+0x8], cin+0xd6ea1
@@ -3333,8 +3437,8 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_130:
 	mov dword [esp], 0x67
 	call eax
 	cmp byte [esi+0x55], 0x0
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_170
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_490:
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_170
+ZN6stPbCl10AddPbEventEiiPci_F0_1_490:
 	cld
 	mov ecx, 0xffffffff
 	mov edi, ebx
@@ -3342,13 +3446,13 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_490:
 	repne scasb
 	not ecx
 	cmp byte [ecx+esi+0x53], 0x2f
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_180
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_180
 	mov ecx, 0xffffffff
 	mov edi, ebx
 	repne scasb
 	not ecx
 	mov word [ecx+ebx-0x1], 0x2f
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_180:
+ZN6stPbCl10AddPbEventEiiPci_F0_1_180:
 	cld
 	mov ecx, 0xffffffff
 	xor eax, eax
@@ -3356,7 +3460,7 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_180:
 	repne scasb
 	not ecx
 	mov dword [ecx+ebx-0x1], 0x2f6270
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_160:
+ZN6stPbCl10AddPbEventEiiPci_F0_1_160:
 	mov [esp+0x4], ebx
 	lea eax, [ebp-0x217]
 	mov [esp], eax
@@ -3377,10 +3481,10 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_160:
 	mov [esp], eax
 	call rename
 	cmp byte [esi+0x55], 0x0
-	jnz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_190
+	jnz ZN6stPbCl10AddPbEventEiiPci_F0_1_190
 	mov eax, [esi+0x17c]
 	test eax, eax
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_190
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_190
 	mov dword [ebx], 0x685f7366
 	mov dword [ebx+0x4], 0x70656d6f
 	mov dword [ebx+0x8], cin+0xd6ea1
@@ -3388,8 +3492,8 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_160:
 	mov dword [esp], 0x67
 	call eax
 	cmp byte [esi+0x55], 0x0
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_200
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_510:
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_200
+ZN6stPbCl10AddPbEventEiiPci_F0_1_510:
 	cld
 	mov ecx, 0xffffffff
 	mov edi, ebx
@@ -3397,13 +3501,13 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_510:
 	repne scasb
 	not ecx
 	cmp byte [ecx+esi+0x53], 0x2f
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_210
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_210
 	mov ecx, 0xffffffff
 	mov edi, ebx
 	repne scasb
 	not ecx
 	mov word [ecx+ebx-0x1], 0x2f
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_210:
+ZN6stPbCl10AddPbEventEiiPci_F0_1_210:
 	cld
 	mov ecx, 0xffffffff
 	xor eax, eax
@@ -3411,7 +3515,7 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_210:
 	repne scasb
 	not ecx
 	mov dword [ecx+ebx-0x1], 0x2f6270
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_190:
+ZN6stPbCl10AddPbEventEiiPci_F0_1_190:
 	mov [esp+0x4], ebx
 	lea eax, [ebp-0x217]
 	mov [esp], eax
@@ -3427,10 +3531,10 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_190:
 	mov dword [ecx+0x4], 0x63616d2e
 	mov byte [ecx+0x8], 0x0
 	cmp byte [esi+0x55], 0x0
-	jnz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_220
+	jnz ZN6stPbCl10AddPbEventEiiPci_F0_1_220
 	mov eax, [esi+0x17c]
 	test eax, eax
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_220
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_220
 	mov dword [ebx], 0x685f7366
 	mov dword [ebx+0x4], 0x70656d6f
 	mov dword [ebx+0x8], cin+0xd6ea1
@@ -3438,8 +3542,8 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_190:
 	mov dword [esp], 0x67
 	call eax
 	cmp byte [esi+0x55], 0x0
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_230
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_500:
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_230
+ZN6stPbCl10AddPbEventEiiPci_F0_1_500:
 	cld
 	mov ecx, 0xffffffff
 	mov edi, ebx
@@ -3447,13 +3551,13 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_500:
 	repne scasb
 	not ecx
 	cmp byte [ecx+esi+0x53], 0x2f
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_240
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_240
 	mov ecx, 0xffffffff
 	mov edi, ebx
 	repne scasb
 	not ecx
 	mov word [ecx+ebx-0x1], 0x2f
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_240:
+ZN6stPbCl10AddPbEventEiiPci_F0_1_240:
 	cld
 	mov ecx, 0xffffffff
 	xor eax, eax
@@ -3461,7 +3565,7 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_240:
 	repne scasb
 	not ecx
 	mov dword [ecx+ebx-0x1], 0x2f6270
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_220:
+ZN6stPbCl10AddPbEventEiiPci_F0_1_220:
 	mov [esp+0x4], ebx
 	lea eax, [ebp-0x217]
 	mov [esp], eax
@@ -3480,10 +3584,10 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_220:
 	mov [esp], eax
 	call remove
 	cmp byte [esi+0x55], 0x0
-	jnz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_250
+	jnz ZN6stPbCl10AddPbEventEiiPci_F0_1_250
 	mov eax, [esi+0x17c]
 	test eax, eax
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_250
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_250
 	mov dword [ebx], 0x685f7366
 	mov dword [ebx+0x4], 0x70656d6f
 	mov dword [ebx+0x8], cin+0xd6ea1
@@ -3491,8 +3595,8 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_220:
 	mov dword [esp], 0x67
 	call eax
 	cmp byte [esi+0x55], 0x0
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_260
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_520:
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_260
+ZN6stPbCl10AddPbEventEiiPci_F0_1_520:
 	cld
 	mov ecx, 0xffffffff
 	mov edi, ebx
@@ -3500,13 +3604,13 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_520:
 	repne scasb
 	not ecx
 	cmp byte [ecx+esi+0x53], 0x2f
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_270
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_270
 	mov ecx, 0xffffffff
 	mov edi, ebx
 	repne scasb
 	not ecx
 	mov word [ecx+ebx-0x1], 0x2f
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_270:
+ZN6stPbCl10AddPbEventEiiPci_F0_1_270:
 	cld
 	mov ecx, 0xffffffff
 	xor eax, eax
@@ -3514,7 +3618,7 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_270:
 	repne scasb
 	not ecx
 	mov dword [ecx+ebx-0x1], 0x2f6270
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_250:
+ZN6stPbCl10AddPbEventEiiPci_F0_1_250:
 	mov [esp+0x4], ebx
 	lea eax, [ebp-0x416]
 	mov [esp], eax
@@ -3530,8 +3634,8 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_250:
 	mov dword [ecx+0x4], 0x63616d2e
 	mov byte [ecx+0x8], 0x0
 	cmp byte [esi+0x55], 0x0
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_280
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_400:
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_280
+ZN6stPbCl10AddPbEventEiiPci_F0_1_400:
 	mov [esp+0x4], ebx
 	lea eax, [ebp-0x217]
 	mov [esp], eax
@@ -3551,10 +3655,10 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_400:
 	lea eax, [ebp-0x217]
 	mov [esp], eax
 	call rename
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_60:
+ZN6stPbCl10AddPbEventEiiPci_F0_1_60:
 	cmp byte [esi+0x55], 0x0
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_290
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_350:
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_290
+ZN6stPbCl10AddPbEventEiiPci_F0_1_350:
 	mov [esp+0x4], ebx
 	lea eax, [ebp-0x217]
 	mov [esp], eax
@@ -3575,7 +3679,7 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_350:
 	call dlopen
 	mov [esi+0x8], eax
 	test eax, eax
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_300
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_300
 	mov dword [esp+0x4], _cstring_ca
 	mov [esp], eax
 	call dlsym
@@ -3587,16 +3691,16 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_350:
 	mov [esi+0x188], eax
 	mov edx, [esi+0x18c]
 	test edx, edx
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_310
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_310
 	test eax, eax
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_310
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_310
 	mov dword [esi+0x10], 0x0
-	jmp ZN6stPbCl10AddPbEventEiiPci:F(0,1)_320
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_20:
+	jmp ZN6stPbCl10AddPbEventEiiPci_F0_1_320
+ZN6stPbCl10AddPbEventEiiPci_F0_1_20:
 	mov ebx, [esi+0x8]
 	test ebx, ebx
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_330
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_320:
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_330
+ZN6stPbCl10AddPbEventEiiPci_F0_1_320:
 	mov eax, [ebp+0x18]
 	mov [esp+0x10], eax
 	mov eax, [ebp+0x14]
@@ -3615,15 +3719,15 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_320:
 	pop edi
 	pop ebp
 	ret
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_30:
+ZN6stPbCl10AddPbEventEiiPci_F0_1_30:
 	mov dword [esi+0x18c], 0x0
 	mov dword [esi+0x188], 0x0
 	mov dword [esi+0x198], 0x0
 	mov dword [esi+0x19c], 0x0
 	mov dword [esi+0x1a0], 0x0
 	mov eax, [esi+0x8]
-	jnz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_340
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_10:
+	jnz ZN6stPbCl10AddPbEventEiiPci_F0_1_340
+ZN6stPbCl10AddPbEventEiiPci_F0_1_10:
 	xor edx, edx
 	mov eax, edx
 	add esp, 0x42c
@@ -3632,10 +3736,10 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_10:
 	pop edi
 	pop ebp
 	ret
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_290:
+ZN6stPbCl10AddPbEventEiiPci_F0_1_290:
 	mov eax, [esi+0x17c]
 	test eax, eax
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_350
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_350
 	mov dword [ebx], 0x685f7366
 	mov dword [ebx+0x4], 0x70656d6f
 	mov dword [ebx+0x8], cin+0xd6ea1
@@ -3643,13 +3747,13 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_290:
 	mov dword [esp], 0x67
 	call eax
 	cmp byte [esi+0x55], 0x0
-	jnz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_360
+	jnz ZN6stPbCl10AddPbEventEiiPci_F0_1_360
 	mov dword [esp+0x4], 0xff
 	mov [esp], ebx
 	call getcwd
 	cmp byte [esi+0x55], 0x0
-	jnz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_360
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_440:
+	jnz ZN6stPbCl10AddPbEventEiiPci_F0_1_360
+ZN6stPbCl10AddPbEventEiiPci_F0_1_440:
 	cld
 	mov ecx, 0xffffffff
 	xor eax, eax
@@ -3657,11 +3761,11 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_440:
 	repne scasb
 	not ecx
 	mov dword [ecx+ebx-0x1], 0x2f6270
-	jmp ZN6stPbCl10AddPbEventEiiPci:F(0,1)_350
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_50:
+	jmp ZN6stPbCl10AddPbEventEiiPci_F0_1_350
+ZN6stPbCl10AddPbEventEiiPci_F0_1_50:
 	mov eax, [esi+0x17c]
 	test eax, eax
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_370
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_370
 	lea ebx, [esi+0x55]
 	mov dword [esi+0x55], 0x685f7366
 	mov dword [ebx+0x4], 0x70656d6f
@@ -3670,13 +3774,13 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_50:
 	mov dword [esp], 0x67
 	call eax
 	cmp byte [esi+0x55], 0x0
-	jnz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_380
+	jnz ZN6stPbCl10AddPbEventEiiPci_F0_1_380
 	mov dword [esp+0x4], 0xff
 	mov [esp], ebx
 	call getcwd
 	cmp byte [esi+0x55], 0x0
-	jnz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_380
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_450:
+	jnz ZN6stPbCl10AddPbEventEiiPci_F0_1_380
+ZN6stPbCl10AddPbEventEiiPci_F0_1_450:
 	cld
 	mov ecx, 0xffffffff
 	xor eax, eax
@@ -3684,11 +3788,11 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_450:
 	repne scasb
 	not ecx
 	mov dword [ecx+ebx-0x1], 0x2f6270
-	jmp ZN6stPbCl10AddPbEventEiiPci:F(0,1)_390
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_280:
+	jmp ZN6stPbCl10AddPbEventEiiPci_F0_1_390
+ZN6stPbCl10AddPbEventEiiPci_F0_1_280:
 	mov eax, [esi+0x17c]
 	test eax, eax
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_400
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_400
 	mov dword [ebx], 0x685f7366
 	mov dword [ebx+0x4], 0x70656d6f
 	mov dword [ebx+0x8], cin+0xd6ea1
@@ -3696,8 +3800,8 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_280:
 	mov dword [esp], 0x67
 	call eax
 	cmp byte [esi+0x55], 0x0
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_410
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_540:
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_410
+ZN6stPbCl10AddPbEventEiiPci_F0_1_540:
 	cld
 	mov ecx, 0xffffffff
 	mov edi, ebx
@@ -3705,13 +3809,13 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_540:
 	repne scasb
 	not ecx
 	cmp byte [ecx+esi+0x53], 0x2f
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_420
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_420
 	mov ecx, 0xffffffff
 	mov edi, ebx
 	repne scasb
 	not ecx
 	mov word [ecx+ebx-0x1], 0x2f
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_420:
+ZN6stPbCl10AddPbEventEiiPci_F0_1_420:
 	cld
 	mov ecx, 0xffffffff
 	xor eax, eax
@@ -3719,8 +3823,8 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_420:
 	repne scasb
 	not ecx
 	mov dword [ecx+ebx-0x1], 0x2f6270
-	jmp ZN6stPbCl10AddPbEventEiiPci:F(0,1)_400
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_310:
+	jmp ZN6stPbCl10AddPbEventEiiPci_F0_1_400
+ZN6stPbCl10AddPbEventEiiPci_F0_1_310:
 	mov dword [esi+0x18c], 0x0
 	mov dword [esi+0x188], 0x0
 	mov dword [esi+0x198], 0x0
@@ -3728,17 +3832,17 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_310:
 	mov dword [esi+0x1a0], 0x0
 	mov eax, [esi+0x8]
 	test eax, eax
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_430
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_430
 	mov [esp], eax
 	call dlclose
 	mov dword [esi+0x8], 0x0
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_430:
+ZN6stPbCl10AddPbEventEiiPci_F0_1_430:
 	mov edx, _cstring_pb_error_client_
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_460:
+ZN6stPbCl10AddPbEventEiiPci_F0_1_460:
 	mov eax, [ebp+0xc]
 	sub eax, 0x71
 	cmp eax, 0x1
-	jbe ZN6stPbCl10AddPbEventEiiPci:F(0,1)_10
+	jbe ZN6stPbCl10AddPbEventEiiPci_F0_1_10
 	mov eax, edx
 	add esp, 0x42c
 	pop ebx
@@ -3746,7 +3850,7 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_460:
 	pop edi
 	pop ebp
 	ret
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_360:
+ZN6stPbCl10AddPbEventEiiPci_F0_1_360:
 	mov edx, 0xffffffff
 	xor eax, eax
 	cld
@@ -3755,14 +3859,14 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_360:
 	repne scasb
 	not ecx
 	cmp byte [ecx+esi+0x53], 0x2f
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_440
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_440
 	mov ecx, edx
 	mov edi, ebx
 	repne scasb
 	not ecx
 	mov word [ecx+ebx-0x1], 0x2f
-	jmp ZN6stPbCl10AddPbEventEiiPci:F(0,1)_440
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_380:
+	jmp ZN6stPbCl10AddPbEventEiiPci_F0_1_440
+ZN6stPbCl10AddPbEventEiiPci_F0_1_380:
 	mov edx, 0xffffffff
 	xor eax, eax
 	cld
@@ -3771,82 +3875,82 @@ ZN6stPbCl10AddPbEventEiiPci:F(0,1)_380:
 	repne scasb
 	not ecx
 	cmp byte [ecx+esi+0x53], 0x2f
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_450
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_450
 	mov ecx, edx
 	mov edi, ebx
 	repne scasb
 	not ecx
 	mov word [ecx+ebx-0x1], 0x2f
-	jmp ZN6stPbCl10AddPbEventEiiPci:F(0,1)_450
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_300:
+	jmp ZN6stPbCl10AddPbEventEiiPci_F0_1_450
+ZN6stPbCl10AddPbEventEiiPci_F0_1_300:
 	mov edx, _cstring_pb_error_client_1
-	jmp ZN6stPbCl10AddPbEventEiiPci:F(0,1)_460
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_110:
+	jmp ZN6stPbCl10AddPbEventEiiPci_F0_1_460
+ZN6stPbCl10AddPbEventEiiPci_F0_1_110:
 	mov dword [esp+0x4], 0xff
 	mov [esp], ebx
 	call getcwd
 	cmp byte [esi+0x55], 0x0
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_120
-	jmp ZN6stPbCl10AddPbEventEiiPci:F(0,1)_470
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_140:
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_120
+	jmp ZN6stPbCl10AddPbEventEiiPci_F0_1_470
+ZN6stPbCl10AddPbEventEiiPci_F0_1_140:
 	mov dword [esp+0x4], 0xff
 	mov [esp], ebx
 	call getcwd
 	cmp byte [esi+0x55], 0x0
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_150
-	jmp ZN6stPbCl10AddPbEventEiiPci:F(0,1)_480
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_170:
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_150
+	jmp ZN6stPbCl10AddPbEventEiiPci_F0_1_480
+ZN6stPbCl10AddPbEventEiiPci_F0_1_170:
 	mov dword [esp+0x4], 0xff
 	mov [esp], ebx
 	call getcwd
 	cmp byte [esi+0x55], 0x0
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_180
-	jmp ZN6stPbCl10AddPbEventEiiPci:F(0,1)_490
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_230:
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_180
+	jmp ZN6stPbCl10AddPbEventEiiPci_F0_1_490
+ZN6stPbCl10AddPbEventEiiPci_F0_1_230:
 	mov dword [esp+0x4], 0xff
 	mov [esp], ebx
 	call getcwd
 	cmp byte [esi+0x55], 0x0
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_240
-	jmp ZN6stPbCl10AddPbEventEiiPci:F(0,1)_500
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_200:
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_240
+	jmp ZN6stPbCl10AddPbEventEiiPci_F0_1_500
+ZN6stPbCl10AddPbEventEiiPci_F0_1_200:
 	mov dword [esp+0x4], 0xff
 	mov [esp], ebx
 	call getcwd
 	cmp byte [esi+0x55], 0x0
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_210
-	jmp ZN6stPbCl10AddPbEventEiiPci:F(0,1)_510
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_260:
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_210
+	jmp ZN6stPbCl10AddPbEventEiiPci_F0_1_510
+ZN6stPbCl10AddPbEventEiiPci_F0_1_260:
 	mov dword [esp+0x4], 0xff
 	mov [esp], ebx
 	call getcwd
 	cmp byte [esi+0x55], 0x0
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_270
-	jmp ZN6stPbCl10AddPbEventEiiPci:F(0,1)_520
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_80:
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_270
+	jmp ZN6stPbCl10AddPbEventEiiPci_F0_1_520
+ZN6stPbCl10AddPbEventEiiPci_F0_1_80:
 	mov dword [esp+0x4], 0xff
 	mov [esp], ebx
 	call getcwd
 	cmp byte [esi+0x55], 0x0
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_90
-	jmp ZN6stPbCl10AddPbEventEiiPci:F(0,1)_530
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_410:
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_90
+	jmp ZN6stPbCl10AddPbEventEiiPci_F0_1_530
+ZN6stPbCl10AddPbEventEiiPci_F0_1_410:
 	mov dword [esp+0x4], 0xff
 	mov [esp], ebx
 	call getcwd
 	cmp byte [esi+0x55], 0x0
-	jz ZN6stPbCl10AddPbEventEiiPci:F(0,1)_420
-	jmp ZN6stPbCl10AddPbEventEiiPci:F(0,1)_540
-ZN6stPbCl10AddPbEventEiiPci:F(0,1)_340:
+	jz ZN6stPbCl10AddPbEventEiiPci_F0_1_420
+	jmp ZN6stPbCl10AddPbEventEiiPci_F0_1_540
+ZN6stPbCl10AddPbEventEiiPci_F0_1_340:
 	mov [esp], eax
 	call dlclose
 	mov dword [esi+0x8], 0x0
 	xor edx, edx
 
 
-;Z11DisablePbClv:F(0,5)
+;Z11DisablePbClv_F0_5
 
-Z11DisablePbClv:F(0,5):
+Z11DisablePbClv_F0_5:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x28
@@ -3855,14 +3959,14 @@ Z11DisablePbClv:F(0,5):
 	mov dword [esp+0x8], 0x0
 	mov dword [esp+0x4], 0x76
 	mov dword [esp], pbcl
-	call ZN6stPbCl10AddPbEventEiiPci:F(0,1)
+	call ZN6stPbCl10AddPbEventEiiPci_F0_1
 	leave
 	ret
 
 
-;Z10EnablePbClv:F(0,5)
+;Z10EnablePbClv_F0_5
 
-Z10EnablePbClv:F(0,5):
+Z10EnablePbClv_F0_5:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x28
@@ -3871,14 +3975,14 @@ Z10EnablePbClv:F(0,5):
 	mov dword [esp+0x8], 0x0
 	mov dword [esp+0x4], 0x75
 	mov dword [esp], pbcl
-	call ZN6stPbCl10AddPbEventEiiPci:F(0,1)
+	call ZN6stPbCl10AddPbEventEiiPci_F0_1
 	leave
 	ret
 
 
-;Z23PbClientCompleteCommandPci:F(0,5)
+;Z23PbClientCompleteCommandPci_F0_5
 
-Z23PbClientCompleteCommandPci:F(0,5):
+Z23PbClientCompleteCommandPci_F0_5:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x28
@@ -3889,15 +3993,15 @@ Z23PbClientCompleteCommandPci:F(0,5):
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], 0x33
 	mov dword [esp], pbcl
-	call ZN6stPbCl10AddPbEventEiiPci:F(0,1)
+	call ZN6stPbCl10AddPbEventEiiPci_F0_1
 	leave
 	ret
 	add [eax], al
 
 
-;Z12PbClAddEventiiPc:F(0,5)
+;Z12PbClAddEventiiPc_F0_5
 
-Z12PbClAddEventiiPc:F(0,5):
+Z12PbClAddEventiiPc_F0_5:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x28
@@ -3909,15 +4013,15 @@ Z12PbClAddEventiiPc:F(0,5):
 	mov eax, [ebp+0x8]
 	mov [esp+0x4], eax
 	mov dword [esp], pbcl
-	call ZN6stPbCl10AddPbEventEiiPci:F(0,1)
+	call ZN6stPbCl10AddPbEventEiiPci_F0_1
 	leave
 	ret
 	nop
 
 
-;Z18PbClientInitializePv:F(0,5)
+;Z18PbClientInitializePv_F0_5
 
-Z18PbClientInitializePv:F(0,5):
+Z18PbClientInitializePv_F0_5:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x28
@@ -3936,33 +4040,33 @@ Z18PbClientInitializePv:F(0,5):
 	mov dword [esp+0x8], 0x0
 	mov dword [esp+0x4], 0x10
 	mov dword [esp], pbcl
-	call ZN6stPbCl10AddPbEventEiiPci:F(0,1)
+	call ZN6stPbCl10AddPbEventEiiPci_F0_1
 	mov eax, [pbcl+0x8]
 	test eax, eax
-	jz Z18PbClientInitializePv:F(0,5)_10
+	jz Z18PbClientInitializePv_F0_5_10
 	leave
 	ret
-Z18PbClientInitializePv:F(0,5)_10:
+Z18PbClientInitializePv_F0_5_10:
 	mov dword [ebp+0x8], _cstring_0
 	leave
-	jmp Z17set_cl_punkbusterPc:F(0,1)
+	jmp Z17set_cl_punkbusterPc_F0_1
 
 
-;Z21PbClientProcessEventsv:F(0,5)
+;Z21PbClientProcessEventsv_F0_5
 
-Z21PbClientProcessEventsv:F(0,5):
+Z21PbClientProcessEventsv_F0_5:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x28
 	mov eax, [pbcl+0x178]
 	test eax, eax
-	jz Z21PbClientProcessEventsv:F(0,5)_10
+	jz Z21PbClientProcessEventsv_F0_5_10
 	mov eax, [pbcl+0x8]
 	test eax, eax
-	jz Z21PbClientProcessEventsv:F(0,5)_20
+	jz Z21PbClientProcessEventsv_F0_5_20
 	mov edx, [pbcl+0x10]
 	test edx, edx
-	jz Z21PbClientProcessEventsv:F(0,5)_30
+	jz Z21PbClientProcessEventsv_F0_5_30
 	mov dword [pbcl+0x18c], 0x0
 	mov dword [pbcl+0x188], 0x0
 	mov dword [pbcl+0x198], 0x0
@@ -3970,33 +4074,33 @@ Z21PbClientProcessEventsv:F(0,5):
 	mov dword [pbcl+0x1a0], 0x0
 	mov eax, [pbcl+0x8]
 	test eax, eax
-	jz Z21PbClientProcessEventsv:F(0,5)_10
+	jz Z21PbClientProcessEventsv_F0_5_10
 	mov [esp], eax
 	call dlclose
 	mov dword [pbcl+0x8], 0x0
-Z21PbClientProcessEventsv:F(0,5)_10:
+Z21PbClientProcessEventsv_F0_5_10:
 	leave
 	ret
-Z21PbClientProcessEventsv:F(0,5)_30:
+Z21PbClientProcessEventsv_F0_5_30:
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], pbcl
 	call dword [pbcl+0x18c]
 	leave
 	ret
-Z21PbClientProcessEventsv:F(0,5)_20:
+Z21PbClientProcessEventsv_F0_5_20:
 	mov ecx, [pbcl+0x10]
 	test ecx, ecx
-	jz Z21PbClientProcessEventsv:F(0,5)_10
+	jz Z21PbClientProcessEventsv_F0_5_10
 	mov dword [esp+0x10], 0x0
 	mov dword [esp+0xc], _cstring_null
 	mov dword [esp+0x8], 0x0
 	mov dword [esp+0x4], 0x10
 	mov dword [esp], pbcl
-	call ZN6stPbCl10AddPbEventEiiPci:F(0,1)
+	call ZN6stPbCl10AddPbEventEiiPci_F0_1
 	leave
 	ret
 	add [eax], al
 
 
-;Z10DL_VPrintfPKcPc:F(0,1)
+;Z10DL_VPrintfPKcPc_F0_1
 

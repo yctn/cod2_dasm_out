@@ -2,810 +2,1402 @@
 ;Symbols in this file: 165
 ;
 ;Imports (over-declared, NASM-safe):
-	extern __keymgr_dwarf2_register_sections
-	extern atexit
-	extern exit
-	extern AEDisposeDesc
-	extern AECreateDesc
-	extern __cxa_allocate_exception
-	extern __cxa_throw
-	extern _Unwind_Resume
 	extern AECoerceDesc
+	extern AECreateAppleEvent
+	extern AECreateDesc
+	extern AEDisposeDesc
 	extern AEGetDescData
 	extern AEGetDescDataSize
-	extern CreateObjSpecifier
-	extern AEPutParamDesc
-	extern AECreateAppleEvent
-	extern AESend
-	extern AEPutParamPtr
-	extern AEGetParamPtr
 	extern AEGetParamDesc
-	extern GetControlBounds
-	extern PtInRect
-	extern GetEventKind
-	extern GetEventClass
-	extern GetEventParameter
-	extern GetControlOwner
-	extern AdvanceKeyboardFocus
-	extern SetWRefCon
-	extern QuitAppModalLoopForWindow
-	extern HIViewGetRoot
-	extern HIViewGetViewForMouseEvent
-	extern GetControlKind
-	extern SetThemeCursor
-	extern CFBundleGetMainBundle
-	extern CreateNibReferenceWithCFBundle
-	extern CreateWindowFromNib
-	extern DisposeNibReference
-	extern GetWindowEventTarget
-	extern InstallEventHandler
-	extern GetWindowResizeLimits
-	extern SetWindowResizeLimits
-	extern InitCursor
-	extern ShowWindow
-	extern RunAppModalLoopForWindow
-	extern HideWindow
-	extern GetWRefCon
-	extern DisposeWindow
-	extern GetControlByID
-	extern GetControlMaximum
-	extern GetControlDataSize
-	extern SetControlData
-	extern HandleControlKey
-	extern GetControlReference
-	extern GetControlData
-	extern AlertSoundPlay
-	extern HITextViewGetTXNObject
-	extern TXNSetTypeAttributes
-	extern HideControl
-	extern ShowControl
-	extern DisableControl
-	extern EnableControl
-	extern SetControlFontStyle
-	extern SetKeyboardFocus
-	extern NewControlUserPaneDrawUPP
-	extern NewControlUserPaneHitTestUPP
-	extern NewControlUserPaneTrackingUPP
-	extern SetControlReference
-	extern SetControlMaximum
-	extern NewControlKeyFilterUPP
-	extern NewControlEditTextValidationUPP
-	extern GetWindowPort
-	extern CGDisplayBounds
-	extern DMGetFirstScreenDevice
-	extern EqualRect
-	extern DMGetNextScreenDevice
-	extern GetMainDevice
-	extern GetWindowPortBounds
-	extern CGDisplayFade
-	extern CGReleaseDisplayFadeReservation
-	extern CGAcquireDisplayFadeReservation
-	extern CGDisplayPixelsWide
-	extern CGDisplayPixelsHigh
-	extern CGDisplayBitsPerPixel
-	extern aglSwapBuffers
-	extern EndMediaEdits
-	extern GetMediaDuration
-	extern InsertMediaIntoTrack
-	extern AddMovieResource
-	extern CloseMovieFile
-	extern MoveWindow
-	extern GetAvailableWindowPositioningBounds
-	extern CreateNewWindow
-	extern SetPortWindowPort
-	extern SetWindowContentColor
-	extern SetWindowTitleWithCFString
-	extern gluCheckExtension
-	extern _Znam
-	extern CGSetDisplayTransferByTable
-	extern _ZdaPv
-	extern CGGetDisplayTransferByTable
-	extern QDLocalToGlobalPoint
-	extern QDGlobalToLocalPoint
-	extern _Znwm
-	extern _ZdlPv
-	extern _ZSt17__throw_bad_allocv
-	extern _ZSt20__throw_length_errorPKc
-	extern NormalizeThemeDrawingState
-	extern ForeColor
-	extern FrameRoundRect
-	extern RGBForeColor
-	extern PaintRoundRect
-	extern NewRgn
-	extern OpenRgn
-	extern CloseRgn
-	extern SetClip
-	extern DisposeRgn
-	extern ClipRect
-	extern DrawThemeMenuBarBackground
-	extern InsetRect
-	extern DrawThemeFocusRect
-	extern GetIconRefFromFileInfo
-	extern PlotIconRef
-	extern ReleaseIconRef
-	extern CGRectIsEmpty
-	extern CGRectUnion
-	extern CGRectGetWidth
-	extern CGRectGetHeight
-	extern OffsetRect
-	extern MapRect
-	extern glFinish
-	extern aglSetCurrentContext
-	extern aglSetDrawable
-	extern aglDestroyContext
-	extern ShowMenuBar
-	extern SetSystemUIMode
-	extern aglChoosePixelFormat
-	extern aglCreateContext
-	extern aglSetFullScreen
-	extern CGDisplayCurrentMode
-	extern aglSetInteger
-	extern HideMenuBar
-	extern aglDescribePixelFormat
-	extern aglDestroyPixelFormat
-	extern glEnable
-	extern glHint
-	extern aglGetDrawable
-	extern glDisable
-	extern IsWindowVisible
-	extern SizeWindow
-	extern PaintRect
-	extern _ZNSs6assignERKSs
-	extern CGDisplayIDToOpenGLDisplayMask
-	extern CGLQueryRendererInfo
-	extern CGLDescribeRenderer
-	extern CGLDestroyRendererInfo
-	extern CGDisplayAvailableModes
-	extern CFArrayGetCount
-	extern CGDisplayIOServicePort
-	extern CGLGetCurrentContext
-	extern CGLChoosePixelFormat
-	extern CGLCreateContext
-	extern CGLDestroyPixelFormat
-	extern CGLSetCurrentContext
-	extern glGetString
-	extern _ZNSs6assignEPKcm
-	extern glGetIntegerv
-	extern CGLDestroyContext
-	extern _ZNSsC1ERKSs
-	extern strstr
-	extern _ZNSsD1Ev
-	extern CFArrayGetValueAtIndex
-	extern IOObjectConformsTo
-	extern IORegistryEntryGetParentEntry
-	extern glGetFloatv
-	extern _ZN9__gnu_cxx18__exchange_and_addEPVii
-	extern _ZNSs4_Rep10_M_destroyERKSaIcE
-	extern __cxa_begin_catch
-	extern __cxa_rethrow
-	extern __cxa_end_catch
-	extern CGGetActiveDisplayList
-	extern NewMenu
-	extern InsertMenu
-	extern InvalMenuBar
-	extern GetCurrentKeyModifiers
-	extern CGRectEqualToRect
-	extern Gestalt
-	extern sysctl
-	extern FSOpenIterator
-	extern FSGetCatalogInfoBulk
-	extern FSCloseIterator
-	extern FSDeleteObject
-	extern FSSetCatalogInfo
-	extern FSPathMakeRef
-	extern access
-	extern CFBundleCopyExecutableURL
-	extern CFURLGetFSRef
-	extern CFRelease
-	extern FSGetCatalogInfo
-	extern GetCurrentProcess
-	extern strcat
-	extern GetProcessBundleLocation
-	extern FSRefMakePath
-	extern PBGetCatInfoSync
-	extern FSMakeFSSpec
-	extern FSpMakeFSRef
-	extern memcpy
-	extern CFStringCreateWithCString
-	extern CFPreferencesCopyAppValue
-	extern CFGetTypeID
-	extern CFStringGetTypeID
-	extern strcpy
-	extern CFStringGetCString
-	extern CFPreferencesSetAppValue
-	extern atoi
-	extern sprintf
-	extern CFPreferencesAppSynchronize
-	extern atof
-	extern CFBundleCopyLocalizedString
-	extern CFStringGetPascalString
-	extern StringToNum
-	extern CFStringCreateWithFormat
-	extern GetPort
-	extern SetPort
-	extern CFStringCreateWithCharacters
-	extern GetCursor
-	extern SetCursor
-	extern CGAssociateMouseAndMouseCursorPosition
-	extern CGWarpMouseCursorPosition
-	extern HideCursor
-	extern GetGlobalMouse
-	extern UpTime
+	extern AEGetParamPtr
+	extern AEInstallEventHandler
+	extern AEPutParamDesc
+	extern AEPutParamPtr
+	extern AESend
+	extern AUGraphConnectNodeInput
+	extern AUGraphGetCPULoad
+	extern AUGraphGetNodeInfo
+	extern AUGraphInitialize
+	extern AUGraphNewNode
+	extern AUGraphOpen
+	extern AUGraphStart
+	extern AUGraphStop
+	extern AUGraphUpdate
 	extern AddDurationToAbsolute
-	extern MPDelayUntil
-	extern GetNextProcess
-	extern GetProcessInformation
-	extern CFDictionaryGetValue
-	extern CFNumberGetValue
-	extern lround
-	extern IORegistryEntryCreateCFProperty
+	extern AddMovieResource
+	extern AddPointToBounds_F0_18
+	extern AdvanceKeyboardFocus
+	extern AlertSoundPlay
+	extern AngleVectors_F0_18
+	extern AnglesToAxis_F0_18
+	extern AppendMenuItemTextWithCFString
+	extern AudioConverterDispose
+	extern AudioConverterFillBuffer
+	extern AudioConverterFillComplexBuffer
+	extern AudioConverterNew
+	extern AudioConverterReset
+	extern AudioDeviceGetProperty
+	extern AudioDeviceGetPropertyInfo
+	extern AudioDeviceSetProperty
+	extern AudioHardwareGetProperty
+	extern AudioOutputUnitStart
+	extern AudioOutputUnitStop
+	extern AudioUnitAddRenderNotify
+	extern AudioUnitGetProperty
+	extern AudioUnitInitialize
+	extern AudioUnitRemoveRenderNotify
+	extern AudioUnitRender
+	extern AudioUnitSetParameter
+	extern AudioUnitSetProperty
+	extern AudioUnitUninitialize
+	extern AxisToAngles_F0_18
+	extern CFArrayGetCount
+	extern CFArrayGetValueAtIndex
+	extern CFBundleCopyExecutableURL
+	extern CFBundleCopyLocalizedString
+	extern CFBundleGetMainBundle
 	extern CFDataGetBytePtr
-	extern CreateEvent
-	extern SetEventParameter
-	extern GetMainEventQueue
-	extern PostEventToQueue
-	extern ReleaseEvent
-	extern pthread_main_np
-	extern GetStandardAlertDefaultParams
-	extern CreateStandardAlert
-	extern RunStandardAlert
-	extern LSCopyItemInfoForRef
-	extern pthread_self
-	extern OTAtomicAdd32
-	extern OTCompareAndSwap32
-	extern calloc
-	extern free
-	extern strrchr
-	extern Microseconds
-	extern __udivdi3
-	extern memset
-	extern strncpy
-	extern getcwd
-	extern NewGWorld
-	extern GetGWorldPixMap
-	extern LockPixels
-	extern GetPixRowBytes
-	extern QDRegisterNamedPixMapCursor
-	extern DisposeGWorld
-	extern TickCount
-	extern QDSetNamedPixMapCursor
-	extern GetMainEventLoop
-	extern InstallEventLoopTimer
-	extern GetQDGlobalsArrow
-	extern ShowCursor
-	extern fopen
-	extern fseek
-	extern fclose
-	extern ftell
-	extern rewind
-	extern malloc
-	extern fread
-	extern _ZNKSs7compareEPKc
-	extern glStencilMask
-	extern glDepthMask
-	extern glFlushVertexArrayRangeAPPLE
-	extern glTexParameterfv
-	extern glLightfv
-	extern glColor4f
-	extern glMatrixMode
-	extern glLoadMatrixf
-	extern glTexParameteri
-	extern glGenTextures
-	extern _ZNSt15_List_node_base4hookEPS_
-	extern glTexParameterf
-	extern glTexEnvf
-	extern glPushMatrix
-	extern glLoadIdentity
-	extern glTexCoord2f
-	extern glPopMatrix
-	extern glTexEnvfv
-	extern glPointSize
-	extern glDrawRangeElements
-	extern memmove
-	extern glBindTexture
-	extern glColorMask
-	extern glActiveTextureARB
-	extern glDepthFunc
-	extern glShadeModel
-	extern glViewport
-	extern glDepthRange
-	extern glAlphaFunc
-	extern glClearDepth
-	extern glScissor
-	extern glClear
-	extern glClearColor
-	extern glClearStencil
-	extern glMaterialfv
-	extern glMaterialf
-	extern glPixelStorei
-	extern glCopyTexSubImage2D
-	extern gluOrtho2D
-	extern glTexEnvi
-	extern glBlendFuncSeparateEXT
-	extern glBlendFunc
-	extern glBegin
-	extern glVertex3f
-	extern glEnd
-	extern cos
-	extern log
-	extern cosf
-	extern glPolygonMode
-	extern glFogf
-	extern glLightModelfv
-	extern glBlendEquationEXT
-	extern glPolygonOffset
-	extern glFogfv
-	extern glPointParameterfvARB
-	extern glStencilFunc
-	extern glPointParameterfARB
-	extern glStencilOp
-	extern glFrontFace
-	extern glColorMaterial
-	extern glPushAttrib
-	extern glPushClientAttrib
-	extern glDrawBuffer
-	extern glReadBuffer
-	extern __dynamic_cast
-	extern glScalef
-	extern glVertex2f
-	extern glPopClientAttrib
-	extern glPopAttrib
-	extern glProgramEnvParameter4fvARB
-	extern glTexGenfv
-	extern _ZNSsC1EPKcRKSaIcE
-	extern _ZNKSs4findEPKcmm
-	extern _ZNSsC1ERKSsmm
-	extern _ZSt20__throw_out_of_rangePKc
-	extern glCombinerParameterfvNV
-	extern glCombinerStageParameterfvNV
-	extern glBindProgramARB
-	extern glDeleteProgramsARB
-	extern glGetProgramivARB
-	extern glGenProgramsARB
-	extern glProgramStringARB
-	extern _ZNSs6appendEPKcm
-	extern _ZNSs6appendERKSs
-	extern glTexImage2D
-	extern glCompressedTexImage2DARB
-	extern glTexSubImage2D
-	extern glCompressedTexSubImage2D
-	extern _ZNSt15_List_node_base6unhookEv
-	extern ceilf
-	extern glFinishFenceAPPLE
-	extern glSetFenceAPPLE
-	extern glGenFencesAPPLE
-	extern glDeleteFencesAPPLE
-	extern glVertexArrayRangeAPPLE
-	extern glDisableVertexAttribArrayARB
-	extern glVertexAttribPointerARB
-	extern glEnableVertexAttribArrayARB
-	extern glTexGeni
-	extern glBindVertexArrayAPPLE
-	extern glLightf
-	extern glClientActiveTextureARB
-	extern glDeleteTextures
-	extern glDeleteVertexArraysAPPLE
-	extern glDisableClientState
-	extern glFogi
-	extern glLightModeli
-	extern glClipPlane
-	extern glEnableClientState
-	extern glVertexArrayParameteriAPPLE
-	extern strcasecmp
-	extern strncasecmp
-	extern tolower
-	extern toupper
-	extern RemoveEventHandler
-	extern FlushEventQueue
-	extern SendEventToEventTarget
-	extern ReceiveNextEvent
+	extern CFDictionaryGetValue
+	extern CFGetTypeID
+	extern CFNumberGetValue
+	extern CFPreferencesAppSynchronize
+	extern CFPreferencesCopyAppValue
+	extern CFPreferencesSetAppValue
+	extern CFRelease
+	extern CFStringCreateWithCString
+	extern CFStringCreateWithCharacters
+	extern CFStringCreateWithFormat
+	extern CFStringGetCString
+	extern CFStringGetPascalString
+	extern CFStringGetTypeID
 	extern CFURLCreateFromFSRef
-	extern CGDataProviderCreateWithURL
-	extern CGImageCreateWithPNGDataProvider
-	extern QDBeginCGContext
-	extern CGImageRelease
-	extern CGDataProviderRelease
+	extern CFURLCreateWithBytes
+	extern CFURLGetFSRef
+	extern CGAcquireDisplayFadeReservation
+	extern CGAssociateMouseAndMouseCursorPosition
 	extern CGContextClearRect
 	extern CGContextDrawImage
 	extern CGContextFlush
-	extern QDEndCGContext
-	extern EventAvail
-	extern strcmp
-	extern getrlimit
-	extern setrlimit
-	extern EnterMovies
-	extern FSGetVolumeInfo
-	extern GetCompressionInfo
-	extern RunApplicationEventLoop
-	extern GetEventDispatcherTarget
-	extern GetApplicationEventTarget
-	extern GetMenuHandle
-	extern AppendMenuItemTextWithCFString
-	extern SetItemCmd
-	extern GetIndMenuItemWithCommandID
-	extern GetMenuEventTarget
-	extern AEInstallEventHandler
-	extern chdir
-	extern QuitApplicationEventLoop
+	extern CGDataProviderCreateWithURL
+	extern CGDataProviderRelease
+	extern CGDisplayAvailableModes
+	extern CGDisplayBitsPerPixel
+	extern CGDisplayBounds
+	extern CGDisplayCurrentMode
+	extern CGDisplayFade
+	extern CGDisplayIDToOpenGLDisplayMask
+	extern CGDisplayIOServicePort
+	extern CGDisplayPixelsHigh
+	extern CGDisplayPixelsWide
+	extern CGGetActiveDisplayList
+	extern CGGetDisplayTransferByTable
+	extern CGImageCreateWithPNGDataProvider
+	extern CGImageRelease
+	extern CGLChoosePixelFormat
+	extern CGLCreateContext
+	extern CGLDescribeRenderer
+	extern CGLDestroyContext
+	extern CGLDestroyPixelFormat
+	extern CGLDestroyRendererInfo
+	extern CGLGetCurrentContext
+	extern CGLQueryRendererInfo
+	extern CGLSetCurrentContext
+	extern CGRectEqualToRect
+	extern CGRectGetHeight
+	extern CGRectGetWidth
+	extern CGRectIsEmpty
+	extern CGRectUnion
+	extern CGReleaseDisplayFadeReservation
+	extern CGSetDisplayTransferByTable
+	extern CGWarpMouseCursorPosition
+	extern ClipRect
+	extern CloseComponent
+	extern CloseMovieFile
+	extern CloseRgn
+	extern CollapseWindow
+	extern Com_BeginParseSession_F0_4
+	extern Com_EndParseSession_F0_4
+	extern Com_Error_F0_1
+	extern Com_Memcpy_F0_12
+	extern Com_Parse_F0_5
+	extern CreateEvent
+	extern CreateNewWindow
+	extern CreateNibReferenceWithCFBundle
+	extern CreateObjSpecifier
+	extern CreateStandardAlert
+	extern CreateWindowFromNib
+	extern DMGetFirstScreenDevice
+	extern DMGetNextScreenDevice
+	extern DisableControl
 	extern DisableMenuItem
-	extern close
-	extern ioctl
-	extern __error
-	extern vsnprintf
-	extern strchr
-	extern rand
-	extern acosf
-	extern atan2
-	extern tan
-	extern sinf
-	extern time
-	extern localtime
-	extern asctime
-	extern longjmp
-	extern __maskrune
-	extern snprintf
-	extern floorf
-	extern setjmp
-	extern remove
-	extern fflush
-	extern qsort
-	extern fwrite
-	extern rename
-	extern isspace
-	extern _ZNSs9_M_mutateEmmm
+	extern DisposeAUGraph
+	extern DisposeGWorld
+	extern DisposeHandle
+	extern DisposeMovie
+	extern DisposeNibReference
+	extern DisposeRgn
+	extern DisposeWindow
+	extern DrawThemeFocusRect
+	extern DrawThemeMenuBarBackground
+	extern EnableControl
+	extern EndMediaEdits
+	extern EnterMovies
+	extern EqualRect
+	extern EventAvail
+	extern FSCloseIterator
+	extern FSDeleteObject
+	extern FSGetCatalogInfo
+	extern FSGetCatalogInfoBulk
+	extern FSGetVolumeInfo
+	extern FSMakeFSSpec
+	extern FSOpenIterator
+	extern FSPathMakeRef
+	extern FSRefMakePath
+	extern FSSetCatalogInfo
+	extern FSpMakeFSRef
+	extern FindNextComponent
+	extern FlushEventQueue
+	extern ForeColor
+	extern FrameRoundRect
+	extern Gestalt
+	extern GetApplicationEventTarget
+	extern GetAvailableWindowPositioningBounds
+	extern GetComponentVersion
+	extern GetCompressionInfo
+	extern GetControlBounds
+	extern GetControlByID
+	extern GetControlData
+	extern GetControlDataSize
+	extern GetControlKind
+	extern GetControlMaximum
+	extern GetControlOwner
+	extern GetControlReference
+	extern GetCurrentEventTime
+	extern GetCurrentKeyModifiers
+	extern GetCurrentProcess
+	extern GetCursor
+	extern GetEventClass
+	extern GetEventDispatcherTarget
+	extern GetEventKind
+	extern GetEventParameter
+	extern GetGWorldPixMap
+	extern GetGlobalMouse
+	extern GetHandleSize
+	extern GetIconRefFromFileInfo
+	extern GetIndMenuItemWithCommandID
+	extern GetMainDevice
+	extern GetMainEventLoop
+	extern GetMainEventQueue
+	extern GetMediaDuration
+	extern GetMediaHandler
+	extern GetMediaSampleDescription
+	extern GetMenuEventTarget
+	extern GetMenuHandle
+	extern GetMovieDuration
+	extern GetMovieIndTrackType
+	extern GetMoviePreferredRate
+	extern GetMovieTime
+	extern GetMovieTimeScale
+	extern GetNextProcess
+	extern GetPixRowBytes
+	extern GetPort
+	extern GetProcessBundleLocation
+	extern GetProcessInformation
+	extern GetQDGlobalsArrow
+	extern GetStandardAlertDefaultParams
+	extern GetTrackMedia
+	extern GetWRefCon
+	extern GetWindowEventTarget
+	extern GetWindowPort
+	extern GetWindowPortBounds
+	extern GetWindowResizeLimits
+	extern GoToBeginningOfMovie
+	extern HITextViewGetTXNObject
+	extern HIViewGetRoot
+	extern HIViewGetViewForMouseEvent
+	extern HandleControlKey
+	extern HideControl
+	extern HideCursor
+	extern HideMenuBar
+	extern HideWindow
+	extern Hunk_ClearToMarkLow_F0_1
+	extern Hunk_OverrideDataForFile_F0_1
+	extern IOObjectConformsTo
+	extern IORegistryEntryCreateCFProperty
+	extern IORegistryEntryGetParentEntry
+	extern I_stricmp_F0_2
+	extern InitCursor
+	extern InsertMediaIntoTrack
+	extern InsertMenu
+	extern InsetRect
+	extern InstallEventHandler
+	extern InstallEventLoopTimer
+	extern InvalMenuBar
+	extern IsMovieDone
+	extern IsWindowVisible
+	extern LSCopyItemInfoForRef
+	extern LSOpenCFURLRef
+	extern LSOpenFSRef
+	extern LockPixels
+	extern MPDelayUntil
+	extern MapRect
+	extern MatrixInverseOrthogonal43_F0_18
+	extern MatrixMultiply43_F0_18
+	extern MatrixMultiply_F0_18
+	extern MatrixTranspose_F0_18
+	extern MediaSetSoundBalance
+	extern Microseconds
+	extern MoveWindow
+	extern MoviesTask
+	extern NewAUGraph
+	extern NewControlEditTextValidationUPP
+	extern NewControlKeyFilterUPP
+	extern NewControlUserPaneDrawUPP
+	extern NewControlUserPaneHitTestUPP
+	extern NewControlUserPaneTrackingUPP
+	extern NewGWorld
+	extern NewHandle
+	extern NewMenu
+	extern NewMovieFromFile
+	extern NewRgn
+	extern NormalizeThemeDrawingState
+	extern OTAtomicAdd32
+	extern OTCompareAndSwap32
+	extern OffsetRect
+	extern OpenAComponent
+	extern OpenComponent
+	extern OpenMovieFile
+	extern OpenRgn
+	extern PBGetCatInfoSync
+	extern PaintRect
+	extern PaintRoundRect
+	extern PlotIconRef
+	extern PostEventToQueue
+	extern PrerollMovie
+	extern PtInRect
+	extern PtrAndHand
+	extern QDBeginCGContext
+	extern QDEndCGContext
+	extern QDGlobalToLocalPoint
+	extern QDLocalToGlobalPoint
+	extern QDRegisterNamedPixMapCursor
+	extern QDSetNamedPixMapCursor
+	extern QuitAppModalLoopForWindow
+	extern QuitApplicationEventLoop
+	extern RGBForeColor
+	extern ReceiveNextEvent
+	extern ReleaseEvent
+	extern ReleaseIconRef
+	extern RemoveEventHandler
+	extern RemoveEventLoopTimer
+	extern RunAppModalLoopForWindow
+	extern RunApplicationEventLoop
+	extern RunStandardAlert
+	extern SECTION
+	extern SendEventToEventTarget
+	extern SetClip
+	extern SetControlData
+	extern SetControlFontStyle
+	extern SetControlMaximum
+	extern SetControlReference
+	extern SetCursor
+	extern SetEventParameter
+	extern SetFrontProcess
+	extern SetItemCmd
+	extern SetKeyboardFocus
+	extern SetMovieRate
+	extern SetMovieTimeValue
+	extern SetPort
+	extern SetPortWindowPort
+	extern SetSystemUIMode
+	extern SetThemeCursor
+	extern SetTrackVolume
+	extern SetWRefCon
+	extern SetWindowContentColor
+	extern SetWindowResizeLimits
+	extern SetWindowTitleWithCFString
+	extern ShowControl
+	extern ShowCursor
+	extern ShowMenuBar
+	extern ShowWindow
+	extern SizeWindow
+	extern StartMovie
+	extern StopMovie
+	extern StringToNum
+	extern Swap_Init_F0_15
+	extern TXNSetData
+	extern TXNSetSelection
+	extern TXNSetTypeAttributes
+	extern TXNShowSelection
+	extern TickCount
+	extern UpTime
+	extern UpdateSystemActivity
+	extern Vec3Cross_F0_18
+	extern Vec3DistanceSq_F0_7
+	extern Vec3NormalizeTo_F0_7
+	extern Vec3Normalize_F0_7
+	extern Z10Com_PrintfPKcz_F0_1
+	extern Z10I_CleanStrPc_F0_3
+	extern Z10I_strncpyzPcPKci_F0_15
+	extern Z10OnSameTeamP9gentity_sS0__F0_1
+	extern Z10SV_GetGuidi_F0_1
+	extern Z10Scr_AddInti_F0_1
+	extern Z10Scr_NotifyP9gentity_stj_F0_7
+	extern Z10YawVectorsfPfS__F0_18
+	extern Z11BG_GetSpeedPK13playerState_si_F0_15
+	extern Z11BG_LoadAnimv_F0_1
+	extern Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i_F0_1
+	extern Z11Com_DPrintfPKcz_F0_1
+	extern Z11Com_sprintfPciPKcz_F0_2
+	extern Z11Scr_IncTimev_F0_1
+	extern Z11vectoanglesPKfPf_F0_18
+	extern Z12Dvar_SetBoolPK6dvar_sh_F0_1
+	extern Z12SL_GetStringPKcj_F0_1
+	extern Z12SV_XModelGetPKc_F0_68
+	extern Z12Scr_AddFloatf_F0_1
+	extern Z12Weapon_MeleeP9gentity_sP11weaponParmsfff_F0_1
+	extern Z13AngleSubtractff_F0_10
+	extern Z13BG_WeaponAmmoPK13playerState_si_F0_3
+	extern Z13FS_FCloseFilei_F0_3
+	extern Z13Info_ValidatePKc_F0_20
+	extern Z13SP_worldspawnv_F0_7
+	extern Z13SV_DObjExistsP9gentity_s_F0_27
+	extern Z13SV_LinkEntityP9gentity_s_F0_23
+	extern Z13SV_SightTracePiPKfS1_S1_S1_iii_F0_23
+	extern Z13SV_inSnapshotPKfi_F0_27
+	extern Z13Scr_AddEntityP9gentity_s_F0_7
+	extern Z13Scr_AddStringPKc_F0_1
+	extern Z13Scr_AddVectorPKf_F0_1
+	extern Z13Scr_FindFieldPKcPi_F0_22
+	extern Z13Scr_GetObjectj_F0_3
+	extern Z13Scr_LoadLevelv_F0_5
+	extern Z13Scr_SetStringPtj_F0_5
+	extern Z13XAnimFreeTreeP11XAnimTree_sPFvPviE_F0_1
+	extern Z14BG_GetBobCyclePK13playerState_s_F0_16
+	extern Z14ClientEndFrameP9gentity_s_F0_1
+	extern Z14LogAccuracyHitP9gentity_sS0__F0_21
+	extern Z14SV_DObjGetTreeP9gentity_s_F0_78
+	extern Z14SV_TracePassedPKfS0_S0_S0_iiiii_F0_38
+	extern Z14Scr_ExecThreadij_F0_61
+	extern Z14Scr_FreeEntityP9gentity_s_F0_7
+	extern Z14Scr_FreeThreadt_F0_1
+	extern Z14Scr_InitSystemi_F0_1
+	extern Z14Scr_SetLoadingi_F0_1
+	extern Z14TeleportPlayerP9gentity_sPfS1__F0_1
+	extern Z14XAnimCalcDeltaP11XAnimTree_sjPfS1_h_F0_1
+	extern Z14XAnimClearTreeP11XAnimTree_s_F0_1
+	extern Z15BG_GetWeaponDefi_F0_2
+	extern Z15CM_AreaEntitiesPKfS0_Piii_F0_7
+	extern Z15GScr_LoadConstsv_F0_1
+	extern Z15SV_DObjCalcAnimP9gentity_sPi_F0_53
+	extern Z15SV_DObjCalcSkelP9gentity_sPi_F0_53
+	extern Z15SV_UnlinkEntityP9gentity_s_F0_23
+	extern Z15Scr_AllocStringPKci_F0_1
+	extern Z15Scr_FreeScriptsh_F0_9
+	extern Z15XAnimCreateTreeP7XAnim_sPFPviE_F0_90
+	extern Z16BG_GetNumWeaponsv_F0_3
+	extern Z16BG_RegisterDvarsv_F0_1
+	extern Z16Cbuf_ExecuteTextiPKc_F0_1
+	extern Z16ClientThink_realP9gentity_sP9usercmd_s_F0_1
+	extern Z16Dvar_RegisterIntPKciiit_F0_9
+	extern Z16GScr_FreeScriptsv_F0_5
+	extern Z16GScr_LoadScriptsv_F0_5
+	extern Z16RadiusFromBoundsPKfS0__F0_7
+	extern Z16SV_EntityContactPKfS0_PK9gentity_s_F0_27
+	extern Z16SV_GetClientPingi_F0_1
+	extern Z16SV_GetServerinfoPci_F0_53
+	extern Z16SV_PointContentsPKfii_F0_2
+	extern Z16SV_SetBrushModelP9gentity_s_F0_53
+	extern Z16Scr_LoadGameTypev_F0_5
+	extern Z16Scr_PlayerDamageP9gentity_sS0_S0_iiiiPKfS2_13hitLocation_ti_F0_5
+	extern Z17AddLeanToPositionPfffff_F0_15
+	extern Z17AngleNormalize180f_F0_10
+	extern Z17AngleNormalize360f_F0_10
+	extern Z17BG_ClearWeaponDefv_F0_1
+	extern Z17CL_AddDebugStringPKfS0_fPKci_F0_1
+	extern Z17Com_GetServerDObji_F0_1
+	extern Z17Dvar_RegisterBoolPKcht_F0_9
+	extern Z17FX_RegisterEffectPKc_F0_4
+	extern Z17SV_GetEntityTokenPci_F0_27
+	extern Z17SV_LocateGameDataP9gentity_siiP13playerState_si_F0_53
+	extern Z17Scr_AddExecThreadij_F0_1
+	extern Z17Scr_ExecEntThreadP9gentity_sij_F0_108
+	extern Z17SnapVectorTowardsPfS__F0_1
+	extern Z18BG_FillInAmmoItemsPFviE_F0_1
+	extern Z18BG_PlayerAnimationPK6DObj_sP13entityState_sP12clientInfo_t_F0_1
+	extern Z18Dvar_RegisterColorPKcfffft_F0_9
+	extern Z18Dvar_RegisterFloatPKcffft_F0_9
+	extern Z18FS_FOpenFileByModePKcPi8fsMode_t_F0_2
+	extern Z18FX_GetEffectLengthP14EffectTemplate_F0_18
+	extern Z18HudElem_DestroyAllv_F0_1
+	extern Z18Mantle_CreateAnimsPFPviE_F0_1
+	extern Z18SL_ConvertToStringj_F0_2
+	extern Z18SV_DObjDisplayAnimP9gentity_s_F0_53
+	extern Z18SV_GetConfigstringiPci_F0_3
+	extern Z18SV_SetConfigstringiPKc_F0_3
+	extern Z18Scr_FreeEntityListv_F0_15
+	extern Z18Scr_IsSystemActiveh_F0_2
+	extern Z18Scr_SetStructFieldjj_F0_1
+	extern Z18Scr_ShutdownSystemhi_F0_1
+	extern Z18SetClientViewAngleP9gentity_sPKf_F0_1
+	extern Z19BG_CanItemBeGrabbedPK13entityState_sPK13playerState_si_F0_24
+	extern Z19BG_UpdatePlayerDObjP6DObj_sP13entityState_sP12clientInfo_ti_F0_1
+	extern Z19BG_WeaponFireRecoilPK13playerState_sPfS2__F0_1
+	extern Z19Dvar_RegisterStringPKcS0_t_F0_9
+	extern Z19Info_SetValueForKeyPcPKcS1__F0_15
+	extern Z19PitchForYawOnNormalfPKf_F0_4
+	extern Z19SV_DObjGetBoneIndexP9gentity_sj_F0_1
+	extern Z19SV_FX_GetVisibilityPKfS0__F0_28
+	extern Z19SV_QueueVoicePacketiiP13VoicePacket_t_F0_1
+	extern Z19SaveRegisteredItemsv_F0_1
+	extern Z19Scr_StartupGameTypev_F0_5
+	extern Z19TeamplayInfoMessageP9gentity_s_F0_75
+	extern Z20BG_FindItemForWeaponi_F0_2
+	extern Z20BG_PlayerTouchesItemP13playerState_sP13entityState_si_F0_24
+	extern Z20Com_ServerDObjCreateP11DObjModel_stP11XAnimTree_si_F0_4
+	extern Z20HudElem_UpdateClientP9gclient_si16hudelem_update_t_F0_1
+	extern Z20Mantle_ShutdownAnimsv_F0_1
+	extern Z20ShrinkBoundsToHeightPfS__F0_18
+	extern Z21BG_EvaluateTrajectoryPK12trajectory_tiPf_F0_1
+	extern Z21BG_GetSpreadForWeaponPK13playerState_siPfS2__F0_1
+	extern Z21Hunk_AllocXAnimServeri_F0_101
+	extern Z21PM_GetEffectiveStanceP13playerState_s_F0_5
+	extern Z21SV_DObjGetMatrixArrayP9gentity_s_F0_74
+	extern Z21SV_DObjInitServerTimeP9gentity_sf_F0_53
+	extern Z21SV_SightTraceToEntityPKfS0_S0_S0_ii_F0_2
+	extern Z21SaveRegisteredWeaponsv_F0_1
+	extern Z21Scr_AllocGameVariablev_F0_15
+	extern Z21Scr_RunCurrentThreadsv_F0_1
+	extern Z22Com_SafeServerDObjFreei_F0_4
+	extern Z22SV_SetWeaponInfoMemoryv_F0_53
+	extern Z23Activate_trigger_damageP9gentity_sS0_ii_F0_1
+	extern Z23BG_GetVerticalBobFactorPK13playerState_sfff_F0_16
+	extern Z23BG_Player_DoControllersPK6DObj_sPK13entityState_sPiP12clientInfo_ti_F0_1
+	extern Z23MatrixTransformVector43PKfPA3_S_Pf_F0_18
+	extern Z23SV_ClientHasClientMutedii_F0_28
+	extern Z23SV_ClientWantsVoiceDatai_F0_28
+	extern Z23SV_DObjGetHierarchyBitsP9gentity_siPi_F0_53
+	extern Z23SV_DObjUpdateServerTimeP9gentity_sfi_F0_27
+	extern Z23SV_FreeClientScriptPersv_F0_1
+	extern Z23SV_GetConfigstringConsti_F0_7
+	extern Z24BG_GetWeaponIndexForNamePKcPFviE_F0_3
+	extern Z24PM_GetViewHeightLerpTimePK13playerState_sii_F0_5
+	extern Z24SV_DObjCreateSkelForBoneP9gentity_si_F0_27
+	extern Z24SV_GameSendServerCommandi11svscmd_typePKc_F0_53
+	extern Z24SV_ResetEntityParsePointv_F0_53
+	extern Z25BG_FindWeaponIndexForNamePKc_F0_3
+	extern Z25BG_GetHorizontalBobFactorPK13playerState_sfff_F0_16
+	extern Z25ParseConfigStringToStructPhPK10cspField_tiPKciPFiS_S4_iEPFvS_S4_E_F0_20
+	extern Z25SV_DObjCreateSkelForBonesP9gentity_sPi_F0_27
+	extern Z25Scr_SetDynamicEntityFieldiij_F0_1
+	extern Z26BG_EvaluateTrajectoryDeltaPK12trajectory_tiPf_F0_1
+	extern Z26Hunk_AllocLowAlignInternalii_F0_2
+	extern Z26Weapon_RocketLauncher_FireP9gentity_sfP11weaponParms_F0_1
+	extern Z27BG_GetFirstAvailableOffhandPK13playerState_si_F0_3
+	extern Z27weapon_grenadelauncher_fireP9gentity_siP11weaponParms_F0_36
+	extern Z31Server_SwitchToValidFxSchedulerv_F0_1
+	extern Z35BG_AddPredictableEventToPlayerstateiiP13playerState_s_F0_1
+	extern Z4vtosPKf_F0_15
+	extern Z6Q_acosf_F0_10
+	extern Z6flrandff_F0_4
+	extern Z7FS_ReadPvii_F0_2
+	extern Z7MT_FreePvi_F0_5
+	extern Z7randomfv_F0_4
+	extern Z7stricmpPKcS0__F0_1
+	extern Z8FS_WritePKvii_F0_2
+	extern Z8I_strlwrPc_F0_3
+	extern Z8MT_Allocii_F0_15
+	extern Z8SV_TraceP7trace_tPKfS2_S2_S2_iiiPhi_F0_23
+	extern Z8vectoyawPKf_F0_10
+	extern Z9DirToBytePKf_F0_61
+	extern Z9Rand_Initi_F0_18
+	extern Z9Scr_ErrorPKc_F0_1
+	extern Z9XModelBadPK6XModel_F0_1
+	extern Z_FreeInternal_F0_1
+	extern _Unwind_Resume
+	extern _Z11compare_usePKvS0_
+	extern _Z5AddIPPc
+	extern _Z9SortRanksPKvS0_
+	extern _ZN9__gnu_cxx18__exchange_and_addEPVii
+	extern _ZNKSs4findEPKcmm
+	extern _ZNKSs7compareEPKc
 	extern _ZNSs12_M_leak_hardEv
-	extern _ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_
+	extern _ZNSs4_Rep10_M_destroyERKSaIcE
+	extern _ZNSs6appendEPKcm
+	extern _ZNSs6appendERKSs
+	extern _ZNSs6assignEPKcm
+	extern _ZNSs6assignERKSs
+	extern _ZNSs7replaceEmmPKcm
+	extern _ZNSs7reserveEm
+	extern _ZNSs9_M_mutateEmmm
+	extern _ZNSsC1EPKcRKSaIcE
+	extern _ZNSsC1ERKSs
+	extern _ZNSsC1ERKSsmm
+	extern _ZNSsD1Ev
+	extern _ZNSt15_List_node_base4hookEPS_
+	extern _ZNSt15_List_node_base6unhookEv
+	extern _ZSt17__throw_bad_allocv
 	extern _ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base
 	extern _ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base
-	extern sscanf
-	extern sin
-	extern acos
-	extern vsprintf
-	extern _ZNSs7reserveEm
-	extern strncat
-	extern ctime
-	extern strncmp
-	extern LSOpenFSRef
-	extern CFURLCreateWithBytes
-	extern LSOpenCFURLRef
-	extern UpdateSystemActivity
-	extern GetHandleSize
-	extern TXNSetData
-	extern NewHandle
-	extern DisposeHandle
-	extern RemoveEventLoopTimer
-	extern CollapseWindow
-	extern TXNSetSelection
-	extern TXNShowSelection
-	extern PtrAndHand
-	extern mkdir
-	extern opendir
-	extern readdir
-	extern stat
-	extern closedir
-	extern pow
-	extern glTestFenceAPPLE
-	extern glReadPixels
-	extern glGetError
-	extern asin
-	extern printf
-	extern _ZNSs7replaceEmmPKcm
-	extern expf
-	extern exp
-	extern isprint
-	extern fileno
-	extern isatty
-	extern fprintf
-	extern realloc
+	extern _ZSt20__throw_length_errorPKc
+	extern _ZSt20__throw_out_of_rangePKc
+	extern _ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_
+	extern _ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_
+	extern _ZZ11Melee_TraceP9gentity_sP11weaponParmsifffP7trace_tPfE12traceOffsets
+	extern _ZZ15G_TouchTriggersP9gentity_sE5range
+	extern _ZZ25CG_DrawRotatedPicPhysicalfffffPKfP8MaterialE4sign
+	extern _ZdaPv
+	extern _ZdlPv
+	extern _Znam
+	extern _Znwm
+	extern __cxa_allocate_exception
+	extern __cxa_begin_catch
+	extern __cxa_end_catch
+	extern __cxa_guard_abort
 	extern __cxa_guard_acquire
 	extern __cxa_guard_release
-	extern __cxa_guard_abort
-	extern GetCurrentEventTime
-	extern SetFrontProcess
-	extern glGenVertexArraysAPPLE
-	extern glColorPointer
-	extern glNormalPointer
-	extern glVertexPointer
-	extern glTexCoordPointer
-	extern _ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_
-	extern AudioConverterReset
-	extern AudioUnitGetProperty
-	extern AudioConverterDispose
-	extern AudioConverterNew
-	extern log10f
-	extern AudioUnitSetParameter
-	extern AudioConverterFillComplexBuffer
-	extern AudioUnitSetProperty
-	extern AudioUnitAddRenderNotify
-	extern AudioUnitRemoveRenderNotify
-	extern usleep
-	extern AUGraphGetCPULoad
-	extern strdup
-	extern AUGraphStop
-	extern DisposeAUGraph
-	extern AudioDeviceGetPropertyInfo
-	extern AudioDeviceGetProperty
-	extern FindNextComponent
-	extern OpenComponent
-	extern GetComponentVersion
-	extern CloseComponent
-	extern NewAUGraph
-	extern AUGraphNewNode
-	extern AUGraphOpen
-	extern AUGraphGetNodeInfo
-	extern AUGraphUpdate
-	extern AUGraphConnectNodeInput
-	extern AUGraphInitialize
-	extern AUGraphStart
-	extern pthread_mutex_destroy
-	extern pthread_create
-	extern pthread_mutexattr_init
-	extern pthread_mutexattr_settype
-	extern pthread_mutex_init
-	extern pthread_mutexattr_destroy
-	extern pthread_mutex_unlock
-	extern pthread_mutex_lock
-	extern glTexImage3D
-	extern glCompressedTexImage3DARB
-	extern glTexSubImage3D
-	extern glCompressedTexSubImage3D
-	extern strtok
-	extern StopMovie
-	extern GoToBeginningOfMovie
-	extern GetMovieTimeScale
-	extern GetMovieDuration
-	extern GetMovieTime
-	extern SetMovieTimeValue
-	extern SetTrackVolume
-	extern GetMediaHandler
-	extern MediaSetSoundBalance
-	extern MoviesTask
-	extern IsMovieDone
-	extern StartMovie
-	extern DisposeMovie
-	extern SetMovieRate
-	extern OpenMovieFile
-	extern NewMovieFromFile
-	extern GetMoviePreferredRate
-	extern PrerollMovie
-	extern GetMovieIndTrackType
-	extern GetTrackMedia
-	extern GetMediaSampleDescription
-	extern srand
-	extern putenv
-	extern getenv
-	extern puts
-	extern asinf
-	extern atanf
-	extern tanf
-	extern select
-	extern inet_addr
-	extern gethostbyname
-	extern recvfrom
-	extern strerror
-	extern sendto
-	extern setsockopt
-	extern bind
-	extern socket
-	extern connect
-	extern send
-	extern recv
+	extern __cxa_rethrow
+	extern __cxa_throw
+	extern __dynamic_cast
+	extern __error
 	extern __isnanf
-	extern floor
-	extern logf
-	extern AudioOutputUnitStart
-	extern AudioOutputUnitStop
-	extern AudioDeviceSetProperty
-	extern AudioConverterFillBuffer
-	extern AudioUnitRender
-	extern AudioUnitUninitialize
-	extern OpenAComponent
-	extern AudioHardwareGetProperty
-	extern AudioUnitInitialize
+	extern __keymgr_dwarf2_register_sections
+	extern __maskrune
+	extern __udivdi3
+	extern _cstring_0
+	extern _cstring_100
+	extern _cstring_11
+	extern _cstring_1_1_1
+	extern _cstring_3iii_s
+	extern _cstring_3warning_could_n10
+	extern _cstring_3warning_s_does_1
+	extern _cstring_3warning_s_error
+	extern _cstring_3warning_s_has_t
+	extern _cstring_3warning_s_is_to1
+	extern _cstring_49
+	extern _cstring_4i_s
+	extern _cstring_4i_s_origin_f_f_
+	extern _cstring_63
+	extern _cstring_71
+	extern _cstring_8
+	extern _cstring_81
+	extern _cstring_91
+	extern _cstring__game_initializa
+	extern _cstring__i_i_i_i_i
+	extern _cstring__shutdowngame_
+	extern _cstring_accuracyss
+	extern _cstring_aug_30_2006
+	extern _cstring_bad_weaponinfo_s
+	extern _cstring_bottomarc
+	extern _cstring_c_game_cheatsnot
+	extern _cstring_c_game_mustbeali
+	extern _cstring_c_game_votefaile
+	extern _cstring_c_game_votepasse
+	extern _cstring_c_i
+	extern _cstring_c_i_i_is
+	extern _cstring_c_sccs
+	extern _cstring_call_of_duty_2
+	extern _cstring_classname
+	extern _cstring_color
+	extern _cstring_could_not_load_h
+	extern _cstring_cursorhint
+	extern _cstring_damage
+	extern _cstring_dedicated
+	extern _cstring_defaultweapon_mp
+	extern _cstring_dm
+	extern _cstring_effect
+	extern _cstring_error_parsing_hi
+	extern _cstring_exitlevel_execut
+	extern _cstring_f_f_f
+	extern _cstring_f_f_f_f_f_f_d
+	extern _cstring_finishspawningit
+	extern _cstring_g_addspawnvartok
+	extern _cstring_g_allowvote1
+	extern _cstring_g_antilag
+	extern _cstring_g_banips
+	extern _cstring_g_callspawn_null
+	extern _cstring_g_callspawnentit
+	extern _cstring_g_cloneplayermax
+	extern _cstring_g_deadchat
+	extern _cstring_g_debugbullets
+	extern _cstring_g_debugdamage
+	extern _cstring_g_debuglocdamage
+	extern _cstring_g_dropforwardspe
+	extern _cstring_g_dropupspeedbas
+	extern _cstring_g_dropupspeedran
+	extern _cstring_g_dumpanims
+	extern _cstring_g_findconfigstri
+	extern _cstring_g_friendlyfiredi
+	extern _cstring_g_friendlynamedi
+	extern _cstring_g_gametype
+	extern _cstring_g_getplayerviewo
+	extern _cstring_g_gravity
+	extern _cstring_g_inactivity
+	extern _cstring_g_knockback
+	extern _cstring_g_listentity
+	extern _cstring_g_log
+	extern _cstring_g_logsync
+	extern _cstring_g_mantleblocktim
+	extern _cstring_g_maxdroppedweap
+	extern _cstring_g_modelindex_ove
+	extern _cstring_g_motd
+	extern _cstring_g_newstring_len_
+	extern _cstring_g_no_script_spam
+	extern _cstring_g_oldvoting
+	extern _cstring_g_parsespawnvars
+	extern _cstring_g_parsespawnvars1
+	extern _cstring_g_parsespawnvars2
+	extern _cstring_g_parsespawnvars3
+	extern _cstring_g_password
+	extern _cstring_g_playercollisio
+	extern _cstring_g_scoresbanner_a
+	extern _cstring_g_scoresbanner_a1
+	extern _cstring_g_scoresbanner_n
+	extern _cstring_g_scoresbanner_s
+	extern _cstring_g_smoothclients
+	extern _cstring_g_spawn_no_free_
+	extern _cstring_g_spawnturret_ma
+	extern _cstring_g_spawnturret_we
+	extern _cstring_g_speed
+	extern _cstring_g_synchronouscli
+	extern _cstring_g_teamcolor_alli
+	extern _cstring_g_teamcolor_axis
+	extern _cstring_g_teamname_allie
+	extern _cstring_g_teamname_axis
+	extern _cstring_g_useholdspawnde
+	extern _cstring_g_useholdtime
+	extern _cstring_g_voicechattalki
+	extern _cstring_g_voteabstainwei
+	extern _cstring_g_weaponammopool
+	extern _cstring_game_allies
+	extern _cstring_game_axis
+	extern _cstring_game_g_setupweap
+	extern _cstring_game_spectator
+	extern _cstring_game_tried_to_re
+	extern _cstring_gamedate
+	extern _cstring_gamedate_s
+	extern _cstring_gamename
+	extern _cstring_gamename_s
+	extern _cstring_games_mplog
+	extern _cstring_hint_inherit
+	extern _cstring_hintstring
+	extern _cstring_infomp_lochit_dm
+	extern _cstring_initgame_s
+	extern _cstring_leftarc
+	extern _cstring_light
+	extern _cstring_localized_string
+	extern _cstring_locdmgtable
+	extern _cstring_map_rotate2
+	extern _cstring_model_s_not_prec
+	extern _cstring_mpflag_american
+	extern _cstring_mpflag_german
+	extern _cstring_mpflag_none
+	extern _cstring_mpflag_spectator
+	extern _cstring_not_logging_to_d
+	extern _cstring_null
+	extern _cstring_null_entthink
+	extern _cstring_player_meleeheig
+	extern _cstring_player_meleerang
+	extern _cstring_player_meleewidt
+	extern _cstring_playerspread
+	extern _cstring_rightarc
+	extern _cstring_s
+	extern _cstring_s3
+	extern _cstring_s_does_not_appea
+	extern _cstring_s_doesnt_have_a_
+	extern _cstring_s_is_not_a_valid4
+	extern _cstring_s_is_too_long_of
+	extern _cstring_s_s_not_precache
+	extern _cstring_sayddss
+	extern _cstring_sayteamddss
+	extern _cstring_script_struct
+	extern _cstring_server
+	extern _cstring_sgame_dead
+	extern _cstring_shader
+	extern _cstring_shutdowngame
+	extern _cstring_spawnentities_no
+	extern _cstring_ss5
+	extern _cstring_sss_
+	extern _cstring_sss_1
+	extern _cstring_ssss_
+	extern _cstring_sv_cheats
+	extern _cstring_sv_mapname
+	extern _cstring_sv_maxclients
+	extern _cstring_targeti_healthi_
+	extern _cstring_too_many_differe1
+	extern _cstring_too_many_differe2
+	extern _cstring_toparc
+	extern _cstring_turret_s_not_pre
+	extern _cstring_unknown1
+	extern _cstring_unknown_means_of
+	extern _cstring_unknown_weapon_t1
+	extern _cstring_voice_deadchat
+	extern _cstring_voice_global
+	extern _cstring_voice_localecho
+	extern _cstring_warning_couldnt_
+	extern _cstring_weapon_
+	extern _cstring_weapon_s
+	extern _cstring_weaponaccufile
+	extern _cstring_winner
+	extern _cstring_xmodeldefaultwea
+	extern _double_0_00000000
+	extern _double_0_01745329
+	extern _double_0_50000000
+	extern _double_0_70000000
+	extern _double_4_00000000
+	extern _double_57_29577951
+	extern _float_0_00000000
+	extern _float_0_00100000
+	extern _float_0_01000000
+	extern _float_0_10000000
+	extern _float_0_20000000
+	extern _float_0_25000000
+	extern _float_0_30000001
+	extern _float_0_50000000
+	extern _float_0_69999999
+	extern _float_0_71111113
+	extern _float_0_85000002
+	extern _float_10000_00000000
+	extern _float_1000_00000000
+	extern _float_100_00000000
+	extern _float_1024_00000000
+	extern _float_128_00000000
+	extern _float_15000_00000000
+	extern _float_15_00000000
+	extern _float_16_00000000
+	extern _float_180_00000000
+	extern _float_182_04444885
+	extern _float_192_00000000
+	extern _float_1_00000000
+	extern _float_1_41421354
+	extern _float_1_50000000
+	extern _float_20_00000000
+	extern _float_24_00000000
+	extern _float_255_00000000
+	extern _float_256_00000000
+	extern _float_30_00000000
+	extern _float_3_00000000
+	extern _float_4096_00000000
+	extern _float_45_00000000
+	extern _float_4_00000000
+	extern _float_64_00000000
+	extern _float_80_00000000
+	extern _float_8_00000000
+	extern _float_90_00000000
+	extern _float_96_00000000
+	extern _float__0_50000000
+	extern _float__1022_00000000
+	extern _float__15_00000000
+	extern _float__1_00000000
+	extern _float__2_00000000
+	extern abort
+	extern accept
+	extern access
+	extern accuracyDirName
+	extern acos
+	extern acosf
+	extern add
+	extern addsd
+	extern addss
+	extern aglChoosePixelFormat
+	extern aglCreateContext
+	extern aglDescribePixelFormat
+	extern aglDestroyContext
+	extern aglDestroyPixelFormat
+	extern aglGetDrawable
+	extern aglSetCurrentContext
+	extern aglSetDrawable
+	extern aglSetFullScreen
+	extern aglSetInteger
+	extern aglSwapBuffers
+	extern and
+	extern andnps
+	extern andps
+	extern asctime
+	extern asin
+	extern asinf
+	extern atan2
+	extern atanf
+	extern atexit
+	extern atof
+	extern atoi
+	extern atol
+	extern bind
+	extern cached_models
+	extern call
+	extern calloc
+	extern ceilf
+	extern chdir
+	extern cld
+	extern close
+	extern closedir
+	extern cmovg
+	extern cmovge
+	extern cmovle
+	extern cmovnz
+	extern cmovz
+	extern cmp
+	extern cmpsb
+	extern cmpss
+	extern connect
+	extern cos
+	extern cosf
+	extern ctime
+	extern cvtsd2ss
+	extern cvtsi2sd
+	extern cvtsi2ss
+	extern cvtss2sd
+	extern cvttsd2si
+	extern cvttss2si
+	extern divss
 	extern dlclose
 	extern dlopen
 	extern dlsym
-	extern abort
-	extern vfprintf
-	extern getsockname
-	extern read
-	extern atol
-	extern strtol
-	extern getpid
-	extern tmpnam
-	extern strftime
-	extern gmtime
-	extern mktime
+	extern entityHandlers
+	extern exit
+	extern exp
+	extern expf
+	extern fclose
 	extern fcntl
-	extern accept
-	extern listen
-	extern gethostname
-	extern getdomainname
-	extern getlogin
-	extern getuid
-	extern getpwuid
+	extern fflush
 	extern fgets
-	extern gettimeofday
-	extern regcomp
-	extern regerror
-	extern regfree
-	extern regexec
-	extern getpass
-	extern getsockopt
-	extern write
-	extern unlink
+	extern fields
+	extern fileno
+	extern fld
+	extern floor
+	extern floorf
+	extern fopen
+	extern fprintf
 	extern fputc
 	extern fputs
+	extern fread
+	extern free
+	extern fseek
+	extern fstp
+	extern ftell
+	extern fwrite
+	extern g_HitLocConstNames
+	extern g_HitLocNames
+	extern g_NoScriptSpam
+	extern g_ScoresBanner_Allies
+	extern g_ScoresBanner_Axis
+	extern g_ScoresBanner_None
+	extern g_ScoresBanner_Spectators
+	extern g_TeamColor_Allies
+	extern g_TeamColor_Axis
+	extern g_TeamName_Allies
+	extern g_TeamName_Axis
+	extern g_allowVote
+	extern g_antilag
+	extern g_banIPs
+	extern g_cheats
+	extern g_clients
+	extern g_clonePlayerMaxVelocity
+	extern g_deadChat
+	extern g_debugBullets
+	extern g_debugDamage
+	extern g_debugLocDamage
+	extern g_dedicated
+	extern g_dropForwardSpeed
+	extern g_dropUpSpeedBase
+	extern g_dropUpSpeedRand
+	extern g_dumpAnims
+	extern g_entities
+	extern g_fHitLocDamageMult
+	extern g_friendlyNameDist
+	extern g_friendlyfireDist
+	extern g_gametype__addr_194f858
+	extern g_gravity
+	extern g_inactivity
+	extern g_knockback
+	extern g_listEntity
+	extern g_log
+	extern g_logSync
+	extern g_mantleBlockTimeBuffer
+	extern g_maxDroppedWeapons
+	extern g_maxclients
+	extern g_motd
+	extern g_oldVoting
+	extern g_password
+	extern g_playerCollisionEjectSpeed
+	extern g_smoothClients
+	extern g_speed
+	extern g_synchronousClients
+	extern g_useholdspawndelay
+	extern g_useholdtime
+	extern g_voiceChatTalkingDuration
+	extern g_voteAbstainWeight
+	extern g_weaponAmmoPools
+	extern getcwd
+	extern getdomainname
+	extern getenv
+	extern gethostbyname
+	extern gethostname
+	extern getlogin
+	extern getpass
+	extern getpid
+	extern getpwuid
+	extern getrlimit
+	extern getsockname
+	extern getsockopt
+	extern gettimeofday
+	extern getuid
+	extern glActiveTextureARB
+	extern glAlphaFunc
+	extern glBegin
+	extern glBindProgramARB
+	extern glBindTexture
+	extern glBindVertexArrayAPPLE
+	extern glBlendEquationEXT
+	extern glBlendFunc
+	extern glBlendFuncSeparateEXT
+	extern glClear
+	extern glClearColor
+	extern glClearDepth
+	extern glClearStencil
+	extern glClientActiveTextureARB
+	extern glClipPlane
+	extern glColor4f
+	extern glColorMask
+	extern glColorMaterial
+	extern glColorPointer
+	extern glCombinerParameterfvNV
+	extern glCombinerStageParameterfvNV
+	extern glCompressedTexImage2DARB
+	extern glCompressedTexImage3DARB
+	extern glCompressedTexSubImage2D
+	extern glCompressedTexSubImage3D
+	extern glCopyTexSubImage2D
+	extern glDeleteFencesAPPLE
+	extern glDeleteProgramsARB
+	extern glDeleteTextures
+	extern glDeleteVertexArraysAPPLE
+	extern glDepthFunc
+	extern glDepthMask
+	extern glDepthRange
+	extern glDisable
+	extern glDisableClientState
+	extern glDisableVertexAttribArrayARB
+	extern glDrawBuffer
+	extern glDrawRangeElements
+	extern glEnable
+	extern glEnableClientState
+	extern glEnableVertexAttribArrayARB
+	extern glEnd
+	extern glFinish
+	extern glFinishFenceAPPLE
+	extern glFlushVertexArrayRangeAPPLE
+	extern glFogf
+	extern glFogfv
+	extern glFogi
+	extern glFrontFace
+	extern glGenFencesAPPLE
+	extern glGenProgramsARB
+	extern glGenTextures
+	extern glGenVertexArraysAPPLE
+	extern glGetError
+	extern glGetFloatv
+	extern glGetIntegerv
+	extern glGetProgramivARB
+	extern glGetString
+	extern glHint
+	extern glLightModelfv
+	extern glLightModeli
+	extern glLightf
+	extern glLightfv
+	extern glLoadIdentity
+	extern glLoadMatrixf
+	extern glMaterialf
+	extern glMaterialfv
+	extern glMatrixMode
+	extern glNormalPointer
+	extern glPixelStorei
+	extern glPointParameterfARB
+	extern glPointParameterfvARB
+	extern glPointSize
+	extern glPolygonMode
+	extern glPolygonOffset
+	extern glPopAttrib
+	extern glPopClientAttrib
+	extern glPopMatrix
+	extern glProgramEnvParameter4fvARB
+	extern glProgramStringARB
+	extern glPushAttrib
+	extern glPushClientAttrib
+	extern glPushMatrix
+	extern glReadBuffer
+	extern glReadPixels
+	extern glScalef
+	extern glScissor
+	extern glSetFenceAPPLE
+	extern glShadeModel
+	extern glStencilFunc
+	extern glStencilMask
+	extern glStencilOp
+	extern glTestFenceAPPLE
+	extern glTexCoord2f
+	extern glTexCoordPointer
+	extern glTexEnvf
+	extern glTexEnvfv
+	extern glTexEnvi
+	extern glTexGenfv
+	extern glTexGeni
+	extern glTexImage2D
+	extern glTexImage3D
+	extern glTexParameterf
+	extern glTexParameterfv
+	extern glTexParameteri
+	extern glTexSubImage2D
+	extern glTexSubImage3D
+	extern glVertex2f
+	extern glVertex3f
+	extern glVertexArrayParameteriAPPLE
+	extern glVertexArrayRangeAPPLE
+	extern glVertexAttribPointerARB
+	extern glVertexPointer
+	extern glViewport
+	extern gluCheckExtension
+	extern gluOrtho2D
+	extern gmtime
+	extern hintStrings
+	extern imul
+	extern inet_addr
+	extern input
+	extern ioctl
+	extern isatty
+	extern isprint
+	extern isspace
+	extern itemRegistered
+	extern ja
+	extern jae
+	extern jb
+	extern jbe
+	extern jg
+	extern jge
+	extern jl
+	extern jle
+	extern jmp
+	extern jnp
+	extern jns
+	extern jnz
+	extern jp
+	extern js
+	extern jz
+	extern lea
+	extern leave
+	extern level
+	extern level_bgs
+	extern listen
+	extern localtime
+	extern log
+	extern log10f
+	extern logf
+	extern longjmp
+	extern lround
+	extern malloc
+	extern memcpy
+	extern memmove
+	extern memset
+	extern methods__addr_36e400
+	extern minss
+	extern mkdir
+	extern mktime
+	extern modNames
+	extern mov
+	extern movapd
+	extern movaps
+	extern movsd
+	extern movss
+	extern movsx
+	extern movzx
+	extern mulsd
+	extern mulss
+	extern neg
+	extern nop
+	extern not
+	extern numIPFilters
+	extern opendir
+	extern or
+	extern orps
+	extern player_meleeHeight
+	extern player_meleeRange
+	extern player_meleeWidth
+	extern pop
+	extern pow
+	extern printf
+	extern pthread_create
+	extern pthread_main_np
+	extern pthread_mutex_destroy
+	extern pthread_mutex_init
+	extern pthread_mutex_lock
+	extern pthread_mutex_unlock
+	extern pthread_mutexattr_destroy
+	extern pthread_mutexattr_init
+	extern pthread_mutexattr_settype
+	extern pthread_self
+	extern push
+	extern pushed
+	extern pushed_p
+	extern putenv
+	extern puts
+	extern pxor
+	extern qsort
+	extern rand
+	extern read
+	extern readdir
+	extern realloc
+	extern recv
+	extern recvfrom
+	extern regcomp
+	extern regerror
+	extern regexec
+	extern regfree
+	extern remove
+	extern rename
+	extern rep
+	extern repe
+	extern repne
+	extern ret
+	extern rewind
+	extern rol
+	extern s_backEndData
+	extern sar
+	extern sbb
+	extern scasb
+	extern select
+	extern send
+	extern sendto
+	extern setjmp
+	extern setnz
+	extern setrlimit
+	extern setsockopt
+	extern setz
+	extern shl
+	extern shr
+	extern sin
+	extern sinf
+	extern snprintf
+	extern socket
+	extern spawns
+	extern sprintf
+	extern sqrtss
+	extern srand
+	extern sscanf
+	extern stat
+	extern stosd
+	extern strcasecmp
+	extern strcat
+	extern strchr
+	extern strcmp
+	extern strcpy
+	extern strdup
+	extern strerror
+	extern strftime
+	extern strncasecmp
+	extern strncat
+	extern strncmp
+	extern strncpy
+	extern strrchr
+	extern strstr
+	extern strtok
+	extern strtol
+	extern sub
+	extern subss
+	extern sysctl
+	extern tan
+	extern tanf
+	extern test
+	extern text
+	extern time
+	extern tmpnam
+	extern tolower
+	extern toupper
+	extern turretInfo
+	extern ucomisd
+	extern ucomiss
+	extern unlink
+	extern usleep
+	extern va_F0_3
+	extern vfprintf
+	extern voice_deadChat
+	extern voice_global
+	extern voice_localEcho
+	extern vq2
+	extern vsnprintf
+	extern vsprintf
+	extern write
+	extern xor
+	extern xorps
 
 ;Exports defined in this file:
-	global Z10G_FindItemPKc:F(0,2)
-	global Z14CalculateScoreRSt5dequeItSaItEER5Tuple:F(0,31)
-	global Z24G_GetPlayerViewDirectionPK9gentity_sPfS2_S2_:F(0,1)
-	global Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)
-	global Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t:F(0,1)
-	global Z21G_GetPlayerViewOriginPK9gentity_sPf:F(0,1)
-	global Z20G_GetHintStringIndexPiPKc:F(0,25)
-	global Z16G_InitObjectivesv:F(0,5)
-	global Z13G_SpawnStringPKcS0_PS0_:F(0,1)
+	global Z10G_FindItemPKc_F0_2
+	global Z14CalculateScoreRSt5dequeItSaItEER5Tuple_F0_31
+	global Z24G_GetPlayerViewDirectionPK9gentity_sPfS2_S2__F0_1
+	global Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9
+	global Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t_F0_1
+	global Z21G_GetPlayerViewOriginPK9gentity_sPf_F0_1
+	global Z20G_GetHintStringIndexPiPKc_F0_25
+	global Z16G_InitObjectivesv_F0_5
+	global Z13G_SpawnStringPKcS0_PS0__F0_1
 	global _Z33G_SetEntityScriptVariableInternalPKcS0_
-	global Z23G_DuplicateEntityFieldsP9gentity_sPKS_:F(0,7)
-	global Z23G_DuplicateEntityFieldsP9gentity_sPKS_:F(0,7)_jumptab_0
+	global Z23G_DuplicateEntityFieldsP9gentity_sPKS__F0_7
+	global Z23G_DuplicateEntityFieldsP9gentity_sPKS__F0_7_jumptab_0
 	global _Z21G_GetItemForClassnamePKc
-	global Z17G_CallSpawnEntityP9gentity_s:F(0,1)
+	global Z17G_CallSpawnEntityP9gentity_s_F0_1
 	global _Z18G_ParseEntityFieldPKcS0_P9gentity_s
 	global _Z18G_ParseEntityFieldPKcS0_P9gentity_s_jumptab_0
-	global Z12G_SpawnFloatPKcS0_Pf:F(0,1)
-	global Z10G_SpawnIntPKcS0_Pi:F(0,1)
-	global Z13G_SpawnVectorPKcS0_Pf:F(0,1)
-	global Z13G_LoadStructsv:F(0,7)
-	global Z11G_CallSpawnv:F(0,7)
-	global Z25G_SpawnEntitiesFromStringv:F(0,7)
-	global Z23G_ClientCanSpectateTeamP9gclient_s6team_t:F(0,15)
-	global Z19G_SetLastServerTimeii:F(0,1)
-	global Z19G_SetClientContentsP9gentity_s:F(0,1)
-	global Z18G_PlayerControllerP9gentity_sPi:F(0,1)
-	global Z13G_PlayerEventii:F(0,1)
-	global Z15G_TouchTriggersP9gentity_s:F(0,1)
+	global Z12G_SpawnFloatPKcS0_Pf_F0_1
+	global Z10G_SpawnIntPKcS0_Pi_F0_1
+	global Z13G_SpawnVectorPKcS0_Pf_F0_1
+	global Z13G_LoadStructsv_F0_7
+	global Z11G_CallSpawnv_F0_7
+	global Z25G_SpawnEntitiesFromStringv_F0_7
+	global Z23G_ClientCanSpectateTeamP9gclient_s6team_t_F0_15
+	global Z19G_SetLastServerTimeii_F0_1
+	global Z19G_SetClientContentsP9gentity_s_F0_1
+	global Z18G_PlayerControllerP9gentity_sPi_F0_1
+	global Z13G_PlayerEventii_F0_1
+	global Z15G_TouchTriggersP9gentity_s_F0_1
 	global _Z37G_PlayerStateToEntityStateExtrapolateP13playerState_sP13entityState_sii
-	global Z11G_RunClientP9gentity_s:F(0,1)
-	global Z27DeathmatchScoreboardMessageP9gentity_s:F(0,1)
-	global Z8CheatsOkP9gentity_s:F(0,19)
-	global Z8G_setfogPKc:F(0,1)
-	global Z11G_IsPlayingP9gentity_s:F(0,19)
+	global Z11G_RunClientP9gentity_s_F0_1
+	global Z27DeathmatchScoreboardMessageP9gentity_s_F0_1
+	global Z8CheatsOkP9gentity_s_F0_19
+	global Z8G_setfogPKc_F0_1
+	global Z11G_IsPlayingP9gentity_s_F0_19
 	global _Z7G_SayToP9gentity_sS0_iiPKcS2_
-	global Z5G_SayP9gentity_sS0_iPKc:F(0,1)
-	global Z16G_GetSavePersistv:F(0,1)
-	global Z16G_SetSavePersisti:F(0,2)
-	global Z22G_GetFogOpaqueDistSqrdv:F(0,4)
-	global Z16G_GetClientScorei:F(0,1)
-	global Z22G_GetClientArchiveTimei:F(0,1)
-	global Z22G_SetClientArchiveTimeii:F(0,2)
-	global Z16G_GetClientStatei:F(0,5)
+	global Z5G_SayP9gentity_sS0_iPKc_F0_1
+	global Z16G_GetSavePersistv_F0_1
+	global Z16G_SetSavePersisti_F0_2
+	global Z22G_GetFogOpaqueDistSqrdv_F0_4
+	global Z16G_GetClientScorei_F0_1
+	global Z22G_GetClientArchiveTimei_F0_1
+	global Z22G_SetClientArchiveTimeii_F0_2
+	global Z16G_GetClientStatei_F0_5
 	global _Z12G_CreateDObjP11DObjModel_stP11XAnimTree_siP12clientInfo_t
-	global Z14CalculateRanksv:F(0,2)
-	global Z11G_LogPrintfPKcz:F(0,2)
-	global Z9ExitLevelv:F(0,2)
-	global Z10G_InitGameiiii:F(0,2)
-	global Z9CheckVotev:F(0,2)
-	global Z10G_RunThinkP9gentity_s:F(0,2)
-	global Z14G_TraceCapsuleP7trace_tPKfS2_S2_S2_ii:F(0,2)
-	global Z22G_TraceCapsuleCompletePKfS0_S0_S0_ii:F(0,3)
-	global Z17G_LocationalTraceP7trace_tPKfS2_iiPh:F(0,2)
-	global Z23G_LocationalTracePassedPKfS0_ii:F(0,3)
-	global Z12G_SightTracePiPKfS1_ii:F(0,2)
-	global Z16G_AddDebugStringPKfS0_fPKc:F(0,2)
-	global Z14G_ShutdownGamei:F(0,2)
+	global Z14CalculateRanksv_F0_2
+	global Z11G_LogPrintfPKcz_F0_2
+	global Z9ExitLevelv_F0_2
+	global Z10G_InitGameiiii_F0_2
+	global Z9CheckVotev_F0_2
+	global Z10G_RunThinkP9gentity_s_F0_2
+	global Z14G_TraceCapsuleP7trace_tPKfS2_S2_S2_ii_F0_2
+	global Z22G_TraceCapsuleCompletePKfS0_S0_S0_ii_F0_3
+	global Z17G_LocationalTraceP7trace_tPKfS2_iiPh_F0_2
+	global Z23G_LocationalTracePassedPKfS0_ii_F0_3
+	global Z12G_SightTracePiPKfS1_ii_F0_2
+	global Z16G_AddDebugStringPKfS0_fPKc_F0_2
+	global Z14G_ShutdownGamei_F0_2
 	global _Z19G_RunFrameForEntityP9gentity_s
-	global Z10G_RunFramei:F(0,2)
-	global Z21DroppedItemClearOwnerP9gentity_s:F(0,1)
-	global Z18G_GetItemClassnamePK7gitem_sPt:F(0,1)
-	global Z20ClearRegisteredItemsv:F(0,1)
-	global Z16G_RegisterWeaponi:F(0,1)
-	global Z16IsItemRegisteredi:F(0,13)
-	global Z18FinishSpawningItemP9gentity_s:F(0,1)
-	global Z15G_RunCorpseMoveP9gentity_s:F(0,1)
-	global Z11G_RunCorpseP9gentity_s:F(0,1)
-	global Z9G_RunItemP9gentity_s:F(0,1)
-	global Z11G_SpawnItemP9gentity_sPK7gitem_s:F(0,1)
-	global Z23G_FindConfigstringIndexPKciiiS0_:F(0,1)
-	global Z22G_LocalizedStringIndexPKc:F(0,1)
-	global Z13G_ShaderIndexPKc:F(0,1)
-	global Z12G_ModelIndexPKc:F(0,1)
-	global Z11G_ModelNamei:F(0,2)
-	global Z10G_TagIndexPKc:F(0,1)
-	global Z13G_EffectIndexPKc:F(0,1)
-	global Z17G_ShellShockIndexPKc:F(0,1)
-	global Z17G_SoundAliasIndexPKc:F(0,8)
-	global Z10G_SetModelP9gentity_sPKc:F(0,11)
-	global Z14G_SafeDObjFreeP9gentity_s:F(0,11)
-	global Z22G_DObjUpdateServerTimeP9gentity_si:F(0,3)
-	global Z14G_DObjCalcPoseP9gentity_s:F(0,11)
-	global Z14G_DObjCalcBoneP9gentity_si:F(0,11)
-	global Z23G_DObjGetLocalTagMatrixP9gentity_sj:F(0,82)
-	global Z13G_InitGentityP9gentity_s:F(0,11)
-	global Z15G_PrintEntitiesv:F(0,11)
-	global Z22G_GetPlayerCorpseIndexP9gentity_s:F(0,1)
-	global Z17G_FreeEntityDelayP9gentity_s:F(0,11)
-	global Z21G_AddPredictableEventP9gentity_sii:F(0,11)
-	global Z10G_AddEventP9gentity_sii:F(0,11)
-	global Z16G_SetConstStringPtPKc:F(0,11)
-	global Z10G_SetAngleP9gentity_sPKf:F(0,11)
-	global Z11G_XModelBadi:F(0,3)
-	global Z11G_SetOriginP9gentity_sPKf:F(0,11)
-	global Z16G_PlaySoundAliasP9gentity_sh:F(0,11)
-	global Z15G_OverrideModeliPKc:F(0,11)
-	global Z17G_AnimScriptSoundiP16snd_alias_list_t:F(0,1)
-	global Z19G_CalcTagParentAxisP9gentity_sPA3_f:F(0,11)
-	global Z14G_SetFixedLinkP9gentity_si:F(0,11)
-	global Z13G_CalcTagAxisP9gentity_si:F(0,11)
-	global Z11G_EntUnlinkP9gentity_s:F(0,11)
+	global Z10G_RunFramei_F0_2
+	global Z21DroppedItemClearOwnerP9gentity_s_F0_1
+	global Z18G_GetItemClassnamePK7gitem_sPt_F0_1
+	global Z20ClearRegisteredItemsv_F0_1
+	global Z16G_RegisterWeaponi_F0_1
+	global Z16IsItemRegisteredi_F0_13
+	global Z18FinishSpawningItemP9gentity_s_F0_1
+	global Z15G_RunCorpseMoveP9gentity_s_F0_1
+	global Z11G_RunCorpseP9gentity_s_F0_1
+	global Z9G_RunItemP9gentity_s_F0_1
+	global Z11G_SpawnItemP9gentity_sPK7gitem_s_F0_1
+	global Z23G_FindConfigstringIndexPKciiiS0__F0_1
+	global Z22G_LocalizedStringIndexPKc_F0_1
+	global Z13G_ShaderIndexPKc_F0_1
+	global Z12G_ModelIndexPKc_F0_1
+	global Z11G_ModelNamei_F0_2
+	global Z10G_TagIndexPKc_F0_1
+	global Z13G_EffectIndexPKc_F0_1
+	global Z17G_ShellShockIndexPKc_F0_1
+	global Z17G_SoundAliasIndexPKc_F0_8
+	global Z10G_SetModelP9gentity_sPKc_F0_11
+	global Z14G_SafeDObjFreeP9gentity_s_F0_11
+	global Z22G_DObjUpdateServerTimeP9gentity_si_F0_3
+	global Z14G_DObjCalcPoseP9gentity_s_F0_11
+	global Z14G_DObjCalcBoneP9gentity_si_F0_11
+	global Z23G_DObjGetLocalTagMatrixP9gentity_sj_F0_82
+	global Z13G_InitGentityP9gentity_s_F0_11
+	global Z15G_PrintEntitiesv_F0_11
+	global Z22G_GetPlayerCorpseIndexP9gentity_s_F0_1
+	global Z17G_FreeEntityDelayP9gentity_s_F0_11
+	global Z21G_AddPredictableEventP9gentity_sii_F0_11
+	global Z10G_AddEventP9gentity_sii_F0_11
+	global Z16G_SetConstStringPtPKc_F0_11
+	global Z10G_SetAngleP9gentity_sPKf_F0_11
+	global Z11G_XModelBadi_F0_3
+	global Z11G_SetOriginP9gentity_sPKf_F0_11
+	global Z16G_PlaySoundAliasP9gentity_sh_F0_11
+	global Z15G_OverrideModeliPKc_F0_11
+	global Z17G_AnimScriptSoundiP16snd_alias_list_t_F0_1
+	global Z19G_CalcTagParentAxisP9gentity_sPA3_f_F0_11
+	global Z14G_SetFixedLinkP9gentity_si_F0_11
+	global Z13G_CalcTagAxisP9gentity_si_F0_11
+	global Z11G_EntUnlinkP9gentity_s_F0_11
 	global _Z19G_EntLinkToInternalP9gentity_sS0_j
-	global Z21G_EntLinkToWithOffsetP9gentity_sS0_jPKfS2_:F(0,3)
-	global Z11G_EntLinkToP9gentity_sS0_j:F(0,3)
-	global Z13G_GeneralLinkP9gentity_s:F(0,11)
-	global Z12G_FreeEntityP9gentity_s:F(0,11)
-	global Z26G_GetFreePlayerCorpseIndexv:F(0,1)
-	global Z12G_DObjUpdateP9gentity_s:F(0,11)
-	global Z14G_EntDetachAllP9gentity_s:F(0,11)
-	global Z11G_EntDetachP9gentity_sPKcj:F(0,3)
-	global Z11G_EntAttachP9gentity_sPKcji:F(0,3)
-	global Z7G_Spawnv:F(0,12)
-	global Z12G_TempEntityPKfi:F(0,12)
-	global Z18G_SpawnPlayerClonev:F(0,12)
-	global Z23G_DObjGetWorldTagMatrixP9gentity_sjPA3_f:F(0,3)
-	global Z20G_DObjGetWorldTagPosP9gentity_sjPf:F(0,3)
-	global Z9G_TriggerP9gentity_sS0_:F(0,1)
-	global Z27G_GrenadeTouchTriggerDamageP9gentity_sPfS1_ii:F(0,1)
-	global Z23G_CheckHitTriggerDamageP9gentity_sPfS1_ii:F(0,1)
-	global Z15InitScriptMoverP9gentity_s:F(0,1)
+	global Z21G_EntLinkToWithOffsetP9gentity_sS0_jPKfS2__F0_3
+	global Z11G_EntLinkToP9gentity_sS0_j_F0_3
+	global Z13G_GeneralLinkP9gentity_s_F0_11
+	global Z12G_FreeEntityP9gentity_s_F0_11
+	global Z26G_GetFreePlayerCorpseIndexv_F0_1
+	global Z12G_DObjUpdateP9gentity_s_F0_11
+	global Z14G_EntDetachAllP9gentity_s_F0_11
+	global Z11G_EntDetachP9gentity_sPKcj_F0_3
+	global Z11G_EntAttachP9gentity_sPKcji_F0_3
+	global Z7G_Spawnv_F0_12
+	global Z12G_TempEntityPKfi_F0_12
+	global Z18G_SpawnPlayerClonev_F0_12
+	global Z23G_DObjGetWorldTagMatrixP9gentity_sjPA3_f_F0_3
+	global Z20G_DObjGetWorldTagPosP9gentity_sjPf_F0_3
+	global Z9G_TriggerP9gentity_sS0__F0_1
+	global Z27G_GrenadeTouchTriggerDamageP9gentity_sPfS1_ii_F0_1
+	global Z23G_CheckHitTriggerDamageP9gentity_sPfS1_ii_F0_1
+	global Z15InitScriptMoverP9gentity_s_F0_1
 	global _Z22ScriptMover_UpdatemoveP12trajectory_tPffffPKfS3_S3_
 	global _Z21ScriptMover_SetupMoveP12trajectory_tPKffffPfS3_S3_S3_S3_S3_S3_
 	global _Z18trigger_use_sharedP9gentity_s
-	global Z11trigger_useP9gentity_s:F(0,79)
-	global Z17trigger_use_touchP9gentity_s:F(0,79)
-	global Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)
-	global Z11G_MoverTeamP9gentity_s:F(0,79)
-	global Z10G_RunMoverP9gentity_s:F(0,79)
-	global Z13G_InitTurretsv:F(0,1)
-	global Z23G_ClientStopUsingTurretP9gentity_s:F(0,1)
-	global Z12G_FreeTurretP9gentity_s:F(0,1)
-	global Z16G_IsTurretUsableP9gentity_sS0_:F(0,15)
-	global Z13G_SpawnTurretP9gentity_sPKc:F(0,1)
-	global Z7BodyEndP9gentity_s:F(0,1)
-	global Z16Player_GetMethodPPKc:F(0,102)
+	global Z11trigger_useP9gentity_s_F0_79
+	global Z17trigger_use_touchP9gentity_s_F0_79
+	global Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24
+	global Z11G_MoverTeamP9gentity_s_F0_79
+	global Z10G_RunMoverP9gentity_s_F0_79
+	global Z13G_InitTurretsv_F0_1
+	global Z23G_ClientStopUsingTurretP9gentity_s_F0_1
+	global Z12G_FreeTurretP9gentity_s_F0_1
+	global Z16G_IsTurretUsableP9gentity_sS0__F0_15
+	global Z13G_SpawnTurretP9gentity_sPKc_F0_1
+	global Z7BodyEndP9gentity_s_F0_1
+	global Z16Player_GetMethodPPKc_F0_102
 	global _Z14G_HitLocStrcpyPhPKc
-	global Z21G_ParseHitLocDmgTablev:F(0,1)
-	global Z22G_IndexForMeansOfDeathPKc:F(0,10)
-	global Z22G_GetHitLocationString13hitLocation_t:F(0,22)
-	global Z31G_GetHitLocationIndexFromStringt:F(0,83)
-	global Z9CanDamageP9gentity_sPKf:F(0,34)
-	global Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)
-	global Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)
-	global Z23G_GetWeaponIndexForNamePKc:F(0,5)
-	global Z20G_SetEquippedOffHandii:F(0,1)
-	global Z19G_SelectWeaponIndexii:F(0,1)
-	global Z12G_UseOffHandP9gentity_s:F(0,1)
-	global Z15FireWeaponMeleeP9gentity_s:F(0,1)
-	global Z16G_SetupWeaponDefv:F(0,1)
-	global Z17FireWeaponAntiLagP9gentity_si:F(0,1)
-	global Z18G_GivePlayerWeaponP13playerState_si:F(0,21)
-	global Z16G_ExplodeMissileP9gentity_s:F(0,1)
+	global Z21G_ParseHitLocDmgTablev_F0_1
+	global Z22G_IndexForMeansOfDeathPKc_F0_10
+	global Z22G_GetHitLocationString13hitLocation_t_F0_22
+	global Z31G_GetHitLocationIndexFromStringt_F0_83
+	global Z9CanDamageP9gentity_sPKf_F0_34
+	global Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1
+	global Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24
+	global Z23G_GetWeaponIndexForNamePKc_F0_5
+	global Z20G_SetEquippedOffHandii_F0_1
+	global Z19G_SelectWeaponIndexii_F0_1
+	global Z12G_UseOffHandP9gentity_s_F0_1
+	global Z15FireWeaponMeleeP9gentity_s_F0_1
+	global Z16G_SetupWeaponDefv_F0_1
+	global Z17FireWeaponAntiLagP9gentity_si_F0_1
+	global Z18G_GivePlayerWeaponP13playerState_si_F0_21
+	global Z16G_ExplodeMissileP9gentity_s_F0_1
 	global _Z19G_MissileLandAnglesP9gentity_sP7trace_tPfi
 	global _Z15G_BounceMissileP9gentity_sP7trace_t
-	global Z12G_RunMissileP9gentity_s:F(0,1)
-	global Z15G_ProcessIPBansv:F(0,1)
-	global Z15CheckTeamStatusv:F(0,75)
-	global Z21G_SpawnStringInternalP8SpawnVarPKcS2_PS2_:F(0,1)
-	global Z11G_NewStringPKc:F(0,16)
-	global Z16G_ParseSpawnVarsP8SpawnVar:F(0,1)
-	global Z21Player_UpdateActivateP9gentity_s:F(0,1)
+	global Z12G_RunMissileP9gentity_s_F0_1
+	global Z15G_ProcessIPBansv_F0_1
+	global Z15CheckTeamStatusv_F0_75
+	global Z21G_SpawnStringInternalP8SpawnVarPKcS2_PS2__F0_1
+	global Z11G_NewStringPKc_F0_16
+	global Z16G_ParseSpawnVarsP8SpawnVar_F0_1
+	global Z21Player_UpdateActivateP9gentity_s_F0_1
 	global _Z17Player_GetUseListP9gentity_sP9useList_t
-	global Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)
-	global Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)
-	global Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)
+	global Z24Player_UpdateCursorHintsP9gentity_s_F0_1
+	global Z25Player_UpdateLookAtEntityP9gentity_s_F0_1
+	global Z26G_ParseWeaponAccurayGraphsP9WeaponDef_F0_1
 
 SECTION .text
-Z10G_FindItemPKc:F(0,2):
+Z10G_FindItemPKc_F0_2:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -815,9 +1407,9 @@ Z10G_FindItemPKc:F(0,2):
 	mov edi, [ebp+0x8]
 	mov eax, [0x1acce15]
 	cmp dword [eax], 0x81
-	jle Z10G_FindItemPKc:F(0,2)_10
+	jle Z10G_FindItemPKc_F0_2_10
 	mov esi, 0x81
-Z10G_FindItemPKc:F(0,2)_30:
+Z10G_FindItemPKc_F0_2_30:
 	lea eax, [esi+esi*4]
 	lea eax, [esi+eax*2]
 	mov edx, [0x1acce11]
@@ -825,30 +1417,30 @@ Z10G_FindItemPKc:F(0,2)_30:
 	mov [esp+0x4], edi
 	mov eax, [ebx+0x14]
 	mov [esp], eax
-	call I_stricmp:F(0,2)
+	call I_stricmp_F0_2
 	test eax, eax
-	jz Z10G_FindItemPKc:F(0,2)_20
+	jz Z10G_FindItemPKc_F0_2_20
 	mov [esp+0x4], edi
 	mov eax, [ebx]
 	mov [esp], eax
-	call I_stricmp:F(0,2)
+	call I_stricmp_F0_2
 	test eax, eax
-	jz Z10G_FindItemPKc:F(0,2)_20
+	jz Z10G_FindItemPKc_F0_2_20
 	add esi, 0x1
 	mov eax, [0x1acce15]
 	cmp esi, [eax]
-	jl Z10G_FindItemPKc:F(0,2)_30
-Z10G_FindItemPKc:F(0,2)_10:
+	jl Z10G_FindItemPKc_F0_2_30
+Z10G_FindItemPKc_F0_2_10:
 	mov [esp], edi
-	call Z23G_GetWeaponIndexForNamePKc:F(0,5)
+	call Z23G_GetWeaponIndexForNamePKc_F0_5
 	mov edx, eax
 	test eax, eax
-	jz Z10G_FindItemPKc:F(0,2)_40
+	jz Z10G_FindItemPKc_F0_2_40
 	lea eax, [eax+eax*4]
 	lea eax, [edx+eax*2]
 	mov edx, [0x1acce11]
 	lea ebx, [edx+eax*4]
-Z10G_FindItemPKc:F(0,2)_20:
+Z10G_FindItemPKc_F0_2_20:
 	mov eax, ebx
 	add esp, 0x1c
 	pop ebx
@@ -856,7 +1448,7 @@ Z10G_FindItemPKc:F(0,2)_20:
 	pop edi
 	pop ebp
 	ret
-Z10G_FindItemPKc:F(0,2)_40:
+Z10G_FindItemPKc_F0_2_40:
 	xor ebx, ebx
 	mov eax, ebx
 	add esp, 0x1c
@@ -868,9 +1460,9 @@ Z10G_FindItemPKc:F(0,2)_40:
 	nop
 
 
-;Z35BG_AddPredictableEventToPlayerstateiiP13playerState_s:F(0,1)
+;Z35BG_AddPredictableEventToPlayerstateiiP13playerState_s_F0_1
 
-Z14CalculateScoreRSt5dequeItSaItEER5Tuple:F(0,31):
+Z14CalculateScoreRSt5dequeItSaItEER5Tuple_F0_31:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -890,10 +1482,10 @@ Z14CalculateScoreRSt5dequeItSaItEER5Tuple:F(0,31):
 	mov byte [ebp-0x1a], 0x0
 	mov byte [ebp-0x19], 0x0
 	xor edi, edi
-Z14CalculateScoreRSt5dequeItSaItEER5Tuple:F(0,31)_20:
+Z14CalculateScoreRSt5dequeItSaItEER5Tuple_F0_31_20:
 	cmp [ebp-0x10], ebx
-	jz Z14CalculateScoreRSt5dequeItSaItEER5Tuple:F(0,31)_10
-Z14CalculateScoreRSt5dequeItSaItEER5Tuple:F(0,31)_30:
+	jz Z14CalculateScoreRSt5dequeItSaItEER5Tuple_F0_31_10
+Z14CalculateScoreRSt5dequeItSaItEER5Tuple_F0_31_30:
 	movzx ecx, word [ebx]
 	movzx eax, word [esi]
 	mov edx, 0x1
@@ -911,7 +1503,7 @@ Z14CalculateScoreRSt5dequeItSaItEER5Tuple:F(0,31)_30:
 	mov [ebp-0x1a], cl
 	add ebx, 0x2
 	cmp [ebp-0x14], ebx
-	jnz Z14CalculateScoreRSt5dequeItSaItEER5Tuple:F(0,31)_20
+	jnz Z14CalculateScoreRSt5dequeItSaItEER5Tuple_F0_31_20
 	add dword [ebp-0x18], 0x4
 	mov edx, [ebp-0x18]
 	mov eax, [edx]
@@ -919,8 +1511,8 @@ Z14CalculateScoreRSt5dequeItSaItEER5Tuple:F(0,31)_30:
 	mov [ebp-0x14], ecx
 	mov ebx, eax
 	cmp [ebp-0x10], ebx
-	jnz Z14CalculateScoreRSt5dequeItSaItEER5Tuple:F(0,31)_30
-Z14CalculateScoreRSt5dequeItSaItEER5Tuple:F(0,31)_10:
+	jnz Z14CalculateScoreRSt5dequeItSaItEER5Tuple_F0_31_30
+Z14CalculateScoreRSt5dequeItSaItEER5Tuple_F0_31_10:
 	movzx eax, byte [ebp-0x1a]
 	mov ecx, edi
 	movzx edx, cl
@@ -935,9 +1527,9 @@ Z14CalculateScoreRSt5dequeItSaItEER5Tuple:F(0,31)_10:
 	ret
 
 
-;Z27ChooseAndRemoveBestTriangleRSt5dequeItSaItEERSt4listI5TupleSaIS4_EE:F(0,171)
+;Z27ChooseAndRemoveBestTriangleRSt5dequeItSaItEERSt4listI5TupleSaIS4_EE_F0_171
 
-Z24G_GetPlayerViewDirectionPK9gentity_sPfS2_S2_:F(0,1):
+Z24G_GetPlayerViewDirectionPK9gentity_sPfS2_S2__F0_1:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -945,12 +1537,12 @@ Z24G_GetPlayerViewDirectionPK9gentity_sPfS2_S2_:F(0,1):
 	add eax, 0xe8
 	mov [ebp+0x8], eax
 	pop ebp
-	jmp AngleVectors:F(0,18)
+	jmp AngleVectors_F0_18
 
 
-;Z11ClientBegini:F(0,1)
+;Z11ClientBegini_F0_1
 
-Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9):
+Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -962,48 +1554,48 @@ Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9):
 	mov eax, [eax+0x274c]
 	mov [ebp-0x1c], eax
 	test eax, eax
-	jz Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_10
+	jz Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_10
 	cmp eax, 0x3
-	jz Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_10
+	jz Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_10
 	cmp dword [ebp+0x10], 0x3ff
-	jz Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_20
+	jz Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_20
 	mov edi, [ebp+0x10]
 	add edi, 0x1
-Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_130:
+Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_130:
 	xor esi, esi
-	jmp Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_30
-Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_60:
+	jmp Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_30
+Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_60:
 	lea eax, [eax+eax*4]
 	lea ebx, [eax*8]
 	sub ebx, eax
 	shl ebx, 0x4
 	add ebx, [0x1acd709]
 	cmp byte [ebx+0xfc], 0x0
-	jz Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_40
+	jz Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_40
 	mov eax, [ebx+0x158]
 	test eax, eax
-	jz Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_40
+	jz Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_40
 	mov edx, [eax+0x26a8]
 	test edx, edx
-	jnz Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_40
+	jnz Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_40
 	mov edx, [ebp-0x1c]
 	cmp edx, [eax+0x274c]
-	jz Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_50
-Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_40:
+	jz Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_50
+Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_40:
 	add esi, 0x1
 	cmp esi, 0x40
-	jz Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_10
-Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_30:
+	jz Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_10
+Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_30:
 	lea eax, [edi+esi]
 	and eax, 0x8000003f
-	jns Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_60
+	jns Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_60
 	sub eax, 0x1
 	or eax, 0xffffffc0
 	add eax, 0x1
-	jmp Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_60
-Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_10:
+	jmp Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_60
+Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_10:
 	xor ecx, ecx
-Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_120:
+Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_120:
 	mov eax, ecx
 	add esp, 0x2c
 	pop ebx
@@ -1011,16 +1603,16 @@ Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_120:
 	pop edi
 	pop ebp
 	ret
-Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_50:
+Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_50:
 	cmp [ebp+0x8], ebx
-	jz Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_40
+	jz Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_40
 	mov eax, [ebx]
 	mov [esp+0x4], eax
 	mov eax, [ebp+0xc]
 	mov [esp], eax
-	call Z13SV_inSnapshotPKfi:F(0,27)
+	call Z13SV_inSnapshotPKfi_F0_27
 	test eax, eax
-	jnz Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_40
+	jnz Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_40
 	mov ecx, [ebx]
 	movss xmm0, dword [ebx+0x138]
 	mov edx, [ebp+0xc]
@@ -1032,31 +1624,31 @@ Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_50:
 	addss xmm0, [_float_0_50000000]
 	cvttss2si edx, xmm0
 	cmp eax, 0x400
-	jle Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_70
+	jle Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_70
 	cvtsi2ss xmm0, eax
 	movss xmm2, dword [_float_1024_00000000]
 	divss xmm2, xmm0
 	movss xmm3, dword [_float_1_00000000]
-Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_150:
+Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_150:
 	cmp edx, 0x400
-	jle Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_80
+	jle Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_80
 	cvtsi2ss xmm0, edx
 	movss xmm1, dword [_float_1024_00000000]
 	divss xmm1, xmm0
-Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_190:
+Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_190:
 	ucomiss xmm3, xmm2
-	ja Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_90
+	ja Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_90
 	ucomiss xmm3, xmm1
-	ja Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_90
-Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_230:
+	ja Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_90
+Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_230:
 	cmp eax, 0x400
-	jle Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_100
+	jle Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_100
 	mov eax, 0x402
-Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_210:
+Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_210:
 	cmp edx, 0x400
-	jle Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_110
+	jle Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_110
 	mov esi, 0x402
-Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_170:
+Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_170:
 	and ecx, 0xffff803f
 	lea edx, [eax+0x3]
 	cmp eax, 0xffffffff
@@ -1082,67 +1674,67 @@ Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_170:
 	cvttss2si eax, xmm0
 	shl eax, 0x18
 	or ecx, eax
-	jmp Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_120
-Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_20:
+	jmp Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_120
+Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_20:
 	xor edi, edi
-	jmp Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_130
-Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_70:
+	jmp Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_130
+Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_70:
 	cmp eax, 0xfffffc02
-	jl Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_140
+	jl Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_140
 	movss xmm2, dword [_float_1_00000000]
 	movaps xmm3, xmm2
-	jmp Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_150
-Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_110:
+	jmp Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_150
+Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_110:
 	cmp edx, 0xfffffc02
-	jge Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_160
+	jge Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_160
 	mov esi, 0xfffffc04
-	jmp Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_170
-Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_80:
+	jmp Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_170
+Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_80:
 	cmp edx, 0xfffffc02
-	jl Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_180
+	jl Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_180
 	movaps xmm1, xmm3
-	jmp Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_190
-Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_100:
+	jmp Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_190
+Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_100:
 	cmp eax, 0xfffffc02
-	jge Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_200
+	jge Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_200
 	mov eax, 0xfffffc04
-	jmp Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_210
-Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_90:
+	jmp Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_210
+Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_90:
 	ucomiss xmm1, xmm2
-	jbe Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_220
+	jbe Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_220
 	cvtsi2ss xmm0, edx
 	mulss xmm0, xmm2
 	cvttss2si edx, xmm0
-	jmp Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_230
-Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_140:
+	jmp Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_230
+Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_140:
 	cvtsi2ss xmm0, eax
 	movss xmm2, dword [_float__1022_00000000]
 	divss xmm2, xmm0
 	movss xmm3, dword [_float_1_00000000]
-	jmp Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_150
-Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_160:
+	jmp Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_150
+Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_160:
 	lea esi, [edx+0x2]
-	jmp Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_170
-Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_200:
+	jmp Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_170
+Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_200:
 	add eax, 0x2
-	jmp Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_210
-Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_180:
+	jmp Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_210
+Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_180:
 	cvtsi2ss xmm0, edx
 	movss xmm1, dword [_float__1022_00000000]
 	divss xmm1, xmm0
-	jmp Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_190
-Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_220:
+	jmp Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_190
+Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_220:
 	ucomiss xmm2, xmm1
-	jbe Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_230
+	jbe Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_230
 	cvtsi2ss xmm0, eax
 	mulss xmm1, xmm0
 	cvttss2si eax, xmm1
-	jmp Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi:F(0,9)_230
+	jmp Z23G_GetNonPVSFriendlyInfoP9gentity_sPfi_F0_9_230
 
 
-;Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t:F(0,1)
+;Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t_F0_1
 
-Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t:F(0,1):
+Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1156,101 +1748,101 @@ Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t:F(0,1):
 	mov [eax+0x2808], edx
 	xor esi, esi
 	mov ebx, [0x1acd709]
-	jmp Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t:F(0,1)_10
-Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t:F(0,1)_70:
+	jmp Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t_F0_1_10
+Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t_F0_1_70:
 	sub eax, 0x1
-	jz Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t:F(0,1)_20
+	jz Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t_F0_1_20
 	sub edx, 0x1
-	jz Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t:F(0,1)_20
-Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t:F(0,1)_40:
+	jz Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t_F0_1_20
+Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t_F0_1_40:
 	add esi, 0x1
 	add ebx, 0x230
 	cmp esi, 0x40
-	jz Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t:F(0,1)_30
-Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t:F(0,1)_10:
+	jz Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t_F0_1_30
+Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t_F0_1_10:
 	mov edx, [ebx+0x158]
 	cmp byte [ebx+0xfc], 0x0
-	jz Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t:F(0,1)_40
+	jz Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t_F0_1_40
 	test edx, edx
-	jz Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t:F(0,1)_40
+	jz Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t_F0_1_40
 	cmp dword [edx+0x26a8], 0x3
-	jz Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t:F(0,1)_50
+	jz Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t_F0_1_50
 	mov eax, [0x1acd705]
 	mov eax, [eax]
 	cmp byte [eax+0x8], 0x0
-	jz Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t:F(0,1)_60
-Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t:F(0,1)_50:
+	jz Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t_F0_1_60
+Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t_F0_1_50:
 	mov ecx, [edi+0x158]
-Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t:F(0,1)_110:
+Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t_F0_1_110:
 	mov eax, [edx+0x26a8]
 	mov edx, [ecx+0x26a8]
 	cmp eax, edx
-	jnz Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t:F(0,1)_70
+	jnz Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t_F0_1_70
 	cmp edi, ebx
-	jz Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t:F(0,1)_80
-Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t:F(0,1)_90:
+	jz Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t_F0_1_80
+Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t_F0_1_90:
 	mov eax, [edi]
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call Z23SV_ClientHasClientMutedii:F(0,28)
+	call Z23SV_ClientHasClientMutedii_F0_28
 	test al, al
-	jnz Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t:F(0,1)_40
+	jnz Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t_F0_1_40
 	mov [esp], esi
-	call Z23SV_ClientWantsVoiceDatai:F(0,28)
+	call Z23SV_ClientWantsVoiceDatai_F0_28
 	test al, al
-	jz Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t:F(0,1)_40
+	jz Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t_F0_1_40
 	mov eax, [ebp+0xc]
 	mov [esp+0x8], eax
 	mov [esp+0x4], esi
 	mov eax, [edi]
 	mov [esp], eax
-	call Z19SV_QueueVoicePacketiiP13VoicePacket_t:F(0,1)
+	call Z19SV_QueueVoicePacketiiP13VoicePacket_t_F0_1
 	add esi, 0x1
 	add ebx, 0x230
 	cmp esi, 0x40
-	jnz Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t:F(0,1)_10
-Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t:F(0,1)_30:
+	jnz Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t_F0_1_10
+Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t_F0_1_30:
 	add esp, 0x1c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t:F(0,1)_20:
+Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t_F0_1_20:
 	mov eax, [0x1acd711]
 	mov eax, [eax]
 	cmp byte [eax+0x8], 0x0
-	jz Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t:F(0,1)_40
+	jz Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t_F0_1_40
 	cmp edi, ebx
-	jnz Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t:F(0,1)_90
-Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t:F(0,1)_80:
+	jnz Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t_F0_1_90
+Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t_F0_1_80:
 	mov eax, [0x1acd71d]
 	mov eax, [eax]
 	cmp byte [eax+0x8], 0x0
-	jz Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t:F(0,1)_40
-	jmp Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t:F(0,1)_90
-Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t:F(0,1)_60:
+	jz Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t_F0_1_40
+	jmp Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t_F0_1_90
+Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t_F0_1_60:
 	mov [esp+0x4], ebx
 	mov [esp], edi
-	call Z10OnSameTeamP9gentity_sS0_:F(0,1)
+	call Z10OnSameTeamP9gentity_sS0__F0_1
 	test eax, eax
-	jnz Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t:F(0,1)_100
+	jnz Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t_F0_1_100
 	mov ecx, [edi+0x158]
 	mov eax, [ecx+0x274c]
 	test eax, eax
-	jnz Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t:F(0,1)_40
-Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t:F(0,1)_120:
+	jnz Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t_F0_1_40
+Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t_F0_1_120:
 	mov edx, [ebx+0x158]
-	jmp Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t:F(0,1)_110
-Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t:F(0,1)_100:
+	jmp Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t_F0_1_110
+Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t_F0_1_100:
 	mov ecx, [edi+0x158]
-	jmp Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t:F(0,1)_120
+	jmp Z16G_BroadcastVoiceP9gentity_sP13VoicePacket_t_F0_1_120
 	nop
 
 
-;Z18SetClientViewAngleP9gentity_sPKf:F(0,1)
+;Z18SetClientViewAngleP9gentity_sPKf_F0_1
 
-Z21G_GetPlayerViewOriginPK9gentity_sPf:F(0,1):
+Z21G_GetPlayerViewOriginPK9gentity_sPf_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1261,7 +1853,7 @@ Z21G_GetPlayerViewOriginPK9gentity_sPf:F(0,1):
 	mov eax, [ebp+0x8]
 	mov esi, [eax+0x158]
 	test dword [esi+0xa0], 0x300
-	jz Z21G_GetPlayerViewOriginPK9gentity_sPf:F(0,1)_10
+	jz Z21G_GetPlayerViewOriginPK9gentity_sPf_F0_1_10
 	mov [esp+0x8], edi
 	mov eax, [0x1acd639]
 	movzx eax, word [eax+0x9a]
@@ -1273,17 +1865,17 @@ Z21G_GetPlayerViewOriginPK9gentity_sPf:F(0,1):
 	shl eax, 0x4
 	add eax, [0x1acd709]
 	mov [esp], eax
-	call Z20G_DObjGetWorldTagPosP9gentity_sjPf:F(0,3)
+	call Z20G_DObjGetWorldTagPosP9gentity_sjPf_F0_3
 	test eax, eax
-	jz Z21G_GetPlayerViewOriginPK9gentity_sPf:F(0,1)_20
-Z21G_GetPlayerViewOriginPK9gentity_sPf:F(0,1)_30:
+	jz Z21G_GetPlayerViewOriginPK9gentity_sPf_F0_1_20
+Z21G_GetPlayerViewOriginPK9gentity_sPf_F0_1_30:
 	add esp, 0x6c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z21G_GetPlayerViewOriginPK9gentity_sPf:F(0,1)_10:
+Z21G_GetPlayerViewOriginPK9gentity_sPf_F0_1_10:
 	lea edx, [esi+0x14]
 	mov eax, [esi+0x14]
 	mov [edi], eax
@@ -1294,13 +1886,13 @@ Z21G_GetPlayerViewOriginPK9gentity_sPf:F(0,1)_10:
 	addss xmm0, [esi+0xf8]
 	movss [edi+0x8], xmm0
 	mov [esp], esi
-	call Z14BG_GetBobCyclePK13playerState_s:F(0,16)
+	call Z14BG_GetBobCyclePK13playerState_s_F0_16
 	fstp dword [ebp-0x30]
 	mov eax, [0x1acd721]
 	mov eax, [eax+0x1ec]
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call Z11BG_GetSpeedPK13playerState_si:F(0,15)
+	call Z11BG_GetSpeedPK13playerState_si_F0_15
 	fstp dword [ebp-0x2c]
 	mov ebx, [0x1acd701]
 	mov eax, [ebx]
@@ -1311,7 +1903,7 @@ Z21G_GetPlayerViewOriginPK9gentity_sPf:F(0,1)_10:
 	movss xmm0, dword [ebp-0x30]
 	movss [esp+0x4], xmm0
 	mov [esp], esi
-	call Z23BG_GetVerticalBobFactorPK13playerState_sfff:F(0,16)
+	call Z23BG_GetVerticalBobFactorPK13playerState_sfff_F0_16
 	fstp dword [ebp-0x4c]
 	movss xmm0, dword [ebp-0x4c]
 	addss xmm0, [edi+0x8]
@@ -1324,7 +1916,7 @@ Z21G_GetPlayerViewOriginPK9gentity_sPf:F(0,1)_10:
 	movss xmm0, dword [ebp-0x30]
 	movss [esp+0x4], xmm0
 	mov [esp], esi
-	call Z25BG_GetHorizontalBobFactorPK13playerState_sfff:F(0,16)
+	call Z25BG_GetHorizontalBobFactorPK13playerState_sfff_F0_16
 	fstp dword [ebp-0x4c]
 	movss xmm1, dword [ebp-0x4c]
 	mov dword [esp+0xc], 0x0
@@ -1336,7 +1928,7 @@ Z21G_GetPlayerViewOriginPK9gentity_sPf:F(0,1)_10:
 	add eax, 0xe8
 	mov [esp], eax
 	movss [ebp-0x48], xmm1
-	call AngleVectors:F(0,18)
+	call AngleVectors_F0_18
 	movss xmm1, dword [ebp-0x48]
 	movaps xmm0, xmm1
 	mulss xmm0, [ebp-0x24]
@@ -1356,11 +1948,11 @@ Z21G_GetPlayerViewOriginPK9gentity_sPf:F(0,1)_10:
 	mov eax, [esi+0xec]
 	mov [esp+0x4], eax
 	mov [esp], edi
-	call Z17AddLeanToPositionPfffff:F(0,15)
+	call Z17AddLeanToPositionPfffff_F0_15
 	movss xmm0, dword [_float_8_00000000]
 	addss xmm0, [esi+0x1c]
 	ucomiss xmm0, [edi+0x8]
-	jbe Z21G_GetPlayerViewOriginPK9gentity_sPf:F(0,1)_30
+	jbe Z21G_GetPlayerViewOriginPK9gentity_sPf_F0_1_30
 	movss [edi+0x8], xmm0
 	add esp, 0x6c
 	pop ebx
@@ -1368,10 +1960,10 @@ Z21G_GetPlayerViewOriginPK9gentity_sPf:F(0,1)_10:
 	pop edi
 	pop ebp
 	ret
-Z21G_GetPlayerViewOriginPK9gentity_sPf:F(0,1)_20:
+Z21G_GetPlayerViewOriginPK9gentity_sPf_F0_1_20:
 	mov dword [esp+0x4], _cstring_g_getplayerviewo
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	add esp, 0x6c
 	pop ebx
 	pop esi
@@ -1381,9 +1973,9 @@ Z21G_GetPlayerViewOriginPK9gentity_sPf:F(0,1)_20:
 	nop
 
 
-;Z21ClientUserinfoChangedi:F(0,1)
+;Z21ClientUserinfoChangedi_F0_1
 
-Z20G_GetHintStringIndexPiPKc:F(0,25):
+Z20G_GetHintStringIndexPiPKc_F0_25:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1392,29 +1984,29 @@ Z20G_GetHintStringIndexPiPKc:F(0,25):
 	sub esp, 0x41c
 	xor esi, esi
 	lea edi, [ebp-0x418]
-	jmp Z20G_GetHintStringIndexPiPKc:F(0,25)_10
-Z20G_GetHintStringIndexPiPKc:F(0,25)_40:
+	jmp Z20G_GetHintStringIndexPiPKc_F0_25_10
+Z20G_GetHintStringIndexPiPKc_F0_25_40:
 	mov [esp+0x4], edi
 	mov eax, [ebp+0xc]
 	mov [esp], eax
 	call strcmp
 	test eax, eax
-	jz Z20G_GetHintStringIndexPiPKc:F(0,25)_20
+	jz Z20G_GetHintStringIndexPiPKc_F0_25_20
 	add esi, 0x1
 	cmp esi, 0x20
-	jz Z20G_GetHintStringIndexPiPKc:F(0,25)_30
-Z20G_GetHintStringIndexPiPKc:F(0,25)_10:
+	jz Z20G_GetHintStringIndexPiPKc_F0_25_30
+Z20G_GetHintStringIndexPiPKc_F0_25_10:
 	lea ebx, [esi+0x4fe]
 	mov dword [esp+0x8], 0x400
 	mov [esp+0x4], edi
 	mov [esp], ebx
-	call Z18SV_GetConfigstringiPci:F(0,3)
+	call Z18SV_GetConfigstringiPci_F0_3
 	cmp byte [ebp-0x418], 0x0
-	jnz Z20G_GetHintStringIndexPiPKc:F(0,25)_40
+	jnz Z20G_GetHintStringIndexPiPKc_F0_25_40
 	mov eax, [ebp+0xc]
 	mov [esp+0x4], eax
 	mov [esp], ebx
-	call Z18SV_SetConfigstringiPKc:F(0,3)
+	call Z18SV_SetConfigstringiPKc_F0_3
 	mov eax, [ebp+0x8]
 	mov [eax], esi
 	mov eax, 0x1
@@ -1424,7 +2016,7 @@ Z20G_GetHintStringIndexPiPKc:F(0,25)_10:
 	pop edi
 	pop ebp
 	ret
-Z20G_GetHintStringIndexPiPKc:F(0,25)_20:
+Z20G_GetHintStringIndexPiPKc_F0_25_20:
 	mov eax, [ebp+0x8]
 	mov [eax], esi
 	mov eax, 0x1
@@ -1434,7 +2026,7 @@ Z20G_GetHintStringIndexPiPKc:F(0,25)_20:
 	pop edi
 	pop ebp
 	ret
-Z20G_GetHintStringIndexPiPKc:F(0,25)_30:
+Z20G_GetHintStringIndexPiPKc_F0_25_30:
 	mov eax, [ebp+0x8]
 	mov dword [eax], 0xffffffff
 	xor eax, eax
@@ -1450,7 +2042,7 @@ Z20G_GetHintStringIndexPiPKc:F(0,25)_30:
 
 ;SetObjectiveIcon(objective_t*, int)
 
-Z16G_InitObjectivesv:F(0,5):
+Z16G_InitObjectivesv_F0_5:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -1459,7 +2051,7 @@ Z16G_InitObjectivesv:F(0,5):
 	mov ecx, edx
 	mov ebx, [0x1acd721]
 	add ebx, 0x1e4
-Z16G_InitObjectivesv:F(0,5)_10:
+Z16G_InitObjectivesv_F0_5_10:
 	mov dword [edx], 0x0
 	lea eax, [ecx+0x4]
 	mov dword [ecx+0x4], 0x0
@@ -1471,16 +2063,16 @@ Z16G_InitObjectivesv:F(0,5)_10:
 	add edx, 0x1c
 	add ecx, 0x1c
 	cmp edx, ebx
-	jnz Z16G_InitObjectivesv:F(0,5)_10
+	jnz Z16G_InitObjectivesv_F0_5_10
 	pop ebx
 	pop ebp
 	ret
 	nop
 
 
-;Z26Scr_ConstructMessageStringiiPKcPci:F(0,5)
+;Z26Scr_ConstructMessageStringiiPKcPci_F0_5
 
-Z13G_SpawnStringPKcS0_PS0_:F(0,1):
+Z13G_SpawnStringPKcS0_PS0__F0_1:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -1493,7 +2085,7 @@ Z13G_SpawnStringPKcS0_PS0_:F(0,1):
 	mov eax, [0x1acd721]
 	add eax, 0x1348
 	mov [esp], eax
-	call Z21G_SpawnStringInternalP8SpawnVarPKcS2_PS2_:F(0,1)
+	call Z21G_SpawnStringInternalP8SpawnVarPKcS2_PS2__F0_1
 	leave
 	ret
 	nop
@@ -1512,7 +2104,7 @@ _Z33G_SetEntityScriptVariableInternalPKcS0_:
 	lea edx, [ebp-0x1c]
 	mov [esp+0x4], edx
 	mov [esp], eax
-	call Z13Scr_FindFieldPKcPi:F(0,22)
+	call Z13Scr_FindFieldPKcPi_F0_22
 	mov edi, eax
 	test eax, eax
 	jz _Z33G_SetEntityScriptVariableInternalPKcS0__10
@@ -1538,7 +2130,7 @@ _Z33G_SetEntityScriptVariableInternalPKcS0__30:
 	mov [esp], esi
 	call atoi
 	mov [esp], eax
-	call Z10Scr_AddInti:F(0,1)
+	call Z10Scr_AddInti_F0_1
 	jmp _Z33G_SetEntityScriptVariableInternalPKcS0__10
 _Z33G_SetEntityScriptVariableInternalPKcS0__20:
 	xor eax, eax
@@ -1555,7 +2147,7 @@ _Z33G_SetEntityScriptVariableInternalPKcS0__20:
 	mov [esp], esi
 	call sscanf
 	mov [esp], ebx
-	call Z13Scr_AddVectorPKf:F(0,1)
+	call Z13Scr_AddVectorPKf_F0_1
 	mov eax, edi
 	add esp, 0x4c
 	pop ebx
@@ -1565,7 +2157,7 @@ _Z33G_SetEntityScriptVariableInternalPKcS0__20:
 	ret
 _Z33G_SetEntityScriptVariableInternalPKcS0__40:
 	mov [esp], esi
-	call Z13Scr_AddStringPKc:F(0,1)
+	call Z13Scr_AddStringPKc_F0_1
 	jmp _Z33G_SetEntityScriptVariableInternalPKcS0__10
 _Z33G_SetEntityScriptVariableInternalPKcS0__50:
 	mov [esp], esi
@@ -1573,13 +2165,13 @@ _Z33G_SetEntityScriptVariableInternalPKcS0__50:
 	fstp qword [ebp-0x30]
 	cvtsd2ss xmm0, [ebp-0x30]
 	movss [esp], xmm0
-	call Z12Scr_AddFloatf:F(0,1)
+	call Z12Scr_AddFloatf_F0_1
 	jmp _Z33G_SetEntityScriptVariableInternalPKcS0__10
 
 
-;Z23G_DuplicateEntityFieldsP9gentity_sPKS_:F(0,7)
+;Z23G_DuplicateEntityFieldsP9gentity_sPKS__F0_7
 
-Z23G_DuplicateEntityFieldsP9gentity_sPKS_:F(0,7):
+Z23G_DuplicateEntityFieldsP9gentity_sPKS__F0_7:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1590,60 +2182,60 @@ Z23G_DuplicateEntityFieldsP9gentity_sPKS_:F(0,7):
 	mov esi, [ebp+0xc]
 	mov eax, [fields]
 	test eax, eax
-	jz Z23G_DuplicateEntityFieldsP9gentity_sPKS_:F(0,7)_10
+	jz Z23G_DuplicateEntityFieldsP9gentity_sPKS__F0_7_10
 	mov ebx, fields+0x8
-Z23G_DuplicateEntityFieldsP9gentity_sPKS_:F(0,7)_30:
+Z23G_DuplicateEntityFieldsP9gentity_sPKS__F0_7_30:
 	cmp dword [ebx], 0x8
-	ja Z23G_DuplicateEntityFieldsP9gentity_sPKS_:F(0,7)_20
+	ja Z23G_DuplicateEntityFieldsP9gentity_sPKS__F0_7_20
 	mov eax, [ebx]
-	jmp dword [eax*4+Z23G_DuplicateEntityFieldsP9gentity_sPKS_:F(0,7)_jumptab_0]
-Z23G_DuplicateEntityFieldsP9gentity_sPKS_:F(0,7)_80:
+	jmp dword [eax*4+Z23G_DuplicateEntityFieldsP9gentity_sPKS__F0_7_jumptab_0]
+Z23G_DuplicateEntityFieldsP9gentity_sPKS__F0_7_80:
 	mov edx, [ebx-0x4]
 	movzx eax, byte [esi+edx]
 	mov [edi+edx], al
-Z23G_DuplicateEntityFieldsP9gentity_sPKS_:F(0,7)_20:
+Z23G_DuplicateEntityFieldsP9gentity_sPKS__F0_7_20:
 	mov eax, [ebx+0x8]
 	add ebx, 0x10
 	test eax, eax
-	jnz Z23G_DuplicateEntityFieldsP9gentity_sPKS_:F(0,7)_30
-Z23G_DuplicateEntityFieldsP9gentity_sPKS_:F(0,7)_10:
+	jnz Z23G_DuplicateEntityFieldsP9gentity_sPKS__F0_7_30
+Z23G_DuplicateEntityFieldsP9gentity_sPKS__F0_7_10:
 	add esp, 0x1c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z23G_DuplicateEntityFieldsP9gentity_sPKS_:F(0,7)_40:
+Z23G_DuplicateEntityFieldsP9gentity_sPKS__F0_7_40:
 	mov edx, [ebx-0x4]
 	mov eax, [esi+edx]
 	mov [edi+edx], eax
 	mov eax, [ebx+0x8]
 	add ebx, 0x10
 	test eax, eax
-	jnz Z23G_DuplicateEntityFieldsP9gentity_sPKS_:F(0,7)_30
-	jmp Z23G_DuplicateEntityFieldsP9gentity_sPKS_:F(0,7)_10
-Z23G_DuplicateEntityFieldsP9gentity_sPKS_:F(0,7)_50:
+	jnz Z23G_DuplicateEntityFieldsP9gentity_sPKS__F0_7_30
+	jmp Z23G_DuplicateEntityFieldsP9gentity_sPKS__F0_7_10
+Z23G_DuplicateEntityFieldsP9gentity_sPKS__F0_7_50:
 	mov edx, [ebx-0x4]
 	mov eax, [esi+edx]
 	mov [edi+edx], eax
 	mov eax, [ebx+0x8]
 	add ebx, 0x10
 	test eax, eax
-	jnz Z23G_DuplicateEntityFieldsP9gentity_sPKS_:F(0,7)_30
-	jmp Z23G_DuplicateEntityFieldsP9gentity_sPKS_:F(0,7)_10
-Z23G_DuplicateEntityFieldsP9gentity_sPKS_:F(0,7)_60:
+	jnz Z23G_DuplicateEntityFieldsP9gentity_sPKS__F0_7_30
+	jmp Z23G_DuplicateEntityFieldsP9gentity_sPKS__F0_7_10
+Z23G_DuplicateEntityFieldsP9gentity_sPKS__F0_7_60:
 	mov eax, [ebx-0x4]
 	movzx edx, word [esi+eax]
 	mov [esp+0x4], edx
 	lea eax, [edi+eax]
 	mov [esp], eax
-	call Z13Scr_SetStringPtj:F(0,5)
+	call Z13Scr_SetStringPtj_F0_5
 	mov eax, [ebx+0x8]
 	add ebx, 0x10
 	test eax, eax
-	jnz Z23G_DuplicateEntityFieldsP9gentity_sPKS_:F(0,7)_30
-	jmp Z23G_DuplicateEntityFieldsP9gentity_sPKS_:F(0,7)_10
-Z23G_DuplicateEntityFieldsP9gentity_sPKS_:F(0,7)_70:
+	jnz Z23G_DuplicateEntityFieldsP9gentity_sPKS__F0_7_30
+	jmp Z23G_DuplicateEntityFieldsP9gentity_sPKS__F0_7_10
+Z23G_DuplicateEntityFieldsP9gentity_sPKS__F0_7_70:
 	mov eax, [ebx-0x4]
 	lea ecx, [edi+eax]
 	lea eax, [esi+eax]
@@ -1656,22 +2248,22 @@ Z23G_DuplicateEntityFieldsP9gentity_sPKS_:F(0,7)_70:
 	mov eax, [ebx+0x8]
 	add ebx, 0x10
 	test eax, eax
-	jnz Z23G_DuplicateEntityFieldsP9gentity_sPKS_:F(0,7)_30
-	jmp Z23G_DuplicateEntityFieldsP9gentity_sPKS_:F(0,7)_10
+	jnz Z23G_DuplicateEntityFieldsP9gentity_sPKS__F0_7_30
+	jmp Z23G_DuplicateEntityFieldsP9gentity_sPKS__F0_7_10
 	add [eax], al
 	
 	
 
-Z23G_DuplicateEntityFieldsP9gentity_sPKS_:F(0,7)_jumptab_0:
-	dd Z23G_DuplicateEntityFieldsP9gentity_sPKS_:F(0,7)_40
-	dd Z23G_DuplicateEntityFieldsP9gentity_sPKS_:F(0,7)_50
-	dd Z23G_DuplicateEntityFieldsP9gentity_sPKS_:F(0,7)_20
-	dd Z23G_DuplicateEntityFieldsP9gentity_sPKS_:F(0,7)_60
-	dd Z23G_DuplicateEntityFieldsP9gentity_sPKS_:F(0,7)_70
-	dd Z23G_DuplicateEntityFieldsP9gentity_sPKS_:F(0,7)_20
-	dd Z23G_DuplicateEntityFieldsP9gentity_sPKS_:F(0,7)_20
-	dd Z23G_DuplicateEntityFieldsP9gentity_sPKS_:F(0,7)_20
-	dd Z23G_DuplicateEntityFieldsP9gentity_sPKS_:F(0,7)_80
+Z23G_DuplicateEntityFieldsP9gentity_sPKS__F0_7_jumptab_0:
+	dd Z23G_DuplicateEntityFieldsP9gentity_sPKS__F0_7_40
+	dd Z23G_DuplicateEntityFieldsP9gentity_sPKS__F0_7_50
+	dd Z23G_DuplicateEntityFieldsP9gentity_sPKS__F0_7_20
+	dd Z23G_DuplicateEntityFieldsP9gentity_sPKS__F0_7_60
+	dd Z23G_DuplicateEntityFieldsP9gentity_sPKS__F0_7_70
+	dd Z23G_DuplicateEntityFieldsP9gentity_sPKS__F0_7_20
+	dd Z23G_DuplicateEntityFieldsP9gentity_sPKS__F0_7_20
+	dd Z23G_DuplicateEntityFieldsP9gentity_sPKS__F0_7_20
+	dd Z23G_DuplicateEntityFieldsP9gentity_sPKS__F0_7_80
 
 
 ;G_GetItemForClassname(char const*)
@@ -1699,7 +2291,7 @@ _Z21G_GetItemForClassnamePKc_10:
 	jnz _Z21G_GetItemForClassnamePKc_20
 	lea eax, [ebx+0x7]
 	mov [esp], eax
-	call Z23G_GetWeaponIndexForNamePKc:F(0,5)
+	call Z23G_GetWeaponIndexForNamePKc_F0_5
 	mov esi, eax
 	test eax, eax
 	jnz _Z21G_GetItemForClassnamePKc_30
@@ -1738,9 +2330,9 @@ _Z21G_GetItemForClassnamePKc_60:
 	jmp _Z21G_GetItemForClassnamePKc_70
 _Z21G_GetItemForClassnamePKc_30:
 	mov [esp], eax
-	call Z15BG_GetWeaponDefi:F(0,2)
+	call Z15BG_GetWeaponDefi_F0_2
 	mov [esp], esi
-	call Z20BG_FindItemForWeaponi:F(0,2)
+	call Z20BG_FindItemForWeaponi_F0_2
 	mov esi, eax
 	mov eax, esi
 	add esp, 0x2c
@@ -1752,9 +2344,9 @@ _Z21G_GetItemForClassnamePKc_30:
 	nop
 
 
-;Z17G_CallSpawnEntityP9gentity_s:F(0,1)
+;Z17G_CallSpawnEntityP9gentity_s_F0_1
 
-Z17G_CallSpawnEntityP9gentity_s:F(0,1):
+Z17G_CallSpawnEntityP9gentity_s_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1764,28 +2356,28 @@ Z17G_CallSpawnEntityP9gentity_s:F(0,1):
 	mov edi, [ebp+0x8]
 	movzx eax, word [edi+0x168]
 	test ax, ax
-	jnz Z17G_CallSpawnEntityP9gentity_s:F(0,1)_10
+	jnz Z17G_CallSpawnEntityP9gentity_s_F0_1_10
 	mov dword [esp], _cstring_g_callspawnentit
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	xor eax, eax
-Z17G_CallSpawnEntityP9gentity_s:F(0,1)_60:
+Z17G_CallSpawnEntityP9gentity_s_F0_1_60:
 	add esp, 0x1c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z17G_CallSpawnEntityP9gentity_s:F(0,1)_10:
+Z17G_CallSpawnEntityP9gentity_s_F0_1_10:
 	movzx eax, ax
 	mov [esp], eax
-	call Z18SL_ConvertToStringj:F(0,2)
+	call Z18SL_ConvertToStringj_F0_2
 	mov esi, eax
 	call _Z21G_GetItemForClassnamePKc
 	test eax, eax
-	jz Z17G_CallSpawnEntityP9gentity_s:F(0,1)_20
+	jz Z17G_CallSpawnEntityP9gentity_s_F0_1_20
 	mov [esp+0x4], eax
 	mov [esp], edi
-	call Z11G_SpawnItemP9gentity_sPK7gitem_s:F(0,1)
+	call Z11G_SpawnItemP9gentity_sPK7gitem_s_F0_1
 	mov eax, 0x1
 	add esp, 0x1c
 	pop ebx
@@ -1793,28 +2385,28 @@ Z17G_CallSpawnEntityP9gentity_s:F(0,1)_10:
 	pop edi
 	pop ebp
 	ret
-Z17G_CallSpawnEntityP9gentity_s:F(0,1)_20:
+Z17G_CallSpawnEntityP9gentity_s_F0_1_20:
 	mov eax, [spawns]
 	test eax, eax
-	jz Z17G_CallSpawnEntityP9gentity_s:F(0,1)_30
+	jz Z17G_CallSpawnEntityP9gentity_s_F0_1_30
 	mov ebx, spawns
-Z17G_CallSpawnEntityP9gentity_s:F(0,1)_50:
+Z17G_CallSpawnEntityP9gentity_s_F0_1_50:
 	mov [esp+0x4], esi
 	mov [esp], eax
 	call strcmp
 	test eax, eax
-	jz Z17G_CallSpawnEntityP9gentity_s:F(0,1)_40
+	jz Z17G_CallSpawnEntityP9gentity_s_F0_1_40
 	add ebx, 0x8
 	mov eax, [ebx]
 	test eax, eax
-	jnz Z17G_CallSpawnEntityP9gentity_s:F(0,1)_50
-Z17G_CallSpawnEntityP9gentity_s:F(0,1)_30:
+	jnz Z17G_CallSpawnEntityP9gentity_s_F0_1_50
+Z17G_CallSpawnEntityP9gentity_s_F0_1_30:
 	movzx eax, word [edi+0x168]
 	mov [esp], eax
-	call Z18SL_ConvertToStringj:F(0,2)
+	call Z18SL_ConvertToStringj_F0_2
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_s_doesnt_have_a_
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	xor eax, eax
 	add esp, 0x1c
 	pop ebx
@@ -1822,15 +2414,15 @@ Z17G_CallSpawnEntityP9gentity_s:F(0,1)_30:
 	pop edi
 	pop ebp
 	ret
-Z17G_CallSpawnEntityP9gentity_s:F(0,1)_40:
+Z17G_CallSpawnEntityP9gentity_s_F0_1_40:
 	mov [esp], edi
 	call dword [ebx+0x4]
 	mov eax, 0x1
-	jmp Z17G_CallSpawnEntityP9gentity_s:F(0,1)_60
+	jmp Z17G_CallSpawnEntityP9gentity_s_F0_1_60
 	nop
 
 
-;Z23GScr_AddFieldsForEntityv:F(0,7)
+;Z23GScr_AddFieldsForEntityv_F0_7
 
 _Z18G_ParseEntityFieldPKcS0_P9gentity_s:
 	push ebp
@@ -1849,7 +2441,7 @@ _Z18G_ParseEntityFieldPKcS0_P9gentity_s:
 _Z18G_ParseEntityFieldPKcS0_P9gentity_s_30:
 	mov [esp+0x4], esi
 	mov [esp], eax
-	call I_stricmp:F(0,2)
+	call I_stricmp_F0_2
 	test eax, eax
 	jz _Z18G_ParseEntityFieldPKcS0_P9gentity_s_20
 	add ebx, 0x10
@@ -1875,7 +2467,7 @@ _Z18G_ParseEntityFieldPKcS0_P9gentity_s_40:
 	mov edx, [ebp-0x34]
 	mov eax, [edx]
 	mov [esp], eax
-	call Z25Scr_SetDynamicEntityFieldiij:F(0,1)
+	call Z25Scr_SetDynamicEntityFieldiij_F0_1
 	add esp, 0x4c
 	pop ebx
 	pop esi
@@ -1910,11 +2502,11 @@ _Z18G_ParseEntityFieldPKcS0_P9gentity_s_90:
 	mov eax, [ebp-0x34]
 	add eax, [ebx+0x4]
 	mov [esp], eax
-	call Z13Scr_SetStringPtj:F(0,5)
+	call Z13Scr_SetStringPtj_F0_5
 	mov eax, [ebx+0x4]
 	add [ebp-0x34], eax
 	mov [esp], edi
-	call Z11G_NewStringPKc:F(0,16)
+	call Z11G_NewStringPKc_F0_16
 	mov edx, [ebp-0x34]
 	mov [edx], ax
 	jmp _Z18G_ParseEntityFieldPKcS0_P9gentity_s_50
@@ -1949,7 +2541,7 @@ _Z18G_ParseEntityFieldPKcS0_P9gentity_s_110:
 	mov [esp+0x4], edi
 	mov ecx, [ebp-0x34]
 	mov [esp], ecx
-	call Z10G_SetModelP9gentity_sPKc:F(0,11)
+	call Z10G_SetModelP9gentity_sPKc_F0_11
 	jmp _Z18G_ParseEntityFieldPKcS0_P9gentity_s_50
 _Z18G_ParseEntityFieldPKcS0_P9gentity_s_60:
 	lea eax, [edi+0x1]
@@ -1974,9 +2566,9 @@ _Z18G_ParseEntityFieldPKcS0_P9gentity_s_jumptab_0:
 	dd _Z18G_ParseEntityFieldPKcS0_P9gentity_s_110
 
 
-;Z19Scr_GetGenericFieldPh11fieldtype_ti:F(0,7)
+;Z19Scr_GetGenericFieldPh11fieldtype_ti_F0_7
 
-Z12G_SpawnFloatPKcS0_Pf:F(0,1):
+Z12G_SpawnFloatPKcS0_Pf_F0_1:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -1990,7 +2582,7 @@ Z12G_SpawnFloatPKcS0_Pf:F(0,1):
 	mov eax, [0x1acd721]
 	add eax, 0x1348
 	mov [esp], eax
-	call Z21G_SpawnStringInternalP8SpawnVarPKcS2_PS2_:F(0,1)
+	call Z21G_SpawnStringInternalP8SpawnVarPKcS2_PS2__F0_1
 	mov ebx, eax
 	mov eax, [ebp-0xc]
 	mov [esp], eax
@@ -2006,9 +2598,9 @@ Z12G_SpawnFloatPKcS0_Pf:F(0,1):
 	ret
 
 
-;Z10G_SpawnIntPKcS0_Pi:F(0,1)
+;Z10G_SpawnIntPKcS0_Pi_F0_1
 
-Z10G_SpawnIntPKcS0_Pi:F(0,1):
+Z10G_SpawnIntPKcS0_Pi_F0_1:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -2022,7 +2614,7 @@ Z10G_SpawnIntPKcS0_Pi:F(0,1):
 	mov eax, [0x1acd721]
 	add eax, 0x1348
 	mov [esp], eax
-	call Z21G_SpawnStringInternalP8SpawnVarPKcS2_PS2_:F(0,1)
+	call Z21G_SpawnStringInternalP8SpawnVarPKcS2_PS2__F0_1
 	mov ebx, eax
 	mov eax, [ebp-0xc]
 	mov [esp], eax
@@ -2036,9 +2628,9 @@ Z10G_SpawnIntPKcS0_Pi:F(0,1):
 	ret
 
 
-;Z13G_SpawnVectorPKcS0_Pf:F(0,1)
+;Z13G_SpawnVectorPKcS0_Pf_F0_1
 
-Z13G_SpawnVectorPKcS0_Pf:F(0,1):
+Z13G_SpawnVectorPKcS0_Pf_F0_1:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -2054,7 +2646,7 @@ Z13G_SpawnVectorPKcS0_Pf:F(0,1):
 	mov eax, [0x1acd721]
 	add eax, 0x1348
 	mov [esp], eax
-	call Z21G_SpawnStringInternalP8SpawnVarPKcS2_PS2_:F(0,1)
+	call Z21G_SpawnStringInternalP8SpawnVarPKcS2_PS2__F0_1
 	mov esi, eax
 	xor eax, eax
 	mov [ebx], eax
@@ -2077,9 +2669,9 @@ Z13G_SpawnVectorPKcS0_Pf:F(0,1):
 	ret
 
 
-;Z13SP_worldspawnv:F(0,7)
+;Z13SP_worldspawnv_F0_7
 
-Z13G_LoadStructsv:F(0,7):
+Z13G_LoadStructsv_F0_7:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -2090,27 +2682,27 @@ Z13G_LoadStructsv:F(0,7):
 	mov eax, [0x1acd751]
 	mov eax, [eax+0x10b0]
 	mov [esp], eax
-	call Z14Scr_ExecThreadij:F(0,61)
+	call Z14Scr_ExecThreadij_F0_61
 	movzx eax, ax
 	mov [esp], eax
-	call Z14Scr_FreeThreadt:F(0,1)
+	call Z14Scr_FreeThreadt_F0_1
 	mov ebx, [0x1acd721]
 	mov [ebp-0x30], ebx
-	jmp Z13G_LoadStructsv:F(0,7)_10
-Z13G_LoadStructsv:F(0,7)_40:
+	jmp Z13G_LoadStructsv_F0_7_10
+Z13G_LoadStructsv_F0_7_40:
 	mov ebx, [0x1acd721]
-Z13G_LoadStructsv:F(0,7)_10:
+Z13G_LoadStructsv_F0_7_10:
 	lea esi, [ebx+0x1348]
 	mov [esp], esi
-	call Z16G_ParseSpawnVarsP8SpawnVar:F(0,1)
+	call Z16G_ParseSpawnVarsP8SpawnVar_F0_1
 	test eax, eax
-	jz Z13G_LoadStructsv:F(0,7)_20
+	jz Z13G_LoadStructsv_F0_7_20
 	lea eax, [ebp-0x1c]
 	mov [esp+0xc], eax
 	mov dword [esp+0x8], _cstring_null
 	mov dword [esp+0x4], _cstring_classname
 	mov [esp], esi
-	call Z21G_SpawnStringInternalP8SpawnVarPKcS2_PS2_:F(0,1)
+	call Z21G_SpawnStringInternalP8SpawnVarPKcS2_PS2__F0_1
 	mov eax, [ebp-0x1c]
 	mov esi, _cstring_script_struct
 	mov ecx, 0xe
@@ -2118,46 +2710,46 @@ Z13G_LoadStructsv:F(0,7)_10:
 	mov edi, eax
 	repe cmpsb
 	mov eax, 0x0
-	jz Z13G_LoadStructsv:F(0,7)_30
+	jz Z13G_LoadStructsv_F0_7_30
 	movzx eax, byte [esi-0x1]
 	movzx ecx, byte [edi-0x1]
 	sub eax, ecx
-Z13G_LoadStructsv:F(0,7)_30:
+Z13G_LoadStructsv_F0_7_30:
 	test eax, eax
-	jnz Z13G_LoadStructsv:F(0,7)_40
+	jnz Z13G_LoadStructsv_F0_7_40
 	mov dword [esp+0x4], 0x0
 	mov eax, [0x1acd751]
 	mov eax, [eax+0x10b4]
 	mov [esp], eax
-	call Z17Scr_AddExecThreadij:F(0,1)
+	call Z17Scr_AddExecThreadij_F0_1
 	mov dword [esp], 0x0
-	call Z13Scr_GetObjectj:F(0,3)
+	call Z13Scr_GetObjectj_F0_3
 	mov [ebp-0x2c], eax
 	mov eax, [ebx+0x134c]
 	test eax, eax
-	jle Z13G_LoadStructsv:F(0,7)_40
+	jle Z13G_LoadStructsv_F0_7_40
 	xor edi, edi
 	mov esi, ebx
-	jmp Z13G_LoadStructsv:F(0,7)_50
-Z13G_LoadStructsv:F(0,7)_60:
+	jmp Z13G_LoadStructsv_F0_7_50
+Z13G_LoadStructsv_F0_7_60:
 	add edi, 0x1
 	add esi, 0x8
 	mov ebx, [ebp-0x30]
 	cmp edi, [ebx+0x134c]
-	jge Z13G_LoadStructsv:F(0,7)_10
-Z13G_LoadStructsv:F(0,7)_50:
+	jge Z13G_LoadStructsv_F0_7_10
+Z13G_LoadStructsv_F0_7_50:
 	mov edx, [esi+0x1354]
 	mov eax, [esi+0x1350]
 	call _Z33G_SetEntityScriptVariableInternalPKcS0_
 	test eax, eax
-	jz Z13G_LoadStructsv:F(0,7)_60
+	jz Z13G_LoadStructsv_F0_7_60
 	mov [esp+0x4], eax
 	mov eax, [ebp-0x2c]
 	mov [esp], eax
-	call Z18Scr_SetStructFieldjj:F(0,1)
-	jmp Z13G_LoadStructsv:F(0,7)_60
-Z13G_LoadStructsv:F(0,7)_20:
-	call Z24SV_ResetEntityParsePointv:F(0,53)
+	call Z18Scr_SetStructFieldjj_F0_1
+	jmp Z13G_LoadStructsv_F0_7_60
+Z13G_LoadStructsv_F0_7_20:
+	call Z24SV_ResetEntityParsePointv_F0_53
 	add esp, 0x6c
 	pop ebx
 	pop esi
@@ -2166,9 +2758,9 @@ Z13G_LoadStructsv:F(0,7)_20:
 	ret
 
 
-;Z19Scr_SetGenericFieldPh11fieldtype_ti:F(0,7)
+;Z19Scr_SetGenericFieldPh11fieldtype_ti_F0_7
 
-Z11G_CallSpawnv:F(0,7):
+Z11G_CallSpawnv_F0_7:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -2182,81 +2774,81 @@ Z11G_CallSpawnv:F(0,7):
 	mov ebx, [0x1acd721]
 	lea eax, [ebx+0x1348]
 	mov [esp], eax
-	call Z21G_SpawnStringInternalP8SpawnVarPKcS2_PS2_:F(0,1)
+	call Z21G_SpawnStringInternalP8SpawnVarPKcS2_PS2__F0_1
 	mov eax, [ebp-0x1c]
 	test eax, eax
-	jz Z11G_CallSpawnv:F(0,7)_10
+	jz Z11G_CallSpawnv_F0_7_10
 	call _Z21G_GetItemForClassnamePKc
 	mov [ebp-0x30], eax
 	test eax, eax
-	jz Z11G_CallSpawnv:F(0,7)_20
-	call Z7G_Spawnv:F(0,12)
+	jz Z11G_CallSpawnv_F0_7_20
+	call Z7G_Spawnv_F0_12
 	mov esi, eax
 	mov edi, [ebx+0x134c]
 	test edi, edi
-	jg Z11G_CallSpawnv:F(0,7)_30
-Z11G_CallSpawnv:F(0,7)_90:
+	jg Z11G_CallSpawnv_F0_7_30
+Z11G_CallSpawnv_F0_7_90:
 	lea eax, [esi+0x138]
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call Z11G_SetOriginP9gentity_sPKf:F(0,11)
+	call Z11G_SetOriginP9gentity_sPKf_F0_11
 	lea eax, [esi+0x144]
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call Z10G_SetAngleP9gentity_sPKf:F(0,11)
+	call Z10G_SetAngleP9gentity_sPKf_F0_11
 	mov edx, [ebp-0x30]
 	mov [esp+0x4], edx
 	mov [esp], esi
-	call Z11G_SpawnItemP9gentity_sPK7gitem_s:F(0,1)
-Z11G_CallSpawnv:F(0,7)_120:
+	call Z11G_SpawnItemP9gentity_sPK7gitem_s_F0_1
+Z11G_CallSpawnv_F0_7_120:
 	add esp, 0x4c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z11G_CallSpawnv:F(0,7)_20:
+Z11G_CallSpawnv_F0_7_20:
 	mov eax, [spawns]
 	test eax, eax
-	jz Z11G_CallSpawnv:F(0,7)_40
+	jz Z11G_CallSpawnv_F0_7_40
 	mov esi, [ebp-0x1c]
 	mov ebx, spawns
-Z11G_CallSpawnv:F(0,7)_60:
+Z11G_CallSpawnv_F0_7_60:
 	mov [esp+0x4], esi
 	mov [esp], eax
 	call strcmp
 	test eax, eax
-	jz Z11G_CallSpawnv:F(0,7)_50
+	jz Z11G_CallSpawnv_F0_7_50
 	add ebx, 0x8
 	mov eax, [ebx]
 	test eax, eax
-	jnz Z11G_CallSpawnv:F(0,7)_60
-Z11G_CallSpawnv:F(0,7)_40:
-	call Z7G_Spawnv:F(0,12)
+	jnz Z11G_CallSpawnv_F0_7_60
+Z11G_CallSpawnv_F0_7_40:
+	call Z7G_Spawnv_F0_12
 	mov esi, eax
 	mov eax, [0x1acd721]
 	mov edx, [eax+0x134c]
 	test edx, edx
-	jg Z11G_CallSpawnv:F(0,7)_70
-Z11G_CallSpawnv:F(0,7)_110:
+	jg Z11G_CallSpawnv_F0_7_70
+Z11G_CallSpawnv_F0_7_110:
 	lea eax, [esi+0x138]
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call Z11G_SetOriginP9gentity_sPKf:F(0,11)
+	call Z11G_SetOriginP9gentity_sPKf_F0_11
 	lea eax, [esi+0x144]
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call Z10G_SetAngleP9gentity_sPKf:F(0,11)
+	call Z10G_SetAngleP9gentity_sPKf_F0_11
 	add esp, 0x4c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z11G_CallSpawnv:F(0,7)_30:
+Z11G_CallSpawnv_F0_7_30:
 	xor edi, edi
 	mov [ebp-0x34], ebx
-Z11G_CallSpawnv:F(0,7)_80:
+Z11G_CallSpawnv_F0_7_80:
 	mov edx, [ebx+0x1354]
 	mov eax, [ebx+0x1350]
 	mov ecx, esi
@@ -2265,13 +2857,13 @@ Z11G_CallSpawnv:F(0,7)_80:
 	add ebx, 0x8
 	mov eax, [ebp-0x34]
 	cmp edi, [eax+0x134c]
-	jl Z11G_CallSpawnv:F(0,7)_80
-	jmp Z11G_CallSpawnv:F(0,7)_90
-Z11G_CallSpawnv:F(0,7)_70:
+	jl Z11G_CallSpawnv_F0_7_80
+	jmp Z11G_CallSpawnv_F0_7_90
+Z11G_CallSpawnv_F0_7_70:
 	xor edi, edi
 	mov [ebp-0x3c], eax
 	mov ebx, eax
-Z11G_CallSpawnv:F(0,7)_100:
+Z11G_CallSpawnv_F0_7_100:
 	mov edx, [ebx+0x1354]
 	mov eax, [ebx+0x1350]
 	mov ecx, esi
@@ -2280,44 +2872,44 @@ Z11G_CallSpawnv:F(0,7)_100:
 	add ebx, 0x8
 	mov eax, [ebp-0x3c]
 	cmp edi, [eax+0x134c]
-	jl Z11G_CallSpawnv:F(0,7)_100
-	jmp Z11G_CallSpawnv:F(0,7)_110
-Z11G_CallSpawnv:F(0,7)_10:
+	jl Z11G_CallSpawnv_F0_7_100
+	jmp Z11G_CallSpawnv_F0_7_110
+Z11G_CallSpawnv_F0_7_10:
 	mov dword [esp], _cstring_g_callspawn_null
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	add esp, 0x4c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z11G_CallSpawnv:F(0,7)_50:
+Z11G_CallSpawnv_F0_7_50:
 	mov eax, [0x1acd74d]
 	cmp [ebx+0x4], eax
-	jz Z11G_CallSpawnv:F(0,7)_120
-	call Z7G_Spawnv:F(0,12)
+	jz Z11G_CallSpawnv_F0_7_120
+	call Z7G_Spawnv_F0_12
 	mov edi, eax
 	mov eax, [0x1acd721]
 	mov ecx, [eax+0x134c]
 	test ecx, ecx
-	jg Z11G_CallSpawnv:F(0,7)_130
-Z11G_CallSpawnv:F(0,7)_150:
+	jg Z11G_CallSpawnv_F0_7_130
+Z11G_CallSpawnv_F0_7_150:
 	lea eax, [edi+0x138]
 	mov [esp+0x4], eax
 	mov [esp], edi
-	call Z11G_SetOriginP9gentity_sPKf:F(0,11)
+	call Z11G_SetOriginP9gentity_sPKf_F0_11
 	lea eax, [edi+0x144]
 	mov [esp+0x4], eax
 	mov [esp], edi
-	call Z10G_SetAngleP9gentity_sPKf:F(0,11)
+	call Z10G_SetAngleP9gentity_sPKf_F0_11
 	mov [esp], edi
 	call dword [ebx+0x4]
-	jmp Z11G_CallSpawnv:F(0,7)_120
-Z11G_CallSpawnv:F(0,7)_130:
+	jmp Z11G_CallSpawnv_F0_7_120
+Z11G_CallSpawnv_F0_7_130:
 	mov dword [ebp-0x2c], 0x0
 	mov [ebp-0x38], eax
 	mov esi, eax
-Z11G_CallSpawnv:F(0,7)_140:
+Z11G_CallSpawnv_F0_7_140:
 	mov edx, [esi+0x1354]
 	mov eax, [esi+0x1350]
 	mov ecx, edi
@@ -2327,13 +2919,13 @@ Z11G_CallSpawnv:F(0,7)_140:
 	mov edx, [ebp-0x2c]
 	mov eax, [ebp-0x38]
 	cmp edx, [eax+0x134c]
-	jl Z11G_CallSpawnv:F(0,7)_140
-	jmp Z11G_CallSpawnv:F(0,7)_150
+	jl Z11G_CallSpawnv_F0_7_140
+	jmp Z11G_CallSpawnv_F0_7_150
 
 
-;Z25G_SpawnEntitiesFromStringv:F(0,7)
+;Z25G_SpawnEntitiesFromStringv_F0_7
 
-Z25G_SpawnEntitiesFromStringv:F(0,7):
+Z25G_SpawnEntitiesFromStringv_F0_7:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -2341,36 +2933,36 @@ Z25G_SpawnEntitiesFromStringv:F(0,7):
 	mov eax, [0x1acd721]
 	add eax, 0x1348
 	mov [esp], eax
-	call Z16G_ParseSpawnVarsP8SpawnVar:F(0,1)
+	call Z16G_ParseSpawnVarsP8SpawnVar_F0_1
 	test eax, eax
-	jz Z25G_SpawnEntitiesFromStringv:F(0,7)_10
-Z25G_SpawnEntitiesFromStringv:F(0,7)_40:
-	call Z13SP_worldspawnv:F(0,7)
+	jz Z25G_SpawnEntitiesFromStringv_F0_7_10
+Z25G_SpawnEntitiesFromStringv_F0_7_40:
+	call Z13SP_worldspawnv_F0_7
 	mov ebx, [0x1acd721]
 	add ebx, 0x1348
-	jmp Z25G_SpawnEntitiesFromStringv:F(0,7)_20
-Z25G_SpawnEntitiesFromStringv:F(0,7)_30:
-	call Z11G_CallSpawnv:F(0,7)
-Z25G_SpawnEntitiesFromStringv:F(0,7)_20:
+	jmp Z25G_SpawnEntitiesFromStringv_F0_7_20
+Z25G_SpawnEntitiesFromStringv_F0_7_30:
+	call Z11G_CallSpawnv_F0_7
+Z25G_SpawnEntitiesFromStringv_F0_7_20:
 	mov [esp], ebx
-	call Z16G_ParseSpawnVarsP8SpawnVar:F(0,1)
+	call Z16G_ParseSpawnVarsP8SpawnVar_F0_1
 	test eax, eax
-	jnz Z25G_SpawnEntitiesFromStringv:F(0,7)_30
+	jnz Z25G_SpawnEntitiesFromStringv_F0_7_30
 	add esp, 0x14
 	pop ebx
 	pop ebp
 	ret
-Z25G_SpawnEntitiesFromStringv:F(0,7)_10:
+Z25G_SpawnEntitiesFromStringv_F0_7_10:
 	mov dword [esp+0x4], _cstring_spawnentities_no
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
-	jmp Z25G_SpawnEntitiesFromStringv:F(0,7)_40
+	call Com_Error_F0_1
+	jmp Z25G_SpawnEntitiesFromStringv_F0_7_40
 	add [eax], al
 
 
-;Z16CG_DrawStringExtffPKcPKfiifi:F(0,1)
+;Z16CG_DrawStringExtffPKcPKfiifi_F0_1
 
-Z23G_ClientCanSpectateTeamP9gclient_s6team_t:F(0,15):
+Z23G_ClientCanSpectateTeamP9gclient_s6team_t_F0_15:
 	push ebp
 	mov ebp, esp
 	mov ecx, [ebp+0xc]
@@ -2384,9 +2976,9 @@ Z23G_ClientCanSpectateTeamP9gclient_s6team_t:F(0,15):
 	nop
 
 
-;Z21ClientInactivityTimerP9gclient_s:F(0,15)
+;Z21ClientInactivityTimerP9gclient_s_F0_15
 
-Z19G_SetLastServerTimeii:F(0,1):
+Z19G_SetLastServerTimeii_F0_1:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -2407,12 +2999,12 @@ Z19G_SetLastServerTimeii:F(0,1):
 	cmovge esi, ecx
 	mov eax, [edx+0x158]
 	cmp esi, [eax+0x289c]
-	jge Z19G_SetLastServerTimeii:F(0,1)_10
+	jge Z19G_SetLastServerTimeii_F0_1_10
 	cmp esi, ebx
-	jl Z19G_SetLastServerTimeii:F(0,1)_20
-Z19G_SetLastServerTimeii:F(0,1)_10:
+	jl Z19G_SetLastServerTimeii_F0_1_20
+Z19G_SetLastServerTimeii_F0_1_10:
 	mov [eax+0x289c], esi
-Z19G_SetLastServerTimeii:F(0,1)_20:
+Z19G_SetLastServerTimeii_F0_1_20:
 	pop ebx
 	pop esi
 	pop ebp
@@ -2420,19 +3012,19 @@ Z19G_SetLastServerTimeii:F(0,1)_20:
 	nop
 
 
-;Z19G_SetClientContentsP9gentity_s:F(0,1)
+;Z19G_SetClientContentsP9gentity_s_F0_1
 
-Z19G_SetClientContentsP9gentity_s:F(0,1):
+Z19G_SetClientContentsP9gentity_s_F0_1:
 	push ebp
 	mov ebp, esp
 	mov ecx, [ebp+0x8]
 	mov edx, [ecx+0x158]
 	mov eax, [edx+0x27ac]
 	test eax, eax
-	jnz Z19G_SetClientContentsP9gentity_s:F(0,1)_10
+	jnz Z19G_SetClientContentsP9gentity_s_F0_1_10
 	mov eax, [edx+0x27b0]
 	test eax, eax
-	jnz Z19G_SetClientContentsP9gentity_s:F(0,1)_10
+	jnz Z19G_SetClientContentsP9gentity_s_F0_1_10
 	xor eax, eax
 	cmp dword [edx+0x26a8], 0x1
 	mov edx, 0x2000000
@@ -2440,16 +3032,16 @@ Z19G_SetClientContentsP9gentity_s:F(0,1):
 	mov [ecx+0x11c], eax
 	pop ebp
 	ret
-Z19G_SetClientContentsP9gentity_s:F(0,1)_10:
+Z19G_SetClientContentsP9gentity_s_F0_1_10:
 	mov dword [ecx+0x11c], 0x0
 	pop ebp
 	ret
 	nop
 
 
-;Z20GetFollowPlayerStateiP13playerState_s:F(0,15)
+;Z20GetFollowPlayerStateiP13playerState_s_F0_15
 
-Z18G_PlayerControllerP9gentity_sPi:F(0,1):
+Z18G_PlayerControllerP9gentity_sPi_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -2471,14 +3063,14 @@ Z18G_PlayerControllerP9gentity_sPi:F(0,1):
 	mov edi, [eax+0x1f4]
 	mov eax, [esi]
 	mov [esp], eax
-	call Z17Com_GetServerDObji:F(0,1)
+	call Z17Com_GetServerDObji_F0_1
 	mov [esp+0x10], edi
 	mov [esp+0xc], ebx
 	mov edx, [ebp+0xc]
 	mov [esp+0x8], edx
 	mov [esp+0x4], esi
 	mov [esp], eax
-	call Z23BG_Player_DoControllersPK6DObj_sPK13entityState_sPiP12clientInfo_ti:F(0,1)
+	call Z23BG_Player_DoControllersPK6DObj_sPK13entityState_sPiP12clientInfo_ti_F0_1
 	add esp, 0x2c
 	pop ebx
 	pop esi
@@ -2488,9 +3080,9 @@ Z18G_PlayerControllerP9gentity_sPi:F(0,1):
 	nop
 
 
-;Z13G_PlayerEventii:F(0,1)
+;Z13G_PlayerEventii_F0_1
 
-Z13G_PlayerEventii:F(0,1):
+Z13G_PlayerEventii_F0_1:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x28
@@ -2504,29 +3096,29 @@ Z13G_PlayerEventii:F(0,1):
 	mov ecx, [ebp+0xc]
 	sub ecx, 0x9e
 	cmp ecx, 0x11
-	ja Z13G_PlayerEventii:F(0,1)_10
+	ja Z13G_PlayerEventii_F0_1_10
 	mov eax, 0x1
 	shl eax, cl
 	test eax, 0x20007
-	jnz Z13G_PlayerEventii:F(0,1)_20
-Z13G_PlayerEventii:F(0,1)_10:
+	jnz Z13G_PlayerEventii_F0_1_20
+Z13G_PlayerEventii_F0_1_10:
 	leave
 	ret
-Z13G_PlayerEventii:F(0,1)_20:
+Z13G_PlayerEventii_F0_1_20:
 	lea eax, [ebp-0x14]
 	mov [esp+0x8], eax
 	lea eax, [edx+0x288c]
 	mov [esp+0x4], eax
 	mov [esp], edx
-	call Z19BG_WeaponFireRecoilPK13playerState_sPfS2_:F(0,1)
+	call Z19BG_WeaponFireRecoilPK13playerState_sPfS2__F0_1
 	leave
 	ret
 	nop
 
 
-;Z14SpectatorThinkP9gentity_sP9usercmd_s:F(0,1)
+;Z14SpectatorThinkP9gentity_sP9usercmd_s_F0_1
 
-Z15G_TouchTriggersP9gentity_s:F(0,1):
+Z15G_TouchTriggersP9gentity_s_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -2536,15 +3128,15 @@ Z15G_TouchTriggersP9gentity_s:F(0,1):
 	mov eax, [ebp+0x8]
 	mov edx, [eax+0x158]
 	cmp dword [edx+0x4], 0x1
-	jle Z15G_TouchTriggersP9gentity_s:F(0,1)_10
-Z15G_TouchTriggersP9gentity_s:F(0,1)_20:
+	jle Z15G_TouchTriggersP9gentity_s_F0_1_10
+Z15G_TouchTriggersP9gentity_s_F0_1_20:
 	add esp, 0x105c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z15G_TouchTriggersP9gentity_s:F(0,1)_10:
+Z15G_TouchTriggersP9gentity_s_F0_1_10:
 	lea eax, [edx+0x14]
 	movss xmm3, dword [_ZZ15G_TouchTriggersP9gentity_sE5range]
 	movss xmm0, dword [edx+0x14]
@@ -2572,7 +3164,7 @@ Z15G_TouchTriggersP9gentity_s:F(0,1)_10:
 	mov [esp+0x4], edx
 	lea ecx, [ebp-0x24]
 	mov [esp], ecx
-	call Z15CM_AreaEntitiesPKfS0_Piii:F(0,7)
+	call Z15CM_AreaEntitiesPKfS0_Piii_F0_7
 	mov [ebp-0x1040], eax
 	mov ebx, [ebp+0x8]
 	mov eax, [ebx+0x158]
@@ -2602,7 +3194,7 @@ Z15G_TouchTriggersP9gentity_s:F(0,1)_10:
 	mov [esp+0x4], eax
 	lea edx, [ebp-0x24]
 	mov [esp], edx
-	call Z20ShrinkBoundsToHeightPfS_:F(0,18)
+	call Z20ShrinkBoundsToHeightPfS__F0_18
 	mov edx, [0x1acd735]
 	movzx eax, byte [ebx+0x166]
 	lea eax, [eax+eax*4]
@@ -2610,36 +3202,36 @@ Z15G_TouchTriggersP9gentity_s:F(0,1)_10:
 	mov [ebp-0x103c], eax
 	mov eax, [ebp-0x1040]
 	test eax, eax
-	jle Z15G_TouchTriggersP9gentity_s:F(0,1)_20
+	jle Z15G_TouchTriggersP9gentity_s_F0_1_20
 	xor ebx, ebx
-	jmp Z15G_TouchTriggersP9gentity_s:F(0,1)_30
-Z15G_TouchTriggersP9gentity_s:F(0,1)_70:
+	jmp Z15G_TouchTriggersP9gentity_s_F0_1_30
+Z15G_TouchTriggersP9gentity_s_F0_1_70:
 	mov [esp+0x8], esi
 	lea eax, [ebp-0x30]
 	mov [esp+0x4], eax
 	lea edx, [ebp-0x24]
 	mov [esp], edx
-	call Z16SV_EntityContactPKfS0_PK9gentity_s:F(0,27)
+	call Z16SV_EntityContactPKfS0_PK9gentity_s_F0_27
 	test eax, eax
-	jz Z15G_TouchTriggersP9gentity_s:F(0,1)_40
+	jz Z15G_TouchTriggersP9gentity_s_F0_1_40
 	mov dword [esp], 0x1
-	call Z18Scr_IsSystemActiveh:F(0,2)
+	call Z18Scr_IsSystemActiveh_F0_2
 	test eax, eax
-	jnz Z15G_TouchTriggersP9gentity_s:F(0,1)_50
-Z15G_TouchTriggersP9gentity_s:F(0,1)_80:
+	jnz Z15G_TouchTriggersP9gentity_s_F0_1_50
+Z15G_TouchTriggersP9gentity_s_F0_1_80:
 	test edi, edi
-	jz Z15G_TouchTriggersP9gentity_s:F(0,1)_40
+	jz Z15G_TouchTriggersP9gentity_s_F0_1_40
 	mov dword [esp+0x8], 0x1
 	mov edx, [ebp+0x8]
 	mov [esp+0x4], edx
 	mov [esp], esi
 	call edi
-Z15G_TouchTriggersP9gentity_s:F(0,1)_40:
+Z15G_TouchTriggersP9gentity_s_F0_1_40:
 	add ebx, 0x1
 	cmp [ebp-0x1040], ebx
-	jz Z15G_TouchTriggersP9gentity_s:F(0,1)_20
+	jz Z15G_TouchTriggersP9gentity_s_F0_1_20
 	mov edx, [0x1acd735]
-Z15G_TouchTriggersP9gentity_s:F(0,1)_30:
+Z15G_TouchTriggersP9gentity_s_F0_1_30:
 	mov eax, [ebp+ebx*4-0x1030]
 	lea eax, [eax+eax*4]
 	lea esi, [eax*8]
@@ -2650,10 +3242,10 @@ Z15G_TouchTriggersP9gentity_s:F(0,1)_30:
 	lea eax, [eax+eax*4]
 	mov edi, [edx+eax*8+0xc]
 	test edi, edi
-	jz Z15G_TouchTriggersP9gentity_s:F(0,1)_60
-Z15G_TouchTriggersP9gentity_s:F(0,1)_90:
+	jz Z15G_TouchTriggersP9gentity_s_F0_1_60
+Z15G_TouchTriggersP9gentity_s_F0_1_90:
 	cmp dword [esi+0x4], 0x3
-	jnz Z15G_TouchTriggersP9gentity_s:F(0,1)_70
+	jnz Z15G_TouchTriggersP9gentity_s_F0_1_70
 	mov eax, [0x1acd721]
 	mov eax, [eax+0x1ec]
 	mov [esp+0x8], eax
@@ -2661,42 +3253,42 @@ Z15G_TouchTriggersP9gentity_s:F(0,1)_90:
 	mov ecx, [ebp+0x8]
 	mov eax, [ecx+0x158]
 	mov [esp], eax
-	call Z20BG_PlayerTouchesItemP13playerState_sP13entityState_si:F(0,24)
+	call Z20BG_PlayerTouchesItemP13playerState_sP13entityState_si_F0_24
 	test eax, eax
-	jz Z15G_TouchTriggersP9gentity_s:F(0,1)_40
+	jz Z15G_TouchTriggersP9gentity_s_F0_1_40
 	mov dword [esp], 0x1
-	call Z18Scr_IsSystemActiveh:F(0,2)
+	call Z18Scr_IsSystemActiveh_F0_2
 	test eax, eax
-	jz Z15G_TouchTriggersP9gentity_s:F(0,1)_80
-Z15G_TouchTriggersP9gentity_s:F(0,1)_50:
+	jz Z15G_TouchTriggersP9gentity_s_F0_1_80
+Z15G_TouchTriggersP9gentity_s_F0_1_50:
 	mov ecx, [ebp+0x8]
 	mov [esp], ecx
-	call Z13Scr_AddEntityP9gentity_s:F(0,7)
+	call Z13Scr_AddEntityP9gentity_s_F0_7
 	mov dword [esp+0x8], 0x1
 	mov edx, [0x1acd639]
 	movzx eax, word [edx+0x52]
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call Z10Scr_NotifyP9gentity_stj:F(0,7)
+	call Z10Scr_NotifyP9gentity_stj_F0_7
 	mov [esp], esi
-	call Z13Scr_AddEntityP9gentity_s:F(0,7)
+	call Z13Scr_AddEntityP9gentity_s_F0_7
 	mov dword [esp+0x8], 0x1
 	mov ecx, [0x1acd639]
 	movzx eax, word [ecx+0x52]
 	mov [esp+0x4], eax
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z10Scr_NotifyP9gentity_stj:F(0,7)
-	jmp Z15G_TouchTriggersP9gentity_s:F(0,1)_80
-Z15G_TouchTriggersP9gentity_s:F(0,1)_60:
+	call Z10Scr_NotifyP9gentity_stj_F0_7
+	jmp Z15G_TouchTriggersP9gentity_s_F0_1_80
+Z15G_TouchTriggersP9gentity_s_F0_1_60:
 	mov eax, [ebp-0x103c]
 	test eax, eax
-	jnz Z15G_TouchTriggersP9gentity_s:F(0,1)_90
-	jmp Z15G_TouchTriggersP9gentity_s:F(0,1)_40
+	jnz Z15G_TouchTriggersP9gentity_s_F0_1_90
+	jmp Z15G_TouchTriggersP9gentity_s_F0_1_40
 	nop
 
 
-;Z12ClientEventsP9gentity_si:F(0,1)
+;Z12ClientEventsP9gentity_si_F0_1
 
 _Z37G_PlayerStateToEntityStateExtrapolateP13playerState_sP13entityState_sii:
 	push ebp
@@ -2735,7 +3327,7 @@ _Z37G_PlayerStateToEntityStateExtrapolateP13playerState_sP13entityState_sii:
 	mov [ecx+0x4], eax
 	mov eax, [edx+0x8]
 	mov [ecx+0x8], eax
-	cvtsi2ss xmm0, dword [edi+0x9c]
+	cvtsi2ss xmm0, [edi+0x9c]
 	movss [esi+0x6c], xmm0
 	mov eax, [edi+0xa0]
 	mov [esi+0x8], eax
@@ -2783,7 +3375,7 @@ _Z37G_PlayerStateToEntityStateExtrapolateP13playerState_sP13entityState_sii_90:
 	lea eax, [edx+0x288c]
 	mov [esp+0x4], eax
 	mov [esp], edx
-	call Z19BG_WeaponFireRecoilPK13playerState_sPfS2_:F(0,1)
+	call Z19BG_WeaponFireRecoilPK13playerState_sPfS2__F0_1
 _Z37G_PlayerStateToEntityStateExtrapolateP13playerState_sP13entityState_sii_40:
 	mov edx, [0x1acd765]
 	mov eax, [edx]
@@ -2867,7 +3459,7 @@ _Z37G_PlayerStateToEntityStateExtrapolateP13playerState_sP13entityState_sii_190:
 	mov eax, [edi+0x4c]
 	mov [esi+0xd4], eax
 	mov [esp], edi
-	call Z21PM_GetEffectiveStanceP13playerState_s:F(0,5)
+	call Z21PM_GetEffectiveStanceP13playerState_s_F0_5
 	sub eax, 0x1
 	jz _Z37G_PlayerStateToEntityStateExtrapolateP13playerState_sP13entityState_sii_140
 _Z37G_PlayerStateToEntityStateExtrapolateP13playerState_sP13entityState_sii_160:
@@ -2908,7 +3500,7 @@ _Z37G_PlayerStateToEntityStateExtrapolateP13playerState_sP13entityState_sii_130:
 	mov eax, [edi+0x4c]
 	mov [esi+0xd4], eax
 	mov [esp], edi
-	call Z21PM_GetEffectiveStanceP13playerState_s:F(0,5)
+	call Z21PM_GetEffectiveStanceP13playerState_s_F0_5
 	sub eax, 0x1
 	jnz _Z37G_PlayerStateToEntityStateExtrapolateP13playerState_sP13entityState_sii_160
 _Z37G_PlayerStateToEntityStateExtrapolateP13playerState_sP13entityState_sii_140:
@@ -2917,7 +3509,7 @@ _Z37G_PlayerStateToEntityStateExtrapolateP13playerState_sP13entityState_sii_140:
 	mov eax, [edi+0x100]
 	mov [esp+0x4], eax
 	mov [esp], edi
-	call Z24PM_GetViewHeightLerpTimePK13playerState_sii:F(0,5)
+	call Z24PM_GetViewHeightLerpTimePK13playerState_sii_F0_5
 	mov edx, [edi]
 	sub edx, [edi+0xfc]
 	cvtsi2ss xmm1, edx
@@ -2943,7 +3535,7 @@ _Z37G_PlayerStateToEntityStateExtrapolateP13playerState_sP13entityState_sii_180:
 	mov eax, [edi+0x5ac]
 	mov [esp], eax
 	movss [ebp-0x48], xmm1
-	call Z17AngleNormalize180f:F(0,10)
+	call Z17AngleNormalize180f_F0_10
 	fstp dword [ebp-0x4c]
 	movss xmm0, dword [ebp-0x4c]
 	movss xmm1, dword [ebp-0x48]
@@ -2951,7 +3543,7 @@ _Z37G_PlayerStateToEntityStateExtrapolateP13playerState_sP13entityState_sii_180:
 	movss [esi+0xe8], xmm0
 	mov eax, [edi+0x5b0]
 	mov [esp], eax
-	call Z17AngleNormalize180f:F(0,10)
+	call Z17AngleNormalize180f_F0_10
 	fstp dword [ebp-0x30]
 	movss xmm1, dword [ebp-0x48]
 	mulss xmm1, [ebp-0x30]
@@ -2992,9 +3584,9 @@ _Z37G_PlayerStateToEntityStateExtrapolateP13playerState_sP13entityState_sii_170:
 	nop
 
 
-;Z16ClientThink_realP9gentity_sP9usercmd_s:F(0,1)
+;Z16ClientThink_realP9gentity_sP9usercmd_s_F0_1
 
-Z11G_RunClientP9gentity_s:F(0,1):
+Z11G_RunClientP9gentity_s_F0_1:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -3004,15 +3596,15 @@ Z11G_RunClientP9gentity_s:F(0,1):
 	mov eax, [0x1acd775]
 	mov eax, [eax]
 	cmp byte [eax+0x8], 0x0
-	jnz Z11G_RunClientP9gentity_s:F(0,1)_10
-Z11G_RunClientP9gentity_s:F(0,1)_40:
+	jnz Z11G_RunClientP9gentity_s_F0_1_10
+Z11G_RunClientP9gentity_s_F0_1_40:
 	mov ecx, [esi+0x158]
 	mov eax, [ecx+0x27ac]
 	test eax, eax
-	jnz Z11G_RunClientP9gentity_s:F(0,1)_20
+	jnz Z11G_RunClientP9gentity_s_F0_1_20
 	mov eax, [esi+0x208]
 	test eax, eax
-	jz Z11G_RunClientP9gentity_s:F(0,1)_30
+	jz Z11G_RunClientP9gentity_s_F0_1_30
 	mov eax, 0x7
 	cmp dword [ecx+0x26a8], 0x1
 	mov edx, 0x1
@@ -3020,19 +3612,19 @@ Z11G_RunClientP9gentity_s:F(0,1)_40:
 	mov [ecx+0x4], eax
 	mov dword [esp+0x4], 0x2
 	mov [esp], esi
-	call Z14G_SetFixedLinkP9gentity_si:F(0,11)
+	call Z14G_SetFixedLinkP9gentity_si_F0_11
 	lea ebx, [esi+0x138]
 	mov [esp+0x4], ebx
 	mov [esp], esi
-	call Z11G_SetOriginP9gentity_sPKf:F(0,11)
+	call Z11G_SetOriginP9gentity_sPKf_F0_11
 	lea eax, [esi+0x144]
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call Z10G_SetAngleP9gentity_sPKf:F(0,11)
+	call Z10G_SetAngleP9gentity_sPKf_F0_11
 	mov dword [esi+0xc], 0x1
 	mov dword [esi+0x30], 0x1
 	mov [esp], esi
-	call Z13SV_LinkEntityP9gentity_s:F(0,23)
+	call Z13SV_LinkEntityP9gentity_s_F0_23
 	mov edx, [esi+0x158]
 	lea ecx, [edx+0x14]
 	mov eax, [esi+0x138]
@@ -3041,13 +3633,13 @@ Z11G_RunClientP9gentity_s:F(0,1)_40:
 	mov [ecx+0x4], eax
 	mov eax, [ebx+0x8]
 	mov [ecx+0x8], eax
-Z11G_RunClientP9gentity_s:F(0,1)_20:
+Z11G_RunClientP9gentity_s_F0_1_20:
 	add esp, 0x10
 	pop ebx
 	pop esi
 	pop ebp
 	ret
-Z11G_RunClientP9gentity_s:F(0,1)_10:
+Z11G_RunClientP9gentity_s_F0_1_10:
 	mov edx, [esi+0x158]
 	mov eax, [0x1acd721]
 	mov eax, [eax+0x1ec]
@@ -3056,23 +3648,23 @@ Z11G_RunClientP9gentity_s:F(0,1)_10:
 	add eax, 0x26c8
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call Z16ClientThink_realP9gentity_sP9usercmd_s:F(0,1)
-	jmp Z11G_RunClientP9gentity_s:F(0,1)_40
-Z11G_RunClientP9gentity_s:F(0,1)_30:
+	call Z16ClientThink_realP9gentity_sP9usercmd_s_F0_1
+	jmp Z11G_RunClientP9gentity_s_F0_1_40
+Z11G_RunClientP9gentity_s_F0_1_30:
 	mov eax, [ecx+0x4]
 	cmp eax, 0x1
-	jz Z11G_RunClientP9gentity_s:F(0,1)_50
+	jz Z11G_RunClientP9gentity_s_F0_1_50
 	cmp eax, 0x7
-	jnz Z11G_RunClientP9gentity_s:F(0,1)_20
-Z11G_RunClientP9gentity_s:F(0,1)_50:
+	jnz Z11G_RunClientP9gentity_s_F0_1_20
+Z11G_RunClientP9gentity_s_F0_1_50:
 	sub eax, 0x1
 	mov [ecx+0x4], eax
-	jmp Z11G_RunClientP9gentity_s:F(0,1)_20
+	jmp Z11G_RunClientP9gentity_s_F0_1_20
 
 
-;Z11ClientThinki:F(0,1)
+;Z11ClientThinki_F0_1
 
-Z27DeathmatchScoreboardMessageP9gentity_s:F(0,1):
+Z27DeathmatchScoreboardMessageP9gentity_s_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -3084,16 +3676,16 @@ Z27DeathmatchScoreboardMessageP9gentity_s:F(0,1):
 	mov eax, [edi+0x218]
 	mov [ebp-0x99c], eax
 	cmp eax, 0x40
-	jle Z27DeathmatchScoreboardMessageP9gentity_s:F(0,1)_10
+	jle Z27DeathmatchScoreboardMessageP9gentity_s_F0_1_10
 	mov dword [ebp-0x99c], 0x40
-Z27DeathmatchScoreboardMessageP9gentity_s:F(0,1)_70:
+Z27DeathmatchScoreboardMessageP9gentity_s_F0_1_70:
 	mov dword [ebp-0x9a4], 0x0
 	mov dword [ebp-0x9a0], 0x0
 	mov esi, edi
-	jmp Z27DeathmatchScoreboardMessageP9gentity_s:F(0,1)_20
-Z27DeathmatchScoreboardMessageP9gentity_s:F(0,1)_50:
+	jmp Z27DeathmatchScoreboardMessageP9gentity_s_F0_1_20
+Z27DeathmatchScoreboardMessageP9gentity_s_F0_1_50:
 	mov edx, 0xffffffff
-Z27DeathmatchScoreboardMessageP9gentity_s:F(0,1)_60:
+Z27DeathmatchScoreboardMessageP9gentity_s_F0_1_60:
 	mov eax, [edi+0x26b0]
 	mov [esp+0x1c], eax
 	mov eax, [edi+0x26bc]
@@ -3107,7 +3699,7 @@ Z27DeathmatchScoreboardMessageP9gentity_s:F(0,1)_60:
 	mov dword [esp+0x4], 0x400
 	lea eax, [ebp-0x418]
 	mov [esp], eax
-	call Z11Com_sprintfPciPKcz:F(0,2)
+	call Z11Com_sprintfPciPKcz_F0_2
 	cld
 	mov ecx, 0xffffffff
 	lea edi, [ebp-0x418]
@@ -3117,7 +3709,7 @@ Z27DeathmatchScoreboardMessageP9gentity_s:F(0,1)_60:
 	mov eax, [ebp-0x9a4]
 	lea edi, [ecx+eax-0x1]
 	cmp edi, 0x400
-	jg Z27DeathmatchScoreboardMessageP9gentity_s:F(0,1)_30
+	jg Z27DeathmatchScoreboardMessageP9gentity_s_F0_1_30
 	lea eax, [ebp-0x418]
 	mov [esp+0x4], eax
 	lea eax, [ebp-0x990]
@@ -3128,10 +3720,10 @@ Z27DeathmatchScoreboardMessageP9gentity_s:F(0,1)_60:
 	add esi, 0x4
 	mov eax, [ebp-0x9a0]
 	cmp [ebp-0x99c], eax
-	jz Z27DeathmatchScoreboardMessageP9gentity_s:F(0,1)_40
+	jz Z27DeathmatchScoreboardMessageP9gentity_s_F0_1_40
 	mov [ebp-0x9a4], edi
 	mov edi, [0x1acd721]
-Z27DeathmatchScoreboardMessageP9gentity_s:F(0,1)_20:
+Z27DeathmatchScoreboardMessageP9gentity_s_F0_1_20:
 	lea ebx, [esi+0x21c]
 	mov ecx, [esi+0x21c]
 	lea eax, [ecx+ecx*4]
@@ -3142,17 +3734,17 @@ Z27DeathmatchScoreboardMessageP9gentity_s:F(0,1)_20:
 	mov edx, [edi]
 	lea edi, [edx+eax*4]
 	cmp dword [edi+0x26c4], 0x1
-	jz Z27DeathmatchScoreboardMessageP9gentity_s:F(0,1)_50
+	jz Z27DeathmatchScoreboardMessageP9gentity_s_F0_1_50
 	mov [esp], ecx
-	call Z16SV_GetClientPingi:F(0,1)
+	call Z16SV_GetClientPingi_F0_1
 	mov edx, eax
-	jmp Z27DeathmatchScoreboardMessageP9gentity_s:F(0,1)_60
-Z27DeathmatchScoreboardMessageP9gentity_s:F(0,1)_10:
+	jmp Z27DeathmatchScoreboardMessageP9gentity_s_F0_1_60
+Z27DeathmatchScoreboardMessageP9gentity_s_F0_1_10:
 	mov eax, [ebp-0x99c]
 	test eax, eax
-	jg Z27DeathmatchScoreboardMessageP9gentity_s:F(0,1)_70
+	jg Z27DeathmatchScoreboardMessageP9gentity_s_F0_1_70
 	mov dword [ebp-0x9a0], 0x0
-Z27DeathmatchScoreboardMessageP9gentity_s:F(0,1)_80:
+Z27DeathmatchScoreboardMessageP9gentity_s_F0_1_80:
 	lea eax, [ebp-0x990]
 	mov [esp+0x14], eax
 	mov eax, [edi+0x204]
@@ -3163,7 +3755,7 @@ Z27DeathmatchScoreboardMessageP9gentity_s:F(0,1)_80:
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], 0x62
 	mov dword [esp], _cstring_c_i_i_is
-	call va:F(0,3)
+	call va_F0_3
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], 0x1
 	mov eax, [0x1acd709]
@@ -3171,26 +3763,26 @@ Z27DeathmatchScoreboardMessageP9gentity_s:F(0,1)_80:
 	sar dword [ebp+0x8], 0x4
 	imul eax, [ebp+0x8], 0x8af8af8b
 	mov [esp], eax
-	call Z24SV_GameSendServerCommandi11svscmd_typePKc:F(0,53)
+	call Z24SV_GameSendServerCommandi11svscmd_typePKc_F0_53
 	add esp, 0x9bc
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z27DeathmatchScoreboardMessageP9gentity_s:F(0,1)_40:
+Z27DeathmatchScoreboardMessageP9gentity_s_F0_1_40:
 	mov eax, [ebp-0x99c]
 	mov [ebp-0x9a0], eax
 	mov edi, [0x1acd721]
-	jmp Z27DeathmatchScoreboardMessageP9gentity_s:F(0,1)_80
-Z27DeathmatchScoreboardMessageP9gentity_s:F(0,1)_30:
+	jmp Z27DeathmatchScoreboardMessageP9gentity_s_F0_1_80
+Z27DeathmatchScoreboardMessageP9gentity_s_F0_1_30:
 	mov edi, [0x1acd721]
-	jmp Z27DeathmatchScoreboardMessageP9gentity_s:F(0,1)_80
+	jmp Z27DeathmatchScoreboardMessageP9gentity_s_F0_1_80
 
 
-;Z11Cmd_Score_fP9gentity_s:F(0,1)
+;Z11Cmd_Score_fP9gentity_s_F0_1
 
-Z8CheatsOkP9gentity_s:F(0,19):
+Z8CheatsOkP9gentity_s_F0_19:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -3199,41 +3791,41 @@ Z8CheatsOkP9gentity_s:F(0,19):
 	mov eax, [0x1acd789]
 	mov eax, [eax]
 	cmp byte [eax+0x8], 0x0
-	jz Z8CheatsOkP9gentity_s:F(0,19)_10
+	jz Z8CheatsOkP9gentity_s_F0_19_10
 	mov edx, [ebx+0x194]
 	test edx, edx
-	jle Z8CheatsOkP9gentity_s:F(0,19)_20
+	jle Z8CheatsOkP9gentity_s_F0_19_20
 	mov eax, 0x1
 	add esp, 0x14
 	pop ebx
 	pop ebp
 	ret
-Z8CheatsOkP9gentity_s:F(0,19)_10:
+Z8CheatsOkP9gentity_s_F0_19_10:
 	mov dword [esp+0x4], 0x65
 	mov dword [esp], _cstring_c_game_cheatsnot
-Z8CheatsOkP9gentity_s:F(0,19)_30:
-	call va:F(0,3)
+Z8CheatsOkP9gentity_s_F0_19_30:
+	call va_F0_3
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], 0x0
 	sub ebx, [0x1acd709]
 	sar ebx, 0x4
 	imul eax, ebx, 0x8af8af8b
 	mov [esp], eax
-	call Z24SV_GameSendServerCommandi11svscmd_typePKc:F(0,53)
+	call Z24SV_GameSendServerCommandi11svscmd_typePKc_F0_53
 	xor eax, eax
 	add esp, 0x14
 	pop ebx
 	pop ebp
 	ret
-Z8CheatsOkP9gentity_s:F(0,19)_20:
+Z8CheatsOkP9gentity_s_F0_19_20:
 	mov dword [esp+0x4], 0x65
 	mov dword [esp], _cstring_c_game_mustbeali
-	jmp Z8CheatsOkP9gentity_s:F(0,19)_30
+	jmp Z8CheatsOkP9gentity_s_F0_19_30
 
 
-;Z10ConcatArgsi:F(0,78)
+;Z10ConcatArgsi_F0_78
 
-Z8G_setfogPKc:F(0,1):
+Z8G_setfogPKc_F0_1:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -3242,7 +3834,7 @@ Z8G_setfogPKc:F(0,1):
 	mov ebx, [ebp+0x8]
 	mov [esp+0x4], ebx
 	mov dword [esp], 0xc
-	call Z18SV_SetConfigstringiPKc:F(0,3)
+	call Z18SV_SetConfigstringiPKc_F0_3
 	mov esi, [0x1acd721]
 	mov eax, 0x7f7fffff
 	mov [esi+0x1dd8], eax
@@ -3265,17 +3857,17 @@ Z8G_setfogPKc:F(0,1):
 	mov [esp], ebx
 	call sscanf
 	cmp eax, 0x7
-	jz Z8G_setfogPKc:F(0,1)_10
-Z8G_setfogPKc:F(0,1)_20:
+	jz Z8G_setfogPKc_F0_1_10
+Z8G_setfogPKc_F0_1_20:
 	add esp, 0x50
 	pop ebx
 	pop esi
 	pop ebp
 	ret
-Z8G_setfogPKc:F(0,1)_10:
+Z8G_setfogPKc_F0_1_10:
 	movss xmm0, dword [ebp-0x14]
 	ucomiss xmm0, [_float_1_00000000]
-	jb Z8G_setfogPKc:F(0,1)_20
+	jb Z8G_setfogPKc_F0_1_20
 	movss xmm1, dword [ebp-0xc]
 	movss xmm0, dword [ebp-0x10]
 	subss xmm0, xmm1
@@ -3291,9 +3883,9 @@ Z8G_setfogPKc:F(0,1)_10:
 	add [eax], al
 
 
-;Z17Cmd_FollowCycle_fP9gentity_si:F(0,19)
+;Z17Cmd_FollowCycle_fP9gentity_si_F0_19
 
-Z11G_IsPlayingP9gentity_s:F(0,19):
+Z11G_IsPlayingP9gentity_s_F0_19:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -3307,7 +3899,7 @@ Z11G_IsPlayingP9gentity_s:F(0,19):
 	add [eax], al
 
 
-;Z14Cmd_CallVote_fP9gentity_s:F(0,1)
+;Z14Cmd_CallVote_fP9gentity_s_F0_1
 
 _Z7G_SayToP9gentity_sS0_iiPKcS2_:
 	push ebp
@@ -3371,7 +3963,7 @@ _Z7G_SayToP9gentity_sS0_iiPKcS2__60:
 	mov [esp+0x8], edx
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_c_sccs
-	call va:F(0,3)
+	call va_F0_3
 	mov [ebp+0x10], eax
 	mov dword [ebp+0xc], 0x0
 	sub ebx, [0x1acd709]
@@ -3383,22 +3975,22 @@ _Z7G_SayToP9gentity_sS0_iiPKcS2__60:
 	pop esi
 	pop edi
 	pop ebp
-	jmp Z24SV_GameSendServerCommandi11svscmd_typePKc:F(0,53)
+	jmp Z24SV_GameSendServerCommandi11svscmd_typePKc_F0_53
 _Z7G_SayToP9gentity_sS0_iiPKcS2__50:
 	mov eax, 0x69
 	jmp _Z7G_SayToP9gentity_sS0_iiPKcS2__60
 _Z7G_SayToP9gentity_sS0_iiPKcS2__30:
 	mov [esp+0x4], ebx
 	mov [esp], edi
-	call Z10OnSameTeamP9gentity_sS0_:F(0,1)
+	call Z10OnSameTeamP9gentity_sS0__F0_1
 	test eax, eax
 	jnz _Z7G_SayToP9gentity_sS0_iiPKcS2__70
 	jmp _Z7G_SayToP9gentity_sS0_iiPKcS2__10
 
 
-;Z5G_SayP9gentity_sS0_iPKc:F(0,1)
+;Z5G_SayP9gentity_sS0_iPKc_F0_1
 
-Z5G_SayP9gentity_sS0_iPKc:F(0,1):
+Z5G_SayP9gentity_sS0_iPKc_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -3406,55 +3998,55 @@ Z5G_SayP9gentity_sS0_iPKc:F(0,1):
 	push ebx
 	sub esp, 0x1dc
 	cmp dword [ebp+0x10], 0x1
-	jz Z5G_SayP9gentity_sS0_iPKc:F(0,1)_10
+	jz Z5G_SayP9gentity_sS0_iPKc_F0_1_10
 	mov edx, [ebp+0x8]
 	mov eax, [edx+0x158]
-Z5G_SayP9gentity_sS0_iPKc:F(0,1)_160:
+Z5G_SayP9gentity_sS0_iPKc_F0_1_160:
 	mov dword [esp+0x8], 0x40
 	add eax, 0x2784
 	mov [esp+0x4], eax
 	lea edi, [ebp-0x58]
 	mov [esp], edi
-	call Z10I_strncpyzPcPKci:F(0,15)
+	call Z10I_strncpyzPcPKci_F0_15
 	mov [esp], edi
-	call Z10I_CleanStrPc:F(0,3)
+	call Z10I_CleanStrPc_F0_3
 	mov eax, [ebp+0x8]
 	mov edx, [eax+0x158]
 	mov eax, [edx+0x274c]
 	cmp eax, 0x1
-	jz Z5G_SayP9gentity_sS0_iPKc:F(0,1)_20
+	jz Z5G_SayP9gentity_sS0_iPKc_F0_1_20
 	cmp eax, 0x2
-	jz Z5G_SayP9gentity_sS0_iPKc:F(0,1)_30
+	jz Z5G_SayP9gentity_sS0_iPKc_F0_1_30
 	mov ecx, _cstring_null
 	cmp eax, 0x3
-	jz Z5G_SayP9gentity_sS0_iPKc:F(0,1)_40
+	jz Z5G_SayP9gentity_sS0_iPKc_F0_1_40
 	mov esi, [edx+0x26a8]
 	test esi, esi
-	jz Z5G_SayP9gentity_sS0_iPKc:F(0,1)_50
-Z5G_SayP9gentity_sS0_iPKc:F(0,1)_140:
+	jz Z5G_SayP9gentity_sS0_iPKc_F0_1_50
+Z5G_SayP9gentity_sS0_iPKc_F0_1_140:
 	mov [esp+0xc], ecx
 	mov dword [esp+0x8], _cstring_sgame_dead
 	mov dword [esp+0x4], 0x40
 	lea eax, [ebp-0x98]
 	mov [esp], eax
-	call Z11Com_sprintfPciPKcz:F(0,2)
-Z5G_SayP9gentity_sS0_iPKc:F(0,1)_180:
+	call Z11Com_sprintfPciPKcz_F0_2
+Z5G_SayP9gentity_sS0_iPKc_F0_1_180:
 	cmp dword [ebp+0x10], 0x1
-	jz Z5G_SayP9gentity_sS0_iPKc:F(0,1)_60
-Z5G_SayP9gentity_sS0_iPKc:F(0,1)_90:
+	jz Z5G_SayP9gentity_sS0_iPKc_F0_1_60
+Z5G_SayP9gentity_sS0_iPKc_F0_1_90:
 	cmp dword [ebp+0x10], 0x2
-	jz Z5G_SayP9gentity_sS0_iPKc:F(0,1)_70
+	jz Z5G_SayP9gentity_sS0_iPKc_F0_1_70
 	mov eax, [ebp+0x8]
 	mov ebx, [eax]
 	mov [esp], ebx
-	call Z10SV_GetGuidi:F(0,1)
+	call Z10SV_GetGuidi_F0_1
 	mov edx, [ebp+0x14]
 	mov [esp+0x10], edx
 	mov [esp+0xc], edi
 	mov [esp+0x8], ebx
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_sayddss
-	call Z11G_LogPrintfPKcz:F(0,2)
+	call Z11G_LogPrintfPKcz_F0_2
 	mov dword [esp+0x14], _cstring_71
 	mov [esp+0x10], edi
 	lea eax, [ebp-0x98]
@@ -3463,19 +4055,19 @@ Z5G_SayP9gentity_sS0_iPKc:F(0,1)_90:
 	mov dword [esp+0x4], 0x80
 	lea edx, [ebp-0x118]
 	mov [esp], edx
-	call Z11Com_sprintfPciPKcz:F(0,2)
+	call Z11Com_sprintfPciPKcz_F0_2
 	mov dword [ebp-0x1bc], 0x37
-Z5G_SayP9gentity_sS0_iPKc:F(0,1)_170:
+Z5G_SayP9gentity_sS0_iPKc_F0_1_170:
 	mov dword [esp+0x8], 0x96
 	mov eax, [ebp+0x14]
 	mov [esp+0x4], eax
 	lea edi, [ebp-0x1ae]
 	mov [esp], edi
-	call Z10I_strncpyzPcPKci:F(0,15)
+	call Z10I_strncpyzPcPKci_F0_15
 	mov ebx, [ebp+0xc]
 	test ebx, ebx
-	jz Z5G_SayP9gentity_sS0_iPKc:F(0,1)_80
-Z5G_SayP9gentity_sS0_iPKc:F(0,1)_100:
+	jz Z5G_SayP9gentity_sS0_iPKc_F0_1_80
+Z5G_SayP9gentity_sS0_iPKc_F0_1_100:
 	mov [esp+0x8], edi
 	lea edx, [ebp-0x118]
 	mov [esp+0x4], edx
@@ -3485,23 +4077,23 @@ Z5G_SayP9gentity_sS0_iPKc:F(0,1)_100:
 	mov edx, [ebp+0xc]
 	mov eax, [ebp+0x8]
 	call _Z7G_SayToP9gentity_sS0_iiPKcS2_
-Z5G_SayP9gentity_sS0_iPKc:F(0,1)_120:
+Z5G_SayP9gentity_sS0_iPKc_F0_1_120:
 	add esp, 0x1dc
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z5G_SayP9gentity_sS0_iPKc:F(0,1)_50:
+Z5G_SayP9gentity_sS0_iPKc_F0_1_50:
 	mov [esp+0xc], ecx
 	mov dword [esp+0x8], _cstring_s3
 	mov dword [esp+0x4], 0x40
 	lea edx, [ebp-0x98]
 	mov [esp], edx
-	call Z11Com_sprintfPciPKcz:F(0,2)
+	call Z11Com_sprintfPciPKcz_F0_2
 	cmp dword [ebp+0x10], 0x1
-	jnz Z5G_SayP9gentity_sS0_iPKc:F(0,1)_90
-Z5G_SayP9gentity_sS0_iPKc:F(0,1)_60:
+	jnz Z5G_SayP9gentity_sS0_iPKc_F0_1_90
+Z5G_SayP9gentity_sS0_iPKc_F0_1_60:
 	mov edx, [ebp+0x8]
 	mov eax, [edx+0x158]
 	mov ebx, _cstring_game_axis
@@ -3510,14 +4102,14 @@ Z5G_SayP9gentity_sS0_iPKc:F(0,1)_60:
 	cmovnz ebx, eax
 	mov esi, [edx]
 	mov [esp], esi
-	call Z10SV_GetGuidi:F(0,1)
+	call Z10SV_GetGuidi_F0_1
 	mov edx, [ebp+0x14]
 	mov [esp+0x10], edx
 	mov [esp+0xc], edi
 	mov [esp+0x8], esi
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_sayteamddss
-	call Z11G_LogPrintfPKcz:F(0,2)
+	call Z11G_LogPrintfPKcz_F0_2
 	mov dword [esp+0x18], _cstring_71
 	mov [esp+0x14], edi
 	mov [esp+0x10], ebx
@@ -3527,32 +4119,32 @@ Z5G_SayP9gentity_sS0_iPKc:F(0,1)_60:
 	mov dword [esp+0x4], 0x80
 	lea edx, [ebp-0x118]
 	mov [esp], edx
-	call Z11Com_sprintfPciPKcz:F(0,2)
+	call Z11Com_sprintfPciPKcz_F0_2
 	mov dword [ebp-0x1bc], 0x35
 	mov dword [esp+0x8], 0x96
 	mov eax, [ebp+0x14]
 	mov [esp+0x4], eax
 	lea edi, [ebp-0x1ae]
 	mov [esp], edi
-	call Z10I_strncpyzPcPKci:F(0,15)
+	call Z10I_strncpyzPcPKci_F0_15
 	mov ebx, [ebp+0xc]
 	test ebx, ebx
-	jnz Z5G_SayP9gentity_sS0_iPKc:F(0,1)_100
-Z5G_SayP9gentity_sS0_iPKc:F(0,1)_80:
+	jnz Z5G_SayP9gentity_sS0_iPKc_F0_1_100
+Z5G_SayP9gentity_sS0_iPKc_F0_1_80:
 	mov eax, [0x1acd785]
 	mov eax, [eax]
 	mov ecx, [eax+0x8]
 	test ecx, ecx
-	jnz Z5G_SayP9gentity_sS0_iPKc:F(0,1)_110
-Z5G_SayP9gentity_sS0_iPKc:F(0,1)_190:
+	jnz Z5G_SayP9gentity_sS0_iPKc_F0_1_110
+Z5G_SayP9gentity_sS0_iPKc_F0_1_190:
 	mov eax, [0x1acd721]
 	mov edx, [eax+0x1e4]
 	test edx, edx
-	jle Z5G_SayP9gentity_sS0_iPKc:F(0,1)_120
+	jle Z5G_SayP9gentity_sS0_iPKc_F0_1_120
 	xor esi, esi
 	mov [ebp-0x1c0], eax
 	mov ebx, [0x1acd709]
-Z5G_SayP9gentity_sS0_iPKc:F(0,1)_130:
+Z5G_SayP9gentity_sS0_iPKc_F0_1_130:
 	mov [esp+0x8], edi
 	lea eax, [ebp-0x118]
 	mov [esp+0x4], eax
@@ -3566,36 +4158,36 @@ Z5G_SayP9gentity_sS0_iPKc:F(0,1)_130:
 	add ebx, 0x230
 	mov eax, [ebp-0x1c0]
 	cmp [eax+0x1e4], esi
-	jg Z5G_SayP9gentity_sS0_iPKc:F(0,1)_130
+	jg Z5G_SayP9gentity_sS0_iPKc_F0_1_130
 	add esp, 0x1dc
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z5G_SayP9gentity_sS0_iPKc:F(0,1)_20:
+Z5G_SayP9gentity_sS0_iPKc_F0_1_20:
 	mov ecx, _cstring_91
 	mov esi, [edx+0x26a8]
 	test esi, esi
-	jz Z5G_SayP9gentity_sS0_iPKc:F(0,1)_50
-	jmp Z5G_SayP9gentity_sS0_iPKc:F(0,1)_140
-Z5G_SayP9gentity_sS0_iPKc:F(0,1)_10:
+	jz Z5G_SayP9gentity_sS0_iPKc_F0_1_50
+	jmp Z5G_SayP9gentity_sS0_iPKc_F0_1_140
+Z5G_SayP9gentity_sS0_iPKc_F0_1_10:
 	mov edx, [ebp+0x8]
 	mov eax, [edx+0x158]
 	mov edx, [eax+0x274c]
 	cmp edx, 0x1
-	jz Z5G_SayP9gentity_sS0_iPKc:F(0,1)_150
+	jz Z5G_SayP9gentity_sS0_iPKc_F0_1_150
 	cmp edx, 0x2
-	jz Z5G_SayP9gentity_sS0_iPKc:F(0,1)_150
+	jz Z5G_SayP9gentity_sS0_iPKc_F0_1_150
 	mov dword [ebp+0x10], 0x0
-	jmp Z5G_SayP9gentity_sS0_iPKc:F(0,1)_160
-Z5G_SayP9gentity_sS0_iPKc:F(0,1)_30:
+	jmp Z5G_SayP9gentity_sS0_iPKc_F0_1_160
+Z5G_SayP9gentity_sS0_iPKc_F0_1_30:
 	mov ecx, _cstring_81
 	mov esi, [edx+0x26a8]
 	test esi, esi
-	jz Z5G_SayP9gentity_sS0_iPKc:F(0,1)_50
-	jmp Z5G_SayP9gentity_sS0_iPKc:F(0,1)_140
-Z5G_SayP9gentity_sS0_iPKc:F(0,1)_70:
+	jz Z5G_SayP9gentity_sS0_iPKc_F0_1_50
+	jmp Z5G_SayP9gentity_sS0_iPKc_F0_1_140
+Z5G_SayP9gentity_sS0_iPKc_F0_1_70:
 	mov dword [esp+0x14], _cstring_71
 	mov [esp+0x10], edi
 	lea eax, [ebp-0x98]
@@ -3604,32 +4196,32 @@ Z5G_SayP9gentity_sS0_iPKc:F(0,1)_70:
 	mov dword [esp+0x4], 0x80
 	lea edx, [ebp-0x118]
 	mov [esp], edx
-	call Z11Com_sprintfPciPKcz:F(0,2)
+	call Z11Com_sprintfPciPKcz_F0_2
 	mov dword [ebp-0x1bc], 0x33
-	jmp Z5G_SayP9gentity_sS0_iPKc:F(0,1)_170
-Z5G_SayP9gentity_sS0_iPKc:F(0,1)_40:
+	jmp Z5G_SayP9gentity_sS0_iPKc_F0_1_170
+Z5G_SayP9gentity_sS0_iPKc_F0_1_40:
 	mov dword [esp+0x8], _cstring_game_spectator
 	mov dword [esp+0x4], 0x40
 	lea edx, [ebp-0x98]
 	mov [esp], edx
-	call Z11Com_sprintfPciPKcz:F(0,2)
-	jmp Z5G_SayP9gentity_sS0_iPKc:F(0,1)_180
-Z5G_SayP9gentity_sS0_iPKc:F(0,1)_150:
+	call Z11Com_sprintfPciPKcz_F0_2
+	jmp Z5G_SayP9gentity_sS0_iPKc_F0_1_180
+Z5G_SayP9gentity_sS0_iPKc_F0_1_150:
 	mov dword [ebp+0x10], 0x1
-	jmp Z5G_SayP9gentity_sS0_iPKc:F(0,1)_160
-Z5G_SayP9gentity_sS0_iPKc:F(0,1)_110:
+	jmp Z5G_SayP9gentity_sS0_iPKc_F0_1_160
+Z5G_SayP9gentity_sS0_iPKc_F0_1_110:
 	mov [esp+0x8], edi
 	lea edx, [ebp-0x118]
 	mov [esp+0x4], edx
 	mov dword [esp], _cstring_ss5
-	call Z10Com_PrintfPKcz:F(0,1)
-	jmp Z5G_SayP9gentity_sS0_iPKc:F(0,1)_190
+	call Z10Com_PrintfPKcz_F0_1
+	jmp Z5G_SayP9gentity_sS0_iPKc_F0_1_190
 	nop
 
 
-;Z13StopFollowingP9gentity_s:F(0,1)
+;Z13StopFollowingP9gentity_s_F0_1
 
-Z16G_GetSavePersistv:F(0,1):
+Z16G_GetSavePersistv_F0_1:
 	push ebp
 	mov ebp, esp
 	mov eax, [level+0x1d54]
@@ -3637,9 +4229,9 @@ Z16G_GetSavePersistv:F(0,1):
 	ret
 
 
-;Z16G_SetSavePersisti:F(0,2)
+;Z16G_SetSavePersisti_F0_2
 
-Z16G_SetSavePersisti:F(0,2):
+Z16G_SetSavePersisti_F0_2:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -3649,9 +4241,9 @@ Z16G_SetSavePersisti:F(0,2):
 	nop
 
 
-;Z22G_GetFogOpaqueDistSqrdv:F(0,4)
+;Z22G_GetFogOpaqueDistSqrdv_F0_4
 
-Z22G_GetFogOpaqueDistSqrdv:F(0,4):
+Z22G_GetFogOpaqueDistSqrdv_F0_4:
 	push ebp
 	mov ebp, esp
 	fld dword [level+0x1ddc]
@@ -3660,9 +4252,9 @@ Z22G_GetFogOpaqueDistSqrdv:F(0,4):
 	nop
 
 
-;Z16G_GetClientScorei:F(0,1)
+;Z16G_GetClientScorei_F0_1
 
-Z16G_GetClientScorei:F(0,1):
+Z16G_GetClientScorei_F0_1:
 	push ebp
 	mov ebp, esp
 	mov edx, [ebp+0x8]
@@ -3677,9 +4269,9 @@ Z16G_GetClientScorei:F(0,1):
 	ret
 
 
-;Z22G_GetClientArchiveTimei:F(0,1)
+;Z22G_GetClientArchiveTimei_F0_1
 
-Z22G_GetClientArchiveTimei:F(0,1):
+Z22G_GetClientArchiveTimei_F0_1:
 	push ebp
 	mov ebp, esp
 	mov edx, [ebp+0x8]
@@ -3694,9 +4286,9 @@ Z22G_GetClientArchiveTimei:F(0,1):
 	ret
 
 
-;Z22G_SetClientArchiveTimeii:F(0,2)
+;Z22G_SetClientArchiveTimeii_F0_2
 
-Z22G_SetClientArchiveTimeii:F(0,2):
+Z22G_SetClientArchiveTimeii_F0_2:
 	push ebp
 	mov ebp, esp
 	mov edx, [ebp+0x8]
@@ -3713,9 +4305,9 @@ Z22G_SetClientArchiveTimeii:F(0,2):
 	nop
 
 
-;Z16G_GetClientStatei:F(0,5)
+;Z16G_GetClientStatei_F0_5
 
-Z16G_GetClientStatei:F(0,5):
+Z16G_GetClientStatei_F0_5:
 	push ebp
 	mov ebp, esp
 	mov edx, [ebp+0x8]
@@ -3738,12 +4330,12 @@ _Z12G_CreateDObjP11DObjModel_stP11XAnimTree_siP12clientInfo_t:
 	movzx eax, word [ebp+0xc]
 	mov [ebp+0xc], eax
 	pop ebp
-	jmp Z20Com_ServerDObjCreateP11DObjModel_stP11XAnimTree_si:F(0,4)
+	jmp Z20Com_ServerDObjCreateP11DObjModel_stP11XAnimTree_si_F0_4
 
 
-;Z21Hunk_AllocXAnimServeri:F(0,101)
+;Z21Hunk_AllocXAnimServeri_F0_101
 
-Z14CalculateRanksv:F(0,2):
+Z14CalculateRanksv_F0_2:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -3753,26 +4345,26 @@ Z14CalculateRanksv:F(0,2):
 	mov dword [level+0xb2c], 0x0
 	mov eax, [level+0x1e4]
 	test eax, eax
-	jle Z14CalculateRanksv:F(0,2)_10
+	jle Z14CalculateRanksv_F0_2_10
 	xor edx, edx
 	mov ebx, level+0x210
 	mov eax, [level]
-Z14CalculateRanksv:F(0,2)_40:
+Z14CalculateRanksv_F0_2_40:
 	cmp dword [eax+0x26c4], 0x0
-	jz Z14CalculateRanksv:F(0,2)_20
+	jz Z14CalculateRanksv_F0_2_20
 	mov [ebx+ecx*4+0xc], edx
 	add ecx, 0x1
 	mov [level+0x218], ecx
 	cmp dword [eax+0x274c], 0x3
-	jz Z14CalculateRanksv:F(0,2)_20
+	jz Z14CalculateRanksv_F0_2_20
 	cmp dword [eax+0x26c4], 0x2
-	jz Z14CalculateRanksv:F(0,2)_30
-Z14CalculateRanksv:F(0,2)_20:
+	jz Z14CalculateRanksv_F0_2_30
+Z14CalculateRanksv_F0_2_20:
 	add edx, 0x1
 	add eax, 0x28a4
 	cmp edx, [level+0x1e4]
-	jl Z14CalculateRanksv:F(0,2)_40
-Z14CalculateRanksv:F(0,2)_50:
+	jl Z14CalculateRanksv_F0_2_40
+Z14CalculateRanksv_F0_2_50:
 	mov dword [esp+0xc], _Z9SortRanksPKvS0_
 	mov dword [esp+0x8], 0x4
 	mov [esp+0x4], ecx
@@ -3783,18 +4375,18 @@ Z14CalculateRanksv:F(0,2)_50:
 	pop ebx
 	pop ebp
 	ret
-Z14CalculateRanksv:F(0,2)_10:
+Z14CalculateRanksv_F0_2_10:
 	mov ecx, [level+0x218]
-	jmp Z14CalculateRanksv:F(0,2)_50
-Z14CalculateRanksv:F(0,2)_30:
+	jmp Z14CalculateRanksv_F0_2_50
+Z14CalculateRanksv_F0_2_30:
 	add dword [level+0xb2c], 0x1
-	jmp Z14CalculateRanksv:F(0,2)_20
+	jmp Z14CalculateRanksv_F0_2_20
 	nop
 
 
-;Z11G_LogPrintfPKcz:F(0,2)
+;Z11G_LogPrintfPKcz_F0_2
 
-Z11G_LogPrintfPKcz:F(0,2):
+Z11G_LogPrintfPKcz_F0_2:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -3803,7 +4395,7 @@ Z11G_LogPrintfPKcz:F(0,2):
 	sub esp, 0x83c
 	mov edx, [level+0x18]
 	test edx, edx
-	jz Z11G_LogPrintfPKcz:F(0,2)_10
+	jz Z11G_LogPrintfPKcz_F0_2_10
 	lea eax, [ebp+0xc]
 	mov [ebp-0x1c], eax
 	mov [esp+0xc], eax
@@ -3853,7 +4445,7 @@ Z11G_LogPrintfPKcz:F(0,2):
 	mov dword [esp+0x4], 0x400
 	lea ebx, [ebp-0x41c]
 	mov [esp], ebx
-	call Z11Com_sprintfPciPKcz:F(0,2)
+	call Z11Com_sprintfPciPKcz_F0_2
 	mov eax, [level+0x18]
 	mov [esp+0x8], eax
 	cld
@@ -3865,8 +4457,8 @@ Z11G_LogPrintfPKcz:F(0,2):
 	sub ecx, 0x1
 	mov [esp+0x4], ecx
 	mov [esp], ebx
-	call Z8FS_WritePKvii:F(0,2)
-Z11G_LogPrintfPKcz:F(0,2)_10:
+	call Z8FS_WritePKvii_F0_2
+Z11G_LogPrintfPKcz_F0_2_10:
 	add esp, 0x83c
 	pop ebx
 	pop esi
@@ -3876,67 +4468,67 @@ Z11G_LogPrintfPKcz:F(0,2)_10:
 	nop
 
 
-;Z9ExitLevelv:F(0,2)
+;Z9ExitLevelv_F0_2
 
-Z9ExitLevelv:F(0,2):
+Z9ExitLevelv_F0_2:
 	push ebp
 	mov ebp, esp
 	push ebx
 	sub esp, 0x14
 	mov dword [esp+0x4], _cstring_map_rotate2
 	mov dword [esp], 0x2
-	call Z16Cbuf_ExecuteTextiPKc:F(0,1)
+	call Z16Cbuf_ExecuteTextiPKc_F0_1
 	mov dword [level+0x200], 0x0
 	mov dword [level+0x204], 0x0
 	mov ebx, [g_maxclients]
 	mov eax, [ebx+0x8]
 	test eax, eax
-	jle Z9ExitLevelv:F(0,2)_10
+	jle Z9ExitLevelv_F0_2_10
 	xor ecx, ecx
 	xor edx, edx
-	jmp Z9ExitLevelv:F(0,2)_20
-Z9ExitLevelv:F(0,2)_40:
+	jmp Z9ExitLevelv_F0_2_20
+Z9ExitLevelv_F0_2_40:
 	add ecx, 0x1
 	add edx, 0x28a4
 	cmp ecx, [ebx+0x8]
-	jge Z9ExitLevelv:F(0,2)_30
-Z9ExitLevelv:F(0,2)_20:
+	jge Z9ExitLevelv_F0_2_30
+Z9ExitLevelv_F0_2_20:
 	mov eax, edx
 	add eax, [level]
 	cmp dword [eax+0x26c4], 0x2
-	jnz Z9ExitLevelv:F(0,2)_40
+	jnz Z9ExitLevelv_F0_2_40
 	mov dword [eax+0x26b8], 0x0
 	mov ebx, [g_maxclients]
 	add ecx, 0x1
 	add edx, 0x28a4
 	cmp ecx, [ebx+0x8]
-	jl Z9ExitLevelv:F(0,2)_20
-Z9ExitLevelv:F(0,2)_30:
+	jl Z9ExitLevelv_F0_2_20
+Z9ExitLevelv_F0_2_30:
 	mov ecx, [ebx+0x8]
 	test ecx, ecx
-	jle Z9ExitLevelv:F(0,2)_10
+	jle Z9ExitLevelv_F0_2_10
 	xor ecx, ecx
 	xor edx, edx
-	jmp Z9ExitLevelv:F(0,2)_50
-Z9ExitLevelv:F(0,2)_60:
+	jmp Z9ExitLevelv_F0_2_50
+Z9ExitLevelv_F0_2_60:
 	add ecx, 0x1
 	add edx, 0x28a4
 	cmp ecx, [ebx+0x8]
-	jge Z9ExitLevelv:F(0,2)_10
-Z9ExitLevelv:F(0,2)_50:
+	jge Z9ExitLevelv_F0_2_10
+Z9ExitLevelv_F0_2_50:
 	mov eax, edx
 	add eax, [level]
 	cmp dword [eax+0x26c4], 0x2
-	jnz Z9ExitLevelv:F(0,2)_60
+	jnz Z9ExitLevelv_F0_2_60
 	mov dword [eax+0x26c4], 0x1
 	mov ebx, [g_maxclients]
 	add ecx, 0x1
 	add edx, 0x28a4
 	cmp ecx, [ebx+0x8]
-	jl Z9ExitLevelv:F(0,2)_50
-Z9ExitLevelv:F(0,2)_10:
+	jl Z9ExitLevelv_F0_2_50
+Z9ExitLevelv_F0_2_10:
 	mov dword [esp], _cstring_exitlevel_execut
-	call Z11G_LogPrintfPKcz:F(0,2)
+	call Z11G_LogPrintfPKcz_F0_2
 	add esp, 0x14
 	pop ebx
 	pop ebp
@@ -3944,9 +4536,9 @@ Z9ExitLevelv:F(0,2)_10:
 	nop
 
 
-;Z10G_InitGameiiii:F(0,2)
+;Z10G_InitGameiiii_F0_2
 
-Z10G_InitGameiiii:F(0,2):
+Z10G_InitGameiiii_F0_2:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -3956,14 +4548,14 @@ Z10G_InitGameiiii:F(0,2):
 	mov ebx, [ebp+0x8]
 	mov esi, [ebp+0xc]
 	mov dword [esp], _cstring__game_initializa
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov dword [esp+0x4], _cstring_call_of_duty_2
 	mov dword [esp], _cstring_gamename_s
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov dword [esp+0x4], _cstring_aug_30_2006
 	mov dword [esp], _cstring_gamedate_s
-	call Z10Com_PrintfPKcz:F(0,1)
-	call Swap_Init:F(0,15)
+	call Z10Com_PrintfPKcz_F0_1
+	call Swap_Init_F0_15
 	mov dword [esp+0x8], 0x3624
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], level
@@ -3975,16 +4567,16 @@ Z10G_InitGameiiii:F(0,2):
 	mov [esp], esi
 	call srand
 	mov [esp], esi
-	call Z9Rand_Initi:F(0,18)
-	call Z16G_SetupWeaponDefv:F(0,1)
+	call Z9Rand_Initi_F0_18
+	call Z16G_SetupWeaponDefv_F0_1
 	mov edx, [ebp+0x10]
 	test edx, edx
-	jz Z10G_InitGameiiii:F(0,2)_10
+	jz Z10G_InitGameiiii_F0_2_10
 	mov eax, [ebp+0x14]
 	test eax, eax
-	jz Z10G_InitGameiiii:F(0,2)_10
-Z10G_InitGameiiii:F(0,2)_100:
-	call Z15G_ProcessIPBansv:F(0,1)
+	jz Z10G_InitGameiiii_F0_2_10
+Z10G_InitGameiiii_F0_2_100:
+	call Z15G_ProcessIPBansv_F0_1
 	mov eax, [0x1acd799]
 	mov [level_bgs+0xb3bec], eax
 	mov dword [level_bgs+0xb3bf0], 0x1ada80
@@ -3995,24 +4587,24 @@ Z10G_InitGameiiii:F(0,2)_100:
 	mov eax, [g_log]
 	mov edx, [eax+0x8]
 	cmp byte [edx], 0x0
-	jz Z10G_InitGameiiii:F(0,2)_20
+	jz Z10G_InitGameiiii_F0_2_20
 	mov eax, [g_logSync]
 	cmp byte [eax+0x8], 0x0
-	jz Z10G_InitGameiiii:F(0,2)_30
+	jz Z10G_InitGameiiii_F0_2_30
 	mov dword [esp+0x8], 0x3
 	mov dword [esp+0x4], level+0x18
 	mov [esp], edx
-	call Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2)
+	call Z18FS_FOpenFileByModePKcPi8fsMode_t_F0_2
 	mov eax, [level+0x18]
 	test eax, eax
-	jnz Z10G_InitGameiiii:F(0,2)_40
-Z10G_InitGameiiii:F(0,2)_110:
+	jnz Z10G_InitGameiiii_F0_2_40
+Z10G_InitGameiiii_F0_2_110:
 	mov eax, [g_log]
 	mov eax, [eax+0x8]
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_warning_couldnt_
-	call Z10Com_PrintfPKcz:F(0,1)
-Z10G_InitGameiiii:F(0,2)_120:
+	call Z10Com_PrintfPKcz_F0_1
+Z10G_InitGameiiii_F0_2_120:
 	mov dword [level+0x3608], 0xffffffff
 	mov dword [level+0x360c], 0x0
 	mov dword [level+0x3610], 0x0
@@ -4020,27 +4612,27 @@ Z10G_InitGameiiii:F(0,2)_120:
 	mov dword [level+0x3618], 0x0
 	mov dword [level+0x361c], 0x0
 	mov dword [level+0x3620], 0x0
-	mov dword [esp], Z21Hunk_AllocXAnimServeri:F(0,101)
-	call Z18Mantle_CreateAnimsPFPviE:F(0,1)
+	mov dword [esp], Z21Hunk_AllocXAnimServeri_F0_101
+	call Z18Mantle_CreateAnimsPFPviE_F0_1
 	mov ebx, [0x1acce1d]
 	mov dword [ebx], level_bgs
 	mov eax, [ebp+0x10]
 	test eax, eax
-	jz Z10G_InitGameiiii:F(0,2)_50
-Z10G_InitGameiiii:F(0,2)_160:
-	call Z15GScr_LoadConstsv:F(0,1)
+	jz Z10G_InitGameiiii_F0_2_50
+Z10G_InitGameiiii_F0_2_160:
+	call Z15GScr_LoadConstsv_F0_1
 	mov dword [esp+0x8], 0x400
 	lea ebx, [ebp-0x418]
 	mov [esp+0x4], ebx
 	mov dword [esp], 0x16
-	call Z18SV_GetConfigstringiPci:F(0,3)
+	call Z18SV_GetConfigstringiPci_F0_3
 	mov dword [esp+0x8], _cstring_0
 	mov dword [esp+0x4], _cstring_winner
 	mov [esp], ebx
-	call Z19Info_SetValueForKeyPcPKcS1_:F(0,15)
+	call Z19Info_SetValueForKeyPcPKcS1__F0_15
 	mov [esp+0x4], ebx
 	mov dword [esp], 0x16
-	call Z18SV_SetConfigstringiPKc:F(0,3)
+	call Z18SV_SetConfigstringiPKc_F0_3
 	mov dword [esp+0x8], 0x8c000
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], g_entities
@@ -4057,19 +4649,19 @@ Z10G_InitGameiiii:F(0,2)_160:
 	mov dword [level], g_clients
 	mov eax, [level+0x1e4]
 	test eax, eax
-	jle Z10G_InitGameiiii:F(0,2)_60
+	jle Z10G_InitGameiiii_F0_2_60
 	xor ebx, ebx
 	xor ecx, ecx
 	mov edx, g_entities
-Z10G_InitGameiiii:F(0,2)_70:
+Z10G_InitGameiiii_F0_2_70:
 	lea eax, [ecx+g_clients]
 	mov [edx+0x158], eax
 	add ebx, 0x1
 	add ecx, 0x28a4
 	add edx, 0x230
 	cmp ebx, [level+0x1e4]
-	jl Z10G_InitGameiiii:F(0,2)_70
-Z10G_InitGameiiii:F(0,2)_130:
+	jl Z10G_InitGameiiii_F0_2_70
+Z10G_InitGameiiii_F0_2_130:
 	mov dword [level+0xc], 0x48
 	mov dword [level+0x10], 0x0
 	mov dword [level+0x14], 0x0
@@ -4079,115 +4671,115 @@ Z10G_InitGameiiii:F(0,2)_130:
 	mov dword [esp+0x4], 0x48
 	mov eax, [level+0x4]
 	mov [esp], eax
-	call Z17SV_LocateGameDataP9gentity_siiP13playerState_si:F(0,53)
-	call Z21G_ParseHitLocDmgTablev:F(0,1)
-	call Z13G_InitTurretsv:F(0,1)
-	call Z25G_SpawnEntitiesFromStringv:F(0,7)
+	call Z17SV_LocateGameDataP9gentity_siiP13playerState_si_F0_53
+	call Z21G_ParseHitLocDmgTablev_F0_1
+	call Z13G_InitTurretsv_F0_1
+	call Z25G_SpawnEntitiesFromStringv_F0_7
 	mov dword [esp], _cstring_0
-	call Z8G_setfogPKc:F(0,1)
-	call Z16G_InitObjectivesv:F(0,5)
-	call Z18Scr_FreeEntityListv:F(0,15)
+	call Z8G_setfogPKc_F0_1
+	call Z16G_InitObjectivesv_F0_5
+	call Z18Scr_FreeEntityListv_F0_15
 	mov dword [esp], _cstring_49
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov dword [esp], 0x1
-	call Z14Scr_InitSystemi:F(0,1)
+	call Z14Scr_InitSystemi_F0_1
 	mov dword [esp], 0x1
-	call Z14Scr_SetLoadingi:F(0,1)
-	call Z21Scr_AllocGameVariablev:F(0,15)
-	call Z13G_LoadStructsv:F(0,7)
-	call Z16Scr_LoadGameTypev:F(0,5)
-	call Z13Scr_LoadLevelv:F(0,5)
-	call Z19Scr_StartupGameTypev:F(0,5)
+	call Z14Scr_SetLoadingi_F0_1
+	call Z21Scr_AllocGameVariablev_F0_15
+	call Z13G_LoadStructsv_F0_7
+	call Z16Scr_LoadGameTypev_F0_5
+	call Z13Scr_LoadLevelv_F0_5
+	call Z19Scr_StartupGameTypev_F0_5
 	mov eax, [0x1acd751]
 	lea edx, [eax+0x2640]
-Z10G_InitGameiiii:F(0,2)_80:
+Z10G_InitGameiiii_F0_2_80:
 	mov dword [eax+0x10bc], 0xffffffff
 	add eax, 0x4c8
 	cmp eax, edx
-	jnz Z10G_InitGameiiii:F(0,2)_80
+	jnz Z10G_InitGameiiii_F0_2_80
 	mov eax, [0x1acce1d]
 	mov dword [eax], 0x0
 	mov dword [level+0x1c], 0x0
-	call Z21SaveRegisteredWeaponsv:F(0,1)
-	call Z19SaveRegisteredItemsv:F(0,1)
+	call Z21SaveRegisteredWeaponsv_F0_1
+	call Z19SaveRegisteredItemsv_F0_1
 	add esp, 0x82c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z10G_InitGameiiii:F(0,2)_10:
+Z10G_InitGameiiii_F0_2_10:
 	mov dword [esp+0x8], 0x1000
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], _cstring_sv_cheats
-	call Z17Dvar_RegisterBoolPKcht:F(0,9)
+	call Z17Dvar_RegisterBoolPKcht_F0_9
 	mov [g_cheats], eax
 	mov dword [esp+0x8], 0x1044
 	mov dword [esp+0x4], _cstring_call_of_duty_2
 	mov dword [esp], _cstring_gamename
-	call Z19Dvar_RegisterStringPKcS0_t:F(0,9)
+	call Z19Dvar_RegisterStringPKcS0_t_F0_9
 	mov dword [esp+0x8], 0x1040
 	mov dword [esp+0x4], _cstring_aug_30_2006
 	mov dword [esp], _cstring_gamedate
-	call Z19Dvar_RegisterStringPKcS0_t:F(0,9)
+	call Z19Dvar_RegisterStringPKcS0_t_F0_9
 	mov dword [esp+0x8], 0x1044
 	mov dword [esp+0x4], _cstring_null
 	mov dword [esp], _cstring_sv_mapname
-	call Z19Dvar_RegisterStringPKcS0_t:F(0,9)
+	call Z19Dvar_RegisterStringPKcS0_t_F0_9
 	mov dword [esp+0x8], 0x1024
 	mov dword [esp+0x4], _cstring_dm
 	mov dword [esp], _cstring_g_gametype
-	call Z19Dvar_RegisterStringPKcS0_t:F(0,9)
+	call Z19Dvar_RegisterStringPKcS0_t_F0_9
 	mov [g_gametype__addr_194f858], eax
 	mov dword [esp+0x10], 0x1025
 	mov dword [esp+0xc], 0x40
 	mov dword [esp+0x8], 0x1
 	mov dword [esp+0x4], 0x14
 	mov dword [esp], _cstring_sv_maxclients
-	call Z16Dvar_RegisterIntPKciiit:F(0,9)
+	call Z16Dvar_RegisterIntPKciiit_F0_9
 	mov [g_maxclients], eax
 	mov dword [esp+0x8], 0x1008
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], _cstring_g_synchronouscli
-	call Z17Dvar_RegisterBoolPKcht:F(0,9)
+	call Z17Dvar_RegisterBoolPKcht_F0_9
 	mov [g_synchronousClients], eax
 	mov dword [esp+0x8], 0x1001
 	mov dword [esp+0x4], _cstring_games_mplog
 	mov dword [esp], _cstring_g_log
-	call Z19Dvar_RegisterStringPKcS0_t:F(0,9)
+	call Z19Dvar_RegisterStringPKcS0_t_F0_9
 	mov [g_log], eax
 	mov dword [esp+0x8], 0x1001
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], _cstring_g_logsync
-	call Z17Dvar_RegisterBoolPKcht:F(0,9)
+	call Z17Dvar_RegisterBoolPKcht_F0_9
 	mov [g_logSync], eax
 	mov dword [esp+0x8], 0x1000
 	mov dword [esp+0x4], _cstring_null
 	mov dword [esp], _cstring_g_password
-	call Z19Dvar_RegisterStringPKcS0_t:F(0,9)
+	call Z19Dvar_RegisterStringPKcS0_t_F0_9
 	mov [g_password], eax
 	mov dword [esp+0x8], 0x1001
 	mov dword [esp+0x4], _cstring_null
 	mov dword [esp], _cstring_g_banips
-	call Z19Dvar_RegisterStringPKcS0_t:F(0,9)
+	call Z19Dvar_RegisterStringPKcS0_t_F0_9
 	mov [g_banIPs], eax
 	mov dword [esp+0x10], 0x1020
 	mov dword [esp+0xc], 0x2
 	mov dword [esp+0x8], 0x0
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], _cstring_dedicated
-	call Z16Dvar_RegisterIntPKciiit:F(0,9)
+	call Z16Dvar_RegisterIntPKciiit_F0_9
 	mov [g_dedicated], eax
 	mov eax, [eax+0x8]
 	test eax, eax
-	jnz Z10G_InitGameiiii:F(0,2)_90
-Z10G_InitGameiiii:F(0,2)_170:
+	jnz Z10G_InitGameiiii_F0_2_90
+Z10G_InitGameiiii_F0_2_170:
 	mov dword [esp+0x10], 0x1000
 	mov dword [esp+0xc], 0x7fffffff
 	mov dword [esp+0x8], 0x80000000
 	mov dword [esp+0x4], 0xbe
 	mov dword [esp], _cstring_g_speed
-	call Z16Dvar_RegisterIntPKciiit:F(0,9)
+	call Z16Dvar_RegisterIntPKciiit_F0_9
 	mov [g_speed], eax
 	mov dword [esp+0x10], 0x1000
 	mov ebx, 0x7f7fffff
@@ -4195,7 +4787,7 @@ Z10G_InitGameiiii:F(0,2)_170:
 	mov dword [esp+0x8], 0x3f800000
 	mov dword [esp+0x4], 0x44480000
 	mov dword [esp], _cstring_g_gravity
-	call Z18Dvar_RegisterFloatPKcffft:F(0,9)
+	call Z18Dvar_RegisterFloatPKcffft_F0_9
 	mov [g_gravity], eax
 	mov dword [esp+0x10], 0x1000
 	mov [esp+0xc], ebx
@@ -4203,50 +4795,50 @@ Z10G_InitGameiiii:F(0,2)_170:
 	mov edi, 0x447a0000
 	mov [esp+0x4], edi
 	mov dword [esp], _cstring_g_knockback
-	call Z18Dvar_RegisterFloatPKcffft:F(0,9)
+	call Z18Dvar_RegisterFloatPKcffft_F0_9
 	mov [g_knockback], eax
 	mov dword [esp+0x8], 0x1000
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], _cstring_g_weaponammopool
-	call Z17Dvar_RegisterBoolPKcht:F(0,9)
+	call Z17Dvar_RegisterBoolPKcht_F0_9
 	mov [g_weaponAmmoPools], eax
 	mov dword [esp+0x10], 0x1000
 	mov dword [esp+0xc], 0x20
 	mov dword [esp+0x8], 0x1
 	mov dword [esp+0x4], 0x10
 	mov dword [esp], _cstring_g_maxdroppedweap
-	call Z16Dvar_RegisterIntPKciiit:F(0,9)
+	call Z16Dvar_RegisterIntPKciiit_F0_9
 	mov [g_maxDroppedWeapons], eax
 	mov dword [esp+0x10], 0x1000
 	mov dword [esp+0xc], 0x7fffffff
 	mov dword [esp+0x8], 0x0
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], _cstring_g_inactivity
-	call Z16Dvar_RegisterIntPKciiit:F(0,9)
+	call Z16Dvar_RegisterIntPKciiit_F0_9
 	mov [g_inactivity], eax
 	mov dword [esp+0x8], 0x1080
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], _cstring_g_debugdamage
-	call Z17Dvar_RegisterBoolPKcht:F(0,9)
+	call Z17Dvar_RegisterBoolPKcht_F0_9
 	mov [g_debugDamage], eax
 	mov dword [esp+0x10], 0x1080
 	mov dword [esp+0xc], 0x6
 	mov dword [esp+0x8], 0xfffffffd
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], _cstring_g_debugbullets
-	call Z16Dvar_RegisterIntPKciiit:F(0,9)
+	call Z16Dvar_RegisterIntPKciiit_F0_9
 	mov [g_debugBullets], eax
 	mov dword [esp+0x8], 0x1000
 	mov dword [esp+0x4], _cstring_null
 	mov dword [esp], _cstring_g_motd
-	call Z19Dvar_RegisterStringPKcS0_t:F(0,9)
+	call Z19Dvar_RegisterStringPKcS0_t_F0_9
 	mov [g_motd], eax
 	mov dword [esp+0x10], 0x1001
 	mov dword [esp+0xc], 0x7d00
 	mov dword [esp+0x8], 0x0
 	mov dword [esp+0x4], 0x19
 	mov dword [esp], _cstring_g_playercollisio
-	call Z16Dvar_RegisterIntPKciiit:F(0,9)
+	call Z16Dvar_RegisterIntPKciiit_F0_9
 	mov [g_playerCollisionEjectSpeed], eax
 	mov dword [esp+0x10], 0x1001
 	mov [esp+0xc], edi
@@ -4254,95 +4846,95 @@ Z10G_InitGameiiii:F(0,2)_170:
 	mov [esp+0x8], esi
 	mov dword [esp+0x4], 0x41200000
 	mov dword [esp], _cstring_g_dropforwardspe
-	call Z18Dvar_RegisterFloatPKcffft:F(0,9)
+	call Z18Dvar_RegisterFloatPKcffft_F0_9
 	mov [g_dropForwardSpeed], eax
 	mov dword [esp+0x10], 0x1001
 	mov [esp+0xc], edi
 	mov [esp+0x8], esi
 	mov dword [esp+0x4], 0x41200000
 	mov dword [esp], _cstring_g_dropupspeedbas
-	call Z18Dvar_RegisterFloatPKcffft:F(0,9)
+	call Z18Dvar_RegisterFloatPKcffft_F0_9
 	mov [g_dropUpSpeedBase], eax
 	mov dword [esp+0x10], 0x1001
 	mov [esp+0xc], edi
 	mov [esp+0x8], esi
 	mov dword [esp+0x4], 0x40a00000
 	mov dword [esp], _cstring_g_dropupspeedran
-	call Z18Dvar_RegisterFloatPKcffft:F(0,9)
+	call Z18Dvar_RegisterFloatPKcffft_F0_9
 	mov [g_dropUpSpeedRand], eax
 	mov dword [esp+0x10], 0x1001
 	mov [esp+0xc], ebx
 	mov [esp+0x8], esi
 	mov dword [esp+0x4], 0x42a00000
 	mov dword [esp], _cstring_g_cloneplayermax
-	call Z18Dvar_RegisterFloatPKcffft:F(0,9)
+	call Z18Dvar_RegisterFloatPKcffft_F0_9
 	mov [g_clonePlayerMaxVelocity], eax
 	mov dword [esp+0x8], 0x1001
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], _cstring_voice_global
-	call Z17Dvar_RegisterBoolPKcht:F(0,9)
+	call Z17Dvar_RegisterBoolPKcht_F0_9
 	mov [voice_global], eax
 	mov dword [esp+0x8], 0x1001
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], _cstring_voice_localecho
-	call Z17Dvar_RegisterBoolPKcht:F(0,9)
+	call Z17Dvar_RegisterBoolPKcht_F0_9
 	mov [voice_localEcho], eax
 	mov dword [esp+0x8], 0x1001
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], _cstring_voice_deadchat
-	call Z17Dvar_RegisterBoolPKcht:F(0,9)
+	call Z17Dvar_RegisterBoolPKcht_F0_9
 	mov [voice_deadChat], eax
 	mov dword [esp+0x8], 0x1000
 	mov dword [esp+0x4], 0x1
 	mov dword [esp], _cstring_g_allowvote1
-	call Z17Dvar_RegisterBoolPKcht:F(0,9)
+	call Z17Dvar_RegisterBoolPKcht_F0_9
 	mov [g_allowVote], eax
 	mov dword [esp+0x8], 0x1000
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], _cstring_g_listentity
-	call Z17Dvar_RegisterBoolPKcht:F(0,9)
+	call Z17Dvar_RegisterBoolPKcht_F0_9
 	mov [g_listEntity], eax
 	mov dword [esp+0x8], 0x1001
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], _cstring_g_deadchat
-	call Z17Dvar_RegisterBoolPKcht:F(0,9)
+	call Z17Dvar_RegisterBoolPKcht_F0_9
 	mov [g_deadChat], eax
 	mov dword [esp+0x10], 0x1001
 	mov dword [esp+0xc], 0x2710
 	mov dword [esp+0x8], 0x0
 	mov dword [esp+0x4], 0x1f4
 	mov dword [esp], _cstring_g_voicechattalki
-	call Z16Dvar_RegisterIntPKciiit:F(0,9)
+	call Z16Dvar_RegisterIntPKciiit_F0_9
 	mov [g_voiceChatTalkingDuration], eax
 	mov dword [esp+0x8], 0x1100
 	mov dword [esp+0x4], _cstring_mpflag_american
 	mov dword [esp], _cstring_g_scoresbanner_a
-	call Z19Dvar_RegisterStringPKcS0_t:F(0,9)
+	call Z19Dvar_RegisterStringPKcS0_t_F0_9
 	mov [g_ScoresBanner_Allies], eax
 	mov dword [esp+0x8], 0x1100
 	mov dword [esp+0x4], _cstring_mpflag_german
 	mov dword [esp], _cstring_g_scoresbanner_a1
-	call Z19Dvar_RegisterStringPKcS0_t:F(0,9)
+	call Z19Dvar_RegisterStringPKcS0_t_F0_9
 	mov [g_ScoresBanner_Axis], eax
 	mov dword [esp+0x8], 0x1100
 	mov dword [esp+0x4], _cstring_mpflag_none
 	mov dword [esp], _cstring_g_scoresbanner_n
-	call Z19Dvar_RegisterStringPKcS0_t:F(0,9)
+	call Z19Dvar_RegisterStringPKcS0_t_F0_9
 	mov [g_ScoresBanner_None], eax
 	mov dword [esp+0x8], 0x1100
 	mov dword [esp+0x4], _cstring_mpflag_spectator
 	mov dword [esp], _cstring_g_scoresbanner_s
-	call Z19Dvar_RegisterStringPKcS0_t:F(0,9)
+	call Z19Dvar_RegisterStringPKcS0_t_F0_9
 	mov [g_ScoresBanner_Spectators], eax
 	mov dword [esp+0x8], 0x1100
 	mov dword [esp+0x4], _cstring_game_allies
 	mov dword [esp], _cstring_g_teamname_allie
-	call Z19Dvar_RegisterStringPKcS0_t:F(0,9)
+	call Z19Dvar_RegisterStringPKcS0_t_F0_9
 	mov [g_TeamName_Allies], eax
 	mov dword [esp+0x8], 0x1100
 	mov dword [esp+0x4], _cstring_game_axis
 	mov dword [esp], _cstring_g_teamname_axis
-	call Z19Dvar_RegisterStringPKcS0_t:F(0,9)
+	call Z19Dvar_RegisterStringPKcS0_t_F0_9
 	mov [g_TeamName_Axis], eax
 	mov dword [esp+0x14], 0x1100
 	mov dword [esp+0x10], 0x3f800000
@@ -4351,7 +4943,7 @@ Z10G_InitGameiiii:F(0,2)_170:
 	mov [esp+0x8], ebx
 	mov [esp+0x4], ebx
 	mov dword [esp], _cstring_g_teamcolor_alli
-	call Z18Dvar_RegisterColorPKcfffft:F(0,9)
+	call Z18Dvar_RegisterColorPKcfffft_F0_9
 	mov [g_TeamColor_Allies], eax
 	mov dword [esp+0x14], 0x1100
 	mov dword [esp+0x10], 0x3f800000
@@ -4359,39 +4951,39 @@ Z10G_InitGameiiii:F(0,2)_170:
 	mov [esp+0x8], ebx
 	mov dword [esp+0x4], 0x3f800000
 	mov dword [esp], _cstring_g_teamcolor_axis
-	call Z18Dvar_RegisterColorPKcfffft:F(0,9)
+	call Z18Dvar_RegisterColorPKcfffft_F0_9
 	mov [g_TeamColor_Axis], eax
 	mov dword [esp+0x8], 0x1000
 	mov dword [esp+0x4], 0x1
 	mov dword [esp], _cstring_g_smoothclients
-	call Z17Dvar_RegisterBoolPKcht:F(0,9)
+	call Z17Dvar_RegisterBoolPKcht_F0_9
 	mov [g_smoothClients], eax
 	mov dword [esp+0x8], 0x1005
 	mov dword [esp+0x4], 0x1
 	mov dword [esp], _cstring_g_antilag
-	call Z17Dvar_RegisterBoolPKcht:F(0,9)
+	call Z17Dvar_RegisterBoolPKcht_F0_9
 	mov [g_antilag], eax
 	mov dword [esp+0x8], 0x1001
 	mov dword [esp+0x4], 0x1
 	mov dword [esp], _cstring_g_oldvoting
-	call Z17Dvar_RegisterBoolPKcht:F(0,9)
+	call Z17Dvar_RegisterBoolPKcht_F0_9
 	mov [g_oldVoting], eax
 	mov dword [esp+0x10], 0x1001
 	mov dword [esp+0xc], 0x3f800000
 	mov [esp+0x8], esi
 	mov [esp+0x4], ebx
 	mov dword [esp], _cstring_g_voteabstainwei
-	call Z18Dvar_RegisterFloatPKcffft:F(0,9)
+	call Z18Dvar_RegisterFloatPKcffft_F0_9
 	mov [g_voteAbstainWeight], eax
 	mov dword [esp+0x8], 0x1000
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], _cstring_g_no_script_spam
-	call Z17Dvar_RegisterBoolPKcht:F(0,9)
+	call Z17Dvar_RegisterBoolPKcht_F0_9
 	mov [g_NoScriptSpam], eax
 	mov dword [esp+0x8], 0x1080
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], _cstring_g_debuglocdamage
-	call Z17Dvar_RegisterBoolPKcht:F(0,9)
+	call Z17Dvar_RegisterBoolPKcht_F0_9
 	mov [g_debugLocDamage], eax
 	mov dword [esp+0x10], 0x1080
 	mov ebx, 0x466a6000
@@ -4399,89 +4991,89 @@ Z10G_InitGameiiii:F(0,2)_170:
 	mov [esp+0x8], esi
 	mov dword [esp+0x4], 0x43800000
 	mov dword [esp], _cstring_g_friendlyfiredi
-	call Z18Dvar_RegisterFloatPKcffft:F(0,9)
+	call Z18Dvar_RegisterFloatPKcffft_F0_9
 	mov [g_friendlyfireDist], eax
 	mov dword [esp+0x10], 0x1080
 	mov [esp+0xc], ebx
 	mov [esp+0x8], esi
 	mov [esp+0x4], ebx
 	mov dword [esp], _cstring_g_friendlynamedi
-	call Z18Dvar_RegisterFloatPKcffft:F(0,9)
+	call Z18Dvar_RegisterFloatPKcffft_F0_9
 	mov [g_friendlyNameDist], eax
 	mov dword [esp+0x10], 0x1080
 	mov [esp+0xc], edi
 	mov [esp+0x8], esi
 	mov dword [esp+0x4], 0x42800000
 	mov dword [esp], _cstring_player_meleerang
-	call Z18Dvar_RegisterFloatPKcffft:F(0,9)
+	call Z18Dvar_RegisterFloatPKcffft_F0_9
 	mov [player_meleeRange], eax
 	mov dword [esp+0x10], 0x1080
 	mov [esp+0xc], edi
 	mov [esp+0x8], esi
 	mov dword [esp+0x4], 0x41200000
 	mov dword [esp], _cstring_player_meleewidt
-	call Z18Dvar_RegisterFloatPKcffft:F(0,9)
+	call Z18Dvar_RegisterFloatPKcffft_F0_9
 	mov [player_meleeWidth], eax
 	mov dword [esp+0x10], 0x1080
 	mov [esp+0xc], edi
 	mov [esp+0x8], esi
 	mov dword [esp+0x4], 0x41200000
 	mov dword [esp], _cstring_player_meleeheig
-	call Z18Dvar_RegisterFloatPKcffft:F(0,9)
+	call Z18Dvar_RegisterFloatPKcffft_F0_9
 	mov [player_meleeHeight], eax
 	mov dword [esp+0x10], 0x1080
 	mov dword [esp+0xc], 0x3ff
 	mov dword [esp+0x8], 0xffffffff
 	mov dword [esp+0x4], 0xffffffff
 	mov dword [esp], _cstring_g_dumpanims
-	call Z16Dvar_RegisterIntPKciiit:F(0,9)
+	call Z16Dvar_RegisterIntPKciiit_F0_9
 	mov [g_dumpAnims], eax
 	mov dword [esp+0x10], 0x1000
 	mov dword [esp+0xc], 0x7fffffff
 	mov dword [esp+0x8], 0x0
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], _cstring_g_useholdtime
-	call Z16Dvar_RegisterIntPKciiit:F(0,9)
+	call Z16Dvar_RegisterIntPKciiit_F0_9
 	mov [g_useholdtime], eax
 	mov dword [esp+0x10], 0x1081
 	mov dword [esp+0xc], 0xa
 	mov dword [esp+0x8], 0x0
 	mov dword [esp+0x4], 0x1
 	mov dword [esp], _cstring_g_useholdspawnde
-	call Z16Dvar_RegisterIntPKciiit:F(0,9)
+	call Z16Dvar_RegisterIntPKciiit_F0_9
 	mov [g_useholdspawndelay], eax
 	mov dword [esp+0x10], 0x1080
 	mov dword [esp+0xc], 0xea60
 	mov dword [esp+0x8], 0x0
 	mov dword [esp+0x4], 0x1f4
 	mov dword [esp], _cstring_g_mantleblocktim
-	call Z16Dvar_RegisterIntPKciiit:F(0,9)
+	call Z16Dvar_RegisterIntPKciiit_F0_9
 	mov [g_mantleBlockTimeBuffer], eax
-	call Z16BG_RegisterDvarsv:F(0,1)
-	jmp Z10G_InitGameiiii:F(0,2)_100
-Z10G_InitGameiiii:F(0,2)_30:
+	call Z16BG_RegisterDvarsv_F0_1
+	jmp Z10G_InitGameiiii_F0_2_100
+Z10G_InitGameiiii_F0_2_30:
 	mov dword [esp+0x8], 0x2
 	mov dword [esp+0x4], level+0x18
 	mov [esp], edx
-	call Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2)
+	call Z18FS_FOpenFileByModePKcPi8fsMode_t_F0_2
 	mov eax, [level+0x18]
 	test eax, eax
-	jz Z10G_InitGameiiii:F(0,2)_110
-Z10G_InitGameiiii:F(0,2)_40:
+	jz Z10G_InitGameiiii_F0_2_110
+Z10G_InitGameiiii_F0_2_40:
 	mov dword [esp+0x4], 0x400
 	lea ebx, [ebp-0x818]
 	mov [esp], ebx
-	call Z16SV_GetServerinfoPci:F(0,53)
+	call Z16SV_GetServerinfoPci_F0_53
 	mov dword [esp], _cstring_63
-	call Z11G_LogPrintfPKcz:F(0,2)
+	call Z11G_LogPrintfPKcz_F0_2
 	mov [esp+0x4], ebx
 	mov dword [esp], _cstring_initgame_s
-	call Z11G_LogPrintfPKcz:F(0,2)
-	jmp Z10G_InitGameiiii:F(0,2)_120
-Z10G_InitGameiiii:F(0,2)_60:
+	call Z11G_LogPrintfPKcz_F0_2
+	jmp Z10G_InitGameiiii_F0_2_120
+Z10G_InitGameiiii_F0_2_60:
 	mov esi, [level]
-	jmp Z10G_InitGameiiii:F(0,2)_130
-Z10G_InitGameiiii:F(0,2)_50:
+	jmp Z10G_InitGameiiii_F0_2_130
+Z10G_InitGameiiii_F0_2_50:
 	mov dword [esp+0x8], 0xb3bc8
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], level_bgs
@@ -4492,62 +5084,62 @@ Z10G_InitGameiiii:F(0,2)_50:
 	mov edx, [ebx]
 	mov eax, [0x1acd795]
 	mov [edx+0xb3bc4], eax
-	call Z16GScr_LoadScriptsv:F(0,5)
-	call Z11BG_LoadAnimv:F(0,1)
+	call Z16GScr_LoadScriptsv_F0_5
+	call Z11BG_LoadAnimv_F0_1
 	mov edi, [level_bgs+0xb3bc8]
 	mov ebx, level_bgs
 	mov esi, level_bgs+0x12e00
-Z10G_InitGameiiii:F(0,2)_140:
-	mov dword [esp+0x4], Z21Hunk_AllocXAnimServeri:F(0,101)
+Z10G_InitGameiiii_F0_2_140:
+	mov dword [esp+0x4], Z21Hunk_AllocXAnimServeri_F0_101
 	mov [esp], edi
-	call Z15XAnimCreateTreeP7XAnim_sPFPviE:F(0,90)
+	call Z15XAnimCreateTreeP7XAnim_sPFPviE_F0_90
 	mov [ebx+0xb40a0], eax
 	add ebx, 0x4b8
 	cmp esi, ebx
-	jnz Z10G_InitGameiiii:F(0,2)_140
+	jnz Z10G_InitGameiiii_F0_2_140
 	mov ebx, [0x1acd751]
 	lea esi, [ebx+0x2640]
-Z10G_InitGameiiii:F(0,2)_150:
-	mov dword [esp+0x4], Z21Hunk_AllocXAnimServeri:F(0,101)
+Z10G_InitGameiiii_F0_2_150:
+	mov dword [esp+0x4], Z21Hunk_AllocXAnimServeri_F0_101
 	mov [esp], edi
-	call Z15XAnimCreateTreeP7XAnim_sPFPviE:F(0,90)
+	call Z15XAnimCreateTreeP7XAnim_sPFPviE_F0_90
 	mov [ebx+0x10b8], eax
 	add ebx, 0x4c8
 	cmp esi, ebx
-	jnz Z10G_InitGameiiii:F(0,2)_150
-	jmp Z10G_InitGameiiii:F(0,2)_160
-Z10G_InitGameiiii:F(0,2)_20:
+	jnz Z10G_InitGameiiii_F0_2_150
+	jmp Z10G_InitGameiiii_F0_2_160
+Z10G_InitGameiiii_F0_2_20:
 	mov dword [esp], _cstring_not_logging_to_d
-	call Z10Com_PrintfPKcz:F(0,1)
-	jmp Z10G_InitGameiiii:F(0,2)_120
-Z10G_InitGameiiii:F(0,2)_90:
+	call Z10Com_PrintfPKcz_F0_1
+	jmp Z10G_InitGameiiii_F0_2_120
+Z10G_InitGameiiii_F0_2_90:
 	mov dword [esp+0x10], 0x1040
 	mov dword [esp+0xc], 0x2
 	mov dword [esp+0x8], 0x0
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], _cstring_dedicated
-	call Z16Dvar_RegisterIntPKciiit:F(0,9)
-	jmp Z10G_InitGameiiii:F(0,2)_170
+	call Z16Dvar_RegisterIntPKciiit_F0_9
+	jmp Z10G_InitGameiiii_F0_2_170
 
 
-;Z9CheckVotev:F(0,2)
+;Z9CheckVotev_F0_2
 
-Z9CheckVotev:F(0,2):
+Z9CheckVotev_F0_2:
 	push ebp
 	mov ebp, esp
 	push ebx
 	sub esp, 0x24
 	mov eax, [level+0xb20]
 	test eax, eax
-	jz Z9CheckVotev:F(0,2)_10
+	jz Z9CheckVotev_F0_2_10
 	cmp eax, [level+0x1ec]
-	jl Z9CheckVotev:F(0,2)_20
-Z9CheckVotev:F(0,2)_10:
+	jl Z9CheckVotev_F0_2_20
+Z9CheckVotev_F0_2_10:
 	mov eax, [level+0xb1c]
 	test eax, eax
-	jz Z9CheckVotev:F(0,2)_30
+	jz Z9CheckVotev_F0_2_30
 	cmp [level+0x1ec], eax
-	js Z9CheckVotev:F(0,2)_40
+	js Z9CheckVotev_F0_2_40
 	mov ebx, [level+0xb24]
 	mov edx, [level+0xb28]
 	cvtsi2sd xmm0, edx
@@ -4565,26 +5157,26 @@ Z9CheckVotev:F(0,2)_10:
 	addsd xmm0, [ebp-0x10]
 	cvttsd2si eax, xmm0
 	cmp ebx, eax
-	jg Z9CheckVotev:F(0,2)_50
-Z9CheckVotev:F(0,2)_60:
+	jg Z9CheckVotev_F0_2_50
+Z9CheckVotev_F0_2_60:
 	mov dword [esp+0x4], 0x65
 	mov dword [esp], _cstring_c_game_votefaile
-	call va:F(0,3)
+	call va_F0_3
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], 0xffffffff
-	call Z24SV_GameSendServerCommandi11svscmd_typePKc:F(0,53)
-Z9CheckVotev:F(0,2)_70:
+	call Z24SV_GameSendServerCommandi11svscmd_typePKc_F0_53
+Z9CheckVotev_F0_2_70:
 	mov dword [level+0xb1c], 0x0
 	mov dword [esp+0x4], _cstring_null
 	mov dword [esp], 0xf
-	call Z18SV_SetConfigstringiPKc:F(0,3)
-Z9CheckVotev:F(0,2)_30:
+	call Z18SV_SetConfigstringiPKc_F0_3
+Z9CheckVotev_F0_2_30:
 	add esp, 0x24
 	pop ebx
 	pop ebp
 	ret
-Z9CheckVotev:F(0,2)_40:
+Z9CheckVotev_F0_2_40:
 	mov edx, [level+0xb2c]
 	mov eax, edx
 	shr eax, 0x1f
@@ -4592,37 +5184,37 @@ Z9CheckVotev:F(0,2)_40:
 	sar eax, 1
 	add eax, 0x1
 	cmp eax, [level+0xb24]
-	jle Z9CheckVotev:F(0,2)_50
+	jle Z9CheckVotev_F0_2_50
 	sub edx, eax
 	cmp [level+0xb28], edx
-	jle Z9CheckVotev:F(0,2)_30
-	jmp Z9CheckVotev:F(0,2)_60
-Z9CheckVotev:F(0,2)_50:
+	jle Z9CheckVotev_F0_2_30
+	jmp Z9CheckVotev_F0_2_60
+Z9CheckVotev_F0_2_50:
 	mov dword [esp+0x4], 0x65
 	mov dword [esp], _cstring_c_game_votepasse
-	call va:F(0,3)
+	call va_F0_3
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], 0xffffffff
-	call Z24SV_GameSendServerCommandi11svscmd_typePKc:F(0,53)
+	call Z24SV_GameSendServerCommandi11svscmd_typePKc_F0_53
 	mov eax, [level+0x1ec]
 	add eax, 0xbb8
 	mov [level+0xb20], eax
-	jmp Z9CheckVotev:F(0,2)_70
-Z9CheckVotev:F(0,2)_20:
+	jmp Z9CheckVotev_F0_2_70
+Z9CheckVotev_F0_2_20:
 	mov dword [level+0xb20], 0x0
 	mov dword [esp+0x4], level+0x31c
 	mov dword [esp], _cstring_s
-	call va:F(0,3)
+	call va_F0_3
 	mov [esp+0x4], eax
 	mov dword [esp], 0x2
-	call Z16Cbuf_ExecuteTextiPKc:F(0,1)
-	jmp Z9CheckVotev:F(0,2)_10
+	call Z16Cbuf_ExecuteTextiPKc_F0_1
+	jmp Z9CheckVotev_F0_2_10
 
 
-;Z10G_RunThinkP9gentity_s:F(0,2)
+;Z10G_RunThinkP9gentity_s_F0_2
 
-Z10G_RunThinkP9gentity_s:F(0,2):
+Z10G_RunThinkP9gentity_s_F0_2:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -4631,16 +5223,16 @@ Z10G_RunThinkP9gentity_s:F(0,2):
 	mov ebx, [ebp+0x8]
 	mov eax, [ebx+0x190]
 	test eax, eax
-	jle Z10G_RunThinkP9gentity_s:F(0,2)_10
+	jle Z10G_RunThinkP9gentity_s_F0_2_10
 	cmp eax, [level+0x1ec]
-	jg Z10G_RunThinkP9gentity_s:F(0,2)_10
+	jg Z10G_RunThinkP9gentity_s_F0_2_10
 	mov dword [ebx+0x190], 0x0
 	movzx eax, byte [ebx+0x166]
 	lea eax, [eax+eax*4]
 	mov esi, [eax*8+entityHandlers]
 	test esi, esi
-	jz Z10G_RunThinkP9gentity_s:F(0,2)_20
-Z10G_RunThinkP9gentity_s:F(0,2)_30:
+	jz Z10G_RunThinkP9gentity_s_F0_2_20
+Z10G_RunThinkP9gentity_s_F0_2_30:
 	mov [ebp+0x8], ebx
 	mov ecx, esi
 	add esp, 0x10
@@ -4648,23 +5240,23 @@ Z10G_RunThinkP9gentity_s:F(0,2)_30:
 	pop esi
 	pop ebp
 	jmp ecx
-Z10G_RunThinkP9gentity_s:F(0,2)_10:
+Z10G_RunThinkP9gentity_s_F0_2_10:
 	add esp, 0x10
 	pop ebx
 	pop esi
 	pop ebp
 	ret
-Z10G_RunThinkP9gentity_s:F(0,2)_20:
+Z10G_RunThinkP9gentity_s_F0_2_20:
 	mov dword [esp+0x4], _cstring_null_entthink
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
-	jmp Z10G_RunThinkP9gentity_s:F(0,2)_30
+	call Com_Error_F0_1
+	jmp Z10G_RunThinkP9gentity_s_F0_2_30
 	add [eax], al
 
 
-;Z14G_TraceCapsuleP7trace_tPKfS2_S2_S2_ii:F(0,2)
+;Z14G_TraceCapsuleP7trace_tPKfS2_S2_S2_ii_F0_2
 
-Z14G_TraceCapsuleP7trace_tPKfS2_S2_S2_ii:F(0,2):
+Z14G_TraceCapsuleP7trace_tPKfS2_S2_S2_ii_F0_2:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x38
@@ -4685,15 +5277,15 @@ Z14G_TraceCapsuleP7trace_tPKfS2_S2_S2_ii:F(0,2):
 	mov [esp+0x4], eax
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z8SV_TraceP7trace_tPKfS2_S2_S2_iiiPhi:F(0,23)
+	call Z8SV_TraceP7trace_tPKfS2_S2_S2_iiiPhi_F0_23
 	leave
 	ret
 	nop
 
 
-;Z22G_TraceCapsuleCompletePKfS0_S0_S0_ii:F(0,3)
+;Z22G_TraceCapsuleCompletePKfS0_S0_S0_ii_F0_3
 
-Z22G_TraceCapsuleCompletePKfS0_S0_S0_ii:F(0,3):
+Z22G_TraceCapsuleCompletePKfS0_S0_S0_ii_F0_3:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x38
@@ -4712,14 +5304,14 @@ Z22G_TraceCapsuleCompletePKfS0_S0_S0_ii:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z14SV_TracePassedPKfS0_S0_S0_iiiii:F(0,38)
+	call Z14SV_TracePassedPKfS0_S0_S0_iiiii_F0_38
 	leave
 	ret
 
 
-;Z17G_LocationalTraceP7trace_tPKfS2_iiPh:F(0,2)
+;Z17G_LocationalTraceP7trace_tPKfS2_iiPh_F0_2
 
-Z17G_LocationalTraceP7trace_tPKfS2_iiPh:F(0,2):
+Z17G_LocationalTraceP7trace_tPKfS2_iiPh_F0_2:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x38
@@ -4740,15 +5332,15 @@ Z17G_LocationalTraceP7trace_tPKfS2_iiPh:F(0,2):
 	mov [esp+0x4], eax
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z8SV_TraceP7trace_tPKfS2_S2_S2_iiiPhi:F(0,23)
+	call Z8SV_TraceP7trace_tPKfS2_S2_S2_iiiPhi_F0_23
 	leave
 	ret
 	nop
 
 
-;Z23G_LocationalTracePassedPKfS0_ii:F(0,3)
+;Z23G_LocationalTracePassedPKfS0_ii_F0_3
 
-Z23G_LocationalTracePassedPKfS0_ii:F(0,3):
+Z23G_LocationalTracePassedPKfS0_ii_F0_3:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x38
@@ -4766,15 +5358,15 @@ Z23G_LocationalTracePassedPKfS0_ii:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z14SV_TracePassedPKfS0_S0_S0_iiiii:F(0,38)
+	call Z14SV_TracePassedPKfS0_S0_S0_iiiii_F0_38
 	leave
 	ret
 	nop
 
 
-;Z12G_SightTracePiPKfS1_ii:F(0,2)
+;Z12G_SightTracePiPKfS1_ii_F0_2
 
-Z12G_SightTracePiPKfS1_ii:F(0,2):
+Z12G_SightTracePiPKfS1_ii_F0_2:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x28
@@ -4792,14 +5384,14 @@ Z12G_SightTracePiPKfS1_ii:F(0,2):
 	mov [esp+0x4], eax
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z13SV_SightTracePiPKfS1_S1_S1_iii:F(0,23)
+	call Z13SV_SightTracePiPKfS1_S1_S1_iii_F0_23
 	leave
 	ret
 
 
-;Z16G_AddDebugStringPKfS0_fPKc:F(0,2)
+;Z16G_AddDebugStringPKfS0_fPKc_F0_2
 
-Z16G_AddDebugStringPKfS0_fPKc:F(0,2):
+Z16G_AddDebugStringPKfS0_fPKc_F0_2:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x28
@@ -4812,146 +5404,146 @@ Z16G_AddDebugStringPKfS0_fPKc:F(0,2):
 	mov [esp+0x4], eax
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z17CL_AddDebugStringPKfS0_fPKci:F(0,1)
+	call Z17CL_AddDebugStringPKfS0_fPKci_F0_1
 	leave
 	ret
 
 
-;Z14G_ShutdownGamei:F(0,2)
+;Z14G_ShutdownGamei_F0_2
 
-Z14G_ShutdownGamei:F(0,2):
+Z14G_ShutdownGamei_F0_2:
 	push ebp
 	mov ebp, esp
 	push esi
 	push ebx
 	sub esp, 0x10
 	mov dword [esp], _cstring__shutdowngame_
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov ecx, [level+0x18]
 	test ecx, ecx
-	jnz Z14G_ShutdownGamei:F(0,2)_10
-Z14G_ShutdownGamei:F(0,2)_120:
+	jnz Z14G_ShutdownGamei_F0_2_10
+Z14G_ShutdownGamei_F0_2_120:
 	mov eax, [0x1acce1d]
 	mov dword [eax], 0x0
 	mov edx, [level+0xc]
 	test edx, edx
-	jle Z14G_ShutdownGamei:F(0,2)_20
+	jle Z14G_ShutdownGamei_F0_2_20
 	mov esi, g_entities
 	xor ebx, ebx
-	jmp Z14G_ShutdownGamei:F(0,2)_30
-Z14G_ShutdownGamei:F(0,2)_40:
+	jmp Z14G_ShutdownGamei_F0_2_30
+Z14G_ShutdownGamei_F0_2_40:
 	add ebx, 0x1
 	add esi, 0x230
 	cmp ebx, [level+0xc]
-	jge Z14G_ShutdownGamei:F(0,2)_20
-Z14G_ShutdownGamei:F(0,2)_30:
+	jge Z14G_ShutdownGamei_F0_2_20
+Z14G_ShutdownGamei_F0_2_30:
 	cmp byte [esi+0xfc], 0x0
-	jz Z14G_ShutdownGamei:F(0,2)_40
+	jz Z14G_ShutdownGamei_F0_2_40
 	mov [esp], esi
-	call Z12G_FreeEntityP9gentity_s:F(0,11)
+	call Z12G_FreeEntityP9gentity_s_F0_11
 	add ebx, 0x1
 	add esi, 0x230
 	cmp ebx, [level+0xc]
-	jl Z14G_ShutdownGamei:F(0,2)_30
-Z14G_ShutdownGamei:F(0,2)_20:
+	jl Z14G_ShutdownGamei_F0_2_30
+Z14G_ShutdownGamei_F0_2_20:
 	cmp byte [g_entities+0x8bc9c], 0x0
-	jnz Z14G_ShutdownGamei:F(0,2)_50
-Z14G_ShutdownGamei:F(0,2)_110:
+	jnz Z14G_ShutdownGamei_F0_2_50
+Z14G_ShutdownGamei_F0_2_110:
 	mov dword [level+0xc], 0x0
 	mov dword [level+0x10], 0x0
 	mov dword [level+0x14], 0x0
-	call Z18HudElem_DestroyAllv:F(0,1)
+	call Z18HudElem_DestroyAllv_F0_1
 	mov dword [esp], 0x1
-	call Z18Scr_IsSystemActiveh:F(0,2)
+	call Z18Scr_IsSystemActiveh_F0_2
 	test eax, eax
-	jz Z14G_ShutdownGamei:F(0,2)_60
+	jz Z14G_ShutdownGamei_F0_2_60
 	mov eax, [level+0x1d54]
 	test eax, eax
-	jz Z14G_ShutdownGamei:F(0,2)_70
-Z14G_ShutdownGamei:F(0,2)_60:
+	jz Z14G_ShutdownGamei_F0_2_70
+Z14G_ShutdownGamei_F0_2_60:
 	xor eax, eax
 	cmp dword [level+0x1d54], 0x0
 	setz al
 	mov [esp+0x4], eax
 	mov dword [esp], 0x1
-	call Z18Scr_ShutdownSystemhi:F(0,1)
+	call Z18Scr_ShutdownSystemhi_F0_1
 	mov eax, [ebp+0x8]
 	test eax, eax
-	jnz Z14G_ShutdownGamei:F(0,2)_80
-Z14G_ShutdownGamei:F(0,2)_170:
+	jnz Z14G_ShutdownGamei_F0_2_80
+Z14G_ShutdownGamei_F0_2_170:
 	mov eax, [level+0x360c]
 	test eax, eax
-	jz Z14G_ShutdownGamei:F(0,2)_90
+	jz Z14G_ShutdownGamei_F0_2_90
 	mov [esp], eax
-	call Z_FreeInternal:F(0,1)
-Z14G_ShutdownGamei:F(0,2)_90:
+	call Z_FreeInternal_F0_1
+Z14G_ShutdownGamei_F0_2_90:
 	mov dword [level+0x360c], 0x0
 	mov eax, [level+0x3608]
 	test eax, eax
-	js Z14G_ShutdownGamei:F(0,2)_100
+	js Z14G_ShutdownGamei_F0_2_100
 	mov [esp], eax
-	call Z13FS_FCloseFilei:F(0,3)
-Z14G_ShutdownGamei:F(0,2)_100:
+	call Z13FS_FCloseFilei_F0_3
+Z14G_ShutdownGamei_F0_2_100:
 	mov dword [level+0x3608], 0xffffffff
 	add esp, 0x10
 	pop ebx
 	pop esi
 	pop ebp
 	ret
-Z14G_ShutdownGamei:F(0,2)_50:
+Z14G_ShutdownGamei_F0_2_50:
 	mov dword [esp], g_entities+0x8bba0
-	call Z12G_FreeEntityP9gentity_s:F(0,11)
-	jmp Z14G_ShutdownGamei:F(0,2)_110
-Z14G_ShutdownGamei:F(0,2)_10:
+	call Z12G_FreeEntityP9gentity_s_F0_11
+	jmp Z14G_ShutdownGamei_F0_2_110
+Z14G_ShutdownGamei_F0_2_10:
 	mov dword [esp], _cstring_shutdowngame
-	call Z11G_LogPrintfPKcz:F(0,2)
+	call Z11G_LogPrintfPKcz_F0_2
 	mov dword [esp], _cstring_63
-	call Z11G_LogPrintfPKcz:F(0,2)
+	call Z11G_LogPrintfPKcz_F0_2
 	mov eax, [level+0x18]
 	mov [esp], eax
-	call Z13FS_FCloseFilei:F(0,3)
-	jmp Z14G_ShutdownGamei:F(0,2)_120
-Z14G_ShutdownGamei:F(0,2)_80:
-	call Z20Mantle_ShutdownAnimsv:F(0,1)
-	call Z16GScr_FreeScriptsv:F(0,5)
+	call Z13FS_FCloseFilei_F0_3
+	jmp Z14G_ShutdownGamei_F0_2_120
+Z14G_ShutdownGamei_F0_2_80:
+	call Z20Mantle_ShutdownAnimsv_F0_1
+	call Z16GScr_FreeScriptsv_F0_5
 	mov dword [esp], 0x1
-	call Z15Scr_FreeScriptsh:F(0,9)
+	call Z15Scr_FreeScriptsh_F0_9
 	mov ebx, level_bgs
-Z14G_ShutdownGamei:F(0,2)_140:
+Z14G_ShutdownGamei_F0_2_140:
 	mov eax, [ebx+0xb40a0]
 	test eax, eax
-	jz Z14G_ShutdownGamei:F(0,2)_130
+	jz Z14G_ShutdownGamei_F0_2_130
 	mov dword [esp+0x4], 0x0
 	mov [esp], eax
-	call Z13XAnimFreeTreeP11XAnimTree_sPFvPviE:F(0,1)
+	call Z13XAnimFreeTreeP11XAnimTree_sPFvPviE_F0_1
 	mov dword [ebx+0xb40a0], 0x0
-Z14G_ShutdownGamei:F(0,2)_130:
+Z14G_ShutdownGamei_F0_2_130:
 	add ebx, 0x4b8
 	cmp ebx, level_bgs+0x12e00
-	jnz Z14G_ShutdownGamei:F(0,2)_140
+	jnz Z14G_ShutdownGamei_F0_2_140
 	mov ebx, [0x1acd751]
 	mov edx, ebx
 	mov esi, ebx
-Z14G_ShutdownGamei:F(0,2)_160:
+Z14G_ShutdownGamei_F0_2_160:
 	mov eax, [ebx+0x10b8]
 	test eax, eax
-	jz Z14G_ShutdownGamei:F(0,2)_150
+	jz Z14G_ShutdownGamei_F0_2_150
 	mov dword [esp+0x4], 0x0
 	mov [esp], eax
-	call Z13XAnimFreeTreeP11XAnimTree_sPFvPviE:F(0,1)
+	call Z13XAnimFreeTreeP11XAnimTree_sPFvPviE_F0_1
 	mov dword [ebx+0x10b8], 0x0
 	mov edx, esi
-Z14G_ShutdownGamei:F(0,2)_150:
+Z14G_ShutdownGamei_F0_2_150:
 	add ebx, 0x4c8
 	lea eax, [edx+0x2640]
 	cmp eax, ebx
-	jnz Z14G_ShutdownGamei:F(0,2)_160
+	jnz Z14G_ShutdownGamei_F0_2_160
 	mov dword [esp], 0x0
-	call Hunk_ClearToMarkLow:F(0,1)
-	jmp Z14G_ShutdownGamei:F(0,2)_170
-Z14G_ShutdownGamei:F(0,2)_70:
-	call Z23SV_FreeClientScriptPersv:F(0,1)
-	jmp Z14G_ShutdownGamei:F(0,2)_60
+	call Hunk_ClearToMarkLow_F0_1
+	jmp Z14G_ShutdownGamei_F0_2_170
+Z14G_ShutdownGamei_F0_2_70:
+	call Z23SV_FreeClientScriptPersv_F0_1
+	jmp Z14G_ShutdownGamei_F0_2_60
 	nop
 
 
@@ -5004,7 +5596,7 @@ _Z19G_RunFrameForEntityP9gentity_s_40:
 	test edx, edx
 	jz _Z19G_RunFrameForEntityP9gentity_s_120
 	mov [esp], ebx
-	call Z11G_RunClientP9gentity_s:F(0,1)
+	call Z11G_RunClientP9gentity_s_F0_1
 _Z19G_RunFrameForEntityP9gentity_s_10:
 	add esp, 0x10
 	pop ebx
@@ -5017,7 +5609,7 @@ _Z19G_RunFrameForEntityP9gentity_s_30:
 	jle _Z19G_RunFrameForEntityP9gentity_s_130
 _Z19G_RunFrameForEntityP9gentity_s_50:
 	mov [esp], ebx
-	call Z12G_FreeEntityP9gentity_s:F(0,11)
+	call Z12G_FreeEntityP9gentity_s_F0_11
 	add esp, 0x10
 	pop ebx
 	pop esi
@@ -5026,11 +5618,11 @@ _Z19G_RunFrameForEntityP9gentity_s_50:
 _Z19G_RunFrameForEntityP9gentity_s_60:
 	mov dword [ebx+0x180], 0x0
 	mov [esp], ebx
-	call Z15SV_UnlinkEntityP9gentity_s:F(0,23)
+	call Z15SV_UnlinkEntityP9gentity_s_F0_23
 	jmp _Z19G_RunFrameForEntityP9gentity_s_40
 _Z19G_RunFrameForEntityP9gentity_s_100:
 	mov [esp], ebx
-	call Z9G_RunItemP9gentity_s:F(0,1)
+	call Z9G_RunItemP9gentity_s_F0_1
 	jmp _Z19G_RunFrameForEntityP9gentity_s_10
 _Z19G_RunFrameForEntityP9gentity_s_20:
 	test byte [ebx+0x175], 0x8
@@ -5042,7 +5634,7 @@ _Z19G_RunFrameForEntityP9gentity_s_80:
 	test ecx, ecx
 	jz _Z19G_RunFrameForEntityP9gentity_s_100
 	mov [esp], ebx
-	call Z13G_GeneralLinkP9gentity_s:F(0,11)
+	call Z13G_GeneralLinkP9gentity_s_F0_11
 	mov eax, [ebx+0x190]
 	test eax, eax
 	jle _Z19G_RunFrameForEntityP9gentity_s_10
@@ -5063,12 +5655,12 @@ _Z19G_RunFrameForEntityP9gentity_s_140:
 	jmp _Z19G_RunFrameForEntityP9gentity_s_150
 _Z19G_RunFrameForEntityP9gentity_s_70:
 	mov [esp], ebx
-	call Z12G_RunMissileP9gentity_s:F(0,1)
+	call Z12G_RunMissileP9gentity_s_F0_1
 	jmp _Z19G_RunFrameForEntityP9gentity_s_10
 _Z19G_RunFrameForEntityP9gentity_s_160:
 	mov dword [esp+0x4], _cstring_null_entthink
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	mov [esp], ebx
 	call esi
 	jmp _Z19G_RunFrameForEntityP9gentity_s_10
@@ -5079,7 +5671,7 @@ _Z19G_RunFrameForEntityP9gentity_s_120:
 	test esi, esi
 	jz _Z19G_RunFrameForEntityP9gentity_s_170
 	mov [esp], ebx
-	call Z13G_GeneralLinkP9gentity_s:F(0,11)
+	call Z13G_GeneralLinkP9gentity_s_F0_11
 _Z19G_RunFrameForEntityP9gentity_s_170:
 	mov eax, [ebx+0x190]
 	test eax, eax
@@ -5087,18 +5679,18 @@ _Z19G_RunFrameForEntityP9gentity_s_170:
 	jmp _Z19G_RunFrameForEntityP9gentity_s_10
 _Z19G_RunFrameForEntityP9gentity_s_90:
 	mov [esp], ebx
-	call Z11G_RunCorpseP9gentity_s:F(0,1)
+	call Z11G_RunCorpseP9gentity_s_F0_1
 	jmp _Z19G_RunFrameForEntityP9gentity_s_10
 _Z19G_RunFrameForEntityP9gentity_s_110:
 	mov [esp], ebx
-	call Z10G_RunMoverP9gentity_s:F(0,79)
+	call Z10G_RunMoverP9gentity_s_F0_79
 	jmp _Z19G_RunFrameForEntityP9gentity_s_10
 	nop
 
 
-;Z10G_RunFramei:F(0,2)
+;Z10G_RunFramei_F0_2
 
-Z10G_RunFramei:F(0,2):
+Z10G_RunFramei_F0_2:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -5120,28 +5712,28 @@ Z10G_RunFramei:F(0,2):
 	mov dword [eax], level_bgs
 	mov eax, [level+0xc]
 	test eax, eax
-	jle Z10G_RunFramei:F(0,2)_10
+	jle Z10G_RunFramei_F0_2_10
 	mov ebx, g_entities
 	xor esi, esi
-	jmp Z10G_RunFramei:F(0,2)_20
-Z10G_RunFramei:F(0,2)_30:
+	jmp Z10G_RunFramei_F0_2_20
+Z10G_RunFramei_F0_2_30:
 	add esi, 0x1
 	add ebx, 0x230
 	cmp esi, [level+0xc]
-	jge Z10G_RunFramei:F(0,2)_10
-Z10G_RunFramei:F(0,2)_20:
+	jge Z10G_RunFramei_F0_2_10
+Z10G_RunFramei_F0_2_20:
 	cmp byte [ebx+0xfc], 0x0
-	jz Z10G_RunFramei:F(0,2)_30
-	cvtsi2ss xmm0, dword [level+0x1f4]
+	jz Z10G_RunFramei_F0_2_30
+	cvtsi2ss xmm0, [level+0x1f4]
 	mulss xmm0, [_float_0_00100000]
 	movss [esp+0x4], xmm0
 	mov [esp], ebx
-	call Z21SV_DObjInitServerTimeP9gentity_sf:F(0,53)
+	call Z21SV_DObjInitServerTimeP9gentity_sf_F0_53
 	add esi, 0x1
 	add ebx, 0x230
 	cmp esi, [level+0xc]
-	jl Z10G_RunFramei:F(0,2)_20
-Z10G_RunFramei:F(0,2)_10:
+	jl Z10G_RunFramei_F0_2_20
+Z10G_RunFramei_F0_2_10:
 	lea eax, [ebp-0x418]
 	mov dword [esp+0x8], 0x400
 	mov dword [esp+0x4], 0x0
@@ -5153,21 +5745,21 @@ Z10G_RunFramei:F(0,2)_10:
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], level+0x1de8
 	mov dword [esp], level+0x29e8
-	call Com_Memcpy:F(0,12)
+	call Com_Memcpy_F0_12
 	mov eax, [level+0x35e8]
 	mov [level+0x35ec], eax
 	mov dword [level+0x35e8], 0x0
 	mov byte [ebp-0x429], 0x0
-Z10G_RunFramei:F(0,2)_90:
+Z10G_RunFramei_F0_2_90:
 	add byte [ebp-0x429], 0x1
 	mov eax, [level+0x35ec]
 	test eax, eax
-	jle Z10G_RunFramei:F(0,2)_40
+	jle Z10G_RunFramei_F0_2_40
 	xor edi, edi
 	mov dword [ebp-0x430], 0x0
 	mov esi, level+0x29e0
-	jmp Z10G_RunFramei:F(0,2)_50
-Z10G_RunFramei:F(0,2)_70:
+	jmp Z10G_RunFramei_F0_2_50
+Z10G_RunFramei_F0_2_70:
 	mov eax, [level+0x35ec]
 	sub eax, 0x1
 	mov [level+0x35ec], eax
@@ -5184,8 +5776,8 @@ Z10G_RunFramei:F(0,2)_70:
 	add edi, 0x1
 	add esi, 0xc
 	cmp edi, [level+0x35ec]
-	jge Z10G_RunFramei:F(0,2)_60
-Z10G_RunFramei:F(0,2)_50:
+	jge Z10G_RunFramei_F0_2_60
+Z10G_RunFramei_F0_2_50:
 	lea ebx, [esi+0x8]
 	movzx ecx, word [esi+0x8]
 	lea eax, [ecx+ecx*4]
@@ -5196,7 +5788,7 @@ Z10G_RunFramei:F(0,2)_50:
 	mov [ebp-0x41c], edx
 	mov eax, [edx+0x228]
 	cmp eax, [esi+0xc]
-	jnz Z10G_RunFramei:F(0,2)_70
+	jnz Z10G_RunFramei_F0_2_70
 	movzx eax, word [ebx+0x2]
 	lea eax, [eax+eax*4]
 	lea edx, [eax*8]
@@ -5205,120 +5797,120 @@ Z10G_RunFramei:F(0,2)_50:
 	add edx, g_entities
 	mov eax, [edx+0x228]
 	cmp eax, [ebx+0x8]
-	jnz Z10G_RunFramei:F(0,2)_70
+	jnz Z10G_RunFramei_F0_2_70
 	movzx eax, byte [ebp-0x429]
 	cmp al, [ebp+ecx-0x418]
-	jnz Z10G_RunFramei:F(0,2)_80
+	jnz Z10G_RunFramei_F0_2_80
 	mov dword [ebp-0x430], 0x1
 	add edi, 0x1
 	add esi, 0xc
 	cmp edi, [level+0x35ec]
-	jl Z10G_RunFramei:F(0,2)_50
-Z10G_RunFramei:F(0,2)_60:
-	call Z21Scr_RunCurrentThreadsv:F(0,1)
+	jl Z10G_RunFramei_F0_2_50
+Z10G_RunFramei_F0_2_60:
+	call Z21Scr_RunCurrentThreadsv_F0_1
 	mov eax, [ebp-0x430]
 	test eax, eax
-	jnz Z10G_RunFramei:F(0,2)_90
-Z10G_RunFramei:F(0,2)_380:
+	jnz Z10G_RunFramei_F0_2_90
+Z10G_RunFramei_F0_2_380:
 	mov eax, [level+0xc]
 	test eax, eax
-	jle Z10G_RunFramei:F(0,2)_100
+	jle Z10G_RunFramei_F0_2_100
 	mov edi, g_entities
 	xor esi, esi
 	mov ebx, g_entities+0xfc
-	jmp Z10G_RunFramei:F(0,2)_110
-Z10G_RunFramei:F(0,2)_120:
+	jmp Z10G_RunFramei_F0_2_110
+Z10G_RunFramei_F0_2_120:
 	add esi, 0x1
 	add edi, 0x230
 	add ebx, 0x230
 	cmp esi, [level+0xc]
-	jge Z10G_RunFramei:F(0,2)_100
-Z10G_RunFramei:F(0,2)_110:
+	jge Z10G_RunFramei_F0_2_100
+Z10G_RunFramei_F0_2_110:
 	cmp byte [ebx], 0x0
-	jz Z10G_RunFramei:F(0,2)_120
+	jz Z10G_RunFramei_F0_2_120
 	lea edx, [ebx+0x78]
 	mov [ebp-0x420], edx
 	test byte [ebx+0x79], 0x20
-	jnz Z10G_RunFramei:F(0,2)_120
-Z10G_RunFramei:F(0,2)_130:
+	jnz Z10G_RunFramei_F0_2_120
+Z10G_RunFramei_F0_2_130:
 	mov dword [esp+0x4], 0x1
 	mov [esp], edi
-	call Z22G_DObjUpdateServerTimeP9gentity_si:F(0,3)
+	call Z22G_DObjUpdateServerTimeP9gentity_si_F0_3
 	test eax, eax
-	jz Z10G_RunFramei:F(0,2)_120
-	call Z21Scr_RunCurrentThreadsv:F(0,1)
+	jz Z10G_RunFramei_F0_2_120
+	call Z21Scr_RunCurrentThreadsv_F0_1
 	cmp byte [ebx], 0x0
-	jz Z10G_RunFramei:F(0,2)_120
+	jz Z10G_RunFramei_F0_2_120
 	mov ecx, [ebp-0x420]
 	test byte [ecx+0x1], 0x20
-	jz Z10G_RunFramei:F(0,2)_130
+	jz Z10G_RunFramei_F0_2_130
 	add esi, 0x1
 	add edi, 0x230
 	add ebx, 0x230
 	cmp esi, [level+0xc]
-	jl Z10G_RunFramei:F(0,2)_110
-Z10G_RunFramei:F(0,2)_100:
-	call Z11Scr_IncTimev:F(0,1)
+	jl Z10G_RunFramei_F0_2_110
+Z10G_RunFramei_F0_2_100:
+	call Z11Scr_IncTimev_F0_1
 	mov dword [level+0x3604], 0x0
 	mov eax, [level+0xc]
 	test eax, eax
-	jle Z10G_RunFramei:F(0,2)_140
+	jle Z10G_RunFramei_F0_2_140
 	mov esi, g_entities
 	mov ebx, g_entities+0xfc
-Z10G_RunFramei:F(0,2)_170:
+Z10G_RunFramei_F0_2_170:
 	cmp byte [ebx], 0x0
-	jz Z10G_RunFramei:F(0,2)_150
+	jz Z10G_RunFramei_F0_2_150
 	mov eax, [ebx+0x10c]
 	test eax, eax
-	jz Z10G_RunFramei:F(0,2)_160
+	jz Z10G_RunFramei_F0_2_160
 	mov eax, [eax]
 	call _Z19G_RunFrameForEntityP9gentity_s
-Z10G_RunFramei:F(0,2)_160:
+Z10G_RunFramei_F0_2_160:
 	mov eax, esi
 	call _Z19G_RunFrameForEntityP9gentity_s
-Z10G_RunFramei:F(0,2)_150:
+Z10G_RunFramei_F0_2_150:
 	mov eax, [level+0x3604]
 	add eax, 0x1
 	mov [level+0x3604], eax
 	add esi, 0x230
 	add ebx, 0x230
 	cmp eax, [level+0xc]
-	jl Z10G_RunFramei:F(0,2)_170
-Z10G_RunFramei:F(0,2)_140:
+	jl Z10G_RunFramei_F0_2_170
+Z10G_RunFramei_F0_2_140:
 	mov dword [level+0x3604], 0xffffffff
 	mov eax, [level+0x1e4]
 	test eax, eax
-	jle Z10G_RunFramei:F(0,2)_180
+	jle Z10G_RunFramei_F0_2_180
 	mov dword [ebp-0x428], 0x0
 	mov dword [ebp-0x424], 0x0
-Z10G_RunFramei:F(0,2)_240:
+Z10G_RunFramei_F0_2_240:
 	mov eax, [ebp-0x424]
 	add eax, [level+0x4]
 	cmp byte [eax+0xfc], 0x0
-	jz Z10G_RunFramei:F(0,2)_190
+	jz Z10G_RunFramei_F0_2_190
 	mov eax, [eax+0x158]
 	mov edi, [eax+0x274c]
 	mov ecx, eax
 	mov ebx, level+0x24
 	mov esi, level+0x1e4
-	jmp Z10G_RunFramei:F(0,2)_200
-Z10G_RunFramei:F(0,2)_230:
+	jmp Z10G_RunFramei_F0_2_200
+Z10G_RunFramei_F0_2_230:
 	cmp edi, eax
-	jz Z10G_RunFramei:F(0,2)_210
-Z10G_RunFramei:F(0,2)_220:
+	jz Z10G_RunFramei_F0_2_210
+Z10G_RunFramei_F0_2_220:
 	mov dword [ecx+0x5e4], 0x0
 	add ebx, 0x1c
 	add ecx, 0x1c
 	cmp esi, ebx
-	jz Z10G_RunFramei:F(0,2)_190
-Z10G_RunFramei:F(0,2)_200:
+	jz Z10G_RunFramei_F0_2_190
+Z10G_RunFramei_F0_2_200:
 	mov eax, [ebx]
 	test eax, eax
-	jz Z10G_RunFramei:F(0,2)_220
+	jz Z10G_RunFramei_F0_2_220
 	mov eax, [ebx+0x14]
 	test eax, eax
-	jnz Z10G_RunFramei:F(0,2)_230
-Z10G_RunFramei:F(0,2)_210:
+	jnz Z10G_RunFramei_F0_2_230
+Z10G_RunFramei_F0_2_210:
 	mov edx, ebx
 	sub edx, level+0x24
 	mov eax, [edx+level+0x24]
@@ -5338,94 +5930,94 @@ Z10G_RunFramei:F(0,2)_210:
 	add ebx, 0x1c
 	add ecx, 0x1c
 	cmp esi, ebx
-	jnz Z10G_RunFramei:F(0,2)_200
-Z10G_RunFramei:F(0,2)_190:
+	jnz Z10G_RunFramei_F0_2_200
+Z10G_RunFramei_F0_2_190:
 	add dword [ebp-0x428], 0x1
 	add dword [ebp-0x424], 0x230
 	mov eax, [ebp-0x428]
 	cmp eax, [level+0x1e4]
-	jl Z10G_RunFramei:F(0,2)_240
-Z10G_RunFramei:F(0,2)_180:
+	jl Z10G_RunFramei_F0_2_240
+Z10G_RunFramei_F0_2_180:
 	mov edi, [level+0x1e4]
 	test edi, edi
-	jle Z10G_RunFramei:F(0,2)_250
+	jle Z10G_RunFramei_F0_2_250
 	xor esi, esi
 	xor ebx, ebx
-	jmp Z10G_RunFramei:F(0,2)_260
-Z10G_RunFramei:F(0,2)_270:
+	jmp Z10G_RunFramei_F0_2_260
+Z10G_RunFramei_F0_2_270:
 	add esi, 0x1
 	add ebx, 0x230
 	cmp esi, [level+0x1e4]
-	jge Z10G_RunFramei:F(0,2)_250
-Z10G_RunFramei:F(0,2)_260:
+	jge Z10G_RunFramei_F0_2_250
+Z10G_RunFramei_F0_2_260:
 	mov edx, ebx
 	add edx, [level+0x4]
 	cmp byte [edx+0xfc], 0x0
-	jz Z10G_RunFramei:F(0,2)_270
+	jz Z10G_RunFramei_F0_2_270
 	mov dword [esp+0x8], 0x3
 	mov eax, [edx]
 	mov [esp+0x4], eax
 	mov eax, [edx+0x158]
 	mov [esp], eax
-	call Z20HudElem_UpdateClientP9gclient_si16hudelem_update_t:F(0,1)
+	call Z20HudElem_UpdateClientP9gclient_si16hudelem_update_t_F0_1
 	add esi, 0x1
 	add ebx, 0x230
 	cmp esi, [level+0x1e4]
-	jl Z10G_RunFramei:F(0,2)_260
-Z10G_RunFramei:F(0,2)_250:
+	jl Z10G_RunFramei_F0_2_260
+Z10G_RunFramei_F0_2_250:
 	mov esi, [level+0x1e4]
 	test esi, esi
-	jle Z10G_RunFramei:F(0,2)_280
+	jle Z10G_RunFramei_F0_2_280
 	mov esi, g_entities
 	xor ebx, ebx
-	jmp Z10G_RunFramei:F(0,2)_290
-Z10G_RunFramei:F(0,2)_300:
+	jmp Z10G_RunFramei_F0_2_290
+Z10G_RunFramei_F0_2_300:
 	add ebx, 0x1
 	add esi, 0x230
 	cmp ebx, [level+0x1e4]
-	jge Z10G_RunFramei:F(0,2)_280
-Z10G_RunFramei:F(0,2)_290:
+	jge Z10G_RunFramei_F0_2_280
+Z10G_RunFramei_F0_2_290:
 	cmp byte [esi+0xfc], 0x0
-	jz Z10G_RunFramei:F(0,2)_300
+	jz Z10G_RunFramei_F0_2_300
 	mov [esp], esi
-	call Z14ClientEndFrameP9gentity_s:F(0,1)
+	call Z14ClientEndFrameP9gentity_s_F0_1
 	add ebx, 0x1
 	add esi, 0x230
 	cmp ebx, [level+0x1e4]
-	jl Z10G_RunFramei:F(0,2)_290
-Z10G_RunFramei:F(0,2)_280:
-	call Z15CheckTeamStatusv:F(0,75)
+	jl Z10G_RunFramei_F0_2_290
+Z10G_RunFramei_F0_2_280:
+	call Z15CheckTeamStatusv_F0_75
 	mov eax, [g_oldVoting]
 	cmp byte [eax+0x8], 0x0
-	jnz Z10G_RunFramei:F(0,2)_310
-Z10G_RunFramei:F(0,2)_420:
+	jnz Z10G_RunFramei_F0_2_310
+Z10G_RunFramei_F0_2_420:
 	mov ebx, [level+0x210]
 	test ebx, ebx
-	jz Z10G_RunFramei:F(0,2)_320
+	jz Z10G_RunFramei_F0_2_320
 	mov eax, [level+0x1e4]
 	test eax, eax
-	jg Z10G_RunFramei:F(0,2)_330
-Z10G_RunFramei:F(0,2)_400:
+	jg Z10G_RunFramei_F0_2_330
+Z10G_RunFramei_F0_2_400:
 	mov dword [level+0x210], 0x0
-Z10G_RunFramei:F(0,2)_320:
+Z10G_RunFramei_F0_2_320:
 	mov eax, [g_listEntity]
 	cmp byte [eax+0x8], 0x0
-	jnz Z10G_RunFramei:F(0,2)_340
-Z10G_RunFramei:F(0,2)_460:
+	jnz Z10G_RunFramei_F0_2_340
+Z10G_RunFramei_F0_2_460:
 	mov ecx, [level+0x35fc]
 	test ecx, ecx
-	jnz Z10G_RunFramei:F(0,2)_350
-Z10G_RunFramei:F(0,2)_440:
+	jnz Z10G_RunFramei_F0_2_350
+Z10G_RunFramei_F0_2_440:
 	mov edx, [level+0x3600]
 	test edx, edx
-	jnz Z10G_RunFramei:F(0,2)_360
-Z10G_RunFramei:F(0,2)_430:
+	jnz Z10G_RunFramei_F0_2_360
+Z10G_RunFramei_F0_2_430:
 	mov eax, [g_dumpAnims]
 	mov eax, [eax+0x8]
 	test eax, eax
-	js Z10G_RunFramei:F(0,2)_370
+	js Z10G_RunFramei_F0_2_370
 	mov dword [esp], _cstring_server
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov eax, [g_dumpAnims]
 	mov edx, [eax+0x8]
 	lea edx, [edx+edx*4]
@@ -5434,8 +6026,8 @@ Z10G_RunFramei:F(0,2)_430:
 	shl eax, 0x4
 	add eax, [level+0x4]
 	mov [esp], eax
-	call Z18SV_DObjDisplayAnimP9gentity_s:F(0,53)
-Z10G_RunFramei:F(0,2)_370:
+	call Z18SV_DObjDisplayAnimP9gentity_s_F0_53
+Z10G_RunFramei_F0_2_370:
 	mov eax, [0x1acce1d]
 	mov dword [eax], 0x0
 	add esp, 0x43c
@@ -5444,81 +6036,81 @@ Z10G_RunFramei:F(0,2)_370:
 	pop edi
 	pop ebp
 	ret
-Z10G_RunFramei:F(0,2)_40:
+Z10G_RunFramei_F0_2_40:
 	mov dword [ebp-0x430], 0x0
-	call Z21Scr_RunCurrentThreadsv:F(0,1)
+	call Z21Scr_RunCurrentThreadsv_F0_1
 	mov eax, [ebp-0x430]
 	test eax, eax
-	jnz Z10G_RunFramei:F(0,2)_90
-	jmp Z10G_RunFramei:F(0,2)_380
-Z10G_RunFramei:F(0,2)_80:
+	jnz Z10G_RunFramei_F0_2_90
+	jmp Z10G_RunFramei_F0_2_380
+Z10G_RunFramei_F0_2_80:
 	mov [ebp+ecx-0x418], al
 	mov [esp], edx
-	call Z13Scr_AddEntityP9gentity_s:F(0,7)
+	call Z13Scr_AddEntityP9gentity_s_F0_7
 	mov dword [esp+0x8], 0x1
 	mov eax, [0x1acd639]
 	movzx eax, word [eax+0x54]
 	mov [esp+0x4], eax
 	mov edx, [ebp-0x41c]
 	mov [esp], edx
-	call Z10Scr_NotifyP9gentity_stj:F(0,7)
-	jmp Z10G_RunFramei:F(0,2)_70
-Z10G_RunFramei:F(0,2)_330:
+	call Z10Scr_NotifyP9gentity_stj_F0_7
+	jmp Z10G_RunFramei_F0_2_70
+Z10G_RunFramei_F0_2_330:
 	xor esi, esi
 	xor ebx, ebx
 	mov edi, g_entities
-	jmp Z10G_RunFramei:F(0,2)_390
-Z10G_RunFramei:F(0,2)_410:
+	jmp Z10G_RunFramei_F0_2_390
+Z10G_RunFramei_F0_2_410:
 	add esi, 0x1
 	add ebx, 0x28a4
 	add edi, 0x230
 	cmp esi, [level+0x1e4]
-	jge Z10G_RunFramei:F(0,2)_400
-Z10G_RunFramei:F(0,2)_390:
+	jge Z10G_RunFramei_F0_2_400
+Z10G_RunFramei_F0_2_390:
 	mov eax, ebx
 	add eax, [level]
 	cmp dword [eax+0x26c4], 0x2
-	jnz Z10G_RunFramei:F(0,2)_410
+	jnz Z10G_RunFramei_F0_2_410
 	cmp dword [eax+0x4], 0x5
-	jnz Z10G_RunFramei:F(0,2)_410
+	jnz Z10G_RunFramei_F0_2_410
 	mov [esp], edi
-	call Z27DeathmatchScoreboardMessageP9gentity_s:F(0,1)
-	jmp Z10G_RunFramei:F(0,2)_410
-Z10G_RunFramei:F(0,2)_310:
-	call Z9CheckVotev:F(0,2)
-	jmp Z10G_RunFramei:F(0,2)_420
-Z10G_RunFramei:F(0,2)_360:
-	call Z19SaveRegisteredItemsv:F(0,1)
-	jmp Z10G_RunFramei:F(0,2)_430
-Z10G_RunFramei:F(0,2)_350:
-	call Z21SaveRegisteredWeaponsv:F(0,1)
-	jmp Z10G_RunFramei:F(0,2)_440
-Z10G_RunFramei:F(0,2)_340:
+	call Z27DeathmatchScoreboardMessageP9gentity_s_F0_1
+	jmp Z10G_RunFramei_F0_2_410
+Z10G_RunFramei_F0_2_310:
+	call Z9CheckVotev_F0_2
+	jmp Z10G_RunFramei_F0_2_420
+Z10G_RunFramei_F0_2_360:
+	call Z19SaveRegisteredItemsv_F0_1
+	jmp Z10G_RunFramei_F0_2_430
+Z10G_RunFramei_F0_2_350:
+	call Z21SaveRegisteredWeaponsv_F0_1
+	jmp Z10G_RunFramei_F0_2_440
+Z10G_RunFramei_F0_2_340:
 	xor ebx, ebx
 	mov esi, g_entities
-Z10G_RunFramei:F(0,2)_450:
+Z10G_RunFramei_F0_2_450:
 	movzx eax, word [esi+0x168]
 	mov [esp], eax
-	call Z18SL_ConvertToStringj:F(0,2)
+	call Z18SL_ConvertToStringj_F0_2
 	mov [esp+0x8], eax
 	mov [esp+0x4], ebx
 	mov dword [esp], _cstring_4i_s
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	add ebx, 0x1
 	add esi, 0x230
 	cmp ebx, 0x400
-	jnz Z10G_RunFramei:F(0,2)_450
+	jnz Z10G_RunFramei_F0_2_450
 	mov dword [esp+0x4], 0x0
 	mov eax, [g_listEntity]
 	mov [esp], eax
-	call Z12Dvar_SetBoolPK6dvar_sh:F(0,1)
-	jmp Z10G_RunFramei:F(0,2)_460
+	call Z12Dvar_SetBoolPK6dvar_sh_F0_1
+	jmp Z10G_RunFramei_F0_2_460
 	add [eax], al
 
 
-;Z21DroppedItemClearOwnerP9gentity_s:F(0,1)
+;Z21DroppedItemClearOwnerP9gentity_s_F0_1
 
-Z21DroppedItemClearOwnerP9gentity_s:F(0,1):
+Z21DroppedItemClearOwnerP9gentity_s_F0_1:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -5527,9 +6119,9 @@ Z21DroppedItemClearOwnerP9gentity_s:F(0,1):
 	ret
 
 
-;Z18G_GetItemClassnamePK7gitem_sPt:F(0,1)
+;Z18G_GetItemClassnamePK7gitem_sPt_F0_1
 
-Z18G_GetItemClassnamePK7gitem_sPt:F(0,1):
+Z18G_GetItemClassnamePK7gitem_sPt_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -5553,32 +6145,32 @@ Z18G_GetItemClassnamePK7gitem_sPt:F(0,1):
 	sub edx, eax
 	lea ebx, [ecx+edx*4]
 	neg ebx
-	call Z16BG_GetNumWeaponsv:F(0,3)
+	call Z16BG_GetNumWeaponsv_F0_3
 	cmp ebx, eax
-	jg Z18G_GetItemClassnamePK7gitem_sPt:F(0,1)_10
+	jg Z18G_GetItemClassnamePK7gitem_sPt_F0_1_10
 	mov [esp], ebx
-	call Z15BG_GetWeaponDefi:F(0,2)
+	call Z15BG_GetWeaponDefi_F0_2
 	mov eax, [eax]
 	mov [esp+0xc], eax
 	mov dword [esp+0x8], _cstring_weapon_s
 	mov dword [esp+0x4], 0x100
 	lea ebx, [ebp-0x118]
 	mov [esp], ebx
-	call Z11Com_sprintfPciPKcz:F(0,2)
+	call Z11Com_sprintfPciPKcz_F0_2
 	mov [esp+0x4], ebx
 	mov [esp], edi
-	call Z16G_SetConstStringPtPKc:F(0,11)
+	call Z16G_SetConstStringPtPKc_F0_11
 	add esp, 0x11c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z18G_GetItemClassnamePK7gitem_sPt:F(0,1)_10:
+Z18G_GetItemClassnamePK7gitem_sPt_F0_1_10:
 	mov eax, [esi]
 	mov [esp+0x4], eax
 	mov [esp], edi
-	call Z16G_SetConstStringPtPKc:F(0,11)
+	call Z16G_SetConstStringPtPKc_F0_11
 	add esp, 0x11c
 	pop ebx
 	pop esi
@@ -5588,9 +6180,9 @@ Z18G_GetItemClassnamePK7gitem_sPt:F(0,1)_10:
 	nop
 
 
-;Z20ClearRegisteredItemsv:F(0,1)
+;Z20ClearRegisteredItemsv_F0_1
 
-Z20ClearRegisteredItemsv:F(0,1):
+Z20ClearRegisteredItemsv_F0_1:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -5603,9 +6195,9 @@ Z20ClearRegisteredItemsv:F(0,1):
 	ret
 
 
-;Z21SaveRegisteredWeaponsv:F(0,1)
+;Z21SaveRegisteredWeaponsv_F0_1
 
-Z16G_RegisterWeaponi:F(0,1):
+Z16G_RegisterWeaponi_F0_1:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -5617,77 +6209,77 @@ Z16G_RegisterWeaponi:F(0,1):
 	mov dword [eax+0x3600], 0x1
 	mov dword [eax+0x35fc], 0x1
 	mov [esp], edx
-	call Z15BG_GetWeaponDefi:F(0,2)
+	call Z15BG_GetWeaponDefi_F0_2
 	mov esi, eax
 	mov eax, [eax+0x56c]
 	cmp byte [eax], 0x0
-	jnz Z16G_RegisterWeaponi:F(0,1)_10
-Z16G_RegisterWeaponi:F(0,1)_60:
+	jnz Z16G_RegisterWeaponi_F0_1_10
+Z16G_RegisterWeaponi_F0_1_60:
 	mov eax, [esi+0x570]
 	cmp byte [eax], 0x0
-	jnz Z16G_RegisterWeaponi:F(0,1)_20
-Z16G_RegisterWeaponi:F(0,1)_50:
+	jnz Z16G_RegisterWeaponi_F0_1_20
+Z16G_RegisterWeaponi_F0_1_50:
 	mov eax, [esi+0x1b4]
 	mov [esp], eax
-	call Z12G_ModelIndexPKc:F(0,1)
+	call Z12G_ModelIndexPKc_F0_1
 	mov ebx, eax
 	test eax, eax
-	jnz Z16G_RegisterWeaponi:F(0,1)_30
-Z16G_RegisterWeaponi:F(0,1)_40:
+	jnz Z16G_RegisterWeaponi_F0_1_30
+Z16G_RegisterWeaponi_F0_1_40:
 	mov eax, [esi+0x38c]
 	mov [esp], eax
-	call Z12G_ModelIndexPKc:F(0,1)
+	call Z12G_ModelIndexPKc_F0_1
 	add esp, 0x10
 	pop ebx
 	pop esi
 	pop ebp
 	ret
-Z16G_RegisterWeaponi:F(0,1)_30:
+Z16G_RegisterWeaponi_F0_1_30:
 	mov [esp], eax
-	call Z11G_XModelBadi:F(0,3)
+	call Z11G_XModelBadi_F0_3
 	test eax, eax
-	jz Z16G_RegisterWeaponi:F(0,1)_40
+	jz Z16G_RegisterWeaponi_F0_1_40
 	mov dword [esp+0x4], _cstring_xmodeldefaultwea
 	mov [esp], ebx
-	call Z15G_OverrideModeliPKc:F(0,11)
+	call Z15G_OverrideModeliPKc_F0_11
 	mov eax, [esi+0x38c]
 	mov [esp], eax
-	call Z12G_ModelIndexPKc:F(0,1)
+	call Z12G_ModelIndexPKc_F0_1
 	add esp, 0x10
 	pop ebx
 	pop esi
 	pop ebp
 	ret
-Z16G_RegisterWeaponi:F(0,1)_20:
+Z16G_RegisterWeaponi_F0_1_20:
 	mov [esp+0x4], eax
 	lea eax, [esi+0x578]
 	mov [esp], eax
-	call Z20G_GetHintStringIndexPiPKc:F(0,25)
+	call Z20G_GetHintStringIndexPiPKc_F0_25
 	test eax, eax
-	jnz Z16G_RegisterWeaponi:F(0,1)_50
+	jnz Z16G_RegisterWeaponi_F0_1_50
 	mov dword [esp+0x8], 0x20
 	mov dword [esp+0x4], _cstring_too_many_differe1
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
-	jmp Z16G_RegisterWeaponi:F(0,1)_50
-Z16G_RegisterWeaponi:F(0,1)_10:
+	call Com_Error_F0_1
+	jmp Z16G_RegisterWeaponi_F0_1_50
+Z16G_RegisterWeaponi_F0_1_10:
 	mov [esp+0x4], eax
 	lea eax, [esi+0x574]
 	mov [esp], eax
-	call Z20G_GetHintStringIndexPiPKc:F(0,25)
+	call Z20G_GetHintStringIndexPiPKc_F0_25
 	test eax, eax
-	jnz Z16G_RegisterWeaponi:F(0,1)_60
+	jnz Z16G_RegisterWeaponi_F0_1_60
 	mov dword [esp+0x8], 0x20
 	mov dword [esp+0x4], _cstring_too_many_differe1
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
-	jmp Z16G_RegisterWeaponi:F(0,1)_60
+	call Com_Error_F0_1
+	jmp Z16G_RegisterWeaponi_F0_1_60
 	nop
 
 
-;Z16IsItemRegisteredi:F(0,13)
+;Z16IsItemRegisteredi_F0_13
 
-Z16IsItemRegisteredi:F(0,13):
+Z16IsItemRegisteredi_F0_13:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -5697,9 +6289,9 @@ Z16IsItemRegisteredi:F(0,13):
 	nop
 
 
-;Z18FinishSpawningItemP9gentity_s:F(0,1)
+;Z18FinishSpawningItemP9gentity_s_F0_1
 
-Z18FinishSpawningItemP9gentity_s:F(0,1):
+Z18FinishSpawningItemP9gentity_s_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -5709,13 +6301,13 @@ Z18FinishSpawningItemP9gentity_s:F(0,1):
 	mov edi, [ebp+0x8]
 	mov byte [edi+0x166], 0x11
 	test byte [edi+0x170], 0x1
-	jnz Z18FinishSpawningItemP9gentity_s:F(0,1)_10
+	jnz Z18FinishSpawningItemP9gentity_s_F0_1_10
 	movzx eax, word [edi+0x1ac]
 	lea edx, [eax+eax*4]
 	lea edx, [eax+edx*2]
 	mov eax, [0x1acce11]
 	cmp dword [eax+edx*4+0x1c], 0x1
-	jz Z18FinishSpawningItemP9gentity_s:F(0,1)_20
+	jz Z18FinishSpawningItemP9gentity_s_F0_1_20
 	mov eax, 0xbf800000
 	mov [ebp-0x3c], eax
 	mov [ebp-0x38], eax
@@ -5724,7 +6316,7 @@ Z18FinishSpawningItemP9gentity_s:F(0,1):
 	mov [ebp-0x48], eax
 	mov [ebp-0x44], eax
 	mov dword [ebp-0x40], 0x40000000
-Z18FinishSpawningItemP9gentity_s:F(0,1)_60:
+Z18FinishSpawningItemP9gentity_s_F0_1_60:
 	mov ebx, [edi+0x184]
 	test ebx, ebx
 	mov eax, 0x491
@@ -5754,9 +6346,9 @@ Z18FinishSpawningItemP9gentity_s:F(0,1)_60:
 	mov [esp+0x4], eax
 	lea esi, [ebp-0xa8]
 	mov [esp], esi
-	call Z14G_TraceCapsuleP7trace_tPKfS2_S2_S2_ii:F(0,2)
+	call Z14G_TraceCapsuleP7trace_tPKfS2_S2_S2_ii_F0_2
 	cmp byte [ebp-0x85], 0x0
-	jz Z18FinishSpawningItemP9gentity_s:F(0,1)_30
+	jz Z18FinishSpawningItemP9gentity_s_F0_1_30
 	mov edx, [edi+0x138]
 	mov [ebp-0x54], edx
 	mov eax, [edi+0x13c]
@@ -5781,10 +6373,10 @@ Z18FinishSpawningItemP9gentity_s:F(0,1)_60:
 	lea eax, [ebp-0x54]
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call Z14G_TraceCapsuleP7trace_tPKfS2_S2_S2_ii:F(0,2)
+	call Z14G_TraceCapsuleP7trace_tPKfS2_S2_S2_ii_F0_2
 	cmp byte [ebp-0x85], 0x0
-	jnz Z18FinishSpawningItemP9gentity_s:F(0,1)_40
-Z18FinishSpawningItemP9gentity_s:F(0,1)_30:
+	jnz Z18FinishSpawningItemP9gentity_s_F0_1_40
+Z18FinishSpawningItemP9gentity_s_F0_1_30:
 	movzx eax, word [ebp-0x8c]
 	mov [edi+0x7c], eax
 	movss xmm2, dword [ebp-0xa8]
@@ -5809,20 +6401,20 @@ Z18FinishSpawningItemP9gentity_s:F(0,1)_30:
 	lea eax, [ebp-0x60]
 	mov [esp+0x4], eax
 	mov [esp], edi
-	call Z11G_SetOriginP9gentity_sPKf:F(0,11)
+	call Z11G_SetOriginP9gentity_sPKf_F0_11
 	movss xmm0, dword [_float_1_00000000]
 	ucomiss xmm0, [ebp-0xa8]
-	ja Z18FinishSpawningItemP9gentity_s:F(0,1)_50
-Z18FinishSpawningItemP9gentity_s:F(0,1)_70:
+	ja Z18FinishSpawningItemP9gentity_s_F0_1_50
+Z18FinishSpawningItemP9gentity_s_F0_1_70:
 	mov [esp], edi
-	call Z13SV_LinkEntityP9gentity_s:F(0,23)
+	call Z13SV_LinkEntityP9gentity_s_F0_23
 	add esp, 0xcc
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z18FinishSpawningItemP9gentity_s:F(0,1)_20:
+Z18FinishSpawningItemP9gentity_s_F0_1_20:
 	mov eax, 0xbf800000
 	mov [ebp-0x3c], eax
 	mov [ebp-0x38], eax
@@ -5831,34 +6423,34 @@ Z18FinishSpawningItemP9gentity_s:F(0,1)_20:
 	mov [ebp-0x48], eax
 	mov [ebp-0x44], eax
 	mov [ebp-0x40], eax
-	jmp Z18FinishSpawningItemP9gentity_s:F(0,1)_60
-Z18FinishSpawningItemP9gentity_s:F(0,1)_10:
+	jmp Z18FinishSpawningItemP9gentity_s_F0_1_60
+Z18FinishSpawningItemP9gentity_s_F0_1_10:
 	lea eax, [edi+0x138]
 	mov [esp+0x4], eax
 	mov [esp], edi
-	call Z11G_SetOriginP9gentity_sPKf:F(0,11)
-	jmp Z18FinishSpawningItemP9gentity_s:F(0,1)_70
-Z18FinishSpawningItemP9gentity_s:F(0,1)_40:
+	call Z11G_SetOriginP9gentity_sPKf_F0_11
+	jmp Z18FinishSpawningItemP9gentity_s_F0_1_70
+Z18FinishSpawningItemP9gentity_s_F0_1_40:
 	mov eax, [ebp-0xac]
 	mov [esp], eax
-	call Z4vtosPKf:F(0,15)
+	call Z4vtosPKf_F0_15
 	mov ebx, eax
 	movzx eax, word [edi+0x168]
 	mov [esp], eax
-	call Z18SL_ConvertToStringj:F(0,2)
+	call Z18SL_ConvertToStringj_F0_2
 	mov [esp+0x8], ebx
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_finishspawningit
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov [esp], edi
-	call Z12G_FreeEntityP9gentity_s:F(0,11)
+	call Z12G_FreeEntityP9gentity_s_F0_11
 	add esp, 0xcc
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z18FinishSpawningItemP9gentity_s:F(0,1)_50:
+Z18FinishSpawningItemP9gentity_s_F0_1_50:
 	mov eax, [ebp-0xa4]
 	mov [ebp-0x6c], eax
 	lea ebx, [ebp-0x84]
@@ -5871,45 +6463,45 @@ Z18FinishSpawningItemP9gentity_s:F(0,1)_50:
 	mov [esp+0x4], ebx
 	lea eax, [edi+0x144]
 	mov [esp], eax
-	call AngleVectors:F(0,18)
+	call AngleVectors_F0_18
 	lea esi, [ebp-0x78]
 	mov [esp+0x8], esi
 	mov [esp+0x4], ebx
 	lea eax, [ebp-0x6c]
 	mov [esp], eax
-	call Vec3Cross:F(0,18)
+	call Vec3Cross_F0_18
 	mov [esp+0x8], ebx
 	lea eax, [ebp-0x6c]
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call Vec3Cross:F(0,18)
+	call Vec3Cross_F0_18
 	lea esi, [ebp-0x24]
 	mov [esp+0x4], esi
 	mov [esp], ebx
-	call AxisToAngles:F(0,18)
+	call AxisToAngles_F0_18
 	mov edx, [edi+0x8c]
 	lea eax, [edx+edx*4]
 	lea eax, [edx+eax*2]
 	shl eax, 0x2
 	add eax, [0x1acce11]
 	cmp dword [eax+0x1c], 0x1
-	jz Z18FinishSpawningItemP9gentity_s:F(0,1)_80
-Z18FinishSpawningItemP9gentity_s:F(0,1)_90:
+	jz Z18FinishSpawningItemP9gentity_s_F0_1_80
+Z18FinishSpawningItemP9gentity_s_F0_1_90:
 	mov [esp+0x4], esi
 	mov [esp], edi
-	call Z10G_SetAngleP9gentity_sPKf:F(0,11)
-	jmp Z18FinishSpawningItemP9gentity_s:F(0,1)_70
-Z18FinishSpawningItemP9gentity_s:F(0,1)_80:
+	call Z10G_SetAngleP9gentity_sPKf_F0_11
+	jmp Z18FinishSpawningItemP9gentity_s_F0_1_70
+Z18FinishSpawningItemP9gentity_s_F0_1_80:
 	movss xmm0, dword [_float_90_00000000]
 	addss xmm0, [ebp-0x1c]
 	movss [ebp-0x1c], xmm0
-	jmp Z18FinishSpawningItemP9gentity_s:F(0,1)_90
+	jmp Z18FinishSpawningItemP9gentity_s_F0_1_90
 	nop
 
 
-;Z15G_RunCorpseMoveP9gentity_s:F(0,1)
+;Z15G_RunCorpseMoveP9gentity_s_F0_1
 
-Z15G_RunCorpseMoveP9gentity_s:F(0,1):
+Z15G_RunCorpseMoveP9gentity_s_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -5918,7 +6510,7 @@ Z15G_RunCorpseMoveP9gentity_s:F(0,1):
 	sub esp, 0xfc
 	mov edi, [ebp+0x8]
 	mov [esp], edi
-	call Z22G_GetPlayerCorpseIndexP9gentity_s:F(0,1)
+	call Z22G_GetPlayerCorpseIndexP9gentity_s_F0_1
 	lea eax, [eax+eax*8]
 	mov edx, eax
 	shl edx, 0x4
@@ -5935,12 +6527,12 @@ Z15G_RunCorpseMoveP9gentity_s:F(0,1):
 	mov dword [esp+0x4], 0x0
 	mov eax, [eax+0x8]
 	mov [esp], eax
-	call Z14XAnimCalcDeltaP11XAnimTree_sjPfS1_h:F(0,1)
+	call Z14XAnimCalcDeltaP11XAnimTree_sjPfS1_h_F0_1
 	mov eax, [ebp-0xd0]
 	cmp byte [eax+0x4c4], 0x0
-	jz Z15G_RunCorpseMoveP9gentity_s:F(0,1)_10
+	jz Z15G_RunCorpseMoveP9gentity_s_F0_1_10
 	mov byte [ebp-0xd9], 0x0
-Z15G_RunCorpseMoveP9gentity_s:F(0,1)_70:
+Z15G_RunCorpseMoveP9gentity_s_F0_1_70:
 	lea edx, [ebp-0x30]
 	mov [esp+0x8], edx
 	mov ecx, [0x1acd721]
@@ -5948,10 +6540,10 @@ Z15G_RunCorpseMoveP9gentity_s:F(0,1)_70:
 	mov [esp+0x4], eax
 	lea eax, [edi+0xc]
 	mov [esp], eax
-	call Z21BG_EvaluateTrajectoryPK12trajectory_tiPf:F(0,1)
+	call Z21BG_EvaluateTrajectoryPK12trajectory_tiPf_F0_1
 	cmp byte [ebp-0xd9], 0x0
-	jnz Z15G_RunCorpseMoveP9gentity_s:F(0,1)_20
-Z15G_RunCorpseMoveP9gentity_s:F(0,1)_90:
+	jnz Z15G_RunCorpseMoveP9gentity_s_F0_1_20
+Z15G_RunCorpseMoveP9gentity_s_F0_1_90:
 	mov esi, [edi+0x184]
 	lea eax, [edi+0x110]
 	mov [ebp-0xd8], eax
@@ -5969,7 +6561,7 @@ Z15G_RunCorpseMoveP9gentity_s:F(0,1)_90:
 	mov [esp+0x4], ebx
 	lea edx, [ebp-0x90]
 	mov [esp], edx
-	call Z14G_TraceCapsuleP7trace_tPKfS2_S2_S2_ii:F(0,2)
+	call Z14G_TraceCapsuleP7trace_tPKfS2_S2_S2_ii_F0_2
 	movss xmm1, dword [ebp-0x90]
 	movss xmm0, dword [edi+0x138]
 	movss xmm2, dword [ebp-0x30]
@@ -6000,31 +6592,31 @@ Z15G_RunCorpseMoveP9gentity_s:F(0,1)_90:
 	movss xmm0, dword [ebp-0xc4]
 	movss [edi+0x140], xmm0
 	cmp byte [ebp-0x6d], 0x0
-	jnz Z15G_RunCorpseMoveP9gentity_s:F(0,1)_30
-Z15G_RunCorpseMoveP9gentity_s:F(0,1)_80:
+	jnz Z15G_RunCorpseMoveP9gentity_s_F0_1_30
+Z15G_RunCorpseMoveP9gentity_s_F0_1_80:
 	mov [esp], edi
-	call Z13SV_LinkEntityP9gentity_s:F(0,23)
+	call Z13SV_LinkEntityP9gentity_s_F0_23
 	mov [esp], edi
-	call Z10G_RunThinkP9gentity_s:F(0,2)
+	call Z10G_RunThinkP9gentity_s_F0_2
 	cmp byte [edi+0xfc], 0x0
-	jz Z15G_RunCorpseMoveP9gentity_s:F(0,1)_40
+	jz Z15G_RunCorpseMoveP9gentity_s_F0_1_40
 	movss xmm1, dword [_float_1_00000000]
 	ucomiss xmm1, [ebp-0x90]
-	jnz Z15G_RunCorpseMoveP9gentity_s:F(0,1)_50
-	jp Z15G_RunCorpseMoveP9gentity_s:F(0,1)_50
+	jnz Z15G_RunCorpseMoveP9gentity_s_F0_1_50
+	jp Z15G_RunCorpseMoveP9gentity_s_F0_1_50
 	mov eax, [ebp-0xd0]
 	cmp byte [eax+0x4c4], 0x0
-	jnz Z15G_RunCorpseMoveP9gentity_s:F(0,1)_40
+	jnz Z15G_RunCorpseMoveP9gentity_s_F0_1_40
 	cmp byte [ebp-0xd9], 0x0
-	jnz Z15G_RunCorpseMoveP9gentity_s:F(0,1)_60
-Z15G_RunCorpseMoveP9gentity_s:F(0,1)_40:
+	jnz Z15G_RunCorpseMoveP9gentity_s_F0_1_60
+Z15G_RunCorpseMoveP9gentity_s_F0_1_40:
 	add esp, 0xfc
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z15G_RunCorpseMoveP9gentity_s:F(0,1)_10:
+Z15G_RunCorpseMoveP9gentity_s_F0_1_10:
 	movss xmm0, dword [ebp-0x48]
 	movss xmm1, dword [ebp-0x44]
 	movss xmm2, dword [ebp-0x40]
@@ -6034,13 +6626,13 @@ Z15G_RunCorpseMoveP9gentity_s:F(0,1)_10:
 	mulss xmm2, xmm2
 	addss xmm0, xmm2
 	ucomiss xmm0, [_float_1_00000000]
-	jbe Z15G_RunCorpseMoveP9gentity_s:F(0,1)_40
+	jbe Z15G_RunCorpseMoveP9gentity_s_F0_1_40
 	mov byte [ebp-0xd9], 0x1
-	jmp Z15G_RunCorpseMoveP9gentity_s:F(0,1)_70
-Z15G_RunCorpseMoveP9gentity_s:F(0,1)_30:
+	jmp Z15G_RunCorpseMoveP9gentity_s_F0_1_70
+Z15G_RunCorpseMoveP9gentity_s_F0_1_30:
 	mov dword [ebp-0x90], 0x0
-	jmp Z15G_RunCorpseMoveP9gentity_s:F(0,1)_80
-Z15G_RunCorpseMoveP9gentity_s:F(0,1)_20:
+	jmp Z15G_RunCorpseMoveP9gentity_s_F0_1_80
+Z15G_RunCorpseMoveP9gentity_s_F0_1_20:
 	mov dword [esp+0xc], 0x0
 	lea eax, [ebp-0x60]
 	mov [esp+0x8], eax
@@ -6048,7 +6640,7 @@ Z15G_RunCorpseMoveP9gentity_s:F(0,1)_20:
 	mov [esp+0x4], ebx
 	lea eax, [edi+0x144]
 	mov [esp], eax
-	call AngleVectors:F(0,18)
+	call AngleVectors_F0_18
 	movss xmm0, dword [_ZZ25CG_DrawRotatedPicPhysicalfffffPKfP8MaterialE4sign+0x120]
 	movss xmm1, dword [ebp-0x60]
 	xorps xmm1, xmm0
@@ -6060,11 +6652,11 @@ Z15G_RunCorpseMoveP9gentity_s:F(0,1)_20:
 	xorps xmm1, xmm0
 	movss [ebp-0x64], xmm1
 	mov [esp], ebx
-	call Vec3Normalize:F(0,7)
+	call Vec3Normalize_F0_7
 	fstp st0
 	lea eax, [ebp-0x6c]
 	mov [esp], eax
-	call Vec3Normalize:F(0,7)
+	call Vec3Normalize_F0_7
 	fstp st0
 	movss xmm1, dword [ebp-0x48]
 	movaps xmm0, xmm1
@@ -6090,29 +6682,29 @@ Z15G_RunCorpseMoveP9gentity_s:F(0,1)_20:
 	mulss xmm1, [ebp-0x64]
 	addss xmm1, [ebp-0x28]
 	movss [ebp-0x28], xmm1
-	jmp Z15G_RunCorpseMoveP9gentity_s:F(0,1)_90
-Z15G_RunCorpseMoveP9gentity_s:F(0,1)_50:
+	jmp Z15G_RunCorpseMoveP9gentity_s_F0_1_90
+Z15G_RunCorpseMoveP9gentity_s_F0_1_50:
 	mov dword [esp+0x8], 0x80000000
 	mov dword [esp+0x4], 0xffffffff
 	mov [esp], ebx
-	call Z16SV_PointContentsPKfii:F(0,2)
+	call Z16SV_PointContentsPKfii_F0_2
 	test eax, eax
-	jnz Z15G_RunCorpseMoveP9gentity_s:F(0,1)_100
+	jnz Z15G_RunCorpseMoveP9gentity_s_F0_1_100
 	mov ecx, [ebp-0xd0]
 	cmp byte [ecx+0x4c4], 0x0
-	jz Z15G_RunCorpseMoveP9gentity_s:F(0,1)_40
+	jz Z15G_RunCorpseMoveP9gentity_s_F0_1_40
 	cmp byte [ebp-0x6e], 0x0
-	jnz Z15G_RunCorpseMoveP9gentity_s:F(0,1)_110
-Z15G_RunCorpseMoveP9gentity_s:F(0,1)_150:
+	jnz Z15G_RunCorpseMoveP9gentity_s_F0_1_110
+Z15G_RunCorpseMoveP9gentity_s_F0_1_150:
 	pxor xmm1, xmm1
 	movss [edi+0x24], xmm1
 	movss [edi+0x28], xmm1
 	movss [edi+0x2c], xmm1
 	cmp byte [ebp-0x6e], 0x0
-	jnz Z15G_RunCorpseMoveP9gentity_s:F(0,1)_120
+	jnz Z15G_RunCorpseMoveP9gentity_s_F0_1_120
 	movss xmm0, dword [ebp-0x84]
 	ucomiss xmm0, xmm1
-	ja Z15G_RunCorpseMoveP9gentity_s:F(0,1)_120
+	ja Z15G_RunCorpseMoveP9gentity_s_F0_1_120
 	movss xmm0, dword [ebx]
 	addss xmm0, [ebp-0x8c]
 	movss [ebx], xmm0
@@ -6136,8 +6728,8 @@ Z15G_RunCorpseMoveP9gentity_s:F(0,1)_150:
 	mov eax, [0x1acd721]
 	mov eax, [eax+0x1ec]
 	mov [edi+0x10], eax
-	jmp Z15G_RunCorpseMoveP9gentity_s:F(0,1)_40
-Z15G_RunCorpseMoveP9gentity_s:F(0,1)_60:
+	jmp Z15G_RunCorpseMoveP9gentity_s_F0_1_40
+Z15G_RunCorpseMoveP9gentity_s_F0_1_60:
 	mov dword [edi+0xc], 0x1
 	movss xmm0, dword [ebp-0xbc]
 	movss [edi+0x18], xmm0
@@ -6163,9 +6755,9 @@ Z15G_RunCorpseMoveP9gentity_s:F(0,1)_60:
 	mov ecx, [ebp-0xd4]
 	mov [esp+0x4], ecx
 	mov [esp], ebx
-	call Z22G_TraceCapsuleCompletePKfS0_S0_S0_ii:F(0,3)
+	call Z22G_TraceCapsuleCompletePKfS0_S0_S0_ii_F0_3
 	test eax, eax
-	jz Z15G_RunCorpseMoveP9gentity_s:F(0,1)_40
+	jz Z15G_RunCorpseMoveP9gentity_s_F0_1_40
 	mov eax, [ebp-0xd0]
 	mov byte [eax+0x4c4], 0x1
 	mov dword [edi+0xc], 0x5
@@ -6206,8 +6798,8 @@ Z15G_RunCorpseMoveP9gentity_s:F(0,1)_60:
 	mov eax, [edx+0x1ec]
 	mov [edi+0x10], eax
 	mov dword [edi+0x14], 0x0
-	jmp Z15G_RunCorpseMoveP9gentity_s:F(0,1)_40
-Z15G_RunCorpseMoveP9gentity_s:F(0,1)_120:
+	jmp Z15G_RunCorpseMoveP9gentity_s_F0_1_40
+Z15G_RunCorpseMoveP9gentity_s_F0_1_120:
 	mov eax, [ebp-0xd0]
 	mov byte [eax+0x4c4], 0x0
 	mov dword [edi+0xc], 0x1
@@ -6226,7 +6818,7 @@ Z15G_RunCorpseMoveP9gentity_s:F(0,1)_120:
 	movzx eax, word [ebp-0x74]
 	mov [edi+0x7c], eax
 	cmp byte [ebp-0x6e], 0x0
-	jnz Z15G_RunCorpseMoveP9gentity_s:F(0,1)_130
+	jnz Z15G_RunCorpseMoveP9gentity_s_F0_1_130
 	mov eax, [ebp-0x8c]
 	mov [ebp-0x9c], eax
 	lea ebx, [ebp-0xb4]
@@ -6239,37 +6831,37 @@ Z15G_RunCorpseMoveP9gentity_s:F(0,1)_120:
 	mov [esp+0x4], ebx
 	lea eax, [edi+0x144]
 	mov [esp], eax
-	call AngleVectors:F(0,18)
+	call AngleVectors_F0_18
 	lea esi, [ebp-0xa8]
 	mov [esp+0x8], esi
 	mov [esp+0x4], ebx
 	lea eax, [ebp-0x9c]
 	mov [esp], eax
-	call Vec3Cross:F(0,18)
+	call Vec3Cross_F0_18
 	mov [esp+0x8], ebx
 	lea edx, [ebp-0x9c]
 	mov [esp+0x4], edx
 	mov [esp], esi
-	call Vec3Cross:F(0,18)
+	call Vec3Cross_F0_18
 	lea ecx, [ebp-0x24]
 	mov [esp+0x4], ecx
 	mov [esp], ebx
-	call AxisToAngles:F(0,18)
+	call AxisToAngles_F0_18
 	lea eax, [ebp-0x24]
 	mov [esp+0x4], eax
 	mov [esp], edi
-	call Z10G_SetAngleP9gentity_sPKf:F(0,11)
-Z15G_RunCorpseMoveP9gentity_s:F(0,1)_140:
+	call Z10G_SetAngleP9gentity_sPKf_F0_11
+Z15G_RunCorpseMoveP9gentity_s_F0_1_140:
 	mov [esp], edi
-	call Z13SV_LinkEntityP9gentity_s:F(0,23)
-	jmp Z15G_RunCorpseMoveP9gentity_s:F(0,1)_40
-Z15G_RunCorpseMoveP9gentity_s:F(0,1)_130:
+	call Z13SV_LinkEntityP9gentity_s_F0_23
+	jmp Z15G_RunCorpseMoveP9gentity_s_F0_1_40
+Z15G_RunCorpseMoveP9gentity_s_F0_1_130:
 	lea eax, [edi+0x144]
 	mov [esp+0x4], eax
 	mov [esp], edi
-	call Z10G_SetAngleP9gentity_sPKf:F(0,11)
-	jmp Z15G_RunCorpseMoveP9gentity_s:F(0,1)_140
-Z15G_RunCorpseMoveP9gentity_s:F(0,1)_110:
+	call Z10G_SetAngleP9gentity_sPKf_F0_11
+	jmp Z15G_RunCorpseMoveP9gentity_s_F0_1_140
+Z15G_RunCorpseMoveP9gentity_s_F0_1_110:
 	mov eax, [ebx]
 	mov [ebp-0x3c], eax
 	mov edx, [ebp-0xcc]
@@ -6292,9 +6884,9 @@ Z15G_RunCorpseMoveP9gentity_s:F(0,1)_110:
 	mov [esp+0x4], eax
 	lea ecx, [ebp-0x90]
 	mov [esp], ecx
-	call Z14G_TraceCapsuleP7trace_tPKfS2_S2_S2_ii:F(0,2)
+	call Z14G_TraceCapsuleP7trace_tPKfS2_S2_S2_ii_F0_2
 	cmp byte [ebp-0x6e], 0x0
-	jnz Z15G_RunCorpseMoveP9gentity_s:F(0,1)_150
+	jnz Z15G_RunCorpseMoveP9gentity_s_F0_1_150
 	movss xmm1, dword [ebp-0x90]
 	movss xmm0, dword [ebp-0x3c]
 	movss xmm2, dword [ebx]
@@ -6324,17 +6916,17 @@ Z15G_RunCorpseMoveP9gentity_s:F(0,1)_110:
 	movss xmm0, dword [ebp-0xc4]
 	mov eax, [ebp-0xc8]
 	movss [eax], xmm0
-	jmp Z15G_RunCorpseMoveP9gentity_s:F(0,1)_150
-Z15G_RunCorpseMoveP9gentity_s:F(0,1)_100:
+	jmp Z15G_RunCorpseMoveP9gentity_s_F0_1_150
+Z15G_RunCorpseMoveP9gentity_s_F0_1_100:
 	mov [esp], edi
-	call Z12G_FreeEntityP9gentity_s:F(0,11)
-	jmp Z15G_RunCorpseMoveP9gentity_s:F(0,1)_40
+	call Z12G_FreeEntityP9gentity_s_F0_11
+	jmp Z15G_RunCorpseMoveP9gentity_s_F0_1_40
 	nop
 
 
-;Z11G_RunCorpseP9gentity_s:F(0,1)
+;Z11G_RunCorpseP9gentity_s_F0_1
 
-Z11G_RunCorpseP9gentity_s:F(0,1):
+Z11G_RunCorpseP9gentity_s_F0_1:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -6342,9 +6934,9 @@ Z11G_RunCorpseP9gentity_s:F(0,1):
 	sub esp, 0x10
 	mov ebx, [ebp+0x8]
 	mov [esp], ebx
-	call Z15G_RunCorpseMoveP9gentity_s:F(0,1)
+	call Z15G_RunCorpseMoveP9gentity_s_F0_1
 	mov [esp], ebx
-	call Z22G_GetPlayerCorpseIndexP9gentity_s:F(0,1)
+	call Z22G_GetPlayerCorpseIndexP9gentity_s_F0_1
 	lea eax, [eax+eax*8]
 	mov edx, eax
 	shl edx, 0x4
@@ -6353,33 +6945,33 @@ Z11G_RunCorpseP9gentity_s:F(0,1):
 	lea esi, [edx+eax*8+0x10c4]
 	mov eax, [ebx]
 	mov [esp], eax
-	call Z17Com_GetServerDObji:F(0,1)
+	call Z17Com_GetServerDObji_F0_1
 	mov dword [esp+0xc], 0x0
 	mov [esp+0x8], esi
 	mov [esp+0x4], ebx
 	mov [esp], eax
-	call Z19BG_UpdatePlayerDObjP6DObj_sP13entityState_sP12clientInfo_ti:F(0,1)
+	call Z19BG_UpdatePlayerDObjP6DObj_sP13entityState_sP12clientInfo_ti_F0_1
 	mov eax, [ebx]
 	mov [esp], eax
-	call Z17Com_GetServerDObji:F(0,1)
+	call Z17Com_GetServerDObji_F0_1
 	test eax, eax
-	jz Z11G_RunCorpseP9gentity_s:F(0,1)_10
+	jz Z11G_RunCorpseP9gentity_s_F0_1_10
 	mov [esp+0x8], esi
 	mov [esp+0x4], ebx
 	mov [esp], eax
-	call Z18BG_PlayerAnimationPK6DObj_sP13entityState_sP12clientInfo_t:F(0,1)
-Z11G_RunCorpseP9gentity_s:F(0,1)_10:
+	call Z18BG_PlayerAnimationPK6DObj_sP13entityState_sP12clientInfo_t_F0_1
+Z11G_RunCorpseP9gentity_s_F0_1_10:
 	mov [ebp+0x8], ebx
 	add esp, 0x10
 	pop ebx
 	pop esi
 	pop ebp
-	jmp Z10G_RunThinkP9gentity_s:F(0,2)
+	jmp Z10G_RunThinkP9gentity_s_F0_2
 
 
-;Z9G_RunItemP9gentity_s:F(0,1)
+;Z9G_RunItemP9gentity_s_F0_1
 
-Z9G_RunItemP9gentity_s:F(0,1):
+Z9G_RunItemP9gentity_s_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -6389,7 +6981,7 @@ Z9G_RunItemP9gentity_s:F(0,1):
 	mov edi, [ebp+0x8]
 	mov edx, [edi+0x7c]
 	cmp edx, 0x3ff
-	jz Z9G_RunItemP9gentity_s:F(0,1)_10
+	jz Z9G_RunItemP9gentity_s_F0_1_10
 	mov eax, [0x1acd721]
 	mov ecx, [eax+0x4]
 	lea edx, [edx+edx*4]
@@ -6398,31 +6990,31 @@ Z9G_RunItemP9gentity_s:F(0,1):
 	shl eax, 0x4
 	mov eax, [eax+ecx+0xc]
 	test eax, eax
-	jnz Z9G_RunItemP9gentity_s:F(0,1)_10
-Z9G_RunItemP9gentity_s:F(0,1)_40:
+	jnz Z9G_RunItemP9gentity_s_F0_1_10
+Z9G_RunItemP9gentity_s_F0_1_40:
 	mov eax, [edi+0xc]
 	test eax, eax
-	jz Z9G_RunItemP9gentity_s:F(0,1)_20
+	jz Z9G_RunItemP9gentity_s_F0_1_20
 	cmp eax, 0x6
-	jz Z9G_RunItemP9gentity_s:F(0,1)_20
+	jz Z9G_RunItemP9gentity_s_F0_1_20
 	mov eax, [edi+0x208]
 	test eax, eax
-	jz Z9G_RunItemP9gentity_s:F(0,1)_30
-Z9G_RunItemP9gentity_s:F(0,1)_20:
+	jz Z9G_RunItemP9gentity_s_F0_1_30
+Z9G_RunItemP9gentity_s_F0_1_20:
 	mov [esp], edi
-	call Z10G_RunThinkP9gentity_s:F(0,2)
-Z9G_RunItemP9gentity_s:F(0,1)_70:
+	call Z10G_RunThinkP9gentity_s_F0_2
+Z9G_RunItemP9gentity_s_F0_1_70:
 	add esp, 0xbc
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z9G_RunItemP9gentity_s:F(0,1)_10:
+Z9G_RunItemP9gentity_s_F0_1_10:
 	cmp dword [edi+0xc], 0x5
-	jz Z9G_RunItemP9gentity_s:F(0,1)_40
+	jz Z9G_RunItemP9gentity_s_F0_1_40
 	test byte [edi+0x170], 0x1
-	jnz Z9G_RunItemP9gentity_s:F(0,1)_40
+	jnz Z9G_RunItemP9gentity_s_F0_1_40
 	mov dword [edi+0xc], 0x5
 	mov eax, [0x1acd721]
 	mov eax, [eax+0x1ec]
@@ -6440,8 +7032,8 @@ Z9G_RunItemP9gentity_s:F(0,1)_10:
 	mov [edi+0x24], eax
 	mov [edx+0x4], eax
 	mov [edx+0x8], eax
-	jmp Z9G_RunItemP9gentity_s:F(0,1)_40
-Z9G_RunItemP9gentity_s:F(0,1)_30:
+	jmp Z9G_RunItemP9gentity_s_F0_1_40
+Z9G_RunItemP9gentity_s_F0_1_30:
 	lea eax, [ebp-0x24]
 	mov [esp+0x8], eax
 	mov eax, [0x1acd721]
@@ -6450,7 +7042,7 @@ Z9G_RunItemP9gentity_s:F(0,1)_30:
 	mov [esp+0x4], eax
 	lea eax, [edi+0xc]
 	mov [esp], eax
-	call Z21BG_EvaluateTrajectoryPK12trajectory_tiPf:F(0,1)
+	call Z21BG_EvaluateTrajectoryPK12trajectory_tiPf_F0_1
 	mov ebx, [edi+0x184]
 	test ebx, ebx
 	mov eax, 0x491
@@ -6459,16 +7051,16 @@ Z9G_RunItemP9gentity_s:F(0,1)_30:
 	lea edx, [ebp-0x24]
 	mov [esp+0x4], edx
 	mov [esp], esi
-	call Vec3DistanceSq:F(0,7)
+	call Vec3DistanceSq_F0_7
 	fstp dword [ebp-0xa0]
 	movss xmm0, dword [ebp-0xa0]
 	ucomiss xmm0, [_float_0_10000000]
-	jae Z9G_RunItemP9gentity_s:F(0,1)_50
-	jp Z9G_RunItemP9gentity_s:F(0,1)_50
+	jae Z9G_RunItemP9gentity_s_F0_1_50
+	jp Z9G_RunItemP9gentity_s_F0_1_50
 	movss xmm0, dword [ebp-0x1c]
 	subss xmm0, [_float_1_00000000]
 	movss [ebp-0x1c], xmm0
-Z9G_RunItemP9gentity_s:F(0,1)_50:
+Z9G_RunItemP9gentity_s_F0_1_50:
 	lea eax, [edi+0x110]
 	mov [ebp-0x9c], eax
 	lea edx, [edi+0x104]
@@ -6484,42 +7076,42 @@ Z9G_RunItemP9gentity_s:F(0,1)_50:
 	mov [esp+0x4], esi
 	lea edx, [ebp-0x60]
 	mov [esp], edx
-	call Z14G_TraceCapsuleP7trace_tPKfS2_S2_S2_ii:F(0,2)
+	call Z14G_TraceCapsuleP7trace_tPKfS2_S2_S2_ii_F0_2
 	movss xmm1, dword [ebp-0x60]
 	ucomiss xmm1, [_float_1_00000000]
-	jb Z9G_RunItemP9gentity_s:F(0,1)_60
-Z9G_RunItemP9gentity_s:F(0,1)_100:
+	jb Z9G_RunItemP9gentity_s_F0_1_60
+Z9G_RunItemP9gentity_s_F0_1_100:
 	mov eax, [ebp-0x24]
 	mov [edi+0x138], eax
 	mov eax, [ebp-0x20]
 	mov [esi+0x4], eax
 	mov eax, [ebp-0x1c]
 	mov [esi+0x8], eax
-Z9G_RunItemP9gentity_s:F(0,1)_130:
+Z9G_RunItemP9gentity_s_F0_1_130:
 	mov [esp], edi
-	call Z13SV_LinkEntityP9gentity_s:F(0,23)
+	call Z13SV_LinkEntityP9gentity_s_F0_23
 	mov [esp], edi
-	call Z10G_RunThinkP9gentity_s:F(0,2)
+	call Z10G_RunThinkP9gentity_s_F0_2
 	cmp byte [edi+0xfc], 0x0
-	jz Z9G_RunItemP9gentity_s:F(0,1)_70
+	jz Z9G_RunItemP9gentity_s_F0_1_70
 	movss xmm0, dword [ebp-0x60]
 	ucomiss xmm0, [_float_0_01000000]
-	jae Z9G_RunItemP9gentity_s:F(0,1)_70
+	jae Z9G_RunItemP9gentity_s_F0_1_70
 	pxor xmm0, xmm0
 	ucomiss xmm0, [ebp-0x54]
-	jae Z9G_RunItemP9gentity_s:F(0,1)_80
+	jae Z9G_RunItemP9gentity_s_F0_1_80
 	mov dword [esp+0x8], 0x80000000
 	mov dword [esp+0x4], 0xffffffff
 	mov [esp], esi
-	call Z16SV_PointContentsPKfii:F(0,2)
+	call Z16SV_PointContentsPKfii_F0_2
 	test eax, eax
-	jz Z9G_RunItemP9gentity_s:F(0,1)_90
-Z9G_RunItemP9gentity_s:F(0,1)_80:
+	jz Z9G_RunItemP9gentity_s_F0_1_90
+Z9G_RunItemP9gentity_s_F0_1_80:
 	mov [esp], edi
-	call Z12G_FreeEntityP9gentity_s:F(0,11)
-	jmp Z9G_RunItemP9gentity_s:F(0,1)_70
-Z9G_RunItemP9gentity_s:F(0,1)_60:
-	jp Z9G_RunItemP9gentity_s:F(0,1)_100
+	call Z12G_FreeEntityP9gentity_s_F0_11
+	jmp Z9G_RunItemP9gentity_s_F0_1_70
+Z9G_RunItemP9gentity_s_F0_1_60:
+	jp Z9G_RunItemP9gentity_s_F0_1_100
 	movss xmm0, dword [ebp-0x24]
 	movss [ebp-0x94], xmm0
 	movss xmm0, dword [edi+0x138]
@@ -6547,14 +7139,14 @@ Z9G_RunItemP9gentity_s:F(0,1)_60:
 	addss xmm2, xmm0
 	movss [ebp-0x28], xmm2
 	cmp byte [ebp-0x3d], 0x0
-	jnz Z9G_RunItemP9gentity_s:F(0,1)_110
+	jnz Z9G_RunItemP9gentity_s_F0_1_110
 	ucomiss xmm1, [_float_0_01000000]
-	jae Z9G_RunItemP9gentity_s:F(0,1)_110
-	jp Z9G_RunItemP9gentity_s:F(0,1)_110
+	jae Z9G_RunItemP9gentity_s_F0_1_110
+	jp Z9G_RunItemP9gentity_s_F0_1_110
 	movss xmm7, dword [ebp-0x54]
 	ucomiss xmm7, [_float_0_50000000]
-	jb Z9G_RunItemP9gentity_s:F(0,1)_120
-Z9G_RunItemP9gentity_s:F(0,1)_110:
+	jb Z9G_RunItemP9gentity_s_F0_1_120
+Z9G_RunItemP9gentity_s_F0_1_110:
 	mov dword [edi+0xc], 0x3
 	mov eax, [0x1acd721]
 	mov eax, [eax+0x1ec]
@@ -6591,8 +7183,8 @@ Z9G_RunItemP9gentity_s:F(0,1)_110:
 	movss [esi], xmm4
 	movss [esi+0x4], xmm3
 	movss [esi+0x8], xmm2
-	jmp Z9G_RunItemP9gentity_s:F(0,1)_130
-Z9G_RunItemP9gentity_s:F(0,1)_90:
+	jmp Z9G_RunItemP9gentity_s_F0_1_130
+Z9G_RunItemP9gentity_s_F0_1_90:
 	mov eax, [ebp-0x5c]
 	mov [ebp-0x6c], eax
 	lea ebx, [ebp-0x84]
@@ -6605,49 +7197,49 @@ Z9G_RunItemP9gentity_s:F(0,1)_90:
 	mov [esp+0x4], ebx
 	lea eax, [edi+0x144]
 	mov [esp], eax
-	call AngleVectors:F(0,18)
+	call AngleVectors_F0_18
 	lea esi, [ebp-0x78]
 	mov [esp+0x8], esi
 	mov [esp+0x4], ebx
 	lea ecx, [ebp-0x6c]
 	mov [esp], ecx
-	call Vec3Cross:F(0,18)
+	call Vec3Cross_F0_18
 	mov [esp+0x8], ebx
 	lea eax, [ebp-0x6c]
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call Vec3Cross:F(0,18)
+	call Vec3Cross_F0_18
 	lea esi, [ebp-0x3c]
 	mov [esp+0x4], esi
 	mov [esp], ebx
-	call AxisToAngles:F(0,18)
+	call AxisToAngles_F0_18
 	mov edx, [edi+0x8c]
 	lea eax, [edx+edx*4]
 	lea eax, [edx+eax*2]
 	shl eax, 0x2
 	add eax, [0x1acce11]
 	cmp dword [eax+0x1c], 0x1
-	jz Z9G_RunItemP9gentity_s:F(0,1)_140
-Z9G_RunItemP9gentity_s:F(0,1)_150:
+	jz Z9G_RunItemP9gentity_s_F0_1_140
+Z9G_RunItemP9gentity_s_F0_1_150:
 	mov [esp+0x4], esi
 	mov [esp], edi
-	call Z10G_SetAngleP9gentity_sPKf:F(0,11)
+	call Z10G_SetAngleP9gentity_sPKf_F0_11
 	lea eax, [ebp-0x30]
 	mov [esp+0x4], eax
 	mov [esp], edi
-	call Z11G_SetOriginP9gentity_sPKf:F(0,11)
+	call Z11G_SetOriginP9gentity_sPKf_F0_11
 	movzx eax, word [ebp-0x44]
 	mov [edi+0x7c], eax
 	mov [esp], edi
-	call Z13SV_LinkEntityP9gentity_s:F(0,23)
-	jmp Z9G_RunItemP9gentity_s:F(0,1)_70
-Z9G_RunItemP9gentity_s:F(0,1)_140:
+	call Z13SV_LinkEntityP9gentity_s_F0_23
+	jmp Z9G_RunItemP9gentity_s_F0_1_70
+Z9G_RunItemP9gentity_s_F0_1_140:
 	movss xmm0, dword [_float_90_00000000]
 	addss xmm0, [ebp-0x34]
 	movss [ebp-0x34], xmm0
-	jmp Z9G_RunItemP9gentity_s:F(0,1)_150
-Z9G_RunItemP9gentity_s:F(0,1)_120:
-	jp Z9G_RunItemP9gentity_s:F(0,1)_110
+	jmp Z9G_RunItemP9gentity_s_F0_1_150
+Z9G_RunItemP9gentity_s_F0_1_120:
+	jp Z9G_RunItemP9gentity_s_F0_1_110
 	movss xmm3, dword [ebp-0x5c]
 	movss xmm2, dword [ebp-0x58]
 	movss xmm1, dword [ebp-0x94]
@@ -6683,7 +7275,7 @@ Z9G_RunItemP9gentity_s:F(0,1)_120:
 	mov [esp+0x4], eax
 	lea eax, [ebp-0x60]
 	mov [esp], eax
-	call Z14G_TraceCapsuleP7trace_tPKfS2_S2_S2_ii:F(0,2)
+	call Z14G_TraceCapsuleP7trace_tPKfS2_S2_S2_ii_F0_2
 	movss xmm1, dword [ebp-0x60]
 	movss xmm4, dword [ebp-0x30]
 	movss xmm0, dword [ebp-0x24]
@@ -6703,12 +7295,12 @@ Z9G_RunItemP9gentity_s:F(0,1)_120:
 	mulss xmm1, xmm0
 	addss xmm2, xmm1
 	movss [ebp-0x28], xmm2
-	jmp Z9G_RunItemP9gentity_s:F(0,1)_110
+	jmp Z9G_RunItemP9gentity_s_F0_1_110
 
 
-;Z8Add_AmmoP9gentity_siii:F(0,3)
+;Z8Add_AmmoP9gentity_siii_F0_3
 
-Z11G_SpawnItemP9gentity_sPK7gitem_s:F(0,1):
+Z11G_SpawnItemP9gentity_sPK7gitem_s_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -6736,50 +7328,50 @@ Z11G_SpawnItemP9gentity_sPK7gitem_s:F(0,1):
 	neg esi
 	mov eax, [esi*4+itemRegistered]
 	test eax, eax
-	jnz Z11G_SpawnItemP9gentity_sPK7gitem_s:F(0,1)_10
+	jnz Z11G_SpawnItemP9gentity_sPK7gitem_s_F0_1_10
 	mov eax, [0x1acd721]
 	mov eax, [eax+0x1c]
 	test eax, eax
-	jnz Z11G_SpawnItemP9gentity_sPK7gitem_s:F(0,1)_20
+	jnz Z11G_SpawnItemP9gentity_sPK7gitem_s_F0_1_20
 	lea eax, [esi+esi*4]
 	lea eax, [esi+eax*2]
 	mov eax, [edi+eax*4+0x14]
 	test eax, eax
-	jz Z11G_SpawnItemP9gentity_sPK7gitem_s:F(0,1)_30
+	jz Z11G_SpawnItemP9gentity_sPK7gitem_s_F0_1_30
 	cmp byte [eax], 0x0
-	jz Z11G_SpawnItemP9gentity_sPK7gitem_s:F(0,1)_30
+	jz Z11G_SpawnItemP9gentity_sPK7gitem_s_F0_1_30
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_game_tried_to_re
-	call va:F(0,3)
+	call va_F0_3
 	mov [esp], eax
-	call Z9Scr_ErrorPKc:F(0,1)
+	call Z9Scr_ErrorPKc_F0_1
 	mov edi, [0x1acce11]
-Z11G_SpawnItemP9gentity_sPK7gitem_s:F(0,1)_20:
+Z11G_SpawnItemP9gentity_sPK7gitem_s_F0_1_20:
 	mov dword [esi*4+itemRegistered], 0x1
 	lea eax, [esi+esi*4]
 	lea eax, [esi+eax*2]
 	lea edi, [edi+eax*4]
 	mov eax, [edi+0x8]
 	test eax, eax
-	jz Z11G_SpawnItemP9gentity_sPK7gitem_s:F(0,1)_40
+	jz Z11G_SpawnItemP9gentity_sPK7gitem_s_F0_1_40
 	mov [esp], eax
-	call Z12G_ModelIndexPKc:F(0,1)
-Z11G_SpawnItemP9gentity_sPK7gitem_s:F(0,1)_40:
+	call Z12G_ModelIndexPKc_F0_1
+Z11G_SpawnItemP9gentity_sPK7gitem_s_F0_1_40:
 	mov eax, [edi+0xc]
 	test eax, eax
-	jz Z11G_SpawnItemP9gentity_sPK7gitem_s:F(0,1)_10
+	jz Z11G_SpawnItemP9gentity_sPK7gitem_s_F0_1_10
 	mov [esp], eax
-	call Z12G_ModelIndexPKc:F(0,1)
-Z11G_SpawnItemP9gentity_sPK7gitem_s:F(0,1)_10:
+	call Z12G_ModelIndexPKc_F0_1
+Z11G_SpawnItemP9gentity_sPK7gitem_s_F0_1_10:
 	mov [ebx+0x1ac], si
 	mov edx, [ebp-0x1c]
 	mov eax, [edx+0x8]
 	mov [esp+0x4], eax
 	mov [esp], ebx
-	call Z10G_SetModelP9gentity_sPKc:F(0,11)
+	call Z10G_SetModelP9gentity_sPKc_F0_11
 	mov eax, [ebp-0x1c]
 	cmp dword [eax+0x1c], 0x1
-	jz Z11G_SpawnItemP9gentity_sPK7gitem_s:F(0,1)_50
+	jz Z11G_SpawnItemP9gentity_sPK7gitem_s_F0_1_50
 	lea edx, [ebx+0x104]
 	mov eax, 0xbf800000
 	mov [ebx+0x104], eax
@@ -6790,56 +7382,56 @@ Z11G_SpawnItemP9gentity_sPK7gitem_s:F(0,1)_10:
 	mov [ebx+0x110], eax
 	mov [edx+0x4], eax
 	mov dword [edx+0x8], 0x40000000
-Z11G_SpawnItemP9gentity_sPK7gitem_s:F(0,1)_100:
+Z11G_SpawnItemP9gentity_sPK7gitem_s_F0_1_100:
 	mov dword [ebx+0x11c], 0x405c0108
 	mov edx, [ebp-0x1c]
 	cmp dword [edx+0x1c], 0x2
-	jz Z11G_SpawnItemP9gentity_sPK7gitem_s:F(0,1)_60
+	jz Z11G_SpawnItemP9gentity_sPK7gitem_s_F0_1_60
 	mov dword [ebx+0x11c], 0x407c0108
-Z11G_SpawnItemP9gentity_sPK7gitem_s:F(0,1)_60:
+Z11G_SpawnItemP9gentity_sPK7gitem_s_F0_1_60:
 	mov dword [ebx+0x4], 0x3
 	movzx eax, word [ebx+0x1ac]
 	mov [ebx+0x8c], eax
 	mov [esp], ebx
-	call Z12G_DObjUpdateP9gentity_s:F(0,11)
+	call Z12G_DObjUpdateP9gentity_s_F0_11
 	mov dword [ebx+0x90], 0x3fe
 	or dword [ebx+0x174], 0x1000
 	mov esi, [0x1acd721]
 	cmp byte [esi+0x1348], 0x0
-	jnz Z11G_SpawnItemP9gentity_sPK7gitem_s:F(0,1)_70
+	jnz Z11G_SpawnItemP9gentity_sPK7gitem_s_F0_1_70
 	mov byte [ebx+0x166], 0x11
 	test byte [ebx+0x170], 0x1
-	jz Z11G_SpawnItemP9gentity_sPK7gitem_s:F(0,1)_80
-Z11G_SpawnItemP9gentity_sPK7gitem_s:F(0,1)_90:
+	jz Z11G_SpawnItemP9gentity_sPK7gitem_s_F0_1_80
+Z11G_SpawnItemP9gentity_sPK7gitem_s_F0_1_90:
 	lea eax, [ebx+0x144]
 	mov [esp+0x4], eax
 	mov [esp], ebx
-	call Z10G_SetAngleP9gentity_sPKf:F(0,11)
+	call Z10G_SetAngleP9gentity_sPKf_F0_11
 	lea eax, [ebx+0x138]
 	mov [esp+0x4], eax
 	mov [esp], ebx
-	call Z11G_SetOriginP9gentity_sPKf:F(0,11)
+	call Z11G_SetOriginP9gentity_sPKf_F0_11
 	mov [ebp+0x8], ebx
 	add esp, 0x2c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
-	jmp Z13SV_LinkEntityP9gentity_s:F(0,23)
-Z11G_SpawnItemP9gentity_sPK7gitem_s:F(0,1)_80:
+	jmp Z13SV_LinkEntityP9gentity_s_F0_23
+Z11G_SpawnItemP9gentity_sPK7gitem_s_F0_1_80:
 	mov dword [ebx+0x7c], 0x3ff
 	mov eax, [ebp-0x1c]
 	cmp dword [eax+0x1c], 0x1
-	jnz Z11G_SpawnItemP9gentity_sPK7gitem_s:F(0,1)_90
+	jnz Z11G_SpawnItemP9gentity_sPK7gitem_s_F0_1_90
 	movss xmm0, dword [_float_90_00000000]
 	addss xmm0, [ebx+0x14c]
 	movss [ebx+0x14c], xmm0
-	jmp Z11G_SpawnItemP9gentity_sPK7gitem_s:F(0,1)_90
-Z11G_SpawnItemP9gentity_sPK7gitem_s:F(0,1)_70:
+	jmp Z11G_SpawnItemP9gentity_sPK7gitem_s_F0_1_90
+Z11G_SpawnItemP9gentity_sPK7gitem_s_F0_1_70:
 	lea eax, [ebx+0x144]
 	mov [esp+0x4], eax
 	mov [esp], ebx
-	call Z10G_SetAngleP9gentity_sPKf:F(0,11)
+	call Z10G_SetAngleP9gentity_sPKf_F0_11
 	mov eax, [esi+0x1ec]
 	add eax, 0x64
 	mov [ebx+0x190], eax
@@ -6850,7 +7442,7 @@ Z11G_SpawnItemP9gentity_sPK7gitem_s:F(0,1)_70:
 	pop edi
 	pop ebp
 	ret
-Z11G_SpawnItemP9gentity_sPK7gitem_s:F(0,1)_50:
+Z11G_SpawnItemP9gentity_sPK7gitem_s_F0_1_50:
 	lea edx, [ebx+0x104]
 	mov eax, 0xbf800000
 	mov [ebx+0x104], eax
@@ -6861,22 +7453,22 @@ Z11G_SpawnItemP9gentity_sPK7gitem_s:F(0,1)_50:
 	mov [ebx+0x110], eax
 	mov [edx+0x4], eax
 	mov [edx+0x8], eax
-	jmp Z11G_SpawnItemP9gentity_sPK7gitem_s:F(0,1)_100
-Z11G_SpawnItemP9gentity_sPK7gitem_s:F(0,1)_30:
+	jmp Z11G_SpawnItemP9gentity_sPK7gitem_s_F0_1_100
+Z11G_SpawnItemP9gentity_sPK7gitem_s_F0_1_30:
 	mov eax, _cstring_unknown1
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_game_tried_to_re
-	call va:F(0,3)
+	call va_F0_3
 	mov [esp], eax
-	call Z9Scr_ErrorPKc:F(0,1)
+	call Z9Scr_ErrorPKc_F0_1
 	mov edi, [0x1acce11]
-	jmp Z11G_SpawnItemP9gentity_sPK7gitem_s:F(0,1)_20
+	jmp Z11G_SpawnItemP9gentity_sPK7gitem_s_F0_1_20
 	add [eax], al
 
 
 ;HECmd_SetText(scr_entref_t)
 
-Z23G_FindConfigstringIndexPKciiiS0_:F(0,1):
+Z23G_FindConfigstringIndexPKciiiS0__F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -6886,28 +7478,28 @@ Z23G_FindConfigstringIndexPKciiiS0_:F(0,1):
 	mov esi, [ebp+0x8]
 	mov edi, [ebp+0x10]
 	test esi, esi
-	jz Z23G_FindConfigstringIndexPKciiiS0_:F(0,1)_10
+	jz Z23G_FindConfigstringIndexPKciiiS0__F0_1_10
 	cmp byte [esi], 0x0
-	jz Z23G_FindConfigstringIndexPKciiiS0_:F(0,1)_10
+	jz Z23G_FindConfigstringIndexPKciiiS0__F0_1_10
 	cmp edi, 0x1
-	jg Z23G_FindConfigstringIndexPKciiiS0_:F(0,1)_20
+	jg Z23G_FindConfigstringIndexPKciiiS0__F0_1_20
 	mov ebx, 0x1
-Z23G_FindConfigstringIndexPKciiiS0_:F(0,1)_50:
+Z23G_FindConfigstringIndexPKciiiS0__F0_1_50:
 	mov edx, [ebp+0x14]
 	test edx, edx
-	jnz Z23G_FindConfigstringIndexPKciiiS0_:F(0,1)_30
+	jnz Z23G_FindConfigstringIndexPKciiiS0__F0_1_30
 	mov eax, [ebp+0x18]
 	test eax, eax
-	jz Z23G_FindConfigstringIndexPKciiiS0_:F(0,1)_10
+	jz Z23G_FindConfigstringIndexPKciiiS0__F0_1_10
 	mov [esp+0x8], esi
 	mov eax, [ebp+0x18]
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_s_s_not_precache
-	call va:F(0,3)
+	call va_F0_3
 	mov [esp], eax
-	call Z9Scr_ErrorPKc:F(0,1)
+	call Z9Scr_ErrorPKc_F0_1
 	xor ebx, ebx
-Z23G_FindConfigstringIndexPKciiiS0_:F(0,1)_60:
+Z23G_FindConfigstringIndexPKciiiS0__F0_1_60:
 	mov eax, ebx
 	add esp, 0x1c
 	pop ebx
@@ -6915,7 +7507,7 @@ Z23G_FindConfigstringIndexPKciiiS0_:F(0,1)_60:
 	pop edi
 	pop ebp
 	ret
-Z23G_FindConfigstringIndexPKciiiS0_:F(0,1)_10:
+Z23G_FindConfigstringIndexPKciiiS0__F0_1_10:
 	xor ebx, ebx
 	mov eax, ebx
 	add esp, 0x1c
@@ -6924,15 +7516,15 @@ Z23G_FindConfigstringIndexPKciiiS0_:F(0,1)_10:
 	pop edi
 	pop ebp
 	ret
-Z23G_FindConfigstringIndexPKciiiS0_:F(0,1)_30:
+Z23G_FindConfigstringIndexPKciiiS0__F0_1_30:
 	cmp edi, ebx
-	jz Z23G_FindConfigstringIndexPKciiiS0_:F(0,1)_40
-Z23G_FindConfigstringIndexPKciiiS0_:F(0,1)_80:
+	jz Z23G_FindConfigstringIndexPKciiiS0__F0_1_40
+Z23G_FindConfigstringIndexPKciiiS0__F0_1_80:
 	mov [esp+0x4], esi
 	mov eax, [ebp+0xc]
 	add eax, ebx
 	mov [esp], eax
-	call Z18SV_SetConfigstringiPKc:F(0,3)
+	call Z18SV_SetConfigstringiPKc_F0_3
 	mov eax, ebx
 	add esp, 0x1c
 	pop ebx
@@ -6940,50 +7532,50 @@ Z23G_FindConfigstringIndexPKciiiS0_:F(0,1)_80:
 	pop edi
 	pop ebp
 	ret
-Z23G_FindConfigstringIndexPKciiiS0_:F(0,1)_20:
+Z23G_FindConfigstringIndexPKciiiS0__F0_1_20:
 	mov ebx, 0x1
-Z23G_FindConfigstringIndexPKciiiS0_:F(0,1)_70:
+Z23G_FindConfigstringIndexPKciiiS0__F0_1_70:
 	mov edx, [ebp+0xc]
 	lea eax, [ebx+edx]
 	mov [esp], eax
-	call Z23SV_GetConfigstringConsti:F(0,7)
+	call Z23SV_GetConfigstringConsti_F0_7
 	cmp byte [eax], 0x0
-	jz Z23G_FindConfigstringIndexPKciiiS0_:F(0,1)_50
+	jz Z23G_FindConfigstringIndexPKciiiS0__F0_1_50
 	mov [esp+0x4], esi
 	mov [esp], eax
-	call Z7stricmpPKcS0_:F(0,1)
+	call Z7stricmpPKcS0__F0_1
 	test eax, eax
-	jz Z23G_FindConfigstringIndexPKciiiS0_:F(0,1)_60
+	jz Z23G_FindConfigstringIndexPKciiiS0__F0_1_60
 	add ebx, 0x1
 	cmp edi, ebx
-	jnz Z23G_FindConfigstringIndexPKciiiS0_:F(0,1)_70
-	jmp Z23G_FindConfigstringIndexPKciiiS0_:F(0,1)_50
-Z23G_FindConfigstringIndexPKciiiS0_:F(0,1)_40:
+	jnz Z23G_FindConfigstringIndexPKciiiS0__F0_1_70
+	jmp Z23G_FindConfigstringIndexPKciiiS0__F0_1_50
+Z23G_FindConfigstringIndexPKciiiS0__F0_1_40:
 	mov [esp+0x8], esi
 	mov edx, [ebp+0xc]
 	mov [esp+0x4], edx
 	mov dword [esp], _cstring_g_findconfigstri
-	call va:F(0,3)
+	call va_F0_3
 	mov [esp+0x4], eax
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
-	jmp Z23G_FindConfigstringIndexPKciiiS0_:F(0,1)_80
+	call Com_Error_F0_1
+	jmp Z23G_FindConfigstringIndexPKciiiS0__F0_1_80
 	nop
 
 
-;Z22G_LocalizedStringIndexPKc:F(0,1)
+;Z22G_LocalizedStringIndexPKc_F0_1
 
-Z22G_LocalizedStringIndexPKc:F(0,1):
+Z22G_LocalizedStringIndexPKc_F0_1:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x28
 	mov edx, [ebp+0x8]
 	cmp byte [edx], 0x0
-	jnz Z22G_LocalizedStringIndexPKc:F(0,1)_10
+	jnz Z22G_LocalizedStringIndexPKc_F0_1_10
 	xor eax, eax
 	leave
 	ret
-Z22G_LocalizedStringIndexPKc:F(0,1)_10:
+Z22G_LocalizedStringIndexPKc_F0_1_10:
 	mov dword [esp+0x10], _cstring_localized_string
 	mov eax, [0x1acd721]
 	mov eax, [eax+0x1c]
@@ -6991,14 +7583,14 @@ Z22G_LocalizedStringIndexPKc:F(0,1)_10:
 	mov dword [esp+0x8], 0x100
 	mov dword [esp+0x4], 0x51e
 	mov [esp], edx
-	call Z23G_FindConfigstringIndexPKciiiS0_:F(0,1)
+	call Z23G_FindConfigstringIndexPKciiiS0__F0_1
 	leave
 	ret
 
 
-;Z13G_ShaderIndexPKc:F(0,1)
+;Z13G_ShaderIndexPKc_F0_1
 
-Z13G_ShaderIndexPKc:F(0,1):
+Z13G_ShaderIndexPKc_F0_1:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -7009,7 +7601,7 @@ Z13G_ShaderIndexPKc:F(0,1):
 	mov [esp], ebx
 	call strcpy
 	mov [esp], ebx
-	call Z8I_strlwrPc:F(0,3)
+	call Z8I_strlwrPc_F0_3
 	mov dword [esp+0x10], _cstring_shader
 	mov eax, [0x1acd721]
 	mov eax, [eax+0x1c]
@@ -7017,7 +7609,7 @@ Z13G_ShaderIndexPKc:F(0,1):
 	mov dword [esp+0x8], 0x80
 	mov dword [esp+0x4], 0x61e
 	mov [esp], ebx
-	call Z23G_FindConfigstringIndexPKciiiS0_:F(0,1)
+	call Z23G_FindConfigstringIndexPKciiiS0__F0_1
 	add esp, 0x64
 	pop ebx
 	pop ebp
@@ -7025,9 +7617,9 @@ Z13G_ShaderIndexPKc:F(0,1):
 	nop
 
 
-;Z12G_ModelIndexPKc:F(0,1)
+;Z12G_ModelIndexPKc_F0_1
 
-Z12G_ModelIndexPKc:F(0,1):
+Z12G_ModelIndexPKc_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -7036,9 +7628,9 @@ Z12G_ModelIndexPKc:F(0,1):
 	sub esp, 0x1c
 	mov edi, [ebp+0x8]
 	cmp byte [edi], 0x0
-	jnz Z12G_ModelIndexPKc:F(0,1)_10
+	jnz Z12G_ModelIndexPKc_F0_1_10
 	xor esi, esi
-Z12G_ModelIndexPKc:F(0,1)_30:
+Z12G_ModelIndexPKc_F0_1_30:
 	mov eax, esi
 	add esp, 0x1c
 	pop ebx
@@ -7046,39 +7638,39 @@ Z12G_ModelIndexPKc:F(0,1)_30:
 	pop edi
 	pop ebp
 	ret
-Z12G_ModelIndexPKc:F(0,1)_10:
+Z12G_ModelIndexPKc_F0_1_10:
 	mov esi, 0x1
-	jmp Z12G_ModelIndexPKc:F(0,1)_20
-Z12G_ModelIndexPKc:F(0,1)_50:
+	jmp Z12G_ModelIndexPKc_F0_1_20
+Z12G_ModelIndexPKc_F0_1_50:
 	mov [esp+0x4], edi
 	mov [esp], eax
-	call Z7stricmpPKcS0_:F(0,1)
+	call Z7stricmpPKcS0__F0_1
 	test eax, eax
-	jz Z12G_ModelIndexPKc:F(0,1)_30
+	jz Z12G_ModelIndexPKc_F0_1_30
 	add esi, 0x1
 	cmp esi, 0x100
-	jz Z12G_ModelIndexPKc:F(0,1)_40
-Z12G_ModelIndexPKc:F(0,1)_20:
+	jz Z12G_ModelIndexPKc_F0_1_40
+Z12G_ModelIndexPKc_F0_1_20:
 	lea ebx, [esi+0x14e]
 	mov [esp], ebx
-	call Z23SV_GetConfigstringConsti:F(0,7)
+	call Z23SV_GetConfigstringConsti_F0_7
 	cmp byte [eax], 0x0
-	jnz Z12G_ModelIndexPKc:F(0,1)_50
-Z12G_ModelIndexPKc:F(0,1)_100:
+	jnz Z12G_ModelIndexPKc_F0_1_50
+Z12G_ModelIndexPKc_F0_1_100:
 	mov eax, [0x1acd721]
 	mov ecx, [eax+0x1c]
 	test ecx, ecx
-	jz Z12G_ModelIndexPKc:F(0,1)_60
-Z12G_ModelIndexPKc:F(0,1)_80:
+	jz Z12G_ModelIndexPKc_F0_1_60
+Z12G_ModelIndexPKc_F0_1_80:
 	cmp esi, 0x100
-	jz Z12G_ModelIndexPKc:F(0,1)_70
-Z12G_ModelIndexPKc:F(0,1)_90:
+	jz Z12G_ModelIndexPKc_F0_1_70
+Z12G_ModelIndexPKc_F0_1_90:
 	mov [esp], edi
-	call Z12SV_XModelGetPKc:F(0,68)
+	call Z12SV_XModelGetPKc_F0_68
 	mov [esi*4+cached_models], eax
 	mov [esp+0x4], edi
 	mov [esp], ebx
-	call Z18SV_SetConfigstringiPKc:F(0,3)
+	call Z18SV_SetConfigstringiPKc_F0_3
 	mov eax, esi
 	add esp, 0x1c
 	pop ebx
@@ -7086,36 +7678,36 @@ Z12G_ModelIndexPKc:F(0,1)_90:
 	pop edi
 	pop ebp
 	ret
-Z12G_ModelIndexPKc:F(0,1)_60:
+Z12G_ModelIndexPKc_F0_1_60:
 	mov [esp+0x4], edi
 	mov dword [esp], _cstring_model_s_not_prec
-	call va:F(0,3)
+	call va_F0_3
 	mov [esp], eax
-	call Z9Scr_ErrorPKc:F(0,1)
-	jmp Z12G_ModelIndexPKc:F(0,1)_80
-Z12G_ModelIndexPKc:F(0,1)_70:
+	call Z9Scr_ErrorPKc_F0_1
+	jmp Z12G_ModelIndexPKc_F0_1_80
+Z12G_ModelIndexPKc_F0_1_70:
 	mov dword [esp+0x4], _cstring_g_modelindex_ove
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
-	jmp Z12G_ModelIndexPKc:F(0,1)_90
-Z12G_ModelIndexPKc:F(0,1)_40:
+	call Com_Error_F0_1
+	jmp Z12G_ModelIndexPKc_F0_1_90
+Z12G_ModelIndexPKc_F0_1_40:
 	mov ebx, 0x24e
-	jmp Z12G_ModelIndexPKc:F(0,1)_100
+	jmp Z12G_ModelIndexPKc_F0_1_100
 
 
-;Z11G_ModelNamei:F(0,2)
+;Z11G_ModelNamei_F0_2
 
-Z11G_ModelNamei:F(0,2):
+Z11G_ModelNamei_F0_2:
 	push ebp
 	mov ebp, esp
 	add dword [ebp+0x8], 0x14e
 	pop ebp
-	jmp Z23SV_GetConfigstringConsti:F(0,7)
+	jmp Z23SV_GetConfigstringConsti_F0_7
 
 
-;Z10G_TagIndexPKc:F(0,1)
+;Z10G_TagIndexPKc_F0_1
 
-Z10G_TagIndexPKc:F(0,1):
+Z10G_TagIndexPKc_F0_1:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x28
@@ -7125,15 +7717,15 @@ Z10G_TagIndexPKc:F(0,1):
 	mov dword [esp+0x4], 0x6e
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z23G_FindConfigstringIndexPKciiiS0_:F(0,1)
+	call Z23G_FindConfigstringIndexPKciiiS0__F0_1
 	leave
 	ret
 	nop
 
 
-;Z13G_EffectIndexPKc:F(0,1)
+;Z13G_EffectIndexPKc_F0_1
 
-Z13G_EffectIndexPKc:F(0,1):
+Z13G_EffectIndexPKc_F0_1:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x28
@@ -7145,15 +7737,15 @@ Z13G_EffectIndexPKc:F(0,1):
 	mov dword [esp+0x4], 0x34e
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z23G_FindConfigstringIndexPKciiiS0_:F(0,1)
+	call Z23G_FindConfigstringIndexPKciiiS0__F0_1
 	leave
 	ret
 	nop
 
 
-;Z17G_ShellShockIndexPKc:F(0,1)
+;Z17G_ShellShockIndexPKc_F0_1
 
-Z17G_ShellShockIndexPKc:F(0,1):
+Z17G_ShellShockIndexPKc_F0_1:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x28
@@ -7163,15 +7755,15 @@ Z17G_ShellShockIndexPKc:F(0,1):
 	mov dword [esp+0x4], 0x48e
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z23G_FindConfigstringIndexPKciiiS0_:F(0,1)
+	call Z23G_FindConfigstringIndexPKciiiS0__F0_1
 	leave
 	ret
 	nop
 
 
-;Z17G_SoundAliasIndexPKc:F(0,8)
+;Z17G_SoundAliasIndexPKc_F0_8
 
-Z17G_SoundAliasIndexPKc:F(0,8):
+Z17G_SoundAliasIndexPKc_F0_8:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x28
@@ -7181,15 +7773,15 @@ Z17G_SoundAliasIndexPKc:F(0,8):
 	mov dword [esp+0x4], 0x24e
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z23G_FindConfigstringIndexPKciiiS0_:F(0,1)
+	call Z23G_FindConfigstringIndexPKciiiS0__F0_1
 	movzx eax, al
 	leave
 	ret
 
 
-;Z10G_SetModelP9gentity_sPKc:F(0,11)
+;Z10G_SetModelP9gentity_sPKc_F0_11
 
-Z10G_SetModelP9gentity_sPKc:F(0,11):
+Z10G_SetModelP9gentity_sPKc_F0_11:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -7197,15 +7789,15 @@ Z10G_SetModelP9gentity_sPKc:F(0,11):
 	mov ebx, [ebp+0x8]
 	mov eax, [ebp+0xc]
 	cmp byte [eax], 0x0
-	jnz Z10G_SetModelP9gentity_sPKc:F(0,11)_10
+	jnz Z10G_SetModelP9gentity_sPKc_F0_11_10
 	mov byte [ebx+0x164], 0x0
 	add esp, 0x14
 	pop ebx
 	pop ebp
 	ret
-Z10G_SetModelP9gentity_sPKc:F(0,11)_10:
+Z10G_SetModelP9gentity_sPKc_F0_11_10:
 	mov [esp], eax
-	call Z12G_ModelIndexPKc:F(0,1)
+	call Z12G_ModelIndexPKc_F0_1
 	mov [ebx+0x164], al
 	add esp, 0x14
 	pop ebx
@@ -7215,42 +7807,42 @@ Z10G_SetModelP9gentity_sPKc:F(0,11)_10:
 	add [eax], al
 
 
-;Z14G_SafeDObjFreeP9gentity_s:F(0,11)
+;Z14G_SafeDObjFreeP9gentity_s_F0_11
 
-Z14G_SafeDObjFreeP9gentity_s:F(0,11):
+Z14G_SafeDObjFreeP9gentity_s_F0_11:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
 	mov eax, [eax]
 	mov [ebp+0x8], eax
 	pop ebp
-	jmp Z22Com_SafeServerDObjFreei:F(0,4)
+	jmp Z22Com_SafeServerDObjFreei_F0_4
 	nop
 
 
-;Z22G_DObjUpdateServerTimeP9gentity_si:F(0,3)
+;Z22G_DObjUpdateServerTimeP9gentity_si_F0_3
 
-Z22G_DObjUpdateServerTimeP9gentity_si:F(0,3):
+Z22G_DObjUpdateServerTimeP9gentity_si_F0_3:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
 	mov eax, [ebp+0xc]
 	mov [esp+0x8], eax
 	mov eax, [0x1acd721]
-	cvtsi2ss xmm0, dword [eax+0x1f4]
+	cvtsi2ss xmm0, [eax+0x1f4]
 	mulss xmm0, [_float_0_00100000]
 	movss [esp+0x4], xmm0
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z23SV_DObjUpdateServerTimeP9gentity_sfi:F(0,27)
+	call Z23SV_DObjUpdateServerTimeP9gentity_sfi_F0_27
 	leave
 	ret
 	nop
 
 
-;Z14G_DObjCalcPoseP9gentity_s:F(0,11)
+;Z14G_DObjCalcPoseP9gentity_s_F0_11
 
-Z14G_DObjCalcPoseP9gentity_s:F(0,11):
+Z14G_DObjCalcPoseP9gentity_s_F0_11:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -7264,32 +7856,32 @@ Z14G_DObjCalcPoseP9gentity_s:F(0,11):
 	mov dword [ebp-0xc], 0xffffffff
 	mov [esp+0x4], esi
 	mov [esp], ebx
-	call Z25SV_DObjCreateSkelForBonesP9gentity_sPi:F(0,27)
+	call Z25SV_DObjCreateSkelForBonesP9gentity_sPi_F0_27
 	test eax, eax
-	jz Z14G_DObjCalcPoseP9gentity_s:F(0,11)_10
+	jz Z14G_DObjCalcPoseP9gentity_s_F0_11_10
 	add esp, 0x20
 	pop ebx
 	pop esi
 	pop ebp
 	ret
-Z14G_DObjCalcPoseP9gentity_s:F(0,11)_10:
+Z14G_DObjCalcPoseP9gentity_s_F0_11_10:
 	mov [esp+0x4], esi
 	mov [esp], ebx
-	call Z15SV_DObjCalcAnimP9gentity_sPi:F(0,53)
+	call Z15SV_DObjCalcAnimP9gentity_sPi_F0_53
 	movzx eax, byte [ebx+0x166]
 	lea eax, [eax+eax*4]
 	shl eax, 0x3
 	add eax, [0x1acd735]
 	mov eax, [eax+0x1c]
 	test eax, eax
-	jz Z14G_DObjCalcPoseP9gentity_s:F(0,11)_20
+	jz Z14G_DObjCalcPoseP9gentity_s_F0_11_20
 	mov [esp+0x4], esi
 	mov [esp], ebx
 	call eax
-Z14G_DObjCalcPoseP9gentity_s:F(0,11)_20:
+Z14G_DObjCalcPoseP9gentity_s_F0_11_20:
 	mov [esp+0x4], esi
 	mov [esp], ebx
-	call Z15SV_DObjCalcSkelP9gentity_sPi:F(0,53)
+	call Z15SV_DObjCalcSkelP9gentity_sPi_F0_53
 	add esp, 0x20
 	pop ebx
 	pop esi
@@ -7298,9 +7890,9 @@ Z14G_DObjCalcPoseP9gentity_s:F(0,11)_20:
 	nop
 
 
-;Z14G_DObjCalcBoneP9gentity_si:F(0,11)
+;Z14G_DObjCalcBoneP9gentity_si_F0_11
 
-Z14G_DObjCalcBoneP9gentity_si:F(0,11):
+Z14G_DObjCalcBoneP9gentity_si_F0_11:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -7311,38 +7903,38 @@ Z14G_DObjCalcBoneP9gentity_si:F(0,11):
 	mov esi, [ebp+0xc]
 	mov [esp+0x4], esi
 	mov [esp], ebx
-	call Z24SV_DObjCreateSkelForBoneP9gentity_si:F(0,27)
+	call Z24SV_DObjCreateSkelForBoneP9gentity_si_F0_27
 	test eax, eax
-	jz Z14G_DObjCalcBoneP9gentity_si:F(0,11)_10
+	jz Z14G_DObjCalcBoneP9gentity_si_F0_11_10
 	add esp, 0x2c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z14G_DObjCalcBoneP9gentity_si:F(0,11)_10:
+Z14G_DObjCalcBoneP9gentity_si_F0_11_10:
 	lea edi, [ebp-0x28]
 	mov [esp+0x8], edi
 	mov [esp+0x4], esi
 	mov [esp], ebx
-	call Z23SV_DObjGetHierarchyBitsP9gentity_siPi:F(0,53)
+	call Z23SV_DObjGetHierarchyBitsP9gentity_siPi_F0_53
 	mov [esp+0x4], edi
 	mov [esp], ebx
-	call Z15SV_DObjCalcAnimP9gentity_sPi:F(0,53)
+	call Z15SV_DObjCalcAnimP9gentity_sPi_F0_53
 	movzx eax, byte [ebx+0x166]
 	lea eax, [eax+eax*4]
 	shl eax, 0x3
 	add eax, [0x1acd735]
 	mov eax, [eax+0x1c]
 	test eax, eax
-	jz Z14G_DObjCalcBoneP9gentity_si:F(0,11)_20
+	jz Z14G_DObjCalcBoneP9gentity_si_F0_11_20
 	mov [esp+0x4], edi
 	mov [esp], ebx
 	call eax
-Z14G_DObjCalcBoneP9gentity_si:F(0,11)_20:
+Z14G_DObjCalcBoneP9gentity_si_F0_11_20:
 	mov [esp+0x4], edi
 	mov [esp], ebx
-	call Z15SV_DObjCalcSkelP9gentity_sPi:F(0,53)
+	call Z15SV_DObjCalcSkelP9gentity_sPi_F0_53
 	add esp, 0x2c
 	pop ebx
 	pop esi
@@ -7352,9 +7944,9 @@ Z14G_DObjCalcBoneP9gentity_si:F(0,11)_20:
 	nop
 
 
-;Z23G_DObjGetLocalTagMatrixP9gentity_sj:F(0,82)
+;Z23G_DObjGetLocalTagMatrixP9gentity_sj_F0_82
 
-Z23G_DObjGetLocalTagMatrixP9gentity_sj:F(0,82):
+Z23G_DObjGetLocalTagMatrixP9gentity_sj_F0_82:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -7364,15 +7956,15 @@ Z23G_DObjGetLocalTagMatrixP9gentity_sj:F(0,82):
 	mov eax, [ebp+0xc]
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call Z19SV_DObjGetBoneIndexP9gentity_sj:F(0,1)
+	call Z19SV_DObjGetBoneIndexP9gentity_sj_F0_1
 	mov ebx, eax
 	test eax, eax
-	js Z23G_DObjGetLocalTagMatrixP9gentity_sj:F(0,82)_10
+	js Z23G_DObjGetLocalTagMatrixP9gentity_sj_F0_82_10
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call Z14G_DObjCalcBoneP9gentity_si:F(0,11)
+	call Z14G_DObjCalcBoneP9gentity_si_F0_11
 	mov [esp], esi
-	call Z21SV_DObjGetMatrixArrayP9gentity_s:F(0,74)
+	call Z21SV_DObjGetMatrixArrayP9gentity_s_F0_74
 	shl ebx, 0x5
 	add eax, ebx
 	add esp, 0x10
@@ -7380,7 +7972,7 @@ Z23G_DObjGetLocalTagMatrixP9gentity_sj:F(0,82):
 	pop esi
 	pop ebp
 	ret
-Z23G_DObjGetLocalTagMatrixP9gentity_sj:F(0,82)_10:
+Z23G_DObjGetLocalTagMatrixP9gentity_sj_F0_82_10:
 	xor eax, eax
 	add esp, 0x10
 	pop ebx
@@ -7390,9 +7982,9 @@ Z23G_DObjGetLocalTagMatrixP9gentity_sj:F(0,82)_10:
 	nop
 
 
-;Z13G_InitGentityP9gentity_s:F(0,11)
+;Z13G_InitGentityP9gentity_s_F0_11
 
-Z13G_InitGentityP9gentity_s:F(0,11):
+Z13G_InitGentityP9gentity_s_F0_11:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -7405,7 +7997,7 @@ Z13G_InitGentityP9gentity_s:F(0,11):
 	mov [esp+0x4], eax
 	lea eax, [ebx+0x168]
 	mov [esp], eax
-	call Z13Scr_SetStringPtj:F(0,5)
+	call Z13Scr_SetStringPtj_F0_5
 	mov eax, ebx
 	sub eax, [0x1acd709]
 	sar eax, 0x4
@@ -7421,9 +8013,9 @@ Z13G_InitGentityP9gentity_s:F(0,11):
 	nop
 
 
-;Z15G_PrintEntitiesv:F(0,11)
+;Z15G_PrintEntitiesv_F0_11
 
-Z15G_PrintEntitiesv:F(0,11):
+Z15G_PrintEntitiesv_F0_11:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -7433,14 +8025,14 @@ Z15G_PrintEntitiesv:F(0,11):
 	mov eax, [0x1acd721]
 	mov ebx, [eax+0xc]
 	test ebx, ebx
-	jle Z15G_PrintEntitiesv:F(0,11)_10
+	jle Z15G_PrintEntitiesv_F0_11_10
 	xor esi, esi
 	mov ebx, [0x1acd709]
 	mov edi, eax
-	jmp Z15G_PrintEntitiesv:F(0,11)_20
-Z15G_PrintEntitiesv:F(0,11)_30:
+	jmp Z15G_PrintEntitiesv_F0_11_20
+Z15G_PrintEntitiesv_F0_11_30:
 	mov eax, _cstring_null
-Z15G_PrintEntitiesv:F(0,11)_40:
+Z15G_PrintEntitiesv_F0_11_40:
 	movsd xmm0, qword [ebp-0x30]
 	movsd [esp+0x1c], xmm0
 	movsd xmm0, qword [ebp-0x28]
@@ -7450,12 +8042,12 @@ Z15G_PrintEntitiesv:F(0,11)_40:
 	mov [esp+0x8], eax
 	mov [esp+0x4], esi
 	mov dword [esp], _cstring_4i_s_origin_f_f_
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	add esi, 0x1
 	add ebx, 0x230
 	cmp esi, [edi+0xc]
-	jge Z15G_PrintEntitiesv:F(0,11)_10
-Z15G_PrintEntitiesv:F(0,11)_20:
+	jge Z15G_PrintEntitiesv_F0_11_10
+Z15G_PrintEntitiesv_F0_11_20:
 	cvtss2sd xmm0, [ebx+0x140]
 	movsd [ebp-0x30], xmm0
 	cvtss2sd xmm0, [ebx+0x13c]
@@ -7464,12 +8056,12 @@ Z15G_PrintEntitiesv:F(0,11)_20:
 	movsd [ebp-0x20], xmm0
 	movzx eax, word [ebx+0x168]
 	test ax, ax
-	jz Z15G_PrintEntitiesv:F(0,11)_30
+	jz Z15G_PrintEntitiesv_F0_11_30
 	movzx eax, ax
 	mov [esp], eax
-	call Z18SL_ConvertToStringj:F(0,2)
-	jmp Z15G_PrintEntitiesv:F(0,11)_40
-Z15G_PrintEntitiesv:F(0,11)_10:
+	call Z18SL_ConvertToStringj_F0_2
+	jmp Z15G_PrintEntitiesv_F0_11_40
+Z15G_PrintEntitiesv_F0_11_10:
 	add esp, 0x5c
 	pop ebx
 	pop esi
@@ -7478,31 +8070,31 @@ Z15G_PrintEntitiesv:F(0,11)_10:
 	ret
 
 
-;Z22G_GetPlayerCorpseIndexP9gentity_s:F(0,1)
+;Z22G_GetPlayerCorpseIndexP9gentity_s_F0_1
 
-Z22G_GetPlayerCorpseIndexP9gentity_s:F(0,1):
+Z22G_GetPlayerCorpseIndexP9gentity_s_F0_1:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
 	mov ecx, [eax]
 	xor eax, eax
 	mov edx, [0x1acd751]
-Z22G_GetPlayerCorpseIndexP9gentity_s:F(0,1)_20:
+Z22G_GetPlayerCorpseIndexP9gentity_s_F0_1_20:
 	cmp ecx, [edx+0x10bc]
-	jz Z22G_GetPlayerCorpseIndexP9gentity_s:F(0,1)_10
+	jz Z22G_GetPlayerCorpseIndexP9gentity_s_F0_1_10
 	add eax, 0x1
 	add edx, 0x4c8
 	cmp eax, 0x8
-	jnz Z22G_GetPlayerCorpseIndexP9gentity_s:F(0,1)_20
+	jnz Z22G_GetPlayerCorpseIndexP9gentity_s_F0_1_20
 	xor al, al
-Z22G_GetPlayerCorpseIndexP9gentity_s:F(0,1)_10:
+Z22G_GetPlayerCorpseIndexP9gentity_s_F0_1_10:
 	pop ebp
 	ret
 
 
-;Z17G_FreeEntityDelayP9gentity_s:F(0,11)
+;Z17G_FreeEntityDelayP9gentity_s_F0_11
 
-Z17G_FreeEntityDelayP9gentity_s:F(0,11):
+Z17G_FreeEntityDelayP9gentity_s_F0_11:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -7512,16 +8104,16 @@ Z17G_FreeEntityDelayP9gentity_s:F(0,11):
 	mov [esp+0x4], eax
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z17Scr_ExecEntThreadP9gentity_sij:F(0,108)
+	call Z17Scr_ExecEntThreadP9gentity_sij_F0_108
 	movzx eax, ax
 	mov [ebp+0x8], eax
 	leave
-	jmp Z14Scr_FreeThreadt:F(0,1)
+	jmp Z14Scr_FreeThreadt_F0_1
 
 
-;Z21G_AddPredictableEventP9gentity_sii:F(0,11)
+;Z21G_AddPredictableEventP9gentity_sii_F0_11
 
-Z21G_AddPredictableEventP9gentity_sii:F(0,11):
+Z21G_AddPredictableEventP9gentity_sii_F0_11:
 	push ebp
 	mov ebp, esp
 	mov ecx, [ebp+0xc]
@@ -7529,21 +8121,21 @@ Z21G_AddPredictableEventP9gentity_sii:F(0,11):
 	mov eax, [ebp+0x8]
 	mov eax, [eax+0x158]
 	test eax, eax
-	jz Z21G_AddPredictableEventP9gentity_sii:F(0,11)_10
+	jz Z21G_AddPredictableEventP9gentity_sii_F0_11_10
 	mov [ebp+0x10], eax
 	mov [ebp+0xc], edx
 	mov [ebp+0x8], ecx
 	pop ebp
-	jmp Z35BG_AddPredictableEventToPlayerstateiiP13playerState_s:F(0,1)
-Z21G_AddPredictableEventP9gentity_sii:F(0,11)_10:
+	jmp Z35BG_AddPredictableEventToPlayerstateiiP13playerState_s_F0_1
+Z21G_AddPredictableEventP9gentity_sii_F0_11_10:
 	pop ebp
 	ret
 	nop
 
 
-;Z10G_AddEventP9gentity_sii:F(0,11)
+;Z10G_AddEventP9gentity_sii_F0_11
 
-Z10G_AddEventP9gentity_sii:F(0,11):
+Z10G_AddEventP9gentity_sii_F0_11:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -7553,7 +8145,7 @@ Z10G_AddEventP9gentity_sii:F(0,11):
 	mov esi, [ebp+0x10]
 	mov edx, [ecx+0x158]
 	test edx, edx
-	jz Z10G_AddEventP9gentity_sii:F(0,11)_10
+	jz Z10G_AddEventP9gentity_sii_F0_11_10
 	mov eax, [edx+0xa4]
 	and eax, 0x3
 	mov [edx+eax*4+0xa8], ebx
@@ -7572,7 +8164,7 @@ Z10G_AddEventP9gentity_sii:F(0,11):
 	pop esi
 	pop ebp
 	ret
-Z10G_AddEventP9gentity_sii:F(0,11)_10:
+Z10G_AddEventP9gentity_sii_F0_11_10:
 	mov eax, [ecx+0xa4]
 	mov edx, eax
 	and edx, 0x3
@@ -7592,9 +8184,9 @@ Z10G_AddEventP9gentity_sii:F(0,11)_10:
 	nop
 
 
-;Z16G_SetConstStringPtPKc:F(0,11)
+;Z16G_SetConstStringPtPKc_F0_11
 
-Z16G_SetConstStringPtPKc:F(0,11):
+Z16G_SetConstStringPtPKc_F0_11:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -7602,11 +8194,11 @@ Z16G_SetConstStringPtPKc:F(0,11):
 	mov ebx, [ebp+0x8]
 	mov dword [esp+0x4], 0x0
 	mov [esp], ebx
-	call Z13Scr_SetStringPtj:F(0,5)
+	call Z13Scr_SetStringPtj_F0_5
 	mov dword [esp+0x4], 0x0
 	mov eax, [ebp+0xc]
 	mov [esp], eax
-	call Z12SL_GetStringPKcj:F(0,1)
+	call Z12SL_GetStringPKcj_F0_1
 	mov [ebx], ax
 	add esp, 0x14
 	pop ebx
@@ -7614,9 +8206,9 @@ Z16G_SetConstStringPtPKc:F(0,11):
 	ret
 
 
-;Z10G_SetAngleP9gentity_sPKf:F(0,11)
+;Z10G_SetAngleP9gentity_sPKf_F0_11
 
-Z10G_SetAngleP9gentity_sPKf:F(0,11):
+Z10G_SetAngleP9gentity_sPKf_F0_11:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -7649,21 +8241,21 @@ Z10G_SetAngleP9gentity_sPKf:F(0,11):
 	ret
 
 
-;Z11G_XModelBadi:F(0,3)
+;Z11G_XModelBadi_F0_3
 
-Z11G_XModelBadi:F(0,3):
+Z11G_XModelBadi_F0_3:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
 	mov eax, [eax*4+cached_models]
 	mov [ebp+0x8], eax
 	pop ebp
-	jmp Z9XModelBadPK6XModel:F(0,1)
+	jmp Z9XModelBadPK6XModel_F0_1
 
 
-;Z11G_SetOriginP9gentity_sPKf:F(0,11)
+;Z11G_SetOriginP9gentity_sPKf_F0_11
 
-Z11G_SetOriginP9gentity_sPKf:F(0,11):
+Z11G_SetOriginP9gentity_sPKf_F0_11:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -7697,20 +8289,20 @@ Z11G_SetOriginP9gentity_sPKf:F(0,11):
 	add [eax], al
 
 
-;Z16G_PlaySoundAliasP9gentity_sh:F(0,11)
+;Z16G_PlaySoundAliasP9gentity_sh_F0_11
 
-Z16G_PlaySoundAliasP9gentity_sh:F(0,11):
+Z16G_PlaySoundAliasP9gentity_sh_F0_11:
 	push ebp
 	mov ebp, esp
 	push ebx
 	mov ecx, [ebp+0x8]
 	movzx eax, byte [ebp+0xc]
 	test al, al
-	jz Z16G_PlaySoundAliasP9gentity_sh:F(0,11)_10
+	jz Z16G_PlaySoundAliasP9gentity_sh_F0_11_10
 	movzx ebx, al
 	mov edx, [ecx+0x158]
 	test edx, edx
-	jz Z16G_PlaySoundAliasP9gentity_sh:F(0,11)_20
+	jz Z16G_PlaySoundAliasP9gentity_sh_F0_11_20
 	mov eax, [edx+0xa4]
 	and eax, 0x3
 	mov dword [edx+eax*4+0xa8], 0xb3
@@ -7720,17 +8312,17 @@ Z16G_PlaySoundAliasP9gentity_sh:F(0,11):
 	mov [edx+eax*4+0xb8], ebx
 	mov eax, [ecx+0x158]
 	add dword [eax+0xa4], 0x1
-Z16G_PlaySoundAliasP9gentity_sh:F(0,11)_30:
+Z16G_PlaySoundAliasP9gentity_sh_F0_11_30:
 	mov eax, [0x1acd721]
 	mov edx, [eax+0x1ec]
 	mov [ecx+0x178], edx
 	mov eax, [eax+0x1ec]
 	mov [ecx+0x154], eax
-Z16G_PlaySoundAliasP9gentity_sh:F(0,11)_10:
+Z16G_PlaySoundAliasP9gentity_sh_F0_11_10:
 	pop ebx
 	pop ebp
 	ret
-Z16G_PlaySoundAliasP9gentity_sh:F(0,11)_20:
+Z16G_PlaySoundAliasP9gentity_sh_F0_11_20:
 	mov eax, [ecx+0xa4]
 	mov edx, eax
 	and edx, 0x3
@@ -7738,13 +8330,13 @@ Z16G_PlaySoundAliasP9gentity_sh:F(0,11)_20:
 	mov [ecx+edx*4+0xb8], ebx
 	add eax, 0x1
 	mov [ecx+0xa4], eax
-	jmp Z16G_PlaySoundAliasP9gentity_sh:F(0,11)_30
+	jmp Z16G_PlaySoundAliasP9gentity_sh_F0_11_30
 	nop
 
 
-;Z15G_OverrideModeliPKc:F(0,11)
+;Z15G_OverrideModeliPKc_F0_11
 
-Z15G_OverrideModeliPKc:F(0,11):
+Z15G_OverrideModeliPKc_F0_11:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -7753,17 +8345,17 @@ Z15G_OverrideModeliPKc:F(0,11):
 	mov ebx, [ebp+0x8]
 	lea eax, [ebx+0x14e]
 	mov [esp], eax
-	call Z23SV_GetConfigstringConsti:F(0,7)
+	call Z23SV_GetConfigstringConsti_F0_7
 	mov esi, eax
 	mov eax, [ebp+0xc]
 	mov [esp], eax
-	call Z12SV_XModelGetPKc:F(0,68)
+	call Z12SV_XModelGetPKc_F0_68
 	mov [ebx*4+cached_models], eax
 	mov [esp+0x8], eax
 	lea eax, [esi+0x7]
 	mov [esp+0x4], eax
 	mov dword [esp], 0x4
-	call Hunk_OverrideDataForFile:F(0,1)
+	call Hunk_OverrideDataForFile_F0_1
 	add esp, 0x10
 	pop ebx
 	pop esi
@@ -7772,9 +8364,9 @@ Z15G_OverrideModeliPKc:F(0,11):
 	nop
 
 
-;Z17G_AnimScriptSoundiP16snd_alias_list_t:F(0,1)
+;Z17G_AnimScriptSoundiP16snd_alias_list_t_F0_1
 
-Z17G_AnimScriptSoundiP16snd_alias_list_t:F(0,1):
+Z17G_AnimScriptSoundiP16snd_alias_list_t_F0_1:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -7787,18 +8379,18 @@ Z17G_AnimScriptSoundiP16snd_alias_list_t:F(0,1):
 	mov eax, [ebp+0xc]
 	mov eax, [eax]
 	mov [esp], eax
-	call Z23G_FindConfigstringIndexPKciiiS0_:F(0,1)
+	call Z23G_FindConfigstringIndexPKciiiS0__F0_1
 	lea ebx, [ebx+ebx*4]
 	lea ecx, [ebx*8]
 	sub ecx, ebx
 	shl ecx, 0x4
 	add ecx, [0x1acd709]
 	test al, al
-	jz Z17G_AnimScriptSoundiP16snd_alias_list_t:F(0,1)_10
+	jz Z17G_AnimScriptSoundiP16snd_alias_list_t_F0_1_10
 	movzx ebx, al
 	mov edx, [ecx+0x158]
 	test edx, edx
-	jz Z17G_AnimScriptSoundiP16snd_alias_list_t:F(0,1)_20
+	jz Z17G_AnimScriptSoundiP16snd_alias_list_t_F0_1_20
 	mov eax, [edx+0xa4]
 	and eax, 0x3
 	mov dword [edx+eax*4+0xa8], 0xb3
@@ -7808,18 +8400,18 @@ Z17G_AnimScriptSoundiP16snd_alias_list_t:F(0,1):
 	mov [edx+eax*4+0xb8], ebx
 	mov eax, [ecx+0x158]
 	add dword [eax+0xa4], 0x1
-Z17G_AnimScriptSoundiP16snd_alias_list_t:F(0,1)_30:
+Z17G_AnimScriptSoundiP16snd_alias_list_t_F0_1_30:
 	mov eax, [0x1acd721]
 	mov eax, [eax+0x1ec]
 	mov [ecx+0x178], eax
 	mov [ecx+0x154], eax
-Z17G_AnimScriptSoundiP16snd_alias_list_t:F(0,1)_10:
+Z17G_AnimScriptSoundiP16snd_alias_list_t_F0_1_10:
 	xor eax, eax
 	add esp, 0x24
 	pop ebx
 	pop ebp
 	ret
-Z17G_AnimScriptSoundiP16snd_alias_list_t:F(0,1)_20:
+Z17G_AnimScriptSoundiP16snd_alias_list_t_F0_1_20:
 	mov eax, [ecx+0xa4]
 	mov edx, eax
 	and edx, 0x3
@@ -7827,13 +8419,13 @@ Z17G_AnimScriptSoundiP16snd_alias_list_t:F(0,1)_20:
 	mov [ecx+edx*4+0xb8], ebx
 	add eax, 0x1
 	mov [ecx+0xa4], eax
-	jmp Z17G_AnimScriptSoundiP16snd_alias_list_t:F(0,1)_30
+	jmp Z17G_AnimScriptSoundiP16snd_alias_list_t_F0_1_30
 	nop
 
 
-;Z19G_CalcTagParentAxisP9gentity_sPA3_f:F(0,11)
+;Z19G_CalcTagParentAxisP9gentity_sPA3_f_F0_11
 
-Z19G_CalcTagParentAxisP9gentity_sPA3_f:F(0,11):
+Z19G_CalcTagParentAxisP9gentity_sPA3_f_F0_11:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -7845,12 +8437,12 @@ Z19G_CalcTagParentAxisP9gentity_sPA3_f:F(0,11):
 	mov esi, [edi]
 	mov eax, [edi+0xc]
 	test eax, eax
-	js Z19G_CalcTagParentAxisP9gentity_sPA3_f:F(0,11)_10
+	js Z19G_CalcTagParentAxisP9gentity_sPA3_f_F0_11_10
 	lea ebx, [ebp-0x6c]
 	mov [esp+0x4], ebx
 	lea eax, [esi+0x144]
 	mov [esp], eax
-	call AnglesToAxis:F(0,18)
+	call AnglesToAxis_F0_18
 	lea edx, [esi+0x138]
 	mov eax, [esi+0x138]
 	mov [ebp-0x48], eax
@@ -7861,9 +8453,9 @@ Z19G_CalcTagParentAxisP9gentity_sPA3_f:F(0,11):
 	mov eax, [edi+0xc]
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call Z14G_DObjCalcBoneP9gentity_si:F(0,11)
+	call Z14G_DObjCalcBoneP9gentity_si_F0_11
 	mov [esp], esi
-	call Z21SV_DObjGetMatrixArrayP9gentity_s:F(0,74)
+	call Z21SV_DObjGetMatrixArrayP9gentity_s_F0_74
 	mov edx, eax
 	mov eax, [edi+0xc]
 	shl eax, 0x5
@@ -7929,26 +8521,26 @@ Z19G_CalcTagParentAxisP9gentity_sPA3_f:F(0,11):
 	mov [esp+0x4], ebx
 	lea eax, [ebp-0x3c]
 	mov [esp], eax
-	call MatrixMultiply:F(0,18)
+	call MatrixMultiply_F0_18
 	mov eax, [ebp+0xc]
 	add eax, 0x24
 	mov [esp+0x8], eax
 	mov [esp+0x4], ebx
 	lea eax, [esi+0x10]
 	mov [esp], eax
-	call Z23MatrixTransformVector43PKfPA3_S_Pf:F(0,18)
+	call Z23MatrixTransformVector43PKfPA3_S_Pf_F0_18
 	add esp, 0x9c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z19G_CalcTagParentAxisP9gentity_sPA3_f:F(0,11)_10:
+Z19G_CalcTagParentAxisP9gentity_sPA3_f_F0_11_10:
 	mov ebx, [ebp+0xc]
 	mov [esp+0x4], ebx
 	lea eax, [esi+0x144]
 	mov [esp], eax
-	call AnglesToAxis:F(0,18)
+	call AnglesToAxis_F0_18
 	mov ecx, ebx
 	add ecx, 0x24
 	lea edx, [esi+0x138]
@@ -7967,9 +8559,9 @@ Z19G_CalcTagParentAxisP9gentity_sPA3_f:F(0,11)_10:
 	nop
 
 
-;Z14G_SetFixedLinkP9gentity_si:F(0,11)
+;Z14G_SetFixedLinkP9gentity_si_F0_11
 
-Z14G_SetFixedLinkP9gentity_si:F(0,11):
+Z14G_SetFixedLinkP9gentity_si_F0_11:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -7981,27 +8573,27 @@ Z14G_SetFixedLinkP9gentity_si:F(0,11):
 	lea edi, [ebp-0x78]
 	mov [esp+0x4], edi
 	mov [esp], esi
-	call Z19G_CalcTagParentAxisP9gentity_sPA3_f:F(0,11)
+	call Z19G_CalcTagParentAxisP9gentity_sPA3_f_F0_11
 	mov edx, [esi+0x208]
 	cmp ebx, 0x1
-	jz Z14G_SetFixedLinkP9gentity_si:F(0,11)_10
+	jz Z14G_SetFixedLinkP9gentity_si_F0_11_10
 	cmp ebx, 0x2
-	jz Z14G_SetFixedLinkP9gentity_si:F(0,11)_20
+	jz Z14G_SetFixedLinkP9gentity_si_F0_11_20
 	test ebx, ebx
-	jz Z14G_SetFixedLinkP9gentity_si:F(0,11)_30
+	jz Z14G_SetFixedLinkP9gentity_si_F0_11_30
 	add esp, 0x7c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z14G_SetFixedLinkP9gentity_si:F(0,11)_30:
+Z14G_SetFixedLinkP9gentity_si_F0_11_30:
 	lea ebx, [ebp-0x48]
 	mov [esp+0x8], ebx
 	mov [esp+0x4], edi
 	lea eax, [edx+0x10]
 	mov [esp], eax
-	call MatrixMultiply43:F(0,18)
+	call MatrixMultiply43_F0_18
 	lea edx, [esi+0x138]
 	mov eax, [ebp-0x24]
 	mov [esi+0x138], eax
@@ -8012,20 +8604,20 @@ Z14G_SetFixedLinkP9gentity_si:F(0,11)_30:
 	lea eax, [esi+0x144]
 	mov [esp+0x4], eax
 	mov [esp], ebx
-	call AxisToAngles:F(0,18)
+	call AxisToAngles_F0_18
 	add esp, 0x7c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z14G_SetFixedLinkP9gentity_si:F(0,11)_10:
+Z14G_SetFixedLinkP9gentity_si_F0_11_10:
 	lea ebx, [ebp-0x48]
 	mov [esp+0x8], ebx
 	mov [esp+0x4], edi
 	lea eax, [edx+0x10]
 	mov [esp], eax
-	call MatrixMultiply43:F(0,18)
+	call MatrixMultiply43_F0_18
 	lea edx, [esi+0x138]
 	mov eax, [ebp-0x24]
 	mov [esi+0x138], eax
@@ -8034,7 +8626,7 @@ Z14G_SetFixedLinkP9gentity_si:F(0,11)_10:
 	mov eax, [ebp-0x1c]
 	mov [edx+0x8], eax
 	mov [esp], ebx
-	call Z8vectoyawPKf:F(0,10)
+	call Z8vectoyawPKf_F0_10
 	fstp dword [esi+0x148]
 	add esp, 0x7c
 	pop ebx
@@ -8042,13 +8634,13 @@ Z14G_SetFixedLinkP9gentity_si:F(0,11)_10:
 	pop edi
 	pop ebp
 	ret
-Z14G_SetFixedLinkP9gentity_si:F(0,11)_20:
+Z14G_SetFixedLinkP9gentity_si_F0_11_20:
 	lea eax, [ebp-0x24]
 	mov [esp+0x8], eax
 	mov [esp+0x4], edi
 	lea eax, [edx+0x34]
 	mov [esp], eax
-	call Z23MatrixTransformVector43PKfPA3_S_Pf:F(0,18)
+	call Z23MatrixTransformVector43PKfPA3_S_Pf_F0_18
 	lea edx, [esi+0x138]
 	mov eax, [ebp-0x24]
 	mov [esi+0x138], eax
@@ -8065,9 +8657,9 @@ Z14G_SetFixedLinkP9gentity_si:F(0,11)_20:
 	nop
 
 
-;Z13G_CalcTagAxisP9gentity_si:F(0,11)
+;Z13G_CalcTagAxisP9gentity_si_F0_11
 
-Z13G_CalcTagAxisP9gentity_si:F(0,11):
+Z13G_CalcTagAxisP9gentity_si_F0_11:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -8078,39 +8670,39 @@ Z13G_CalcTagAxisP9gentity_si:F(0,11):
 	lea edi, [ebp-0x78]
 	mov [esp+0x4], edi
 	mov [esp], esi
-	call Z19G_CalcTagParentAxisP9gentity_sPA3_f:F(0,11)
+	call Z19G_CalcTagParentAxisP9gentity_sPA3_f_F0_11
 	lea eax, [ebp-0x48]
 	mov [esp+0x4], eax
 	lea eax, [esi+0x144]
 	mov [esp], eax
-	call AnglesToAxis:F(0,18)
+	call AnglesToAxis_F0_18
 	mov eax, [esi+0x208]
 	mov [ebp-0xac], eax
 	mov eax, [ebp+0xc]
 	test eax, eax
-	jz Z13G_CalcTagAxisP9gentity_si:F(0,11)_10
+	jz Z13G_CalcTagAxisP9gentity_si_F0_11_10
 	lea ebx, [ebp-0xa8]
 	mov [esp+0x4], ebx
 	mov [esp], edi
-	call MatrixTranspose:F(0,18)
+	call MatrixTranspose_F0_18
 	mov eax, [ebp-0xac]
 	add eax, 0x10
 	mov [esp+0x8], eax
 	mov [esp+0x4], ebx
 	lea eax, [ebp-0x48]
 	mov [esp], eax
-	call MatrixMultiply:F(0,18)
+	call MatrixMultiply_F0_18
 	add esp, 0xbc
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z13G_CalcTagAxisP9gentity_si:F(0,11)_10:
+Z13G_CalcTagAxisP9gentity_si_F0_11_10:
 	lea ebx, [ebp-0xa8]
 	mov [esp+0x4], ebx
 	mov [esp], edi
-	call MatrixInverseOrthogonal43:F(0,18)
+	call MatrixInverseOrthogonal43_F0_18
 	lea edx, [esi+0x138]
 	mov eax, [esi+0x138]
 	mov [ebp-0x24], eax
@@ -8124,7 +8716,7 @@ Z13G_CalcTagAxisP9gentity_si:F(0,11)_10:
 	mov [esp+0x4], ebx
 	lea eax, [ebp-0x48]
 	mov [esp], eax
-	call MatrixMultiply43:F(0,18)
+	call MatrixMultiply43_F0_18
 	add esp, 0xbc
 	pop ebx
 	pop esi
@@ -8135,9 +8727,9 @@ Z13G_CalcTagAxisP9gentity_si:F(0,11)_10:
 	add [eax], al
 
 
-;Z11G_EntUnlinkP9gentity_s:F(0,11)
+;Z11G_EntUnlinkP9gentity_s_F0_11
 
-Z11G_EntUnlinkP9gentity_s:F(0,11):
+Z11G_EntUnlinkP9gentity_s_F0_11:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -8146,7 +8738,7 @@ Z11G_EntUnlinkP9gentity_s:F(0,11):
 	mov ebx, [ebp+0x8]
 	mov esi, [ebx+0x208]
 	test esi, esi
-	jz Z11G_EntUnlinkP9gentity_s:F(0,11)_10
+	jz Z11G_EntUnlinkP9gentity_s_F0_11_10
 	lea edx, [ebx+0x18]
 	mov eax, [ebx+0x138]
 	mov [ebx+0x18], eax
@@ -8178,7 +8770,7 @@ Z11G_EntUnlinkP9gentity_s:F(0,11):
 	mov [eax+0x8], ecx
 	mov edx, [ebx+0x158]
 	test edx, edx
-	jz Z11G_EntUnlinkP9gentity_s:F(0,11)_20
+	jz Z11G_EntUnlinkP9gentity_s_F0_11_20
 	mov eax, [edx+0xe8]
 	mov [ebp-0x14], eax
 	mov eax, [edx+0xec]
@@ -8187,38 +8779,38 @@ Z11G_EntUnlinkP9gentity_s:F(0,11):
 	lea eax, [ebp-0x14]
 	mov [esp+0x4], eax
 	mov [esp], ebx
-	call Z18SetClientViewAngleP9gentity_sPKf:F(0,1)
-Z11G_EntUnlinkP9gentity_s:F(0,11)_20:
+	call Z18SetClientViewAngleP9gentity_sPKf_F0_1
+Z11G_EntUnlinkP9gentity_s_F0_11_20:
 	mov edx, [esi]
 	mov eax, [edx+0x20c]
 	cmp ebx, eax
-	jz Z11G_EntUnlinkP9gentity_s:F(0,11)_30
-Z11G_EntUnlinkP9gentity_s:F(0,11)_40:
+	jz Z11G_EntUnlinkP9gentity_s_F0_11_30
+Z11G_EntUnlinkP9gentity_s_F0_11_40:
 	mov edx, [eax+0x208]
 	mov eax, [edx+0x4]
 	cmp ebx, eax
-	jnz Z11G_EntUnlinkP9gentity_s:F(0,11)_40
+	jnz Z11G_EntUnlinkP9gentity_s_F0_11_40
 	mov eax, [esi+0x4]
 	mov [edx+0x4], eax
-Z11G_EntUnlinkP9gentity_s:F(0,11)_50:
+Z11G_EntUnlinkP9gentity_s_F0_11_50:
 	mov dword [ebx+0x208], 0x0
 	mov dword [esp+0x4], 0x0
 	lea eax, [esi+0x8]
 	mov [esp], eax
-	call Z13Scr_SetStringPtj:F(0,5)
+	call Z13Scr_SetStringPtj_F0_5
 	mov dword [esp+0x4], 0x70
 	mov [esp], esi
-	call Z7MT_FreePvi:F(0,5)
-Z11G_EntUnlinkP9gentity_s:F(0,11)_10:
+	call Z7MT_FreePvi_F0_5
+Z11G_EntUnlinkP9gentity_s_F0_11_10:
 	add esp, 0x20
 	pop ebx
 	pop esi
 	pop ebp
 	ret
-Z11G_EntUnlinkP9gentity_s:F(0,11)_30:
+Z11G_EntUnlinkP9gentity_s_F0_11_30:
 	mov eax, [esi+0x4]
 	mov [edx+0x20c], eax
-	jmp Z11G_EntUnlinkP9gentity_s:F(0,11)_50
+	jmp Z11G_EntUnlinkP9gentity_s_F0_11_50
 	nop
 
 
@@ -8235,7 +8827,7 @@ _Z19G_EntLinkToInternalP9gentity_sS0_j:
 	mov [ebp-0x20], edx
 	mov edi, ecx
 	mov [esp], eax
-	call Z11G_EntUnlinkP9gentity_s:F(0,11)
+	call Z11G_EntUnlinkP9gentity_s_F0_11
 	test edi, edi
 	jnz _Z19G_EntLinkToInternalP9gentity_sS0_j_10
 	mov dword [ebp-0x1c], 0xffffffff
@@ -8256,7 +8848,7 @@ _Z19G_EntLinkToInternalP9gentity_sS0_j_40:
 _Z19G_EntLinkToInternalP9gentity_sS0_j_30:
 	mov dword [esp+0x4], 0x10
 	mov dword [esp], 0x70
-	call Z8MT_Allocii:F(0,15)
+	call Z8MT_Allocii_F0_15
 	mov ebx, eax
 	mov ecx, [ebp-0x20]
 	mov [eax], ecx
@@ -8264,7 +8856,7 @@ _Z19G_EntLinkToInternalP9gentity_sS0_j_30:
 	mov [esp+0x4], edi
 	lea eax, [eax+0x8]
 	mov [esp], eax
-	call Z13Scr_SetStringPtj:F(0,5)
+	call Z13Scr_SetStringPtj_F0_5
 	mov edx, [ebp-0x20]
 	mov eax, [edx+0x20c]
 	mov [ebx+0x4], eax
@@ -8291,7 +8883,7 @@ _Z19G_EntLinkToInternalP9gentity_sS0_j_30:
 _Z19G_EntLinkToInternalP9gentity_sS0_j_10:
 	mov eax, [ebp-0x20]
 	mov [esp], eax
-	call Z13SV_DObjExistsP9gentity_s:F(0,27)
+	call Z13SV_DObjExistsP9gentity_s_F0_27
 	test eax, eax
 	jnz _Z19G_EntLinkToInternalP9gentity_sS0_j_50
 _Z19G_EntLinkToInternalP9gentity_sS0_j_20:
@@ -8307,7 +8899,7 @@ _Z19G_EntLinkToInternalP9gentity_sS0_j_50:
 	mov [esp+0x4], edi
 	mov edx, [ebp-0x20]
 	mov [esp], edx
-	call Z19SV_DObjGetBoneIndexP9gentity_sj:F(0,1)
+	call Z19SV_DObjGetBoneIndexP9gentity_sj_F0_1
 	mov [ebp-0x1c], eax
 	test eax, eax
 	jns _Z19G_EntLinkToInternalP9gentity_sS0_j_60
@@ -8316,9 +8908,9 @@ _Z19G_EntLinkToInternalP9gentity_sS0_j_50:
 	nop
 
 
-;Z21G_EntLinkToWithOffsetP9gentity_sS0_jPKfS2_:F(0,3)
+;Z21G_EntLinkToWithOffsetP9gentity_sS0_jPKfS2__F0_3
 
-Z21G_EntLinkToWithOffsetP9gentity_sS0_jPKfS2_:F(0,3):
+Z21G_EntLinkToWithOffsetP9gentity_sS0_jPKfS2__F0_3:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -8331,13 +8923,13 @@ Z21G_EntLinkToWithOffsetP9gentity_sS0_jPKfS2_:F(0,3):
 	mov eax, ebx
 	call _Z19G_EntLinkToInternalP9gentity_sS0_j
 	test eax, eax
-	jz Z21G_EntLinkToWithOffsetP9gentity_sS0_jPKfS2_:F(0,3)_10
+	jz Z21G_EntLinkToWithOffsetP9gentity_sS0_jPKfS2__F0_3_10
 	mov ebx, [ebx+0x208]
 	lea eax, [ebx+0x10]
 	mov [esp+0x4], eax
 	mov eax, [ebp+0x18]
 	mov [esp], eax
-	call AnglesToAxis:F(0,18)
+	call AnglesToAxis_F0_18
 	lea edx, [ebx+0x34]
 	mov eax, [esi]
 	mov [ebx+0x34], eax
@@ -8346,7 +8938,7 @@ Z21G_EntLinkToWithOffsetP9gentity_sS0_jPKfS2_:F(0,3):
 	mov eax, [esi+0x8]
 	mov [edx+0x8], eax
 	mov eax, 0x1
-Z21G_EntLinkToWithOffsetP9gentity_sS0_jPKfS2_:F(0,3)_10:
+Z21G_EntLinkToWithOffsetP9gentity_sS0_jPKfS2__F0_3_10:
 	add esp, 0x10
 	pop ebx
 	pop esi
@@ -8355,9 +8947,9 @@ Z21G_EntLinkToWithOffsetP9gentity_sS0_jPKfS2_:F(0,3)_10:
 	nop
 
 
-;Z11G_EntLinkToP9gentity_sS0_j:F(0,3)
+;Z11G_EntLinkToP9gentity_sS0_j_F0_3
 
-Z11G_EntLinkToP9gentity_sS0_j:F(0,3):
+Z11G_EntLinkToP9gentity_sS0_j_F0_3:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -8368,21 +8960,21 @@ Z11G_EntLinkToP9gentity_sS0_j:F(0,3):
 	mov eax, ebx
 	call _Z19G_EntLinkToInternalP9gentity_sS0_j
 	test eax, eax
-	jz Z11G_EntLinkToP9gentity_sS0_j:F(0,3)_10
+	jz Z11G_EntLinkToP9gentity_sS0_j_F0_3_10
 	mov dword [esp+0x4], 0x0
 	mov [esp], ebx
-	call Z13G_CalcTagAxisP9gentity_si:F(0,11)
+	call Z13G_CalcTagAxisP9gentity_si_F0_11
 	mov eax, 0x1
-Z11G_EntLinkToP9gentity_sS0_j:F(0,3)_10:
+Z11G_EntLinkToP9gentity_sS0_j_F0_3_10:
 	add esp, 0x14
 	pop ebx
 	pop ebp
 	ret
 
 
-;Z13G_GeneralLinkP9gentity_s:F(0,11)
+;Z13G_GeneralLinkP9gentity_s_F0_11
 
-Z13G_GeneralLinkP9gentity_s:F(0,11):
+Z13G_GeneralLinkP9gentity_s_F0_11:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -8390,7 +8982,7 @@ Z13G_GeneralLinkP9gentity_s:F(0,11):
 	mov ebx, [ebp+0x8]
 	mov dword [esp+0x4], 0x0
 	mov [esp], ebx
-	call Z14G_SetFixedLinkP9gentity_si:F(0,11)
+	call Z14G_SetFixedLinkP9gentity_si_F0_11
 	lea edx, [ebx+0x18]
 	mov eax, [ebx+0x138]
 	mov [ebx+0x18], eax
@@ -8424,13 +9016,13 @@ Z13G_GeneralLinkP9gentity_s:F(0,11):
 	add esp, 0x14
 	pop ebx
 	pop ebp
-	jmp Z13SV_LinkEntityP9gentity_s:F(0,23)
+	jmp Z13SV_LinkEntityP9gentity_s_F0_23
 	nop
 
 
-;Z12G_FreeEntityP9gentity_s:F(0,11)
+;Z12G_FreeEntityP9gentity_s_F0_11
 
-Z12G_FreeEntityP9gentity_s:F(0,11):
+Z12G_FreeEntityP9gentity_s_F0_11:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -8439,123 +9031,123 @@ Z12G_FreeEntityP9gentity_s:F(0,11):
 	sub esp, 0x1c
 	mov esi, [ebp+0x8]
 	mov [esp], esi
-	call Z11G_EntUnlinkP9gentity_s:F(0,11)
+	call Z11G_EntUnlinkP9gentity_s_F0_11
 	mov eax, [esi+0x20c]
 	test eax, eax
-	jz Z12G_FreeEntityP9gentity_s:F(0,11)_10
-Z12G_FreeEntityP9gentity_s:F(0,11)_20:
+	jz Z12G_FreeEntityP9gentity_s_F0_11_10
+Z12G_FreeEntityP9gentity_s_F0_11_20:
 	mov [esp], eax
-	call Z11G_EntUnlinkP9gentity_s:F(0,11)
+	call Z11G_EntUnlinkP9gentity_s_F0_11
 	mov eax, [esi+0x20c]
 	test eax, eax
-	jnz Z12G_FreeEntityP9gentity_s:F(0,11)_20
-Z12G_FreeEntityP9gentity_s:F(0,11)_10:
+	jnz Z12G_FreeEntityP9gentity_s_F0_11_20
+Z12G_FreeEntityP9gentity_s_F0_11_10:
 	mov [esp], esi
-	call Z15SV_UnlinkEntityP9gentity_s:F(0,23)
+	call Z15SV_UnlinkEntityP9gentity_s_F0_23
 	mov [esp], esi
-	call Z14SV_DObjGetTreeP9gentity_s:F(0,78)
+	call Z14SV_DObjGetTreeP9gentity_s_F0_78
 	test eax, eax
-	jz Z12G_FreeEntityP9gentity_s:F(0,11)_30
+	jz Z12G_FreeEntityP9gentity_s_F0_11_30
 	mov [esp], eax
-	call Z14XAnimClearTreeP11XAnimTree_s:F(0,1)
-Z12G_FreeEntityP9gentity_s:F(0,11)_30:
+	call Z14XAnimClearTreeP11XAnimTree_s_F0_1
+Z12G_FreeEntityP9gentity_s_F0_11_30:
 	mov eax, [esi]
 	mov [esp], eax
-	call Z22Com_SafeServerDObjFreei:F(0,4)
+	call Z22Com_SafeServerDObjFreei_F0_4
 	mov ebx, [esi]
 	mov edi, [0x1acd721]
 	mov ecx, [edi+0xc]
 	test ecx, ecx
-	jle Z12G_FreeEntityP9gentity_s:F(0,11)_40
+	jle Z12G_FreeEntityP9gentity_s_F0_11_40
 	xor edx, edx
 	mov eax, [0x1acd709]
-	jmp Z12G_FreeEntityP9gentity_s:F(0,11)_50
-Z12G_FreeEntityP9gentity_s:F(0,11)_90:
+	jmp Z12G_FreeEntityP9gentity_s_F0_11_50
+Z12G_FreeEntityP9gentity_s_F0_11_90:
 	cmp ebx, [eax+0x7c]
-	jz Z12G_FreeEntityP9gentity_s:F(0,11)_60
-Z12G_FreeEntityP9gentity_s:F(0,11)_70:
+	jz Z12G_FreeEntityP9gentity_s_F0_11_60
+Z12G_FreeEntityP9gentity_s_F0_11_70:
 	add edx, 0x1
 	add eax, 0x230
 	cmp edx, ecx
-	jz Z12G_FreeEntityP9gentity_s:F(0,11)_40
-Z12G_FreeEntityP9gentity_s:F(0,11)_50:
+	jz Z12G_FreeEntityP9gentity_s_F0_11_40
+Z12G_FreeEntityP9gentity_s_F0_11_50:
 	cmp byte [eax+0xfc], 0x0
-	jz Z12G_FreeEntityP9gentity_s:F(0,11)_70
+	jz Z12G_FreeEntityP9gentity_s_F0_11_70
 	cmp esi, [eax+0x18c]
-	jz Z12G_FreeEntityP9gentity_s:F(0,11)_80
-Z12G_FreeEntityP9gentity_s:F(0,11)_240:
+	jz Z12G_FreeEntityP9gentity_s_F0_11_80
+Z12G_FreeEntityP9gentity_s_F0_11_240:
 	cmp ebx, [eax+0x150]
-	jnz Z12G_FreeEntityP9gentity_s:F(0,11)_90
+	jnz Z12G_FreeEntityP9gentity_s_F0_11_90
 	mov dword [eax+0x150], 0x3ff
 	cmp dword [eax+0x4], 0x9
-	jnz Z12G_FreeEntityP9gentity_s:F(0,11)_90
+	jnz Z12G_FreeEntityP9gentity_s_F0_11_90
 	mov byte [eax+0x162], 0x0
 	cmp ebx, [eax+0x7c]
-	jnz Z12G_FreeEntityP9gentity_s:F(0,11)_70
-Z12G_FreeEntityP9gentity_s:F(0,11)_60:
+	jnz Z12G_FreeEntityP9gentity_s_F0_11_70
+Z12G_FreeEntityP9gentity_s_F0_11_60:
 	mov dword [eax+0x7c], 0x3ff
 	add edx, 0x1
 	add eax, 0x230
 	cmp edx, ecx
-	jnz Z12G_FreeEntityP9gentity_s:F(0,11)_50
-Z12G_FreeEntityP9gentity_s:F(0,11)_40:
+	jnz Z12G_FreeEntityP9gentity_s_F0_11_50
+Z12G_FreeEntityP9gentity_s_F0_11_40:
 	xor ecx, ecx
 	mov edx, [0x1acd709]
-	jmp Z12G_FreeEntityP9gentity_s:F(0,11)_100
-Z12G_FreeEntityP9gentity_s:F(0,11)_150:
+	jmp Z12G_FreeEntityP9gentity_s_F0_11_100
+Z12G_FreeEntityP9gentity_s_F0_11_150:
 	cmp ebx, [eax+0x5a0]
-	jz Z12G_FreeEntityP9gentity_s:F(0,11)_110
-Z12G_FreeEntityP9gentity_s:F(0,11)_130:
+	jz Z12G_FreeEntityP9gentity_s_F0_11_110
+Z12G_FreeEntityP9gentity_s_F0_11_130:
 	add ecx, 0x1
 	add edx, 0x230
 	cmp ecx, 0x40
-	jz Z12G_FreeEntityP9gentity_s:F(0,11)_120
-Z12G_FreeEntityP9gentity_s:F(0,11)_100:
+	jz Z12G_FreeEntityP9gentity_s_F0_11_120
+Z12G_FreeEntityP9gentity_s_F0_11_100:
 	cmp byte [edx+0xfc], 0x0
-	jz Z12G_FreeEntityP9gentity_s:F(0,11)_130
+	jz Z12G_FreeEntityP9gentity_s_F0_11_130
 	mov eax, [edx+0x158]
 	cmp esi, [eax+0x282c]
-	jz Z12G_FreeEntityP9gentity_s:F(0,11)_140
-Z12G_FreeEntityP9gentity_s:F(0,11)_230:
+	jz Z12G_FreeEntityP9gentity_s_F0_11_140
+Z12G_FreeEntityP9gentity_s_F0_11_230:
 	cmp ebx, [eax+0x2830]
-	jnz Z12G_FreeEntityP9gentity_s:F(0,11)_150
+	jnz Z12G_FreeEntityP9gentity_s_F0_11_150
 	mov dword [eax+0x2830], 0x3ff
 	cmp ebx, [eax+0x5a0]
-	jnz Z12G_FreeEntityP9gentity_s:F(0,11)_130
-Z12G_FreeEntityP9gentity_s:F(0,11)_110:
+	jnz Z12G_FreeEntityP9gentity_s_F0_11_130
+Z12G_FreeEntityP9gentity_s_F0_11_110:
 	mov dword [eax+0x5a0], 0x3ff
 	add ecx, 0x1
 	add edx, 0x230
 	cmp ecx, 0x40
-	jnz Z12G_FreeEntityP9gentity_s:F(0,11)_100
-Z12G_FreeEntityP9gentity_s:F(0,11)_120:
+	jnz Z12G_FreeEntityP9gentity_s_F0_11_100
+Z12G_FreeEntityP9gentity_s_F0_11_120:
 	mov eax, edi
 	mov edx, [0x1acd721]
 	sub edx, 0xffffff80
-	jmp Z12G_FreeEntityP9gentity_s:F(0,11)_160
-Z12G_FreeEntityP9gentity_s:F(0,11)_180:
+	jmp Z12G_FreeEntityP9gentity_s_F0_11_160
+Z12G_FreeEntityP9gentity_s_F0_11_180:
 	add eax, 0x4
 	cmp edx, eax
-	jz Z12G_FreeEntityP9gentity_s:F(0,11)_170
-Z12G_FreeEntityP9gentity_s:F(0,11)_160:
+	jz Z12G_FreeEntityP9gentity_s_F0_11_170
+Z12G_FreeEntityP9gentity_s_F0_11_160:
 	cmp esi, [eax+0x1d58]
-	jnz Z12G_FreeEntityP9gentity_s:F(0,11)_180
+	jnz Z12G_FreeEntityP9gentity_s_F0_11_180
 	mov dword [eax+0x1d58], 0x0
 	add eax, 0x4
 	cmp edx, eax
-	jnz Z12G_FreeEntityP9gentity_s:F(0,11)_160
-Z12G_FreeEntityP9gentity_s:F(0,11)_170:
+	jnz Z12G_FreeEntityP9gentity_s_F0_11_160
+Z12G_FreeEntityP9gentity_s_F0_11_170:
 	mov eax, [esi+0x15c]
 	test eax, eax
-	jz Z12G_FreeEntityP9gentity_s:F(0,11)_190
+	jz Z12G_FreeEntityP9gentity_s_F0_11_190
 	mov [esp], esi
-	call Z12G_FreeTurretP9gentity_s:F(0,1)
-Z12G_FreeEntityP9gentity_s:F(0,11)_190:
+	call Z12G_FreeTurretP9gentity_s_F0_1
+Z12G_FreeEntityP9gentity_s_F0_11_190:
 	cmp dword [esi+0x4], 0x2
-	jz Z12G_FreeEntityP9gentity_s:F(0,11)_200
-Z12G_FreeEntityP9gentity_s:F(0,11)_270:
+	jz Z12G_FreeEntityP9gentity_s_F0_11_200
+Z12G_FreeEntityP9gentity_s_F0_11_270:
 	mov [esp], esi
-	call Z14Scr_FreeEntityP9gentity_s:F(0,7)
+	call Z14Scr_FreeEntityP9gentity_s_F0_7
 	mov ebx, [esi+0x228]
 	mov dword [esp+0x8], 0x230
 	mov dword [esp+0x4], 0x0
@@ -8567,15 +9159,15 @@ Z12G_FreeEntityP9gentity_s:F(0,11)_270:
 	mov eax, esi
 	sub eax, [edi+0x4]
 	cmp eax, 0x9d7f
-	jle Z12G_FreeEntityP9gentity_s:F(0,11)_210
+	jle Z12G_FreeEntityP9gentity_s_F0_11_210
 	mov eax, [edi+0x14]
 	test eax, eax
-	jz Z12G_FreeEntityP9gentity_s:F(0,11)_220
+	jz Z12G_FreeEntityP9gentity_s_F0_11_220
 	mov [eax+0x22c], esi
-Z12G_FreeEntityP9gentity_s:F(0,11)_280:
+Z12G_FreeEntityP9gentity_s_F0_11_280:
 	mov [edi+0x14], esi
 	mov dword [esi+0x22c], 0x0
-Z12G_FreeEntityP9gentity_s:F(0,11)_210:
+Z12G_FreeEntityP9gentity_s_F0_11_210:
 	lea eax, [ebx+0x1]
 	mov [esi+0x228], eax
 	add esp, 0x1c
@@ -8584,40 +9176,40 @@ Z12G_FreeEntityP9gentity_s:F(0,11)_210:
 	pop edi
 	pop ebp
 	ret
-Z12G_FreeEntityP9gentity_s:F(0,11)_140:
+Z12G_FreeEntityP9gentity_s_F0_11_140:
 	mov dword [eax+0x282c], 0x0
-	jmp Z12G_FreeEntityP9gentity_s:F(0,11)_230
-Z12G_FreeEntityP9gentity_s:F(0,11)_80:
+	jmp Z12G_FreeEntityP9gentity_s_F0_11_230
+Z12G_FreeEntityP9gentity_s_F0_11_80:
 	mov dword [eax+0x18c], 0x0
-	jmp Z12G_FreeEntityP9gentity_s:F(0,11)_240
-Z12G_FreeEntityP9gentity_s:F(0,11)_200:
+	jmp Z12G_FreeEntityP9gentity_s_F0_11_240
+Z12G_FreeEntityP9gentity_s_F0_11_200:
 	mov ecx, [esi]
 	xor edx, edx
 	mov ebx, [0x1acd751]
 	mov eax, ebx
-Z12G_FreeEntityP9gentity_s:F(0,11)_260:
+Z12G_FreeEntityP9gentity_s_F0_11_260:
 	cmp ecx, [eax+0x10bc]
-	jz Z12G_FreeEntityP9gentity_s:F(0,11)_250
+	jz Z12G_FreeEntityP9gentity_s_F0_11_250
 	add edx, 0x1
 	add eax, 0x4c8
 	cmp edx, 0x8
-	jnz Z12G_FreeEntityP9gentity_s:F(0,11)_260
+	jnz Z12G_FreeEntityP9gentity_s_F0_11_260
 	xor dl, dl
-Z12G_FreeEntityP9gentity_s:F(0,11)_250:
+Z12G_FreeEntityP9gentity_s_F0_11_250:
 	lea eax, [edx+edx*8]
 	mov edx, eax
 	shl edx, 0x4
 	add eax, edx
 	mov dword [ebx+eax*8+0x10bc], 0xffffffff
-	jmp Z12G_FreeEntityP9gentity_s:F(0,11)_270
-Z12G_FreeEntityP9gentity_s:F(0,11)_220:
+	jmp Z12G_FreeEntityP9gentity_s_F0_11_270
+Z12G_FreeEntityP9gentity_s_F0_11_220:
 	mov [edi+0x10], esi
-	jmp Z12G_FreeEntityP9gentity_s:F(0,11)_280
+	jmp Z12G_FreeEntityP9gentity_s_F0_11_280
 
 
-;Z26G_GetFreePlayerCorpseIndexv:F(0,1)
+;Z26G_GetFreePlayerCorpseIndexv_F0_1
 
-Z26G_GetFreePlayerCorpseIndexv:F(0,1):
+Z26G_GetFreePlayerCorpseIndexv_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -8635,27 +9227,27 @@ Z26G_GetFreePlayerCorpseIndexv:F(0,1):
 	mov eax, [0x1acd709]
 	add edx, eax
 	cmp edx, eax
-	jbe Z26G_GetFreePlayerCorpseIndexv:F(0,1)_10
+	jbe Z26G_GetFreePlayerCorpseIndexv_F0_1_10
 	lea esi, [eax+0x168]
 	mov ecx, eax
 	lea eax, [eax+0xfc]
-Z26G_GetFreePlayerCorpseIndexv:F(0,1)_40:
+Z26G_GetFreePlayerCorpseIndexv_F0_1_40:
 	cmp byte [eax], 0x0
-	jz Z26G_GetFreePlayerCorpseIndexv:F(0,1)_20
+	jz Z26G_GetFreePlayerCorpseIndexv_F0_1_20
 	movzx ebx, word [esi]
 	test bx, bx
-	jz Z26G_GetFreePlayerCorpseIndexv:F(0,1)_20
+	jz Z26G_GetFreePlayerCorpseIndexv_F0_1_20
 	cmp di, bx
-	jz Z26G_GetFreePlayerCorpseIndexv:F(0,1)_30
-Z26G_GetFreePlayerCorpseIndexv:F(0,1)_20:
+	jz Z26G_GetFreePlayerCorpseIndexv_F0_1_30
+Z26G_GetFreePlayerCorpseIndexv_F0_1_20:
 	add ecx, 0x230
 	add eax, 0x230
 	add esi, 0x230
 	cmp edx, ecx
-	ja Z26G_GetFreePlayerCorpseIndexv:F(0,1)_40
-Z26G_GetFreePlayerCorpseIndexv:F(0,1)_10:
+	ja Z26G_GetFreePlayerCorpseIndexv_F0_1_40
+Z26G_GetFreePlayerCorpseIndexv_F0_1_10:
 	xor ecx, ecx
-Z26G_GetFreePlayerCorpseIndexv:F(0,1)_30:
+Z26G_GetFreePlayerCorpseIndexv_F0_1_30:
 	lea edx, [ecx+0x18]
 	mov eax, [ecx+0x18]
 	mov [ebp-0x24], eax
@@ -8668,10 +9260,10 @@ Z26G_GetFreePlayerCorpseIndexv:F(0,1)_30:
 	xor edi, edi
 	xor ebx, ebx
 	mov esi, [0x1acd751]
-Z26G_GetFreePlayerCorpseIndexv:F(0,1)_70:
+Z26G_GetFreePlayerCorpseIndexv_F0_1_70:
 	mov eax, [esi+0x10bc]
 	cmp eax, 0xffffffff
-	jz Z26G_GetFreePlayerCorpseIndexv:F(0,1)_50
+	jz Z26G_GetFreePlayerCorpseIndexv_F0_1_50
 	lea edx, [ebp-0x24]
 	mov [esp+0x4], edx
 	lea edx, [eax+eax*4]
@@ -8682,18 +9274,18 @@ Z26G_GetFreePlayerCorpseIndexv:F(0,1)_70:
 	add eax, [edx+0x4]
 	add eax, 0x138
 	mov [esp], eax
-	call Vec3DistanceSq:F(0,7)
+	call Vec3DistanceSq_F0_7
 	fstp dword [ebp-0x30]
 	movss xmm0, dword [ebp-0x30]
 	ucomiss xmm0, [ebp-0x2c]
-	jbe Z26G_GetFreePlayerCorpseIndexv:F(0,1)_60
+	jbe Z26G_GetFreePlayerCorpseIndexv_F0_1_60
 	movss [ebp-0x2c], xmm0
 	mov edi, ebx
-Z26G_GetFreePlayerCorpseIndexv:F(0,1)_60:
+Z26G_GetFreePlayerCorpseIndexv_F0_1_60:
 	add ebx, 0x1
 	add esi, 0x4c8
 	cmp ebx, 0x8
-	jnz Z26G_GetFreePlayerCorpseIndexv:F(0,1)_70
+	jnz Z26G_GetFreePlayerCorpseIndexv_F0_1_70
 	lea ebx, [edi+edi*8]
 	mov eax, ebx
 	shl eax, 0x4
@@ -8709,10 +9301,10 @@ Z26G_GetFreePlayerCorpseIndexv:F(0,1)_60:
 	mov edx, [0x1acd721]
 	add eax, [edx+0x4]
 	mov [esp], eax
-	call Z12G_FreeEntityP9gentity_s:F(0,11)
+	call Z12G_FreeEntityP9gentity_s_F0_11
 	mov dword [ebx+0xc], 0xffffffff
 	mov ebx, edi
-Z26G_GetFreePlayerCorpseIndexv:F(0,1)_50:
+Z26G_GetFreePlayerCorpseIndexv_F0_1_50:
 	mov eax, ebx
 	add esp, 0x3c
 	pop ebx
@@ -8722,9 +9314,9 @@ Z26G_GetFreePlayerCorpseIndexv:F(0,1)_50:
 	ret
 
 
-;Z12G_DObjUpdateP9gentity_s:F(0,11)
+;Z12G_DObjUpdateP9gentity_s_F0_11
 
-Z12G_DObjUpdateP9gentity_s:F(0,11):
+Z12G_DObjUpdateP9gentity_s_F0_11:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -8734,78 +9326,78 @@ Z12G_DObjUpdateP9gentity_s:F(0,11):
 	mov eax, [ebp+0x8]
 	mov edx, [eax+0x158]
 	test edx, edx
-	jz Z12G_DObjUpdateP9gentity_s:F(0,11)_10
-Z12G_DObjUpdateP9gentity_s:F(0,11)_40:
+	jz Z12G_DObjUpdateP9gentity_s_F0_11_10
+Z12G_DObjUpdateP9gentity_s_F0_11_40:
 	add esp, 0x8c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z12G_DObjUpdateP9gentity_s:F(0,11)_10:
+Z12G_DObjUpdateP9gentity_s_F0_11_10:
 	mov eax, [eax]
 	mov [esp], eax
-	call Z22Com_SafeServerDObjFreei:F(0,4)
+	call Z22Com_SafeServerDObjFreei_F0_4
 	mov ecx, [ebp+0x8]
 	movzx eax, byte [ecx+0x164]
 	movzx edx, al
 	test al, al
-	jnz Z12G_DObjUpdateP9gentity_s:F(0,11)_20
+	jnz Z12G_DObjUpdateP9gentity_s_F0_11_20
 	mov eax, [ecx+0x20c]
 	test eax, eax
-	jnz Z12G_DObjUpdateP9gentity_s:F(0,11)_30
-	jmp Z12G_DObjUpdateP9gentity_s:F(0,11)_40
-Z12G_DObjUpdateP9gentity_s:F(0,11)_50:
+	jnz Z12G_DObjUpdateP9gentity_s_F0_11_30
+	jmp Z12G_DObjUpdateP9gentity_s_F0_11_40
+Z12G_DObjUpdateP9gentity_s_F0_11_50:
 	mov dword [edx+0xc], 0xffffffff
-Z12G_DObjUpdateP9gentity_s:F(0,11)_60:
+Z12G_DObjUpdateP9gentity_s_F0_11_60:
 	test ebx, ebx
-	jz Z12G_DObjUpdateP9gentity_s:F(0,11)_40
+	jz Z12G_DObjUpdateP9gentity_s_F0_11_40
 	mov eax, ebx
-Z12G_DObjUpdateP9gentity_s:F(0,11)_30:
+Z12G_DObjUpdateP9gentity_s_F0_11_30:
 	mov edx, [eax+0x208]
 	mov ebx, [edx+0x4]
 	cmp word [edx+0x8], 0x0
-	jz Z12G_DObjUpdateP9gentity_s:F(0,11)_50
+	jz Z12G_DObjUpdateP9gentity_s_F0_11_50
 	mov [esp], eax
-	call Z11G_EntUnlinkP9gentity_s:F(0,11)
-	jmp Z12G_DObjUpdateP9gentity_s:F(0,11)_60
-Z12G_DObjUpdateP9gentity_s:F(0,11)_20:
+	call Z11G_EntUnlinkP9gentity_s_F0_11
+	jmp Z12G_DObjUpdateP9gentity_s_F0_11_60
+Z12G_DObjUpdateP9gentity_s_F0_11_20:
 	mov eax, [edx*4+cached_models]
 	mov [ebp-0x78], eax
 	mov dword [ebp-0x74], 0x0
 	mov dword [ebp-0x70], 0x0
 	mov eax, [ecx+0x4]
 	test eax, eax
-	jz Z12G_DObjUpdateP9gentity_s:F(0,11)_70
+	jz Z12G_DObjUpdateP9gentity_s_F0_11_70
 	cmp eax, 0x6
-	jz Z12G_DObjUpdateP9gentity_s:F(0,11)_80
+	jz Z12G_DObjUpdateP9gentity_s_F0_11_80
 	cmp eax, 0x9
-	jz Z12G_DObjUpdateP9gentity_s:F(0,11)_80
-Z12G_DObjUpdateP9gentity_s:F(0,11)_120:
+	jz Z12G_DObjUpdateP9gentity_s_F0_11_80
+Z12G_DObjUpdateP9gentity_s_F0_11_120:
 	mov ebx, [ebp+0x8]
 	mov esi, ebx
 	mov dword [ebp-0x7c], 0x1
 	xor edi, edi
 	lea edx, [ebp-0xc]
 	mov [ebp-0x80], edx
-	jmp Z12G_DObjUpdateP9gentity_s:F(0,11)_90
-Z12G_DObjUpdateP9gentity_s:F(0,11)_110:
+	jmp Z12G_DObjUpdateP9gentity_s_F0_11_90
+Z12G_DObjUpdateP9gentity_s_F0_11_110:
 	add edi, 0x1
 	add ebx, 0x1
 	add esi, 0x2
 	cmp edi, 0x7
-	jz Z12G_DObjUpdateP9gentity_s:F(0,11)_100
-Z12G_DObjUpdateP9gentity_s:F(0,11)_90:
+	jz Z12G_DObjUpdateP9gentity_s_F0_11_100
+Z12G_DObjUpdateP9gentity_s_F0_11_90:
 	movzx eax, byte [ebx+0x210]
 	movzx edx, al
 	test al, al
-	jz Z12G_DObjUpdateP9gentity_s:F(0,11)_110
+	jz Z12G_DObjUpdateP9gentity_s_F0_11_110
 	mov eax, [edx*4+cached_models]
 	mov ecx, [ebp-0x80]
 	mov [ecx-0x60], eax
 	movzx eax, word [esi+0x218]
 	mov [esp], eax
-	call Z18SL_ConvertToStringj:F(0,2)
+	call Z18SL_ConvertToStringj_F0_2
 	mov edx, [ebp-0x80]
 	mov [edx-0x5c], eax
 	mov ecx, [ebp+0x8]
@@ -8817,13 +9409,13 @@ Z12G_DObjUpdateP9gentity_s:F(0,11)_90:
 	add dword [ebp-0x7c], 0x1
 	add edx, 0xc
 	mov [ebp-0x80], edx
-	jmp Z12G_DObjUpdateP9gentity_s:F(0,11)_110
-Z12G_DObjUpdateP9gentity_s:F(0,11)_70:
+	jmp Z12G_DObjUpdateP9gentity_s_F0_11_110
+Z12G_DObjUpdateP9gentity_s_F0_11_70:
 	mov eax, ecx
-Z12G_DObjUpdateP9gentity_s:F(0,11)_160:
+Z12G_DObjUpdateP9gentity_s_F0_11_160:
 	mov [eax+0x8c], edx
-	jmp Z12G_DObjUpdateP9gentity_s:F(0,11)_120
-Z12G_DObjUpdateP9gentity_s:F(0,11)_100:
+	jmp Z12G_DObjUpdateP9gentity_s_F0_11_120
+Z12G_DObjUpdateP9gentity_s_F0_11_100:
 	mov edx, [ebp+0x8]
 	mov eax, [edx]
 	mov [esp+0xc], eax
@@ -8832,43 +9424,43 @@ Z12G_DObjUpdateP9gentity_s:F(0,11)_100:
 	mov [esp+0x4], eax
 	lea eax, [ebp-0x78]
 	mov [esp], eax
-	call Z20Com_ServerDObjCreateP11DObjModel_stP11XAnimTree_si:F(0,4)
+	call Z20Com_ServerDObjCreateP11DObjModel_stP11XAnimTree_si_F0_4
 	mov ecx, [ebp+0x8]
 	mov esi, [ecx+0x20c]
 	test esi, esi
-	jnz Z12G_DObjUpdateP9gentity_s:F(0,11)_130
-	jmp Z12G_DObjUpdateP9gentity_s:F(0,11)_40
-Z12G_DObjUpdateP9gentity_s:F(0,11)_140:
+	jnz Z12G_DObjUpdateP9gentity_s_F0_11_130
+	jmp Z12G_DObjUpdateP9gentity_s_F0_11_40
+Z12G_DObjUpdateP9gentity_s_F0_11_140:
 	mov dword [ebx+0xc], 0xffffffff
-Z12G_DObjUpdateP9gentity_s:F(0,11)_150:
+Z12G_DObjUpdateP9gentity_s_F0_11_150:
 	test edi, edi
-	jz Z12G_DObjUpdateP9gentity_s:F(0,11)_40
+	jz Z12G_DObjUpdateP9gentity_s_F0_11_40
 	mov esi, edi
-Z12G_DObjUpdateP9gentity_s:F(0,11)_130:
+Z12G_DObjUpdateP9gentity_s_F0_11_130:
 	mov ebx, [esi+0x208]
 	mov edi, [ebx+0x4]
 	movzx eax, word [ebx+0x8]
 	test ax, ax
-	jz Z12G_DObjUpdateP9gentity_s:F(0,11)_140
+	jz Z12G_DObjUpdateP9gentity_s_F0_11_140
 	movzx eax, ax
 	mov [esp+0x4], eax
 	mov eax, [ebx]
 	mov [esp], eax
-	call Z19SV_DObjGetBoneIndexP9gentity_sj:F(0,1)
+	call Z19SV_DObjGetBoneIndexP9gentity_sj_F0_1
 	mov [ebx+0xc], eax
 	test eax, eax
-	jns Z12G_DObjUpdateP9gentity_s:F(0,11)_150
+	jns Z12G_DObjUpdateP9gentity_s_F0_11_150
 	mov [esp], esi
-	call Z11G_EntUnlinkP9gentity_s:F(0,11)
-	jmp Z12G_DObjUpdateP9gentity_s:F(0,11)_150
-Z12G_DObjUpdateP9gentity_s:F(0,11)_80:
+	call Z11G_EntUnlinkP9gentity_s_F0_11
+	jmp Z12G_DObjUpdateP9gentity_s_F0_11_150
+Z12G_DObjUpdateP9gentity_s_F0_11_80:
 	mov eax, [ebp+0x8]
-	jmp Z12G_DObjUpdateP9gentity_s:F(0,11)_160
+	jmp Z12G_DObjUpdateP9gentity_s_F0_11_160
 
 
-;Z14G_EntDetachAllP9gentity_s:F(0,11)
+;Z14G_EntDetachAllP9gentity_s_F0_11
 
-Z14G_EntDetachAllP9gentity_s:F(0,11):
+Z14G_EntDetachAllP9gentity_s_F0_11:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -8881,16 +9473,16 @@ Z14G_EntDetachAllP9gentity_s:F(0,11):
 	xor edi, edi
 	mov ebx, eax
 	add ebx, 0x218
-Z14G_EntDetachAllP9gentity_s:F(0,11)_10:
+Z14G_EntDetachAllP9gentity_s_F0_11_10:
 	mov byte [esi+0x210], 0x0
 	mov dword [esp+0x4], 0x0
 	mov [esp], ebx
-	call Z13Scr_SetStringPtj:F(0,5)
+	call Z13Scr_SetStringPtj_F0_5
 	add edi, 0x1
 	add ebx, 0x2
 	add esi, 0x1
 	cmp edi, 0x7
-	jnz Z14G_EntDetachAllP9gentity_s:F(0,11)_10
+	jnz Z14G_EntDetachAllP9gentity_s_F0_11_10
 	mov eax, [ebp-0x1c]
 	mov byte [eax+0x165], 0x0
 	mov [ebp+0x8], eax
@@ -8899,13 +9491,13 @@ Z14G_EntDetachAllP9gentity_s:F(0,11)_10:
 	pop esi
 	pop edi
 	pop ebp
-	jmp Z12G_DObjUpdateP9gentity_s:F(0,11)
+	jmp Z12G_DObjUpdateP9gentity_s_F0_11
 	nop
 
 
-;Z11G_EntDetachP9gentity_sPKcj:F(0,3)
+;Z11G_EntDetachP9gentity_sPKcj_F0_3
 
-Z11G_EntDetachP9gentity_sPKcj:F(0,3):
+Z11G_EntDetachP9gentity_sPKcj_F0_3:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -8915,36 +9507,36 @@ Z11G_EntDetachP9gentity_sPKcj:F(0,3):
 	mov esi, [ebp+0x8]
 	mov ebx, esi
 	xor edi, edi
-	jmp Z11G_EntDetachP9gentity_sPKcj:F(0,3)_10
-Z11G_EntDetachP9gentity_sPKcj:F(0,3)_30:
+	jmp Z11G_EntDetachP9gentity_sPKcj_F0_3_10
+Z11G_EntDetachP9gentity_sPKcj_F0_3_30:
 	add edi, 0x1
 	add ebx, 0x2
 	add esi, 0x1
 	cmp edi, 0x7
-	jz Z11G_EntDetachP9gentity_sPKcj:F(0,3)_20
-Z11G_EntDetachP9gentity_sPKcj:F(0,3)_10:
+	jz Z11G_EntDetachP9gentity_sPKcj_F0_3_20
+Z11G_EntDetachP9gentity_sPKcj_F0_3_10:
 	movzx eax, word [ebx+0x218]
 	cmp eax, [ebp+0x10]
-	jnz Z11G_EntDetachP9gentity_sPKcj:F(0,3)_30
+	jnz Z11G_EntDetachP9gentity_sPKcj_F0_3_30
 	movzx eax, byte [esi+0x210]
 	add eax, 0x14e
 	mov [esp], eax
-	call Z23SV_GetConfigstringConsti:F(0,7)
+	call Z23SV_GetConfigstringConsti_F0_7
 	mov edx, [ebp+0xc]
 	mov [esp+0x4], edx
 	mov [esp], eax
-	call Z7stricmpPKcS0_:F(0,1)
+	call Z7stricmpPKcS0__F0_1
 	test eax, eax
-	jnz Z11G_EntDetachP9gentity_sPKcj:F(0,3)_30
+	jnz Z11G_EntDetachP9gentity_sPKcj_F0_3_30
 	mov ecx, [ebp+0x8]
 	mov byte [edi+ecx+0x210], 0x0
 	lea eax, [ecx+edi*2+0x218]
 	mov [ebp-0x20], eax
 	mov dword [esp+0x4], 0x0
 	mov [esp], eax
-	call Z13Scr_SetStringPtj:F(0,5)
+	call Z13Scr_SetStringPtj_F0_5
 	cmp edi, 0x5
-	jg Z11G_EntDetachP9gentity_sPKcj:F(0,3)_40
+	jg Z11G_EntDetachP9gentity_sPKcj_F0_3_40
 	mov edx, [ebp+0x8]
 	lea edx, [edi+edx+0x211]
 	mov [ebp-0x1c], edx
@@ -8957,22 +9549,22 @@ Z11G_EntDetachP9gentity_sPKcj:F(0,3)_10:
 	sub eax, esi
 	mov [ebp-0x24], eax
 	mov ecx, edx
-	jmp Z11G_EntDetachP9gentity_sPKcj:F(0,3)_50
-Z11G_EntDetachP9gentity_sPKcj:F(0,3)_70:
+	jmp Z11G_EntDetachP9gentity_sPKcj_F0_3_50
+Z11G_EntDetachP9gentity_sPKcj_F0_3_70:
 	mov eax, 0x1
 	mov ecx, ebx
 	shl eax, cl
 	or dl, al
 	mov eax, [ebp+0x8]
 	mov [eax+0x165], dl
-Z11G_EntDetachP9gentity_sPKcj:F(0,3)_80:
+Z11G_EntDetachP9gentity_sPKcj_F0_3_80:
 	add dword [ebp-0x1c], 0x1
 	add esi, 0x2
 	cmp dword [ebp-0x2c], 0x6
-	jz Z11G_EntDetachP9gentity_sPKcj:F(0,3)_60
+	jz Z11G_EntDetachP9gentity_sPKcj_F0_3_60
 	mov ebx, [ebp-0x2c]
 	mov ecx, [ebp-0x1c]
-Z11G_EntDetachP9gentity_sPKcj:F(0,3)_50:
+Z11G_EntDetachP9gentity_sPKcj_F0_3_50:
 	lea edx, [ebx+0x1]
 	mov [ebp-0x2c], edx
 	movzx eax, byte [ecx]
@@ -8986,7 +9578,7 @@ Z11G_EntDetachP9gentity_sPKcj:F(0,3)_50:
 	movzx ecx, byte [ebp-0x2c]
 	sar eax, cl
 	test al, 0x1
-	jnz Z11G_EntDetachP9gentity_sPKcj:F(0,3)_70
+	jnz Z11G_EntDetachP9gentity_sPKcj_F0_3_70
 	mov eax, 0x1
 	mov ecx, ebx
 	shl eax, cl
@@ -8994,19 +9586,19 @@ Z11G_EntDetachP9gentity_sPKcj:F(0,3)_50:
 	and dl, al
 	mov eax, [ebp+0x8]
 	mov [eax+0x165], dl
-	jmp Z11G_EntDetachP9gentity_sPKcj:F(0,3)_80
-Z11G_EntDetachP9gentity_sPKcj:F(0,3)_20:
+	jmp Z11G_EntDetachP9gentity_sPKcj_F0_3_80
+Z11G_EntDetachP9gentity_sPKcj_F0_3_20:
 	xor eax, eax
-Z11G_EntDetachP9gentity_sPKcj:F(0,3)_90:
+Z11G_EntDetachP9gentity_sPKcj_F0_3_90:
 	add esp, 0x3c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z11G_EntDetachP9gentity_sPKcj:F(0,3)_60:
+Z11G_EntDetachP9gentity_sPKcj_F0_3_60:
 	mov edi, 0x6
-Z11G_EntDetachP9gentity_sPKcj:F(0,3)_40:
+Z11G_EntDetachP9gentity_sPKcj_F0_3_40:
 	mov edx, [ebp+0x8]
 	mov byte [edi+edx+0x210], 0x0
 	mov word [edx+edi*2+0x218], 0x0
@@ -9015,15 +9607,15 @@ Z11G_EntDetachP9gentity_sPKcj:F(0,3)_40:
 	rol eax, cl
 	and [edx+0x165], al
 	mov [esp], edx
-	call Z12G_DObjUpdateP9gentity_s:F(0,11)
+	call Z12G_DObjUpdateP9gentity_s_F0_11
 	mov eax, 0x1
-	jmp Z11G_EntDetachP9gentity_sPKcj:F(0,3)_90
+	jmp Z11G_EntDetachP9gentity_sPKcj_F0_3_90
 	nop
 
 
-;Z11G_EntAttachP9gentity_sPKcji:F(0,3)
+;Z11G_EntAttachP9gentity_sPKcji_F0_3
 
-Z11G_EntAttachP9gentity_sPKcji:F(0,3):
+Z11G_EntAttachP9gentity_sPKcji_F0_3:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -9035,14 +9627,14 @@ Z11G_EntAttachP9gentity_sPKcji:F(0,3):
 	xor esi, esi
 	mov dword [ebp-0x1c], 0x1
 	lea ebx, [edi+0x218]
-Z11G_EntAttachP9gentity_sPKcji:F(0,3)_20:
+Z11G_EntAttachP9gentity_sPKcji_F0_3_20:
 	cmp byte [eax+0x210], 0x0
-	jz Z11G_EntAttachP9gentity_sPKcji:F(0,3)_10
+	jz Z11G_EntAttachP9gentity_sPKcji_F0_3_10
 	add esi, 0x1
 	add ebx, 0x2
 	add eax, 0x1
 	cmp esi, 0x7
-	jnz Z11G_EntAttachP9gentity_sPKcji:F(0,3)_20
+	jnz Z11G_EntAttachP9gentity_sPKcji_F0_3_20
 	xor eax, eax
 	add esp, 0x2c
 	pop ebx
@@ -9050,43 +9642,43 @@ Z11G_EntAttachP9gentity_sPKcji:F(0,3)_20:
 	pop edi
 	pop ebp
 	ret
-Z11G_EntAttachP9gentity_sPKcji:F(0,3)_10:
+Z11G_EntAttachP9gentity_sPKcji_F0_3_10:
 	mov eax, [ebp+0xc]
 	mov [esp], eax
-	call Z12G_ModelIndexPKc:F(0,1)
+	call Z12G_ModelIndexPKc_F0_1
 	mov [esi+edi+0x210], al
 	mov ecx, [ebp+0x10]
 	mov [esp+0x4], ecx
 	mov [esp], ebx
-	call Z13Scr_SetStringPtj:F(0,5)
+	call Z13Scr_SetStringPtj_F0_5
 	mov ecx, [ebp+0x14]
 	test ecx, ecx
-	jnz Z11G_EntAttachP9gentity_sPKcji:F(0,3)_30
+	jnz Z11G_EntAttachP9gentity_sPKcji_F0_3_30
 	mov [esp], edi
-	call Z12G_DObjUpdateP9gentity_s:F(0,11)
+	call Z12G_DObjUpdateP9gentity_s_F0_11
 	mov eax, 0x1
-Z11G_EntAttachP9gentity_sPKcji:F(0,3)_40:
+Z11G_EntAttachP9gentity_sPKcji_F0_3_40:
 	add esp, 0x2c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z11G_EntAttachP9gentity_sPKcji:F(0,3)_30:
+Z11G_EntAttachP9gentity_sPKcji_F0_3_30:
 	mov ecx, esi
 	shl dword [ebp-0x1c], cl
 	movzx eax, byte [ebp-0x1c]
 	or [edi+0x165], al
 	mov [esp], edi
-	call Z12G_DObjUpdateP9gentity_s:F(0,11)
+	call Z12G_DObjUpdateP9gentity_s_F0_11
 	mov eax, 0x1
-	jmp Z11G_EntAttachP9gentity_sPKcji:F(0,3)_40
+	jmp Z11G_EntAttachP9gentity_sPKcji_F0_3_40
 	nop
 
 
-;Z7G_Spawnv:F(0,12)
+;Z7G_Spawnv_F0_12
 
-Z7G_Spawnv:F(0,12):
+Z7G_Spawnv_F0_12:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -9096,26 +9688,26 @@ Z7G_Spawnv:F(0,12):
 	mov ecx, [0x1acd721]
 	mov ebx, [ecx+0x10]
 	test ebx, ebx
-	jz Z7G_Spawnv:F(0,12)_10
+	jz Z7G_Spawnv_F0_12_10
 	mov eax, [ecx+0x1ec]
 	sub eax, [ebx+0x178]
 	cmp eax, 0x1f3
-	jle Z7G_Spawnv:F(0,12)_20
-Z7G_Spawnv:F(0,12)_50:
+	jle Z7G_Spawnv_F0_12_20
+Z7G_Spawnv_F0_12_50:
 	mov eax, [ebx+0x22c]
 	mov [ecx+0x10], eax
 	test eax, eax
-	jz Z7G_Spawnv:F(0,12)_30
-Z7G_Spawnv:F(0,12)_120:
+	jz Z7G_Spawnv_F0_12_30
+Z7G_Spawnv_F0_12_120:
 	mov dword [ebx+0x22c], 0x0
-	jmp Z7G_Spawnv:F(0,12)_40
-Z7G_Spawnv:F(0,12)_20:
+	jmp Z7G_Spawnv_F0_12_40
+Z7G_Spawnv_F0_12_20:
 	cmp dword [ecx+0xc], 0x3fd
-	jg Z7G_Spawnv:F(0,12)_50
-Z7G_Spawnv:F(0,12)_10:
+	jg Z7G_Spawnv_F0_12_50
+Z7G_Spawnv_F0_12_10:
 	cmp dword [ecx+0xc], 0x3fe
-	jz Z7G_Spawnv:F(0,12)_60
-Z7G_Spawnv:F(0,12)_110:
+	jz Z7G_Spawnv_F0_12_60
+Z7G_Spawnv_F0_12_110:
 	mov edx, [ecx+0xc]
 	lea eax, [edx+edx*4]
 	lea ebx, [eax*8]
@@ -9131,8 +9723,8 @@ Z7G_Spawnv:F(0,12)_110:
 	mov [esp+0x4], edx
 	mov eax, [ecx+0x4]
 	mov [esp], eax
-	call Z17SV_LocateGameDataP9gentity_siiP13playerState_si:F(0,53)
-Z7G_Spawnv:F(0,12)_40:
+	call Z17SV_LocateGameDataP9gentity_siiP13playerState_si_F0_53
+Z7G_Spawnv_F0_12_40:
 	mov dword [ebx+0x22c], 0x0
 	mov byte [ebx+0xfc], 0x1
 	mov eax, [0x1acd639]
@@ -9140,7 +9732,7 @@ Z7G_Spawnv:F(0,12)_40:
 	mov [esp+0x4], eax
 	lea eax, [ebx+0x168]
 	mov [esp], eax
-	call Z13Scr_SetStringPtj:F(0,5)
+	call Z13Scr_SetStringPtj_F0_5
 	mov eax, ebx
 	sub eax, [0x1acd709]
 	sar eax, 0x4
@@ -9156,14 +9748,14 @@ Z7G_Spawnv:F(0,12)_40:
 	pop edi
 	pop ebp
 	ret
-Z7G_Spawnv:F(0,12)_60:
+Z7G_Spawnv_F0_12_60:
 	xor esi, esi
 	mov ebx, [0x1acd709]
 	mov edi, ecx
-	jmp Z7G_Spawnv:F(0,12)_70
-Z7G_Spawnv:F(0,12)_90:
+	jmp Z7G_Spawnv_F0_12_70
+Z7G_Spawnv_F0_12_90:
 	mov eax, _cstring_null
-Z7G_Spawnv:F(0,12)_100:
+Z7G_Spawnv_F0_12_100:
 	movsd xmm0, qword [ebp-0x30]
 	movsd [esp+0x1c], xmm0
 	movsd xmm0, qword [ebp-0x28]
@@ -9173,12 +9765,12 @@ Z7G_Spawnv:F(0,12)_100:
 	mov [esp+0x8], eax
 	mov [esp+0x4], esi
 	mov dword [esp], _cstring_4i_s_origin_f_f_
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	add esi, 0x1
 	add ebx, 0x230
 	cmp esi, [edi+0xc]
-	jge Z7G_Spawnv:F(0,12)_80
-Z7G_Spawnv:F(0,12)_70:
+	jge Z7G_Spawnv_F0_12_80
+Z7G_Spawnv_F0_12_70:
 	cvtss2sd xmm0, [ebx+0x140]
 	movsd [ebp-0x30], xmm0
 	cvtss2sd xmm0, [ebx+0x13c]
@@ -9187,33 +9779,33 @@ Z7G_Spawnv:F(0,12)_70:
 	movsd [ebp-0x20], xmm0
 	movzx eax, word [ebx+0x168]
 	test ax, ax
-	jz Z7G_Spawnv:F(0,12)_90
+	jz Z7G_Spawnv_F0_12_90
 	movzx eax, ax
 	mov [esp], eax
-	call Z18SL_ConvertToStringj:F(0,2)
-	jmp Z7G_Spawnv:F(0,12)_100
-Z7G_Spawnv:F(0,12)_80:
+	call Z18SL_ConvertToStringj_F0_2
+	jmp Z7G_Spawnv_F0_12_100
+Z7G_Spawnv_F0_12_80:
 	mov dword [esp+0x4], _cstring_g_spawn_no_free_
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	mov ecx, edi
-	jmp Z7G_Spawnv:F(0,12)_110
-Z7G_Spawnv:F(0,12)_30:
+	jmp Z7G_Spawnv_F0_12_110
+Z7G_Spawnv_F0_12_30:
 	mov dword [ecx+0x14], 0x0
-	jmp Z7G_Spawnv:F(0,12)_120
+	jmp Z7G_Spawnv_F0_12_120
 	nop
 
 
-;Z12G_TempEntityPKfi:F(0,12)
+;Z12G_TempEntityPKfi_F0_12
 
-Z12G_TempEntityPKfi:F(0,12):
+Z12G_TempEntityPKfi_F0_12:
 	push ebp
 	mov ebp, esp
 	push esi
 	push ebx
 	sub esp, 0x10
 	mov esi, [ebp+0x8]
-	call Z7G_Spawnv:F(0,12)
+	call Z7G_Spawnv_F0_12
 	mov ebx, eax
 	mov eax, [ebp+0xc]
 	add eax, 0xa
@@ -9223,7 +9815,7 @@ Z12G_TempEntityPKfi:F(0,12):
 	mov [esp+0x4], eax
 	lea eax, [ebx+0x168]
 	mov [esp], eax
-	call Z13Scr_SetStringPtj:F(0,5)
+	call Z13Scr_SetStringPtj_F0_5
 	mov edx, [0x1acd721]
 	mov eax, [edx+0x1ec]
 	mov [ebx+0x178], eax
@@ -9253,7 +9845,7 @@ Z12G_TempEntityPKfi:F(0,12):
 	movss [eax+0x4], xmm1
 	movss [eax+0x8], xmm0
 	mov [esp], ebx
-	call Z13SV_LinkEntityP9gentity_s:F(0,23)
+	call Z13SV_LinkEntityP9gentity_s_F0_23
 	mov eax, ebx
 	add esp, 0x10
 	pop ebx
@@ -9263,9 +9855,9 @@ Z12G_TempEntityPKfi:F(0,12):
 	add [eax], al
 
 
-;Z18G_SpawnPlayerClonev:F(0,12)
+;Z18G_SpawnPlayerClonev_F0_12
 
-Z18G_SpawnPlayerClonev:F(0,12):
+Z18G_SpawnPlayerClonev_F0_12:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -9282,17 +9874,17 @@ Z18G_SpawnPlayerClonev:F(0,12):
 	lea ebx, [esi+0x8c00]
 	add eax, 0x1
 	and eax, 0x80000007
-	js Z18G_SpawnPlayerClonev:F(0,12)_10
-Z18G_SpawnPlayerClonev:F(0,12)_30:
+	js Z18G_SpawnPlayerClonev_F0_12_10
+Z18G_SpawnPlayerClonev_F0_12_30:
 	mov [ecx+0x1de4], eax
 	mov edi, [ebx+0x8]
 	and edi, 0x2
 	xor edi, 0x2
 	cmp byte [ebx+0xfc], 0x0
-	jz Z18G_SpawnPlayerClonev:F(0,12)_20
+	jz Z18G_SpawnPlayerClonev_F0_12_20
 	mov [esp], ebx
-	call Z12G_FreeEntityP9gentity_s:F(0,11)
-Z18G_SpawnPlayerClonev:F(0,12)_20:
+	call Z12G_FreeEntityP9gentity_s_F0_11
+Z18G_SpawnPlayerClonev_F0_12_20:
 	mov dword [ebx+0x22c], 0x0
 	mov byte [ebx+0xfc], 0x1
 	mov eax, [0x1acd639]
@@ -9300,7 +9892,7 @@ Z18G_SpawnPlayerClonev:F(0,12)_20:
 	mov [esp+0x4], eax
 	lea eax, [esi+0x8d68]
 	mov [esp], eax
-	call Z13Scr_SetStringPtj:F(0,5)
+	call Z13Scr_SetStringPtj_F0_5
 	mov eax, ebx
 	sub eax, [0x1acd709]
 	sar eax, 0x4
@@ -9317,17 +9909,17 @@ Z18G_SpawnPlayerClonev:F(0,12)_20:
 	pop edi
 	pop ebp
 	ret
-Z18G_SpawnPlayerClonev:F(0,12)_10:
+Z18G_SpawnPlayerClonev_F0_12_10:
 	sub eax, 0x1
 	or eax, 0xfffffff8
 	add eax, 0x1
-	jmp Z18G_SpawnPlayerClonev:F(0,12)_30
+	jmp Z18G_SpawnPlayerClonev_F0_12_30
 	nop
 
 
-;Z23G_DObjGetWorldTagMatrixP9gentity_sjPA3_f:F(0,3)
+;Z23G_DObjGetWorldTagMatrixP9gentity_sjPA3_f_F0_3
 
-Z23G_DObjGetWorldTagMatrixP9gentity_sjPA3_f:F(0,3):
+Z23G_DObjGetWorldTagMatrixP9gentity_sjPA3_f_F0_3:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -9338,24 +9930,24 @@ Z23G_DObjGetWorldTagMatrixP9gentity_sjPA3_f:F(0,3):
 	mov eax, [ebp+0xc]
 	mov [esp+0x4], eax
 	mov [esp], edi
-	call Z19SV_DObjGetBoneIndexP9gentity_sj:F(0,1)
+	call Z19SV_DObjGetBoneIndexP9gentity_sj_F0_1
 	mov ebx, eax
 	test eax, eax
-	js Z23G_DObjGetWorldTagMatrixP9gentity_sjPA3_f:F(0,3)_10
+	js Z23G_DObjGetWorldTagMatrixP9gentity_sjPA3_f_F0_3_10
 	mov [esp+0x4], eax
 	mov [esp], edi
-	call Z14G_DObjCalcBoneP9gentity_si:F(0,11)
+	call Z14G_DObjCalcBoneP9gentity_si_F0_11
 	mov [esp], edi
-	call Z21SV_DObjGetMatrixArrayP9gentity_s:F(0,74)
+	call Z21SV_DObjGetMatrixArrayP9gentity_s_F0_74
 	shl ebx, 0x5
 	mov esi, eax
 	add esi, ebx
-	jz Z23G_DObjGetWorldTagMatrixP9gentity_sjPA3_f:F(0,3)_10
+	jz Z23G_DObjGetWorldTagMatrixP9gentity_sjPA3_f_F0_3_10
 	lea ebx, [ebp-0x6c]
 	mov [esp+0x4], ebx
 	lea eax, [edi+0x144]
 	mov [esp], eax
-	call AnglesToAxis:F(0,18)
+	call AnglesToAxis_F0_18
 	lea edx, [edi+0x138]
 	mov eax, [edi+0x138]
 	mov [ebp-0x48], eax
@@ -9424,14 +10016,14 @@ Z23G_DObjGetWorldTagMatrixP9gentity_sjPA3_f:F(0,3):
 	mov [esp+0x4], ebx
 	lea eax, [ebp-0x3c]
 	mov [esp], eax
-	call MatrixMultiply:F(0,18)
+	call MatrixMultiply_F0_18
 	mov eax, [ebp+0x10]
 	add eax, 0x24
 	mov [esp+0x8], eax
 	mov [esp+0x4], ebx
 	lea eax, [esi+0x10]
 	mov [esp], eax
-	call Z23MatrixTransformVector43PKfPA3_S_Pf:F(0,18)
+	call Z23MatrixTransformVector43PKfPA3_S_Pf_F0_18
 	mov eax, 0x1
 	add esp, 0x9c
 	pop ebx
@@ -9439,7 +10031,7 @@ Z23G_DObjGetWorldTagMatrixP9gentity_sjPA3_f:F(0,3):
 	pop edi
 	pop ebp
 	ret
-Z23G_DObjGetWorldTagMatrixP9gentity_sjPA3_f:F(0,3)_10:
+Z23G_DObjGetWorldTagMatrixP9gentity_sjPA3_f_F0_3_10:
 	xor eax, eax
 	add esp, 0x9c
 	pop ebx
@@ -9449,9 +10041,9 @@ Z23G_DObjGetWorldTagMatrixP9gentity_sjPA3_f:F(0,3)_10:
 	ret
 
 
-;Z20G_DObjGetWorldTagPosP9gentity_sjPf:F(0,3)
+;Z20G_DObjGetWorldTagPosP9gentity_sjPf_F0_3
 
-Z20G_DObjGetWorldTagPosP9gentity_sjPf:F(0,3):
+Z20G_DObjGetWorldTagPosP9gentity_sjPf_F0_3:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -9462,24 +10054,24 @@ Z20G_DObjGetWorldTagPosP9gentity_sjPf:F(0,3):
 	mov eax, [ebp+0xc]
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call Z19SV_DObjGetBoneIndexP9gentity_sj:F(0,1)
+	call Z19SV_DObjGetBoneIndexP9gentity_sj_F0_1
 	mov ebx, eax
 	test eax, eax
-	js Z20G_DObjGetWorldTagPosP9gentity_sjPf:F(0,3)_10
+	js Z20G_DObjGetWorldTagPosP9gentity_sjPf_F0_3_10
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call Z14G_DObjCalcBoneP9gentity_si:F(0,11)
+	call Z14G_DObjCalcBoneP9gentity_si_F0_11
 	mov [esp], esi
-	call Z21SV_DObjGetMatrixArrayP9gentity_s:F(0,74)
+	call Z21SV_DObjGetMatrixArrayP9gentity_s_F0_74
 	shl ebx, 0x5
 	mov edi, eax
 	add edi, ebx
-	jz Z20G_DObjGetWorldTagPosP9gentity_sjPf:F(0,3)_10
+	jz Z20G_DObjGetWorldTagPosP9gentity_sjPf_F0_3_10
 	lea ebx, [ebp-0x48]
 	mov [esp+0x4], ebx
 	lea eax, [esi+0x144]
 	mov [esp], eax
-	call AnglesToAxis:F(0,18)
+	call AnglesToAxis_F0_18
 	lea edx, [esi+0x138]
 	mov eax, [esi+0x138]
 	mov [ebp-0x24], eax
@@ -9492,7 +10084,7 @@ Z20G_DObjGetWorldTagPosP9gentity_sjPf:F(0,3):
 	mov [esp+0x4], ebx
 	lea eax, [edi+0x10]
 	mov [esp], eax
-	call Z23MatrixTransformVector43PKfPA3_S_Pf:F(0,18)
+	call Z23MatrixTransformVector43PKfPA3_S_Pf_F0_18
 	mov eax, 0x1
 	add esp, 0x4c
 	pop ebx
@@ -9500,7 +10092,7 @@ Z20G_DObjGetWorldTagPosP9gentity_sjPf:F(0,3):
 	pop edi
 	pop ebp
 	ret
-Z20G_DObjGetWorldTagPosP9gentity_sjPf:F(0,3)_10:
+Z20G_DObjGetWorldTagPosP9gentity_sjPf_F0_3_10:
 	xor eax, eax
 	add esp, 0x4c
 	pop ebx
@@ -9511,9 +10103,9 @@ Z20G_DObjGetWorldTagPosP9gentity_sjPf:F(0,3)_10:
 	add [eax], al
 
 
-;Z9G_TriggerP9gentity_sS0_:F(0,1)
+;Z9G_TriggerP9gentity_sS0__F0_1
 
-Z9G_TriggerP9gentity_sS0_:F(0,1):
+Z9G_TriggerP9gentity_sS0__F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -9523,13 +10115,13 @@ Z9G_TriggerP9gentity_sS0_:F(0,1):
 	mov edi, [ebp+0x8]
 	mov esi, [ebp+0xc]
 	mov dword [esp], 0x1
-	call Z18Scr_IsSystemActiveh:F(0,2)
+	call Z18Scr_IsSystemActiveh_F0_2
 	test eax, eax
-	jz Z9G_TriggerP9gentity_sS0_:F(0,1)_10
+	jz Z9G_TriggerP9gentity_sS0__F0_1_10
 	mov ebx, [0x1acd721]
 	mov eax, [ebx+0x35e8]
 	cmp eax, 0x100
-	jz Z9G_TriggerP9gentity_sS0_:F(0,1)_20
+	jz Z9G_TriggerP9gentity_sS0__F0_1_20
 	lea edx, [eax+eax*2]
 	lea edx, [ebx+edx*4+0x1de0]
 	lea ecx, [edx+0x8]
@@ -9543,30 +10135,30 @@ Z9G_TriggerP9gentity_sS0_:F(0,1):
 	mov [ecx+0x4], eax
 	mov eax, [esi+0x228]
 	mov [ecx+0x8], eax
-Z9G_TriggerP9gentity_sS0_:F(0,1)_10:
+Z9G_TriggerP9gentity_sS0__F0_1_10:
 	add esp, 0x1c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z9G_TriggerP9gentity_sS0_:F(0,1)_20:
+Z9G_TriggerP9gentity_sS0__F0_1_20:
 	mov [esp], esi
-	call Z13Scr_AddEntityP9gentity_s:F(0,7)
+	call Z13Scr_AddEntityP9gentity_s_F0_7
 	mov dword [esp+0x8], 0x1
 	mov eax, [0x1acd639]
 	movzx eax, word [eax+0x54]
 	mov [esp+0x4], eax
 	mov [esp], edi
-	call Z10Scr_NotifyP9gentity_stj:F(0,7)
-	jmp Z9G_TriggerP9gentity_sS0_:F(0,1)_10
+	call Z10Scr_NotifyP9gentity_stj_F0_7
+	jmp Z9G_TriggerP9gentity_sS0__F0_1_10
 	nop
 	add [eax], al
 
 
-;Z8hurt_useP9gentity_sS0_S0_:F(0,1)
+;Z8hurt_useP9gentity_sS0_S0__F0_1
 
-Z27G_GrenadeTouchTriggerDamageP9gentity_sPfS1_ii:F(0,1):
+Z27G_GrenadeTouchTriggerDamageP9gentity_sPfS1_ii_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -9589,24 +10181,24 @@ Z27G_GrenadeTouchTriggerDamageP9gentity_sPfS1_ii:F(0,1):
 	mov [esp+0x4], ebx
 	mov eax, [ebp+0x10]
 	mov [esp], eax
-	call AddPointToBounds:F(0,18)
+	call AddPointToBounds_F0_18
 	mov dword [esp+0x10], 0x400000
 	mov dword [esp+0xc], 0x400
 	lea eax, [ebp-0x1030]
 	mov [esp+0x8], eax
 	mov [esp+0x4], esi
 	mov [esp], ebx
-	call Z15CM_AreaEntitiesPKfS0_Piii:F(0,7)
+	call Z15CM_AreaEntitiesPKfS0_Piii_F0_7
 	mov edi, eax
 	test eax, eax
-	jle Z27G_GrenadeTouchTriggerDamageP9gentity_sPfS1_ii:F(0,1)_10
+	jle Z27G_GrenadeTouchTriggerDamageP9gentity_sPfS1_ii_F0_1_10
 	xor esi, esi
-	jmp Z27G_GrenadeTouchTriggerDamageP9gentity_sPfS1_ii:F(0,1)_20
-Z27G_GrenadeTouchTriggerDamageP9gentity_sPfS1_ii:F(0,1)_30:
+	jmp Z27G_GrenadeTouchTriggerDamageP9gentity_sPfS1_ii_F0_1_20
+Z27G_GrenadeTouchTriggerDamageP9gentity_sPfS1_ii_F0_1_30:
 	add esi, 0x1
 	cmp edi, esi
-	jz Z27G_GrenadeTouchTriggerDamageP9gentity_sPfS1_ii:F(0,1)_10
-Z27G_GrenadeTouchTriggerDamageP9gentity_sPfS1_ii:F(0,1)_20:
+	jz Z27G_GrenadeTouchTriggerDamageP9gentity_sPfS1_ii_F0_1_10
+Z27G_GrenadeTouchTriggerDamageP9gentity_sPfS1_ii_F0_1_20:
 	mov eax, [ebp+esi*4-0x1030]
 	lea eax, [eax+eax*4]
 	lea ebx, [eax*8]
@@ -9616,9 +10208,9 @@ Z27G_GrenadeTouchTriggerDamageP9gentity_sPfS1_ii:F(0,1)_20:
 	movzx eax, word [ebx+0x168]
 	mov edx, [0x1acd639]
 	cmp ax, [edx+0x5a]
-	jnz Z27G_GrenadeTouchTriggerDamageP9gentity_sPfS1_ii:F(0,1)_30
+	jnz Z27G_GrenadeTouchTriggerDamageP9gentity_sPfS1_ii_F0_1_30
 	test byte [ebx+0x175], 0x40
-	jz Z27G_GrenadeTouchTriggerDamageP9gentity_sPfS1_ii:F(0,1)_30
+	jz Z27G_GrenadeTouchTriggerDamageP9gentity_sPfS1_ii_F0_1_30
 	mov dword [esp+0x14], 0xffffffff
 	mov eax, [ebx]
 	mov [esp+0x10], eax
@@ -9629,21 +10221,21 @@ Z27G_GrenadeTouchTriggerDamageP9gentity_sPfS1_ii:F(0,1)_20:
 	mov [esp+0x4], edx
 	mov eax, [ebp+0xc]
 	mov [esp], eax
-	call Z21SV_SightTraceToEntityPKfS0_S0_S0_ii:F(0,2)
+	call Z21SV_SightTraceToEntityPKfS0_S0_S0_ii_F0_2
 	test eax, eax
-	jz Z27G_GrenadeTouchTriggerDamageP9gentity_sPfS1_ii:F(0,1)_30
+	jz Z27G_GrenadeTouchTriggerDamageP9gentity_sPfS1_ii_F0_1_30
 	mov edx, [ebp+0x8]
 	mov [esp], edx
-	call Z13Scr_AddEntityP9gentity_s:F(0,7)
+	call Z13Scr_AddEntityP9gentity_s_F0_7
 	mov eax, [ebp+0x14]
 	mov [esp], eax
-	call Z10Scr_AddInti:F(0,1)
+	call Z10Scr_AddInti_F0_1
 	mov dword [esp+0x8], 0x2
 	mov edx, [0x1acd639]
 	movzx eax, word [edx+0x8]
 	mov [esp+0x4], eax
 	mov [esp], ebx
-	call Z10Scr_NotifyP9gentity_stj:F(0,7)
+	call Z10Scr_NotifyP9gentity_stj_F0_7
 	mov eax, [ebp+0x18]
 	mov [esp+0xc], eax
 	mov edx, [ebp+0x14]
@@ -9651,13 +10243,13 @@ Z27G_GrenadeTouchTriggerDamageP9gentity_sPfS1_ii:F(0,1)_20:
 	mov eax, [ebp+0x8]
 	mov [esp+0x4], eax
 	mov [esp], ebx
-	call Z23Activate_trigger_damageP9gentity_sS0_ii:F(0,1)
+	call Z23Activate_trigger_damageP9gentity_sS0_ii_F0_1
 	mov edx, [ebx+0x1ac]
 	test edx, edx
-	jnz Z27G_GrenadeTouchTriggerDamageP9gentity_sPfS1_ii:F(0,1)_30
+	jnz Z27G_GrenadeTouchTriggerDamageP9gentity_sPfS1_ii_F0_1_30
 	mov dword [ebx+0x194], 0x7d00
-	jmp Z27G_GrenadeTouchTriggerDamageP9gentity_sPfS1_ii:F(0,1)_30
-Z27G_GrenadeTouchTriggerDamageP9gentity_sPfS1_ii:F(0,1)_10:
+	jmp Z27G_GrenadeTouchTriggerDamageP9gentity_sPfS1_ii_F0_1_30
+Z27G_GrenadeTouchTriggerDamageP9gentity_sPfS1_ii_F0_1_10:
 	add esp, 0x104c
 	pop ebx
 	pop esi
@@ -9666,9 +10258,9 @@ Z27G_GrenadeTouchTriggerDamageP9gentity_sPfS1_ii:F(0,1)_10:
 	ret
 
 
-;Z23G_CheckHitTriggerDamageP9gentity_sPfS1_ii:F(0,1)
+;Z23G_CheckHitTriggerDamageP9gentity_sPfS1_ii_F0_1
 
-Z23G_CheckHitTriggerDamageP9gentity_sPfS1_ii:F(0,1):
+Z23G_CheckHitTriggerDamageP9gentity_sPfS1_ii_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -9691,24 +10283,24 @@ Z23G_CheckHitTriggerDamageP9gentity_sPfS1_ii:F(0,1):
 	mov [esp+0x4], ebx
 	mov eax, [ebp+0x10]
 	mov [esp], eax
-	call AddPointToBounds:F(0,18)
+	call AddPointToBounds_F0_18
 	mov dword [esp+0x10], 0x400000
 	mov dword [esp+0xc], 0x400
 	lea eax, [ebp-0x1030]
 	mov [esp+0x8], eax
 	mov [esp+0x4], esi
 	mov [esp], ebx
-	call Z15CM_AreaEntitiesPKfS0_Piii:F(0,7)
+	call Z15CM_AreaEntitiesPKfS0_Piii_F0_7
 	mov edi, eax
 	test eax, eax
-	jle Z23G_CheckHitTriggerDamageP9gentity_sPfS1_ii:F(0,1)_10
+	jle Z23G_CheckHitTriggerDamageP9gentity_sPfS1_ii_F0_1_10
 	xor esi, esi
-	jmp Z23G_CheckHitTriggerDamageP9gentity_sPfS1_ii:F(0,1)_20
-Z23G_CheckHitTriggerDamageP9gentity_sPfS1_ii:F(0,1)_30:
+	jmp Z23G_CheckHitTriggerDamageP9gentity_sPfS1_ii_F0_1_20
+Z23G_CheckHitTriggerDamageP9gentity_sPfS1_ii_F0_1_30:
 	add esi, 0x1
 	cmp edi, esi
-	jz Z23G_CheckHitTriggerDamageP9gentity_sPfS1_ii:F(0,1)_10
-Z23G_CheckHitTriggerDamageP9gentity_sPfS1_ii:F(0,1)_20:
+	jz Z23G_CheckHitTriggerDamageP9gentity_sPfS1_ii_F0_1_10
+Z23G_CheckHitTriggerDamageP9gentity_sPfS1_ii_F0_1_20:
 	mov eax, [ebp+esi*4-0x1030]
 	lea eax, [eax+eax*4]
 	lea ebx, [eax*8]
@@ -9718,7 +10310,7 @@ Z23G_CheckHitTriggerDamageP9gentity_sPfS1_ii:F(0,1)_20:
 	movzx eax, word [ebx+0x168]
 	mov edx, [0x1acd639]
 	cmp ax, [edx+0x5a]
-	jnz Z23G_CheckHitTriggerDamageP9gentity_sPfS1_ii:F(0,1)_30
+	jnz Z23G_CheckHitTriggerDamageP9gentity_sPfS1_ii_F0_1_30
 	mov dword [esp+0x14], 0xffffffff
 	mov eax, [ebx]
 	mov [esp+0x10], eax
@@ -9729,21 +10321,21 @@ Z23G_CheckHitTriggerDamageP9gentity_sPfS1_ii:F(0,1)_20:
 	mov [esp+0x4], edx
 	mov eax, [ebp+0xc]
 	mov [esp], eax
-	call Z21SV_SightTraceToEntityPKfS0_S0_S0_ii:F(0,2)
+	call Z21SV_SightTraceToEntityPKfS0_S0_S0_ii_F0_2
 	test eax, eax
-	jz Z23G_CheckHitTriggerDamageP9gentity_sPfS1_ii:F(0,1)_30
+	jz Z23G_CheckHitTriggerDamageP9gentity_sPfS1_ii_F0_1_30
 	mov edx, [ebp+0x8]
 	mov [esp], edx
-	call Z13Scr_AddEntityP9gentity_s:F(0,7)
+	call Z13Scr_AddEntityP9gentity_s_F0_7
 	mov eax, [ebp+0x14]
 	mov [esp], eax
-	call Z10Scr_AddInti:F(0,1)
+	call Z10Scr_AddInti_F0_1
 	mov dword [esp+0x8], 0x2
 	mov edx, [0x1acd639]
 	movzx eax, word [edx+0x8]
 	mov [esp+0x4], eax
 	mov [esp], ebx
-	call Z10Scr_NotifyP9gentity_stj:F(0,7)
+	call Z10Scr_NotifyP9gentity_stj_F0_7
 	mov eax, [ebp+0x18]
 	mov [esp+0xc], eax
 	mov edx, [ebp+0x14]
@@ -9751,15 +10343,15 @@ Z23G_CheckHitTriggerDamageP9gentity_sPfS1_ii:F(0,1)_20:
 	mov eax, [ebp+0x8]
 	mov [esp+0x4], eax
 	mov [esp], ebx
-	call Z23Activate_trigger_damageP9gentity_sS0_ii:F(0,1)
+	call Z23Activate_trigger_damageP9gentity_sS0_ii_F0_1
 	mov ecx, [ebx+0x1ac]
 	test ecx, ecx
-	jnz Z23G_CheckHitTriggerDamageP9gentity_sPfS1_ii:F(0,1)_30
+	jnz Z23G_CheckHitTriggerDamageP9gentity_sPfS1_ii_F0_1_30
 	mov dword [ebx+0x194], 0x7d00
 	add esi, 0x1
 	cmp edi, esi
-	jnz Z23G_CheckHitTriggerDamageP9gentity_sPfS1_ii:F(0,1)_20
-Z23G_CheckHitTriggerDamageP9gentity_sPfS1_ii:F(0,1)_10:
+	jnz Z23G_CheckHitTriggerDamageP9gentity_sPfS1_ii_F0_1_20
+Z23G_CheckHitTriggerDamageP9gentity_sPfS1_ii_F0_1_10:
 	add esp, 0x104c
 	pop ebx
 	pop esi
@@ -9769,9 +10361,9 @@ Z23G_CheckHitTriggerDamageP9gentity_sPfS1_ii:F(0,1)_10:
 	nop
 
 
-;Z18Die_trigger_damageP9gentity_sS0_S0_iiiPKf13hitLocation_ti:F(0,1)
+;Z18Die_trigger_damageP9gentity_sS0_S0_iiiPKf13hitLocation_ti_F0_1
 
-Z15InitScriptMoverP9gentity_s:F(0,1):
+Z15InitScriptMoverP9gentity_s_F0_1:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -9780,8 +10372,8 @@ Z15InitScriptMoverP9gentity_s:F(0,1):
 	mov esi, [ebp+0x8]
 	mov eax, [0x1acd721]
 	cmp byte [eax+0x1348], 0x0
-	jnz Z15InitScriptMoverP9gentity_s:F(0,1)_10
-Z15InitScriptMoverP9gentity_s:F(0,1)_30:
+	jnz Z15InitScriptMoverP9gentity_s_F0_1_10
+Z15InitScriptMoverP9gentity_s_F0_1_30:
 	mov byte [esi+0x166], 0x5
 	mov byte [esi+0xf2], 0x0
 	mov dword [esi+0x4], 0x6
@@ -9809,23 +10401,23 @@ Z15InitScriptMoverP9gentity_s:F(0,1)_30:
 	pop esi
 	pop ebp
 	ret
-Z15InitScriptMoverP9gentity_s:F(0,1)_10:
+Z15InitScriptMoverP9gentity_s_F0_1_10:
 	lea eax, [ebp-0xc]
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], _cstring_100
 	mov dword [esp], _cstring_light
-	call Z12G_SpawnFloatPKcS0_Pf:F(0,1)
+	call Z12G_SpawnFloatPKcS0_Pf_F0_1
 	mov ebx, eax
 	lea eax, [ebp-0x18]
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], _cstring_1_1_1
 	mov dword [esp], _cstring_color
-	call Z13G_SpawnVectorPKcS0_Pf:F(0,1)
+	call Z13G_SpawnVectorPKcS0_Pf_F0_1
 	test ebx, ebx
-	jnz Z15InitScriptMoverP9gentity_s:F(0,1)_20
+	jnz Z15InitScriptMoverP9gentity_s_F0_1_20
 	test eax, eax
-	jz Z15InitScriptMoverP9gentity_s:F(0,1)_30
-Z15InitScriptMoverP9gentity_s:F(0,1)_20:
+	jz Z15InitScriptMoverP9gentity_s_F0_1_30
+Z15InitScriptMoverP9gentity_s_F0_1_20:
 	movss xmm1, dword [_float_255_00000000]
 	movss xmm0, dword [ebp-0x18]
 	mulss xmm0, xmm1
@@ -9837,51 +10429,51 @@ Z15InitScriptMoverP9gentity_s:F(0,1)_20:
 	mulss xmm0, xmm1
 	cvttss2si eax, xmm0
 	cmp eax, 0xff
-	jle Z15InitScriptMoverP9gentity_s:F(0,1)_40
+	jle Z15InitScriptMoverP9gentity_s_F0_1_40
 	mov ebx, 0xff00
 	movaps xmm0, xmm1
 	mulss xmm0, [ebp-0x10]
 	cvttss2si eax, xmm0
 	cmp eax, 0xff
-	jle Z15InitScriptMoverP9gentity_s:F(0,1)_50
-Z15InitScriptMoverP9gentity_s:F(0,1)_70:
+	jle Z15InitScriptMoverP9gentity_s_F0_1_50
+Z15InitScriptMoverP9gentity_s_F0_1_70:
 	mov ecx, input+0x26e0
 	movss xmm0, dword [_float_0_25000000]
 	mulss xmm0, [ebp-0xc]
 	cvttss2si eax, xmm0
 	cmp eax, 0xff
-	jle Z15InitScriptMoverP9gentity_s:F(0,1)_60
-Z15InitScriptMoverP9gentity_s:F(0,1)_80:
+	jle Z15InitScriptMoverP9gentity_s_F0_1_60
+Z15InitScriptMoverP9gentity_s_F0_1_80:
 	mov eax, 0xff000000
-Z15InitScriptMoverP9gentity_s:F(0,1)_90:
+Z15InitScriptMoverP9gentity_s_F0_1_90:
 	or edx, ebx
 	or edx, ecx
 	or edx, eax
 	mov [esi+0x80], edx
-	jmp Z15InitScriptMoverP9gentity_s:F(0,1)_30
-Z15InitScriptMoverP9gentity_s:F(0,1)_40:
+	jmp Z15InitScriptMoverP9gentity_s_F0_1_30
+Z15InitScriptMoverP9gentity_s_F0_1_40:
 	mov ebx, eax
 	shl ebx, 0x8
 	movaps xmm0, xmm1
 	mulss xmm0, [ebp-0x10]
 	cvttss2si eax, xmm0
 	cmp eax, 0xff
-	jg Z15InitScriptMoverP9gentity_s:F(0,1)_70
-Z15InitScriptMoverP9gentity_s:F(0,1)_50:
+	jg Z15InitScriptMoverP9gentity_s_F0_1_70
+Z15InitScriptMoverP9gentity_s_F0_1_50:
 	mov ecx, eax
 	shl ecx, 0x10
 	movss xmm0, dword [_float_0_25000000]
 	mulss xmm0, [ebp-0xc]
 	cvttss2si eax, xmm0
 	cmp eax, 0xff
-	jg Z15InitScriptMoverP9gentity_s:F(0,1)_80
-Z15InitScriptMoverP9gentity_s:F(0,1)_60:
+	jg Z15InitScriptMoverP9gentity_s_F0_1_80
+Z15InitScriptMoverP9gentity_s_F0_1_60:
 	shl eax, 0x18
-	jmp Z15InitScriptMoverP9gentity_s:F(0,1)_90
+	jmp Z15InitScriptMoverP9gentity_s_F0_1_90
 	nop
 
 
-;Z16SP_script_originP9gentity_s:F(0,1)
+;Z16SP_script_originP9gentity_s_F0_1
 
 _Z22ScriptMover_UpdatemoveP12trajectory_tPffffPKfS3_S3_:
 	push ebp
@@ -9996,7 +10588,7 @@ _Z22ScriptMover_UpdatemoveP12trajectory_tPffffPKfS3_S3__20:
 	movss [ebp-0x1c], xmm0
 	lea eax, [ebp-0x24]
 	mov [esp], eax
-	call Vec3Normalize:F(0,7)
+	call Vec3Normalize_F0_7
 	fstp st0
 	movss xmm2, dword [ebp-0x2c]
 	mulss xmm2, [ebp-0x24]
@@ -10021,11 +10613,11 @@ _Z22ScriptMover_UpdatemoveP12trajectory_tPffffPKfS3_S3__30:
 	mov eax, [eax+0x1ec]
 	mov [esp+0x4], eax
 	mov [esp], ebx
-	call Z21BG_EvaluateTrajectoryPK12trajectory_tiPf:F(0,1)
+	call Z21BG_EvaluateTrajectoryPK12trajectory_tiPf_F0_1
 	jmp _Z22ScriptMover_UpdatemoveP12trajectory_tPffffPKfS3_S3__60
 
 
-;Z19Reached_ScriptMoverP9gentity_s:F(0,1)
+;Z19Reached_ScriptMoverP9gentity_s_F0_1
 
 _Z21ScriptMover_SetupMoveP12trajectory_tPKffffPfS3_S3_S3_S3_S3_S3_:
 	push ebp
@@ -10096,7 +10688,7 @@ _Z21ScriptMover_SetupMoveP12trajectory_tPKffffPfS3_S3_S3_S3_S3_S3__20:
 	mov [esp+0x4], eax
 	lea eax, [ebp-0x24]
 	mov [esp], eax
-	call Vec3NormalizeTo:F(0,7)
+	call Vec3NormalizeTo_F0_7
 	fstp st0
 	mov ecx, [ebp+0x8]
 	movss xmm0, dword [ecx]
@@ -10156,7 +10748,7 @@ _Z21ScriptMover_SetupMoveP12trajectory_tPKffffPfS3_S3_S3_S3_S3_S3__50:
 	movss [ebp-0x20], xmm1
 	mulss xmm0, [ebp-0x28]
 	movss [ebp-0x1c], xmm0
-	cvtsi2ss xmm0, dword [esi+0x8]
+	cvtsi2ss xmm0, [esi+0x8]
 	divss xmm2, xmm0
 	lea eax, [esi+0x18]
 	movaps xmm0, xmm2
@@ -10199,7 +10791,7 @@ _Z21ScriptMover_SetupMoveP12trajectory_tPKffffPfS3_S3_S3_S3_S3_S3__70:
 	mov eax, [ecx+0x1ec]
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call Z21BG_EvaluateTrajectoryPK12trajectory_tiPf:F(0,1)
+	call Z21BG_EvaluateTrajectoryPK12trajectory_tiPf_F0_1
 	add esp, 0x7c
 	pop ebx
 	pop esi
@@ -10261,7 +10853,7 @@ _Z21ScriptMover_SetupMoveP12trajectory_tPKffffPfS3_S3_S3_S3_S3_S3__30:
 	mov [edx+0x4], eax
 	mov eax, [edi+0x8]
 	mov [edx+0x8], eax
-	cvtsi2ss xmm0, dword [esi+0x8]
+	cvtsi2ss xmm0, [esi+0x8]
 	divss xmm1, xmm0
 	lea eax, [esi+0x18]
 	movaps xmm0, xmm1
@@ -10277,7 +10869,7 @@ _Z21ScriptMover_SetupMoveP12trajectory_tPKffffPfS3_S3_S3_S3_S3_S3__30:
 	mov eax, [ecx+0x1ec]
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call Z21BG_EvaluateTrajectoryPK12trajectory_tiPf:F(0,1)
+	call Z21BG_EvaluateTrajectoryPK12trajectory_tiPf_F0_1
 	add esp, 0x7c
 	pop ebx
 	pop esi
@@ -10292,7 +10884,7 @@ _Z21ScriptMover_SetupMoveP12trajectory_tPKffffPfS3_S3_S3_S3_S3_S3__10:
 	mov [esp], esi
 	movss [ebp-0x68], xmm3
 	movss [ebp-0x78], xmm2
-	call Z21BG_EvaluateTrajectoryPK12trajectory_tiPf:F(0,1)
+	call Z21BG_EvaluateTrajectoryPK12trajectory_tiPf_F0_1
 	movss xmm4, dword [ebp-0x78]
 	movss xmm3, dword [ebp-0x68]
 	movss xmm0, dword [ebp-0x4c]
@@ -10325,13 +10917,13 @@ _Z21ScriptMover_SetupMoveP12trajectory_tPKffffPfS3_S3_S3_S3_S3_S3__40:
 	add eax, [esi+0x8]
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call Z21BG_EvaluateTrajectoryPK12trajectory_tiPf:F(0,1)
+	call Z21BG_EvaluateTrajectoryPK12trajectory_tiPf_F0_1
 	mov ecx, [0x1acd721]
 	jmp _Z21ScriptMover_SetupMoveP12trajectory_tPKffffPfS3_S3_S3_S3_S3_S3__70
 	nop
 
 
-;Z20ScriptEnt_RotateAxis12scr_entref_ti:F(0,1)
+;Z20ScriptEnt_RotateAxis12scr_entref_ti_F0_1
 
 _Z18trigger_use_sharedP9gentity_s:
 	push ebp
@@ -10342,9 +10934,9 @@ _Z18trigger_use_sharedP9gentity_s:
 	sub esp, 0x42c
 	mov edi, eax
 	mov [esp], eax
-	call Z16SV_SetBrushModelP9gentity_s:F(0,53)
+	call Z16SV_SetBrushModelP9gentity_s_F0_53
 	mov [esp], edi
-	call Z13SV_LinkEntityP9gentity_s:F(0,23)
+	call Z13SV_LinkEntityP9gentity_s_F0_23
 	mov dword [edi+0x1b4], 0x3ff
 	mov dword [edi+0xc], 0x0
 	lea ecx, [edi+0x18]
@@ -10363,7 +10955,7 @@ _Z18trigger_use_sharedP9gentity_s:
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], _cstring_null
 	mov dword [esp], _cstring_cursorhint
-	call Z13G_SpawnStringPKcS0_PS0_:F(0,1)
+	call Z13G_SpawnStringPKcS0_PS0__F0_1
 	test eax, eax
 	jnz _Z18trigger_use_sharedP9gentity_s_10
 _Z18trigger_use_sharedP9gentity_s_100:
@@ -10372,7 +10964,7 @@ _Z18trigger_use_sharedP9gentity_s_100:
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], _cstring_null
 	mov dword [esp], _cstring_hintstring
-	call Z13G_SpawnStringPKcS0_PS0_:F(0,1)
+	call Z13G_SpawnStringPKcS0_PS0__F0_1
 	test eax, eax
 	jnz _Z18trigger_use_sharedP9gentity_s_20
 	add esp, 0x42c
@@ -10401,13 +10993,13 @@ _Z18trigger_use_sharedP9gentity_s_30:
 	lea edx, [ebp-0x41c]
 	mov [esp+0x4], edx
 	mov [esp], ebx
-	call Z18SV_GetConfigstringiPci:F(0,3)
+	call Z18SV_GetConfigstringiPci_F0_3
 	cmp byte [ebp-0x41c], 0x0
 	jnz _Z18trigger_use_sharedP9gentity_s_60
 	mov eax, [ebp-0x1c]
 	mov [esp+0x4], eax
 	mov [esp], ebx
-	call Z18SV_SetConfigstringiPKc:F(0,3)
+	call Z18SV_SetConfigstringiPKc_F0_3
 	mov edx, esi
 	movzx eax, dl
 	mov [edi+0xd8], eax
@@ -10421,7 +11013,7 @@ _Z18trigger_use_sharedP9gentity_s_10:
 	mov dword [esp+0x4], _cstring_hint_inherit
 	mov eax, [ebp-0x1c]
 	mov [esp], eax
-	call I_stricmp:F(0,2)
+	call I_stricmp_F0_2
 	test eax, eax
 	jz _Z18trigger_use_sharedP9gentity_s_70
 	mov esi, 0x1
@@ -10431,7 +11023,7 @@ _Z18trigger_use_sharedP9gentity_s_90:
 	mov [esp+0x4], eax
 	mov eax, [ebp-0x1c]
 	mov [esp], eax
-	call I_stricmp:F(0,2)
+	call I_stricmp_F0_2
 	test eax, eax
 	jz _Z18trigger_use_sharedP9gentity_s_80
 	add esi, 0x1
@@ -10456,7 +11048,7 @@ _Z18trigger_use_sharedP9gentity_s_50:
 	mov dword [esp+0x8], 0x20
 	mov dword [esp+0x4], _cstring_too_many_differe2
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	add esp, 0x42c
 	pop ebx
 	pop esi
@@ -10469,9 +11061,9 @@ _Z18trigger_use_sharedP9gentity_s_80:
 	nop
 
 
-;Z11trigger_useP9gentity_s:F(0,79)
+;Z11trigger_useP9gentity_s_F0_79
 
-Z11trigger_useP9gentity_s:F(0,79):
+Z11trigger_useP9gentity_s_F0_79:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -10479,9 +11071,9 @@ Z11trigger_useP9gentity_s:F(0,79):
 	jmp _Z18trigger_use_sharedP9gentity_s
 
 
-;Z17trigger_use_touchP9gentity_s:F(0,79)
+;Z17trigger_use_touchP9gentity_s_F0_79
 
-Z17trigger_use_touchP9gentity_s:F(0,79):
+Z17trigger_use_touchP9gentity_s_F0_79:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -10489,9 +11081,9 @@ Z17trigger_use_touchP9gentity_s:F(0,79):
 	jmp _Z18trigger_use_sharedP9gentity_s
 
 
-;Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)
+;Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24
 
-Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24):
+Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -10519,7 +11111,7 @@ Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24):
 	mov [esp+0x4], eax
 	mov edx, [ebp+0x14]
 	mov [esp], edx
-	call AngleVectors:F(0,18)
+	call AngleVectors_F0_18
 	movss xmm0, dword [_ZZ25CG_DrawRotatedPicPhysicalfffffPKfP8MaterialE4sign+0x170]
 	movss xmm1, dword [ebp-0x48]
 	xorps xmm1, xmm0
@@ -10532,23 +11124,23 @@ Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24):
 	movss [ebp-0x40], xmm1
 	xor esi, esi
 	lea eax, [ebp-0x9c]
-Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_30:
+Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_30:
 	lea ecx, [ebp+esi*4-0x54]
 	mov edx, eax
 	lea ebx, [eax+0xc]
-Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_10:
+Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_10:
 	mov eax, [ecx]
 	mov [edx], eax
 	add ecx, 0xc
 	add edx, 0x4
 	cmp ebx, edx
-	jnz Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_10
+	jnz Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_10
 	add esi, 0x1
 	cmp esi, 0x3
-	jz Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_20
+	jz Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_20
 	mov eax, ebx
-	jmp Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_30
-Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_20:
+	jmp Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_30
+Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_20:
 	mov eax, [ebp+0xc]
 	add eax, 0x138
 	movss xmm5, dword [ebp-0x24]
@@ -10596,11 +11188,11 @@ Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_20:
 	movss [ebp-0x1c], xmm0
 	mov eax, [edi+0x184]
 	test eax, eax
-	jnz Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_40
+	jnz Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_40
 	mov ax, 0x811
-Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_210:
+Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_210:
 	cmp dword [edi+0x4], 0x4
-	jz Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_50
+	jz Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_50
 	mov [esp+0x18], eax
 	mov eax, [edi]
 	mov [esp+0x14], eax
@@ -10613,10 +11205,10 @@ Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_210:
 	mov [esp+0x4], eax
 	lea edx, [ebp-0x78]
 	mov [esp], edx
-	call Z14G_TraceCapsuleP7trace_tPKfS2_S2_S2_ii:F(0,2)
-Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_330:
+	call Z14G_TraceCapsuleP7trace_tPKfS2_S2_S2_ii_F0_2
+Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_330:
 	cmp word [ebp-0x56], 0x0
-	jz Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_60
+	jz Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_60
 	movzx edx, word [ebp-0x5c]
 	lea edx, [edx+edx*4]
 	lea eax, [edx*8]
@@ -10624,13 +11216,13 @@ Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_330:
 	shl eax, 0x4
 	add eax, [0x1acd709]
 	test eax, eax
-	jz Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_60
+	jz Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_60
 	cvtss2sd xmm3, [edi+0x110]
 	movsd xmm4, qword [_double_0_50000000]
 	movapd xmm0, xmm3
 	mulsd xmm0, xmm4
 	ucomisd xmm0, [_double_4_00000000]
-	jbe Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_70
+	jbe Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_70
 	movss xmm1, dword [ebp-0x24]
 	movss [ebp-0xac], xmm1
 	movss xmm1, dword [ebp-0x20]
@@ -10638,46 +11230,46 @@ Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_330:
 	movss xmm1, dword [ebp-0x1c]
 	movss [ebp-0xb4], xmm1
 	ucomisd xmm0, [_double_0_00000000]
-	jbe Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_70
+	jbe Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_70
 	pxor xmm6, xmm6
 	movaps xmm2, xmm6
 	movss xmm7, dword [_float_4_00000000]
-Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_280:
+Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_280:
 	movaps xmm0, xmm6
 	xorps xmm0, [_ZZ25CG_DrawRotatedPicPhysicalfffffPKfP8MaterialE4sign+0x170]
 	movss [ebp-0xc0], xmm0
 	ucomiss xmm6, xmm0
-	jb Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_80
+	jb Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_80
 	movaps xmm1, xmm6
 	addss xmm1, xmm6
 	movss [ebp-0xcc], xmm1
-Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_270:
+Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_270:
 	movapd xmm0, xmm3
 	mulsd xmm0, xmm4
 	ucomisd xmm0, [_double_4_00000000]
-	jbe Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_90
+	jbe Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_90
 	movaps xmm5, xmm7
-Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_250:
+Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_250:
 	movaps xmm0, xmm5
 	xorps xmm0, [_ZZ25CG_DrawRotatedPicPhysicalfffffPKfP8MaterialE4sign+0x170]
 	movss [ebp-0xc8], xmm0
 	ucomiss xmm5, xmm0
-	jb Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_100
+	jb Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_100
 	movaps xmm1, xmm5
 	addss xmm1, xmm5
 	movss [ebp-0xd0], xmm1
-Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_240:
+Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_240:
 	movapd xmm0, xmm3
 	mulsd xmm0, xmm4
 	ucomisd xmm0, [_double_4_00000000]
-	jbe Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_110
+	jbe Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_110
 	movaps xmm2, xmm7
-Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_230:
+Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_230:
 	movaps xmm0, xmm2
 	xorps xmm0, [_ZZ25CG_DrawRotatedPicPhysicalfffffPKfP8MaterialE4sign+0x170]
 	movss [ebp-0xc4], xmm0
 	ucomiss xmm2, xmm0
-	jb Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_120
+	jb Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_120
 	movss xmm1, dword [ebp-0xc8]
 	addss xmm1, [ebp-0xac]
 	movss [ebp-0xbc], xmm1
@@ -10688,12 +11280,12 @@ Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_230:
 	addss xmm1, xmm2
 	movss [ebp-0xd4], xmm1
 	movaps xmm1, xmm0
-	jmp Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_130
-Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_170:
+	jmp Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_130
+Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_170:
 	mov ax, 0x811
-Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_180:
+Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_180:
 	cmp dword [edi+0x4], 0x4
-	jz Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_140
+	jz Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_140
 	mov [esp+0x18], eax
 	mov eax, [edi]
 	mov [esp+0x14], eax
@@ -10707,13 +11299,13 @@ Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_180:
 	movss [ebp-0xe8], xmm2
 	movss [ebp-0xf8], xmm5
 	movss [ebp-0x108], xmm6
-	call Z14G_TraceCapsuleP7trace_tPKfS2_S2_S2_ii:F(0,2)
+	call Z14G_TraceCapsuleP7trace_tPKfS2_S2_S2_ii_F0_2
 	movss xmm6, dword [ebp-0x108]
 	movss xmm5, dword [ebp-0xf8]
 	movss xmm2, dword [ebp-0xe8]
-Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_350:
+Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_350:
 	cmp word [ebp-0x56], 0x0
-	jz Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_150
+	jz Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_150
 	movzx edx, word [ebp-0x5c]
 	lea edx, [edx+edx*4]
 	lea eax, [edx*8]
@@ -10721,14 +11313,14 @@ Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_350:
 	shl eax, 0x4
 	add eax, [0x1acd709]
 	test eax, eax
-	jz Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_150
+	jz Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_150
 	movss xmm0, dword [ebp-0xc4]
 	addss xmm0, [ebp-0xd4]
 	movss [ebp-0xc4], xmm0
 	ucomiss xmm2, xmm0
-	jb Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_160
+	jb Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_160
 	movss xmm1, dword [ebp-0xb8]
-Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_130:
+Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_130:
 	movss xmm0, dword [ebp-0xbc]
 	movss [ebp-0x30], xmm0
 	movss xmm0, dword [ebp-0xc4]
@@ -10737,16 +11329,16 @@ Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_130:
 	movss [ebp-0x28], xmm1
 	mov eax, [edi+0x184]
 	test eax, eax
-	jz Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_170
+	jz Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_170
 	test byte [edi+0x11f], 0x4
-	jz Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_180
-Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_150:
+	jz Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_180
+Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_150:
 	mov eax, [edi+0x7c]
 	mov edx, [ebp+0xc]
 	cmp eax, [edx]
-	jz Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_190
+	jz Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_190
 	mov dword [edi+0x7c], 0x3ff
-Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_190:
+Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_190:
 	mov ebx, [ebp-0x30]
 	mov eax, [ebp-0xd8]
 	mov [eax], ebx
@@ -10760,7 +11352,7 @@ Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_190:
 	mov [eax+0x8], edx
 	mov edx, [edi+0x158]
 	test edx, edx
-	jz Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_200
+	jz Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_200
 	mov eax, [ebp+0x14]
 	movss xmm0, dword [eax+0x4]
 	mulss xmm0, [_float_182_04444885]
@@ -10775,17 +11367,17 @@ Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_190:
 	mov [ecx+0x4], eax
 	mov eax, [ebp-0x28]
 	mov [ecx+0x8], eax
-	jmp Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_200
-Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_40:
+	jmp Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_200
+Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_40:
 	test byte [edi+0x11f], 0x4
-	jz Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_210
-Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_60:
+	jz Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_210
+Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_60:
 	mov eax, [edi+0x7c]
 	mov edx, [ebp+0xc]
 	cmp eax, [edx]
-	jz Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_220
+	jz Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_220
 	mov dword [edi+0x7c], 0x3ff
-Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_220:
+Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_220:
 	mov ebx, [ebp-0x24]
 	mov eax, [ebp-0xd8]
 	mov [eax], ebx
@@ -10799,7 +11391,7 @@ Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_220:
 	mov [eax+0x8], edx
 	mov edx, [edi+0x158]
 	test edx, edx
-	jz Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_200
+	jz Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_200
 	movss xmm0, dword [_float_182_04444885]
 	mov eax, [ebp+0x14]
 	mulss xmm0, [eax+0x4]
@@ -10814,69 +11406,69 @@ Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_220:
 	mov [ecx+0x4], eax
 	mov eax, [ebp-0x1c]
 	mov [ecx+0x8], eax
-Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_200:
+Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_200:
 	add dword [pushed_p], 0x20
 	mov eax, 0x1
-Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_320:
+Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_320:
 	add esp, 0x11c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_160:
+Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_160:
 	cvtss2sd xmm3, [edi+0x110]
 	movsd xmm4, qword [_double_0_50000000]
 	movss xmm7, dword [_float_4_00000000]
-Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_120:
+Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_120:
 	addss xmm2, xmm7
 	movapd xmm1, xmm3
 	mulsd xmm1, xmm4
 	cvtss2sd xmm0, xmm2
 	ucomisd xmm1, xmm0
-	ja Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_230
-Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_110:
+	ja Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_230
+Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_110:
 	movss xmm1, dword [ebp-0xc8]
 	addss xmm1, [ebp-0xd0]
 	movss [ebp-0xc8], xmm1
 	ucomiss xmm5, xmm1
-	jae Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_240
-Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_100:
+	jae Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_240
+Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_100:
 	addss xmm5, xmm7
 	movapd xmm1, xmm3
 	mulsd xmm1, xmm4
 	cvtss2sd xmm0, xmm5
 	ucomisd xmm1, xmm0
-	ja Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_250
+	ja Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_250
 	pxor xmm2, xmm2
-Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_90:
+Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_90:
 	movss xmm0, dword [ebp-0xc0]
 	ucomiss xmm0, xmm2
-	jp Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_260
-	jz Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_80
-Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_260:
+	jp Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_260
+	jz Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_80
+Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_260:
 	addss xmm0, [ebp-0xcc]
 	movss [ebp-0xc0], xmm0
 	ucomiss xmm6, xmm0
-	jae Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_270
-Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_80:
+	jae Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_270
+Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_80:
 	addss xmm6, xmm7
 	movapd xmm1, xmm3
 	mulsd xmm1, xmm4
 	cvtss2sd xmm0, xmm6
 	ucomisd xmm1, xmm0
-	ja Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_280
-Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_70:
+	ja Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_280
+Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_70:
 	mov eax, [edi+0x184]
 	test eax, eax
-	jnz Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_290
+	jnz Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_290
 	mov ax, 0x811
-Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_340:
+Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_340:
 	cmp dword [edi+0x4], 0x4
-	jz Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_300
+	jz Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_300
 	mov [esp+0x18], eax
 	mov eax, [edi]
-Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_360:
+Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_360:
 	mov [esp+0x14], eax
 	mov eax, [ebp-0xd8]
 	mov [esp+0x10], eax
@@ -10885,9 +11477,9 @@ Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_360:
 	mov [esp+0x4], eax
 	lea edx, [ebp-0x78]
 	mov [esp], edx
-	call Z14G_TraceCapsuleP7trace_tPKfS2_S2_S2_ii:F(0,2)
+	call Z14G_TraceCapsuleP7trace_tPKfS2_S2_S2_ii_F0_2
 	cmp word [ebp-0x56], 0x0
-	jz Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_310
+	jz Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_310
 	movzx edx, word [ebp-0x5c]
 	lea edx, [edx+edx*4]
 	lea eax, [edx*8]
@@ -10895,10 +11487,10 @@ Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_360:
 	shl eax, 0x4
 	add eax, [0x1acd709]
 	test eax, eax
-	jz Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_310
+	jz Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_310
 	xor eax, eax
-	jmp Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_320
-Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_50:
+	jmp Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_320
+Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_50:
 	mov [esp+0x18], eax
 	mov eax, [edi+0x150]
 	mov [esp+0x14], eax
@@ -10911,12 +11503,12 @@ Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_50:
 	mov [esp+0x4], eax
 	lea eax, [ebp-0x78]
 	mov [esp], eax
-	call Z14G_TraceCapsuleP7trace_tPKfS2_S2_S2_ii:F(0,2)
-	jmp Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_330
-Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_290:
+	call Z14G_TraceCapsuleP7trace_tPKfS2_S2_S2_ii_F0_2
+	jmp Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_330
+Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_290:
 	test byte [edi+0x11f], 0x4
-	jz Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_340
-Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_310:
+	jz Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_340
+Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_310:
 	mov dword [edi+0x7c], 0x3ff
 	mov eax, 0x1
 	add esp, 0x11c
@@ -10925,7 +11517,7 @@ Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_310:
 	pop edi
 	pop ebp
 	ret
-Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_140:
+Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_140:
 	mov [esp+0x18], eax
 	mov eax, [edi+0x150]
 	mov [esp+0x14], eax
@@ -10939,21 +11531,21 @@ Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_140:
 	movss [ebp-0xe8], xmm2
 	movss [ebp-0xf8], xmm5
 	movss [ebp-0x108], xmm6
-	call Z14G_TraceCapsuleP7trace_tPKfS2_S2_S2_ii:F(0,2)
+	call Z14G_TraceCapsuleP7trace_tPKfS2_S2_S2_ii_F0_2
 	movss xmm2, dword [ebp-0xe8]
 	movss xmm5, dword [ebp-0xf8]
 	movss xmm6, dword [ebp-0x108]
-	jmp Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_350
-Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_300:
+	jmp Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_350
+Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_300:
 	mov [esp+0x18], eax
 	mov eax, [edi+0x150]
-	jmp Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)_360
+	jmp Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24_360
 	nop
 
 
-;Z11G_MoverTeamP9gentity_s:F(0,79)
+;Z11G_MoverTeamP9gentity_s_F0_79
 
-Z11G_MoverTeamP9gentity_s:F(0,79):
+Z11G_MoverTeamP9gentity_s_F0_79:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -10971,7 +11563,7 @@ Z11G_MoverTeamP9gentity_s:F(0,79):
 	mov [esp+0x4], eax
 	mov edx, [ebp-0x20f8]
 	mov [esp], edx
-	call Z21BG_EvaluateTrajectoryPK12trajectory_tiPf:F(0,1)
+	call Z21BG_EvaluateTrajectoryPK12trajectory_tiPf_F0_1
 	lea ecx, [edi+0x30]
 	mov [ebp-0x20f4], ecx
 	lea eax, [ebp-0x48]
@@ -10979,7 +11571,7 @@ Z11G_MoverTeamP9gentity_s:F(0,79):
 	mov eax, [ebx+0x1ec]
 	mov [esp+0x4], eax
 	mov [esp], ecx
-	call Z21BG_EvaluateTrajectoryPK12trajectory_tiPf:F(0,1)
+	call Z21BG_EvaluateTrajectoryPK12trajectory_tiPf_F0_1
 	lea eax, [edi+0x138]
 	mov [ebp-0x20f0], eax
 	movss xmm0, dword [ebp-0x3c]
@@ -11012,23 +11604,23 @@ Z11G_MoverTeamP9gentity_s:F(0,79):
 	movss [ebp-0x28], xmm0
 	pxor xmm2, xmm2
 	ucomiss xmm2, [edi+0x144]
-	jnz Z11G_MoverTeamP9gentity_s:F(0,79)_10
-	jp Z11G_MoverTeamP9gentity_s:F(0,79)_10
+	jnz Z11G_MoverTeamP9gentity_s_F0_79_10
+	jp Z11G_MoverTeamP9gentity_s_F0_79_10
 	ucomiss xmm2, [edi+0x148]
-	jz Z11G_MoverTeamP9gentity_s:F(0,79)_20
-Z11G_MoverTeamP9gentity_s:F(0,79)_10:
+	jz Z11G_MoverTeamP9gentity_s_F0_79_20
+Z11G_MoverTeamP9gentity_s_F0_79_10:
 	lea eax, [edi+0x110]
 	mov [esp+0x4], eax
 	lea eax, [edi+0x104]
 	mov [esp], eax
-	call Z16RadiusFromBoundsPKfS0_:F(0,7)
+	call Z16RadiusFromBoundsPKfS0__F0_7
 	fstp dword [ebp-0x20fc]
 	movss xmm4, dword [ebp-0x20fc]
 	mov edx, edi
 	mov ecx, 0x1
 	lea esi, [ebp-0x60]
 	lea ebx, [ebp-0x78]
-Z11G_MoverTeamP9gentity_s:F(0,79)_30:
+Z11G_MoverTeamP9gentity_s_F0_79_30:
 	movss xmm2, dword [edx+0x138]
 	movaps xmm3, xmm2
 	subss xmm3, xmm4
@@ -11047,24 +11639,24 @@ Z11G_MoverTeamP9gentity_s:F(0,79)_30:
 	add ecx, 0x1
 	add edx, 0x4
 	cmp ecx, 0x4
-	jnz Z11G_MoverTeamP9gentity_s:F(0,79)_30
+	jnz Z11G_MoverTeamP9gentity_s_F0_79_30
 	pxor xmm2, xmm2
-Z11G_MoverTeamP9gentity_s:F(0,79)_320:
+Z11G_MoverTeamP9gentity_s_F0_79_320:
 	mov edx, 0x1
-Z11G_MoverTeamP9gentity_s:F(0,79)_50:
+Z11G_MoverTeamP9gentity_s_F0_79_50:
 	lea eax, [edx*4]
 	movss xmm0, dword [ebp+eax-0x28]
 	ucomiss xmm0, xmm2
-	jbe Z11G_MoverTeamP9gentity_s:F(0,79)_40
+	jbe Z11G_MoverTeamP9gentity_s_F0_79_40
 	lea eax, [ebx+eax]
 	addss xmm0, [eax-0x4]
 	movss [eax-0x4], xmm0
-Z11G_MoverTeamP9gentity_s:F(0,79)_300:
+Z11G_MoverTeamP9gentity_s_F0_79_300:
 	add edx, 0x1
 	cmp edx, 0x4
-	jnz Z11G_MoverTeamP9gentity_s:F(0,79)_50
+	jnz Z11G_MoverTeamP9gentity_s_F0_79_50
 	mov [esp], edi
-	call Z15SV_UnlinkEntityP9gentity_s:F(0,23)
+	call Z15SV_UnlinkEntityP9gentity_s_F0_23
 	mov dword [esp+0x10], 0x2000180
 	mov dword [esp+0xc], 0x400
 	lea esi, [ebp-0x109c]
@@ -11072,7 +11664,7 @@ Z11G_MoverTeamP9gentity_s:F(0,79)_300:
 	mov [esp+0x4], ebx
 	lea eax, [ebp-0x6c]
 	mov [esp], eax
-	call Z15CM_AreaEntitiesPKfS0_Piii:F(0,7)
+	call Z15CM_AreaEntitiesPKfS0_Piii_F0_7
 	mov [ebp-0x20b8], eax
 	mov edx, [ebp-0x20f0]
 	movss xmm0, dword [edx]
@@ -11099,10 +11691,10 @@ Z11G_MoverTeamP9gentity_s:F(0,79)_300:
 	addss xmm0, [ebp-0x28]
 	movss [edx+0x8], xmm0
 	mov [esp], edi
-	call Z13SV_LinkEntityP9gentity_s:F(0,23)
+	call Z13SV_LinkEntityP9gentity_s_F0_23
 	mov ebx, [ebp-0x20b8]
 	test ebx, ebx
-	jle Z11G_MoverTeamP9gentity_s:F(0,79)_60
+	jle Z11G_MoverTeamP9gentity_s_F0_79_60
 	movss xmm0, dword [ebp-0x60]
 	movss [ebp-0x20d4], xmm0
 	movss xmm0, dword [ebp-0x5c]
@@ -11117,7 +11709,7 @@ Z11G_MoverTeamP9gentity_s:F(0,79)_300:
 	movss [ebp-0x20c0], xmm0
 	mov dword [ebp-0x20bc], 0x0
 	mov dword [ebp-0x20b4], 0x0
-Z11G_MoverTeamP9gentity_s:F(0,79)_110:
+Z11G_MoverTeamP9gentity_s_F0_79_110:
 	mov ecx, [esi]
 	lea eax, [ecx+ecx*4]
 	lea edx, [eax*8]
@@ -11127,36 +11719,36 @@ Z11G_MoverTeamP9gentity_s:F(0,79)_110:
 	mov ebx, [edx+0x4]
 	lea eax, [ebx-0x3]
 	cmp eax, 0x1
-	jbe Z11G_MoverTeamP9gentity_s:F(0,79)_70
+	jbe Z11G_MoverTeamP9gentity_s_F0_79_70
 	cmp ebx, 0x1
-	jz Z11G_MoverTeamP9gentity_s:F(0,79)_70
+	jz Z11G_MoverTeamP9gentity_s_F0_79_70
 	cmp byte [edx+0x160], 0x0
-	jz Z11G_MoverTeamP9gentity_s:F(0,79)_80
-Z11G_MoverTeamP9gentity_s:F(0,79)_70:
+	jz Z11G_MoverTeamP9gentity_s_F0_79_80
+Z11G_MoverTeamP9gentity_s_F0_79_70:
 	mov eax, [edx+0x7c]
 	cmp eax, [edi]
-	jz Z11G_MoverTeamP9gentity_s:F(0,79)_90
+	jz Z11G_MoverTeamP9gentity_s_F0_79_90
 	movss xmm0, dword [edx+0x120]
 	ucomiss xmm0, [ebp-0x20d4]
-	jae Z11G_MoverTeamP9gentity_s:F(0,79)_80
+	jae Z11G_MoverTeamP9gentity_s_F0_79_80
 	movss xmm0, dword [edx+0x124]
 	ucomiss xmm0, [ebp-0x20d0]
-	jae Z11G_MoverTeamP9gentity_s:F(0,79)_80
+	jae Z11G_MoverTeamP9gentity_s_F0_79_80
 	movss xmm0, dword [edx+0x128]
 	ucomiss xmm0, [ebp-0x20cc]
-	jb Z11G_MoverTeamP9gentity_s:F(0,79)_100
-Z11G_MoverTeamP9gentity_s:F(0,79)_80:
+	jb Z11G_MoverTeamP9gentity_s_F0_79_100
+Z11G_MoverTeamP9gentity_s_F0_79_80:
 	add dword [ebp-0x20bc], 0x1
 	add esi, 0x4
 	mov edx, [ebp-0x20bc]
 	cmp [ebp-0x20b8], edx
-	jnz Z11G_MoverTeamP9gentity_s:F(0,79)_110
-Z11G_MoverTeamP9gentity_s:F(0,79)_290:
+	jnz Z11G_MoverTeamP9gentity_s_F0_79_110
+Z11G_MoverTeamP9gentity_s_F0_79_290:
 	mov ecx, [ebp-0x20b4]
 	test ecx, ecx
-	jle Z11G_MoverTeamP9gentity_s:F(0,79)_60
+	jle Z11G_MoverTeamP9gentity_s_F0_79_60
 	xor ebx, ebx
-Z11G_MoverTeamP9gentity_s:F(0,79)_120:
+Z11G_MoverTeamP9gentity_s_F0_79_120:
 	mov edx, [ebp+ebx*4-0x209c]
 	lea edx, [edx+edx*4]
 	lea eax, [edx*8]
@@ -11164,29 +11756,29 @@ Z11G_MoverTeamP9gentity_s:F(0,79)_120:
 	shl eax, 0x4
 	add eax, [0x1acd709]
 	mov [esp], eax
-	call Z15SV_UnlinkEntityP9gentity_s:F(0,23)
+	call Z15SV_UnlinkEntityP9gentity_s_F0_23
 	add ebx, 0x1
 	cmp ebx, [ebp-0x20b4]
-	jnz Z11G_MoverTeamP9gentity_s:F(0,79)_120
+	jnz Z11G_MoverTeamP9gentity_s_F0_79_120
 	mov dword [ebp-0x20ac], 0x0
 	mov dword [ebp-0x20e8], 0x0
 	mov byte [ebp-0x20ad], 0x1
-	jmp Z11G_MoverTeamP9gentity_s:F(0,79)_130
-Z11G_MoverTeamP9gentity_s:F(0,79)_170:
+	jmp Z11G_MoverTeamP9gentity_s_F0_79_130
+Z11G_MoverTeamP9gentity_s_F0_79_170:
 	cmp dword [esi+0x4], 0x3
-	jz Z11G_MoverTeamP9gentity_s:F(0,79)_140
+	jz Z11G_MoverTeamP9gentity_s_F0_79_140
 	cmp dword [edi+0xc], 0x4
-	jz Z11G_MoverTeamP9gentity_s:F(0,79)_150
+	jz Z11G_MoverTeamP9gentity_s_F0_79_150
 	cmp dword [edi+0x30], 0x4
-	jz Z11G_MoverTeamP9gentity_s:F(0,79)_150
+	jz Z11G_MoverTeamP9gentity_s_F0_79_150
 	mov [ebp-0x20e8], esi
 	mov byte [ebp-0x20ad], 0x0
-Z11G_MoverTeamP9gentity_s:F(0,79)_340:
+Z11G_MoverTeamP9gentity_s_F0_79_340:
 	add dword [ebp-0x20ac], 0x1
 	mov ecx, [ebp-0x20b4]
 	cmp [ebp-0x20ac], ecx
-	jz Z11G_MoverTeamP9gentity_s:F(0,79)_160
-Z11G_MoverTeamP9gentity_s:F(0,79)_130:
+	jz Z11G_MoverTeamP9gentity_s_F0_79_160
+Z11G_MoverTeamP9gentity_s_F0_79_130:
 	mov ecx, [ebp-0x20ac]
 	mov eax, [ebp+ecx*4-0x209c]
 	lea eax, [eax+eax*4]
@@ -11212,19 +11804,19 @@ Z11G_MoverTeamP9gentity_s:F(0,79)_130:
 	mov [esp+0x8], edx
 	mov [esp+0x4], edi
 	mov [esp], esi
-	call Z18G_TryPushingEntityP9gentity_sS0_PfS1_:F(0,24)
+	call Z18G_TryPushingEntityP9gentity_sS0_PfS1__F0_24
 	test eax, eax
-	jz Z11G_MoverTeamP9gentity_s:F(0,79)_170
-Z11G_MoverTeamP9gentity_s:F(0,79)_140:
+	jz Z11G_MoverTeamP9gentity_s_F0_79_170
+Z11G_MoverTeamP9gentity_s_F0_79_140:
 	mov [esp], esi
-	call Z13SV_LinkEntityP9gentity_s:F(0,23)
+	call Z13SV_LinkEntityP9gentity_s_F0_23
 	add dword [ebp-0x20ac], 0x1
 	mov ecx, [ebp-0x20b4]
 	cmp [ebp-0x20ac], ecx
-	jnz Z11G_MoverTeamP9gentity_s:F(0,79)_130
-Z11G_MoverTeamP9gentity_s:F(0,79)_160:
+	jnz Z11G_MoverTeamP9gentity_s_F0_79_130
+Z11G_MoverTeamP9gentity_s_F0_79_160:
 	xor ebx, ebx
-Z11G_MoverTeamP9gentity_s:F(0,79)_180:
+Z11G_MoverTeamP9gentity_s_F0_79_180:
 	mov edx, [ebp+ebx*4-0x209c]
 	lea edx, [edx+edx*4]
 	lea eax, [edx*8]
@@ -11232,52 +11824,52 @@ Z11G_MoverTeamP9gentity_s:F(0,79)_180:
 	shl eax, 0x4
 	add eax, [0x1acd709]
 	mov [esp], eax
-	call Z13SV_LinkEntityP9gentity_s:F(0,23)
+	call Z13SV_LinkEntityP9gentity_s_F0_23
 	add ebx, 0x1
 	cmp ebx, [ebp-0x20b4]
-	jnz Z11G_MoverTeamP9gentity_s:F(0,79)_180
+	jnz Z11G_MoverTeamP9gentity_s_F0_79_180
 	cmp byte [ebp-0x20ad], 0x0
-	jz Z11G_MoverTeamP9gentity_s:F(0,79)_190
-Z11G_MoverTeamP9gentity_s:F(0,79)_220:
+	jz Z11G_MoverTeamP9gentity_s_F0_79_190
+Z11G_MoverTeamP9gentity_s_F0_79_220:
 	mov edx, [edi+0xc]
 	test edx, edx
-	jnz Z11G_MoverTeamP9gentity_s:F(0,79)_200
-Z11G_MoverTeamP9gentity_s:F(0,79)_330:
+	jnz Z11G_MoverTeamP9gentity_s_F0_79_200
+Z11G_MoverTeamP9gentity_s_F0_79_330:
 	mov eax, [edi+0x30]
 	test eax, eax
-	jz Z11G_MoverTeamP9gentity_s:F(0,79)_210
+	jz Z11G_MoverTeamP9gentity_s_F0_79_210
 	mov eax, [edi+0x34]
 	add eax, [edi+0x38]
 	mov edx, [0x1acd721]
 	cmp [edx+0x1ec], eax
-	jl Z11G_MoverTeamP9gentity_s:F(0,79)_210
+	jl Z11G_MoverTeamP9gentity_s_F0_79_210
 	movzx eax, byte [edi+0x166]
 	lea eax, [eax+eax*4]
 	shl eax, 0x3
 	add eax, [0x1acd735]
 	mov eax, [eax+0x4]
 	test eax, eax
-	jz Z11G_MoverTeamP9gentity_s:F(0,79)_210
+	jz Z11G_MoverTeamP9gentity_s_F0_79_210
 	mov [esp], edi
 	call eax
-Z11G_MoverTeamP9gentity_s:F(0,79)_210:
+Z11G_MoverTeamP9gentity_s_F0_79_210:
 	add esp, 0x212c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z11G_MoverTeamP9gentity_s:F(0,79)_60:
+Z11G_MoverTeamP9gentity_s_F0_79_60:
 	mov dword [ebp-0x20e8], 0x0
 	mov byte [ebp-0x20ad], 0x1
 	cmp byte [ebp-0x20ad], 0x0
-	jnz Z11G_MoverTeamP9gentity_s:F(0,79)_220
-Z11G_MoverTeamP9gentity_s:F(0,79)_190:
+	jnz Z11G_MoverTeamP9gentity_s_F0_79_220
+Z11G_MoverTeamP9gentity_s_F0_79_190:
 	mov ebx, [pushed_p]
 	sub ebx, 0x20
 	cmp ebx, pushed
-	jb Z11G_MoverTeamP9gentity_s:F(0,79)_230
-Z11G_MoverTeamP9gentity_s:F(0,79)_250:
+	jb Z11G_MoverTeamP9gentity_s_F0_79_230
+Z11G_MoverTeamP9gentity_s_F0_79_250:
 	mov esi, [ebx]
 	lea edx, [esi+0x138]
 	mov eax, [ebx+0x4]
@@ -11295,7 +11887,7 @@ Z11G_MoverTeamP9gentity_s:F(0,79)_250:
 	mov [edx+0x8], eax
 	mov edx, [esi+0x158]
 	test edx, edx
-	jz Z11G_MoverTeamP9gentity_s:F(0,79)_240
+	jz Z11G_MoverTeamP9gentity_s_F0_79_240
 	movss xmm0, dword [ebx+0x1c]
 	mulss xmm0, [_float_182_04444885]
 	cvttss2si eax, xmm0
@@ -11309,13 +11901,13 @@ Z11G_MoverTeamP9gentity_s:F(0,79)_250:
 	mov [ecx+0x4], eax
 	mov eax, [ebx+0xc]
 	mov [ecx+0x8], eax
-Z11G_MoverTeamP9gentity_s:F(0,79)_240:
+Z11G_MoverTeamP9gentity_s_F0_79_240:
 	mov [esp], esi
-	call Z13SV_LinkEntityP9gentity_s:F(0,23)
+	call Z13SV_LinkEntityP9gentity_s_F0_23
 	sub ebx, 0x20
 	cmp ebx, pushed
-	jae Z11G_MoverTeamP9gentity_s:F(0,79)_250
-Z11G_MoverTeamP9gentity_s:F(0,79)_230:
+	jae Z11G_MoverTeamP9gentity_s_F0_79_250
+Z11G_MoverTeamP9gentity_s_F0_79_230:
 	mov ebx, [0x1acd721]
 	mov eax, [ebx+0x1ec]
 	sub eax, [ebx+0x1f0]
@@ -11329,46 +11921,46 @@ Z11G_MoverTeamP9gentity_s:F(0,79)_230:
 	mov [esp+0x4], eax
 	mov edx, [ebp-0x20f8]
 	mov [esp], edx
-	call Z21BG_EvaluateTrajectoryPK12trajectory_tiPf:F(0,1)
+	call Z21BG_EvaluateTrajectoryPK12trajectory_tiPf_F0_1
 	mov ecx, [ebp-0x20ec]
 	mov [esp+0x8], ecx
 	mov eax, [ebx+0x1ec]
 	mov [esp+0x4], eax
 	mov eax, [ebp-0x20f4]
 	mov [esp], eax
-	call Z21BG_EvaluateTrajectoryPK12trajectory_tiPf:F(0,1)
+	call Z21BG_EvaluateTrajectoryPK12trajectory_tiPf_F0_1
 	mov [esp], edi
-	call Z13SV_LinkEntityP9gentity_s:F(0,23)
+	call Z13SV_LinkEntityP9gentity_s_F0_23
 	movzx eax, byte [edi+0x166]
 	lea eax, [eax+eax*4]
 	shl eax, 0x3
 	add eax, [0x1acd735]
 	mov eax, [eax+0x8]
 	test eax, eax
-	jz Z11G_MoverTeamP9gentity_s:F(0,79)_210
+	jz Z11G_MoverTeamP9gentity_s_F0_79_210
 	mov edx, [ebp-0x20e8]
 	mov [esp+0x4], edx
 	mov [esp], edi
 	call eax
-	jmp Z11G_MoverTeamP9gentity_s:F(0,79)_210
-Z11G_MoverTeamP9gentity_s:F(0,79)_100:
+	jmp Z11G_MoverTeamP9gentity_s_F0_79_210
+Z11G_MoverTeamP9gentity_s_F0_79_100:
 	movss xmm0, dword [ebp-0x20c8]
 	ucomiss xmm0, [edx+0x12c]
-	jae Z11G_MoverTeamP9gentity_s:F(0,79)_80
+	jae Z11G_MoverTeamP9gentity_s_F0_79_80
 	movss xmm0, dword [ebp-0x20c4]
 	ucomiss xmm0, [edx+0x130]
-	jae Z11G_MoverTeamP9gentity_s:F(0,79)_80
+	jae Z11G_MoverTeamP9gentity_s_F0_79_80
 	movss xmm0, dword [ebp-0x20c0]
 	ucomiss xmm0, [edx+0x134]
-	jae Z11G_MoverTeamP9gentity_s:F(0,79)_80
+	jae Z11G_MoverTeamP9gentity_s_F0_79_80
 	lea ecx, [edx+0x138]
 	mov eax, [edx+0x184]
 	test eax, eax
-	jnz Z11G_MoverTeamP9gentity_s:F(0,79)_260
+	jnz Z11G_MoverTeamP9gentity_s_F0_79_260
 	mov ax, 0x811
-Z11G_MoverTeamP9gentity_s:F(0,79)_350:
+Z11G_MoverTeamP9gentity_s_F0_79_350:
 	cmp ebx, 0x4
-	jz Z11G_MoverTeamP9gentity_s:F(0,79)_270
+	jz Z11G_MoverTeamP9gentity_s_F0_79_270
 	mov [esp+0x18], eax
 	mov eax, [edx]
 	mov [esp+0x14], eax
@@ -11380,21 +11972,21 @@ Z11G_MoverTeamP9gentity_s:F(0,79)_350:
 	mov [esp+0x4], ecx
 	lea edx, [ebp-0x9c]
 	mov [esp], edx
-	call Z14G_TraceCapsuleP7trace_tPKfS2_S2_S2_ii:F(0,2)
-Z11G_MoverTeamP9gentity_s:F(0,79)_370:
+	call Z14G_TraceCapsuleP7trace_tPKfS2_S2_S2_ii_F0_2
+Z11G_MoverTeamP9gentity_s_F0_79_370:
 	cmp word [ebp-0x7a], 0x0
-	jz Z11G_MoverTeamP9gentity_s:F(0,79)_280
+	jz Z11G_MoverTeamP9gentity_s_F0_79_280
 	movzx eax, word [ebp-0x80]
 	lea eax, [eax+eax*4]
 	lea edx, [eax*8]
 	sub edx, eax
 	shl edx, 0x4
 	add edx, [0x1acd709]
-Z11G_MoverTeamP9gentity_s:F(0,79)_360:
+Z11G_MoverTeamP9gentity_s_F0_79_360:
 	cmp edx, edi
-	jnz Z11G_MoverTeamP9gentity_s:F(0,79)_80
+	jnz Z11G_MoverTeamP9gentity_s_F0_79_80
 	mov ecx, [esi]
-Z11G_MoverTeamP9gentity_s:F(0,79)_90:
+Z11G_MoverTeamP9gentity_s_F0_79_90:
 	mov eax, [ebp-0x20b4]
 	mov [ebp+eax*4-0x209c], ecx
 	add eax, 0x1
@@ -11403,32 +11995,32 @@ Z11G_MoverTeamP9gentity_s:F(0,79)_90:
 	add esi, 0x4
 	mov edx, [ebp-0x20bc]
 	cmp [ebp-0x20b8], edx
-	jnz Z11G_MoverTeamP9gentity_s:F(0,79)_110
-	jmp Z11G_MoverTeamP9gentity_s:F(0,79)_290
-Z11G_MoverTeamP9gentity_s:F(0,79)_40:
+	jnz Z11G_MoverTeamP9gentity_s_F0_79_110
+	jmp Z11G_MoverTeamP9gentity_s_F0_79_290
+Z11G_MoverTeamP9gentity_s_F0_79_40:
 	lea ecx, [ebp-0x6c]
 	lea eax, [ecx+eax]
 	addss xmm0, [eax-0x4]
 	movss [eax-0x4], xmm0
-	jmp Z11G_MoverTeamP9gentity_s:F(0,79)_300
-Z11G_MoverTeamP9gentity_s:F(0,79)_20:
-	jp Z11G_MoverTeamP9gentity_s:F(0,79)_10
+	jmp Z11G_MoverTeamP9gentity_s_F0_79_300
+Z11G_MoverTeamP9gentity_s_F0_79_20:
+	jp Z11G_MoverTeamP9gentity_s_F0_79_10
 	ucomiss xmm2, [edi+0x14c]
-	jnz Z11G_MoverTeamP9gentity_s:F(0,79)_10
-	jp Z11G_MoverTeamP9gentity_s:F(0,79)_10
+	jnz Z11G_MoverTeamP9gentity_s_F0_79_10
+	jp Z11G_MoverTeamP9gentity_s_F0_79_10
 	ucomiss xmm2, [ebp-0x30]
-	jnz Z11G_MoverTeamP9gentity_s:F(0,79)_10
-	jp Z11G_MoverTeamP9gentity_s:F(0,79)_10
+	jnz Z11G_MoverTeamP9gentity_s_F0_79_10
+	jp Z11G_MoverTeamP9gentity_s_F0_79_10
 	ucomiss xmm2, [ebp-0x2c]
-	jnz Z11G_MoverTeamP9gentity_s:F(0,79)_10
-	jp Z11G_MoverTeamP9gentity_s:F(0,79)_10
+	jnz Z11G_MoverTeamP9gentity_s_F0_79_10
+	jp Z11G_MoverTeamP9gentity_s_F0_79_10
 	ucomiss xmm0, xmm2
-	jp Z11G_MoverTeamP9gentity_s:F(0,79)_10
-	jnz Z11G_MoverTeamP9gentity_s:F(0,79)_10
+	jp Z11G_MoverTeamP9gentity_s_F0_79_10
+	jnz Z11G_MoverTeamP9gentity_s_F0_79_10
 	mov edx, edi
 	mov ecx, 0x1
 	lea esi, [ebp-0x60]
-Z11G_MoverTeamP9gentity_s:F(0,79)_310:
+Z11G_MoverTeamP9gentity_s_F0_79_310:
 	lea eax, [ecx*4]
 	movss xmm0, dword [ebp+eax-0x28]
 	movaps xmm1, xmm0
@@ -11439,7 +12031,7 @@ Z11G_MoverTeamP9gentity_s:F(0,79)_310:
 	add ecx, 0x1
 	add edx, 0x4
 	cmp ecx, 0x4
-	jnz Z11G_MoverTeamP9gentity_s:F(0,79)_310
+	jnz Z11G_MoverTeamP9gentity_s_F0_79_310
 	lea edx, [edi+0x120]
 	mov eax, [edi+0x120]
 	mov [ebp-0x6c], eax
@@ -11455,24 +12047,24 @@ Z11G_MoverTeamP9gentity_s:F(0,79)_310:
 	mov eax, [edx+0x8]
 	mov [ebp-0x70], eax
 	lea ebx, [ebp-0x78]
-	jmp Z11G_MoverTeamP9gentity_s:F(0,79)_320
-Z11G_MoverTeamP9gentity_s:F(0,79)_200:
+	jmp Z11G_MoverTeamP9gentity_s_F0_79_320
+Z11G_MoverTeamP9gentity_s_F0_79_200:
 	mov eax, [edi+0x10]
 	add eax, [edi+0x14]
 	mov edx, [0x1acd721]
 	cmp [edx+0x1ec], eax
-	jl Z11G_MoverTeamP9gentity_s:F(0,79)_330
+	jl Z11G_MoverTeamP9gentity_s_F0_79_330
 	movzx eax, byte [edi+0x166]
 	lea eax, [eax+eax*4]
 	shl eax, 0x3
 	add eax, [0x1acd735]
 	mov eax, [eax+0x4]
 	test eax, eax
-	jz Z11G_MoverTeamP9gentity_s:F(0,79)_330
+	jz Z11G_MoverTeamP9gentity_s_F0_79_330
 	mov [esp], edi
 	call eax
-	jmp Z11G_MoverTeamP9gentity_s:F(0,79)_330
-Z11G_MoverTeamP9gentity_s:F(0,79)_150:
+	jmp Z11G_MoverTeamP9gentity_s_F0_79_330
+Z11G_MoverTeamP9gentity_s_F0_79_150:
 	mov dword [esp+0x24], 0x0
 	mov dword [esp+0x20], 0x0
 	mov dword [esp+0x1c], 0x9
@@ -11483,15 +12075,15 @@ Z11G_MoverTeamP9gentity_s:F(0,79)_150:
 	mov [esp+0x8], edi
 	mov [esp+0x4], edi
 	mov [esp], esi
-	call Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)
-	jmp Z11G_MoverTeamP9gentity_s:F(0,79)_340
-Z11G_MoverTeamP9gentity_s:F(0,79)_260:
+	call Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1
+	jmp Z11G_MoverTeamP9gentity_s_F0_79_340
+Z11G_MoverTeamP9gentity_s_F0_79_260:
 	test byte [edx+0x11f], 0x4
-	jz Z11G_MoverTeamP9gentity_s:F(0,79)_350
-Z11G_MoverTeamP9gentity_s:F(0,79)_280:
+	jz Z11G_MoverTeamP9gentity_s_F0_79_350
+Z11G_MoverTeamP9gentity_s_F0_79_280:
 	xor edx, edx
-	jmp Z11G_MoverTeamP9gentity_s:F(0,79)_360
-Z11G_MoverTeamP9gentity_s:F(0,79)_270:
+	jmp Z11G_MoverTeamP9gentity_s_F0_79_360
+Z11G_MoverTeamP9gentity_s_F0_79_270:
 	mov [esp+0x18], eax
 	mov eax, [edx+0x150]
 	mov [esp+0x14], eax
@@ -11503,13 +12095,13 @@ Z11G_MoverTeamP9gentity_s:F(0,79)_270:
 	mov [esp+0x4], ecx
 	lea eax, [ebp-0x9c]
 	mov [esp], eax
-	call Z14G_TraceCapsuleP7trace_tPKfS2_S2_S2_ii:F(0,2)
-	jmp Z11G_MoverTeamP9gentity_s:F(0,79)_370
+	call Z14G_TraceCapsuleP7trace_tPKfS2_S2_S2_ii_F0_2
+	jmp Z11G_MoverTeamP9gentity_s_F0_79_370
 
 
-;Z10G_RunMoverP9gentity_s:F(0,79)
+;Z10G_RunMoverP9gentity_s_F0_79
 
-Z10G_RunMoverP9gentity_s:F(0,79):
+Z10G_RunMoverP9gentity_s_F0_79:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -11517,50 +12109,50 @@ Z10G_RunMoverP9gentity_s:F(0,79):
 	mov ebx, [ebp+0x8]
 	mov eax, [ebx+0x208]
 	test eax, eax
-	jz Z10G_RunMoverP9gentity_s:F(0,79)_10
+	jz Z10G_RunMoverP9gentity_s_F0_79_10
 	mov [esp], ebx
-	call Z13G_GeneralLinkP9gentity_s:F(0,11)
-Z10G_RunMoverP9gentity_s:F(0,79)_30:
+	call Z13G_GeneralLinkP9gentity_s_F0_11
+Z10G_RunMoverP9gentity_s_F0_79_30:
 	mov [ebp+0x8], ebx
 	add esp, 0x14
 	pop ebx
 	pop ebp
-	jmp Z10G_RunThinkP9gentity_s:F(0,2)
-Z10G_RunMoverP9gentity_s:F(0,79)_10:
+	jmp Z10G_RunThinkP9gentity_s_F0_2
+Z10G_RunMoverP9gentity_s_F0_79_10:
 	mov eax, [ebx+0xc]
 	test eax, eax
-	jnz Z10G_RunMoverP9gentity_s:F(0,79)_20
+	jnz Z10G_RunMoverP9gentity_s_F0_79_20
 	mov eax, [ebx+0x30]
 	test eax, eax
-	jz Z10G_RunMoverP9gentity_s:F(0,79)_30
-Z10G_RunMoverP9gentity_s:F(0,79)_20:
+	jz Z10G_RunMoverP9gentity_s_F0_79_30
+Z10G_RunMoverP9gentity_s_F0_79_20:
 	mov [esp], ebx
-	call Z11G_MoverTeamP9gentity_s:F(0,79)
+	call Z11G_MoverTeamP9gentity_s_F0_79
 	mov [ebp+0x8], ebx
 	add esp, 0x14
 	pop ebx
 	pop ebp
-	jmp Z10G_RunThinkP9gentity_s:F(0,2)
+	jmp Z10G_RunThinkP9gentity_s_F0_2
 
 
-;Z22SV_SendClientVoiceDataP8client_s:F(0,1)
+;Z22SV_SendClientVoiceDataP8client_s_F0_1
 
-Z13G_InitTurretsv:F(0,1):
+Z13G_InitTurretsv_F0_1:
 	push ebp
 	mov ebp, esp
 	mov eax, turretInfo
-Z13G_InitTurretsv:F(0,1)_10:
+Z13G_InitTurretsv_F0_1_10:
 	mov dword [eax], 0x0
 	add eax, 0x44
 	cmp eax, g_HitLocConstNames
-	jnz Z13G_InitTurretsv:F(0,1)_10
+	jnz Z13G_InitTurretsv_F0_1_10
 	pop ebp
 	ret
 
 
-;Z12turret_thinkP9gentity_s:F(0,1)
+;Z12turret_thinkP9gentity_s_F0_1
 
-Z23G_ClientStopUsingTurretP9gentity_s:F(0,1):
+Z23G_ClientStopUsingTurretP9gentity_s_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -11579,24 +12171,24 @@ Z23G_ClientStopUsingTurretP9gentity_s:F(0,1):
 	mov dword [edi+0x84], 0x0
 	mov eax, [esi+0x24]
 	cmp eax, 0xffffffff
-	jz Z23G_ClientStopUsingTurretP9gentity_s:F(0,1)_10
+	jz Z23G_ClientStopUsingTurretP9gentity_s_F0_1_10
 	cmp eax, 0x2
-	jz Z23G_ClientStopUsingTurretP9gentity_s:F(0,1)_20
+	jz Z23G_ClientStopUsingTurretP9gentity_s_F0_1_20
 	sub eax, 0x1
-	jz Z23G_ClientStopUsingTurretP9gentity_s:F(0,1)_30
+	jz Z23G_ClientStopUsingTurretP9gentity_s_F0_1_30
 	mov dword [esp+0x8], 0x0
 	mov dword [esp+0x4], 0x8c
 	mov [esp], ebx
-	call Z10G_AddEventP9gentity_sii:F(0,11)
-Z23G_ClientStopUsingTurretP9gentity_s:F(0,1)_40:
+	call Z10G_AddEventP9gentity_sii_F0_11
+Z23G_ClientStopUsingTurretP9gentity_s_F0_1_40:
 	mov dword [esi+0x24], 0xffffffff
-Z23G_ClientStopUsingTurretP9gentity_s:F(0,1)_10:
+Z23G_ClientStopUsingTurretP9gentity_s_F0_1_10:
 	lea eax, [ebx+0x144]
 	mov [esp+0x8], eax
 	lea eax, [esi+0x2c]
 	mov [esp+0x4], eax
 	mov [esp], ebx
-	call Z14TeleportPlayerP9gentity_sPfS1_:F(0,1)
+	call Z14TeleportPlayerP9gentity_sPfS1__F0_1
 	mov eax, [ebx+0x158]
 	and dword [eax+0xa0], 0xfffffcff
 	mov eax, [ebx+0x158]
@@ -11614,23 +12206,23 @@ Z23G_ClientStopUsingTurretP9gentity_s:F(0,1)_10:
 	pop edi
 	pop ebp
 	ret
-Z23G_ClientStopUsingTurretP9gentity_s:F(0,1)_30:
+Z23G_ClientStopUsingTurretP9gentity_s_F0_1_30:
 	mov dword [esp+0x8], 0x0
 	mov dword [esp+0x4], 0x8d
 	mov [esp], ebx
-	call Z10G_AddEventP9gentity_sii:F(0,11)
-	jmp Z23G_ClientStopUsingTurretP9gentity_s:F(0,1)_40
-Z23G_ClientStopUsingTurretP9gentity_s:F(0,1)_20:
+	call Z10G_AddEventP9gentity_sii_F0_11
+	jmp Z23G_ClientStopUsingTurretP9gentity_s_F0_1_40
+Z23G_ClientStopUsingTurretP9gentity_s_F0_1_20:
 	mov dword [esp+0x8], 0x0
 	mov dword [esp+0x4], 0x8e
 	mov [esp], ebx
-	call Z10G_AddEventP9gentity_sii:F(0,11)
-	jmp Z23G_ClientStopUsingTurretP9gentity_s:F(0,1)_40
+	call Z10G_AddEventP9gentity_sii_F0_11
+	jmp Z23G_ClientStopUsingTurretP9gentity_s_F0_1_40
 
 
-;Z12G_FreeTurretP9gentity_s:F(0,1)
+;Z12G_FreeTurretP9gentity_s_F0_1
 
-Z12G_FreeTurretP9gentity_s:F(0,1):
+Z12G_FreeTurretP9gentity_s_F0_1:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -11644,10 +12236,10 @@ Z12G_FreeTurretP9gentity_s:F(0,1):
 	mov eax, [0x1acd709]
 	mov eax, [eax+edx+0x158]
 	test eax, eax
-	jz Z12G_FreeTurretP9gentity_s:F(0,1)_10
+	jz Z12G_FreeTurretP9gentity_s_F0_1_10
 	mov [esp], ebx
-	call Z23G_ClientStopUsingTurretP9gentity_s:F(0,1)
-Z12G_FreeTurretP9gentity_s:F(0,1)_10:
+	call Z23G_ClientStopUsingTurretP9gentity_s_F0_1
+Z12G_FreeTurretP9gentity_s_F0_1_10:
 	mov byte [ebx+0x162], 0x0
 	mov eax, [ebx+0x15c]
 	mov dword [eax], 0x0
@@ -11658,9 +12250,9 @@ Z12G_FreeTurretP9gentity_s:F(0,1)_10:
 	ret
 
 
-;Z17turret_think_initP9gentity_s:F(0,1)
+;Z17turret_think_initP9gentity_s_F0_1
 
-Z16G_IsTurretUsableP9gentity_sS0_:F(0,15):
+Z16G_IsTurretUsableP9gentity_sS0__F0_15:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -11670,10 +12262,10 @@ Z16G_IsTurretUsableP9gentity_sS0_:F(0,15):
 	mov esi, [ebp+0x8]
 	mov edi, [ebp+0xc]
 	cmp byte [esi+0x162], 0x0
-	jnz Z16G_IsTurretUsableP9gentity_sS0_:F(0,15)_10
+	jnz Z16G_IsTurretUsableP9gentity_sS0__F0_15_10
 	mov eax, [esi+0x15c]
 	test eax, eax
-	jz Z16G_IsTurretUsableP9gentity_sS0_:F(0,15)_10
+	jz Z16G_IsTurretUsableP9gentity_sS0__F0_15_10
 	movss xmm2, dword [eax+0x10]
 	movss xmm0, dword [_ZZ25CG_DrawRotatedPicPhysicalfffffPKfP8MaterialE4sign+0x190]
 	movaps xmm1, xmm2
@@ -11687,14 +12279,14 @@ Z16G_IsTurretUsableP9gentity_sS0_:F(0,15):
 	addss xmm2, [esi+0x148]
 	addss xmm2, xmm1
 	movss [esp], xmm2
-	call Z17AngleNormalize180f:F(0,10)
+	call Z17AngleNormalize180f_F0_10
 	mov dword [esp+0x8], 0x0
 	lea ebx, [ebp-0x30]
 	mov [esp+0x4], ebx
 	fstp dword [esp]
-	call Z10YawVectorsfPfS_:F(0,18)
+	call Z10YawVectorsfPfS__F0_18
 	mov [esp], ebx
-	call Vec3Normalize:F(0,7)
+	call Vec3Normalize_F0_7
 	fstp st0
 	movss xmm0, dword [esi+0x138]
 	subss xmm0, [edi+0x138]
@@ -11705,7 +12297,7 @@ Z16G_IsTurretUsableP9gentity_sS0_:F(0,15):
 	mov dword [ebp-0x1c], 0x0
 	lea eax, [ebp-0x24]
 	mov [esp], eax
-	call Vec3Normalize:F(0,7)
+	call Vec3Normalize_F0_7
 	fstp st0
 	movss xmm1, dword [ebp-0x30]
 	mulss xmm1, [ebp-0x24]
@@ -11733,19 +12325,19 @@ Z16G_IsTurretUsableP9gentity_sS0_:F(0,15):
 	andnps xmm0, xmm3
 	orps xmm0, xmm1
 	movss [esp], xmm0
-	call Z6Q_acosf:F(0,10)
+	call Z6Q_acosf_F0_10
 	fstp dword [ebp-0x40]
 	cvtss2sd xmm0, [ebp-0x40]
 	mulsd xmm0, [_double_57_29577951]
 	cvtsd2ss xmm0, xmm0
 	ucomiss xmm0, [ebp-0x3c]
-	ja Z16G_IsTurretUsableP9gentity_sS0_:F(0,15)_10
+	ja Z16G_IsTurretUsableP9gentity_sS0__F0_15_10
 	mov eax, [edi+0x158]
 	mov edx, [eax+0x3c]
 	test edx, edx
-	jnz Z16G_IsTurretUsableP9gentity_sS0_:F(0,15)_10
+	jnz Z16G_IsTurretUsableP9gentity_sS0__F0_15_10
 	cmp dword [eax+0x60], 0x3ff
-	jz Z16G_IsTurretUsableP9gentity_sS0_:F(0,15)_10
+	jz Z16G_IsTurretUsableP9gentity_sS0__F0_15_10
 	mov eax, 0x1
 	add esp, 0x4c
 	pop ebx
@@ -11753,7 +12345,7 @@ Z16G_IsTurretUsableP9gentity_sS0_:F(0,15):
 	pop edi
 	pop ebp
 	ret
-Z16G_IsTurretUsableP9gentity_sS0_:F(0,15)_10:
+Z16G_IsTurretUsableP9gentity_sS0__F0_15_10:
 	xor eax, eax
 	add esp, 0x4c
 	pop ebx
@@ -11763,9 +12355,9 @@ Z16G_IsTurretUsableP9gentity_sS0_:F(0,15)_10:
 	ret
 
 
-;Z10turret_useP9gentity_sS0_S0_:F(0,1)
+;Z10turret_useP9gentity_sS0_S0__F0_1
 
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1):
+Z13G_SpawnTurretP9gentity_sPKc_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -11777,19 +12369,19 @@ Z13G_SpawnTurretP9gentity_sPKc:F(0,1):
 	mov [ebp-0x1c], eax
 	xor eax, eax
 	xor edx, edx
-	jmp Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_10
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_30:
+	jmp Z13G_SpawnTurretP9gentity_sPKc_F0_1_10
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_30:
 	add eax, 0x1
 	lea edx, [ebx+0x44]
 	cmp eax, 0x20
-	jz Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_20
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_10:
+	jz Z13G_SpawnTurretP9gentity_sPKc_F0_1_20
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_10:
 	mov ebx, edx
 	lea esi, [edx+turretInfo]
 	mov edx, [edx+turretInfo]
 	test edx, edx
-	jnz Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_30
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_320:
+	jnz Z13G_SpawnTurretP9gentity_sPKc_F0_1_30
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_320:
 	mov dword [esp+0x8], 0x44
 	mov dword [esp+0x4], 0x0
 	mov [esp], esi
@@ -11798,28 +12390,28 @@ Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_320:
 	mov dword [ebx+turretInfo], 0x1
 	mov eax, [ebp-0x1c]
 	mov [esp], eax
-	call Z23G_GetWeaponIndexForNamePKc:F(0,5)
+	call Z23G_GetWeaponIndexForNamePKc_F0_5
 	mov [edi+0xc8], eax
 	test eax, eax
-	jz Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_40
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_330:
+	jz Z13G_SpawnTurretP9gentity_sPKc_F0_1_40
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_330:
 	mov [esp], eax
-	call Z15BG_GetWeaponDefi:F(0,2)
+	call Z15BG_GetWeaponDefi_F0_2
 	mov ebx, eax
 	cmp dword [eax+0x7c], 0x7
-	jz Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_50
+	jz Z13G_SpawnTurretP9gentity_sPKc_F0_1_50
 	mov eax, [ebp-0x1c]
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_g_spawnturret_we
-	call va:F(0,3)
+	call va_F0_3
 	mov [esp], eax
-	call Z9Scr_ErrorPKc:F(0,1)
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_50:
+	call Z9Scr_ErrorPKc_F0_1
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_50:
 	mov eax, [0x1acd721]
 	mov eax, [eax+0x1c]
 	test eax, eax
-	jz Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_60
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_340:
+	jz Z13G_SpawnTurretP9gentity_sPKc_F0_1_60
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_340:
 	mov dword [esi+0x8], 0x0
 	mov eax, [ebx+0x8c]
 	mov [esi+0x20], eax
@@ -11827,66 +12419,66 @@ Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_340:
 	mov dword [esi+0x28], 0x0
 	mov eax, [ebx+0xb0]
 	test eax, eax
-	jz Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_70
+	jz Z13G_SpawnTurretP9gentity_sPKc_F0_1_70
 	cmp byte [eax], 0x0
-	jnz Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_80
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_70:
+	jnz Z13G_SpawnTurretP9gentity_sPKc_F0_1_80
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_70:
 	mov byte [esi+0x40], 0x0
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_310:
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_310:
 	mov eax, [ebx+0xb4]
 	test eax, eax
-	jz Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_90
+	jz Z13G_SpawnTurretP9gentity_sPKc_F0_1_90
 	cmp byte [eax], 0x0
-	jnz Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_100
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_90:
+	jnz Z13G_SpawnTurretP9gentity_sPKc_F0_1_100
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_90:
 	mov byte [esi+0x41], 0x0
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_300:
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_300:
 	mov eax, [ebx+0xb8]
 	test eax, eax
-	jz Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_110
+	jz Z13G_SpawnTurretP9gentity_sPKc_F0_1_110
 	cmp byte [eax], 0x0
-	jnz Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_120
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_110:
+	jnz Z13G_SpawnTurretP9gentity_sPKc_F0_1_120
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_110:
 	mov byte [esi+0x42], 0x0
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_290:
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_290:
 	mov eax, [ebx+0xbc]
 	test eax, eax
-	jz Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_130
+	jz Z13G_SpawnTurretP9gentity_sPKc_F0_1_130
 	cmp byte [eax], 0x0
-	jnz Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_140
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_130:
+	jnz Z13G_SpawnTurretP9gentity_sPKc_F0_1_140
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_130:
 	mov byte [esi+0x43], 0x0
 	mov eax, [0x1acd721]
 	cmp byte [eax+0x1348], 0x0
-	jnz Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_150
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_270:
+	jnz Z13G_SpawnTurretP9gentity_sPKc_F0_1_150
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_270:
 	mov eax, [ebx+0x52c]
 	mov [esi+0x10], eax
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_280:
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_280:
 	movss xmm0, dword [esi+0x10]
 	xorps xmm0, [_ZZ25CG_DrawRotatedPicPhysicalfffffPKfP8MaterialE4sign+0x1a0]
 	movss [esi+0x10], xmm0
 	pxor xmm1, xmm1
 	ucomiss xmm0, xmm1
-	jbe Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_160
+	jbe Z13G_SpawnTurretP9gentity_sPKc_F0_1_160
 	movss [esi+0x10], xmm1
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_160:
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_160:
 	mov eax, [0x1acd721]
 	cmp byte [eax+0x1348], 0x0
-	jnz Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_170
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_430:
+	jnz Z13G_SpawnTurretP9gentity_sPKc_F0_1_170
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_430:
 	mov eax, [ebx+0x528]
 	mov [esi+0x18], eax
 	ucomiss xmm1, [esi+0x18]
-	ja Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_180
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_440:
+	ja Z13G_SpawnTurretP9gentity_sPKc_F0_1_180
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_440:
 	mov eax, [0x1acd721]
 	cmp byte [eax+0x1348], 0x0
-	jnz Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_190
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_420:
+	jnz Z13G_SpawnTurretP9gentity_sPKc_F0_1_190
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_420:
 	mov eax, [ebx+0x530]
 	mov [esi+0xc], eax
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_410:
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_410:
 	movss xmm0, dword [esi+0xc]
 	xorps xmm0, [_ZZ25CG_DrawRotatedPicPhysicalfffffPKfP8MaterialE4sign+0x1a0]
 	movaps xmm2, xmm1
@@ -11896,42 +12488,42 @@ Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_410:
 	movss [esi+0xc], xmm0
 	mov eax, [0x1acd721]
 	cmp byte [eax+0x1348], 0x0
-	jnz Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_200
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_400:
+	jnz Z13G_SpawnTurretP9gentity_sPKc_F0_1_200
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_400:
 	mov eax, [ebx+0x534]
 	mov [esi+0x14], eax
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_390:
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_390:
 	ucomiss xmm1, [esi+0x14]
-	ja Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_210
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_450:
+	ja Z13G_SpawnTurretP9gentity_sPKc_F0_1_210
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_450:
 	mov dword [esi+0x1c], 0xc2b40000
 	mov eax, [edi+0x194]
 	test eax, eax
-	jnz Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_220
+	jnz Z13G_SpawnTurretP9gentity_sPKc_F0_1_220
 	mov dword [edi+0x194], 0x64
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_220:
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_220:
 	mov eax, [0x1acd721]
 	cmp byte [eax+0x1348], 0x0
-	jnz Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_230
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_370:
+	jnz Z13G_SpawnTurretP9gentity_sPKc_F0_1_230
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_370:
 	mov eax, [ebx+0x1ec]
 	mov [edi+0x19c], eax
 	mov ecx, [edi+0x19c]
 	test ecx, ecx
-	js Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_240
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_380:
+	js Z13G_SpawnTurretP9gentity_sPKc_F0_1_240
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_380:
 	mov eax, [0x1acd721]
 	cmp byte [eax+0x1348], 0x0
-	jnz Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_250
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_360:
+	jnz Z13G_SpawnTurretP9gentity_sPKc_F0_1_250
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_360:
 	mov eax, [ebx+0x540]
 	mov [esi+0x38], eax
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_350:
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_350:
 	pxor xmm0, xmm0
 	ucomiss xmm0, [esi+0x38]
-	jbe Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_260
+	jbe Z13G_SpawnTurretP9gentity_sPKc_F0_1_260
 	mov dword [esi+0x38], 0x0
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_260:
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_260:
 	mov dword [esi+0x4], 0x3
 	mov dword [edi+0x184], 0x1
 	mov dword [edi+0x11c], 0x200004
@@ -11939,7 +12531,7 @@ Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_260:
 	mov dword [edi+0x4], 0x9
 	or dword [edi+0x174], 0x1000
 	mov [esp], edi
-	call Z12G_DObjUpdateP9gentity_s:F(0,11)
+	call Z12G_DObjUpdateP9gentity_s_F0_11
 	lea edx, [edi+0x104]
 	mov eax, 0xc2000000
 	mov [edi+0x104], eax
@@ -11953,11 +12545,11 @@ Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_260:
 	lea eax, [edi+0x138]
 	mov [esp+0x4], eax
 	mov [esp], edi
-	call Z11G_SetOriginP9gentity_sPKf:F(0,11)
+	call Z11G_SetOriginP9gentity_sPKf_F0_11
 	lea eax, [edi+0x144]
 	mov [esp+0x4], eax
 	mov [esp], edi
-	call Z10G_SetAngleP9gentity_sPKf:F(0,11)
+	call Z10G_SetAngleP9gentity_sPKf_F0_11
 	lea eax, [edi+0x68]
 	mov dword [edi+0x68], 0x0
 	mov dword [eax+0x4], 0x0
@@ -11975,134 +12567,134 @@ Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_260:
 	pop esi
 	pop edi
 	pop ebp
-	jmp Z13SV_LinkEntityP9gentity_s:F(0,23)
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_140:
+	jmp Z13SV_LinkEntityP9gentity_s_F0_23
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_140:
 	mov [esp], eax
-	call Z17G_SoundAliasIndexPKc:F(0,8)
+	call Z17G_SoundAliasIndexPKc_F0_8
 	mov [esi+0x43], al
 	mov eax, [0x1acd721]
 	cmp byte [eax+0x1348], 0x0
-	jz Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_270
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_150:
+	jz Z13G_SpawnTurretP9gentity_sPKc_F0_1_270
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_150:
 	lea eax, [esi+0x10]
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], _cstring_null
 	mov dword [esp], _cstring_rightarc
-	call Z12G_SpawnFloatPKcS0_Pf:F(0,1)
+	call Z12G_SpawnFloatPKcS0_Pf_F0_1
 	test eax, eax
-	jnz Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_280
-	jmp Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_270
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_120:
+	jnz Z13G_SpawnTurretP9gentity_sPKc_F0_1_280
+	jmp Z13G_SpawnTurretP9gentity_sPKc_F0_1_270
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_120:
 	mov [esp], eax
-	call Z17G_SoundAliasIndexPKc:F(0,8)
+	call Z17G_SoundAliasIndexPKc_F0_8
 	mov [esi+0x42], al
-	jmp Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_290
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_100:
+	jmp Z13G_SpawnTurretP9gentity_sPKc_F0_1_290
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_100:
 	mov [esp], eax
-	call Z17G_SoundAliasIndexPKc:F(0,8)
+	call Z17G_SoundAliasIndexPKc_F0_8
 	mov [esi+0x41], al
-	jmp Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_300
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_80:
+	jmp Z13G_SpawnTurretP9gentity_sPKc_F0_1_300
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_80:
 	mov [esp], eax
-	call Z17G_SoundAliasIndexPKc:F(0,8)
+	call Z17G_SoundAliasIndexPKc_F0_8
 	mov [esi+0x40], al
-	jmp Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_310
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_20:
+	jmp Z13G_SpawnTurretP9gentity_sPKc_F0_1_310
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_20:
 	mov dword [esp+0x8], 0x20
 	mov dword [esp+0x4], _cstring_g_spawnturret_ma
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
-	jmp Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_320
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_40:
+	call Com_Error_F0_1
+	jmp Z13G_SpawnTurretP9gentity_sPKc_F0_1_320
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_40:
 	mov eax, [ebp-0x1c]
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], _cstring_bad_weaponinfo_s
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	mov eax, [edi+0xc8]
-	jmp Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_330
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_60:
+	jmp Z13G_SpawnTurretP9gentity_sPKc_F0_1_330
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_60:
 	mov eax, [edi+0xc8]
 	mov [esp], eax
-	call Z16IsItemRegisteredi:F(0,13)
+	call Z16IsItemRegisteredi_F0_13
 	test eax, eax
-	jnz Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_340
+	jnz Z13G_SpawnTurretP9gentity_sPKc_F0_1_340
 	mov eax, [ebp-0x1c]
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_turret_s_not_pre
-	call va:F(0,3)
+	call va_F0_3
 	mov [esp], eax
-	call Z9Scr_ErrorPKc:F(0,1)
-	jmp Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_340
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_250:
+	call Z9Scr_ErrorPKc_F0_1
+	jmp Z13G_SpawnTurretP9gentity_sPKc_F0_1_340
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_250:
 	lea eax, [esi+0x38]
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], _cstring_11
 	mov dword [esp], _cstring_playerspread
-	call Z12G_SpawnFloatPKcS0_Pf:F(0,1)
+	call Z12G_SpawnFloatPKcS0_Pf_F0_1
 	test eax, eax
-	jnz Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_350
-	jmp Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_360
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_230:
+	jnz Z13G_SpawnTurretP9gentity_sPKc_F0_1_350
+	jmp Z13G_SpawnTurretP9gentity_sPKc_F0_1_360
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_230:
 	lea eax, [edi+0x19c]
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], _cstring_0
 	mov dword [esp], _cstring_damage
-	call Z10G_SpawnIntPKcS0_Pi:F(0,1)
+	call Z10G_SpawnIntPKcS0_Pi_F0_1
 	test eax, eax
-	jz Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_370
+	jz Z13G_SpawnTurretP9gentity_sPKc_F0_1_370
 	mov ecx, [edi+0x19c]
 	test ecx, ecx
-	jns Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_380
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_240:
+	jns Z13G_SpawnTurretP9gentity_sPKc_F0_1_380
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_240:
 	mov dword [edi+0x19c], 0x0
-	jmp Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_380
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_200:
+	jmp Z13G_SpawnTurretP9gentity_sPKc_F0_1_380
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_200:
 	lea eax, [esi+0x14]
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], _cstring_null
 	mov dword [esp], _cstring_bottomarc
-	call Z12G_SpawnFloatPKcS0_Pf:F(0,1)
+	call Z12G_SpawnFloatPKcS0_Pf_F0_1
 	pxor xmm1, xmm1
 	test eax, eax
-	jnz Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_390
+	jnz Z13G_SpawnTurretP9gentity_sPKc_F0_1_390
 	pxor xmm1, xmm1
-	jmp Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_400
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_190:
+	jmp Z13G_SpawnTurretP9gentity_sPKc_F0_1_400
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_190:
 	lea eax, [esi+0xc]
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], _cstring_null
 	mov dword [esp], _cstring_toparc
-	call Z12G_SpawnFloatPKcS0_Pf:F(0,1)
+	call Z12G_SpawnFloatPKcS0_Pf_F0_1
 	pxor xmm1, xmm1
 	test eax, eax
-	jnz Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_410
+	jnz Z13G_SpawnTurretP9gentity_sPKc_F0_1_410
 	pxor xmm1, xmm1
-	jmp Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_420
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_170:
+	jmp Z13G_SpawnTurretP9gentity_sPKc_F0_1_420
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_170:
 	lea eax, [esi+0x18]
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], _cstring_null
 	mov dword [esp], _cstring_leftarc
 	movss [ebp-0x38], xmm1
-	call Z12G_SpawnFloatPKcS0_Pf:F(0,1)
+	call Z12G_SpawnFloatPKcS0_Pf_F0_1
 	test eax, eax
 	movss xmm1, dword [ebp-0x38]
-	jz Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_430
+	jz Z13G_SpawnTurretP9gentity_sPKc_F0_1_430
 	ucomiss xmm1, [esi+0x18]
-	jbe Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_440
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_180:
+	jbe Z13G_SpawnTurretP9gentity_sPKc_F0_1_440
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_180:
 	mov dword [esi+0x18], 0x0
-	jmp Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_440
-Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_210:
+	jmp Z13G_SpawnTurretP9gentity_sPKc_F0_1_440
+Z13G_SpawnTurretP9gentity_sPKc_F0_1_210:
 	mov dword [esi+0x14], 0x0
-	jmp Z13G_SpawnTurretP9gentity_sPKc:F(0,1)_450
+	jmp Z13G_SpawnTurretP9gentity_sPKc_F0_1_450
 	nop
 
 
-;Z9SP_turretP9gentity_s:F(0,1)
+;Z9SP_turretP9gentity_s_F0_1
 
-Z7BodyEndP9gentity_s:F(0,1):
+Z7BodyEndP9gentity_s_F0_1:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -12113,9 +12705,9 @@ Z7BodyEndP9gentity_s:F(0,1):
 	ret
 
 
-;Z16Player_GetMethodPPKc:F(0,102)
+;Z16Player_GetMethodPPKc_F0_102
 
-Z16Player_GetMethodPPKc:F(0,102):
+Z16Player_GetMethodPPKc_F0_102:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -12129,21 +12721,21 @@ Z16Player_GetMethodPPKc:F(0,102):
 	mov ebx, methods__addr_36e400
 	xor edi, edi
 	mov edx, eax
-	jmp Z16Player_GetMethodPPKc:F(0,102)_10
-Z16Player_GetMethodPPKc:F(0,102)_30:
+	jmp Z16Player_GetMethodPPKc_F0_102_10
+Z16Player_GetMethodPPKc_F0_102_30:
 	add esi, 0x1
 	add edi, 0xc
 	add ebx, 0xc
 	cmp esi, 0x3b
-	jz Z16Player_GetMethodPPKc:F(0,102)_20
+	jz Z16Player_GetMethodPPKc_F0_102_20
 	mov edx, [ebp-0x1c]
-Z16Player_GetMethodPPKc:F(0,102)_10:
+Z16Player_GetMethodPPKc_F0_102_10:
 	mov eax, [ebx]
 	mov [esp+0x4], eax
 	mov [esp], edx
 	call strcmp
 	test eax, eax
-	jnz Z16Player_GetMethodPPKc:F(0,102)_30
+	jnz Z16Player_GetMethodPPKc_F0_102_30
 	mov eax, [edi+methods__addr_36e400]
 	mov edx, [ebp+0x8]
 	mov [edx], eax
@@ -12154,7 +12746,7 @@ Z16Player_GetMethodPPKc:F(0,102)_10:
 	pop edi
 	pop ebp
 	ret
-Z16Player_GetMethodPPKc:F(0,102)_20:
+Z16Player_GetMethodPPKc_F0_102_20:
 	xor eax, eax
 	add esp, 0x2c
 	pop ebx
@@ -12164,7 +12756,7 @@ Z16Player_GetMethodPPKc:F(0,102)_20:
 	ret
 
 
-;Z20PlayerCmd_giveWeapon12scr_entref_t:F(0,1)
+;Z20PlayerCmd_giveWeapon12scr_entref_t_F0_1
 
 _Z14G_HitLocStrcpyPhPKc:
 	push ebp
@@ -12179,9 +12771,9 @@ _Z14G_HitLocStrcpyPhPKc:
 	ret
 
 
-;Z21G_ParseHitLocDmgTablev:F(0,1)
+;Z21G_ParseHitLocDmgTablev_F0_1
 
-Z21G_ParseHitLocDmgTablev:F(0,1):
+Z21G_ParseHitLocDmgTablev_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -12191,7 +12783,7 @@ Z21G_ParseHitLocDmgTablev:F(0,1):
 	xor esi, esi
 	lea ebx, [ebp-0x100]
 	mov edi, g_HitLocConstNames
-Z21G_ParseHitLocDmgTablev:F(0,1)_10:
+Z21G_ParseHitLocDmgTablev_F0_1_10:
 	mov dword [esi+g_fHitLocDamageMult], 0x3f800000
 	mov eax, [esi+g_HitLocNames]
 	mov [ebx], eax
@@ -12199,29 +12791,29 @@ Z21G_ParseHitLocDmgTablev:F(0,1)_10:
 	mov dword [ebx+0x8], 0x6
 	mov dword [esp+0x4], 0x1
 	mov [esp], eax
-	call Z15Scr_AllocStringPKci:F(0,1)
+	call Z15Scr_AllocStringPKci_F0_1
 	mov [edi], ax
 	add esi, 0x4
 	add ebx, 0xc
 	add edi, 0x2
 	cmp esi, 0x4c
-	jnz Z21G_ParseHitLocDmgTablev:F(0,1)_10
+	jnz Z21G_ParseHitLocDmgTablev_F0_1_10
 	mov dword [g_fHitLocDamageMult+0x48], 0x0
 	mov dword [esp+0x8], 0x0
 	lea eax, [ebp-0x1c]
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_infomp_lochit_dm
-	call Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2)
+	call Z18FS_FOpenFileByModePKcPi8fsMode_t_F0_2
 	mov ebx, eax
 	test eax, eax
-	jle Z21G_ParseHitLocDmgTablev:F(0,1)_20
-Z21G_ParseHitLocDmgTablev:F(0,1)_110:
+	jle Z21G_ParseHitLocDmgTablev_F0_1_20
+Z21G_ParseHitLocDmgTablev_F0_1_110:
 	mov eax, [ebp-0x1c]
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], 0xb
 	lea eax, [ebp-0x2100]
 	mov [esp], eax
-	call Z7FS_ReadPvii:F(0,2)
+	call Z7FS_ReadPvii_F0_2
 	mov byte [ebp-0x20f5], 0x0
 	mov edi, _cstring_locdmgtable
 	mov ecx, 0xb
@@ -12229,34 +12821,34 @@ Z21G_ParseHitLocDmgTablev:F(0,1)_110:
 	lea esi, [ebp-0x2100]
 	repe cmpsb
 	mov eax, 0x0
-	jz Z21G_ParseHitLocDmgTablev:F(0,1)_30
+	jz Z21G_ParseHitLocDmgTablev_F0_1_30
 	movzx eax, byte [esi-0x1]
 	movzx ecx, byte [edi-0x1]
 	sub eax, ecx
-Z21G_ParseHitLocDmgTablev:F(0,1)_30:
+Z21G_ParseHitLocDmgTablev_F0_1_30:
 	test eax, eax
-	jnz Z21G_ParseHitLocDmgTablev:F(0,1)_40
-Z21G_ParseHitLocDmgTablev:F(0,1)_100:
+	jnz Z21G_ParseHitLocDmgTablev_F0_1_40
+Z21G_ParseHitLocDmgTablev_F0_1_100:
 	sub ebx, 0xb
 	cmp ebx, 0x1fff
-	jg Z21G_ParseHitLocDmgTablev:F(0,1)_50
-Z21G_ParseHitLocDmgTablev:F(0,1)_90:
+	jg Z21G_ParseHitLocDmgTablev_F0_1_50
+Z21G_ParseHitLocDmgTablev_F0_1_90:
 	mov eax, [ebp-0x1c]
 	mov [esp+0x8], eax
 	mov [esp+0x4], ebx
 	lea eax, [ebp-0x2100]
 	mov [esp], eax
-	call Z7FS_ReadPvii:F(0,2)
+	call Z7FS_ReadPvii_F0_2
 	mov byte [ebp+ebx-0x2100], 0x0
 	mov eax, [ebp-0x1c]
 	mov [esp], eax
-	call Z13FS_FCloseFilei:F(0,3)
+	call Z13FS_FCloseFilei_F0_3
 	lea eax, [ebp-0x2100]
 	mov [esp], eax
-	call Z13Info_ValidatePKc:F(0,20)
+	call Z13Info_ValidatePKc_F0_20
 	test eax, eax
-	jz Z21G_ParseHitLocDmgTablev:F(0,1)_60
-Z21G_ParseHitLocDmgTablev:F(0,1)_80:
+	jz Z21G_ParseHitLocDmgTablev_F0_1_60
+Z21G_ParseHitLocDmgTablev_F0_1_80:
 	mov dword [esp+0x18], _Z14G_HitLocStrcpyPhPKc
 	mov dword [esp+0x14], 0x0
 	mov dword [esp+0x10], 0x0
@@ -12266,51 +12858,51 @@ Z21G_ParseHitLocDmgTablev:F(0,1)_80:
 	lea eax, [ebp-0x100]
 	mov [esp+0x4], eax
 	mov dword [esp], g_fHitLocDamageMult
-	call Z25ParseConfigStringToStructPhPK10cspField_tiPKciPFiS_S4_iEPFvS_S4_E:F(0,20)
+	call Z25ParseConfigStringToStructPhPK10cspField_tiPKciPFiS_S4_iEPFvS_S4_E_F0_20
 	test eax, eax
-	jnz Z21G_ParseHitLocDmgTablev:F(0,1)_70
+	jnz Z21G_ParseHitLocDmgTablev_F0_1_70
 	mov dword [esp+0x8], _cstring_infomp_lochit_dm
 	mov dword [esp+0x4], _cstring_error_parsing_hi
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
-Z21G_ParseHitLocDmgTablev:F(0,1)_70:
+	call Com_Error_F0_1
+Z21G_ParseHitLocDmgTablev_F0_1_70:
 	add esp, 0x211c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z21G_ParseHitLocDmgTablev:F(0,1)_60:
+Z21G_ParseHitLocDmgTablev_F0_1_60:
 	mov dword [esp+0x8], _cstring_infomp_lochit_dm
 	mov dword [esp+0x4], _cstring_s_is_not_a_valid4
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
-	jmp Z21G_ParseHitLocDmgTablev:F(0,1)_80
-Z21G_ParseHitLocDmgTablev:F(0,1)_50:
+	call Com_Error_F0_1
+	jmp Z21G_ParseHitLocDmgTablev_F0_1_80
+Z21G_ParseHitLocDmgTablev_F0_1_50:
 	mov dword [esp+0x8], _cstring_infomp_lochit_dm
 	mov dword [esp+0x4], _cstring_s_is_too_long_of
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
-	jmp Z21G_ParseHitLocDmgTablev:F(0,1)_90
-Z21G_ParseHitLocDmgTablev:F(0,1)_40:
+	call Com_Error_F0_1
+	jmp Z21G_ParseHitLocDmgTablev_F0_1_90
+Z21G_ParseHitLocDmgTablev_F0_1_40:
 	mov dword [esp+0x8], _cstring_infomp_lochit_dm
 	mov dword [esp+0x4], _cstring_s_does_not_appea
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
-	jmp Z21G_ParseHitLocDmgTablev:F(0,1)_100
-Z21G_ParseHitLocDmgTablev:F(0,1)_20:
+	call Com_Error_F0_1
+	jmp Z21G_ParseHitLocDmgTablev_F0_1_100
+Z21G_ParseHitLocDmgTablev_F0_1_20:
 	mov dword [esp+0x8], _cstring_infomp_lochit_dm
 	mov dword [esp+0x4], _cstring_could_not_load_h
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
-	jmp Z21G_ParseHitLocDmgTablev:F(0,1)_110
+	call Com_Error_F0_1
+	jmp Z21G_ParseHitLocDmgTablev_F0_1_110
 	nop
 	add [eax], al
 
 
-;Z22G_IndexForMeansOfDeathPKc:F(0,10)
+;Z22G_IndexForMeansOfDeathPKc_F0_10
 
-Z22G_IndexForMeansOfDeathPKc:F(0,10):
+Z22G_IndexForMeansOfDeathPKc_F0_10:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -12320,22 +12912,22 @@ Z22G_IndexForMeansOfDeathPKc:F(0,10):
 	mov edi, [ebp+0x8]
 	xor esi, esi
 	mov ebx, modNames
-Z22G_IndexForMeansOfDeathPKc:F(0,10)_20:
+Z22G_IndexForMeansOfDeathPKc_F0_10_20:
 	mov eax, [ebx]
 	mov [esp+0x4], eax
 	mov [esp], edi
-	call I_stricmp:F(0,2)
+	call I_stricmp_F0_2
 	test eax, eax
-	jz Z22G_IndexForMeansOfDeathPKc:F(0,10)_10
+	jz Z22G_IndexForMeansOfDeathPKc_F0_10_10
 	add esi, 0x1
 	add ebx, 0x4
 	cmp esi, 0xf
-	jnz Z22G_IndexForMeansOfDeathPKc:F(0,10)_20
+	jnz Z22G_IndexForMeansOfDeathPKc_F0_10_20
 	mov [esp+0x4], edi
 	mov dword [esp], _cstring_unknown_means_of
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	xor si, si
-Z22G_IndexForMeansOfDeathPKc:F(0,10)_10:
+Z22G_IndexForMeansOfDeathPKc_F0_10_10:
 	mov eax, esi
 	add esp, 0x1c
 	pop ebx
@@ -12346,9 +12938,9 @@ Z22G_IndexForMeansOfDeathPKc:F(0,10)_10:
 	nop
 
 
-;Z22G_GetHitLocationString13hitLocation_t:F(0,22)
+;Z22G_GetHitLocationString13hitLocation_t_F0_22
 
-Z22G_GetHitLocationString13hitLocation_t:F(0,22):
+Z22G_GetHitLocationString13hitLocation_t_F0_22:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -12357,26 +12949,26 @@ Z22G_GetHitLocationString13hitLocation_t:F(0,22):
 	ret
 
 
-;Z31G_GetHitLocationIndexFromStringt:F(0,83)
+;Z31G_GetHitLocationIndexFromStringt_F0_83
 
-Z31G_GetHitLocationIndexFromStringt:F(0,83):
+Z31G_GetHitLocationIndexFromStringt_F0_83:
 	push ebp
 	mov ebp, esp
 	mov ecx, [ebp+0x8]
 	xor eax, eax
 	mov edx, g_HitLocConstNames
-	jmp Z31G_GetHitLocationIndexFromStringt:F(0,83)_10
-Z31G_GetHitLocationIndexFromStringt:F(0,83)_30:
+	jmp Z31G_GetHitLocationIndexFromStringt_F0_83_10
+Z31G_GetHitLocationIndexFromStringt_F0_83_30:
 	add eax, 0x1
 	add edx, 0x2
 	cmp eax, 0x13
-	jz Z31G_GetHitLocationIndexFromStringt:F(0,83)_20
-Z31G_GetHitLocationIndexFromStringt:F(0,83)_10:
+	jz Z31G_GetHitLocationIndexFromStringt_F0_83_20
+Z31G_GetHitLocationIndexFromStringt_F0_83_10:
 	cmp [edx], cx
-	jnz Z31G_GetHitLocationIndexFromStringt:F(0,83)_30
+	jnz Z31G_GetHitLocationIndexFromStringt_F0_83_30
 	pop ebp
 	ret
-Z31G_GetHitLocationIndexFromStringt:F(0,83)_20:
+Z31G_GetHitLocationIndexFromStringt_F0_83_20:
 	xor al, al
 	pop ebp
 	ret
@@ -12384,9 +12976,9 @@ Z31G_GetHitLocationIndexFromStringt:F(0,83)_20:
 	add [eax], al
 
 
-;Z9CanDamageP9gentity_sPKf:F(0,34)
+;Z9CanDamageP9gentity_sPKf_F0_34
 
-Z9CanDamageP9gentity_sPKf:F(0,34):
+Z9CanDamageP9gentity_sPKf_F0_34:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -12396,12 +12988,12 @@ Z9CanDamageP9gentity_sPKf:F(0,34):
 	mov eax, [ebp+0x8]
 	mov ecx, [eax+0x158]
 	test ecx, ecx
-	jz Z9CanDamageP9gentity_sPKf:F(0,34)_10
+	jz Z9CanDamageP9gentity_sPKf_F0_34_10
 	mov edx, eax
 	lea eax, [ebp-0x30]
 	mov [esp+0x4], eax
 	mov [esp], edx
-	call Z21G_GetPlayerViewOriginPK9gentity_sPf:F(0,1)
+	call Z21G_GetPlayerViewOriginPK9gentity_sPf_F0_1
 	movss xmm6, dword [ebp-0x28]
 	mov ecx, [ebp+0x8]
 	subss xmm6, [ecx+0x140]
@@ -12419,7 +13011,7 @@ Z9CanDamageP9gentity_sPKf:F(0,34):
 	mov [esp], eax
 	movss [ebp-0x88], xmm3
 	movss [ebp-0x98], xmm6
-	call Vec3Normalize:F(0,7)
+	call Vec3Normalize_F0_7
 	fstp st0
 	movss xmm4, dword [ebp-0x20]
 	xorps xmm4, [_ZZ25CG_DrawRotatedPicPhysicalfffffPKfP8MaterialE4sign+0x200]
@@ -12478,29 +13070,29 @@ Z9CanDamageP9gentity_sPKf:F(0,34):
 	xor esi, esi
 	lea ebx, [ebp-0x6c]
 	mov ecx, edx
-Z9CanDamageP9gentity_sPKf:F(0,34)_30:
+Z9CanDamageP9gentity_sPKf_F0_34_30:
 	mov dword [esp+0xc], vq2+0x8b1
 	mov eax, [ecx]
 	mov [esp+0x8], eax
 	mov [esp+0x4], ebx
 	mov eax, [ebp+0xc]
 	mov [esp], eax
-	call Z23G_LocationalTracePassedPKfS0_ii:F(0,3)
+	call Z23G_LocationalTracePassedPKfS0_ii_F0_3
 	cmp eax, 0x1
 	sbb edi, 0xffffffff
 	add esi, 0x1
 	add ebx, 0xc
 	cmp esi, 0x5
-	jz Z9CanDamageP9gentity_sPKf:F(0,34)_20
+	jz Z9CanDamageP9gentity_sPKf_F0_34_20
 	mov ecx, [ebp+0x8]
-	jmp Z9CanDamageP9gentity_sPKf:F(0,34)_30
-Z9CanDamageP9gentity_sPKf:F(0,34)_20:
+	jmp Z9CanDamageP9gentity_sPKf_F0_34_30
+Z9CanDamageP9gentity_sPKf_F0_34_20:
 	test edi, edi
-	jz Z9CanDamageP9gentity_sPKf:F(0,34)_40
+	jz Z9CanDamageP9gentity_sPKf_F0_34_40
 	cmp edi, 0x3
-	jg Z9CanDamageP9gentity_sPKf:F(0,34)_50
+	jg Z9CanDamageP9gentity_sPKf_F0_34_50
 	cvtsi2ss xmm0, edi
-	divss xmm0, dword [_float_3_00000000]
+	divss xmm0, [_float_3_00000000]
 	movss [ebp-0x9c], xmm0
 	mov eax, [ebp-0x9c]
 	mov [ebp-0x9c], eax
@@ -12511,7 +13103,7 @@ Z9CanDamageP9gentity_sPKf:F(0,34)_20:
 	pop edi
 	pop ebp
 	ret
-Z9CanDamageP9gentity_sPKf:F(0,34)_40:
+Z9CanDamageP9gentity_sPKf_F0_34_40:
 	xor eax, eax
 	mov [ebp-0x9c], eax
 	fld dword [ebp-0x9c]
@@ -12521,7 +13113,7 @@ Z9CanDamageP9gentity_sPKf:F(0,34)_40:
 	pop edi
 	pop ebp
 	ret
-Z9CanDamageP9gentity_sPKf:F(0,34)_10:
+Z9CanDamageP9gentity_sPKf_F0_34_10:
 	add eax, 0x120
 	mov edx, [ebp+0x8]
 	add edx, 0x12c
@@ -12567,14 +13159,14 @@ Z9CanDamageP9gentity_sPKf:F(0,34)_10:
 	mov ecx, [ebp+0xc]
 	mov [esp+0x4], ecx
 	mov [esp], ebx
-	call Z23G_LocationalTracePassedPKfS0_ii:F(0,3)
+	call Z23G_LocationalTracePassedPKfS0_ii_F0_3
 	test eax, eax
-	jnz Z9CanDamageP9gentity_sPKf:F(0,34)_50
-Z9CanDamageP9gentity_sPKf:F(0,34)_60:
+	jnz Z9CanDamageP9gentity_sPKf_F0_34_50
+Z9CanDamageP9gentity_sPKf_F0_34_60:
 	add esi, 0x1
 	add ebx, 0xc
 	cmp esi, 0x5
-	jz Z9CanDamageP9gentity_sPKf:F(0,34)_40
+	jz Z9CanDamageP9gentity_sPKf_F0_34_40
 	mov edx, [ebp+0x8]
 	mov dword [esp+0xc], vq2+0x8b1
 	mov eax, [edx]
@@ -12582,10 +13174,10 @@ Z9CanDamageP9gentity_sPKf:F(0,34)_60:
 	mov ecx, [ebp+0xc]
 	mov [esp+0x4], ecx
 	mov [esp], ebx
-	call Z23G_LocationalTracePassedPKfS0_ii:F(0,3)
+	call Z23G_LocationalTracePassedPKfS0_ii_F0_3
 	test eax, eax
-	jz Z9CanDamageP9gentity_sPKf:F(0,34)_60
-Z9CanDamageP9gentity_sPKf:F(0,34)_50:
+	jz Z9CanDamageP9gentity_sPKf_F0_34_60
+Z9CanDamageP9gentity_sPKf_F0_34_50:
 	mov eax, 0x3f800000
 	mov [ebp-0x9c], eax
 	fld dword [ebp-0x9c]
@@ -12598,9 +13190,9 @@ Z9CanDamageP9gentity_sPKf:F(0,34)_50:
 	add [eax], al
 
 
-;Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)
+;Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1
 
-Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1):
+Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -12610,42 +13202,42 @@ Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1):
 	mov ebx, [ebp+0x8]
 	mov eax, [ebx+0x158]
 	test eax, eax
-	jz Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_10
+	jz Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_10
 	cmp byte [ebx+0x161], 0x0
-	jz Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_20
+	jz Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_20
 	mov edx, [eax+0x27ac]
 	test edx, edx
-	jnz Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_20
+	jnz Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_20
 	mov edi, [eax+0x27b0]
 	test edi, edi
-	jnz Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_20
+	jnz Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_20
 	cmp dword [eax+0x26c4], 0x2
-	jz Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_30
-Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_20:
+	jz Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_30
+Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_20:
 	add esp, 0x5c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_30:
+Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_30:
 	mov esi, [ebp+0xc]
 	test esi, esi
-	jz Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_40
+	jz Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_40
 	mov eax, [ebp+0xc]
 	mov esi, [eax+0xc8]
-Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_200:
-	cvtsi2ss xmm0, dword [ebp+0x1c]
+Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_200:
+	cvtsi2ss xmm0, [ebp+0x1c]
 	movss [ebp-0x2c], xmm0
 	test esi, esi
-	jnz Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_50
+	jnz Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_50
 	mov eax, [ebp+0x28]
 	movss xmm0, dword [eax*4+g_fHitLocDamageMult]
-Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_150:
+Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_150:
 	mulss xmm0, [ebp-0x2c]
 	cvttss2si eax, xmm0
 	test eax, eax
-	jle Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_20
+	jle Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_20
 	mov edx, [ebp+0x2c]
 	mov [esp+0x28], edx
 	mov ecx, [ebp+0x28]
@@ -12665,70 +13257,70 @@ Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_150:
 	mov edx, [ebp+0xc]
 	mov [esp+0x4], edx
 	mov [esp], ebx
-	call Z16Scr_PlayerDamageP9gentity_sS0_S0_iiiiPKfS2_13hitLocation_ti:F(0,5)
-	jmp Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_20
-Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_10:
+	call Z16Scr_PlayerDamageP9gentity_sS0_S0_iiiiPKfS2_13hitLocation_ti_F0_5
+	jmp Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_20
+Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_10:
 	cmp byte [ebx+0x161], 0x0
-	jz Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_20
+	jz Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_20
 	mov eax, [ebp+0xc]
 	test eax, eax
-	jz Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_60
-Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_180:
+	jz Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_60
+Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_180:
 	mov edi, [ebp+0x10]
 	test edi, edi
-	jz Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_70
-Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_170:
+	jz Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_70
+Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_170:
 	lea edi, [ebp-0x24]
 	mov [esp+0x4], edi
 	mov edx, [ebp+0x14]
 	mov [esp], edx
-	call Vec3NormalizeTo:F(0,7)
+	call Vec3NormalizeTo_F0_7
 	fstp st0
 	mov edx, [ebx+0x174]
 	test dl, 0x1
-	jnz Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_20
+	jnz Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_20
 	mov esi, [ebp+0x1c]
 	test esi, esi
 	mov eax, 0x1
 	cmovg eax, [ebp+0x1c]
 	mov [ebp+0x1c], eax
 	and dl, 0x2
-	jz Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_80
+	jz Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_80
 	mov edx, [ebx+0x194]
 	mov eax, edx
 	sub eax, [ebp+0x1c]
 	test eax, eax
-	jle Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_90
-Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_120:
+	jle Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_90
+Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_120:
 	mov eax, [0x1acd7c9]
 	mov eax, [eax]
 	cmp byte [eax+0x8], 0x0
-	jnz Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_100
-Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_160:
+	jnz Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_100
+Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_160:
 	sub edx, [ebp+0x1c]
 	mov [ebx+0x194], edx
 	mov edx, [ebp+0x10]
 	mov [esp], edx
-	call Z13Scr_AddEntityP9gentity_s:F(0,7)
+	call Z13Scr_AddEntityP9gentity_s_F0_7
 	mov ecx, [ebp+0x1c]
 	mov [esp], ecx
-	call Z10Scr_AddInti:F(0,1)
+	call Z10Scr_AddInti_F0_1
 	mov dword [esp+0x8], 0x2
 	mov esi, [0x1acd639]
 	movzx eax, word [esi+0x8]
 	mov [esp+0x4], eax
 	mov [esp], ebx
-	call Z10Scr_NotifyP9gentity_stj:F(0,7)
+	call Z10Scr_NotifyP9gentity_stj_F0_7
 	mov eax, [ebx+0x194]
 	test eax, eax
-	jle Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_110
+	jle Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_110
 	movzx eax, byte [ebx+0x166]
 	lea eax, [eax+eax*4]
 	shl eax, 0x3
 	add eax, [0x1acd735]
 	mov eax, [eax+0x14]
 	test eax, eax
-	jz Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_20
+	jz Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_20
 	mov edx, [ebp+0x28]
 	mov [esp+0x18], edx
 	mov [esp+0x14], edi
@@ -12742,69 +13334,69 @@ Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_160:
 	mov [esp+0x4], edx
 	mov [esp], ebx
 	call eax
-	jmp Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_20
-Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_80:
+	jmp Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_20
+Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_80:
 	mov edx, [ebx+0x194]
-	jmp Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_120
-Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_50:
+	jmp Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_120
+Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_50:
 	mov [esp], esi
-	call Z15BG_GetWeaponDefi:F(0,2)
+	call Z15BG_GetWeaponDefi_F0_2
 	test eax, eax
-	jz Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_130
+	jz Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_130
 	mov edx, [eax+0x78]
 	test edx, edx
-	jz Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_140
-Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_130:
+	jz Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_140
+Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_130:
 	mov edx, [ebp+0x28]
 	movss xmm0, dword [edx*4+g_fHitLocDamageMult]
-	jmp Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_150
-Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_100:
+	jmp Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_150
+Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_100:
 	mov eax, [ebp+0x1c]
 	mov [esp+0xc], eax
 	mov [esp+0x8], edx
 	mov eax, [ebx]
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_targeti_healthi_
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov edx, [ebx+0x194]
-	jmp Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_160
-Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_70:
+	jmp Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_160
+Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_70:
 	mov eax, [0x1acd709]
 	add eax, 0x8bba0
 	mov [ebp+0x10], eax
-	jmp Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_170
-Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_60:
+	jmp Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_170
+Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_60:
 	mov ecx, [0x1acd709]
 	add ecx, 0x8bba0
 	mov [ebp+0xc], ecx
-	jmp Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_180
-Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_40:
+	jmp Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_180
+Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_40:
 	mov ecx, [ebp+0x10]
 	test ecx, ecx
-	jz Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_190
+	jz Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_190
 	mov edx, [ebp+0x10]
 	mov esi, [edx+0xc8]
-	jmp Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_200
-Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_110:
+	jmp Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_200
+Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_110:
 	cmp eax, 0xfffffc19
-	jge Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_210
+	jge Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_210
 	mov dword [ebx+0x194], 0xfffffc19
-Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_210:
+Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_210:
 	mov eax, [ebp+0x10]
 	mov [esp], eax
-	call Z13Scr_AddEntityP9gentity_s:F(0,7)
+	call Z13Scr_AddEntityP9gentity_s_F0_7
 	mov dword [esp+0x8], 0x1
 	movzx eax, word [esi+0xa]
 	mov [esp+0x4], eax
 	mov [esp], ebx
-	call Z10Scr_NotifyP9gentity_stj:F(0,7)
+	call Z10Scr_NotifyP9gentity_stj_F0_7
 	movzx eax, byte [ebx+0x166]
 	lea eax, [eax+eax*4]
 	shl eax, 0x3
 	add eax, [0x1acd735]
 	mov edx, [eax+0x18]
 	test edx, edx
-	jz Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_20
+	jz Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_20
 	mov ecx, [ebp+0x2c]
 	mov [esp+0x20], ecx
 	mov eax, [ebp+0x28]
@@ -12823,23 +13415,23 @@ Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_210:
 	mov [esp+0x4], ecx
 	mov [esp], ebx
 	call edx
-	jmp Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_20
-Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_140:
+	jmp Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_20
+Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_140:
 	mov ecx, [ebp+0x28]
 	movss xmm0, dword [eax+ecx*4+0x5b0]
-	jmp Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_150
-Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_90:
+	jmp Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_150
+Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_90:
 	lea ecx, [edx-0x1]
 	mov [ebp+0x1c], ecx
-	jmp Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_120
-Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_190:
+	jmp Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_120
+Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_190:
 	xor esi, esi
-	jmp Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)_200
+	jmp Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1_200
 
 
-;Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)
+;Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24
 
-Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24):
+Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -12849,18 +13441,18 @@ Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24):
 	mov edi, [ebp+0x8]
 	mov eax, [ebp+0x10]
 	test eax, eax
-	jz Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_10
+	jz Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_10
 	movss xmm0, dword [ebp+0x1c]
 	ucomiss xmm0, [_float_1_00000000]
-	jb Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_20
-Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_150:
+	jb Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_20
+Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_150:
 	movaps xmm1, xmm0
 	mulss xmm1, [_float_1_41421354]
-Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_160:
+Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_160:
 	mov ecx, 0x1
 	lea esi, [ebp-0x30]
 	lea ebx, [ebp-0x3c]
-Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_30:
+Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_30:
 	lea eax, [ecx*4]
 	lea edx, [edi+eax]
 	movss xmm0, dword [edx-0x4]
@@ -12871,24 +13463,24 @@ Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_30:
 	movss [ebx+eax-0x4], xmm0
 	add ecx, 0x1
 	cmp ecx, 0x4
-	jnz Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_30
+	jnz Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_30
 	mov dword [esp+0x10], 0xffffffff
 	mov dword [esp+0xc], 0x400
 	lea eax, [ebp-0x1078]
 	mov [esp+0x8], eax
 	mov [esp+0x4], ebx
 	mov [esp], esi
-	call Z15CM_AreaEntitiesPKfS0_Piii:F(0,7)
+	call Z15CM_AreaEntitiesPKfS0_Piii_F0_7
 	mov [ebp-0x1080], eax
 	test eax, eax
-	jle Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_10
+	jle Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_10
 	movss xmm0, dword [ebp+0x1c]
 	mulss xmm0, [_float_0_20000000]
 	movss [ebp-0x108c], xmm0
 	mov dword [ebp-0x107c], 0x0
 	xor esi, esi
-	jmp Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_40
-Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_90:
+	jmp Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_40
+Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_90:
 	lea eax, [ebx+0x138]
 	movss xmm0, dword [ebx+0x138]
 	subss xmm0, [edi]
@@ -12900,7 +13492,7 @@ Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_90:
 	subss xmm0, [edi+0x8]
 	movss [ebp-0x1c], xmm0
 	movaps xmm2, xmm0
-Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_120:
+Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_120:
 	movss xmm0, dword [ebp-0x24]
 	movss xmm1, dword [ebp-0x20]
 	mulss xmm0, xmm0
@@ -12910,19 +13502,19 @@ Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_120:
 	addss xmm0, xmm2
 	sqrtss xmm0, xmm0
 	ucomiss xmm0, [ebp+0x1c]
-	jae Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_50
+	jae Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_50
 	mov eax, [ebx+0x158]
 	test eax, eax
-	jz Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_60
+	jz Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_60
 	mov eax, [0x1acd721]
 	mov ecx, [eax+0x35f4]
 	test ecx, ecx
-	jnz Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_50
-Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_60:
+	jnz Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_50
+Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_60:
 	movss xmm1, dword [ebp+0x14]
 	subss xmm1, [ebp+0x18]
 	movss [ebp-0x1088], xmm1
-	divss xmm0, dword [ebp+0x1c]
+	divss xmm0, [ebp+0x1c]
 	movss xmm1, dword [_float_1_00000000]
 	subss xmm1, xmm0
 	movaps xmm0, xmm1
@@ -12932,15 +13524,15 @@ Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_60:
 	movss [ebp-0x1088], xmm1
 	mov [esp+0x4], edi
 	mov [esp], ebx
-	call Z9CanDamageP9gentity_sPKf:F(0,34)
+	call Z9CanDamageP9gentity_sPKf_F0_34
 	fstp dword [ebp-0x1084]
 	movss xmm0, dword [ebp-0x1084]
 	ucomiss xmm0, [_float_0_00000000]
-	jbe Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_70
+	jbe Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_70
 	mov eax, [ebp+0x10]
 	mov [esp+0x4], eax
 	mov [esp], ebx
-	call Z14LogAccuracyHitP9gentity_sS0_:F(0,21)
+	call Z14LogAccuracyHitP9gentity_sS0__F0_21
 	test eax, eax
 	mov eax, 0x1
 	cmovz eax, [ebp-0x107c]
@@ -12963,7 +13555,7 @@ Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_60:
 	mov dword [esp+0x18], 0x1
 	movss xmm0, dword [ebp-0x1088]
 	mulss xmm0, [ebp-0x1084]
-Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_170:
+Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_170:
 	cvttss2si eax, xmm0
 	mov [esp+0x14], eax
 	mov [esp+0x10], edi
@@ -12974,12 +13566,12 @@ Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_170:
 	mov eax, [ebp+0xc]
 	mov [esp+0x4], eax
 	mov [esp], ebx
-	call Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)
-Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_50:
+	call Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1
+Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_50:
 	add esi, 0x1
 	cmp [ebp-0x1080], esi
-	jz Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_80
-Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_40:
+	jz Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_80
+Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_40:
 	mov eax, [ebp+esi*4-0x1078]
 	lea eax, [eax+eax*4]
 	lea ebx, [eax*8]
@@ -12987,32 +13579,32 @@ Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_40:
 	shl ebx, 0x4
 	add ebx, [0x1acd709]
 	cmp ebx, [ebp+0x20]
-	jz Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_50
+	jz Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_50
 	cmp byte [ebx+0x161], 0x0
-	jz Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_50
+	jz Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_50
 	cmp byte [ebx+0xf1], 0x0
-	jz Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_90
+	jz Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_90
 	mov eax, ebx
 	mov ecx, 0x1
 	lea edx, [ebp-0x24]
-Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_110:
+Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_110:
 	movss xmm1, dword [edi+ecx*4-0x4]
 	movss xmm0, dword [eax+0x120]
 	ucomiss xmm0, xmm1
-	jbe Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_100
+	jbe Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_100
 	subss xmm0, xmm1
 	movss [edx], xmm0
-Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_140:
+Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_140:
 	add ecx, 0x1
 	add edx, 0x4
 	add eax, 0x4
 	cmp ecx, 0x4
-	jnz Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_110
+	jnz Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_110
 	movss xmm2, dword [ebp-0x1c]
-	jmp Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_120
-Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_10:
+	jmp Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_120
+Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_10:
 	mov dword [ebp-0x107c], 0x0
-Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_80:
+Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_80:
 	mov eax, [ebp-0x107c]
 	add esp, 0x10bc
 	pop ebx
@@ -13020,23 +13612,23 @@ Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_80:
 	pop edi
 	pop ebp
 	ret
-Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_100:
+Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_100:
 	movss xmm0, dword [eax+0x12c]
 	ucomiss xmm1, xmm0
-	jbe Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_130
+	jbe Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_130
 	subss xmm1, xmm0
 	movss [edx], xmm1
-	jmp Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_140
-Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_130:
+	jmp Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_140
+Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_130:
 	mov dword [edx], 0x0
-	jmp Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_140
-Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_20:
-	jp Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_150
+	jmp Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_140
+Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_20:
+	jp Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_150
 	movss xmm1, dword [_float_1_00000000]
 	movss [ebp+0x1c], xmm1
 	movss xmm1, dword [_float_1_41421354]
-	jmp Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_160
-Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_70:
+	jmp Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_160
+Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_70:
 	lea eax, [ebx+0x120]
 	lea edx, [ebx+0x12c]
 	movss xmm1, dword [ebx+0x120]
@@ -13062,10 +13654,10 @@ Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_70:
 	mov [esp+0x4], edi
 	lea eax, [ebp-0x78]
 	mov [esp], eax
-	call Z14G_TraceCapsuleP7trace_tPKfS2_S2_S2_ii:F(0,2)
+	call Z14G_TraceCapsuleP7trace_tPKfS2_S2_S2_ii_F0_2
 	movss xmm0, dword [_float_1_00000000]
 	ucomiss xmm0, [ebp-0x78]
-	jbe Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_50
+	jbe Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_50
 	movss xmm2, dword [ebp-0x54]
 	subss xmm2, [edi]
 	movss [ebp-0x54], xmm2
@@ -13083,11 +13675,11 @@ Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_70:
 	sqrtss xmm2, xmm2
 	movss xmm1, dword [ebp-0x108c]
 	ucomiss xmm1, xmm2
-	jbe Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_50
+	jbe Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_50
 	mov eax, [ebp+0x10]
 	mov [esp+0x4], eax
 	mov [esp], ebx
-	call Z14LogAccuracyHitP9gentity_sS0_:F(0,21)
+	call Z14LogAccuracyHitP9gentity_sS0__F0_21
 	test eax, eax
 	mov eax, 0x1
 	cmovz eax, [ebp-0x107c]
@@ -13110,12 +13702,12 @@ Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_70:
 	mov dword [esp+0x18], 0x1
 	movss xmm0, dword [ebp-0x1088]
 	mulss xmm0, [_float_0_10000000]
-	jmp Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)_170
+	jmp Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24_170
 
 
-;Z10player_dieP9gentity_sS0_S0_iiiPKf13hitLocation_ti:F(0,1)
+;Z10player_dieP9gentity_sS0_S0_iiiPKf13hitLocation_ti_F0_1
 
-Z23G_GetWeaponIndexForNamePKc:F(0,5):
+Z23G_GetWeaponIndexForNamePKc_F0_5:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -13123,21 +13715,21 @@ Z23G_GetWeaponIndexForNamePKc:F(0,5):
 	mov eax, [0x1acd721]
 	mov eax, [eax+0x1c]
 	test eax, eax
-	jnz Z23G_GetWeaponIndexForNamePKc:F(0,5)_10
+	jnz Z23G_GetWeaponIndexForNamePKc_F0_5_10
 	leave
-	jmp Z25BG_FindWeaponIndexForNamePKc:F(0,3)
-Z23G_GetWeaponIndexForNamePKc:F(0,5)_10:
+	jmp Z25BG_FindWeaponIndexForNamePKc_F0_3
+Z23G_GetWeaponIndexForNamePKc_F0_5_10:
 	mov eax, [0x1acd7dd]
 	mov [esp+0x4], eax
 	mov [esp], edx
-	call Z24BG_GetWeaponIndexForNamePKcPFviE:F(0,3)
+	call Z24BG_GetWeaponIndexForNamePKcPFviE_F0_3
 	leave
 	ret
 
 
-;Z20G_SetEquippedOffHandii:F(0,1)
+;Z20G_SetEquippedOffHandii_F0_1
 
-Z20G_SetEquippedOffHandii:F(0,1):
+Z20G_SetEquippedOffHandii_F0_1:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -13145,19 +13737,19 @@ Z20G_SetEquippedOffHandii:F(0,1):
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], 0x43
 	mov dword [esp], _cstring_c_i
-	call va:F(0,3)
+	call va_F0_3
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], 0x1
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z24SV_GameSendServerCommandi11svscmd_typePKc:F(0,53)
+	call Z24SV_GameSendServerCommandi11svscmd_typePKc_F0_53
 	leave
 	ret
 
 
-;Z19G_SelectWeaponIndexii:F(0,1)
+;Z19G_SelectWeaponIndexii_F0_1
 
-Z19G_SelectWeaponIndexii:F(0,1):
+Z19G_SelectWeaponIndexii_F0_1:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -13165,19 +13757,19 @@ Z19G_SelectWeaponIndexii:F(0,1):
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], 0x61
 	mov dword [esp], _cstring_c_i
-	call va:F(0,3)
+	call va_F0_3
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], 0x1
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z24SV_GameSendServerCommandi11svscmd_typePKc:F(0,53)
+	call Z24SV_GameSendServerCommandi11svscmd_typePKc_F0_53
 	leave
 	ret
 
 
-;Z26Weapon_RocketLauncher_FireP9gentity_sfP11weaponParms:F(0,1)
+;Z26Weapon_RocketLauncher_FireP9gentity_sfP11weaponParms_F0_1
 
-Z12G_UseOffHandP9gentity_s:F(0,1):
+Z12G_UseOffHandP9gentity_s_F0_1:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -13187,7 +13779,7 @@ Z12G_UseOffHandP9gentity_s:F(0,1):
 	mov eax, [ebx+0x158]
 	mov eax, [eax+0xd0]
 	mov [esp], eax
-	call Z15BG_GetWeaponDefi:F(0,2)
+	call Z15BG_GetWeaponDefi_F0_2
 	mov [ebp-0x18], eax
 	mov edx, [ebx+0x158]
 	lea ecx, [edx+0xe8]
@@ -13209,17 +13801,17 @@ Z12G_UseOffHandP9gentity_s:F(0,1):
 	mov [esp+0x4], esi
 	lea eax, [ebp-0x14]
 	mov [esp], eax
-	call AngleVectors:F(0,18)
+	call AngleVectors_F0_18
 	lea eax, [ebp-0x30]
 	mov [esp+0x4], eax
 	mov [esp], ebx
-	call Z21G_GetPlayerViewOriginPK9gentity_sPf:F(0,1)
+	call Z21G_GetPlayerViewOriginPK9gentity_sPf_F0_1
 	mov [esp+0x8], esi
 	mov eax, [ebx+0x158]
 	mov eax, [eax+0xd0]
 	mov [esp+0x4], eax
 	mov [esp], ebx
-	call Z27weapon_grenadelauncher_fireP9gentity_siP11weaponParms:F(0,36)
+	call Z27weapon_grenadelauncher_fireP9gentity_siP11weaponParms_F0_36
 	add esp, 0x60
 	pop ebx
 	pop esi
@@ -13230,7 +13822,7 @@ Z12G_UseOffHandP9gentity_s:F(0,1):
 
 ;Melee_Trace(gentity_s*, weaponParms*, int, float, float, float, trace_t*, float*)
 
-Z15FireWeaponMeleeP9gentity_s:F(0,1):
+Z15FireWeaponMeleeP9gentity_s_F0_1:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -13239,26 +13831,26 @@ Z15FireWeaponMeleeP9gentity_s:F(0,1):
 	mov esi, [ebp+0x8]
 	mov eax, [esi+0x158]
 	test dword [eax+0xa0], 0x300
-	jz Z15FireWeaponMeleeP9gentity_s:F(0,1)_10
+	jz Z15FireWeaponMeleeP9gentity_s_F0_1_10
 	cmp byte [esi+0x162], 0x0
-	jnz Z15FireWeaponMeleeP9gentity_s:F(0,1)_20
-Z15FireWeaponMeleeP9gentity_s:F(0,1)_10:
+	jnz Z15FireWeaponMeleeP9gentity_s_F0_1_20
+Z15FireWeaponMeleeP9gentity_s_F0_1_10:
 	mov eax, [esi+0xc8]
 	mov [esp], eax
-	call Z15BG_GetWeaponDefi:F(0,2)
+	call Z15BG_GetWeaponDefi_F0_2
 	mov [ebp-0xc], eax
 	lea ebx, [ebp-0x48]
 	lea eax, [ebp-0x24]
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call Z21G_GetPlayerViewOriginPK9gentity_sPf:F(0,1)
+	call Z21G_GetPlayerViewOriginPK9gentity_sPf_F0_1
 	lea eax, [ebp-0x30]
 	mov [esp+0xc], eax
 	lea eax, [ebp-0x3c]
 	mov [esp+0x8], eax
 	mov [esp+0x4], ebx
 	mov [esp], esi
-	call Z24G_GetPlayerViewDirectionPK9gentity_sPfS2_S2_:F(0,1)
+	call Z24G_GetPlayerViewDirectionPK9gentity_sPfS2_S2__F0_1
 	mov eax, [0x1acd7d9]
 	mov eax, [eax]
 	mov eax, [eax+0x8]
@@ -13273,8 +13865,8 @@ Z15FireWeaponMeleeP9gentity_s:F(0,1)_10:
 	mov [esp+0x8], eax
 	mov [esp+0x4], ebx
 	mov [esp], esi
-	call Z12Weapon_MeleeP9gentity_sP11weaponParmsfff:F(0,1)
-Z15FireWeaponMeleeP9gentity_s:F(0,1)_20:
+	call Z12Weapon_MeleeP9gentity_sP11weaponParmsfff_F0_1
+Z15FireWeaponMeleeP9gentity_s_F0_1_20:
 	add esp, 0x60
 	pop ebx
 	pop esi
@@ -13284,50 +13876,50 @@ Z15FireWeaponMeleeP9gentity_s:F(0,1)_20:
 
 ;Bullet_Fire_Extended(gentity_s const*, gentity_s*, float*, float*, float, int, weaponParms const*, gentity_s const*, int)
 
-Z16G_SetupWeaponDefv:F(0,1):
+Z16G_SetupWeaponDefv_F0_1:
 	push ebp
 	mov ebp, esp
 	push ebx
 	sub esp, 0x14
 	mov dword [esp], _cstring_8
-	call Z11Com_DPrintfPKcz:F(0,1)
+	call Z11Com_DPrintfPKcz_F0_1
 	mov dword [esp], _cstring_game_g_setupweap
-	call Z11Com_DPrintfPKcz:F(0,1)
+	call Z11Com_DPrintfPKcz_F0_1
 	mov eax, [0x1acd379]
 	mov ebx, [eax]
 	test ebx, ebx
-	jz Z16G_SetupWeaponDefv:F(0,1)_10
+	jz Z16G_SetupWeaponDefv_F0_1_10
 	mov dword [esp], _cstring_8
-	call Z11Com_DPrintfPKcz:F(0,1)
+	call Z11Com_DPrintfPKcz_F0_1
 	add esp, 0x14
 	pop ebx
 	pop ebp
 	ret
-Z16G_SetupWeaponDefv:F(0,1)_10:
-	call Z22SV_SetWeaponInfoMemoryv:F(0,53)
-	call Z20ClearRegisteredItemsv:F(0,1)
-	call Z17BG_ClearWeaponDefv:F(0,1)
+Z16G_SetupWeaponDefv_F0_1_10:
+	call Z22SV_SetWeaponInfoMemoryv_F0_53
+	call Z20ClearRegisteredItemsv_F0_1
+	call Z17BG_ClearWeaponDefv_F0_1
 	mov ebx, [0x1acd7dd]
 	mov [esp], ebx
-	call Z18BG_FillInAmmoItemsPFviE:F(0,1)
+	call Z18BG_FillInAmmoItemsPFviE_F0_1
 	mov eax, [0x1acd721]
 	mov ecx, [eax+0x1c]
 	test ecx, ecx
-	jz Z16G_SetupWeaponDefv:F(0,1)_20
+	jz Z16G_SetupWeaponDefv_F0_1_20
 	mov [esp+0x4], ebx
 	mov dword [esp], _cstring_defaultweapon_mp
-	call Z24BG_GetWeaponIndexForNamePKcPFviE:F(0,3)
+	call Z24BG_GetWeaponIndexForNamePKcPFviE_F0_3
 	mov dword [esp], _cstring_8
-	call Z11Com_DPrintfPKcz:F(0,1)
+	call Z11Com_DPrintfPKcz_F0_1
 	add esp, 0x14
 	pop ebx
 	pop ebp
 	ret
-Z16G_SetupWeaponDefv:F(0,1)_20:
+Z16G_SetupWeaponDefv_F0_1_20:
 	mov dword [esp], _cstring_defaultweapon_mp
-	call Z25BG_FindWeaponIndexForNamePKc:F(0,3)
+	call Z25BG_FindWeaponIndexForNamePKc_F0_3
 	mov dword [esp], _cstring_8
-	call Z11Com_DPrintfPKcz:F(0,1)
+	call Z11Com_DPrintfPKcz_F0_1
 	add esp, 0x14
 	pop ebx
 	pop ebp
@@ -13335,9 +13927,9 @@ Z16G_SetupWeaponDefv:F(0,1)_20:
 	nop
 
 
-;Z13Bullet_EndposfPfPK11weaponParmsf:F(0,1)
+;Z13Bullet_EndposfPfPK11weaponParmsf_F0_1
 
-Z17FireWeaponAntiLagP9gentity_si:F(0,1):
+Z17FireWeaponAntiLagP9gentity_si_F0_1:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -13346,13 +13938,13 @@ Z17FireWeaponAntiLagP9gentity_si:F(0,1):
 	mov ebx, [ebp+0x8]
 	mov eax, [ebx+0x158]
 	test dword [eax+0xa0], 0x300
-	jz Z17FireWeaponAntiLagP9gentity_si:F(0,1)_10
+	jz Z17FireWeaponAntiLagP9gentity_si_F0_1_10
 	cmp byte [ebx+0x162], 0x0
-	jnz Z17FireWeaponAntiLagP9gentity_si:F(0,1)_20
-Z17FireWeaponAntiLagP9gentity_si:F(0,1)_10:
+	jnz Z17FireWeaponAntiLagP9gentity_si_F0_1_20
+Z17FireWeaponAntiLagP9gentity_si_F0_1_10:
 	mov eax, [ebx+0xc8]
 	mov [esp], eax
-	call Z15BG_GetWeaponDefi:F(0,2)
+	call Z15BG_GetWeaponDefi_F0_2
 	mov [ebp-0x20], eax
 	mov edx, [ebx+0x158]
 	lea ecx, [edx+0xe8]
@@ -13374,11 +13966,11 @@ Z17FireWeaponAntiLagP9gentity_si:F(0,1)_10:
 	mov [esp+0x4], esi
 	lea eax, [ebp-0x1c]
 	mov [esp], eax
-	call AngleVectors:F(0,18)
+	call AngleVectors_F0_18
 	lea eax, [ebp-0x38]
 	mov [esp+0x4], eax
 	mov [esp], ebx
-	call Z21G_GetPlayerViewOriginPK9gentity_sPf:F(0,1)
+	call Z21G_GetPlayerViewOriginPK9gentity_sPf_F0_1
 	mov edx, [ebx+0x158]
 	movss xmm0, dword [edx+0x2810]
 	movss [ebp-0x6c], xmm0
@@ -13389,12 +13981,12 @@ Z17FireWeaponAntiLagP9gentity_si:F(0,1)_10:
 	mov eax, [ebx+0xc8]
 	mov [esp+0x4], eax
 	mov [esp], edx
-	call Z21BG_GetSpreadForWeaponPK13playerState_siPfS2_:F(0,1)
+	call Z21BG_GetSpreadForWeaponPK13playerState_siPfS2__F0_1
 	mov eax, [ebx+0x158]
 	movss xmm0, dword [_float_1_00000000]
 	ucomiss xmm0, [eax+0xdc]
-	jnz Z17FireWeaponAntiLagP9gentity_si:F(0,1)_30
-	jp Z17FireWeaponAntiLagP9gentity_si:F(0,1)_30
+	jnz Z17FireWeaponAntiLagP9gentity_si_F0_1_30
+	jp Z17FireWeaponAntiLagP9gentity_si_F0_1_30
 	mov eax, [ebp-0x20]
 	movss xmm0, dword [eax+0x4bc]
 	movss xmm1, dword [ebp-0x10]
@@ -13403,25 +13995,25 @@ Z17FireWeaponAntiLagP9gentity_si:F(0,1)_10:
 	addss xmm1, xmm0
 	mov edx, [eax+0x78]
 	test edx, edx
-	jz Z17FireWeaponAntiLagP9gentity_si:F(0,1)_40
-Z17FireWeaponAntiLagP9gentity_si:F(0,1)_70:
+	jz Z17FireWeaponAntiLagP9gentity_si_F0_1_40
+Z17FireWeaponAntiLagP9gentity_si_F0_1_70:
 	cmp edx, 0x1
-	jz Z17FireWeaponAntiLagP9gentity_si:F(0,1)_50
+	jz Z17FireWeaponAntiLagP9gentity_si_F0_1_50
 	cmp edx, 0x2
-	jz Z17FireWeaponAntiLagP9gentity_si:F(0,1)_60
+	jz Z17FireWeaponAntiLagP9gentity_si_F0_1_60
 	mov eax, [eax]
 	mov [esp+0xc], eax
 	mov [esp+0x8], edx
 	mov dword [esp+0x4], _cstring_unknown_weapon_t1
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
-Z17FireWeaponAntiLagP9gentity_si:F(0,1)_20:
+	call Com_Error_F0_1
+Z17FireWeaponAntiLagP9gentity_si_F0_1_20:
 	add esp, 0x90
 	pop ebx
 	pop esi
 	pop ebp
 	ret
-Z17FireWeaponAntiLagP9gentity_si:F(0,1)_30:
+Z17FireWeaponAntiLagP9gentity_si_F0_1_30:
 	movss xmm0, dword [ebp-0xc]
 	movss xmm1, dword [ebp-0x10]
 	subss xmm1, xmm0
@@ -13430,44 +14022,44 @@ Z17FireWeaponAntiLagP9gentity_si:F(0,1)_30:
 	mov eax, [ebp-0x20]
 	mov edx, [eax+0x78]
 	test edx, edx
-	jnz Z17FireWeaponAntiLagP9gentity_si:F(0,1)_70
-Z17FireWeaponAntiLagP9gentity_si:F(0,1)_40:
+	jnz Z17FireWeaponAntiLagP9gentity_si_F0_1_70
+Z17FireWeaponAntiLagP9gentity_si_F0_1_40:
 	mov eax, [ebp+0xc]
 	mov [esp+0x10], eax
 	mov [esp+0xc], ebx
 	mov [esp+0x8], esi
 	movss [esp+0x4], xmm1
 	mov [esp], ebx
-	call Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i:F(0,1)
+	call Z11Bullet_FireP9gentity_sfP11weaponParmsS0_i_F0_1
 	add esp, 0x90
 	pop ebx
 	pop esi
 	pop ebp
 	ret
-Z17FireWeaponAntiLagP9gentity_si:F(0,1)_60:
+Z17FireWeaponAntiLagP9gentity_si_F0_1_60:
 	mov [esp+0x8], esi
 	movss [esp+0x4], xmm1
 	mov [esp], ebx
-	call Z26Weapon_RocketLauncher_FireP9gentity_sfP11weaponParms:F(0,1)
+	call Z26Weapon_RocketLauncher_FireP9gentity_sfP11weaponParms_F0_1
 	add esp, 0x90
 	pop ebx
 	pop esi
 	pop ebp
 	ret
-Z17FireWeaponAntiLagP9gentity_si:F(0,1)_50:
+Z17FireWeaponAntiLagP9gentity_si_F0_1_50:
 	mov [esp+0x8], esi
 	mov eax, [ebx+0xc8]
 	mov [esp+0x4], eax
 	mov [esp], ebx
-	call Z27weapon_grenadelauncher_fireP9gentity_siP11weaponParms:F(0,36)
-	jmp Z17FireWeaponAntiLagP9gentity_si:F(0,1)_20
+	call Z27weapon_grenadelauncher_fireP9gentity_siP11weaponParms_F0_36
+	jmp Z17FireWeaponAntiLagP9gentity_si_F0_1_20
 	nop
 	add [eax], al
 
 
-;Z18G_GivePlayerWeaponP13playerState_si:F(0,21)
+;Z18G_GivePlayerWeaponP13playerState_si_F0_21
 
-Z18G_GivePlayerWeaponP13playerState_si:F(0,21):
+Z18G_GivePlayerWeaponP13playerState_si_F0_21:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -13486,8 +14078,8 @@ Z18G_GivePlayerWeaponP13playerState_si:F(0,21):
 	mov ecx, esi
 	sar eax, cl
 	test al, 0x1
-	jz Z18G_GivePlayerWeaponP13playerState_si:F(0,21)_10
-Z18G_GivePlayerWeaponP13playerState_si:F(0,21)_20:
+	jz Z18G_GivePlayerWeaponP13playerState_si_F0_21_10
+Z18G_GivePlayerWeaponP13playerState_si_F0_21_20:
 	xor eax, eax
 	add esp, 0x3c
 	pop ebx
@@ -13495,16 +14087,16 @@ Z18G_GivePlayerWeaponP13playerState_si:F(0,21)_20:
 	pop edi
 	pop ebp
 	ret
-Z18G_GivePlayerWeaponP13playerState_si:F(0,21)_10:
+Z18G_GivePlayerWeaponP13playerState_si_F0_21_10:
 	mov eax, [ebp+0xc]
 	mov [esp], eax
-	call Z15BG_GetWeaponDefi:F(0,2)
+	call Z15BG_GetWeaponDefi_F0_2
 	mov edx, eax
 	mov eax, [eax+0x7c]
 	cmp eax, 0x7
-	jz Z18G_GivePlayerWeaponP13playerState_si:F(0,21)_20
+	jz Z18G_GivePlayerWeaponP13playerState_si_F0_21_20
 	cmp eax, 0x8
-	jz Z18G_GivePlayerWeaponP13playerState_si:F(0,21)_20
+	jz Z18G_GivePlayerWeaponP13playerState_si_F0_21_20
 	mov eax, 0x1
 	mov ecx, esi
 	shl eax, cl
@@ -13516,50 +14108,50 @@ Z18G_GivePlayerWeaponP13playerState_si:F(0,21)_10:
 	not esi
 	and [ebx], esi
 	cmp dword [edx+0x7c], 0x9
-	jz Z18G_GivePlayerWeaponP13playerState_si:F(0,21)_30
+	jz Z18G_GivePlayerWeaponP13playerState_si_F0_21_30
 	mov ebx, [edx+0x84]
 	test ebx, ebx
-	jz Z18G_GivePlayerWeaponP13playerState_si:F(0,21)_40
+	jz Z18G_GivePlayerWeaponP13playerState_si_F0_21_40
 	mov eax, [edi+0xd0]
 	test eax, eax
-	jnz Z18G_GivePlayerWeaponP13playerState_si:F(0,21)_50
+	jnz Z18G_GivePlayerWeaponP13playerState_si_F0_21_50
 	mov ebx, [ebp+0xc]
 	mov [edi+0xd0], ebx
 	mov ebx, [edi+0xcc]
 	mov eax, [ebp+0xc]
-Z18G_GivePlayerWeaponP13playerState_si:F(0,21)_100:
+Z18G_GivePlayerWeaponP13playerState_si_F0_21_100:
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], 0x43
 	mov dword [esp], _cstring_c_i
-	call va:F(0,3)
+	call va_F0_3
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], 0x1
 	mov [esp], ebx
-	call Z24SV_GameSendServerCommandi11svscmd_typePKc:F(0,53)
-Z18G_GivePlayerWeaponP13playerState_si:F(0,21)_30:
+	call Z24SV_GameSendServerCommandi11svscmd_typePKc_F0_53
+Z18G_GivePlayerWeaponP13playerState_si_F0_21_30:
 	mov eax, 0x1
-Z18G_GivePlayerWeaponP13playerState_si:F(0,21)_90:
+Z18G_GivePlayerWeaponP13playerState_si_F0_21_90:
 	add esp, 0x3c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z18G_GivePlayerWeaponP13playerState_si:F(0,21)_40:
+Z18G_GivePlayerWeaponP13playerState_si_F0_21_40:
 	mov eax, [edx+0x80]
 	sub eax, 0x1
 	cmp eax, 0x1
-	ja Z18G_GivePlayerWeaponP13playerState_si:F(0,21)_60
+	ja Z18G_GivePlayerWeaponP13playerState_si_F0_21_60
 	cmp byte [edi+0x555], 0x0
-	jz Z18G_GivePlayerWeaponP13playerState_si:F(0,21)_70
+	jz Z18G_GivePlayerWeaponP13playerState_si_F0_21_70
 	cmp byte [edi+0x556], 0x0
-	jnz Z18G_GivePlayerWeaponP13playerState_si:F(0,21)_60
+	jnz Z18G_GivePlayerWeaponP13playerState_si_F0_21_60
 	movzx ebx, byte [ebp+0xc]
 	mov [edi+0x556], bl
-Z18G_GivePlayerWeaponP13playerState_si:F(0,21)_60:
+Z18G_GivePlayerWeaponP13playerState_si_F0_21_60:
 	mov edx, [edx+0x36c]
 	test edx, edx
-	jz Z18G_GivePlayerWeaponP13playerState_si:F(0,21)_30
+	jz Z18G_GivePlayerWeaponP13playerState_si_F0_21_30
 	mov eax, edx
 	sar eax, 0x5
 	shl eax, 0x2
@@ -13571,8 +14163,8 @@ Z18G_GivePlayerWeaponP13playerState_si:F(0,21)_60:
 	mov ecx, ebx
 	sar eax, cl
 	test al, 0x1
-	jnz Z18G_GivePlayerWeaponP13playerState_si:F(0,21)_30
-Z18G_GivePlayerWeaponP13playerState_si:F(0,21)_80:
+	jnz Z18G_GivePlayerWeaponP13playerState_si_F0_21_30
+Z18G_GivePlayerWeaponP13playerState_si_F0_21_80:
 	mov eax, 0x1
 	mov ecx, ebx
 	shl eax, cl
@@ -13582,10 +14174,10 @@ Z18G_GivePlayerWeaponP13playerState_si:F(0,21)_80:
 	mov eax, [ebp-0x1c]
 	and [eax], esi
 	mov [esp], edx
-	call Z15BG_GetWeaponDefi:F(0,2)
+	call Z15BG_GetWeaponDefi_F0_2
 	mov edx, [eax+0x36c]
 	test edx, edx
-	jz Z18G_GivePlayerWeaponP13playerState_si:F(0,21)_30
+	jz Z18G_GivePlayerWeaponP13playerState_si_F0_21_30
 	mov eax, edx
 	sar eax, 0x5
 	shl eax, 0x2
@@ -13597,37 +14189,37 @@ Z18G_GivePlayerWeaponP13playerState_si:F(0,21)_80:
 	mov ecx, ebx
 	sar eax, cl
 	test al, 0x1
-	jz Z18G_GivePlayerWeaponP13playerState_si:F(0,21)_80
+	jz Z18G_GivePlayerWeaponP13playerState_si_F0_21_80
 	mov eax, 0x1
-	jmp Z18G_GivePlayerWeaponP13playerState_si:F(0,21)_90
-Z18G_GivePlayerWeaponP13playerState_si:F(0,21)_50:
+	jmp Z18G_GivePlayerWeaponP13playerState_si_F0_21_90
+Z18G_GivePlayerWeaponP13playerState_si_F0_21_50:
 	mov [esp+0x4], eax
 	mov [esp], edi
-	call Z13BG_WeaponAmmoPK13playerState_si:F(0,3)
+	call Z13BG_WeaponAmmoPK13playerState_si_F0_3
 	test eax, eax
-	jg Z18G_GivePlayerWeaponP13playerState_si:F(0,21)_30
+	jg Z18G_GivePlayerWeaponP13playerState_si_F0_21_30
 	mov eax, [edi+0xd0]
 	mov [esp], eax
-	call Z15BG_GetWeaponDefi:F(0,2)
+	call Z15BG_GetWeaponDefi_F0_2
 	mov eax, [eax+0x84]
 	mov [esp+0x4], eax
 	mov [esp], edi
-	call Z27BG_GetFirstAvailableOffhandPK13playerState_si:F(0,3)
+	call Z27BG_GetFirstAvailableOffhandPK13playerState_si_F0_3
 	test eax, eax
 	cmovz eax, [ebp+0xc]
 	mov [edi+0xd0], eax
 	mov ebx, [edi+0xcc]
-	jmp Z18G_GivePlayerWeaponP13playerState_si:F(0,21)_100
-Z18G_GivePlayerWeaponP13playerState_si:F(0,21)_70:
+	jmp Z18G_GivePlayerWeaponP13playerState_si_F0_21_100
+Z18G_GivePlayerWeaponP13playerState_si_F0_21_70:
 	movzx ecx, byte [ebp+0xc]
 	mov [edi+0x555], cl
-	jmp Z18G_GivePlayerWeaponP13playerState_si:F(0,21)_60
+	jmp Z18G_GivePlayerWeaponP13playerState_si_F0_21_60
 	add [eax], al
 
 
-;Z16G_ExplodeMissileP9gentity_s:F(0,1)
+;Z16G_ExplodeMissileP9gentity_s_F0_1
 
-Z16G_ExplodeMissileP9gentity_s:F(0,1):
+Z16G_ExplodeMissileP9gentity_s_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -13637,11 +14229,11 @@ Z16G_ExplodeMissileP9gentity_s:F(0,1):
 	mov esi, [ebp+0x8]
 	mov eax, [esi+0xc8]
 	mov [esp], eax
-	call Z15BG_GetWeaponDefi:F(0,2)
+	call Z15BG_GetWeaponDefi_F0_2
 	mov edi, eax
 	cmp dword [eax+0x84], 0x2
-	jz Z16G_ExplodeMissileP9gentity_s:F(0,1)_10
-Z16G_ExplodeMissileP9gentity_s:F(0,1)_80:
+	jz Z16G_ExplodeMissileP9gentity_s_F0_1_10
+Z16G_ExplodeMissileP9gentity_s_F0_1_80:
 	lea ebx, [ebp-0x24]
 	mov [esp+0x8], ebx
 	mov eax, [0x1acd721]
@@ -13649,7 +14241,7 @@ Z16G_ExplodeMissileP9gentity_s:F(0,1)_80:
 	mov [esp+0x4], eax
 	lea eax, [esi+0xc]
 	mov [esp], eax
-	call Z21BG_EvaluateTrajectoryPK12trajectory_tiPf:F(0,1)
+	call Z21BG_EvaluateTrajectoryPK12trajectory_tiPf_F0_1
 	cvttss2si eax, [ebp-0x24]
 	cvtsi2ss xmm0, eax
 	movss [ebp-0x24], xmm0
@@ -13661,7 +14253,7 @@ Z16G_ExplodeMissileP9gentity_s:F(0,1)_80:
 	movss [ebp-0x1c], xmm0
 	mov [esp+0x4], ebx
 	mov [esp], esi
-	call Z11G_SetOriginP9gentity_sPKf:F(0,11)
+	call Z11G_SetOriginP9gentity_sPKf_F0_11
 	mov dword [esi+0x4], 0x0
 	or dword [esi+0x8], 0x20
 	or dword [esi+0x174], 0x800
@@ -13687,56 +14279,56 @@ Z16G_ExplodeMissileP9gentity_s:F(0,1)_80:
 	mov [esp+0x4], edx
 	lea eax, [ebp-0x54]
 	mov [esp], eax
-	call Z14G_TraceCapsuleP7trace_tPKfS2_S2_S2_ii:F(0,2)
+	call Z14G_TraceCapsuleP7trace_tPKfS2_S2_S2_ii_F0_2
 	cmp dword [edi+0x390], 0x2
-	jz Z16G_ExplodeMissileP9gentity_s:F(0,1)_20
+	jz Z16G_ExplodeMissileP9gentity_s_F0_1_20
 	lea eax, [ebp-0x50]
 	mov [esp], eax
-	call Z9DirToBytePKf:F(0,61)
+	call Z9DirToBytePKf_F0_61
 	movzx eax, al
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], 0xbc
 	mov [esp], esi
-	call Z10G_AddEventP9gentity_sii:F(0,11)
-Z16G_ExplodeMissileP9gentity_s:F(0,1)_100:
+	call Z10G_AddEventP9gentity_sii_F0_11
+Z16G_ExplodeMissileP9gentity_s_F0_1_100:
 	mov dword [esp+0x8], 0x20
 	mov dword [esp+0x4], 0xffffffff
 	mov eax, [ebp-0x5c]
 	mov [esp], eax
-	call Z16SV_PointContentsPKfii:F(0,2)
+	call Z16SV_PointContentsPKfii_F0_2
 	test eax, eax
-	jz Z16G_ExplodeMissileP9gentity_s:F(0,1)_30
+	jz Z16G_ExplodeMissileP9gentity_s_F0_1_30
 	mov dword [esi+0x88], 0x14
-Z16G_ExplodeMissileP9gentity_s:F(0,1)_70:
+Z16G_ExplodeMissileP9gentity_s_F0_1_70:
 	mov eax, [edi+0x394]
 	test eax, eax
-	jz Z16G_ExplodeMissileP9gentity_s:F(0,1)_40
+	jz Z16G_ExplodeMissileP9gentity_s_F0_1_40
 	cmp byte [eax], 0x0
-	jnz Z16G_ExplodeMissileP9gentity_s:F(0,1)_50
-Z16G_ExplodeMissileP9gentity_s:F(0,1)_40:
+	jnz Z16G_ExplodeMissileP9gentity_s_F0_1_50
+Z16G_ExplodeMissileP9gentity_s_F0_1_40:
 	mov dword [esi+0x17c], 0x1
-Z16G_ExplodeMissileP9gentity_s:F(0,1)_110:
+Z16G_ExplodeMissileP9gentity_s_F0_1_110:
 	mov edx, [edi+0x37c]
 	test edx, edx
-	jnz Z16G_ExplodeMissileP9gentity_s:F(0,1)_60
-Z16G_ExplodeMissileP9gentity_s:F(0,1)_90:
+	jnz Z16G_ExplodeMissileP9gentity_s_F0_1_60
+Z16G_ExplodeMissileP9gentity_s_F0_1_90:
 	mov [esp], esi
-	call Z13SV_LinkEntityP9gentity_s:F(0,23)
+	call Z13SV_LinkEntityP9gentity_s_F0_23
 	add esp, 0x8c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z16G_ExplodeMissileP9gentity_s:F(0,1)_30:
+Z16G_ExplodeMissileP9gentity_s_F0_1_30:
 	mov eax, [ebp-0x44]
 	and eax, 0x1f00000
 	shr eax, 0x14
 	mov [esi+0x88], eax
-	jmp Z16G_ExplodeMissileP9gentity_s:F(0,1)_70
-Z16G_ExplodeMissileP9gentity_s:F(0,1)_10:
+	jmp Z16G_ExplodeMissileP9gentity_s_F0_1_70
+Z16G_ExplodeMissileP9gentity_s_F0_1_10:
 	cmp dword [esi+0x7c], 0x3ff
-	jnz Z16G_ExplodeMissileP9gentity_s:F(0,1)_80
+	jnz Z16G_ExplodeMissileP9gentity_s_F0_1_80
 	mov dword [esi+0x190], 0x32
 	add esp, 0x8c
 	pop ebx
@@ -13744,7 +14336,7 @@ Z16G_ExplodeMissileP9gentity_s:F(0,1)_10:
 	pop edi
 	pop ebp
 	ret
-Z16G_ExplodeMissileP9gentity_s:F(0,1)_60:
+Z16G_ExplodeMissileP9gentity_s_F0_1_60:
 	movzx eax, byte [esi+0x166]
 	lea eax, [eax+eax*4]
 	shl eax, 0x3
@@ -13752,9 +14344,9 @@ Z16G_ExplodeMissileP9gentity_s:F(0,1)_60:
 	mov eax, [eax+0x24]
 	mov [esp+0x1c], eax
 	mov [esp+0x18], esi
-	cvtsi2ss xmm0, dword [edi+0x378]
+	cvtsi2ss xmm0, [edi+0x378]
 	movss [esp+0x14], xmm0
-	cvtsi2ss xmm0, dword [edi+0x380]
+	cvtsi2ss xmm0, [edi+0x380]
 	movss [esp+0x10], xmm0
 	cvtsi2ss xmm0, edx
 	movss [esp+0xc], xmm0
@@ -13763,40 +14355,40 @@ Z16G_ExplodeMissileP9gentity_s:F(0,1)_60:
 	mov [esp+0x4], esi
 	mov edx, [ebp-0x5c]
 	mov [esp], edx
-	call Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)
-	jmp Z16G_ExplodeMissileP9gentity_s:F(0,1)_90
-Z16G_ExplodeMissileP9gentity_s:F(0,1)_20:
+	call Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24
+	jmp Z16G_ExplodeMissileP9gentity_s_F0_1_90
+Z16G_ExplodeMissileP9gentity_s_F0_1_20:
 	lea eax, [ebp-0x50]
 	mov [esp], eax
-	call Z9DirToBytePKf:F(0,61)
+	call Z9DirToBytePKf_F0_61
 	movzx eax, al
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], 0xbf
 	mov [esp], esi
-	call Z10G_AddEventP9gentity_sii:F(0,11)
-	jmp Z16G_ExplodeMissileP9gentity_s:F(0,1)_100
-Z16G_ExplodeMissileP9gentity_s:F(0,1)_50:
+	call Z10G_AddEventP9gentity_sii_F0_11
+	jmp Z16G_ExplodeMissileP9gentity_s_F0_1_100
+Z16G_ExplodeMissileP9gentity_s_F0_1_50:
 	or dword [esi+0x8], 0x10000
-	call Z31Server_SwitchToValidFxSchedulerv:F(0,1)
+	call Z31Server_SwitchToValidFxSchedulerv_F0_1
 	mov eax, [edi+0x394]
 	mov [esp], eax
-	call Z17FX_RegisterEffectPKc:F(0,4)
+	call Z17FX_RegisterEffectPKc_F0_4
 	mov ecx, [0x1acd721]
 	mov edx, [ecx+0x1ec]
 	mov [esi+0x54], edx
 	mov ebx, [ecx+0x1ec]
 	mov [esp], eax
-	call Z18FX_GetEffectLengthP14EffectTemplate:F(0,18)
+	call Z18FX_GetEffectLengthP14EffectTemplate_F0_18
 	fstp dword [ebp-0x6c]
 	movss xmm0, dword [ebp-0x6c]
 	addss xmm0, [_float_1_00000000]
 	cvttss2si eax, xmm0
 	add ebx, eax
 	mov [esi+0x58], ebx
-	jmp Z16G_ExplodeMissileP9gentity_s:F(0,1)_110
+	jmp Z16G_ExplodeMissileP9gentity_s_F0_1_110
 
 
-;Z12fire_grenadeP9gentity_sPfS1_ii:F(0,2)
+;Z12fire_grenadeP9gentity_sPfS1_ii_F0_2
 
 _Z19G_MissileLandAnglesP9gentity_sP7trace_tPfi:
 	push ebp
@@ -13821,7 +14413,7 @@ _Z19G_MissileLandAnglesP9gentity_sP7trace_tPfi:
 	mov [esp+0x4], edx
 	lea eax, [esi+0x30]
 	mov [esp], eax
-	call Z21BG_EvaluateTrajectoryPK12trajectory_tiPf:F(0,1)
+	call Z21BG_EvaluateTrajectoryPK12trajectory_tiPf_F0_1
 	movss xmm0, dword [ebx+0xc]
 	ucomiss xmm0, [_float_0_10000000]
 	ja _Z19G_MissileLandAnglesP9gentity_sP7trace_tPfi_10
@@ -13844,7 +14436,7 @@ _Z19G_MissileLandAnglesP9gentity_sP7trace_tPfi_20:
 	cvtsi2ss xmm0, eax
 	addss xmm0, [ebp-0x30]
 	movss [esp], xmm0
-	call Z17AngleNormalize360f:F(0,10)
+	call Z17AngleNormalize360f_F0_10
 	fstp dword [esi+0x48]
 	add esp, 0x5c
 	pop ebx
@@ -13857,13 +14449,13 @@ _Z19G_MissileLandAnglesP9gentity_sP7trace_tPfi_10:
 	mov [esp+0x4], eax
 	mov eax, [edi+0x4]
 	mov [esp], eax
-	call Z19PitchForYawOnNormalfPKf:F(0,4)
+	call Z19PitchForYawOnNormalfPKf_F0_4
 	fstp dword [ebp-0x28]
 	mov eax, [edi]
 	mov [esp+0x4], eax
 	movss xmm0, dword [ebp-0x28]
 	movss [esp], xmm0
-	call Z13AngleSubtractff:F(0,10)
+	call Z13AngleSubtractff_F0_10
 	fstp dword [ebp-0x24]
 	movss xmm1, dword [ebp-0x24]
 	andps xmm1, [_ZZ11Melee_TraceP9gentity_sP11weaponParmsifffP7trace_tPfE12traceOffsets+0x40]
@@ -13885,7 +14477,7 @@ _Z19G_MissileLandAnglesP9gentity_sP7trace_tPfi_10:
 	jp _Z19G_MissileLandAnglesP9gentity_sP7trace_tPfi_40
 	movss xmm1, dword [esi+0x48]
 	movss [ebp-0x48], xmm1
-	call Z7randomfv:F(0,4)
+	call Z7randomfv_F0_4
 	fstp dword [ebp-0x4c]
 	movss xmm0, dword [ebp-0x4c]
 	mulss xmm0, [_float_0_30000001]
@@ -13897,7 +14489,7 @@ _Z19G_MissileLandAnglesP9gentity_sP7trace_tPfi_10:
 _Z19G_MissileLandAnglesP9gentity_sP7trace_tPfi_30:
 	mov eax, [edi]
 	mov [esp], eax
-	call Z17AngleNormalize180f:F(0,10)
+	call Z17AngleNormalize180f_F0_10
 	fstp dword [ebp-0x4c]
 	movss xmm0, dword [ebp-0x4c]
 	movss [edi], xmm0
@@ -13914,7 +14506,7 @@ _Z19G_MissileLandAnglesP9gentity_sP7trace_tPfi_50:
 	ja _Z19G_MissileLandAnglesP9gentity_sP7trace_tPfi_70
 	movss xmm1, dword [ebp-0x28]
 	movss [esp], xmm1
-	call Z17AngleNormalize360f:F(0,10)
+	call Z17AngleNormalize360f_F0_10
 	fstp dword [edi]
 	add esp, 0x5c
 	pop ebx
@@ -13926,7 +14518,7 @@ _Z19G_MissileLandAnglesP9gentity_sP7trace_tPfi_70:
 	movss xmm0, dword [ebp-0x28]
 	addss xmm0, [_float_180_00000000]
 	movss [esp], xmm0
-	call Z17AngleNormalize360f:F(0,10)
+	call Z17AngleNormalize360f_F0_10
 	fstp dword [edi]
 	add esp, 0x5c
 	pop ebx
@@ -13942,13 +14534,13 @@ _Z19G_MissileLandAnglesP9gentity_sP7trace_tPfi_60:
 	mulss xmm1, [_float_0_25000000]
 	addss xmm0, xmm1
 	movss [esp], xmm0
-	call Z17AngleNormalize360f:F(0,10)
+	call Z17AngleNormalize360f_F0_10
 	fstp dword [edi]
 	jmp _Z19G_MissileLandAnglesP9gentity_sP7trace_tPfi_90
 _Z19G_MissileLandAnglesP9gentity_sP7trace_tPfi_40:
 	movss xmm0, dword [esi+0x48]
 	movss [ebp-0x1c], xmm0
-	call Z7randomfv:F(0,4)
+	call Z7randomfv_F0_4
 	fstp dword [ebp-0x4c]
 	movss xmm0, dword [ebp-0x4c]
 	mulss xmm0, [_float_0_30000001]
@@ -13958,7 +14550,7 @@ _Z19G_MissileLandAnglesP9gentity_sP7trace_tPfi_40:
 	jmp _Z19G_MissileLandAnglesP9gentity_sP7trace_tPfi_30
 _Z19G_MissileLandAnglesP9gentity_sP7trace_tPfi_80:
 	movss [esp], xmm0
-	call Z17AngleNormalize360f:F(0,10)
+	call Z17AngleNormalize360f_F0_10
 	fstp dword [edi]
 	jmp _Z19G_MissileLandAnglesP9gentity_sP7trace_tPfi_90
 	nop
@@ -13977,13 +14569,13 @@ _Z15G_BounceMissileP9gentity_sP7trace_t:
 	mov esi, edx
 	mov eax, [eax+0xc8]
 	mov [esp], eax
-	call Z15BG_GetWeaponDefi:F(0,2)
+	call Z15BG_GetWeaponDefi_F0_2
 	mov [ebp-0x48], eax
 	lea ebx, [edi+0x138]
 	mov dword [esp+0x8], 0x20
 	mov dword [esp+0x4], 0xffffffff
 	mov [esp], ebx
-	call Z16SV_PointContentsPKfii:F(0,2)
+	call Z16SV_PointContentsPKfii_F0_2
 	mov [ebp-0x44], eax
 	mov eax, [esi+0x10]
 	and eax, 0x1f00000
@@ -14002,7 +14594,7 @@ _Z15G_BounceMissileP9gentity_sP7trace_t:
 	mov [esp+0x4], edx
 	lea eax, [edi+0xc]
 	mov [esp], eax
-	call Z26BG_EvaluateTrajectoryDeltaPK12trajectory_tiPf:F(0,1)
+	call Z26BG_EvaluateTrajectoryDeltaPK12trajectory_tiPf_F0_1
 	lea edx, [esi+0x4]
 	mov [ebp-0x4c], edx
 	movss xmm2, dword [ebp-0x24]
@@ -14152,7 +14744,7 @@ _Z15G_BounceMissileP9gentity_sP7trace_t_50:
 	jp _Z15G_BounceMissileP9gentity_sP7trace_t_70
 	mov [esp+0x4], ebx
 	mov [esp], edi
-	call Z11G_SetOriginP9gentity_sPKf:F(0,11)
+	call Z11G_SetOriginP9gentity_sPKf_F0_11
 	lea ebx, [ebp-0x30]
 	mov dword [esp], 0x1
 	mov ecx, ebx
@@ -14161,7 +14753,7 @@ _Z15G_BounceMissileP9gentity_sP7trace_t_50:
 	call _Z19G_MissileLandAnglesP9gentity_sP7trace_tPfi
 	mov [esp+0x4], ebx
 	mov [esp], edi
-	call Z10G_SetAngleP9gentity_sPKf:F(0,11)
+	call Z10G_SetAngleP9gentity_sPKf_F0_11
 	xor eax, eax
 	jmp _Z15G_BounceMissileP9gentity_sP7trace_t_80
 _Z15G_BounceMissileP9gentity_sP7trace_t_60:
@@ -14188,9 +14780,9 @@ _Z15G_BounceMissileP9gentity_sP7trace_t_60:
 	nop
 
 
-;Z12G_RunMissileP9gentity_s:F(0,1)
+;Z12G_RunMissileP9gentity_s_F0_1
 
-Z12G_RunMissileP9gentity_s:F(0,1):
+Z12G_RunMissileP9gentity_s_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -14200,9 +14792,9 @@ Z12G_RunMissileP9gentity_s:F(0,1):
 	mov esi, [ebp+0x8]
 	mov eax, [esi+0xc]
 	test eax, eax
-	jnz Z12G_RunMissileP9gentity_s:F(0,1)_10
+	jnz Z12G_RunMissileP9gentity_s_F0_1_10
 	cmp dword [esi+0x7c], 0x3fe
-	jz Z12G_RunMissileP9gentity_s:F(0,1)_10
+	jz Z12G_RunMissileP9gentity_s_F0_1_10
 	lea edi, [esi+0x138]
 	mov eax, [esi+0x138]
 	mov [ebp-0x3c], eax
@@ -14222,14 +14814,14 @@ Z12G_RunMissileP9gentity_s:F(0,1):
 	mov [esp+0x4], edi
 	lea eax, [ebp-0x84]
 	mov [esp], eax
-	call Z17G_LocationalTraceP7trace_tPKfS2_iiPh:F(0,2)
+	call Z17G_LocationalTraceP7trace_tPKfS2_iiPh_F0_2
 	cmp byte [ebp-0x61], 0x0
-	jnz Z12G_RunMissileP9gentity_s:F(0,1)_20
-Z12G_RunMissileP9gentity_s:F(0,1)_430:
+	jnz Z12G_RunMissileP9gentity_s_F0_1_20
+Z12G_RunMissileP9gentity_s_F0_1_430:
 	movss xmm0, dword [_float_1_00000000]
 	ucomiss xmm0, [ebp-0x84]
-	jnz Z12G_RunMissileP9gentity_s:F(0,1)_30
-	jp Z12G_RunMissileP9gentity_s:F(0,1)_30
+	jnz Z12G_RunMissileP9gentity_s_F0_1_30
+	jp Z12G_RunMissileP9gentity_s_F0_1_30
 	mov dword [esi+0xc], 0x5
 	mov ecx, [0x1acd721]
 	mov eax, [ecx+0x1ec]
@@ -14247,12 +14839,12 @@ Z12G_RunMissileP9gentity_s:F(0,1)_430:
 	mov [esi+0x24], eax
 	mov [edx+0x4], eax
 	mov [edx+0x8], eax
-	jmp Z12G_RunMissileP9gentity_s:F(0,1)_40
-Z12G_RunMissileP9gentity_s:F(0,1)_10:
+	jmp Z12G_RunMissileP9gentity_s_F0_1_40
+Z12G_RunMissileP9gentity_s_F0_1_10:
 	lea edi, [esi+0x138]
-Z12G_RunMissileP9gentity_s:F(0,1)_30:
+Z12G_RunMissileP9gentity_s_F0_1_30:
 	mov ecx, [0x1acd721]
-Z12G_RunMissileP9gentity_s:F(0,1)_40:
+Z12G_RunMissileP9gentity_s_F0_1_40:
 	mov eax, [esi+0x138]
 	mov [ebp-0x48], eax
 	lea edx, [esi+0x13c]
@@ -14270,7 +14862,7 @@ Z12G_RunMissileP9gentity_s:F(0,1)_40:
 	mov eax, [ecx+0x1ec]
 	mov [esp+0x4], eax
 	mov [esp], edx
-	call Z21BG_EvaluateTrajectoryPK12trajectory_tiPf:F(0,1)
+	call Z21BG_EvaluateTrajectoryPK12trajectory_tiPf_F0_1
 	movss xmm0, dword [ebp-0x3c]
 	subss xmm0, [esi+0x138]
 	movss [ebp-0x30], xmm0
@@ -14282,17 +14874,17 @@ Z12G_RunMissileP9gentity_s:F(0,1)_40:
 	movss [ebp-0x28], xmm0
 	lea eax, [ebp-0x30]
 	mov [esp], eax
-	call Vec3Normalize:F(0,7)
+	call Vec3Normalize_F0_7
 	fstp dword [ebp-0xd4]
 	movss xmm0, dword [ebp-0xd4]
 	ucomiss xmm0, [_float_0_00100000]
-	jb Z12G_RunMissileP9gentity_s:F(0,1)_50
-Z12G_RunMissileP9gentity_s:F(0,1)_390:
+	jb Z12G_RunMissileP9gentity_s_F0_1_50
+Z12G_RunMissileP9gentity_s_F0_1_390:
 	movss xmm0, dword [esi+0x2c]
 	andps xmm0, [_ZZ11Melee_TraceP9gentity_sP11weaponParmsifffP7trace_tPfE12traceOffsets+0x70]
 	ucomiss xmm0, [_float_30_00000000]
-	ja Z12G_RunMissileP9gentity_s:F(0,1)_60
-Z12G_RunMissileP9gentity_s:F(0,1)_290:
+	ja Z12G_RunMissileP9gentity_s_F0_1_60
+Z12G_RunMissileP9gentity_s_F0_1_290:
 	mov eax, [0x1acd7b5]
 	mov [esp+0x14], eax
 	mov eax, [esi+0x184]
@@ -14304,15 +14896,15 @@ Z12G_RunMissileP9gentity_s:F(0,1)_290:
 	mov [esp+0x4], edi
 	lea edx, [ebp-0x84]
 	mov [esp], edx
-	call Z17G_LocationalTraceP7trace_tPKfS2_iiPh:F(0,2)
+	call Z17G_LocationalTraceP7trace_tPKfS2_iiPh_F0_2
 	cmp byte [ebp-0x61], 0x0
-	jnz Z12G_RunMissileP9gentity_s:F(0,1)_70
-Z12G_RunMissileP9gentity_s:F(0,1)_300:
+	jnz Z12G_RunMissileP9gentity_s_F0_1_70
+Z12G_RunMissileP9gentity_s_F0_1_300:
 	mov eax, [ebp-0x74]
 	and eax, 0x1f00000
 	cmp eax, 0x1400000
-	jz Z12G_RunMissileP9gentity_s:F(0,1)_80
-Z12G_RunMissileP9gentity_s:F(0,1)_310:
+	jz Z12G_RunMissileP9gentity_s_F0_1_80
+Z12G_RunMissileP9gentity_s_F0_1_310:
 	movzx eax, byte [esi+0x166]
 	lea eax, [eax+eax*4]
 	shl eax, 0x3
@@ -14320,8 +14912,8 @@ Z12G_RunMissileP9gentity_s:F(0,1)_310:
 	mov eax, [eax+0x20]
 	mov [ebp-0xd0], eax
 	cmp eax, 0x3
-	jz Z12G_RunMissileP9gentity_s:F(0,1)_90
-Z12G_RunMissileP9gentity_s:F(0,1)_370:
+	jz Z12G_RunMissileP9gentity_s_F0_1_90
+Z12G_RunMissileP9gentity_s_F0_1_370:
 	movss xmm4, dword [ebp-0x84]
 	movss xmm0, dword [edi]
 	movss xmm3, dword [ebp-0x3c]
@@ -14350,25 +14942,25 @@ Z12G_RunMissileP9gentity_s:F(0,1)_370:
 	lea ebx, [edi+0x8]
 	movss [edi+0x8], xmm0
 	test byte [esi+0xb], 0x1
-	jnz Z12G_RunMissileP9gentity_s:F(0,1)_100
-Z12G_RunMissileP9gentity_s:F(0,1)_260:
+	jnz Z12G_RunMissileP9gentity_s_F0_1_100
+Z12G_RunMissileP9gentity_s_F0_1_260:
 	mov [esp], esi
-	call Z13SV_LinkEntityP9gentity_s:F(0,23)
+	call Z13SV_LinkEntityP9gentity_s_F0_23
 	mov eax, [esi+0xc8]
 	mov [esp], eax
-	call Z15BG_GetWeaponDefi:F(0,2)
+	call Z15BG_GetWeaponDefi_F0_2
 	mov ebx, eax
 	cmp dword [ebp-0xd0], 0x3
-	jz Z12G_RunMissileP9gentity_s:F(0,1)_110
-Z12G_RunMissileP9gentity_s:F(0,1)_440:
+	jz Z12G_RunMissileP9gentity_s_F0_1_110
+Z12G_RunMissileP9gentity_s_F0_1_440:
 	movss xmm0, dword [_float_1_00000000]
 	ucomiss xmm0, [ebp-0x84]
-	jp Z12G_RunMissileP9gentity_s:F(0,1)_120
-	jz Z12G_RunMissileP9gentity_s:F(0,1)_130
-Z12G_RunMissileP9gentity_s:F(0,1)_120:
+	jp Z12G_RunMissileP9gentity_s_F0_1_120
+	jz Z12G_RunMissileP9gentity_s_F0_1_130
+Z12G_RunMissileP9gentity_s_F0_1_120:
 	mov edx, [ebp-0x74]
 	test dl, 0x10
-	jnz Z12G_RunMissileP9gentity_s:F(0,1)_140
+	jnz Z12G_RunMissileP9gentity_s_F0_1_140
 	movzx eax, word [ebp-0x68]
 	lea eax, [eax+eax*4]
 	lea ebx, [eax*8]
@@ -14379,13 +14971,13 @@ Z12G_RunMissileP9gentity_s:F(0,1)_120:
 	shr edx, 0x14
 	mov [esi+0x88], edx
 	cmp byte [ebx+0x161], 0x0
-	jnz Z12G_RunMissileP9gentity_s:F(0,1)_150
+	jnz Z12G_RunMissileP9gentity_s_F0_1_150
 	test byte [esi+0xb], 0x1
-	jnz Z12G_RunMissileP9gentity_s:F(0,1)_160
-Z12G_RunMissileP9gentity_s:F(0,1)_150:
+	jnz Z12G_RunMissileP9gentity_s_F0_1_160
+Z12G_RunMissileP9gentity_s_F0_1_150:
 	mov eax, [esi+0xc8]
 	mov [esp], eax
-	call Z15BG_GetWeaponDefi:F(0,2)
+	call Z15BG_GetWeaponDefi_F0_2
 	mov [ebp-0xb8], eax
 	movzx eax, byte [esi+0x166]
 	lea eax, [eax+eax*4]
@@ -14394,21 +14986,21 @@ Z12G_RunMissileP9gentity_s:F(0,1)_150:
 	mov eax, [eax+0x20]
 	mov [ebp-0xb4], eax
 	cmp byte [ebx+0x161], 0x0
-	jnz Z12G_RunMissileP9gentity_s:F(0,1)_170
+	jnz Z12G_RunMissileP9gentity_s_F0_1_170
 	mov dword [ebp-0xbc], 0x0
-Z12G_RunMissileP9gentity_s:F(0,1)_500:
+Z12G_RunMissileP9gentity_s_F0_1_500:
 	mov ecx, [esi+0x19c]
 	test ecx, ecx
-	jz Z12G_RunMissileP9gentity_s:F(0,1)_180
+	jz Z12G_RunMissileP9gentity_s_F0_1_180
 	mov eax, [esi+0x150]
 	cmp eax, 0x3ff
-	jz Z12G_RunMissileP9gentity_s:F(0,1)_190
+	jz Z12G_RunMissileP9gentity_s_F0_1_190
 	lea eax, [eax+eax*4]
 	lea edx, [eax*8]
 	sub edx, eax
 	shl edx, 0x4
 	add edx, [0x1acd709]
-Z12G_RunMissileP9gentity_s:F(0,1)_510:
+Z12G_RunMissileP9gentity_s_F0_1_510:
 	mov eax, [ebp-0xb4]
 	mov [esp+0x10], eax
 	mov [esp+0xc], ecx
@@ -14416,19 +15008,19 @@ Z12G_RunMissileP9gentity_s:F(0,1)_510:
 	mov [esp+0x8], ecx
 	mov [esp+0x4], edi
 	mov [esp], edx
-	call Z23G_CheckHitTriggerDamageP9gentity_sPfS1_ii:F(0,1)
-Z12G_RunMissileP9gentity_s:F(0,1)_180:
+	call Z23G_CheckHitTriggerDamageP9gentity_sPfS1_ii_F0_1
+Z12G_RunMissileP9gentity_s_F0_1_180:
 	mov edi, [ebp-0xbc]
 	test edi, edi
-	jnz Z12G_RunMissileP9gentity_s:F(0,1)_200
+	jnz Z12G_RunMissileP9gentity_s_F0_1_200
 	cmp word [ebp-0x66], 0x0
-	jz Z12G_RunMissileP9gentity_s:F(0,1)_210
-Z12G_RunMissileP9gentity_s:F(0,1)_200:
+	jz Z12G_RunMissileP9gentity_s_F0_1_210
+Z12G_RunMissileP9gentity_s_F0_1_200:
 	mov edi, 0x1
-Z12G_RunMissileP9gentity_s:F(0,1)_460:
+Z12G_RunMissileP9gentity_s_F0_1_460:
 	lea eax, [ebp-0x80]
 	mov [esp], eax
-	call Z9DirToBytePKf:F(0,61)
+	call Z9DirToBytePKf_F0_61
 	movzx eax, al
 	mov edx, edi
 	cmp dl, 0x1
@@ -14437,7 +15029,7 @@ Z12G_RunMissileP9gentity_s:F(0,1)_460:
 	mov [esp+0x8], eax
 	mov [esp+0x4], edx
 	mov [esp], esi
-	call Z10G_AddEventP9gentity_sii:F(0,11)
+	call Z10G_AddEventP9gentity_sii_F0_11
 	mov eax, [ebp-0x74]
 	and eax, 0x1f00000
 	shr eax, 0x14
@@ -14453,42 +15045,42 @@ Z12G_RunMissileP9gentity_s:F(0,1)_460:
 	mov [esp+0x4], eax
 	lea ecx, [ebp-0x54]
 	mov [esp], ecx
-	call Z17SnapVectorTowardsPfS_:F(0,1)
+	call Z17SnapVectorTowardsPfS__F0_1
 	lea eax, [ebp-0x54]
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call Z11G_SetOriginP9gentity_sPKf:F(0,11)
+	call Z11G_SetOriginP9gentity_sPKf_F0_11
 	mov ecx, [ebp-0xb8]
 	mov edx, [ecx+0x37c]
 	test edx, edx
-	jnz Z12G_RunMissileP9gentity_s:F(0,1)_220
-Z12G_RunMissileP9gentity_s:F(0,1)_450:
+	jnz Z12G_RunMissileP9gentity_s_F0_1_220
+Z12G_RunMissileP9gentity_s_F0_1_450:
 	mov [esp], esi
-	call Z13SV_LinkEntityP9gentity_s:F(0,23)
+	call Z13SV_LinkEntityP9gentity_s_F0_23
 	cmp dword [esi+0x4], 0x4
-	jnz Z12G_RunMissileP9gentity_s:F(0,1)_230
-Z12G_RunMissileP9gentity_s:F(0,1)_340:
+	jnz Z12G_RunMissileP9gentity_s_F0_1_230
+Z12G_RunMissileP9gentity_s_F0_1_340:
 	mov [esp], esi
-	call Z10G_RunThinkP9gentity_s:F(0,2)
-Z12G_RunMissileP9gentity_s:F(0,1)_230:
+	call Z10G_RunThinkP9gentity_s_F0_2
+Z12G_RunMissileP9gentity_s_F0_1_230:
 	add esp, 0x10c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z12G_RunMissileP9gentity_s:F(0,1)_100:
+Z12G_RunMissileP9gentity_s_F0_1_100:
 	movss xmm0, dword [_float_1_00000000]
 	ucomiss xmm4, xmm0
-	jp Z12G_RunMissileP9gentity_s:F(0,1)_240
-	jz Z12G_RunMissileP9gentity_s:F(0,1)_250
-Z12G_RunMissileP9gentity_s:F(0,1)_240:
+	jp Z12G_RunMissileP9gentity_s_F0_1_240
+	jz Z12G_RunMissileP9gentity_s_F0_1_250
+Z12G_RunMissileP9gentity_s_F0_1_240:
 	ucomiss xmm0, xmm4
-	jbe Z12G_RunMissileP9gentity_s:F(0,1)_260
+	jbe Z12G_RunMissileP9gentity_s_F0_1_260
 	movss xmm0, dword [ebp-0x78]
 	ucomiss xmm0, [_float_0_69999999]
-	jbe Z12G_RunMissileP9gentity_s:F(0,1)_260
-Z12G_RunMissileP9gentity_s:F(0,1)_250:
+	jbe Z12G_RunMissileP9gentity_s_F0_1_260
+Z12G_RunMissileP9gentity_s_F0_1_250:
 	movss [ebp-0x3c], xmm3
 	mov ecx, [ebp-0xcc]
 	mov eax, [ecx]
@@ -14508,17 +15100,17 @@ Z12G_RunMissileP9gentity_s:F(0,1)_250:
 	mov [esp+0x4], edi
 	lea eax, [ebp-0xa8]
 	mov [esp], eax
-	call Z17G_LocationalTraceP7trace_tPKfS2_iiPh:F(0,2)
+	call Z17G_LocationalTraceP7trace_tPKfS2_iiPh_F0_2
 	cmp byte [ebp-0x85], 0x0
-	jnz Z12G_RunMissileP9gentity_s:F(0,1)_270
-Z12G_RunMissileP9gentity_s:F(0,1)_480:
+	jnz Z12G_RunMissileP9gentity_s_F0_1_270
+Z12G_RunMissileP9gentity_s_F0_1_480:
 	movss xmm0, dword [_float_1_00000000]
 	ucomiss xmm0, [ebp-0xa8]
-	jp Z12G_RunMissileP9gentity_s:F(0,1)_280
-	jz Z12G_RunMissileP9gentity_s:F(0,1)_260
-Z12G_RunMissileP9gentity_s:F(0,1)_280:
+	jp Z12G_RunMissileP9gentity_s_F0_1_280
+	jz Z12G_RunMissileP9gentity_s_F0_1_260
+Z12G_RunMissileP9gentity_s_F0_1_280:
 	cmp word [ebp-0x8c], 0x3fe
-	jnz Z12G_RunMissileP9gentity_s:F(0,1)_260
+	jnz Z12G_RunMissileP9gentity_s_F0_1_260
 	mov eax, [ebp-0xa8]
 	mov [ebp-0x84], eax
 	mov eax, [ebp-0xa4]
@@ -14570,14 +15162,14 @@ Z12G_RunMissileP9gentity_s:F(0,1)_280:
 	movss xmm0, dword [_float_1_50000000]
 	addss xmm0, [esi+0x140]
 	movss [esi+0x140], xmm0
-	jmp Z12G_RunMissileP9gentity_s:F(0,1)_260
-Z12G_RunMissileP9gentity_s:F(0,1)_60:
+	jmp Z12G_RunMissileP9gentity_s_F0_1_260
+Z12G_RunMissileP9gentity_s_F0_1_60:
 	mov dword [esp+0x8], 0x20
 	mov dword [esp+0x4], 0xffffffff
 	mov [esp], edi
-	call Z16SV_PointContentsPKfii:F(0,2)
+	call Z16SV_PointContentsPKfii_F0_2
 	test eax, eax
-	jnz Z12G_RunMissileP9gentity_s:F(0,1)_290
+	jnz Z12G_RunMissileP9gentity_s_F0_1_290
 	mov eax, [0x1acd7b5]
 	mov [esp+0x14], eax
 	mov eax, [esi+0x184]
@@ -14590,10 +15182,10 @@ Z12G_RunMissileP9gentity_s:F(0,1)_60:
 	mov [esp+0x4], edi
 	lea eax, [ebp-0x84]
 	mov [esp], eax
-	call Z17G_LocationalTraceP7trace_tPKfS2_iiPh:F(0,2)
+	call Z17G_LocationalTraceP7trace_tPKfS2_iiPh_F0_2
 	cmp byte [ebp-0x61], 0x0
-	jz Z12G_RunMissileP9gentity_s:F(0,1)_300
-Z12G_RunMissileP9gentity_s:F(0,1)_70:
+	jz Z12G_RunMissileP9gentity_s_F0_1_300
+Z12G_RunMissileP9gentity_s_F0_1_70:
 	mov dword [ebp-0x84], 0x0
 	movss xmm0, dword [esi+0x138]
 	subss xmm0, [ebp-0x3c]
@@ -14608,35 +15200,35 @@ Z12G_RunMissileP9gentity_s:F(0,1)_70:
 	mov [esp+0x4], eax
 	lea eax, [ebp-0x60]
 	mov [esp], eax
-	call Vec3NormalizeTo:F(0,7)
+	call Vec3NormalizeTo_F0_7
 	fstp st0
 	mov eax, [ebp-0x74]
 	and eax, 0x1f00000
 	cmp eax, 0x1400000
-	jnz Z12G_RunMissileP9gentity_s:F(0,1)_310
-Z12G_RunMissileP9gentity_s:F(0,1)_80:
+	jnz Z12G_RunMissileP9gentity_s_F0_1_310
+Z12G_RunMissileP9gentity_s_F0_1_80:
 	lea edx, [ebp-0x60]
 	mov [esp+0x4], edx
 	lea eax, [esi+0x24]
 	mov [esp], eax
-	call Vec3NormalizeTo:F(0,7)
+	call Vec3NormalizeTo_F0_7
 	fstp st0
 	movss xmm0, dword [ebp-0x58]
 	ucomiss xmm0, [_float_0_00000000]
-	jb Z12G_RunMissileP9gentity_s:F(0,1)_320
-Z12G_RunMissileP9gentity_s:F(0,1)_520:
+	jb Z12G_RunMissileP9gentity_s_F0_1_320
+Z12G_RunMissileP9gentity_s_F0_1_520:
 	mov dword [esp+0x4], 0xb6
 	mov [esp], edi
-	call Z12G_TempEntityPKfi:F(0,12)
+	call Z12G_TempEntityPKfi_F0_12
 	mov ebx, eax
 	lea ecx, [ebp-0x80]
 	mov [esp], ecx
-	call Z9DirToBytePKf:F(0,61)
+	call Z9DirToBytePKf_F0_61
 	movzx eax, al
 	mov [ebx+0xa0], eax
 	lea eax, [ebp-0x60]
 	mov [esp], eax
-	call Z9DirToBytePKf:F(0,61)
+	call Z9DirToBytePKf_F0_61
 	movzx eax, al
 	mov [ebx+0xd8], eax
 	mov eax, [ebp-0x74]
@@ -14656,9 +15248,9 @@ Z12G_RunMissileP9gentity_s:F(0,1)_520:
 	mov [esp+0x4], edi
 	lea ecx, [ebp-0x84]
 	mov [esp], ecx
-	call Z17G_LocationalTraceP7trace_tPKfS2_iiPh:F(0,2)
+	call Z17G_LocationalTraceP7trace_tPKfS2_iiPh_F0_2
 	cmp byte [ebp-0x61], 0x0
-	jz Z12G_RunMissileP9gentity_s:F(0,1)_310
+	jz Z12G_RunMissileP9gentity_s_F0_1_310
 	xor eax, eax
 	mov [ebp-0x84], eax
 	movss xmm0, dword [edi]
@@ -14676,10 +15268,10 @@ Z12G_RunMissileP9gentity_s:F(0,1)_520:
 	mov [esp+0x4], ecx
 	lea eax, [ebp-0x60]
 	mov [esp], eax
-	call Vec3NormalizeTo:F(0,7)
+	call Vec3NormalizeTo_F0_7
 	fstp st0
-	jmp Z12G_RunMissileP9gentity_s:F(0,1)_310
-Z12G_RunMissileP9gentity_s:F(0,1)_130:
+	jmp Z12G_RunMissileP9gentity_s_F0_1_310
+Z12G_RunMissileP9gentity_s_F0_1_130:
 	lea edx, [esi+0x24]
 	mov [ebp-0xdc], edx
 	movss xmm0, dword [esi+0x24]
@@ -14692,22 +15284,22 @@ Z12G_RunMissileP9gentity_s:F(0,1)_130:
 	addss xmm0, xmm2
 	sqrtss xmm0, xmm0
 	ucomiss xmm0, [_float_0_00000000]
-	jp Z12G_RunMissileP9gentity_s:F(0,1)_330
-	jz Z12G_RunMissileP9gentity_s:F(0,1)_340
-Z12G_RunMissileP9gentity_s:F(0,1)_330:
+	jp Z12G_RunMissileP9gentity_s_F0_1_330
+	jz Z12G_RunMissileP9gentity_s_F0_1_340
+Z12G_RunMissileP9gentity_s_F0_1_330:
 	mov dword [esi+0x7c], 0x3ff
 	cmp dword [ebx+0x78], 0x2
-	jnz Z12G_RunMissileP9gentity_s:F(0,1)_340
+	jnz Z12G_RunMissileP9gentity_s_F0_1_340
 	test byte [esi+0x176], 0x2
-	jnz Z12G_RunMissileP9gentity_s:F(0,1)_340
+	jnz Z12G_RunMissileP9gentity_s_F0_1_340
 	cvttss2si eax, [esi+0x1a8]
 	add eax, [esi+0x10]
 	mov edx, [0x1acd721]
 	cmp eax, [edx+0x1ec]
-	jge Z12G_RunMissileP9gentity_s:F(0,1)_340
+	jge Z12G_RunMissileP9gentity_s_F0_1_340
 	mov eax, [esi+0xc8]
 	mov [esp], eax
-	call Z15BG_GetWeaponDefi:F(0,2)
+	call Z15BG_GetWeaponDefi_F0_2
 	mov [ebp-0xb0], eax
 	mov eax, [esi+0x24]
 	mov [ebp-0x60], eax
@@ -14717,7 +15309,7 @@ Z12G_RunMissileP9gentity_s:F(0,1)_330:
 	mov [ebp-0x58], eax
 	lea ecx, [ebp-0x60]
 	mov [esp], ecx
-	call Vec3Normalize:F(0,7)
+	call Vec3Normalize_F0_7
 	fstp st0
 	mov eax, [ebp-0xb0]
 	cvtss2sd xmm0, [eax+0x5a8]
@@ -14727,14 +15319,14 @@ Z12G_RunMissileP9gentity_s:F(0,1)_330:
 	call tanf
 	fstp dword [ebp-0xac]
 	xor ebx, ebx
-Z12G_RunMissileP9gentity_s:F(0,1)_350:
+Z12G_RunMissileP9gentity_s_F0_1_350:
 	mov dword [esp+0x4], 0x3f800000
 	mov dword [esp], 0xbf800000
-	call Z6flrandff:F(0,4)
+	call Z6flrandff_F0_4
 	fstp dword [ebp+ebx*4-0x24]
 	add ebx, 0x1
 	cmp ebx, 0x3
-	jnz Z12G_RunMissileP9gentity_s:F(0,1)_350
+	jnz Z12G_RunMissileP9gentity_s_F0_1_350
 	movss xmm0, dword [ebp-0xac]
 	mulss xmm0, [ebp-0x24]
 	movss [ebp-0x24], xmm0
@@ -14754,10 +15346,10 @@ Z12G_RunMissileP9gentity_s:F(0,1)_350:
 	movss [ebp-0x58], xmm1
 	lea edx, [ebp-0x60]
 	mov [esp], edx
-	call Vec3Normalize:F(0,7)
+	call Vec3Normalize_F0_7
 	fstp st0
 	mov ecx, [ebp-0xb0]
-	cvtsi2ss xmm0, dword [ecx+0x384]
+	cvtsi2ss xmm0, [ecx+0x384]
 	movaps xmm1, xmm0
 	mulss xmm1, [ebp-0x60]
 	mov eax, [ebp-0xdc]
@@ -14780,25 +15372,25 @@ Z12G_RunMissileP9gentity_s:F(0,1)_350:
 	mov [esp+0x4], ebx
 	lea eax, [ebp-0x60]
 	mov [esp], eax
-	call Z11vectoanglesPKfPf:F(0,18)
+	call Z11vectoanglesPKfPf_F0_18
 	mov [esp+0x4], ebx
 	mov [esp], esi
-	call Z10G_SetAngleP9gentity_sPKf:F(0,11)
+	call Z10G_SetAngleP9gentity_sPKf_F0_11
 	mov eax, [0x1acd721]
 	mov eax, [eax+0x1ec]
 	mov [esi+0x10], eax
 	mov eax, [esi+0x174]
 	test eax, 0x10000
-	jnz Z12G_RunMissileP9gentity_s:F(0,1)_360
+	jnz Z12G_RunMissileP9gentity_s_F0_1_360
 	movss xmm0, dword [_float_1000_00000000]
 	mov edx, [ebp-0xb0]
 	mulss xmm0, [edx+0x5a0]
 	movss [esi+0x1a8], xmm0
-Z12G_RunMissileP9gentity_s:F(0,1)_540:
+Z12G_RunMissileP9gentity_s_F0_1_540:
 	or eax, 0x10000
 	mov [esi+0x174], eax
-	jmp Z12G_RunMissileP9gentity_s:F(0,1)_340
-Z12G_RunMissileP9gentity_s:F(0,1)_90:
+	jmp Z12G_RunMissileP9gentity_s_F0_1_340
+Z12G_RunMissileP9gentity_s_F0_1_90:
 	movzx eax, word [ebp-0x68]
 	lea eax, [eax+eax*4]
 	lea ebx, [eax*8]
@@ -14806,7 +15398,7 @@ Z12G_RunMissileP9gentity_s:F(0,1)_90:
 	shl ebx, 0x4
 	add ebx, [0x1acd709]
 	cmp word [ebx+0x174], 0x0
-	jns Z12G_RunMissileP9gentity_s:F(0,1)_370
+	jns Z12G_RunMissileP9gentity_s_F0_1_370
 	mov edx, [ebx+0x11c]
 	mov [ebp-0xc4], edx
 	mov dword [ebx+0x11c], 0x0
@@ -14821,41 +15413,41 @@ Z12G_RunMissileP9gentity_s:F(0,1)_90:
 	mov [esp+0x4], edi
 	lea eax, [ebp-0x84]
 	mov [esp], eax
-	call Z17G_LocationalTraceP7trace_tPKfS2_iiPh:F(0,2)
+	call Z17G_LocationalTraceP7trace_tPKfS2_iiPh_F0_2
 	cmp byte [ebp-0x61], 0x0
-	jnz Z12G_RunMissileP9gentity_s:F(0,1)_380
-Z12G_RunMissileP9gentity_s:F(0,1)_470:
+	jnz Z12G_RunMissileP9gentity_s_F0_1_380
+Z12G_RunMissileP9gentity_s_F0_1_470:
 	mov edx, [ebp-0xc4]
 	mov [ebx+0x11c], edx
-	jmp Z12G_RunMissileP9gentity_s:F(0,1)_370
-Z12G_RunMissileP9gentity_s:F(0,1)_50:
-	jnp Z12G_RunMissileP9gentity_s:F(0,1)_340
-	jmp Z12G_RunMissileP9gentity_s:F(0,1)_390
-Z12G_RunMissileP9gentity_s:F(0,1)_170:
+	jmp Z12G_RunMissileP9gentity_s_F0_1_370
+Z12G_RunMissileP9gentity_s_F0_1_50:
+	jnp Z12G_RunMissileP9gentity_s_F0_1_340
+	jmp Z12G_RunMissileP9gentity_s_F0_1_390
+Z12G_RunMissileP9gentity_s_F0_1_170:
 	mov eax, [esi+0x19c]
 	test eax, eax
-	jnz Z12G_RunMissileP9gentity_s:F(0,1)_400
+	jnz Z12G_RunMissileP9gentity_s_F0_1_400
 	mov ecx, [ebx+0x158]
 	test ecx, ecx
-	jz Z12G_RunMissileP9gentity_s:F(0,1)_160
+	jz Z12G_RunMissileP9gentity_s_F0_1_160
 	mov eax, 0x700000
 	mov edx, [ebp-0x74]
 	test edx, edx
 	cmovnz eax, [ebp-0x74]
 	mov [ebp-0x74], eax
-Z12G_RunMissileP9gentity_s:F(0,1)_160:
+Z12G_RunMissileP9gentity_s_F0_1_160:
 	lea edx, [ebp-0x84]
 	mov eax, esi
 	call _Z15G_BounceMissileP9gentity_sP7trace_t
 	test eax, eax
-	jz Z12G_RunMissileP9gentity_s:F(0,1)_410
+	jz Z12G_RunMissileP9gentity_s_F0_1_410
 	cmp byte [ebp-0x61], 0x0
-	jz Z12G_RunMissileP9gentity_s:F(0,1)_420
-Z12G_RunMissileP9gentity_s:F(0,1)_410:
+	jz Z12G_RunMissileP9gentity_s_F0_1_420
+Z12G_RunMissileP9gentity_s_F0_1_410:
 	cmp dword [esi+0x4], 0x4
-	jnz Z12G_RunMissileP9gentity_s:F(0,1)_230
-	jmp Z12G_RunMissileP9gentity_s:F(0,1)_340
-Z12G_RunMissileP9gentity_s:F(0,1)_20:
+	jnz Z12G_RunMissileP9gentity_s_F0_1_230
+	jmp Z12G_RunMissileP9gentity_s_F0_1_340
+Z12G_RunMissileP9gentity_s_F0_1_20:
 	mov dword [ebp-0x84], 0x0
 	movss xmm0, dword [esi+0x138]
 	subss xmm0, [ebp-0x3c]
@@ -14870,19 +15462,19 @@ Z12G_RunMissileP9gentity_s:F(0,1)_20:
 	mov [esp+0x4], eax
 	lea eax, [ebp-0x60]
 	mov [esp], eax
-	call Vec3NormalizeTo:F(0,7)
+	call Vec3NormalizeTo_F0_7
 	fstp st0
-	jmp Z12G_RunMissileP9gentity_s:F(0,1)_430
-Z12G_RunMissileP9gentity_s:F(0,1)_140:
+	jmp Z12G_RunMissileP9gentity_s_F0_1_430
+Z12G_RunMissileP9gentity_s_F0_1_140:
 	mov [esp], esi
-	call Z12G_FreeEntityP9gentity_s:F(0,11)
+	call Z12G_FreeEntityP9gentity_s_F0_11
 	add esp, 0x10c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z12G_RunMissileP9gentity_s:F(0,1)_110:
+Z12G_RunMissileP9gentity_s_F0_1_110:
 	mov dword [esp+0x10], 0x3
 	mov eax, [eax+0x37c]
 	mov [esp+0xc], eax
@@ -14890,9 +15482,9 @@ Z12G_RunMissileP9gentity_s:F(0,1)_110:
 	lea eax, [ebp-0x48]
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call Z27G_GrenadeTouchTriggerDamageP9gentity_sPfS1_ii:F(0,1)
-	jmp Z12G_RunMissileP9gentity_s:F(0,1)_440
-Z12G_RunMissileP9gentity_s:F(0,1)_220:
+	call Z27G_GrenadeTouchTriggerDamageP9gentity_sPfS1_ii_F0_1
+	jmp Z12G_RunMissileP9gentity_s_F0_1_440
+Z12G_RunMissileP9gentity_s_F0_1_220:
 	movzx eax, byte [esi+0x166]
 	lea eax, [eax+eax*4]
 	shl eax, 0x3
@@ -14900,9 +15492,9 @@ Z12G_RunMissileP9gentity_s:F(0,1)_220:
 	mov eax, [eax+0x24]
 	mov [esp+0x1c], eax
 	mov [esp+0x18], ebx
-	cvtsi2ss xmm0, dword [ecx+0x378]
+	cvtsi2ss xmm0, [ecx+0x378]
 	movss [esp+0x14], xmm0
-	cvtsi2ss xmm0, dword [ecx+0x380]
+	cvtsi2ss xmm0, [ecx+0x380]
 	movss [esp+0x10], xmm0
 	cvtsi2ss xmm0, edx
 	movss [esp+0xc], xmm0
@@ -14911,12 +15503,12 @@ Z12G_RunMissileP9gentity_s:F(0,1)_220:
 	mov [esp+0x4], esi
 	lea eax, [ebp-0x54]
 	mov [esp], eax
-	call Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i:F(0,24)
-	jmp Z12G_RunMissileP9gentity_s:F(0,1)_450
-Z12G_RunMissileP9gentity_s:F(0,1)_210:
+	call Z14G_RadiusDamagePKfP9gentity_sS2_fffS2_i_F0_24
+	jmp Z12G_RunMissileP9gentity_s_F0_1_450
+Z12G_RunMissileP9gentity_s_F0_1_210:
 	xor edi, edi
-	jmp Z12G_RunMissileP9gentity_s:F(0,1)_460
-Z12G_RunMissileP9gentity_s:F(0,1)_380:
+	jmp Z12G_RunMissileP9gentity_s_F0_1_460
+Z12G_RunMissileP9gentity_s_F0_1_380:
 	mov dword [ebp-0x84], 0x0
 	movss xmm0, dword [esi+0x138]
 	subss xmm0, [ebp-0x3c]
@@ -14931,10 +15523,10 @@ Z12G_RunMissileP9gentity_s:F(0,1)_380:
 	mov [esp+0x4], eax
 	lea eax, [ebp-0x60]
 	mov [esp], eax
-	call Vec3NormalizeTo:F(0,7)
+	call Vec3NormalizeTo_F0_7
 	fstp st0
-	jmp Z12G_RunMissileP9gentity_s:F(0,1)_470
-Z12G_RunMissileP9gentity_s:F(0,1)_270:
+	jmp Z12G_RunMissileP9gentity_s_F0_1_470
+Z12G_RunMissileP9gentity_s_F0_1_270:
 	mov dword [ebp-0xa8], 0x0
 	movss xmm0, dword [edi]
 	subss xmm0, [ebp-0x3c]
@@ -14951,10 +15543,10 @@ Z12G_RunMissileP9gentity_s:F(0,1)_270:
 	mov [esp+0x4], eax
 	lea eax, [ebp-0x60]
 	mov [esp], eax
-	call Vec3NormalizeTo:F(0,7)
+	call Vec3NormalizeTo_F0_7
 	fstp st0
-	jmp Z12G_RunMissileP9gentity_s:F(0,1)_480
-Z12G_RunMissileP9gentity_s:F(0,1)_400:
+	jmp Z12G_RunMissileP9gentity_s_F0_1_480
+Z12G_RunMissileP9gentity_s_F0_1_400:
 	mov edx, [esi+0x150]
 	lea edx, [edx+edx*4]
 	lea eax, [edx*8]
@@ -14963,7 +15555,7 @@ Z12G_RunMissileP9gentity_s:F(0,1)_400:
 	add eax, [0x1acd709]
 	mov [esp+0x4], eax
 	mov [esp], ebx
-	call Z14LogAccuracyHitP9gentity_sS0_:F(0,21)
+	call Z14LogAccuracyHitP9gentity_sS0__F0_21
 	test eax, eax
 	setnz al
 	movzx eax, al
@@ -14975,7 +15567,7 @@ Z12G_RunMissileP9gentity_s:F(0,1)_400:
 	mov [esp+0x4], eax
 	mov ecx, [ebp-0xd8]
 	mov [esp], ecx
-	call Z26BG_EvaluateTrajectoryDeltaPK12trajectory_tiPf:F(0,1)
+	call Z26BG_EvaluateTrajectoryDeltaPK12trajectory_tiPf_F0_1
 	movss xmm0, dword [ebp-0x60]
 	movss xmm1, dword [ebp-0x5c]
 	movss xmm2, dword [ebp-0x58]
@@ -14996,13 +15588,13 @@ Z12G_RunMissileP9gentity_s:F(0,1)_400:
 	mov ecx, [esi+0x19c]
 	mov eax, [esi+0x150]
 	cmp eax, 0x3ff
-	jz Z12G_RunMissileP9gentity_s:F(0,1)_490
+	jz Z12G_RunMissileP9gentity_s_F0_1_490
 	lea eax, [eax+eax*4]
 	lea edx, [eax*8]
 	sub edx, eax
 	shl edx, 0x4
 	add edx, [0x1acd709]
-Z12G_RunMissileP9gentity_s:F(0,1)_530:
+Z12G_RunMissileP9gentity_s_F0_1_530:
 	mov dword [esp+0x24], 0x0
 	mov dword [esp+0x20], 0x0
 	mov eax, [ebp-0xb4]
@@ -15015,40 +15607,40 @@ Z12G_RunMissileP9gentity_s:F(0,1)_530:
 	mov [esp+0x8], edx
 	mov [esp+0x4], esi
 	mov [esp], ebx
-	call Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti:F(0,1)
-	jmp Z12G_RunMissileP9gentity_s:F(0,1)_500
-Z12G_RunMissileP9gentity_s:F(0,1)_190:
+	call Z8G_DamageP9gentity_sS0_S0_PKfS2_iii13hitLocation_ti_F0_1
+	jmp Z12G_RunMissileP9gentity_s_F0_1_500
+Z12G_RunMissileP9gentity_s_F0_1_190:
 	mov edx, [0x1acd709]
 	add edx, 0x8bba0
-	jmp Z12G_RunMissileP9gentity_s:F(0,1)_510
-Z12G_RunMissileP9gentity_s:F(0,1)_420:
+	jmp Z12G_RunMissileP9gentity_s_F0_1_510
+Z12G_RunMissileP9gentity_s_F0_1_420:
 	mov eax, [ebp-0x74]
 	and eax, 0x1f00000
 	shr eax, 0x14
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], 0xbb
 	mov [esp], esi
-	call Z10G_AddEventP9gentity_sii:F(0,11)
-	jmp Z12G_RunMissileP9gentity_s:F(0,1)_410
-Z12G_RunMissileP9gentity_s:F(0,1)_320:
-	jp Z12G_RunMissileP9gentity_s:F(0,1)_520
+	call Z10G_AddEventP9gentity_sii_F0_11
+	jmp Z12G_RunMissileP9gentity_s_F0_1_410
+Z12G_RunMissileP9gentity_s_F0_1_320:
+	jp Z12G_RunMissileP9gentity_s_F0_1_520
 	xorps xmm0, [_ZZ11Melee_TraceP9gentity_sP11weaponParmsifffP7trace_tPfE12traceOffsets+0x80]
 	movss [ebp-0x58], xmm0
-	jmp Z12G_RunMissileP9gentity_s:F(0,1)_520
-Z12G_RunMissileP9gentity_s:F(0,1)_490:
+	jmp Z12G_RunMissileP9gentity_s_F0_1_520
+Z12G_RunMissileP9gentity_s_F0_1_490:
 	xor edx, edx
-	jmp Z12G_RunMissileP9gentity_s:F(0,1)_530
-Z12G_RunMissileP9gentity_s:F(0,1)_360:
+	jmp Z12G_RunMissileP9gentity_s_F0_1_530
+Z12G_RunMissileP9gentity_s_F0_1_360:
 	movss xmm0, dword [esi+0x1a8]
 	mov ecx, [ebp-0xb0]
 	mulss xmm0, [ecx+0x5a4]
 	movss [esi+0x1a8], xmm0
-	jmp Z12G_RunMissileP9gentity_s:F(0,1)_540
+	jmp Z12G_RunMissileP9gentity_s_F0_1_540
 
 
-;Z16Svcmd_RemoveIP_fv:F(0,1)
+;Z16Svcmd_RemoveIP_fv_F0_1
 
-Z15G_ProcessIPBansv:F(0,1):
+Z15G_ProcessIPBansv_F0_1:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -15062,47 +15654,47 @@ Z15G_ProcessIPBansv:F(0,1):
 	mov [esp+0x4], eax
 	lea ebx, [ebp-0x408]
 	mov [esp], ebx
-	call Z10I_strncpyzPcPKci:F(0,15)
+	call Z10I_strncpyzPcPKci_F0_15
 	mov esi, ebx
 	cmp byte [esi], 0x0
-	jz Z15G_ProcessIPBansv:F(0,1)_10
-Z15G_ProcessIPBansv:F(0,1)_30:
+	jz Z15G_ProcessIPBansv_F0_1_10
+Z15G_ProcessIPBansv_F0_1_30:
 	mov dword [esp+0x4], 0x20
 	mov [esp], ebx
 	call strchr
 	mov ebx, eax
 	test eax, eax
-	jz Z15G_ProcessIPBansv:F(0,1)_10
+	jz Z15G_ProcessIPBansv_F0_1_10
 	cmp byte [eax], 0x20
-	jz Z15G_ProcessIPBansv:F(0,1)_20
-Z15G_ProcessIPBansv:F(0,1)_40:
+	jz Z15G_ProcessIPBansv_F0_1_20
+Z15G_ProcessIPBansv_F0_1_40:
 	mov eax, esi
 	call _Z5AddIPPc
 	mov esi, ebx
-Z15G_ProcessIPBansv:F(0,1)_50:
+Z15G_ProcessIPBansv_F0_1_50:
 	cmp byte [esi], 0x0
-	jnz Z15G_ProcessIPBansv:F(0,1)_30
-Z15G_ProcessIPBansv:F(0,1)_10:
+	jnz Z15G_ProcessIPBansv_F0_1_30
+Z15G_ProcessIPBansv_F0_1_10:
 	add esp, 0x410
 	pop ebx
 	pop esi
 	pop ebp
 	ret
-Z15G_ProcessIPBansv:F(0,1)_20:
+Z15G_ProcessIPBansv_F0_1_20:
 	mov byte [ebx], 0x0
 	add ebx, 0x1
 	cmp byte [ebx], 0x20
-	jz Z15G_ProcessIPBansv:F(0,1)_20
+	jz Z15G_ProcessIPBansv_F0_1_20
 	cmp byte [esi], 0x0
-	jnz Z15G_ProcessIPBansv:F(0,1)_40
+	jnz Z15G_ProcessIPBansv_F0_1_40
 	mov esi, ebx
-	jmp Z15G_ProcessIPBansv:F(0,1)_50
+	jmp Z15G_ProcessIPBansv_F0_1_50
 	nop
 
 
-;Z14ConsoleCommandv:F(0,17)
+;Z14ConsoleCommandv_F0_17
 
-Z15CheckTeamStatusv:F(0,75):
+Z15CheckTeamStatusv_F0_75:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -15114,42 +15706,42 @@ Z15CheckTeamStatusv:F(0,75):
 	mov eax, ecx
 	sub eax, [edx+0x20c]
 	test eax, eax
-	jle Z15CheckTeamStatusv:F(0,75)_10
+	jle Z15CheckTeamStatusv_F0_75_10
 	mov [edx+0x20c], ecx
 	mov edx, [0x1acd741]
 	mov eax, [edx]
 	mov ebx, [eax+0x8]
 	test ebx, ebx
-	jle Z15CheckTeamStatusv:F(0,75)_10
+	jle Z15CheckTeamStatusv_F0_75_10
 	xor esi, esi
 	mov ebx, [0x1acd709]
 	add ebx, 0xfc
 	mov edi, [0x1acd709]
 	mov [ebp-0x1c], edx
-	jmp Z15CheckTeamStatusv:F(0,75)_20
-Z15CheckTeamStatusv:F(0,75)_30:
+	jmp Z15CheckTeamStatusv_F0_75_20
+Z15CheckTeamStatusv_F0_75_30:
 	add esi, 0x1
 	add ebx, 0x230
 	add edi, 0x230
 	mov eax, [edx]
 	cmp esi, [eax+0x8]
-	jge Z15CheckTeamStatusv:F(0,75)_10
-Z15CheckTeamStatusv:F(0,75)_20:
+	jge Z15CheckTeamStatusv_F0_75_10
+Z15CheckTeamStatusv_F0_75_20:
 	cmp byte [ebx], 0x0
-	jz Z15CheckTeamStatusv:F(0,75)_30
+	jz Z15CheckTeamStatusv_F0_75_30
 	mov eax, [ebx+0x5c]
 	test byte [eax+0xe], 0x40
-	jnz Z15CheckTeamStatusv:F(0,75)_30
+	jnz Z15CheckTeamStatusv_F0_75_30
 	mov [esp], edi
-	call Z19TeamplayInfoMessageP9gentity_s:F(0,75)
+	call Z19TeamplayInfoMessageP9gentity_s_F0_75
 	mov edx, [ebp-0x1c]
 	add esi, 0x1
 	add ebx, 0x230
 	add edi, 0x230
 	mov eax, [edx]
 	cmp esi, [eax+0x8]
-	jl Z15CheckTeamStatusv:F(0,75)_20
-Z15CheckTeamStatusv:F(0,75)_10:
+	jl Z15CheckTeamStatusv_F0_75_20
+Z15CheckTeamStatusv_F0_75_10:
 	add esp, 0x2c
 	pop ebx
 	pop esi
@@ -15159,9 +15751,9 @@ Z15CheckTeamStatusv:F(0,75)_10:
 	add [eax], al
 
 
-;Z21G_SpawnStringInternalP8SpawnVarPKcS2_PS2_:F(0,1)
+;Z21G_SpawnStringInternalP8SpawnVarPKcS2_PS2__F0_1
 
-Z21G_SpawnStringInternalP8SpawnVarPKcS2_PS2_:F(0,1):
+Z21G_SpawnStringInternalP8SpawnVarPKcS2_PS2__F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -15171,47 +15763,47 @@ Z21G_SpawnStringInternalP8SpawnVarPKcS2_PS2_:F(0,1):
 	mov eax, [ebp+0x8]
 	mov edi, [eax+0x4]
 	test edi, edi
-	jg Z21G_SpawnStringInternalP8SpawnVarPKcS2_PS2_:F(0,1)_10
-Z21G_SpawnStringInternalP8SpawnVarPKcS2_PS2_:F(0,1)_30:
+	jg Z21G_SpawnStringInternalP8SpawnVarPKcS2_PS2__F0_1_10
+Z21G_SpawnStringInternalP8SpawnVarPKcS2_PS2__F0_1_30:
 	mov edx, [ebp+0x10]
 	mov eax, [ebp+0x14]
 	mov [eax], edx
 	xor eax, eax
-Z21G_SpawnStringInternalP8SpawnVarPKcS2_PS2_:F(0,1)_50:
+Z21G_SpawnStringInternalP8SpawnVarPKcS2_PS2__F0_1_50:
 	add esp, 0x1c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z21G_SpawnStringInternalP8SpawnVarPKcS2_PS2_:F(0,1)_10:
+Z21G_SpawnStringInternalP8SpawnVarPKcS2_PS2__F0_1_10:
 	mov ebx, eax
 	xor esi, esi
-	jmp Z21G_SpawnStringInternalP8SpawnVarPKcS2_PS2_:F(0,1)_20
-Z21G_SpawnStringInternalP8SpawnVarPKcS2_PS2_:F(0,1)_40:
+	jmp Z21G_SpawnStringInternalP8SpawnVarPKcS2_PS2__F0_1_20
+Z21G_SpawnStringInternalP8SpawnVarPKcS2_PS2__F0_1_40:
 	add esi, 0x1
 	add ebx, 0x8
 	cmp edi, esi
-	jz Z21G_SpawnStringInternalP8SpawnVarPKcS2_PS2_:F(0,1)_30
-Z21G_SpawnStringInternalP8SpawnVarPKcS2_PS2_:F(0,1)_20:
+	jz Z21G_SpawnStringInternalP8SpawnVarPKcS2_PS2__F0_1_30
+Z21G_SpawnStringInternalP8SpawnVarPKcS2_PS2__F0_1_20:
 	mov eax, [ebx+0x8]
 	mov [esp+0x4], eax
 	mov edx, [ebp+0xc]
 	mov [esp], edx
 	call strcmp
 	test eax, eax
-	jnz Z21G_SpawnStringInternalP8SpawnVarPKcS2_PS2_:F(0,1)_40
+	jnz Z21G_SpawnStringInternalP8SpawnVarPKcS2_PS2__F0_1_40
 	mov edx, [ebp+0x8]
 	mov eax, [edx+esi*8+0xc]
 	mov edx, [ebp+0x14]
 	mov [edx], eax
 	mov eax, 0x1
-	jmp Z21G_SpawnStringInternalP8SpawnVarPKcS2_PS2_:F(0,1)_50
+	jmp Z21G_SpawnStringInternalP8SpawnVarPKcS2_PS2__F0_1_50
 
 
-;Z11G_NewStringPKc:F(0,16)
+;Z11G_NewStringPKc_F0_16
 
-Z11G_NewStringPKc:F(0,16):
+Z11G_NewStringPKc_F0_16:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -15227,60 +15819,60 @@ Z11G_NewStringPKc:F(0,16):
 	mov ebx, ecx
 	not ebx
 	cmp ebx, 0x4000
-	ja Z11G_NewStringPKc:F(0,16)_10
-Z11G_NewStringPKc:F(0,16)_80:
+	ja Z11G_NewStringPKc_F0_16_10
+Z11G_NewStringPKc_F0_16_80:
 	test ebx, ebx
-	jle Z11G_NewStringPKc:F(0,16)_20
+	jle Z11G_NewStringPKc_F0_16_20
 	lea ecx, [ebp-0x4018]
 	xor edx, edx
 	lea edi, [ebx-0x1]
-Z11G_NewStringPKc:F(0,16)_40:
+Z11G_NewStringPKc_F0_16_40:
 	movzx eax, byte [esi+edx]
 	cmp al, 0x5c
-	jz Z11G_NewStringPKc:F(0,16)_30
-Z11G_NewStringPKc:F(0,16)_50:
+	jz Z11G_NewStringPKc_F0_16_30
+Z11G_NewStringPKc_F0_16_50:
 	mov [ecx], al
 	add ecx, 0x1
-Z11G_NewStringPKc:F(0,16)_70:
+Z11G_NewStringPKc_F0_16_70:
 	add edx, 0x1
 	cmp ebx, edx
-	jg Z11G_NewStringPKc:F(0,16)_40
-Z11G_NewStringPKc:F(0,16)_20:
+	jg Z11G_NewStringPKc_F0_16_40
+Z11G_NewStringPKc_F0_16_20:
 	mov dword [esp+0x4], 0x0
 	lea eax, [ebp-0x4018]
 	mov [esp], eax
-	call Z12SL_GetStringPKcj:F(0,1)
+	call Z12SL_GetStringPKcj_F0_1
 	add esp, 0x401c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z11G_NewStringPKc:F(0,16)_30:
+Z11G_NewStringPKc_F0_16_30:
 	cmp edx, edi
-	jge Z11G_NewStringPKc:F(0,16)_50
+	jge Z11G_NewStringPKc_F0_16_50
 	add edx, 0x1
 	cmp byte [esi+edx], 0x6e
-	jz Z11G_NewStringPKc:F(0,16)_60
+	jz Z11G_NewStringPKc_F0_16_60
 	mov byte [ecx], 0x5c
 	add ecx, 0x1
-	jmp Z11G_NewStringPKc:F(0,16)_70
-Z11G_NewStringPKc:F(0,16)_10:
+	jmp Z11G_NewStringPKc_F0_16_70
+Z11G_NewStringPKc_F0_16_10:
 	mov dword [esp+0xc], 0x4000
 	mov [esp+0x8], ebx
 	mov dword [esp+0x4], _cstring_g_newstring_len_
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
-	jmp Z11G_NewStringPKc:F(0,16)_80
-Z11G_NewStringPKc:F(0,16)_60:
+	call Com_Error_F0_1
+	jmp Z11G_NewStringPKc_F0_16_80
+Z11G_NewStringPKc_F0_16_60:
 	mov byte [ecx], 0xa
 	add ecx, 0x1
-	jmp Z11G_NewStringPKc:F(0,16)_70
+	jmp Z11G_NewStringPKc_F0_16_70
 
 
-;Z4vtosPKf:F(0,15)
+;Z4vtosPKf_F0_15
 
-Z16G_ParseSpawnVarsP8SpawnVar:F(0,1):
+Z16G_ParseSpawnVarsP8SpawnVar_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -15294,41 +15886,41 @@ Z16G_ParseSpawnVarsP8SpawnVar:F(0,1):
 	mov dword [esp+0x4], 0x400
 	lea edx, [ebp-0x818]
 	mov [esp], edx
-	call Z17SV_GetEntityTokenPci:F(0,27)
+	call Z17SV_GetEntityTokenPci_F0_27
 	test eax, eax
-	jz Z16G_ParseSpawnVarsP8SpawnVar:F(0,1)_10
+	jz Z16G_ParseSpawnVarsP8SpawnVar_F0_1_10
 	cmp byte [ebp-0x818], 0x7b
-	jz Z16G_ParseSpawnVarsP8SpawnVar:F(0,1)_20
+	jz Z16G_ParseSpawnVarsP8SpawnVar_F0_1_20
 	lea ecx, [ebp-0x818]
 	mov [esp+0x8], ecx
 	mov dword [esp+0x4], _cstring_g_parsespawnvars
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	mov dword [esp+0x4], 0x400
 	lea eax, [ebp-0x418]
 	mov [esp], eax
-	call Z17SV_GetEntityTokenPci:F(0,27)
+	call Z17SV_GetEntityTokenPci_F0_27
 	test eax, eax
-	jz Z16G_ParseSpawnVarsP8SpawnVar:F(0,1)_30
-Z16G_ParseSpawnVarsP8SpawnVar:F(0,1)_100:
+	jz Z16G_ParseSpawnVarsP8SpawnVar_F0_1_30
+Z16G_ParseSpawnVarsP8SpawnVar_F0_1_100:
 	cmp byte [ebp-0x418], 0x7d
-	jz Z16G_ParseSpawnVarsP8SpawnVar:F(0,1)_40
-Z16G_ParseSpawnVarsP8SpawnVar:F(0,1)_110:
+	jz Z16G_ParseSpawnVarsP8SpawnVar_F0_1_40
+Z16G_ParseSpawnVarsP8SpawnVar_F0_1_110:
 	mov dword [esp+0x4], 0x400
 	lea edx, [ebp-0x818]
 	mov [esp], edx
-	call Z17SV_GetEntityTokenPci:F(0,27)
+	call Z17SV_GetEntityTokenPci_F0_27
 	test eax, eax
-	jz Z16G_ParseSpawnVarsP8SpawnVar:F(0,1)_50
+	jz Z16G_ParseSpawnVarsP8SpawnVar_F0_1_50
 	cmp byte [ebp-0x818], 0x7d
-	jz Z16G_ParseSpawnVarsP8SpawnVar:F(0,1)_60
-Z16G_ParseSpawnVarsP8SpawnVar:F(0,1)_140:
+	jz Z16G_ParseSpawnVarsP8SpawnVar_F0_1_60
+Z16G_ParseSpawnVarsP8SpawnVar_F0_1_140:
 	mov ecx, [ebp+0x8]
 	cmp dword [ecx+0x4], 0x40
-	jz Z16G_ParseSpawnVarsP8SpawnVar:F(0,1)_70
-Z16G_ParseSpawnVarsP8SpawnVar:F(0,1)_150:
+	jz Z16G_ParseSpawnVarsP8SpawnVar_F0_1_70
+Z16G_ParseSpawnVarsP8SpawnVar_F0_1_150:
 	mov eax, ecx
-Z16G_ParseSpawnVarsP8SpawnVar:F(0,1)_160:
+Z16G_ParseSpawnVarsP8SpawnVar_F0_1_160:
 	mov eax, [eax+0x4]
 	mov [ebp-0x820], eax
 	cld
@@ -15343,9 +15935,9 @@ Z16G_ParseSpawnVarsP8SpawnVar:F(0,1)_160:
 	mov edx, [eax+0x208]
 	lea eax, [edi+edx+0x1]
 	cmp eax, 0x800
-	jg Z16G_ParseSpawnVarsP8SpawnVar:F(0,1)_80
+	jg Z16G_ParseSpawnVarsP8SpawnVar_F0_1_80
 	mov eax, [ebp+0x8]
-Z16G_ParseSpawnVarsP8SpawnVar:F(0,1)_130:
+Z16G_ParseSpawnVarsP8SpawnVar_F0_1_130:
 	add eax, 0x20c
 	mov [ebp-0x824], eax
 	mov ebx, eax
@@ -15373,8 +15965,8 @@ Z16G_ParseSpawnVarsP8SpawnVar:F(0,1)_130:
 	lea edi, [esi-0x1]
 	lea eax, [edi+edx+0x1]
 	cmp eax, 0x800
-	jg Z16G_ParseSpawnVarsP8SpawnVar:F(0,1)_90
-Z16G_ParseSpawnVarsP8SpawnVar:F(0,1)_120:
+	jg Z16G_ParseSpawnVarsP8SpawnVar_F0_1_90
+Z16G_ParseSpawnVarsP8SpawnVar_F0_1_120:
 	mov ebx, [ebp-0x824]
 	add ebx, edx
 	mov [esp+0x8], esi
@@ -15389,69 +15981,69 @@ Z16G_ParseSpawnVarsP8SpawnVar:F(0,1)_120:
 	mov eax, [ebp-0x81c]
 	mov [ecx+eax*8+0xc], ebx
 	add dword [ecx+0x4], 0x1
-Z16G_ParseSpawnVarsP8SpawnVar:F(0,1)_20:
+Z16G_ParseSpawnVarsP8SpawnVar_F0_1_20:
 	mov dword [esp+0x4], 0x400
 	lea eax, [ebp-0x418]
 	mov [esp], eax
-	call Z17SV_GetEntityTokenPci:F(0,27)
+	call Z17SV_GetEntityTokenPci_F0_27
 	test eax, eax
-	jnz Z16G_ParseSpawnVarsP8SpawnVar:F(0,1)_100
-Z16G_ParseSpawnVarsP8SpawnVar:F(0,1)_30:
+	jnz Z16G_ParseSpawnVarsP8SpawnVar_F0_1_100
+Z16G_ParseSpawnVarsP8SpawnVar_F0_1_30:
 	mov dword [esp+0x4], _cstring_g_parsespawnvars1
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	cmp byte [ebp-0x418], 0x7d
-	jnz Z16G_ParseSpawnVarsP8SpawnVar:F(0,1)_110
-Z16G_ParseSpawnVarsP8SpawnVar:F(0,1)_40:
+	jnz Z16G_ParseSpawnVarsP8SpawnVar_F0_1_110
+Z16G_ParseSpawnVarsP8SpawnVar_F0_1_40:
 	mov edx, [ebp+0x8]
 	mov byte [edx], 0x1
 	mov eax, 0x1
-Z16G_ParseSpawnVarsP8SpawnVar:F(0,1)_10:
+Z16G_ParseSpawnVarsP8SpawnVar_F0_1_10:
 	add esp, 0x82c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z16G_ParseSpawnVarsP8SpawnVar:F(0,1)_90:
+Z16G_ParseSpawnVarsP8SpawnVar_F0_1_90:
 	mov dword [esp+0x4], _cstring_g_addspawnvartok
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	mov eax, [ebp+0x8]
 	mov edx, [eax+0x208]
-	jmp Z16G_ParseSpawnVarsP8SpawnVar:F(0,1)_120
-Z16G_ParseSpawnVarsP8SpawnVar:F(0,1)_80:
+	jmp Z16G_ParseSpawnVarsP8SpawnVar_F0_1_120
+Z16G_ParseSpawnVarsP8SpawnVar_F0_1_80:
 	mov dword [esp+0x4], _cstring_g_addspawnvartok
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	mov ecx, [ebp+0x8]
 	mov edx, [ecx+0x208]
 	mov eax, ecx
-	jmp Z16G_ParseSpawnVarsP8SpawnVar:F(0,1)_130
-Z16G_ParseSpawnVarsP8SpawnVar:F(0,1)_50:
+	jmp Z16G_ParseSpawnVarsP8SpawnVar_F0_1_130
+Z16G_ParseSpawnVarsP8SpawnVar_F0_1_50:
 	mov dword [esp+0x4], _cstring_g_parsespawnvars1
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	cmp byte [ebp-0x818], 0x7d
-	jnz Z16G_ParseSpawnVarsP8SpawnVar:F(0,1)_140
-Z16G_ParseSpawnVarsP8SpawnVar:F(0,1)_60:
+	jnz Z16G_ParseSpawnVarsP8SpawnVar_F0_1_140
+Z16G_ParseSpawnVarsP8SpawnVar_F0_1_60:
 	mov dword [esp+0x4], _cstring_g_parsespawnvars2
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	mov ecx, [ebp+0x8]
 	cmp dword [ecx+0x4], 0x40
-	jnz Z16G_ParseSpawnVarsP8SpawnVar:F(0,1)_150
-Z16G_ParseSpawnVarsP8SpawnVar:F(0,1)_70:
+	jnz Z16G_ParseSpawnVarsP8SpawnVar_F0_1_150
+Z16G_ParseSpawnVarsP8SpawnVar_F0_1_70:
 	mov dword [esp+0x4], _cstring_g_parsespawnvars3
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	mov eax, [ebp+0x8]
-	jmp Z16G_ParseSpawnVarsP8SpawnVar:F(0,1)_160
+	jmp Z16G_ParseSpawnVarsP8SpawnVar_F0_1_160
 
 
-;Z21Player_UpdateActivateP9gentity_s:F(0,1)
+;Z21Player_UpdateActivateP9gentity_s_F0_1
 
-Z21Player_UpdateActivateP9gentity_s:F(0,1):
+Z21Player_UpdateActivateP9gentity_s_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -15465,32 +16057,32 @@ Z21Player_UpdateActivateP9gentity_s:F(0,1):
 	mov eax, [edx+0xd8]
 	sub eax, 0x11
 	cmp eax, 0x5
-	jbe Z21Player_UpdateActivateP9gentity_s:F(0,1)_10
+	jbe Z21Player_UpdateActivateP9gentity_s_F0_1_10
 	cmp dword [edx+0x2830], 0x3ff
-	jz Z21Player_UpdateActivateP9gentity_s:F(0,1)_20
+	jz Z21Player_UpdateActivateP9gentity_s_F0_1_20
 	test byte [edx+0x27c0], 0x20
-	jz Z21Player_UpdateActivateP9gentity_s:F(0,1)_20
+	jz Z21Player_UpdateActivateP9gentity_s_F0_1_20
 	test byte [edx+0x27bc], 0x20
-	jz Z21Player_UpdateActivateP9gentity_s:F(0,1)_30
-Z21Player_UpdateActivateP9gentity_s:F(0,1)_20:
+	jz Z21Player_UpdateActivateP9gentity_s_F0_1_30
+Z21Player_UpdateActivateP9gentity_s_F0_1_20:
 	test byte [edx+0x27c4], 0x28
-	jnz Z21Player_UpdateActivateP9gentity_s:F(0,1)_40
-Z21Player_UpdateActivateP9gentity_s:F(0,1)_140:
+	jnz Z21Player_UpdateActivateP9gentity_s_F0_1_40
+Z21Player_UpdateActivateP9gentity_s_F0_1_140:
 	xor eax, eax
-Z21Player_UpdateActivateP9gentity_s:F(0,1)_120:
+Z21Player_UpdateActivateP9gentity_s_F0_1_120:
 	cmp dword [edx+0x2830], 0x3ff
-	jz Z21Player_UpdateActivateP9gentity_s:F(0,1)_50
-Z21Player_UpdateActivateP9gentity_s:F(0,1)_130:
+	jz Z21Player_UpdateActivateP9gentity_s_F0_1_50
+Z21Player_UpdateActivateP9gentity_s_F0_1_130:
 	test byte [edx+0x27bc], 0x28
-	jz Z21Player_UpdateActivateP9gentity_s:F(0,1)_10
+	jz Z21Player_UpdateActivateP9gentity_s_F0_1_10
 	mov dword [esp], 0x1
-	call Z18Scr_IsSystemActiveh:F(0,2)
+	call Z18Scr_IsSystemActiveh_F0_2
 	test eax, eax
-	jz Z21Player_UpdateActivateP9gentity_s:F(0,1)_10
+	jz Z21Player_UpdateActivateP9gentity_s_F0_1_10
 	mov ebx, [esi+0x158]
 	mov edi, [ebx+0x2830]
 	cmp edi, 0x3ff
-	jz Z21Player_UpdateActivateP9gentity_s:F(0,1)_10
+	jz Z21Player_UpdateActivateP9gentity_s_F0_1_10
 	mov eax, [0x1acd721]
 	mov ecx, [eax+0x1ec]
 	mov edx, ecx
@@ -15498,12 +16090,12 @@ Z21Player_UpdateActivateP9gentity_s:F(0,1)_130:
 	mov eax, [0x1acd7f5]
 	mov eax, [eax]
 	cmp edx, [eax+0x8]
-	jl Z21Player_UpdateActivateP9gentity_s:F(0,1)_10
+	jl Z21Player_UpdateActivateP9gentity_s_F0_1_10
 	sub ecx, [ebx+0x2834]
 	mov eax, [0x1acd7fd]
 	mov eax, [eax]
 	cmp ecx, [eax+0x8]
-	jl Z21Player_UpdateActivateP9gentity_s:F(0,1)_10
+	jl Z21Player_UpdateActivateP9gentity_s_F0_1_10
 	lea eax, [edi+edi*4]
 	lea ebx, [eax*8]
 	sub ebx, eax
@@ -15518,54 +16110,54 @@ Z21Player_UpdateActivateP9gentity_s:F(0,1)_130:
 	mov [ebp-0x1c], eax
 	mov eax, [ebx+0x4]
 	cmp eax, 0x3
-	jz Z21Player_UpdateActivateP9gentity_s:F(0,1)_60
+	jz Z21Player_UpdateActivateP9gentity_s_F0_1_60
 	cmp eax, 0x9
-	jz Z21Player_UpdateActivateP9gentity_s:F(0,1)_70
-Z21Player_UpdateActivateP9gentity_s:F(0,1)_160:
+	jz Z21Player_UpdateActivateP9gentity_s_F0_1_70
+Z21Player_UpdateActivateP9gentity_s_F0_1_160:
 	mov [esp], esi
-	call Z13Scr_AddEntityP9gentity_s:F(0,7)
+	call Z13Scr_AddEntityP9gentity_s_F0_7
 	mov dword [esp+0x8], 0x1
 	mov eax, [0x1acd639]
 	movzx eax, word [eax+0x54]
 	mov [esp+0x4], eax
 	mov [esp], ebx
-	call Z10Scr_NotifyP9gentity_stj:F(0,7)
+	call Z10Scr_NotifyP9gentity_stj_F0_7
 	test edi, edi
-	jz Z21Player_UpdateActivateP9gentity_s:F(0,1)_80
+	jz Z21Player_UpdateActivateP9gentity_s_F0_1_80
 	mov [esp+0x8], esi
 	mov [esp+0x4], esi
 	mov [esp], ebx
 	call edi
-Z21Player_UpdateActivateP9gentity_s:F(0,1)_80:
+Z21Player_UpdateActivateP9gentity_s_F0_1_80:
 	mov eax, [esi+0x158]
 	mov dword [eax+0x2830], 0x3ff
-Z21Player_UpdateActivateP9gentity_s:F(0,1)_10:
+Z21Player_UpdateActivateP9gentity_s_F0_1_10:
 	add esp, 0x2c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z21Player_UpdateActivateP9gentity_s:F(0,1)_40:
+Z21Player_UpdateActivateP9gentity_s_F0_1_40:
 	mov dword [esp], 0x1
-	call Z18Scr_IsSystemActiveh:F(0,2)
+	call Z18Scr_IsSystemActiveh_F0_2
 	test eax, eax
-	jz Z21Player_UpdateActivateP9gentity_s:F(0,1)_90
+	jz Z21Player_UpdateActivateP9gentity_s_F0_1_90
 	mov eax, [esi+0x158]
 	mov dword [eax+0x2830], 0x3ff
 	cmp byte [esi+0x162], 0x0
-	jnz Z21Player_UpdateActivateP9gentity_s:F(0,1)_100
+	jnz Z21Player_UpdateActivateP9gentity_s_F0_1_100
 	mov edx, [esi+0x158]
 	test byte [edx+0xc], 0x4
-	jz Z21Player_UpdateActivateP9gentity_s:F(0,1)_110
+	jz Z21Player_UpdateActivateP9gentity_s_F0_1_110
 	mov eax, 0x1
-	jmp Z21Player_UpdateActivateP9gentity_s:F(0,1)_120
-Z21Player_UpdateActivateP9gentity_s:F(0,1)_50:
+	jmp Z21Player_UpdateActivateP9gentity_s_F0_1_120
+Z21Player_UpdateActivateP9gentity_s_F0_1_50:
 	test al, al
-	jnz Z21Player_UpdateActivateP9gentity_s:F(0,1)_130
+	jnz Z21Player_UpdateActivateP9gentity_s_F0_1_130
 	test byte [edx+0x27c4], 0x20
-	jz Z21Player_UpdateActivateP9gentity_s:F(0,1)_10
-Z21Player_UpdateActivateP9gentity_s:F(0,1)_30:
+	jz Z21Player_UpdateActivateP9gentity_s_F0_1_10
+Z21Player_UpdateActivateP9gentity_s_F0_1_30:
 	or dword [edx+0xc], 0x8
 	add esp, 0x2c
 	pop ebx
@@ -15573,42 +16165,42 @@ Z21Player_UpdateActivateP9gentity_s:F(0,1)_30:
 	pop edi
 	pop ebp
 	ret
-Z21Player_UpdateActivateP9gentity_s:F(0,1)_90:
+Z21Player_UpdateActivateP9gentity_s_F0_1_90:
 	mov edx, [esi+0x158]
-	jmp Z21Player_UpdateActivateP9gentity_s:F(0,1)_140
-Z21Player_UpdateActivateP9gentity_s:F(0,1)_100:
+	jmp Z21Player_UpdateActivateP9gentity_s_F0_1_140
+Z21Player_UpdateActivateP9gentity_s_F0_1_100:
 	mov edx, [esi+0x158]
 	test dword [edx+0xa0], 0x300
-	jz Z21Player_UpdateActivateP9gentity_s:F(0,1)_150
+	jz Z21Player_UpdateActivateP9gentity_s_F0_1_150
 	mov byte [esi+0x162], 0x2
 	mov eax, 0x1
-	jmp Z21Player_UpdateActivateP9gentity_s:F(0,1)_120
-Z21Player_UpdateActivateP9gentity_s:F(0,1)_60:
+	jmp Z21Player_UpdateActivateP9gentity_s_F0_1_120
+Z21Player_UpdateActivateP9gentity_s_F0_1_60:
 	mov [esp], esi
-	call Z13Scr_AddEntityP9gentity_s:F(0,7)
+	call Z13Scr_AddEntityP9gentity_s_F0_7
 	mov dword [esp+0x8], 0x1
 	mov eax, [0x1acd639]
 	movzx eax, word [eax+0x52]
 	mov [esp+0x4], eax
 	mov [esp], ebx
-	call Z10Scr_NotifyP9gentity_stj:F(0,7)
+	call Z10Scr_NotifyP9gentity_stj_F0_7
 	mov byte [ebx+0x162], 0x1
 	mov eax, [ebp-0x1c]
 	test eax, eax
-	jz Z21Player_UpdateActivateP9gentity_s:F(0,1)_80
+	jz Z21Player_UpdateActivateP9gentity_s_F0_1_80
 	mov dword [esp+0x8], 0x0
 	mov [esp+0x4], esi
 	mov [esp], ebx
 	call dword [ebp-0x1c]
-	jmp Z21Player_UpdateActivateP9gentity_s:F(0,1)_80
-Z21Player_UpdateActivateP9gentity_s:F(0,1)_150:
+	jmp Z21Player_UpdateActivateP9gentity_s_F0_1_80
+Z21Player_UpdateActivateP9gentity_s_F0_1_150:
 	mov byte [esi+0x162], 0x0
 	mov eax, 0x1
-	jmp Z21Player_UpdateActivateP9gentity_s:F(0,1)_120
-Z21Player_UpdateActivateP9gentity_s:F(0,1)_110:
+	jmp Z21Player_UpdateActivateP9gentity_s_F0_1_120
+Z21Player_UpdateActivateP9gentity_s_F0_1_110:
 	mov eax, [edx+0x5a0]
 	cmp eax, 0x3ff
-	jz Z21Player_UpdateActivateP9gentity_s:F(0,1)_140
+	jz Z21Player_UpdateActivateP9gentity_s_F0_1_140
 	mov [edx+0x2830], eax
 	mov eax, [esi+0x158]
 	mov edx, [0x1acd721]
@@ -15616,14 +16208,14 @@ Z21Player_UpdateActivateP9gentity_s:F(0,1)_110:
 	mov [eax+0x2834], edx
 	mov eax, 0x1
 	mov edx, [esi+0x158]
-	jmp Z21Player_UpdateActivateP9gentity_s:F(0,1)_120
-Z21Player_UpdateActivateP9gentity_s:F(0,1)_70:
+	jmp Z21Player_UpdateActivateP9gentity_s_F0_1_120
+Z21Player_UpdateActivateP9gentity_s_F0_1_70:
 	mov [esp+0x4], esi
 	mov [esp], ebx
-	call Z16G_IsTurretUsableP9gentity_sS0_:F(0,15)
+	call Z16G_IsTurretUsableP9gentity_sS0__F0_15
 	test eax, eax
-	jz Z21Player_UpdateActivateP9gentity_s:F(0,1)_80
-	jmp Z21Player_UpdateActivateP9gentity_s:F(0,1)_160
+	jz Z21Player_UpdateActivateP9gentity_s_F0_1_80
+	jmp Z21Player_UpdateActivateP9gentity_s_F0_1_160
 
 
 ;compare_use(void const*, void const*)
@@ -15642,14 +16234,14 @@ _Z17Player_GetUseListP9gentity_sP9useList_t:
 	mov [esp+0x4], edx
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z21G_GetPlayerViewOriginPK9gentity_sPf:F(0,1)
+	call Z21G_GetPlayerViewOriginPK9gentity_sPf_F0_1
 	mov dword [esp+0xc], 0x0
 	mov dword [esp+0x8], 0x0
 	lea eax, [ebp-0x6c]
 	mov [esp+0x4], eax
 	mov edx, [ebp+0x8]
 	mov [esp], edx
-	call Z24G_GetPlayerViewDirectionPK9gentity_sPfS2_S2_:F(0,1)
+	call Z24G_GetPlayerViewDirectionPK9gentity_sPfS2_S2__F0_1
 	mov eax, [ebp-0x1090]
 	add eax, 0x56c
 	mov edx, [ebp-0x1090]
@@ -15701,7 +16293,7 @@ _Z17Player_GetUseListP9gentity_sP9useList_t:
 	mov [esp+0x4], eax
 	lea eax, [ebp-0x30]
 	mov [esp], eax
-	call Z15CM_AreaEntitiesPKfS0_Piii:F(0,7)
+	call Z15CM_AreaEntitiesPKfS0_Piii_F0_7
 	mov [ebp-0x108c], eax
 	test eax, eax
 	jg _Z17Player_GetUseListP9gentity_sP9useList_t_10
@@ -15799,7 +16391,7 @@ _Z17Player_GetUseListP9gentity_sP9useList_t_50:
 	movss [ebp-0x58], xmm2
 	lea eax, [ebp-0x60]
 	mov [esp], eax
-	call Vec3Normalize:F(0,7)
+	call Vec3Normalize_F0_7
 	fstp dword [ebp-0x10ac]
 	movss xmm2, dword [ebp-0x10ac]
 	ucomiss xmm2, [_float_128_00000000]
@@ -15853,7 +16445,7 @@ _Z17Player_GetUseListP9gentity_sP9useList_t_160:
 	mov [esp+0x4], eax
 	lea edx, [ebp-0x48]
 	mov [esp], edx
-	call Z22G_TraceCapsuleCompletePKfS0_S0_S0_ii:F(0,3)
+	call Z22G_TraceCapsuleCompletePKfS0_S0_S0_ii_F0_3
 	test eax, eax
 	jnz _Z17Player_GetUseListP9gentity_sP9useList_t_130
 	movss xmm0, dword [ebx+0x4]
@@ -15895,7 +16487,7 @@ _Z17Player_GetUseListP9gentity_sP9useList_t_120:
 	movzx eax, word [edx+0x9e]
 	mov [esp+0x4], eax
 	mov [esp], ecx
-	call Z20G_DObjGetWorldTagPosP9gentity_sjPf:F(0,3)
+	call Z20G_DObjGetWorldTagPosP9gentity_sjPf_F0_3
 	jmp _Z17Player_GetUseListP9gentity_sP9useList_t_160
 _Z17Player_GetUseListP9gentity_sP9useList_t_60:
 	movss xmm0, dword [ebx+0x124]
@@ -15915,7 +16507,7 @@ _Z17Player_GetUseListP9gentity_sP9useList_t_60:
 	mov [esp+0x4], eax
 	lea eax, [ebp-0x78]
 	mov [esp], eax
-	call Z16SV_EntityContactPKfS0_PK9gentity_s:F(0,27)
+	call Z16SV_EntityContactPKfS0_PK9gentity_s_F0_27
 	test eax, eax
 	jz _Z17Player_GetUseListP9gentity_sP9useList_t_30
 	mov dword [edi+0x4], 0xc3800000
@@ -15935,7 +16527,7 @@ _Z17Player_GetUseListP9gentity_sP9useList_t_100:
 	mov [esp+0x4], eax
 	mov [esp], ebx
 	movss [ebp-0x10a8], xmm2
-	call Z19BG_CanItemBeGrabbedPK13entityState_sPK13playerState_si:F(0,24)
+	call Z19BG_CanItemBeGrabbedPK13entityState_sPK13playerState_si_F0_24
 	test eax, eax
 	movss xmm2, dword [ebp-0x10a8]
 	jnz _Z17Player_GetUseListP9gentity_sP9useList_t_180
@@ -15947,9 +16539,9 @@ _Z17Player_GetUseListP9gentity_sP9useList_t_100:
 	nop
 
 
-;Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)
+;Z24Player_UpdateCursorHintsP9gentity_s_F0_1
 
-Z24Player_UpdateCursorHintsP9gentity_s:F(0,1):
+Z24Player_UpdateCursorHintsP9gentity_s_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -15963,26 +16555,26 @@ Z24Player_UpdateCursorHintsP9gentity_s:F(0,1):
 	mov dword [ebx+0x5a0], 0x3ff
 	mov ecx, [edi+0x194]
 	test ecx, ecx
-	jle Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_10
+	jle Z24Player_UpdateCursorHintsP9gentity_s_F0_1_10
 	mov esi, [edi+0x158]
 	mov eax, [esi+0xd8]
 	sub eax, 0x11
 	cmp eax, 0x5
-	jbe Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_10
+	jbe Z24Player_UpdateCursorHintsP9gentity_s_F0_1_10
 	cmp byte [edi+0x162], 0x0
-	jnz Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_20
+	jnz Z24Player_UpdateCursorHintsP9gentity_s_F0_1_20
 	test byte [esi+0xc], 0x4
-	jz Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_30
-Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_10:
+	jz Z24Player_UpdateCursorHintsP9gentity_s_F0_1_30
+Z24Player_UpdateCursorHintsP9gentity_s_F0_1_10:
 	add esp, 0x202c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_20:
+Z24Player_UpdateCursorHintsP9gentity_s_F0_1_20:
 	test dword [ebx+0xa0], 0x300
-	jz Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_10
+	jz Z24Player_UpdateCursorHintsP9gentity_s_F0_1_10
 	mov eax, [esi+0x594]
 	lea eax, [eax+eax*4]
 	lea ebx, [eax*8]
@@ -15992,64 +16584,64 @@ Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_20:
 	add ebx, [eax+0x4]
 	mov eax, [ebx+0xc8]
 	mov [esp], eax
-	call Z15BG_GetWeaponDefi:F(0,2)
+	call Z15BG_GetWeaponDefi_F0_2
 	mov eax, [eax+0x570]
 	cmp byte [eax], 0x0
-	jz Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_10
+	jz Z24Player_UpdateCursorHintsP9gentity_s_F0_1_10
 	mov dword [esi+0x5a0], 0x3ff
 	mov eax, [ebx+0xc8]
 	add eax, 0x4
 	mov [esi+0x598], eax
 	mov eax, [ebx+0xc8]
 	mov [esp], eax
-	call Z15BG_GetWeaponDefi:F(0,2)
+	call Z15BG_GetWeaponDefi_F0_2
 	mov eax, [eax+0x578]
 	mov [esi+0x59c], eax
-	jmp Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_10
-Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_30:
+	jmp Z24Player_UpdateCursorHintsP9gentity_s_F0_1_10
+Z24Player_UpdateCursorHintsP9gentity_s_F0_1_30:
 	lea eax, [ebp-0x2018]
 	mov [esp+0x4], eax
 	mov [esp], edi
 	call _Z17Player_GetUseListP9gentity_sP9useList_t
 	mov [ebp-0x2024], eax
 	cmp eax, 0x0
-	jz Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_10
-	jle Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_10
+	jz Z24Player_UpdateCursorHintsP9gentity_s_F0_1_10
+	jle Z24Player_UpdateCursorHintsP9gentity_s_F0_1_10
 	mov dword [ebp-0x2020], 0x0
-	jmp Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_40
-Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_110:
+	jmp Z24Player_UpdateCursorHintsP9gentity_s_F0_1_40
+Z24Player_UpdateCursorHintsP9gentity_s_F0_1_110:
 	cmp eax, 0x9
-	jz Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_50
+	jz Z24Player_UpdateCursorHintsP9gentity_s_F0_1_50
 	test eax, eax
-	jnz Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_60
+	jnz Z24Player_UpdateCursorHintsP9gentity_s_F0_1_60
 	movzx eax, word [edx+0x168]
 	mov ecx, [0x1acd639]
 	cmp ax, [ecx+0x56]
-	jz Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_70
+	jz Z24Player_UpdateCursorHintsP9gentity_s_F0_1_70
 	cmp ax, [ecx+0x58]
-	jnz Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_80
-Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_70:
+	jnz Z24Player_UpdateCursorHintsP9gentity_s_F0_1_80
+Z24Player_UpdateCursorHintsP9gentity_s_F0_1_70:
 	mov esi, [ebp-0x2028]
 	movzx eax, byte [esi+0x167]
 	test al, al
-	jz Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_90
+	jz Z24Player_UpdateCursorHintsP9gentity_s_F0_1_90
 	movzx edx, al
 	mov eax, [edi+0x158]
 	cmp edx, [eax+0x274c]
-	jz Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_100
-Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_60:
+	jz Z24Player_UpdateCursorHintsP9gentity_s_F0_1_100
+Z24Player_UpdateCursorHintsP9gentity_s_F0_1_60:
 	add dword [ebp-0x2020], 0x1
 	mov esi, [ebp-0x2020]
 	cmp [ebp-0x2024], esi
-	jz Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_10
-Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_40:
+	jz Z24Player_UpdateCursorHintsP9gentity_s_F0_1_10
+Z24Player_UpdateCursorHintsP9gentity_s_F0_1_40:
 	mov eax, [ebp-0x2020]
 	mov eax, [ebp+eax*8-0x2018]
 	mov [ebp-0x2028], eax
 	mov edx, eax
 	mov eax, [eax+0x4]
 	cmp eax, 0x3
-	jnz Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_110
+	jnz Z24Player_UpdateCursorHintsP9gentity_s_F0_1_110
 	mov ecx, [edi+0x158]
 	mov [ebp-0x201c], ecx
 	mov esi, [ebp-0x2028]
@@ -16059,12 +16651,12 @@ Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_40:
 	lea esi, [edx*4]
 	add esi, [0x1acce11]
 	cmp dword [esi+0x1c], 0x1
-	jnz Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_60
+	jnz Z24Player_UpdateCursorHintsP9gentity_s_F0_1_60
 	mov eax, [esi+0x20]
 	mov [esp], eax
-	call Z15BG_GetWeaponDefi:F(0,2)
+	call Z15BG_GetWeaponDefi_F0_2
 	cmp dword [eax+0x78], 0x1
-	jz Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_60
+	jz Z24Player_UpdateCursorHintsP9gentity_s_F0_1_60
 	mov edx, [esi+0x20]
 	mov eax, edx
 	sar eax, 0x5
@@ -16074,80 +16666,80 @@ Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_40:
 	mov eax, [esi+eax*4+0x544]
 	sar eax, cl
 	test al, 0x1
-	jnz Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_60
+	jnz Z24Player_UpdateCursorHintsP9gentity_s_F0_1_60
 	mov eax, edx
 	add eax, 0x4
-	jz Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_60
+	jz Z24Player_UpdateCursorHintsP9gentity_s_F0_1_60
 	mov esi, eax
 	mov edx, 0xffffffff
-Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_130:
+Z24Player_UpdateCursorHintsP9gentity_s_F0_1_130:
 	mov ecx, [ebp-0x2028]
 	mov eax, [ecx]
 	mov [ebx+0x5a0], eax
 	mov [ebx+0x598], esi
 	mov [ebx+0x59c], edx
 	test esi, esi
-	jnz Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_10
+	jnz Z24Player_UpdateCursorHintsP9gentity_s_F0_1_10
 	mov dword [ebx+0x5a0], 0x3ff
-	jmp Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_10
-Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_50:
+	jmp Z24Player_UpdateCursorHintsP9gentity_s_F0_1_10
+Z24Player_UpdateCursorHintsP9gentity_s_F0_1_50:
 	mov [esp+0x4], edi
 	mov esi, [ebp-0x2028]
 	mov [esp], esi
-	call Z16G_IsTurretUsableP9gentity_sS0_:F(0,15)
+	call Z16G_IsTurretUsableP9gentity_sS0__F0_15
 	test eax, eax
-	jz Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_60
+	jz Z24Player_UpdateCursorHintsP9gentity_s_F0_1_60
 	mov eax, [esi+0xc8]
 	lea esi, [eax+0x4]
 	mov [esp], eax
-	call Z15BG_GetWeaponDefi:F(0,2)
+	call Z15BG_GetWeaponDefi_F0_2
 	mov eax, [eax+0x56c]
 	cmp byte [eax], 0x0
-	jnz Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_120
-Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_150:
+	jnz Z24Player_UpdateCursorHintsP9gentity_s_F0_1_120
+Z24Player_UpdateCursorHintsP9gentity_s_F0_1_150:
 	mov edx, 0xffffffff
-	jmp Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_130
-Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_120:
+	jmp Z24Player_UpdateCursorHintsP9gentity_s_F0_1_130
+Z24Player_UpdateCursorHintsP9gentity_s_F0_1_120:
 	mov edx, [ebp-0x2028]
 	mov eax, [edx+0xc8]
 	mov [esp], eax
-	call Z15BG_GetWeaponDefi:F(0,2)
+	call Z15BG_GetWeaponDefi_F0_2
 	mov edx, [eax+0x574]
-	jmp Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_130
-Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_90:
+	jmp Z24Player_UpdateCursorHintsP9gentity_s_F0_1_130
+Z24Player_UpdateCursorHintsP9gentity_s_F0_1_90:
 	mov eax, esi
-Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_160:
+Z24Player_UpdateCursorHintsP9gentity_s_F0_1_160:
 	mov edx, [eax+0x1b4]
 	cmp edx, 0x3ff
-	jz Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_140
+	jz Z24Player_UpdateCursorHintsP9gentity_s_F0_1_140
 	mov eax, [edi+0x158]
 	cmp edx, [eax+0xcc]
-	jnz Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_60
+	jnz Z24Player_UpdateCursorHintsP9gentity_s_F0_1_60
 	mov edx, [ebp-0x2028]
-Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_170:
+Z24Player_UpdateCursorHintsP9gentity_s_F0_1_170:
 	mov esi, [edx+0xdc]
 	test esi, esi
-	jz Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_150
+	jz Z24Player_UpdateCursorHintsP9gentity_s_F0_1_150
 	mov edx, [edx+0xd8]
 	cmp edx, 0xff
-	jnz Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_130
+	jnz Z24Player_UpdateCursorHintsP9gentity_s_F0_1_130
 	mov edx, 0xffffffff
-	jmp Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_130
-Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_100:
+	jmp Z24Player_UpdateCursorHintsP9gentity_s_F0_1_130
+Z24Player_UpdateCursorHintsP9gentity_s_F0_1_100:
 	mov eax, [ebp-0x2028]
-	jmp Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_160
-Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_80:
+	jmp Z24Player_UpdateCursorHintsP9gentity_s_F0_1_160
+Z24Player_UpdateCursorHintsP9gentity_s_F0_1_80:
 	xor esi, esi
 	mov edx, 0xffffffff
-	jmp Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_130
-Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_140:
+	jmp Z24Player_UpdateCursorHintsP9gentity_s_F0_1_130
+Z24Player_UpdateCursorHintsP9gentity_s_F0_1_140:
 	mov edx, eax
-	jmp Z24Player_UpdateCursorHintsP9gentity_s:F(0,1)_170
+	jmp Z24Player_UpdateCursorHintsP9gentity_s_F0_1_170
 
 
-;Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)
+;Z25Player_UpdateLookAtEntityP9gentity_s_F0_1
 
-Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1):
+Z25Player_UpdateLookAtEntityP9gentity_s_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -16162,15 +16754,15 @@ Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1):
 	lea eax, [ebp-0x24]
 	mov [esp+0x4], eax
 	mov [esp], ebx
-	call Z21G_GetPlayerViewOriginPK9gentity_sPf:F(0,1)
+	call Z21G_GetPlayerViewOriginPK9gentity_sPf_F0_1
 	mov dword [esp+0xc], 0x0
 	mov dword [esp+0x8], 0x0
 	lea eax, [ebp-0x3c]
 	mov [esp+0x4], eax
 	mov [esp], ebx
-	call Z24G_GetPlayerViewDirectionPK9gentity_sPfS2_S2_:F(0,1)
+	call Z24G_GetPlayerViewDirectionPK9gentity_sPfS2_S2__F0_1
 	test dword [esi+0xa0], 0x300
-	jz Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_10
+	jz Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_10
 	mov eax, [esi+0x594]
 	lea eax, [eax+eax*4]
 	lea edx, [eax*8]
@@ -16179,20 +16771,20 @@ Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1):
 	add edx, [0x1acd709]
 	mov eax, [edx+0xc8]
 	mov [esp], eax
-	call Z15BG_GetWeaponDefi:F(0,2)
+	call Z15BG_GetWeaponDefi_F0_2
 	mov [ebp-0x84], eax
-Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_50:
+Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_50:
 	mov eax, [ebx+0x158]
 	mov eax, [eax+0xd4]
 	test eax, eax
-	jz Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_20
+	jz Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_20
 	mov eax, [ebp-0x84]
 	mov eax, [eax+0x31c]
 	test eax, eax
-	jnz Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_30
-Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_20:
+	jnz Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_30
+Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_20:
 	mov edi, [0x1acd7b5]
-Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_60:
+Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_60:
 	movss xmm0, dword [ebp-0x3c]
 	mulss xmm0, [_float_15000_00000000]
 	addss xmm0, [ebp-0x24]
@@ -16215,27 +16807,27 @@ Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_60:
 	mov [esp+0x4], eax
 	lea eax, [ebp-0x6c]
 	mov [esp], eax
-	call Z17G_LocationalTraceP7trace_tPKfS2_iiPh:F(0,2)
+	call Z17G_LocationalTraceP7trace_tPKfS2_iiPh_F0_2
 	cmp word [ebp-0x50], 0x3fd
-	jbe Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_40
-Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_80:
+	jbe Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_40
+Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_80:
 	add esp, 0x9c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_10:
+Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_10:
 	mov eax, [ebx+0x158]
 	mov eax, [eax+0xd4]
 	mov [esp], eax
-	call Z15BG_GetWeaponDefi:F(0,2)
+	call Z15BG_GetWeaponDefi_F0_2
 	mov [ebp-0x84], eax
-	jmp Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_50
-Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_30:
+	jmp Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_50
+Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_30:
 	mov edi, [0x1acd7e1]
-	jmp Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_60
-Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_40:
+	jmp Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_60
+Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_40:
 	movss xmm1, dword [ebp-0x6c]
 	mulss xmm1, [_float_15000_00000000]
 	movaps xmm0, xmm1
@@ -16253,13 +16845,13 @@ Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_40:
 	mov [esp+0x4], eax
 	lea eax, [ebp-0x24]
 	mov [esp], eax
-	call Z19SV_FX_GetVisibilityPKfS0_:F(0,28)
+	call Z19SV_FX_GetVisibilityPKfS0__F0_28
 	fstp dword [ebp-0x80]
 	movss xmm0, dword [ebp-0x80]
 	ucomiss xmm0, [_float_0_20000000]
-	jp Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_70
-	jb Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_80
-Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_70:
+	jp Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_70
+	jb Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_80
+Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_70:
 	movzx eax, word [ebp-0x50]
 	lea eax, [eax+eax*4]
 	lea edx, [eax*8]
@@ -16269,16 +16861,16 @@ Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_70:
 	mov [ebp-0x88], eax
 	mov ecx, eax
 	add ecx, edx
-	jz Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_80
+	jz Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_80
 	movzx edx, word [ecx+0x168]
 	mov eax, [0x1acd639]
 	cmp dx, [eax+0x5c]
-	jz Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_90
-Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_120:
+	jz Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_90
+Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_120:
 	cmp dword [ecx+0x4], 0x1
-	jnz Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_80
+	jnz Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_80
 	test byte [ebp-0x5c], 0x10
-	jnz Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_80
+	jnz Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_80
 	lea eax, [ecx+0x138]
 	movss xmm1, dword [ecx+0x138]
 	subss xmm1, [ebp-0x24]
@@ -16290,8 +16882,8 @@ Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_120:
 	mov eax, [eax+0x274c]
 	mov edx, [ebx+0x158]
 	cmp eax, [edx+0x274c]
-	jz Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_100
-Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_130:
+	jz Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_100
+Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_130:
 	mov eax, [ebp-0x84]
 	movss xmm0, dword [eax+0x260]
 	mulss xmm1, xmm1
@@ -16301,19 +16893,19 @@ Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_130:
 	addss xmm1, xmm3
 	mulss xmm0, xmm0
 	ucomiss xmm0, xmm1
-	jbe Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_80
+	jbe Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_80
 	mov ebx, [edx+0x282c]
 	test ebx, ebx
-	jz Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_110
-Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_160:
+	jz Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_110
+Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_160:
 	or dword [esi+0xc], 0x200000
-	jmp Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_80
-Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_90:
+	jmp Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_80
+Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_90:
 	mov eax, [ebx+0x158]
 	mov [eax+0x282c], ecx
 	mov [esp+0x4], ebx
 	mov [esp], ecx
-	call Z9G_TriggerP9gentity_sS0_:F(0,1)
+	call Z9G_TriggerP9gentity_sS0__F0_1
 	mov [esp+0x14], edi
 	mov dword [esp+0x10], 0x2802801
 	mov eax, [ebx]
@@ -16324,9 +16916,9 @@ Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_90:
 	mov [esp+0x4], eax
 	lea eax, [ebp-0x6c]
 	mov [esp], eax
-	call Z17G_LocationalTraceP7trace_tPKfS2_iiPh:F(0,2)
+	call Z17G_LocationalTraceP7trace_tPKfS2_iiPh_F0_2
 	cmp word [ebp-0x50], 0x3fd
-	ja Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_80
+	ja Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_80
 	movss xmm1, dword [_float_15000_00000000]
 	mulss xmm1, [ebp-0x6c]
 	movaps xmm0, xmm1
@@ -16344,11 +16936,11 @@ Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_90:
 	mov [esp+0x4], eax
 	lea eax, [ebp-0x24]
 	mov [esp], eax
-	call Z19SV_FX_GetVisibilityPKfS0_:F(0,28)
+	call Z19SV_FX_GetVisibilityPKfS0__F0_28
 	fstp dword [ebp-0x7c]
 	movss xmm0, dword [_float_0_20000000]
 	ucomiss xmm0, [ebp-0x7c]
-	ja Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_80
+	ja Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_80
 	movzx edx, word [ebp-0x50]
 	lea edx, [edx+edx*4]
 	lea eax, [edx*8]
@@ -16356,11 +16948,11 @@ Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_90:
 	shl eax, 0x4
 	mov ecx, [ebp-0x88]
 	add ecx, eax
-	jnz Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_120
-	jmp Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_80
-Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_100:
+	jnz Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_120
+	jmp Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_80
+Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_100:
 	test eax, eax
-	jz Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_130
+	jz Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_130
 	mulss xmm1, xmm1
 	mulss xmm2, xmm2
 	addss xmm1, xmm2
@@ -16371,30 +16963,30 @@ Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_100:
 	movss xmm0, dword [eax+0x8]
 	mulss xmm0, xmm0
 	ucomiss xmm0, xmm1
-	jbe Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_140
+	jbe Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_140
 	mov edi, [edx+0x282c]
 	test edi, edi
-	jz Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_150
-Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_140:
+	jz Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_150
+Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_140:
 	mov eax, [0x1acd7f1]
 	mov eax, [eax]
 	movss xmm0, dword [eax+0x8]
 	mulss xmm0, xmm0
 	ucomiss xmm0, xmm1
-	jbe Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_80
+	jbe Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_80
 	or dword [esi+0xc], 0x100000
-	jmp Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_80
-Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_110:
+	jmp Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_80
+Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_110:
 	mov [edx+0x282c], ecx
-	jmp Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_160
-Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_150:
+	jmp Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_160
+Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_150:
 	mov [edx+0x282c], ecx
-	jmp Z25Player_UpdateLookAtEntityP9gentity_s:F(0,1)_140
+	jmp Z25Player_UpdateLookAtEntityP9gentity_s_F0_1_140
 
 
-;Z21CG_DrawTeamBackgroundfffffi:F(0,5)
+;Z21CG_DrawTeamBackgroundfffffi_F0_5
 
-Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1):
+Z26G_ParseWeaponAccurayGraphsP9WeaponDef_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -16404,7 +16996,7 @@ Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1):
 	mov eax, [ebp+0x8]
 	mov [ebp-0x210c], eax
 	mov dword [ebp-0x20ec], accuracyDirName
-Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_20:
+Z26G_ParseWeaponAccurayGraphsP9WeaponDef_F0_1_20:
 	mov dword [esp+0x8], 0x80
 	mov dword [esp+0x4], 0x0
 	lea edx, [ebp-0xe0]
@@ -16417,25 +17009,25 @@ Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_20:
 	mov ebx, [ebp+0x8]
 	mov eax, [ebx+0x78]
 	test eax, eax
-	jz Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_10
+	jz Z26G_ParseWeaponAccurayGraphsP9WeaponDef_F0_1_10
 	cmp eax, 0x2
-	jz Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_10
-Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_30:
+	jz Z26G_ParseWeaponAccurayGraphsP9WeaponDef_F0_1_10
+Z26G_ParseWeaponAccurayGraphsP9WeaponDef_F0_1_30:
 	add dword [ebp-0x210c], 0x4
 	add dword [ebp-0x20ec], 0x4
 	cmp dword [ebp-0x20ec], accuracyDirName+0x8
-	jnz Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_20
+	jnz Z26G_ParseWeaponAccurayGraphsP9WeaponDef_F0_1_20
 	mov eax, 0x1
-Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_110:
+Z26G_ParseWeaponAccurayGraphsP9WeaponDef_F0_1_110:
 	add esp, 0x211c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_10:
+Z26G_ParseWeaponAccurayGraphsP9WeaponDef_F0_1_10:
 	cmp byte [edx], 0x0
-	jz Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_30
+	jz Z26G_ParseWeaponAccurayGraphsP9WeaponDef_F0_1_30
 	mov [esp+0xc], edx
 	mov [esp+0x8], ecx
 	mov dword [esp+0x4], _cstring_accuracyss
@@ -16446,16 +17038,16 @@ Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_10:
 	lea eax, [ebp-0x1c]
 	mov [esp+0x4], eax
 	mov [esp], edi
-	call Z18FS_FOpenFileByModePKcPi8fsMode_t:F(0,2)
+	call Z18FS_FOpenFileByModePKcPi8fsMode_t_F0_2
 	mov [ebp-0x2108], eax
 	test eax, eax
-	js Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_40
+	js Z26G_ParseWeaponAccurayGraphsP9WeaponDef_F0_1_40
 	mov eax, [ebp-0x1c]
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], 0xe
 	lea ebx, [ebp-0x20e0]
 	mov [esp], ebx
-	call Z7FS_ReadPvii:F(0,2)
+	call Z7FS_ReadPvii_F0_2
 	mov byte [ebp-0x20d2], 0x0
 	mov ebx, _cstring_weaponaccufile
 	mov ecx, 0xe
@@ -16464,25 +17056,25 @@ Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_10:
 	mov edi, ebx
 	repe cmpsb
 	mov eax, 0x0
-	jz Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_50
+	jz Z26G_ParseWeaponAccurayGraphsP9WeaponDef_F0_1_50
 	movzx eax, byte [esi-0x1]
 	movzx ecx, byte [edi-0x1]
 	sub eax, ecx
-Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_50:
+Z26G_ParseWeaponAccurayGraphsP9WeaponDef_F0_1_50:
 	test eax, eax
-	jnz Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_60
+	jnz Z26G_ParseWeaponAccurayGraphsP9WeaponDef_F0_1_60
 	mov ebx, [ebp-0x2108]
 	sub ebx, 0xe
 	cmp ebx, 0x1fff
-	jle Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_70
+	jle Z26G_ParseWeaponAccurayGraphsP9WeaponDef_F0_1_70
 	lea edx, [ebp-0x60]
 	mov [esp+0x4], edx
 	mov dword [esp], _cstring_3warning_s_is_to1
-Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_80:
-	call Z10Com_PrintfPKcz:F(0,1)
+Z26G_ParseWeaponAccurayGraphsP9WeaponDef_F0_1_80:
+	call Z10Com_PrintfPKcz_F0_1
 	mov eax, [ebp-0x1c]
 	mov [esp], eax
-	call Z13FS_FCloseFilei:F(0,3)
+	call Z13FS_FCloseFilei_F0_3
 	xor eax, eax
 	add esp, 0x211c
 	pop ebx
@@ -16490,12 +17082,12 @@ Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_80:
 	pop edi
 	pop ebp
 	ret
-Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_60:
+Z26G_ParseWeaponAccurayGraphsP9WeaponDef_F0_1_60:
 	lea eax, [ebp-0x60]
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_3warning_s_does_1
-	jmp Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_80
-Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_70:
+	jmp Z26G_ParseWeaponAccurayGraphsP9WeaponDef_F0_1_80
+Z26G_ParseWeaponAccurayGraphsP9WeaponDef_F0_1_70:
 	mov dword [esp+0x8], 0x2000
 	mov dword [esp+0x4], 0x0
 	lea edi, [ebp-0x20e0]
@@ -16505,32 +17097,32 @@ Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_70:
 	mov [esp+0x8], eax
 	mov [esp+0x4], ebx
 	mov [esp], edi
-	call Z7FS_ReadPvii:F(0,2)
+	call Z7FS_ReadPvii_F0_2
 	mov byte [ebp+ebx-0x20e0], 0x0
 	mov eax, [ebp-0x1c]
 	mov [esp], eax
-	call Z13FS_FCloseFilei:F(0,3)
+	call Z13FS_FCloseFilei_F0_3
 	mov [ebp-0x20], edi
 	lea ebx, [ebp-0x60]
 	mov [esp], ebx
-	call Com_BeginParseSession:F(0,4)
+	call Com_BeginParseSession_F0_4
 	lea edi, [ebp-0x20]
 	mov [esp], edi
-	call Com_Parse:F(0,5)
+	call Com_Parse_F0_5
 	mov [esp], eax
 	call atoi
 	mov [ebp-0x2104], eax
 	xor esi, esi
 	lea ebx, [ebp-0xdc]
-Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_100:
+Z26G_ParseWeaponAccurayGraphsP9WeaponDef_F0_1_100:
 	lea eax, [ebp-0x20]
 	mov [esp], eax
-	call Com_Parse:F(0,5)
+	call Com_Parse_F0_5
 	movzx edx, byte [eax]
 	test dl, dl
-	jz Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_90
+	jz Z26G_ParseWeaponAccurayGraphsP9WeaponDef_F0_1_90
 	cmp dl, 0x7d
-	jz Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_90
+	jz Z26G_ParseWeaponAccurayGraphsP9WeaponDef_F0_1_90
 	mov [esp], eax
 	call atof
 	fstp qword [ebp-0x2100]
@@ -16538,12 +17130,12 @@ Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_100:
 	movss [ebx-0x4], xmm0
 	lea eax, [ebp-0x20]
 	mov [esp], eax
-	call Com_Parse:F(0,5)
+	call Com_Parse_F0_5
 	movzx edx, byte [eax]
 	test dl, dl
-	jz Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_90
+	jz Z26G_ParseWeaponAccurayGraphsP9WeaponDef_F0_1_90
 	cmp dl, 0x7d
-	jz Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_90
+	jz Z26G_ParseWeaponAccurayGraphsP9WeaponDef_F0_1_90
 	mov [esp], eax
 	call atof
 	fstp qword [ebp-0x20f8]
@@ -16552,38 +17144,38 @@ Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_100:
 	add esi, 0x1
 	add ebx, 0x8
 	cmp esi, 0x10
-	jnz Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_100
+	jnz Z26G_ParseWeaponAccurayGraphsP9WeaponDef_F0_1_100
 	lea eax, [ebp-0x60]
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_3warning_s_has_t
-	call Z10Com_PrintfPKcz:F(0,1)
-	call Com_EndParseSession:F(0,4)
+	call Z10Com_PrintfPKcz_F0_1
+	call Com_EndParseSession_F0_4
 	xor eax, eax
-	jmp Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_110
-Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_40:
+	jmp Z26G_ParseWeaponAccurayGraphsP9WeaponDef_F0_1_110
+Z26G_ParseWeaponAccurayGraphsP9WeaponDef_F0_1_40:
 	mov [esp+0x4], edi
 	mov dword [esp], _cstring_3warning_could_n10
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	xor eax, eax
-	jmp Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_110
-Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_90:
-	call Com_EndParseSession:F(0,4)
+	jmp Z26G_ParseWeaponAccurayGraphsP9WeaponDef_F0_1_110
+Z26G_ParseWeaponAccurayGraphsP9WeaponDef_F0_1_90:
+	call Com_EndParseSession_F0_4
 	cmp [ebp-0x2104], esi
-	jz Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_120
+	jz Z26G_ParseWeaponAccurayGraphsP9WeaponDef_F0_1_120
 	lea edx, [ebp-0x60]
 	mov [esp+0x4], edx
 	mov dword [esp], _cstring_3warning_s_error
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	xor eax, eax
-	jmp Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_110
-Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_120:
+	jmp Z26G_ParseWeaponAccurayGraphsP9WeaponDef_F0_1_110
+Z26G_ParseWeaponAccurayGraphsP9WeaponDef_F0_1_120:
 	mov esi, [ebp-0x2104]
 	test esi, esi
-	jle Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_30
+	jle Z26G_ParseWeaponAccurayGraphsP9WeaponDef_F0_1_30
 	lea ebx, [esi*8]
 	mov dword [esp+0x4], 0x4
 	mov [esp], ebx
-	call Z26Hunk_AllocLowAlignInternalii:F(0,2)
+	call Z26Hunk_AllocLowAlignInternalii_F0_2
 	mov edi, [ebp-0x210c]
 	mov [edi+0x514], eax
 	mov [esp+0x8], ebx
@@ -16592,9 +17184,9 @@ Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_120:
 	mov [esp], eax
 	call memcpy
 	mov [edi+0x51c], esi
-	jmp Z26G_ParseWeaponAccurayGraphsP9WeaponDef:F(0,1)_30
+	jmp Z26G_ParseWeaponAccurayGraphsP9WeaponDef_F0_1_30
 	add [eax], al
 
 
-;Z16Sys_IsLANAddress8netadr_t:F(0,3)
+;Z16Sys_IsLANAddress8netadr_t_F0_3
 

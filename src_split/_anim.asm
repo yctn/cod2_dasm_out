@@ -2,810 +2,1040 @@
 ;Symbols in this file: 144
 ;
 ;Imports (over-declared, NASM-safe):
-	extern __keymgr_dwarf2_register_sections
-	extern atexit
-	extern exit
-	extern AEDisposeDesc
-	extern AECreateDesc
-	extern __cxa_allocate_exception
-	extern __cxa_throw
-	extern _Unwind_Resume
 	extern AECoerceDesc
+	extern AECreateAppleEvent
+	extern AECreateDesc
+	extern AEDisposeDesc
 	extern AEGetDescData
 	extern AEGetDescDataSize
-	extern CreateObjSpecifier
-	extern AEPutParamDesc
-	extern AECreateAppleEvent
-	extern AESend
-	extern AEPutParamPtr
-	extern AEGetParamPtr
 	extern AEGetParamDesc
-	extern GetControlBounds
-	extern PtInRect
-	extern GetEventKind
-	extern GetEventClass
-	extern GetEventParameter
-	extern GetControlOwner
-	extern AdvanceKeyboardFocus
-	extern SetWRefCon
-	extern QuitAppModalLoopForWindow
-	extern HIViewGetRoot
-	extern HIViewGetViewForMouseEvent
-	extern GetControlKind
-	extern SetThemeCursor
-	extern CFBundleGetMainBundle
-	extern CreateNibReferenceWithCFBundle
-	extern CreateWindowFromNib
-	extern DisposeNibReference
-	extern GetWindowEventTarget
-	extern InstallEventHandler
-	extern GetWindowResizeLimits
-	extern SetWindowResizeLimits
-	extern InitCursor
-	extern ShowWindow
-	extern RunAppModalLoopForWindow
-	extern HideWindow
-	extern GetWRefCon
-	extern DisposeWindow
-	extern GetControlByID
-	extern GetControlMaximum
-	extern GetControlDataSize
-	extern SetControlData
-	extern HandleControlKey
-	extern GetControlReference
-	extern GetControlData
-	extern AlertSoundPlay
-	extern HITextViewGetTXNObject
-	extern TXNSetTypeAttributes
-	extern HideControl
-	extern ShowControl
-	extern DisableControl
-	extern EnableControl
-	extern SetControlFontStyle
-	extern SetKeyboardFocus
-	extern NewControlUserPaneDrawUPP
-	extern NewControlUserPaneHitTestUPP
-	extern NewControlUserPaneTrackingUPP
-	extern SetControlReference
-	extern SetControlMaximum
-	extern NewControlKeyFilterUPP
-	extern NewControlEditTextValidationUPP
-	extern GetWindowPort
-	extern CGDisplayBounds
-	extern DMGetFirstScreenDevice
-	extern EqualRect
-	extern DMGetNextScreenDevice
-	extern GetMainDevice
-	extern GetWindowPortBounds
-	extern CGDisplayFade
-	extern CGReleaseDisplayFadeReservation
-	extern CGAcquireDisplayFadeReservation
-	extern CGDisplayPixelsWide
-	extern CGDisplayPixelsHigh
-	extern CGDisplayBitsPerPixel
-	extern aglSwapBuffers
-	extern EndMediaEdits
-	extern GetMediaDuration
-	extern InsertMediaIntoTrack
-	extern AddMovieResource
-	extern CloseMovieFile
-	extern MoveWindow
-	extern GetAvailableWindowPositioningBounds
-	extern CreateNewWindow
-	extern SetPortWindowPort
-	extern SetWindowContentColor
-	extern SetWindowTitleWithCFString
-	extern gluCheckExtension
-	extern _Znam
-	extern CGSetDisplayTransferByTable
-	extern _ZdaPv
-	extern CGGetDisplayTransferByTable
-	extern QDLocalToGlobalPoint
-	extern QDGlobalToLocalPoint
-	extern _Znwm
-	extern _ZdlPv
-	extern _ZSt17__throw_bad_allocv
-	extern _ZSt20__throw_length_errorPKc
-	extern NormalizeThemeDrawingState
-	extern ForeColor
-	extern FrameRoundRect
-	extern RGBForeColor
-	extern PaintRoundRect
-	extern NewRgn
-	extern OpenRgn
-	extern CloseRgn
-	extern SetClip
-	extern DisposeRgn
-	extern ClipRect
-	extern DrawThemeMenuBarBackground
-	extern InsetRect
-	extern DrawThemeFocusRect
-	extern GetIconRefFromFileInfo
-	extern PlotIconRef
-	extern ReleaseIconRef
-	extern CGRectIsEmpty
-	extern CGRectUnion
-	extern CGRectGetWidth
-	extern CGRectGetHeight
-	extern OffsetRect
-	extern MapRect
-	extern glFinish
-	extern aglSetCurrentContext
-	extern aglSetDrawable
-	extern aglDestroyContext
-	extern ShowMenuBar
-	extern SetSystemUIMode
-	extern aglChoosePixelFormat
-	extern aglCreateContext
-	extern aglSetFullScreen
-	extern CGDisplayCurrentMode
-	extern aglSetInteger
-	extern HideMenuBar
-	extern aglDescribePixelFormat
-	extern aglDestroyPixelFormat
-	extern glEnable
-	extern glHint
-	extern aglGetDrawable
-	extern glDisable
-	extern IsWindowVisible
-	extern SizeWindow
-	extern PaintRect
-	extern _ZNSs6assignERKSs
-	extern CGDisplayIDToOpenGLDisplayMask
-	extern CGLQueryRendererInfo
-	extern CGLDescribeRenderer
-	extern CGLDestroyRendererInfo
-	extern CGDisplayAvailableModes
-	extern CFArrayGetCount
-	extern CGDisplayIOServicePort
-	extern CGLGetCurrentContext
-	extern CGLChoosePixelFormat
-	extern CGLCreateContext
-	extern CGLDestroyPixelFormat
-	extern CGLSetCurrentContext
-	extern glGetString
-	extern _ZNSs6assignEPKcm
-	extern glGetIntegerv
-	extern CGLDestroyContext
-	extern _ZNSsC1ERKSs
-	extern strstr
-	extern _ZNSsD1Ev
-	extern CFArrayGetValueAtIndex
-	extern IOObjectConformsTo
-	extern IORegistryEntryGetParentEntry
-	extern glGetFloatv
-	extern _ZN9__gnu_cxx18__exchange_and_addEPVii
-	extern _ZNSs4_Rep10_M_destroyERKSaIcE
-	extern __cxa_begin_catch
-	extern __cxa_rethrow
-	extern __cxa_end_catch
-	extern CGGetActiveDisplayList
-	extern NewMenu
-	extern InsertMenu
-	extern InvalMenuBar
-	extern GetCurrentKeyModifiers
-	extern CGRectEqualToRect
-	extern Gestalt
-	extern sysctl
-	extern FSOpenIterator
-	extern FSGetCatalogInfoBulk
-	extern FSCloseIterator
-	extern FSDeleteObject
-	extern FSSetCatalogInfo
-	extern FSPathMakeRef
-	extern access
-	extern CFBundleCopyExecutableURL
-	extern CFURLGetFSRef
-	extern CFRelease
-	extern FSGetCatalogInfo
-	extern GetCurrentProcess
-	extern strcat
-	extern GetProcessBundleLocation
-	extern FSRefMakePath
-	extern PBGetCatInfoSync
-	extern FSMakeFSSpec
-	extern FSpMakeFSRef
-	extern memcpy
-	extern CFStringCreateWithCString
-	extern CFPreferencesCopyAppValue
-	extern CFGetTypeID
-	extern CFStringGetTypeID
-	extern strcpy
-	extern CFStringGetCString
-	extern CFPreferencesSetAppValue
-	extern atoi
-	extern sprintf
-	extern CFPreferencesAppSynchronize
-	extern atof
-	extern CFBundleCopyLocalizedString
-	extern CFStringGetPascalString
-	extern StringToNum
-	extern CFStringCreateWithFormat
-	extern GetPort
-	extern SetPort
-	extern CFStringCreateWithCharacters
-	extern GetCursor
-	extern SetCursor
-	extern CGAssociateMouseAndMouseCursorPosition
-	extern CGWarpMouseCursorPosition
-	extern HideCursor
-	extern GetGlobalMouse
-	extern UpTime
+	extern AEGetParamPtr
+	extern AEInstallEventHandler
+	extern AEPutParamDesc
+	extern AEPutParamPtr
+	extern AESend
+	extern AUGraphConnectNodeInput
+	extern AUGraphGetCPULoad
+	extern AUGraphGetNodeInfo
+	extern AUGraphInitialize
+	extern AUGraphNewNode
+	extern AUGraphOpen
+	extern AUGraphStart
+	extern AUGraphStop
+	extern AUGraphUpdate
 	extern AddDurationToAbsolute
-	extern MPDelayUntil
-	extern GetNextProcess
-	extern GetProcessInformation
-	extern CFDictionaryGetValue
-	extern CFNumberGetValue
-	extern lround
-	extern IORegistryEntryCreateCFProperty
+	extern AddMovieResource
+	extern AdvanceKeyboardFocus
+	extern AlertSoundPlay
+	extern AppendMenuItemTextWithCFString
+	extern AudioConverterDispose
+	extern AudioConverterFillBuffer
+	extern AudioConverterFillComplexBuffer
+	extern AudioConverterNew
+	extern AudioConverterReset
+	extern AudioDeviceGetProperty
+	extern AudioDeviceGetPropertyInfo
+	extern AudioDeviceSetProperty
+	extern AudioHardwareGetProperty
+	extern AudioOutputUnitStart
+	extern AudioOutputUnitStop
+	extern AudioUnitAddRenderNotify
+	extern AudioUnitGetProperty
+	extern AudioUnitInitialize
+	extern AudioUnitRemoveRenderNotify
+	extern AudioUnitRender
+	extern AudioUnitSetParameter
+	extern AudioUnitSetProperty
+	extern AudioUnitUninitialize
+	extern CFArrayGetCount
+	extern CFArrayGetValueAtIndex
+	extern CFBundleCopyExecutableURL
+	extern CFBundleCopyLocalizedString
+	extern CFBundleGetMainBundle
 	extern CFDataGetBytePtr
-	extern CreateEvent
-	extern SetEventParameter
-	extern GetMainEventQueue
-	extern PostEventToQueue
-	extern ReleaseEvent
-	extern pthread_main_np
-	extern GetStandardAlertDefaultParams
-	extern CreateStandardAlert
-	extern RunStandardAlert
-	extern LSCopyItemInfoForRef
-	extern pthread_self
-	extern OTAtomicAdd32
-	extern OTCompareAndSwap32
-	extern calloc
-	extern free
-	extern strrchr
-	extern Microseconds
-	extern __udivdi3
-	extern memset
-	extern strncpy
-	extern getcwd
-	extern NewGWorld
-	extern GetGWorldPixMap
-	extern LockPixels
-	extern GetPixRowBytes
-	extern QDRegisterNamedPixMapCursor
-	extern DisposeGWorld
-	extern TickCount
-	extern QDSetNamedPixMapCursor
-	extern GetMainEventLoop
-	extern InstallEventLoopTimer
-	extern GetQDGlobalsArrow
-	extern ShowCursor
-	extern fopen
-	extern fseek
-	extern fclose
-	extern ftell
-	extern rewind
-	extern malloc
-	extern fread
-	extern _ZNKSs7compareEPKc
-	extern glStencilMask
-	extern glDepthMask
-	extern glFlushVertexArrayRangeAPPLE
-	extern glTexParameterfv
-	extern glLightfv
-	extern glColor4f
-	extern glMatrixMode
-	extern glLoadMatrixf
-	extern glTexParameteri
-	extern glGenTextures
-	extern _ZNSt15_List_node_base4hookEPS_
-	extern glTexParameterf
-	extern glTexEnvf
-	extern glPushMatrix
-	extern glLoadIdentity
-	extern glTexCoord2f
-	extern glPopMatrix
-	extern glTexEnvfv
-	extern glPointSize
-	extern glDrawRangeElements
-	extern memmove
-	extern glBindTexture
-	extern glColorMask
-	extern glActiveTextureARB
-	extern glDepthFunc
-	extern glShadeModel
-	extern glViewport
-	extern glDepthRange
-	extern glAlphaFunc
-	extern glClearDepth
-	extern glScissor
-	extern glClear
-	extern glClearColor
-	extern glClearStencil
-	extern glMaterialfv
-	extern glMaterialf
-	extern glPixelStorei
-	extern glCopyTexSubImage2D
-	extern gluOrtho2D
-	extern glTexEnvi
-	extern glBlendFuncSeparateEXT
-	extern glBlendFunc
-	extern glBegin
-	extern glVertex3f
-	extern glEnd
-	extern cos
-	extern log
-	extern cosf
-	extern glPolygonMode
-	extern glFogf
-	extern glLightModelfv
-	extern glBlendEquationEXT
-	extern glPolygonOffset
-	extern glFogfv
-	extern glPointParameterfvARB
-	extern glStencilFunc
-	extern glPointParameterfARB
-	extern glStencilOp
-	extern glFrontFace
-	extern glColorMaterial
-	extern glPushAttrib
-	extern glPushClientAttrib
-	extern glDrawBuffer
-	extern glReadBuffer
-	extern __dynamic_cast
-	extern glScalef
-	extern glVertex2f
-	extern glPopClientAttrib
-	extern glPopAttrib
-	extern glProgramEnvParameter4fvARB
-	extern glTexGenfv
-	extern _ZNSsC1EPKcRKSaIcE
-	extern _ZNKSs4findEPKcmm
-	extern _ZNSsC1ERKSsmm
-	extern _ZSt20__throw_out_of_rangePKc
-	extern glCombinerParameterfvNV
-	extern glCombinerStageParameterfvNV
-	extern glBindProgramARB
-	extern glDeleteProgramsARB
-	extern glGetProgramivARB
-	extern glGenProgramsARB
-	extern glProgramStringARB
-	extern _ZNSs6appendEPKcm
-	extern _ZNSs6appendERKSs
-	extern glTexImage2D
-	extern glCompressedTexImage2DARB
-	extern glTexSubImage2D
-	extern glCompressedTexSubImage2D
-	extern _ZNSt15_List_node_base6unhookEv
-	extern ceilf
-	extern glFinishFenceAPPLE
-	extern glSetFenceAPPLE
-	extern glGenFencesAPPLE
-	extern glDeleteFencesAPPLE
-	extern glVertexArrayRangeAPPLE
-	extern glDisableVertexAttribArrayARB
-	extern glVertexAttribPointerARB
-	extern glEnableVertexAttribArrayARB
-	extern glTexGeni
-	extern glBindVertexArrayAPPLE
-	extern glLightf
-	extern glClientActiveTextureARB
-	extern glDeleteTextures
-	extern glDeleteVertexArraysAPPLE
-	extern glDisableClientState
-	extern glFogi
-	extern glLightModeli
-	extern glClipPlane
-	extern glEnableClientState
-	extern glVertexArrayParameteriAPPLE
-	extern strcasecmp
-	extern strncasecmp
-	extern tolower
-	extern toupper
-	extern RemoveEventHandler
-	extern FlushEventQueue
-	extern SendEventToEventTarget
-	extern ReceiveNextEvent
+	extern CFDictionaryGetValue
+	extern CFGetTypeID
+	extern CFNumberGetValue
+	extern CFPreferencesAppSynchronize
+	extern CFPreferencesCopyAppValue
+	extern CFPreferencesSetAppValue
+	extern CFRelease
+	extern CFStringCreateWithCString
+	extern CFStringCreateWithCharacters
+	extern CFStringCreateWithFormat
+	extern CFStringGetCString
+	extern CFStringGetPascalString
+	extern CFStringGetTypeID
 	extern CFURLCreateFromFSRef
-	extern CGDataProviderCreateWithURL
-	extern CGImageCreateWithPNGDataProvider
-	extern QDBeginCGContext
-	extern CGImageRelease
-	extern CGDataProviderRelease
+	extern CFURLCreateWithBytes
+	extern CFURLGetFSRef
+	extern CGAcquireDisplayFadeReservation
+	extern CGAssociateMouseAndMouseCursorPosition
 	extern CGContextClearRect
 	extern CGContextDrawImage
 	extern CGContextFlush
-	extern QDEndCGContext
-	extern EventAvail
-	extern strcmp
-	extern getrlimit
-	extern setrlimit
-	extern EnterMovies
-	extern FSGetVolumeInfo
-	extern GetCompressionInfo
-	extern RunApplicationEventLoop
-	extern GetEventDispatcherTarget
-	extern GetApplicationEventTarget
-	extern GetMenuHandle
-	extern AppendMenuItemTextWithCFString
-	extern SetItemCmd
-	extern GetIndMenuItemWithCommandID
-	extern GetMenuEventTarget
-	extern AEInstallEventHandler
-	extern chdir
-	extern QuitApplicationEventLoop
+	extern CGDataProviderCreateWithURL
+	extern CGDataProviderRelease
+	extern CGDisplayAvailableModes
+	extern CGDisplayBitsPerPixel
+	extern CGDisplayBounds
+	extern CGDisplayCurrentMode
+	extern CGDisplayFade
+	extern CGDisplayIDToOpenGLDisplayMask
+	extern CGDisplayIOServicePort
+	extern CGDisplayPixelsHigh
+	extern CGDisplayPixelsWide
+	extern CGGetActiveDisplayList
+	extern CGGetDisplayTransferByTable
+	extern CGImageCreateWithPNGDataProvider
+	extern CGImageRelease
+	extern CGLChoosePixelFormat
+	extern CGLCreateContext
+	extern CGLDescribeRenderer
+	extern CGLDestroyContext
+	extern CGLDestroyPixelFormat
+	extern CGLDestroyRendererInfo
+	extern CGLGetCurrentContext
+	extern CGLQueryRendererInfo
+	extern CGLSetCurrentContext
+	extern CGRectEqualToRect
+	extern CGRectGetHeight
+	extern CGRectGetWidth
+	extern CGRectIsEmpty
+	extern CGRectUnion
+	extern CGReleaseDisplayFadeReservation
+	extern CGSetDisplayTransferByTable
+	extern CGWarpMouseCursorPosition
+	extern ClipRect
+	extern CloseComponent
+	extern CloseMovieFile
+	extern CloseRgn
+	extern CollapseWindow
+	extern Com_EndParseSession_F0_4
+	extern Com_Error_F0_1
+	extern Com_Memcpy_F0_12
+	extern Com_ParseOnLine_F0_5
+	extern Com_Parse_F0_5
+	extern CompileError_F0_1
+	extern CorrectSolidDeltas
+	extern CreateEvent
+	extern CreateNewWindow
+	extern CreateNibReferenceWithCFBundle
+	extern CreateObjSpecifier
+	extern CreateStandardAlert
+	extern CreateWindowFromNib
+	extern DMGetFirstScreenDevice
+	extern DMGetNextScreenDevice
+	extern DisableControl
 	extern DisableMenuItem
-	extern close
-	extern ioctl
-	extern __error
-	extern vsnprintf
-	extern strchr
-	extern rand
-	extern acosf
-	extern atan2
-	extern tan
-	extern sinf
-	extern time
-	extern localtime
-	extern asctime
-	extern longjmp
-	extern __maskrune
-	extern snprintf
-	extern floorf
-	extern setjmp
-	extern remove
-	extern fflush
-	extern qsort
-	extern fwrite
-	extern rename
-	extern isspace
-	extern _ZNSs9_M_mutateEmmm
+	extern DisposeAUGraph
+	extern DisposeGWorld
+	extern DisposeHandle
+	extern DisposeMovie
+	extern DisposeNibReference
+	extern DisposeRgn
+	extern DisposeWindow
+	extern DrawThemeFocusRect
+	extern DrawThemeMenuBarBackground
+	extern EnableControl
+	extern EndMediaEdits
+	extern EnterMovies
+	extern EqualRect
+	extern EventAvail
+	extern FSCloseIterator
+	extern FSDeleteObject
+	extern FSGetCatalogInfo
+	extern FSGetCatalogInfoBulk
+	extern FSGetVolumeInfo
+	extern FSMakeFSSpec
+	extern FSOpenIterator
+	extern FSPathMakeRef
+	extern FSRefMakePath
+	extern FSSetCatalogInfo
+	extern FS_FreeFile_F0_3
+	extern FS_ReadFile_F0_2
+	extern FSpMakeFSRef
+	extern FindNextComponent
+	extern FlushEventQueue
+	extern ForeColor
+	extern FrameRoundRect
+	extern Gestalt
+	extern GetApplicationEventTarget
+	extern GetAvailableWindowPositioningBounds
+	extern GetComponentVersion
+	extern GetCompressionInfo
+	extern GetControlBounds
+	extern GetControlByID
+	extern GetControlData
+	extern GetControlDataSize
+	extern GetControlKind
+	extern GetControlMaximum
+	extern GetControlOwner
+	extern GetControlReference
+	extern GetCurrentEventTime
+	extern GetCurrentKeyModifiers
+	extern GetCurrentProcess
+	extern GetCursor
+	extern GetEventClass
+	extern GetEventDispatcherTarget
+	extern GetEventKind
+	extern GetEventParameter
+	extern GetGWorldPixMap
+	extern GetGlobalMouse
+	extern GetHandleSize
+	extern GetIconRefFromFileInfo
+	extern GetIndMenuItemWithCommandID
+	extern GetMainDevice
+	extern GetMainEventLoop
+	extern GetMainEventQueue
+	extern GetMediaDuration
+	extern GetMediaHandler
+	extern GetMediaSampleDescription
+	extern GetMenuEventTarget
+	extern GetMenuHandle
+	extern GetMovieDuration
+	extern GetMovieIndTrackType
+	extern GetMoviePreferredRate
+	extern GetMovieTime
+	extern GetMovieTimeScale
+	extern GetNextProcess
+	extern GetPixRowBytes
+	extern GetPort
+	extern GetProcessBundleLocation
+	extern GetProcessInformation
+	extern GetQDGlobalsArrow
+	extern GetStandardAlertDefaultParams
+	extern GetTrackMedia
+	extern GetWRefCon
+	extern GetWindowEventTarget
+	extern GetWindowPort
+	extern GetWindowPortBounds
+	extern GetWindowResizeLimits
+	extern GoToBeginningOfMovie
+	extern HITextViewGetTXNObject
+	extern HIViewGetRoot
+	extern HIViewGetViewForMouseEvent
+	extern HandleControlKey
+	extern HideControl
+	extern HideCursor
+	extern HideMenuBar
+	extern HideWindow
+	extern Hunk_AddData_F0_1
+	extern Hunk_DataOnHunk_F0_15
+	extern Hunk_FindDataForFile_F0_2
+	extern Hunk_SetDataForFile_F0_4
+	extern IOObjectConformsTo
+	extern IORegistryEntryCreateCFProperty
+	extern IORegistryEntryGetParentEntry
+	extern InitCursor
+	extern InsertMediaIntoTrack
+	extern InsertMenu
+	extern InsetRect
+	extern InstallEventHandler
+	extern InstallEventLoopTimer
+	extern InvalMenuBar
+	extern IsMovieDone
+	extern IsWindowVisible
+	extern LSCopyItemInfoForRef
+	extern LSOpenCFURLRef
+	extern LSOpenFSRef
+	extern LockPixels
+	extern MPDelayUntil
+	extern MapRect
+	extern MatrixTransformVector_F0_18
+	extern MediaSetSoundBalance
+	extern Microseconds
+	extern MoveWindow
+	extern MoviesTask
+	extern NewAUGraph
+	extern NewControlEditTextValidationUPP
+	extern NewControlKeyFilterUPP
+	extern NewControlUserPaneDrawUPP
+	extern NewControlUserPaneHitTestUPP
+	extern NewControlUserPaneTrackingUPP
+	extern NewGWorld
+	extern NewHandle
+	extern NewMenu
+	extern NewMovieFromFile
+	extern NewRgn
+	extern NormalizeThemeDrawingState
+	extern OTAtomicAdd32
+	extern OTCompareAndSwap32
+	extern OffsetRect
+	extern OpenAComponent
+	extern OpenComponent
+	extern OpenMovieFile
+	extern OpenRgn
+	extern PBGetCatInfoSync
+	extern PaintRect
+	extern PaintRoundRect
+	extern PlotIconRef
+	extern PostEventToQueue
+	extern PrerollMovie
+	extern PtInRect
+	extern PtrAndHand
+	extern QDBeginCGContext
+	extern QDEndCGContext
+	extern QDGlobalToLocalPoint
+	extern QDLocalToGlobalPoint
+	extern QDRegisterNamedPixMapCursor
+	extern QDSetNamedPixMapCursor
+	extern QuitAppModalLoopForWindow
+	extern QuitApplicationEventLoop
+	extern RGBForeColor
+	extern ReceiveNextEvent
+	extern ReleaseEvent
+	extern ReleaseIconRef
+	extern RemoveEventHandler
+	extern RemoveEventLoopTimer
+	extern RunAppModalLoopForWindow
+	extern RunApplicationEventLoop
+	extern RunStandardAlert
+	extern SECTION
+	extern SL_GetStringOfLen_F0_1
+	extern SL_GetString__F0_1
+	extern SendEventToEventTarget
+	extern SetClip
+	extern SetControlData
+	extern SetControlFontStyle
+	extern SetControlMaximum
+	extern SetControlReference
+	extern SetCursor
+	extern SetEventParameter
+	extern SetFrontProcess
+	extern SetItemCmd
+	extern SetKeyboardFocus
+	extern SetMovieRate
+	extern SetMovieTimeValue
+	extern SetPort
+	extern SetPortWindowPort
+	extern SetSystemUIMode
+	extern SetThemeCursor
+	extern SetTrackVolume
+	extern SetWRefCon
+	extern SetWindowContentColor
+	extern SetWindowResizeLimits
+	extern SetWindowTitleWithCFString
+	extern ShowControl
+	extern ShowCursor
+	extern ShowMenuBar
+	extern ShowWindow
+	extern SizeWindow
+	extern StartMovie
+	extern StopMovie
+	extern StringToNum
+	extern TXNSetData
+	extern TXNSetSelection
+	extern TXNSetTypeAttributes
+	extern TXNShowSelection
+	extern TickCount
+	extern UpTime
+	extern UpdateSystemActivity
+	extern Vec2Normalize_F0_7
+	extern Z10Com_PrintfPKcz_F0_1
+	extern Z11CM_TraceBoxPK12TraceExtentsPKfS3_f_F0_10
+	extern Z11Com_sprintfPciPKcz_F0_2
+	extern Z11GetVariablejj_F0_22
+	extern Z12FindVariablejj_F0_22
+	extern Z12GetArraySizej_F0_22
+	extern Z12QuatMultiplyPKfS0_Pf_F0_18
+	extern Z12R_LoadXSkinsP6XModel_F0_1
+	extern Z13SL_FindStringPKc_F0_1
+	extern Z13Scr_NotifyNumiijj_F0_1
+	extern Z14RemoveVariablejj_F0_15
+	extern Z16GetArrayVariablejj_F0_22
+	extern Z16Scr_IsIdentifierPKc_F0_5
+	extern Z16SetVariableValuejP15VariableValue_s_F0_15
+	extern Z17SL_AddRefToStringj_F0_5
+	extern Z18SL_ConvertToStringj_F0_2
+	extern Z18Scr_AddConstStringj_F0_1
+	extern Z19CM_CalcTraceEntentsP12TraceExtents_F0_1
+	extern Z19Com_GetLastTokenPosv_F0_5
+	extern Z20SL_RemoveRefToStringj_F0_5
+	extern Z21XSurfaceGetBoneOffsetPK10XSurface_s_F0_1
+	extern Z21XSurfaceOptimizeRigidP6XModelP10XSurface_sP13XVertexBuffer_F0_1
+	extern Z22SL_GetLowercaseString_PKcji_F0_1
+	extern Z23R_FreeStaticIndexBufferP21IDirect3DIndexBuffer9_F0_4
+	extern Z24R_AllocStaticIndexBufferPP21IDirect3DIndexBuffer9i_F0_1
+	extern Z25R_FinishStaticIndexBufferP21IDirect3DIndexBuffer9_F0_4
+	extern Z25SL_RemoveRefToStringOfLenjj_F0_5
+	extern Z7stricmpPKcS0__F0_1
+	extern Z8GetArrayj_F0_22
+	extern Z_FreeInternal_F0_1
+	extern Z_MallocInternal_F0_2
+	extern _Unwind_Resume
+	extern _Z23Hunk_AllocXAnimPrecachei
+	extern _ZN9__gnu_cxx18__exchange_and_addEPVii
+	extern _ZNKSs4findEPKcmm
+	extern _ZNKSs7compareEPKc
 	extern _ZNSs12_M_leak_hardEv
-	extern _ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_
+	extern _ZNSs4_Rep10_M_destroyERKSaIcE
+	extern _ZNSs6appendEPKcm
+	extern _ZNSs6appendERKSs
+	extern _ZNSs6assignEPKcm
+	extern _ZNSs6assignERKSs
+	extern _ZNSs7replaceEmmPKcm
+	extern _ZNSs7reserveEm
+	extern _ZNSs9_M_mutateEmmm
+	extern _ZNSsC1EPKcRKSaIcE
+	extern _ZNSsC1ERKSs
+	extern _ZNSsC1ERKSsmm
+	extern _ZNSsD1Ev
+	extern _ZNSt15_List_node_base4hookEPS_
+	extern _ZNSt15_List_node_base6unhookEv
+	extern _ZSt17__throw_bad_allocv
 	extern _ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base
 	extern _ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base
-	extern sscanf
-	extern sin
-	extern acos
-	extern vsprintf
-	extern _ZNSs7reserveEm
-	extern strncat
-	extern ctime
-	extern strncmp
-	extern LSOpenFSRef
-	extern CFURLCreateWithBytes
-	extern LSOpenCFURLRef
-	extern UpdateSystemActivity
-	extern GetHandleSize
-	extern TXNSetData
-	extern NewHandle
-	extern DisposeHandle
-	extern RemoveEventLoopTimer
-	extern CollapseWindow
-	extern TXNSetSelection
-	extern TXNShowSelection
-	extern PtrAndHand
-	extern mkdir
-	extern opendir
-	extern readdir
-	extern stat
-	extern closedir
-	extern pow
-	extern glTestFenceAPPLE
-	extern glReadPixels
-	extern glGetError
-	extern asin
-	extern printf
-	extern _ZNSs7replaceEmmPKcm
-	extern expf
-	extern exp
-	extern isprint
-	extern fileno
-	extern isatty
-	extern fprintf
-	extern realloc
+	extern _ZSt20__throw_length_errorPKc
+	extern _ZSt20__throw_out_of_rangePKc
+	extern _ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_
+	extern _ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_
+	extern _ZdaPv
+	extern _ZdlPv
+	extern _Znam
+	extern _Znwm
+	extern __cxa_allocate_exception
+	extern __cxa_begin_catch
+	extern __cxa_end_catch
+	extern __cxa_guard_abort
 	extern __cxa_guard_acquire
 	extern __cxa_guard_release
-	extern __cxa_guard_abort
-	extern GetCurrentEventTime
-	extern SetFrontProcess
-	extern glGenVertexArraysAPPLE
-	extern glColorPointer
-	extern glNormalPointer
-	extern glVertexPointer
-	extern glTexCoordPointer
-	extern _ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_
-	extern AudioConverterReset
-	extern AudioUnitGetProperty
-	extern AudioConverterDispose
-	extern AudioConverterNew
-	extern log10f
-	extern AudioUnitSetParameter
-	extern AudioConverterFillComplexBuffer
-	extern AudioUnitSetProperty
-	extern AudioUnitAddRenderNotify
-	extern AudioUnitRemoveRenderNotify
-	extern usleep
-	extern AUGraphGetCPULoad
-	extern strdup
-	extern AUGraphStop
-	extern DisposeAUGraph
-	extern AudioDeviceGetPropertyInfo
-	extern AudioDeviceGetProperty
-	extern FindNextComponent
-	extern OpenComponent
-	extern GetComponentVersion
-	extern CloseComponent
-	extern NewAUGraph
-	extern AUGraphNewNode
-	extern AUGraphOpen
-	extern AUGraphGetNodeInfo
-	extern AUGraphUpdate
-	extern AUGraphConnectNodeInput
-	extern AUGraphInitialize
-	extern AUGraphStart
-	extern pthread_mutex_destroy
-	extern pthread_create
-	extern pthread_mutexattr_init
-	extern pthread_mutexattr_settype
-	extern pthread_mutex_init
-	extern pthread_mutexattr_destroy
-	extern pthread_mutex_unlock
-	extern pthread_mutex_lock
-	extern glTexImage3D
-	extern glCompressedTexImage3DARB
-	extern glTexSubImage3D
-	extern glCompressedTexSubImage3D
-	extern strtok
-	extern StopMovie
-	extern GoToBeginningOfMovie
-	extern GetMovieTimeScale
-	extern GetMovieDuration
-	extern GetMovieTime
-	extern SetMovieTimeValue
-	extern SetTrackVolume
-	extern GetMediaHandler
-	extern MediaSetSoundBalance
-	extern MoviesTask
-	extern IsMovieDone
-	extern StartMovie
-	extern DisposeMovie
-	extern SetMovieRate
-	extern OpenMovieFile
-	extern NewMovieFromFile
-	extern GetMoviePreferredRate
-	extern PrerollMovie
-	extern GetMovieIndTrackType
-	extern GetTrackMedia
-	extern GetMediaSampleDescription
-	extern srand
-	extern putenv
-	extern getenv
-	extern puts
-	extern asinf
-	extern atanf
-	extern tanf
-	extern select
-	extern inet_addr
-	extern gethostbyname
-	extern recvfrom
-	extern strerror
-	extern sendto
-	extern setsockopt
-	extern bind
-	extern socket
-	extern connect
-	extern send
-	extern recv
+	extern __cxa_rethrow
+	extern __cxa_throw
+	extern __dynamic_cast
+	extern __error
 	extern __isnanf
-	extern floor
-	extern logf
-	extern AudioOutputUnitStart
-	extern AudioOutputUnitStop
-	extern AudioDeviceSetProperty
-	extern AudioConverterFillBuffer
-	extern AudioUnitRender
-	extern AudioUnitUninitialize
-	extern OpenAComponent
-	extern AudioHardwareGetProperty
-	extern AudioUnitInitialize
+	extern __keymgr_dwarf2_register_sections
+	extern __maskrune
+	extern __udivdi3
+	extern _cstring_12
+	extern _cstring_1error_cannot_fi
+	extern _cstring_1error_cannot_fi1
+	extern _cstring_1error_cannot_fi2
+	extern _cstring_1error_file_conf
+	extern _cstring_1error_filename_
+	extern _cstring_1error_xanim_s_h
+	extern _cstring_1error_xanim_s_n
+	extern _cstring_1error_xanim_s_o
+	extern _cstring_1error_xmodel_s_
+	extern _cstring_1error_xmodel_s_1
+	extern _cstring_1error_xmodel_s_2
+	extern _cstring_1error_xmodel_s_3
+	extern _cstring_1error_xmodelpar
+	extern _cstring_1error_xmodelpar1
+	extern _cstring_1error_xmodelpar2
+	extern _cstring_1error_xmodelsur
+	extern _cstring_1error_xmodelsur1
+	extern _cstring_1error_xmodelsur2
+	extern _cstring_3s_missing
+	extern _cstring_3warning_couldnt
+	extern _cstring_4
+	extern _cstring_41
+	extern _cstring___model_s_lod_i_
+	extern _cstring_animation_cannot
+	extern _cstring_animation_s_in_s
+	extern _cstring_animation_s_in_s1
+	extern _cstring_bad_token
+	extern _cstring_bone_d_s
+	extern _cstring_bones
+	extern _cstring_cannot_find_xani
+	extern _cstring_cannot_find_xani1
+	extern _cstring_cannot_find_xani2
+	extern _cstring_d_s
+	extern _cstring_d_s__d_s
+	extern _cstring_default
+	extern _cstring_dobj_for_xmodel_
+	extern _cstring_duplicate_animat1
+	extern _cstring_duplicate_specif
+	extern _cstring_end
+	extern _cstring_error_models_wit
+	extern _cstring_exceeded_maximum
+	extern _cstring_fixme_aliases_no
+	extern _cstring_i
+	extern _cstring_max_calc_anim_bu
+	extern _cstring_max_surfs_exceed
+	extern _cstring_models1
+	extern _cstring_no_animation_spe
+	extern _cstring_no_dobj
+	extern _cstring_no_part_duplicat
+	extern _cstring_no_tree
+	extern _cstring_null
+	extern _cstring_part_duplicates
+	extern _cstring_properties_canno
+	extern _cstring_s1
+	extern _cstring_space
+	extern _cstring_ss_weight_2f__2f
+	extern _cstring_ss_weight_2f__2f1
+	extern _cstring_ss_weight_2f__2f2
+	extern _cstring_ss_weight_2f__2f3
+	extern _cstring_ss_weight_2f__2f4
+	extern _cstring_ss_weight_2f__2f5
+	extern _cstring_token_not_allowe
+	extern _cstring_token_not_allowe1
+	extern _cstring_unexpected_end_o
+	extern _cstring_unknown_anim_pro
+	extern _cstring_void
+	extern _cstring_void_loop
+	extern _cstring_warning_attempti
+	extern _cstring_warning_part_s_n
+	extern _cstring_xanims
+	extern _cstring_xmodelpartss
+	extern _cstring_xmodels
+	extern _cstring_xmodelsurfss
+	extern _double_0_00872665
+	extern _float_0_00000000
+	extern _float_0_000000002
+	extern _float_0_00000100
+	extern _float_0_000030521
+	extern _float_0_00100000
+	extern _float_0_12500000
+	extern _float_0_50000000
+	extern _float_1000_00000000
+	extern _float_1_00000000
+	extern _float_1_00100005
+	extern _float_1_50000000
+	extern _float_2_00000000
+	extern _float__0_00100000
+	extern _float__1_00000000
+	extern abort
+	extern accept
+	extern access
+	extern acos
+	extern acosf
+	extern add
+	extern addss
+	extern aglChoosePixelFormat
+	extern aglCreateContext
+	extern aglDescribePixelFormat
+	extern aglDestroyContext
+	extern aglDestroyPixelFormat
+	extern aglGetDrawable
+	extern aglSetCurrentContext
+	extern aglSetDrawable
+	extern aglSetFullScreen
+	extern aglSetInteger
+	extern aglSwapBuffers
+	extern and
+	extern andnps
+	extern andps
+	extern asctime
+	extern asin
+	extern asinf
+	extern atan2
+	extern atanf
+	extern atexit
+	extern atof
+	extern atoi
+	extern atol
+	extern bind
+	extern call
+	extern calloc
+	extern ceilf
+	extern chdir
+	extern cld
+	extern close
+	extern closedir
+	extern cmovbe
+	extern cmovnz
+	extern cmovp
+	extern cmovz
+	extern cmp
+	extern cmpss
+	extern connect
+	extern cos
+	extern cosf
+	extern ctime
+	extern cvtsd2ss
+	extern cvtsi2ss
+	extern cvtss2sd
+	extern cvttss2si
+	extern divss
 	extern dlclose
 	extern dlopen
 	extern dlsym
-	extern abort
-	extern vfprintf
-	extern getsockname
-	extern read
-	extern atol
-	extern strtol
-	extern getpid
-	extern tmpnam
-	extern strftime
-	extern gmtime
-	extern mktime
+	extern exit
+	extern exp
+	extern expf
+	extern fclose
 	extern fcntl
-	extern accept
-	extern listen
-	extern gethostname
-	extern getdomainname
-	extern getlogin
-	extern getuid
-	extern getpwuid
+	extern fflush
 	extern fgets
-	extern gettimeofday
-	extern regcomp
-	extern regerror
-	extern regfree
-	extern regexec
-	extern getpass
-	extern getsockopt
-	extern write
-	extern unlink
+	extern fileno
+	extern fld
+	extern fldz
+	extern floor
+	extern floorf
+	extern fopen
+	extern fprintf
 	extern fputc
 	extern fputs
+	extern fread
+	extern free
+	extern fseek
+	extern fstp
+	extern ftell
+	extern fwrite
+	extern g_anim_developer
+	extern g_default
+	extern g_empty
+	extern g_end
+	extern g_notifyList
+	extern g_notifyListSize
+	extern g_testLods
+	extern g_xAnimInfo
+	extern getcwd
+	extern getdomainname
+	extern getenv
+	extern gethostbyname
+	extern gethostname
+	extern getlogin
+	extern getpass
+	extern getpid
+	extern getpwuid
+	extern getrlimit
+	extern getsockname
+	extern getsockopt
+	extern gettimeofday
+	extern getuid
+	extern glActiveTextureARB
+	extern glAlphaFunc
+	extern glBegin
+	extern glBindProgramARB
+	extern glBindTexture
+	extern glBindVertexArrayAPPLE
+	extern glBlendEquationEXT
+	extern glBlendFunc
+	extern glBlendFuncSeparateEXT
+	extern glClear
+	extern glClearColor
+	extern glClearDepth
+	extern glClearStencil
+	extern glClientActiveTextureARB
+	extern glClipPlane
+	extern glColor4f
+	extern glColorMask
+	extern glColorMaterial
+	extern glColorPointer
+	extern glCombinerParameterfvNV
+	extern glCombinerStageParameterfvNV
+	extern glCompressedTexImage2DARB
+	extern glCompressedTexImage3DARB
+	extern glCompressedTexSubImage2D
+	extern glCompressedTexSubImage3D
+	extern glCopyTexSubImage2D
+	extern glDeleteFencesAPPLE
+	extern glDeleteProgramsARB
+	extern glDeleteTextures
+	extern glDeleteVertexArraysAPPLE
+	extern glDepthFunc
+	extern glDepthMask
+	extern glDepthRange
+	extern glDisable
+	extern glDisableClientState
+	extern glDisableVertexAttribArrayARB
+	extern glDrawBuffer
+	extern glDrawRangeElements
+	extern glEnable
+	extern glEnableClientState
+	extern glEnableVertexAttribArrayARB
+	extern glEnd
+	extern glFinish
+	extern glFinishFenceAPPLE
+	extern glFlushVertexArrayRangeAPPLE
+	extern glFogf
+	extern glFogfv
+	extern glFogi
+	extern glFrontFace
+	extern glGenFencesAPPLE
+	extern glGenProgramsARB
+	extern glGenTextures
+	extern glGenVertexArraysAPPLE
+	extern glGetError
+	extern glGetFloatv
+	extern glGetIntegerv
+	extern glGetProgramivARB
+	extern glGetString
+	extern glHint
+	extern glLightModelfv
+	extern glLightModeli
+	extern glLightf
+	extern glLightfv
+	extern glLoadIdentity
+	extern glLoadMatrixf
+	extern glMaterialf
+	extern glMaterialfv
+	extern glMatrixMode
+	extern glNormalPointer
+	extern glPixelStorei
+	extern glPointParameterfARB
+	extern glPointParameterfvARB
+	extern glPointSize
+	extern glPolygonMode
+	extern glPolygonOffset
+	extern glPopAttrib
+	extern glPopClientAttrib
+	extern glPopMatrix
+	extern glProgramEnvParameter4fvARB
+	extern glProgramStringARB
+	extern glPushAttrib
+	extern glPushClientAttrib
+	extern glPushMatrix
+	extern glReadBuffer
+	extern glReadPixels
+	extern glScalef
+	extern glScissor
+	extern glSetFenceAPPLE
+	extern glShadeModel
+	extern glStencilFunc
+	extern glStencilMask
+	extern glStencilOp
+	extern glTestFenceAPPLE
+	extern glTexCoord2f
+	extern glTexCoordPointer
+	extern glTexEnvf
+	extern glTexEnvfv
+	extern glTexEnvi
+	extern glTexGenfv
+	extern glTexGeni
+	extern glTexImage2D
+	extern glTexImage3D
+	extern glTexParameterf
+	extern glTexParameterfv
+	extern glTexParameteri
+	extern glTexSubImage2D
+	extern glTexSubImage3D
+	extern glVertex2f
+	extern glVertex3f
+	extern glVertexArrayParameteriAPPLE
+	extern glVertexArrayRangeAPPLE
+	extern glVertexAttribPointerARB
+	extern glVertexPointer
+	extern glViewport
+	extern gluCheckExtension
+	extern gluOrtho2D
+	extern gmtime
+	extern imul
+	extern inet_addr
+	extern ioctl
+	extern isatty
+	extern isprint
+	extern isspace
+	extern ja
+	extern jae
+	extern jb
+	extern jbe
+	extern jg
+	extern jge
+	extern jl
+	extern jle
+	extern jmp
+	extern jnp
+	extern jns
+	extern jnz
+	extern jp
+	extern js
+	extern jz
+	extern lea
+	extern leave
+	extern listen
+	extern localtime
+	extern log
+	extern log10f
+	extern logf
+	extern longjmp
+	extern lround
+	extern malloc
+	extern maxss
+	extern memcpy
+	extern memmove
+	extern memset
+	extern minss
+	extern mkdir
+	extern mktime
+	extern mov
+	extern movaps
+	extern movsd
+	extern movss
+	extern movsx
+	extern movzx
+	extern mulsd
+	extern mulss
+	extern neg
+	extern nop
+	extern not
+	extern opendir
+	extern or
+	extern orps
+	extern pop
+	extern pow
+	extern printf
+	extern propertyNames
+	extern pthread_create
+	extern pthread_main_np
+	extern pthread_mutex_destroy
+	extern pthread_mutex_init
+	extern pthread_mutex_lock
+	extern pthread_mutex_unlock
+	extern pthread_mutexattr_destroy
+	extern pthread_mutexattr_init
+	extern pthread_mutexattr_settype
+	extern pthread_self
+	extern push
+	extern putenv
+	extern puts
+	extern pxor
+	extern qsort
+	extern rand
+	extern read
+	extern readdir
+	extern realloc
+	extern recv
+	extern recvfrom
+	extern regcomp
+	extern regerror
+	extern regexec
+	extern regfree
+	extern remove
+	extern rename
+	extern rep
+	extern repne
+	extern ret
+	extern rewind
+	extern sar
+	extern sbb
+	extern scasb
+	extern scrAnimGlob
+	extern select
+	extern send
+	extern sendto
+	extern setae
+	extern setbe
+	extern setjmp
+	extern setnz
+	extern setp
+	extern setrlimit
+	extern setsockopt
+	extern setz
+	extern shl
+	extern shr
+	extern sin
+	extern sinf
+	extern snprintf
+	extern socket
+	extern sprintf
+	extern sqrtss
+	extern srand
+	extern sscanf
+	extern stat
+	extern stosd
+	extern strcasecmp
+	extern strcat
+	extern strchr
+	extern strcmp
+	extern strcpy
+	extern strdup
+	extern strerror
+	extern strftime
+	extern strncasecmp
+	extern strncat
+	extern strncmp
+	extern strncpy
+	extern strrchr
+	extern strstr
+	extern strtok
+	extern strtol
+	extern sub
+	extern subss
+	extern sysctl
+	extern tan
+	extern tanf
+	extern test
+	extern text
+	extern time
+	extern tmpnam
+	extern tolower
+	extern toupper
+	extern ucomiss
+	extern unlink
+	extern usleep
+	extern va_F0_3
+	extern vec2_origin
+	extern vfprintf
+	extern vsnprintf
+	extern vsprintf
+	extern write
+	extern xor
+	extern xorps
 
 ;Exports defined in this file:
-	global Z9XAnimInitv:F(0,1)
-	global Z13XAnimShutdownv:F(0,1)
-	global Z10XAnimAbortv:F(0,1)
-	global Z9XAnimFreeP12XAnimParts_s:F(0,1)
-	global Z10XAnimBlendP7XAnim_sjPKcjjj:F(0,1)
-	global Z16XAnimCreateAnimsPKciPFPviE:F(0,60)
-	global Z13XAnimFreeListP7XAnim_s:F(0,1)
-	global Z13XAnimGetAnimsPK11XAnimTree_s:F(0,60)
-	global Z14XAnimGetLengthPK7XAnim_sj:F(0,10)
-	global Z12XAnimGetTimePK11XAnimTree_sj:F(0,10)
-	global Z14XAnimGetWeightPK11XAnimTree_sj:F(0,10)
-	global Z16XAnimHasFinishedPK11XAnimTree_sj:F(0,8)
-	global Z19XAnimGetNumChildrenPK7XAnim_sj:F(0,2)
-	global Z15XAnimGetChildAtPK7XAnim_sjj:F(0,61)
-	global Z16XAnimGetAnimNamePK7XAnim_sj:F(0,17)
-	global Z25XAnimGetAnimTreeDebugNamePK7XAnim_s:F(0,17)
-	global Z20XAnimGetAnimTreeSizePK7XAnim_s:F(0,61)
-	global Z23DObjGetClientNotifyListPP13XAnimNotify_s:F(0,2)
-	global Z16XAnimIsPrimitiveP7XAnim_sj:F(0,8)
-	global Z12XAnimSetTimeP11XAnimTree_sjf:F(0,1)
-	global Z16XAnimSetAnimRateP11XAnimTree_sjf:F(0,1)
-	global Z13XAnimIsLoopedPK7XAnim_sj:F(0,8)
-	global Z20XAnimNotetrackExistsPK7XAnim_sjj:F(0,8)
+	global Z9XAnimInitv_F0_1
+	global Z13XAnimShutdownv_F0_1
+	global Z10XAnimAbortv_F0_1
+	global Z9XAnimFreeP12XAnimParts_s_F0_1
+	global Z10XAnimBlendP7XAnim_sjPKcjjj_F0_1
+	global Z16XAnimCreateAnimsPKciPFPviE_F0_60
+	global Z13XAnimFreeListP7XAnim_s_F0_1
+	global Z13XAnimGetAnimsPK11XAnimTree_s_F0_60
+	global Z14XAnimGetLengthPK7XAnim_sj_F0_10
+	global Z12XAnimGetTimePK11XAnimTree_sj_F0_10
+	global Z14XAnimGetWeightPK11XAnimTree_sj_F0_10
+	global Z16XAnimHasFinishedPK11XAnimTree_sj_F0_8
+	global Z19XAnimGetNumChildrenPK7XAnim_sj_F0_2
+	global Z15XAnimGetChildAtPK7XAnim_sjj_F0_61
+	global Z16XAnimGetAnimNamePK7XAnim_sj_F0_17
+	global Z25XAnimGetAnimTreeDebugNamePK7XAnim_s_F0_17
+	global Z20XAnimGetAnimTreeSizePK7XAnim_s_F0_61
+	global Z23DObjGetClientNotifyListPP13XAnimNotify_s_F0_2
+	global Z16XAnimIsPrimitiveP7XAnim_sj_F0_8
+	global Z12XAnimSetTimeP11XAnimTree_sjf_F0_1
+	global Z16XAnimSetAnimRateP11XAnimTree_sjf_F0_1
+	global Z13XAnimIsLoopedPK7XAnim_sj_F0_8
+	global Z20XAnimNotetrackExistsPK7XAnim_sjj_F0_8
 	global _Z18XAnim_GetTimeIndexIhEvPK9XAnimTimePK19XAnimDynamicIndicesiPiPf
 	global _Z28XAnim_GetTimeIndexCompressedItEvPK9XAnimTimePKT_iPiPf
-	global Z21XAnimGetAnimDebugNamePK7XAnim_sj:F(0,17)
-	global Z15XAnimCreateTreeP7XAnim_sPFPviE:F(0,90)
-	global Z13XAnimPrecachePKcPFPviE:F(0,3)
-	global Z11XAnimCreateP7XAnim_sjPKc:F(0,1)
+	global Z21XAnimGetAnimDebugNamePK7XAnim_sj_F0_17
+	global Z15XAnimCreateTreeP7XAnim_sPFPviE_F0_90
+	global Z13XAnimPrecachePKcPFPviE_F0_3
+	global Z11XAnimCreateP7XAnim_sjPKc_F0_1
 	global _Z36XAnimGetDescendantWithGreatestWeightPK11XAnimTree_sj
-	global Z18XAnimGetLengthMsecPK7XAnim_sj:F(0,2)
-	global Z20XAnimClearGoalWeightP11XAnimTree_sjf:F(0,1)
+	global Z18XAnimGetLengthMsecPK7XAnim_sj_F0_2
+	global Z20XAnimClearGoalWeightP11XAnimTree_sjf_F0_1
 	global _Z22XAnim_CalcDeltaForTimePK12XAnimParts_sfPfS2_
-	global Z16XAnimGetAbsDeltaPK7XAnim_sjPfS2_f:F(0,1)
+	global Z16XAnimGetAbsDeltaPK7XAnim_sjPfS2_f_F0_1
 	global _Z22XAnimCalcRelDeltaPartsPK12XAnimParts_sfffP17XAnimSimpleRotPosi
-	global Z16XAnimGetRelDeltaPK7XAnim_sjPfS2_ff:F(0,1)
+	global Z16XAnimGetRelDeltaPK7XAnim_sjPfS2_ff_F0_1
 	global _Z21XAnimClearTreeWeightsP11XAnimTree_sj
 	global _Z18XAnimCalcDeltaTreePK11XAnimTree_sjfhhP17XAnimSimpleRotPos
-	global Z17XAnimCalcAbsDeltaP11XAnimTree_sjPfS1_:F(0,1)
-	global Z14XAnimCalcDeltaP11XAnimTree_sjPfS1_h:F(0,1)
+	global Z17XAnimCalcAbsDeltaP11XAnimTree_sjPfS1__F0_1
+	global Z14XAnimCalcDeltaP11XAnimTree_sjPfS1_h_F0_1
 	global _Z14XAnimResetTimeP11XAnimTree_sj
 	global _Z18XAnimUpdateOldTimeP11XAnimTree_sjP10XAnimStatefhPhS3_
-	global Z18DObjInitServerTimeP6DObj_sf:F(0,1)
+	global Z18DObjInitServerTimeP6DObj_sf_F0_1
 	global _Z26XAnimSetGoalWeightInternalP11XAnimTree_sjfffhjj
-	global Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)
-	global Z18XAnimCloneAnimTreePK11XAnimTree_sPS_:F(0,1)
-	global Z13XAnimFreeTreeP11XAnimTree_sPFvPviE:F(0,1)
-	global Z14XAnimClearTreeP11XAnimTree_s:F(0,1)
+	global Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1
+	global Z18XAnimCloneAnimTreePK11XAnimTree_sPS__F0_1
+	global Z13XAnimFreeTreeP11XAnimTree_sPFvPviE_F0_1
+	global Z14XAnimClearTreeP11XAnimTree_s_F0_1
 	global _Z9XAnimCalcPK6DObj_sjfP13DObjAnimMat_shhP17XAnimCalcAnimInfoi
-	global Z12DObjCalcAnimPK6DObj_sPi:F(0,1)
+	global Z12DObjCalcAnimPK6DObj_sPi_F0_1
 	global _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj
-	global Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)
-	global Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf:F(0,1)
+	global Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1
+	global Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf_F0_1
 	global _Z24XAnimProcessServerNotifyPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryf
-	global Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)
-	global Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)
+	global Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2
+	global Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2
 	global _Z12XAnimDisplayPK11XAnimTree_sji
-	global Z15DObjDisplayAnimP6DObj_s:F(0,1)
+	global Z15DObjDisplayAnimP6DObj_s_F0_1
 	global _Z22XAnimFillInSyncNodes_rP7XAnim_sjh
 	global _Z21XAnimSetupSyncNodes_rP7XAnim_sj
-	global Z19XAnimSetupSyncNodesP7XAnim_s:F(0,1)
+	global Z19XAnimSetupSyncNodesP7XAnim_s_F0_1
 	global _Z24XAnimProcessClientNotifyP9XAnimInfoPK10XAnimEntryf
 	global _Z27XAnimUpdateInfoSyncInternalPK11XAnimTree_sjhP10XAnimStatef
 	global _Z23XAnimUpdateInfoInternalPK11XAnimTree_sjfh
-	global Z20DObjUpdateClientInfoP6DObj_sf:F(0,1)
+	global Z20DObjUpdateClientInfoP6DObj_sf_F0_1
 	global _Z24XAnimGetNotifyFracServerPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryPK10XAnimStateS9_f
 	global _Z33XAnimGetServerNotifyFracSyncTotalPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryPK10XAnimStateS9_f
 	global _Z24XAnimFindServerNoteTrackPK11XAnimTree_sjf
-	global Z20DObjUpdateServerInfoP6DObj_sfi:F(0,2)
-	global Z9XModelBadPK6XModel:F(0,1)
-	global Z15XModelPartsFreeP13XModelParts_s:F(0,20)
-	global Z19XModelPartsFindDataPKc:F(0,5)
-	global Z18XModelPartsSetDataPKcP13XModelParts_sPFPviE:F(0,20)
-	global Z19XModelSurfsFindDataPKc:F(0,32)
-	global Z18XModelSurfsSetDataPKcP13XModelSurfs_sPFPviE:F(0,20)
-	global Z14XModelPrecachePKcPFPviES3_:F(0,18)
-	global Z15XModelBoneNamesP6XModel:F(0,31)
-	global Z18XModelGetBoneIndexPK6XModelj:F(0,1)
-	global Z16XModelGetLodNamePK6XModeli:F(0,13)
-	global Z17XModelGetContentsPK6XModel:F(0,1)
-	global Z14XModelGetSkinsPK6XModel:F(0,74)
-	global Z17XModelGetMemUsagePK6XModel:F(0,1)
-	global Z15XModelGetBoundsPK6XModelPfS2_:F(0,20)
-	global Z10XModelFreeP6XModel:F(0,20)
-	global Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)
-	global Z8DObjInitv:F(0,1)
-	global Z12DObjShutdownv:F(0,1)
-	global Z9DObjAbortv:F(0,1)
-	global Z19DObjIgnoreCollisionPK6DObj_si:F(0,37)
-	global Z22DObjSkelIsBoneUpToDateP6DObj_si:F(0,4)
-	global Z24DObjSkelAreBonesUpToDatePK6DObj_sPi:F(0,4)
-	global Z8DObjFreeP6DObj_s:F(0,1)
-	global Z20DObjGetAllocSkelSizePK6DObj_s:F(0,4)
-	global Z14DObjSkelExistsPK6DObj_si:F(0,97)
-	global Z13DObjSkelClearPK6DObj_s:F(0,1)
-	global Z14DObjCreateSkelPK6DObj_sPci:F(0,1)
-	global Z16DObjGetNumModelsPK6DObj_s:F(0,4)
-	global Z12DObjGetModelPK6DObj_si:F(0,28)
-	global Z20DObjGetRotTransArrayPK6DObj_s:F(0,101)
-	global Z16DObjGetMatOffsetPK6DObj_si:F(0,4)
-	global Z15DObjGetBoneInfoPK6DObj_sPP11XBoneInfo_s:F(0,1)
-	global Z18DObjGetNumSurfacesPK6DObj_sPc:F(0,4)
-	global Z14DObjGetSurfacePK6DObj_siii:F(0,85)
-	global Z18DObjGetSurfaceNameP6DObj_siii:F(0,5)
-	global Z16DObjGetBoneIndexPK6DObj_sj:F(0,4)
-	global Z11DObjGetTreePK6DObj_s:F(0,12)
-	global Z7DObjBadPK6DObj_s:F(0,4)
-	global Z12DObjNumBonesPK6DObj_s:F(0,4)
-	global Z17DObjGetLodForDistPK6DObj_sif:F(0,4)
-	global Z17DObjGetLodOutDistPK6DObj_s:F(0,35)
-	global Z15DObjHasContentsP6DObj_si:F(0,4)
-	global Z12DObjSetModelP6DObj_sPK6XModel:F(0,1)
-	global Z13DObjGetBoundsPK6DObj_sPfS2_:F(0,1)
-	global Z17DObjGeomTracelineP6DObj_sPfS1_iP11DObjTrace_s:F(0,1)
-	global Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)
+	global Z20DObjUpdateServerInfoP6DObj_sfi_F0_2
+	global Z9XModelBadPK6XModel_F0_1
+	global Z15XModelPartsFreeP13XModelParts_s_F0_20
+	global Z19XModelPartsFindDataPKc_F0_5
+	global Z18XModelPartsSetDataPKcP13XModelParts_sPFPviE_F0_20
+	global Z19XModelSurfsFindDataPKc_F0_32
+	global Z18XModelSurfsSetDataPKcP13XModelSurfs_sPFPviE_F0_20
+	global Z14XModelPrecachePKcPFPviES3__F0_18
+	global Z15XModelBoneNamesP6XModel_F0_31
+	global Z18XModelGetBoneIndexPK6XModelj_F0_1
+	global Z16XModelGetLodNamePK6XModeli_F0_13
+	global Z17XModelGetContentsPK6XModel_F0_1
+	global Z14XModelGetSkinsPK6XModel_F0_74
+	global Z17XModelGetMemUsagePK6XModel_F0_1
+	global Z15XModelGetBoundsPK6XModelPfS2__F0_20
+	global Z10XModelFreeP6XModel_F0_20
+	global Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i_F0_1
+	global Z8DObjInitv_F0_1
+	global Z12DObjShutdownv_F0_1
+	global Z9DObjAbortv_F0_1
+	global Z19DObjIgnoreCollisionPK6DObj_si_F0_37
+	global Z22DObjSkelIsBoneUpToDateP6DObj_si_F0_4
+	global Z24DObjSkelAreBonesUpToDatePK6DObj_sPi_F0_4
+	global Z8DObjFreeP6DObj_s_F0_1
+	global Z20DObjGetAllocSkelSizePK6DObj_s_F0_4
+	global Z14DObjSkelExistsPK6DObj_si_F0_97
+	global Z13DObjSkelClearPK6DObj_s_F0_1
+	global Z14DObjCreateSkelPK6DObj_sPci_F0_1
+	global Z16DObjGetNumModelsPK6DObj_s_F0_4
+	global Z12DObjGetModelPK6DObj_si_F0_28
+	global Z20DObjGetRotTransArrayPK6DObj_s_F0_101
+	global Z16DObjGetMatOffsetPK6DObj_si_F0_4
+	global Z15DObjGetBoneInfoPK6DObj_sPP11XBoneInfo_s_F0_1
+	global Z18DObjGetNumSurfacesPK6DObj_sPc_F0_4
+	global Z14DObjGetSurfacePK6DObj_siii_F0_85
+	global Z18DObjGetSurfaceNameP6DObj_siii_F0_5
+	global Z16DObjGetBoneIndexPK6DObj_sj_F0_4
+	global Z11DObjGetTreePK6DObj_s_F0_12
+	global Z7DObjBadPK6DObj_s_F0_4
+	global Z12DObjNumBonesPK6DObj_s_F0_4
+	global Z17DObjGetLodForDistPK6DObj_sif_F0_4
+	global Z17DObjGetLodOutDistPK6DObj_s_F0_35
+	global Z15DObjHasContentsP6DObj_si_F0_4
+	global Z12DObjSetModelP6DObj_sPK6XModel_F0_1
+	global Z13DObjGetBoundsPK6DObj_sPfS2__F0_1
+	global Z17DObjGeomTracelineP6DObj_sPfS1_iP11DObjTrace_s_F0_1
+	global Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc_F0_4
 	global _Z24DObjCreateDuplicatePartsPK6DObj_s
-	global Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)
-	global Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1)
-	global Z23DObjSetLocalTagInternalPK6DObj_sPKfS3_i:F(0,1)
-	global Z15DObjSetLocalTagPK6DObj_sPijPKfS4_:F(0,97)
-	global Z23DObjSetControlTagAnglesPK6DObj_sPijPf:F(0,97)
-	global Z12DObjDumpInfoPK6DObj_s:F(0,1)
-	global Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)
-	global Z12DObjCalcSkelPK6DObj_sPi:F(0,1)
-	global Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)
+	global Z25DObjCompleteHierarchyBitsPK6DObj_sPi_F0_1
+	global Z20DObjGetHierarchyBitsP6DObj_siPi_F0_1
+	global Z23DObjSetLocalTagInternalPK6DObj_sPKfS3_i_F0_1
+	global Z15DObjSetLocalTagPK6DObj_sPijPKfS4__F0_97
+	global Z23DObjSetControlTagAnglesPK6DObj_sPijPf_F0_97
+	global Z12DObjDumpInfoPK6DObj_s_F0_1
+	global Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1
+	global Z12DObjCalcSkelPK6DObj_sPi_F0_1
+	global Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1
 	global _Z21AnimTreeParseInternaljjhhh
-	global Z13XModelGetNamePK6XModel:F(0,1)
-	global Z14XModelGetFlagsPK6XModel:F(0,16)
-	global Z20XModelGetSurfaceNamePK6XModelii:F(0,1)
-	global Z17XModelGetSurfacesPK6XModelPPP10XSurface_siPPi:F(0,10)
-	global Z16XModelGetNumLodsPK6XModel:F(0,10)
-	global Z14XModelNumBonesPK6XModel:F(0,10)
-	global Z17XModelGetBasePosePK6XModel:F(0,62)
-	global Z21XModelGetBasePoseBonePK6XModeli:F(0,62)
-	global Z17XModelSetTestLodsif:F(0,64)
-	global Z19XModelGetLodOutDistPK6XModel:F(0,26)
-	global Z19XModelGetLodForDistPK6XModelf:F(0,10)
+	global Z13XModelGetNamePK6XModel_F0_1
+	global Z14XModelGetFlagsPK6XModel_F0_16
+	global Z20XModelGetSurfaceNamePK6XModelii_F0_1
+	global Z17XModelGetSurfacesPK6XModelPPP10XSurface_siPPi_F0_10
+	global Z16XModelGetNumLodsPK6XModel_F0_10
+	global Z14XModelNumBonesPK6XModel_F0_10
+	global Z17XModelGetBasePosePK6XModel_F0_62
+	global Z21XModelGetBasePoseBonePK6XModeli_F0_62
+	global Z17XModelSetTestLodsif_F0_64
+	global Z19XModelGetLodOutDistPK6XModel_F0_26
+	global Z19XModelGetLodForDistPK6XModelf_F0_10
 	global _Z11ConsumeQuatPPKhPs
-	global Z13XAnimLoadFilePKcPFPviE:F(0,13)
-	global Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4_:F(0,3)
-	global Z10XModelLoadPKcPFPviES3_:F(0,59)
-	global Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)
-	global Z14XModelOptimizeP6XModel:F(0,1)
-	global Z16XModelUnoptimizeP6XModel:F(0,1)
+	global Z13XAnimLoadFilePKcPFPviE_F0_13
+	global Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4__F0_3
+	global Z10XModelLoadPKcPFPviES3__F0_59
+	global Z17XModelReadSurfaceP6XModelPiPPKhPFPviE_F0_1
+	global Z14XModelOptimizeP6XModel_F0_1
+	global Z16XModelUnoptimizeP6XModel_F0_1
 
 SECTION .text
-Z9XAnimInitv:F(0,1):
+Z9XAnimInitv_F0_1:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
 	xor edx, edx
 	mov ecx, g_xAnimInfo
-	jmp Z9XAnimInitv:F(0,1)_10
-Z9XAnimInitv:F(0,1)_40:
+	jmp Z9XAnimInitv_F0_1_10
+Z9XAnimInitv_F0_1_40:
 	mov [ecx+0x8], ax
 	add edx, 0x1
 	mov eax, edx
 	and eax, 0x80000fff
-	js Z9XAnimInitv:F(0,1)_20
-Z9XAnimInitv:F(0,1)_50:
+	js Z9XAnimInitv_F0_1_20
+Z9XAnimInitv_F0_1_50:
 	mov [ecx+0xa], ax
 	add ecx, 0x28
 	cmp edx, 0x1000
-	jz Z9XAnimInitv:F(0,1)_30
-Z9XAnimInitv:F(0,1)_10:
+	jz Z9XAnimInitv_F0_1_30
+Z9XAnimInitv_F0_1_10:
 	lea eax, [edx+0xfff]
 	and eax, 0x80000fff
-	jns Z9XAnimInitv:F(0,1)_40
+	jns Z9XAnimInitv_F0_1_40
 	sub eax, 0x1
 	or eax, 0xfffff000
 	add eax, 0x1
@@ -813,16 +1043,16 @@ Z9XAnimInitv:F(0,1)_10:
 	add edx, 0x1
 	mov eax, edx
 	and eax, 0x80000fff
-	jns Z9XAnimInitv:F(0,1)_50
-Z9XAnimInitv:F(0,1)_20:
+	jns Z9XAnimInitv_F0_1_50
+Z9XAnimInitv_F0_1_20:
 	sub eax, 0x1
 	or eax, 0xfffff000
 	add eax, 0x1
 	mov [ecx+0xa], ax
 	add ecx, 0x28
 	cmp edx, 0x1000
-	jnz Z9XAnimInitv:F(0,1)_10
-Z9XAnimInitv:F(0,1)_30:
+	jnz Z9XAnimInitv_F0_1_10
+Z9XAnimInitv_F0_1_30:
 	xor eax, eax
 	mov [g_xAnimInfo+0xc], eax
 	mov [g_xAnimInfo+0x10], eax
@@ -831,7 +1061,7 @@ Z9XAnimInitv:F(0,1)_30:
 	mov dword [esp+0x8], 0x3
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], _cstring_end
-	call SL_GetString_:F(0,1)
+	call SL_GetString__F0_1
 	mov [g_end], eax
 	mov eax, [0x1accd29]
 	mov eax, [eax]
@@ -842,29 +1072,29 @@ Z9XAnimInitv:F(0,1)_30:
 	ret
 
 
-;Z13XAnimShutdownv:F(0,1)
+;Z13XAnimShutdownv_F0_1
 
-Z13XAnimShutdownv:F(0,1):
+Z13XAnimShutdownv_F0_1:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
 	mov eax, [g_end]
 	test eax, eax
-	jnz Z13XAnimShutdownv:F(0,1)_10
+	jnz Z13XAnimShutdownv_F0_1_10
 	leave
 	ret
-Z13XAnimShutdownv:F(0,1)_10:
+Z13XAnimShutdownv_F0_1_10:
 	mov [esp], eax
-	call Z20SL_RemoveRefToStringj:F(0,5)
+	call Z20SL_RemoveRefToStringj_F0_5
 	mov dword [g_end], 0x0
 	leave
 	ret
 	nop
 
 
-;Z10XAnimAbortv:F(0,1)
+;Z10XAnimAbortv_F0_1
 
-Z10XAnimAbortv:F(0,1):
+Z10XAnimAbortv_F0_1:
 	push ebp
 	mov ebp, esp
 	mov dword [g_end], 0x0
@@ -873,9 +1103,9 @@ Z10XAnimAbortv:F(0,1):
 	nop
 
 
-;Z9XAnimFreeP12XAnimParts_s:F(0,1)
+;Z9XAnimFreeP12XAnimParts_s_F0_1
 
-Z9XAnimFreeP12XAnimParts_s:F(0,1):
+Z9XAnimFreeP12XAnimParts_s_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -886,44 +1116,44 @@ Z9XAnimFreeP12XAnimParts_s:F(0,1):
 	mov edi, [eax+0x10]
 	movsx esi, word [eax+0xe]
 	test esi, esi
-	jg Z9XAnimFreeP12XAnimParts_s:F(0,1)_10
+	jg Z9XAnimFreeP12XAnimParts_s_F0_1_10
 	mov ecx, eax
 	mov ebx, [ecx+0x1c]
 	cmp byte [ecx+0xc], 0x0
-	jnz Z9XAnimFreeP12XAnimParts_s:F(0,1)_20
-Z9XAnimFreeP12XAnimParts_s:F(0,1)_40:
+	jnz Z9XAnimFreeP12XAnimParts_s_F0_1_20
+Z9XAnimFreeP12XAnimParts_s_F0_1_40:
 	add esp, 0x1c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z9XAnimFreeP12XAnimParts_s:F(0,1)_10:
+Z9XAnimFreeP12XAnimParts_s_F0_1_10:
 	xor ebx, ebx
-Z9XAnimFreeP12XAnimParts_s:F(0,1)_30:
+Z9XAnimFreeP12XAnimParts_s_F0_1_30:
 	movzx eax, word [edi+ebx*2]
 	mov [esp], eax
-	call Z20SL_RemoveRefToStringj:F(0,5)
+	call Z20SL_RemoveRefToStringj_F0_5
 	add ebx, 0x1
 	cmp esi, ebx
-	jnz Z9XAnimFreeP12XAnimParts_s:F(0,1)_30
+	jnz Z9XAnimFreeP12XAnimParts_s_F0_1_30
 	mov ecx, [ebp+0x8]
 	mov ebx, [ecx+0x1c]
 	cmp byte [ecx+0xc], 0x0
-	jz Z9XAnimFreeP12XAnimParts_s:F(0,1)_40
-Z9XAnimFreeP12XAnimParts_s:F(0,1)_20:
+	jz Z9XAnimFreeP12XAnimParts_s_F0_1_40
+Z9XAnimFreeP12XAnimParts_s_F0_1_20:
 	xor esi, esi
-Z9XAnimFreeP12XAnimParts_s:F(0,1)_50:
+Z9XAnimFreeP12XAnimParts_s_F0_1_50:
 	movzx eax, word [ebx]
 	mov [esp], eax
-	call Z20SL_RemoveRefToStringj:F(0,5)
+	call Z20SL_RemoveRefToStringj_F0_5
 	add esi, 0x1
 	add ebx, 0x8
 	movsx edx, si
 	mov ecx, [ebp+0x8]
 	movzx eax, byte [ecx+0xc]
 	cmp edx, eax
-	jl Z9XAnimFreeP12XAnimParts_s:F(0,1)_50
+	jl Z9XAnimFreeP12XAnimParts_s_F0_1_50
 	add esp, 0x1c
 	pop ebx
 	pop esi
@@ -932,9 +1162,9 @@ Z9XAnimFreeP12XAnimParts_s:F(0,1)_50:
 	ret
 
 
-;Z10XAnimBlendP7XAnim_sjPKcjjj:F(0,1)
+;Z10XAnimBlendP7XAnim_sjPKcjjj_F0_1
 
-Z10XAnimBlendP7XAnim_sjPKcjjj:F(0,1):
+Z10XAnimBlendP7XAnim_sjPKcjjj_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -952,20 +1182,20 @@ Z10XAnimBlendP7XAnim_sjPKcjjj:F(0,1):
 	mov [edx+0x4], ax
 	mov [edx+0x6], cx
 	test edi, edi
-	jz Z10XAnimBlendP7XAnim_sjPKcjjj:F(0,1)_10
+	jz Z10XAnimBlendP7XAnim_sjPKcjjj_F0_1_10
 	mov ebx, [ebp+0xc]
 	xor edx, edx
 	movzx ecx, cx
-Z10XAnimBlendP7XAnim_sjPKcjjj:F(0,1)_20:
+Z10XAnimBlendP7XAnim_sjPKcjjj_F0_1_20:
 	lea eax, [edx+ecx]
 	mov [esi+eax*8+0xe], bx
 	add edx, 0x1
 	cmp edi, edx
-	jnz Z10XAnimBlendP7XAnim_sjPKcjjj:F(0,1)_20
-Z10XAnimBlendP7XAnim_sjPKcjjj:F(0,1)_10:
+	jnz Z10XAnimBlendP7XAnim_sjPKcjjj_F0_1_20
+Z10XAnimBlendP7XAnim_sjPKcjjj_F0_1_10:
 	mov edx, [esi+0x8]
 	test edx, edx
-	jz Z10XAnimBlendP7XAnim_sjPKcjjj:F(0,1)_30
+	jz Z10XAnimBlendP7XAnim_sjPKcjjj_F0_1_30
 	cld
 	mov ecx, 0xffffffff
 	xor eax, eax
@@ -973,7 +1203,7 @@ Z10XAnimBlendP7XAnim_sjPKcjjj:F(0,1)_10:
 	repne scasb
 	not ecx
 	mov [esp], ecx
-	call Z_MallocInternal:F(0,2)
+	call Z_MallocInternal_F0_2
 	mov ebx, eax
 	mov eax, [ebp+0x10]
 	mov [esp+0x4], eax
@@ -982,7 +1212,7 @@ Z10XAnimBlendP7XAnim_sjPKcjjj:F(0,1)_10:
 	mov eax, [esi+0x8]
 	mov edx, [ebp+0xc]
 	mov [eax+edx*4], ebx
-Z10XAnimBlendP7XAnim_sjPKcjjj:F(0,1)_30:
+Z10XAnimBlendP7XAnim_sjPKcjjj_F0_1_30:
 	add esp, 0x1c
 	pop ebx
 	pop esi
@@ -992,9 +1222,9 @@ Z10XAnimBlendP7XAnim_sjPKcjjj:F(0,1)_30:
 	nop
 
 
-;Z16XAnimCreateAnimsPKciPFPviE:F(0,60)
+;Z16XAnimCreateAnimsPKciPFPviE_F0_60
 
-Z16XAnimCreateAnimsPKciPFPviE:F(0,60):
+Z16XAnimCreateAnimsPKciPFPviE_F0_60:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1009,18 +1239,18 @@ Z16XAnimCreateAnimsPKciPFPviE:F(0,60):
 	mov eax, [ebp+0xc]
 	mov [esi+0x4], eax
 	cmp byte [g_anim_developer], 0x0
-	jnz Z16XAnimCreateAnimsPKciPFPviE:F(0,60)_10
-Z16XAnimCreateAnimsPKciPFPviE:F(0,60)_30:
+	jnz Z16XAnimCreateAnimsPKciPFPviE_F0_60_10
+Z16XAnimCreateAnimsPKciPFPviE_F0_60_30:
 	mov [esp], esi
-	call Hunk_DataOnHunk:F(0,15)
+	call Hunk_DataOnHunk_F0_15
 	test eax, eax
-	jz Z16XAnimCreateAnimsPKciPFPviE:F(0,60)_20
+	jz Z16XAnimCreateAnimsPKciPFPviE_F0_60_20
 	mov eax, [ebp+0x10]
 	mov [esp+0x8], eax
 	mov [esp+0x4], esi
 	mov dword [esp], 0x6
-	call Hunk_AddData:F(0,1)
-Z16XAnimCreateAnimsPKciPFPviE:F(0,60)_20:
+	call Hunk_AddData_F0_1
+Z16XAnimCreateAnimsPKciPFPviE_F0_60_20:
 	mov eax, esi
 	add esp, 0x1c
 	pop ebx
@@ -1028,7 +1258,7 @@ Z16XAnimCreateAnimsPKciPFPviE:F(0,60)_20:
 	pop edi
 	pop ebp
 	ret
-Z16XAnimCreateAnimsPKciPFPviE:F(0,60)_10:
+Z16XAnimCreateAnimsPKciPFPviE_F0_60_10:
 	cld
 	mov ecx, 0xffffffff
 	xor eax, eax
@@ -1036,7 +1266,7 @@ Z16XAnimCreateAnimsPKciPFPviE:F(0,60)_10:
 	repne scasb
 	not ecx
 	mov [esp], ecx
-	call Z_MallocInternal:F(0,2)
+	call Z_MallocInternal_F0_2
 	mov ebx, eax
 	mov edx, [ebp+0x8]
 	mov [esp+0x4], edx
@@ -1046,14 +1276,14 @@ Z16XAnimCreateAnimsPKciPFPviE:F(0,60)_10:
 	mov eax, [ebp+0xc]
 	shl eax, 0x2
 	mov [esp], eax
-	call Z_MallocInternal:F(0,2)
+	call Z_MallocInternal_F0_2
 	mov [esi+0x8], eax
-	jmp Z16XAnimCreateAnimsPKciPFPviE:F(0,60)_30
+	jmp Z16XAnimCreateAnimsPKciPFPviE_F0_60_30
 
 
-;Z13XAnimFreeListP7XAnim_s:F(0,1)
+;Z13XAnimFreeListP7XAnim_s_F0_1
 
-Z13XAnimFreeListP7XAnim_s:F(0,1):
+Z13XAnimFreeListP7XAnim_s_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1063,57 +1293,57 @@ Z13XAnimFreeListP7XAnim_s:F(0,1):
 	mov edi, [ebp+0x8]
 	mov eax, [edi]
 	test eax, eax
-	jz Z13XAnimFreeListP7XAnim_s:F(0,1)_10
+	jz Z13XAnimFreeListP7XAnim_s_F0_1_10
 	mov [esp], eax
-	call Z_FreeInternal:F(0,1)
+	call Z_FreeInternal_F0_1
 	mov dword [edi], 0x0
-Z13XAnimFreeListP7XAnim_s:F(0,1)_10:
+Z13XAnimFreeListP7XAnim_s_F0_1_10:
 	mov ebx, [edi+0x8]
 	test ebx, ebx
-	jz Z13XAnimFreeListP7XAnim_s:F(0,1)_20
+	jz Z13XAnimFreeListP7XAnim_s_F0_1_20
 	mov ecx, [edi+0x4]
 	test ecx, ecx
-	jz Z13XAnimFreeListP7XAnim_s:F(0,1)_30
+	jz Z13XAnimFreeListP7XAnim_s_F0_1_30
 	xor esi, esi
 	xor eax, eax
 	mov edx, [edi+0x8]
-Z13XAnimFreeListP7XAnim_s:F(0,1)_50:
+Z13XAnimFreeListP7XAnim_s_F0_1_50:
 	lea ebx, [eax*4]
 	mov eax, [edx+ebx]
 	test eax, eax
-	jz Z13XAnimFreeListP7XAnim_s:F(0,1)_40
+	jz Z13XAnimFreeListP7XAnim_s_F0_1_40
 	mov [esp], eax
-	call Z_FreeInternal:F(0,1)
+	call Z_FreeInternal_F0_1
 	mov eax, [edi+0x8]
 	mov dword [ebx+eax], 0x0
 	mov edx, [edi+0x8]
-Z13XAnimFreeListP7XAnim_s:F(0,1)_40:
+Z13XAnimFreeListP7XAnim_s_F0_1_40:
 	add esi, 0x1
 	mov eax, esi
 	cmp esi, [edi+0x4]
-	jb Z13XAnimFreeListP7XAnim_s:F(0,1)_50
+	jb Z13XAnimFreeListP7XAnim_s_F0_1_50
 	mov [esp], edx
-	call Z_FreeInternal:F(0,1)
+	call Z_FreeInternal_F0_1
 	mov dword [edi+0x8], 0x0
-Z13XAnimFreeListP7XAnim_s:F(0,1)_20:
+Z13XAnimFreeListP7XAnim_s_F0_1_20:
 	add esp, 0x1c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z13XAnimFreeListP7XAnim_s:F(0,1)_30:
+Z13XAnimFreeListP7XAnim_s_F0_1_30:
 	mov edx, [edi+0x8]
 	mov [esp], edx
-	call Z_FreeInternal:F(0,1)
+	call Z_FreeInternal_F0_1
 	mov dword [edi+0x8], 0x0
-	jmp Z13XAnimFreeListP7XAnim_s:F(0,1)_20
+	jmp Z13XAnimFreeListP7XAnim_s_F0_1_20
 	nop
 
 
-;Z13XAnimGetAnimsPK11XAnimTree_s:F(0,60)
+;Z13XAnimGetAnimsPK11XAnimTree_s_F0_60
 
-Z13XAnimGetAnimsPK11XAnimTree_s:F(0,60):
+Z13XAnimGetAnimsPK11XAnimTree_s_F0_60:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -1123,9 +1353,9 @@ Z13XAnimGetAnimsPK11XAnimTree_s:F(0,60):
 	add [eax], al
 
 
-;Z14XAnimGetLengthPK7XAnim_sj:F(0,10)
+;Z14XAnimGetLengthPK7XAnim_sj_F0_10
 
-Z14XAnimGetLengthPK7XAnim_sj:F(0,10):
+Z14XAnimGetLengthPK7XAnim_sj_F0_10:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x4
@@ -1134,65 +1364,65 @@ Z14XAnimGetLengthPK7XAnim_sj:F(0,10):
 	mov edx, [eax+edx*8+0x10]
 	movzx eax, word [edx]
 	cvtsi2ss xmm0, eax
-	divss xmm0, dword [edx+0x4]
+	divss xmm0, [edx+0x4]
 	movss [ebp-0x4], xmm0
 	fld dword [ebp-0x4]
 	leave
 	ret
 
 
-;Z12XAnimGetTimePK11XAnimTree_sj:F(0,10)
+;Z12XAnimGetTimePK11XAnimTree_sj_F0_10
 
-Z12XAnimGetTimePK11XAnimTree_sj:F(0,10):
+Z12XAnimGetTimePK11XAnimTree_sj_F0_10:
 	push ebp
 	mov ebp, esp
 	mov edx, [ebp+0xc]
 	mov eax, [ebp+0x8]
 	movzx eax, word [eax+edx*2+0x8]
 	test ax, ax
-	jz Z12XAnimGetTimePK11XAnimTree_sj:F(0,10)_10
+	jz Z12XAnimGetTimePK11XAnimTree_sj_F0_10_10
 	movzx eax, ax
 	lea eax, [eax+eax*4]
 	fld dword [eax*8+g_xAnimInfo+0xc]
 	pop ebp
 	ret
-Z12XAnimGetTimePK11XAnimTree_sj:F(0,10)_10:
+Z12XAnimGetTimePK11XAnimTree_sj_F0_10_10:
 	fldz
 	pop ebp
 	ret
 
 
-;Z14XAnimGetWeightPK11XAnimTree_sj:F(0,10)
+;Z14XAnimGetWeightPK11XAnimTree_sj_F0_10
 
-Z14XAnimGetWeightPK11XAnimTree_sj:F(0,10):
+Z14XAnimGetWeightPK11XAnimTree_sj_F0_10:
 	push ebp
 	mov ebp, esp
 	mov edx, [ebp+0xc]
 	mov eax, [ebp+0x8]
 	movzx eax, word [eax+edx*2+0x8]
 	test ax, ax
-	jz Z14XAnimGetWeightPK11XAnimTree_sj:F(0,10)_10
+	jz Z14XAnimGetWeightPK11XAnimTree_sj_F0_10_10
 	movzx eax, ax
 	lea eax, [eax+eax*4]
 	fld dword [eax*8+g_xAnimInfo+0x20]
 	pop ebp
 	ret
-Z14XAnimGetWeightPK11XAnimTree_sj:F(0,10)_10:
+Z14XAnimGetWeightPK11XAnimTree_sj_F0_10_10:
 	fldz
 	pop ebp
 	ret
 
 
-;Z16XAnimHasFinishedPK11XAnimTree_sj:F(0,8)
+;Z16XAnimHasFinishedPK11XAnimTree_sj_F0_8
 
-Z16XAnimHasFinishedPK11XAnimTree_sj:F(0,8):
+Z16XAnimHasFinishedPK11XAnimTree_sj_F0_8:
 	push ebp
 	mov ebp, esp
 	mov edx, [ebp+0xc]
 	mov eax, [ebp+0x8]
 	movzx eax, word [eax+edx*2+0x8]
 	test ax, ax
-	jz Z16XAnimHasFinishedPK11XAnimTree_sj:F(0,8)_10
+	jz Z16XAnimHasFinishedPK11XAnimTree_sj_F0_8_10
 	movzx eax, ax
 	lea eax, [eax+eax*4]
 	lea eax, [eax*8+g_xAnimInfo]
@@ -1200,26 +1430,26 @@ Z16XAnimHasFinishedPK11XAnimTree_sj:F(0,8):
 	movss xmm1, dword [eax+0xc]
 	movss xmm0, dword [edx+0x4]
 	ucomiss xmm0, xmm1
-	ja Z16XAnimHasFinishedPK11XAnimTree_sj:F(0,8)_10
+	ja Z16XAnimHasFinishedPK11XAnimTree_sj_F0_8_10
 	ucomiss xmm1, [_float_1_00000000]
-	jp Z16XAnimHasFinishedPK11XAnimTree_sj:F(0,8)_20
-	jz Z16XAnimHasFinishedPK11XAnimTree_sj:F(0,8)_10
-Z16XAnimHasFinishedPK11XAnimTree_sj:F(0,8)_20:
+	jp Z16XAnimHasFinishedPK11XAnimTree_sj_F0_8_20
+	jz Z16XAnimHasFinishedPK11XAnimTree_sj_F0_8_10
+Z16XAnimHasFinishedPK11XAnimTree_sj_F0_8_20:
 	movzx eax, word [edx+0x8]
 	cmp ax, [edx+0xa]
-	jg Z16XAnimHasFinishedPK11XAnimTree_sj:F(0,8)_10
+	jg Z16XAnimHasFinishedPK11XAnimTree_sj_F0_8_10
 	xor eax, eax
 	pop ebp
 	ret
-Z16XAnimHasFinishedPK11XAnimTree_sj:F(0,8)_10:
+Z16XAnimHasFinishedPK11XAnimTree_sj_F0_8_10:
 	mov eax, 0x1
 	pop ebp
 	ret
 
 
-;Z19XAnimGetNumChildrenPK7XAnim_sj:F(0,2)
+;Z19XAnimGetNumChildrenPK7XAnim_sj_F0_2
 
-Z19XAnimGetNumChildrenPK7XAnim_sj:F(0,2):
+Z19XAnimGetNumChildrenPK7XAnim_sj_F0_2:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0xc]
@@ -1229,9 +1459,9 @@ Z19XAnimGetNumChildrenPK7XAnim_sj:F(0,2):
 	ret
 
 
-;Z15XAnimGetChildAtPK7XAnim_sjj:F(0,61)
+;Z15XAnimGetChildAtPK7XAnim_sjj_F0_61
 
-Z15XAnimGetChildAtPK7XAnim_sjj:F(0,61):
+Z15XAnimGetChildAtPK7XAnim_sjj_F0_61:
 	push ebp
 	mov ebp, esp
 	mov edx, [ebp+0xc]
@@ -1243,9 +1473,9 @@ Z15XAnimGetChildAtPK7XAnim_sjj:F(0,61):
 	nop
 
 
-;Z16XAnimGetAnimNamePK7XAnim_sj:F(0,17)
+;Z16XAnimGetAnimNamePK7XAnim_sj_F0_17
 
-Z16XAnimGetAnimNamePK7XAnim_sj:F(0,17):
+Z16XAnimGetAnimNamePK7XAnim_sj_F0_17:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0xc]
@@ -1253,21 +1483,21 @@ Z16XAnimGetAnimNamePK7XAnim_sj:F(0,17):
 	add eax, [ebp+0x8]
 	lea edx, [eax+0xc]
 	cmp word [eax+0xc], 0x0
-	jnz Z16XAnimGetAnimNamePK7XAnim_sj:F(0,17)_10
+	jnz Z16XAnimGetAnimNamePK7XAnim_sj_F0_17_10
 	mov eax, [edx+0x4]
 	mov eax, [eax+0x24]
 	pop ebp
 	ret
-Z16XAnimGetAnimNamePK7XAnim_sj:F(0,17)_10:
+Z16XAnimGetAnimNamePK7XAnim_sj_F0_17_10:
 	mov eax, _cstring_null
 	pop ebp
 	ret
 	nop
 
 
-;Z25XAnimGetAnimTreeDebugNamePK7XAnim_s:F(0,17)
+;Z25XAnimGetAnimTreeDebugNamePK7XAnim_s_F0_17
 
-Z25XAnimGetAnimTreeDebugNamePK7XAnim_s:F(0,17):
+Z25XAnimGetAnimTreeDebugNamePK7XAnim_s_F0_17:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -1276,9 +1506,9 @@ Z25XAnimGetAnimTreeDebugNamePK7XAnim_s:F(0,17):
 	ret
 
 
-;Z20XAnimGetAnimTreeSizePK7XAnim_s:F(0,61)
+;Z20XAnimGetAnimTreeSizePK7XAnim_s_F0_61
 
-Z20XAnimGetAnimTreeSizePK7XAnim_s:F(0,61):
+Z20XAnimGetAnimTreeSizePK7XAnim_s_F0_61:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -1288,9 +1518,9 @@ Z20XAnimGetAnimTreeSizePK7XAnim_s:F(0,61):
 	nop
 
 
-;Z23DObjGetClientNotifyListPP13XAnimNotify_s:F(0,2)
+;Z23DObjGetClientNotifyListPP13XAnimNotify_s_F0_2
 
-Z23DObjGetClientNotifyListPP13XAnimNotify_s:F(0,2):
+Z23DObjGetClientNotifyListPP13XAnimNotify_s_F0_2:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -1303,7 +1533,7 @@ Z23DObjGetClientNotifyListPP13XAnimNotify_s:F(0,2):
 
 ;Hunk_AllocXAnimPrecache(int)
 
-Z16XAnimIsPrimitiveP7XAnim_sj:F(0,8):
+Z16XAnimIsPrimitiveP7XAnim_sj_F0_8:
 	push ebp
 	mov ebp, esp
 	mov edx, [ebp+0xc]
@@ -1316,9 +1546,9 @@ Z16XAnimIsPrimitiveP7XAnim_sj:F(0,8):
 	nop
 
 
-;Z12XAnimSetTimeP11XAnimTree_sjf:F(0,1)
+;Z12XAnimSetTimeP11XAnimTree_sjf_F0_1
 
-Z12XAnimSetTimeP11XAnimTree_sjf:F(0,1):
+Z12XAnimSetTimeP11XAnimTree_sjf_F0_1:
 	push ebp
 	mov ebp, esp
 	mov ecx, [ebp+0x10]
@@ -1326,7 +1556,7 @@ Z12XAnimSetTimeP11XAnimTree_sjf:F(0,1):
 	mov eax, [ebp+0x8]
 	movzx eax, word [eax+edx*2+0x8]
 	test ax, ax
-	jz Z12XAnimSetTimeP11XAnimTree_sjf:F(0,1)_10
+	jz Z12XAnimSetTimeP11XAnimTree_sjf_F0_1_10
 	movzx eax, ax
 	lea eax, [eax+eax*4]
 	lea eax, [eax*8+g_xAnimInfo]
@@ -1336,14 +1566,14 @@ Z12XAnimSetTimeP11XAnimTree_sjf:F(0,1):
 	mov [edx+0x4], ecx
 	mov word [edx+0xa], 0x0
 	mov word [eax+0x2], 0xffff
-Z12XAnimSetTimeP11XAnimTree_sjf:F(0,1)_10:
+Z12XAnimSetTimeP11XAnimTree_sjf_F0_1_10:
 	pop ebp
 	ret
 
 
-;Z16XAnimSetAnimRateP11XAnimTree_sjf:F(0,1)
+;Z16XAnimSetAnimRateP11XAnimTree_sjf_F0_1
 
-Z16XAnimSetAnimRateP11XAnimTree_sjf:F(0,1):
+Z16XAnimSetAnimRateP11XAnimTree_sjf_F0_1:
 	push ebp
 	mov ebp, esp
 	mov edx, [ebp+0xc]
@@ -1357,9 +1587,9 @@ Z16XAnimSetAnimRateP11XAnimTree_sjf:F(0,1):
 	nop
 
 
-;Z13XAnimIsLoopedPK7XAnim_sj:F(0,8)
+;Z13XAnimIsLoopedPK7XAnim_sj_F0_8
 
-Z13XAnimIsLoopedPK7XAnim_sj:F(0,8):
+Z13XAnimIsLoopedPK7XAnim_sj_F0_8:
 	push ebp
 	mov ebp, esp
 	mov edx, [ebp+0xc]
@@ -1367,21 +1597,21 @@ Z13XAnimIsLoopedPK7XAnim_sj:F(0,8):
 	add edx, [ebp+0x8]
 	lea eax, [edx+0xc]
 	cmp word [edx+0xc], 0x0
-	jz Z13XAnimIsLoopedPK7XAnim_sj:F(0,8)_10
+	jz Z13XAnimIsLoopedPK7XAnim_sj_F0_8_10
 	movzx eax, word [eax+0x4]
 	and eax, 0x1
 	pop ebp
 	ret
-Z13XAnimIsLoopedPK7XAnim_sj:F(0,8)_10:
+Z13XAnimIsLoopedPK7XAnim_sj_F0_8_10:
 	mov eax, [eax+0x4]
 	movzx eax, byte [eax+0x2]
 	pop ebp
 	ret
 
 
-;Z20XAnimNotetrackExistsPK7XAnim_sjj:F(0,8)
+;Z20XAnimNotetrackExistsPK7XAnim_sjj_F0_8
 
-Z20XAnimNotetrackExistsPK7XAnim_sjj:F(0,8):
+Z20XAnimNotetrackExistsPK7XAnim_sjj_F0_8:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -1392,30 +1622,30 @@ Z20XAnimNotetrackExistsPK7XAnim_sjj:F(0,8):
 	mov eax, [eax+edx*8+0x10]
 	mov edx, [eax+0x1c]
 	test edx, edx
-	jz Z20XAnimNotetrackExistsPK7XAnim_sjj:F(0,8)_10
+	jz Z20XAnimNotetrackExistsPK7XAnim_sjj_F0_8_10
 	movzx ebx, byte [eax+0xc]
 	test ebx, ebx
-	jle Z20XAnimNotetrackExistsPK7XAnim_sjj:F(0,8)_10
+	jle Z20XAnimNotetrackExistsPK7XAnim_sjj_F0_8_10
 	movzx eax, word [edx]
 	cmp esi, eax
-	jz Z20XAnimNotetrackExistsPK7XAnim_sjj:F(0,8)_20
+	jz Z20XAnimNotetrackExistsPK7XAnim_sjj_F0_8_20
 	lea ecx, [edx+0x8]
 	xor edx, edx
-Z20XAnimNotetrackExistsPK7XAnim_sjj:F(0,8)_30:
+Z20XAnimNotetrackExistsPK7XAnim_sjj_F0_8_30:
 	add edx, 0x1
 	cmp edx, ebx
-	jz Z20XAnimNotetrackExistsPK7XAnim_sjj:F(0,8)_10
+	jz Z20XAnimNotetrackExistsPK7XAnim_sjj_F0_8_10
 	movzx eax, word [ecx]
 	add ecx, 0x8
 	cmp esi, eax
-	jnz Z20XAnimNotetrackExistsPK7XAnim_sjj:F(0,8)_30
-Z20XAnimNotetrackExistsPK7XAnim_sjj:F(0,8)_20:
+	jnz Z20XAnimNotetrackExistsPK7XAnim_sjj_F0_8_30
+Z20XAnimNotetrackExistsPK7XAnim_sjj_F0_8_20:
 	mov eax, 0x1
 	pop ebx
 	pop esi
 	pop ebp
 	ret
-Z20XAnimNotetrackExistsPK7XAnim_sjj:F(0,8)_10:
+Z20XAnimNotetrackExistsPK7XAnim_sjj_F0_8_10:
 	xor eax, eax
 	pop ebx
 	pop esi
@@ -1480,7 +1710,7 @@ _Z18XAnim_GetTimeIndexIhEvPK9XAnimTimePK19XAnimDynamicIndicesiPiPf_30:
 	jmp _Z18XAnim_GetTimeIndexIhEvPK9XAnimTimePK19XAnimDynamicIndicesiPiPf_60
 _Z18XAnim_GetTimeIndexIhEvPK9XAnimTimePK19XAnimDynamicIndicesiPiPf_10:
 	mov ecx, eax
-	cvtsi2ss xmm0, dword [eax+0xc]
+	cvtsi2ss xmm0, [eax+0xc]
 	movss xmm1, dword [eax+0x8]
 	subss xmm1, xmm0
 	mov eax, [ebp+0xc]
@@ -1698,9 +1928,9 @@ _Z28XAnim_GetTimeIndexCompressedItEvPK9XAnimTimePKT_iPiPf_60:
 	jmp _Z28XAnim_GetTimeIndexCompressedItEvPK9XAnimTimePKT_iPiPf_30
 
 
-;Z21XAnimGetAnimDebugNamePK7XAnim_sj:F(0,17)
+;Z21XAnimGetAnimDebugNamePK7XAnim_sj_F0_17
 
-Z21XAnimGetAnimDebugNamePK7XAnim_sj:F(0,17):
+Z21XAnimGetAnimDebugNamePK7XAnim_sj_F0_17:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -1710,39 +1940,39 @@ Z21XAnimGetAnimDebugNamePK7XAnim_sj:F(0,17):
 	lea ebx, [edx+0xc]
 	mov eax, [eax+0x8]
 	test eax, eax
-	jz Z21XAnimGetAnimDebugNamePK7XAnim_sj:F(0,17)_10
+	jz Z21XAnimGetAnimDebugNamePK7XAnim_sj_F0_17_10
 	mov ecx, [eax+ecx*4]
 	cmp word [edx+0xc], 0x0
-	jnz Z21XAnimGetAnimDebugNamePK7XAnim_sj:F(0,17)_20
+	jnz Z21XAnimGetAnimDebugNamePK7XAnim_sj_F0_17_20
 	mov eax, [ebx+0x4]
 	cmp byte [eax+0x28], 0x0
-	jz Z21XAnimGetAnimDebugNamePK7XAnim_sj:F(0,17)_20
+	jz Z21XAnimGetAnimDebugNamePK7XAnim_sj_F0_17_20
 	mov [ebp+0xc], ecx
 	mov dword [ebp+0x8], _cstring_3s_missing
 	pop ebx
 	pop ebp
-	jmp va:F(0,3)
-Z21XAnimGetAnimDebugNamePK7XAnim_sj:F(0,17)_10:
+	jmp va_F0_3
+Z21XAnimGetAnimDebugNamePK7XAnim_sj_F0_17_10:
 	cmp word [edx+0xc], 0x0
-	jnz Z21XAnimGetAnimDebugNamePK7XAnim_sj:F(0,17)_30
+	jnz Z21XAnimGetAnimDebugNamePK7XAnim_sj_F0_17_30
 	mov eax, [ebx+0x4]
 	mov ecx, [eax+0x24]
-Z21XAnimGetAnimDebugNamePK7XAnim_sj:F(0,17)_20:
+Z21XAnimGetAnimDebugNamePK7XAnim_sj_F0_17_20:
 	mov eax, ecx
 	pop ebx
 	pop ebp
 	ret
-Z21XAnimGetAnimDebugNamePK7XAnim_sj:F(0,17)_30:
+Z21XAnimGetAnimDebugNamePK7XAnim_sj_F0_17_30:
 	mov [ebp+0xc], ecx
 	mov dword [ebp+0x8], _cstring_i
 	pop ebx
 	pop ebp
-	jmp va:F(0,3)
+	jmp va_F0_3
 
 
-;Z15XAnimCreateTreeP7XAnim_sPFPviE:F(0,90)
+;Z15XAnimCreateTreeP7XAnim_sPFPviE_F0_90
 
-Z15XAnimCreateTreeP7XAnim_sPFPviE:F(0,90):
+Z15XAnimCreateTreeP7XAnim_sPFPviE_F0_90:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1770,9 +2000,9 @@ Z15XAnimCreateTreeP7XAnim_sPFPviE:F(0,90):
 	nop
 
 
-;Z13XAnimPrecachePKcPFPviE:F(0,3)
+;Z13XAnimPrecachePKcPFPviE_F0_3
 
-Z13XAnimPrecachePKcPFPviE:F(0,3):
+Z13XAnimPrecachePKcPFPviE_F0_3:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1782,11 +2012,11 @@ Z13XAnimPrecachePKcPFPviE:F(0,3):
 	mov edi, [ebp+0x8]
 	mov [esp+0x4], edi
 	mov dword [esp], 0x5
-	call Hunk_FindDataForFile:F(0,2)
+	call Hunk_FindDataForFile_F0_2
 	mov ebx, eax
 	test eax, eax
-	jz Z13XAnimPrecachePKcPFPviE:F(0,3)_10
-Z13XAnimPrecachePKcPFPviE:F(0,3)_120:
+	jz Z13XAnimPrecachePKcPFPviE_F0_3_10
+Z13XAnimPrecachePKcPFPviE_F0_3_120:
 	mov eax, ebx
 	add esp, 0x2c
 	pop ebx
@@ -1794,21 +2024,21 @@ Z13XAnimPrecachePKcPFPviE:F(0,3)_120:
 	pop edi
 	pop ebp
 	ret
-Z13XAnimPrecachePKcPFPviE:F(0,3)_10:
+Z13XAnimPrecachePKcPFPviE_F0_3_10:
 	mov eax, [ebp+0xc]
 	mov [esp+0x4], eax
 	mov [esp], edi
-	call Z13XAnimLoadFilePKcPFPviE:F(0,13)
+	call Z13XAnimLoadFilePKcPFPviE_F0_13
 	mov ebx, eax
 	test eax, eax
-	jz Z13XAnimPrecachePKcPFPviE:F(0,3)_20
-Z13XAnimPrecachePKcPFPviE:F(0,3)_60:
+	jz Z13XAnimPrecachePKcPFPviE_F0_3_20
+Z13XAnimPrecachePKcPFPviE_F0_3_60:
 	mov eax, [ebp+0xc]
 	mov [esp+0xc], eax
 	mov [esp+0x8], ebx
 	mov [esp+0x4], edi
 	mov dword [esp], 0x5
-	call Hunk_SetDataForFile:F(0,4)
+	call Hunk_SetDataForFile_F0_4
 	mov [ebx+0x24], eax
 	mov eax, ebx
 	add esp, 0x2c
@@ -1817,18 +2047,18 @@ Z13XAnimPrecachePKcPFPviE:F(0,3)_60:
 	pop edi
 	pop ebp
 	ret
-Z13XAnimPrecachePKcPFPviE:F(0,3)_20:
+Z13XAnimPrecachePKcPFPviE_F0_3_20:
 	mov dword [esp+0x8], _cstring_void
 	mov [esp+0x4], edi
 	mov dword [esp], _cstring_3warning_couldnt
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov dword [esp+0x4], _cstring_void
 	mov dword [esp], 0x5
-	call Hunk_FindDataForFile:F(0,2)
+	call Hunk_FindDataForFile_F0_2
 	mov esi, eax
 	test eax, eax
-	jz Z13XAnimPrecachePKcPFPviE:F(0,3)_30
-Z13XAnimPrecachePKcPFPviE:F(0,3)_110:
+	jz Z13XAnimPrecachePKcPFPviE_F0_3_30
+Z13XAnimPrecachePKcPFPviE_F0_3_110:
 	mov dword [esp], 0x2c
 	call dword [ebp+0xc]
 	mov ebx, eax
@@ -1858,64 +2088,64 @@ Z13XAnimPrecachePKcPFPviE:F(0,3)_110:
 	movsx eax, word [ebx+0xe]
 	mov [ebp-0x20], eax
 	test eax, eax
-	jg Z13XAnimPrecachePKcPFPviE:F(0,3)_40
-Z13XAnimPrecachePKcPFPviE:F(0,3)_90:
+	jg Z13XAnimPrecachePKcPFPviE_F0_3_40
+Z13XAnimPrecachePKcPFPviE_F0_3_90:
 	mov esi, [ebx+0x1c]
 	cmp byte [ebx+0xc], 0x0
-	jnz Z13XAnimPrecachePKcPFPviE:F(0,3)_50
+	jnz Z13XAnimPrecachePKcPFPviE_F0_3_50
 	mov byte [ebx+0x28], 0x1
-	jmp Z13XAnimPrecachePKcPFPviE:F(0,3)_60
-Z13XAnimPrecachePKcPFPviE:F(0,3)_50:
+	jmp Z13XAnimPrecachePKcPFPviE_F0_3_60
+Z13XAnimPrecachePKcPFPviE_F0_3_50:
 	mov word [ebp-0x1a], 0x0
-Z13XAnimPrecachePKcPFPviE:F(0,3)_70:
+Z13XAnimPrecachePKcPFPviE_F0_3_70:
 	movzx eax, word [esi]
 	mov [esp], eax
-	call Z17SL_AddRefToStringj:F(0,5)
+	call Z17SL_AddRefToStringj_F0_5
 	add word [ebp-0x1a], 0x1
 	add esi, 0x8
 	movzx edx, byte [ebx+0xc]
 	movsx eax, word [ebp-0x1a]
 	cmp edx, eax
-	jg Z13XAnimPrecachePKcPFPviE:F(0,3)_70
+	jg Z13XAnimPrecachePKcPFPviE_F0_3_70
 	mov byte [ebx+0x28], 0x1
-	jmp Z13XAnimPrecachePKcPFPviE:F(0,3)_60
-Z13XAnimPrecachePKcPFPviE:F(0,3)_40:
+	jmp Z13XAnimPrecachePKcPFPviE_F0_3_60
+Z13XAnimPrecachePKcPFPviE_F0_3_40:
 	xor esi, esi
-Z13XAnimPrecachePKcPFPviE:F(0,3)_80:
+Z13XAnimPrecachePKcPFPviE_F0_3_80:
 	mov edx, [ebp-0x24]
 	movzx eax, word [edx+esi*2]
 	mov [esp], eax
-	call Z17SL_AddRefToStringj:F(0,5)
+	call Z17SL_AddRefToStringj_F0_5
 	add esi, 0x1
 	cmp [ebp-0x20], esi
-	jnz Z13XAnimPrecachePKcPFPviE:F(0,3)_80
-	jmp Z13XAnimPrecachePKcPFPviE:F(0,3)_90
-Z13XAnimPrecachePKcPFPviE:F(0,3)_30:
+	jnz Z13XAnimPrecachePKcPFPviE_F0_3_80
+	jmp Z13XAnimPrecachePKcPFPviE_F0_3_90
+Z13XAnimPrecachePKcPFPviE_F0_3_30:
 	mov edx, [ebp+0xc]
 	mov [esp+0x4], edx
 	mov dword [esp], _cstring_void
-	call Z13XAnimLoadFilePKcPFPviE:F(0,13)
+	call Z13XAnimLoadFilePKcPFPviE_F0_13
 	mov esi, eax
 	test eax, eax
-	jz Z13XAnimPrecachePKcPFPviE:F(0,3)_100
+	jz Z13XAnimPrecachePKcPFPviE_F0_3_100
 	mov eax, [ebp+0xc]
 	mov [esp+0xc], eax
 	mov [esp+0x8], esi
 	mov dword [esp+0x4], _cstring_void
 	mov dword [esp], 0x5
-	call Hunk_SetDataForFile:F(0,4)
-	jmp Z13XAnimPrecachePKcPFPviE:F(0,3)_110
-Z13XAnimPrecachePKcPFPviE:F(0,3)_100:
+	call Hunk_SetDataForFile_F0_4
+	jmp Z13XAnimPrecachePKcPFPviE_F0_3_110
+Z13XAnimPrecachePKcPFPviE_F0_3_100:
 	mov dword [esp+0x8], _cstring_void
 	mov dword [esp+0x4], _cstring_cannot_find_xani
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
-	jmp Z13XAnimPrecachePKcPFPviE:F(0,3)_120
+	call Com_Error_F0_1
+	jmp Z13XAnimPrecachePKcPFPviE_F0_3_120
 
 
-;Z11XAnimCreateP7XAnim_sjPKc:F(0,1)
+;Z11XAnimCreateP7XAnim_sjPKc_F0_1
 
-Z11XAnimCreateP7XAnim_sjPKc:F(0,1):
+Z11XAnimCreateP7XAnim_sjPKc_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1929,10 +2159,10 @@ Z11XAnimCreateP7XAnim_sjPKc:F(0,1):
 	mov esi, [ebp+0x10]
 	mov [esp+0x4], esi
 	mov dword [esp], 0x5
-	call Hunk_FindDataForFile:F(0,2)
+	call Hunk_FindDataForFile_F0_2
 	mov edx, eax
 	test eax, eax
-	jz Z11XAnimCreateP7XAnim_sjPKc:F(0,1)_10
+	jz Z11XAnimCreateP7XAnim_sjPKc_F0_1_10
 	mov ecx, [ebp-0x20]
 	mov ebx, [ebp-0x1c]
 	lea eax, [ebx+ecx*8]
@@ -1940,7 +2170,7 @@ Z11XAnimCreateP7XAnim_sjPKc:F(0,1):
 	mov [eax+0x10], edx
 	mov edi, [ebx+0x8]
 	test edi, edi
-	jz Z11XAnimCreateP7XAnim_sjPKc:F(0,1)_20
+	jz Z11XAnimCreateP7XAnim_sjPKc_F0_1_20
 	cld
 	mov ecx, 0xffffffff
 	xor eax, eax
@@ -1948,7 +2178,7 @@ Z11XAnimCreateP7XAnim_sjPKc:F(0,1):
 	repne scasb
 	not ecx
 	mov [esp], ecx
-	call Z_MallocInternal:F(0,2)
+	call Z_MallocInternal_F0_2
 	mov ebx, eax
 	mov [esp+0x4], esi
 	mov [esp], eax
@@ -1957,14 +2187,14 @@ Z11XAnimCreateP7XAnim_sjPKc:F(0,1):
 	mov eax, [edx+0x8]
 	mov ecx, [ebp-0x20]
 	mov [eax+ecx*4], ebx
-Z11XAnimCreateP7XAnim_sjPKc:F(0,1)_20:
+Z11XAnimCreateP7XAnim_sjPKc_F0_1_20:
 	add esp, 0x2c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z11XAnimCreateP7XAnim_sjPKc:F(0,1)_10:
+Z11XAnimCreateP7XAnim_sjPKc_F0_1_10:
 	mov [ebp+0x10], esi
 	mov dword [ebp+0xc], _cstring_cannot_find_xani1
 	mov dword [ebp+0x8], 0x1
@@ -1973,7 +2203,7 @@ Z11XAnimCreateP7XAnim_sjPKc:F(0,1)_10:
 	pop esi
 	pop edi
 	pop ebp
-	jmp Com_Error:F(0,1)
+	jmp Com_Error_F0_1
 
 
 ;XAnimGetDescendantWithGreatestWeight(XAnimTree_s const*, unsigned int)
@@ -2360,9 +2590,9 @@ _Z36XAnimGetDescendantWithGreatestWeightPK11XAnimTree_sj_20:
 	ret
 
 
-;Z18XAnimGetLengthMsecPK7XAnim_sj:F(0,2)
+;Z18XAnimGetLengthMsecPK7XAnim_sj_F0_2
 
-Z18XAnimGetLengthMsecPK7XAnim_sj:F(0,2):
+Z18XAnimGetLengthMsecPK7XAnim_sj_F0_2:
 	push ebp
 	mov ebp, esp
 	mov edx, [ebp+0xc]
@@ -2370,7 +2600,7 @@ Z18XAnimGetLengthMsecPK7XAnim_sj:F(0,2):
 	mov edx, [eax+edx*8+0x10]
 	movzx eax, word [edx]
 	cvtsi2ss xmm0, eax
-	divss xmm0, dword [edx+0x4]
+	divss xmm0, [edx+0x4]
 	mulss xmm0, [_float_1000_00000000]
 	cvttss2si eax, xmm0
 	pop ebp
@@ -2378,9 +2608,9 @@ Z18XAnimGetLengthMsecPK7XAnim_sj:F(0,2):
 	nop
 
 
-;Z20XAnimClearGoalWeightP11XAnimTree_sjf:F(0,1)
+;Z20XAnimClearGoalWeightP11XAnimTree_sjf_F0_1
 
-Z20XAnimClearGoalWeightP11XAnimTree_sjf:F(0,1):
+Z20XAnimClearGoalWeightP11XAnimTree_sjf_F0_1:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -2390,45 +2620,45 @@ Z20XAnimClearGoalWeightP11XAnimTree_sjf:F(0,1):
 	mov eax, [ebp+0x8]
 	movzx eax, word [eax+edx*2+0x8]
 	test ax, ax
-	jz Z20XAnimClearGoalWeightP11XAnimTree_sjf:F(0,1)_10
+	jz Z20XAnimClearGoalWeightP11XAnimTree_sjf_F0_1_10
 	movzx eax, ax
 	lea eax, [eax+eax*4]
 	lea ebx, [eax*8+g_xAnimInfo]
 	lea eax, [ebx+0xc]
 	pxor xmm2, xmm2
 	ucomiss xmm2, [eax+0x10]
-	jp Z20XAnimClearGoalWeightP11XAnimTree_sjf:F(0,1)_20
-	jz Z20XAnimClearGoalWeightP11XAnimTree_sjf:F(0,1)_30
-Z20XAnimClearGoalWeightP11XAnimTree_sjf:F(0,1)_20:
+	jp Z20XAnimClearGoalWeightP11XAnimTree_sjf_F0_1_20
+	jz Z20XAnimClearGoalWeightP11XAnimTree_sjf_F0_1_30
+Z20XAnimClearGoalWeightP11XAnimTree_sjf_F0_1_20:
 	movss [eax+0xc], xmm1
-Z20XAnimClearGoalWeightP11XAnimTree_sjf:F(0,1)_60:
+Z20XAnimClearGoalWeightP11XAnimTree_sjf_F0_1_60:
 	mov dword [eax+0x10], 0x0
 	ucomiss xmm1, xmm2
-	jnz Z20XAnimClearGoalWeightP11XAnimTree_sjf:F(0,1)_40
-	jp Z20XAnimClearGoalWeightP11XAnimTree_sjf:F(0,1)_40
+	jnz Z20XAnimClearGoalWeightP11XAnimTree_sjf_F0_1_40
+	jp Z20XAnimClearGoalWeightP11XAnimTree_sjf_F0_1_40
 	mov dword [eax+0x14], 0x0
-Z20XAnimClearGoalWeightP11XAnimTree_sjf:F(0,1)_40:
+Z20XAnimClearGoalWeightP11XAnimTree_sjf_F0_1_40:
 	movzx eax, word [ebx+0x4]
 	test ax, ax
-	jnz Z20XAnimClearGoalWeightP11XAnimTree_sjf:F(0,1)_50
-Z20XAnimClearGoalWeightP11XAnimTree_sjf:F(0,1)_70:
+	jnz Z20XAnimClearGoalWeightP11XAnimTree_sjf_F0_1_50
+Z20XAnimClearGoalWeightP11XAnimTree_sjf_F0_1_70:
 	mov word [ebx+0x2], 0xffff
-Z20XAnimClearGoalWeightP11XAnimTree_sjf:F(0,1)_10:
+Z20XAnimClearGoalWeightP11XAnimTree_sjf_F0_1_10:
 	add esp, 0x14
 	pop ebx
 	pop ebp
 	ret
-Z20XAnimClearGoalWeightP11XAnimTree_sjf:F(0,1)_30:
+Z20XAnimClearGoalWeightP11XAnimTree_sjf_F0_1_30:
 	movss xmm0, dword [eax+0xc]
 	ucomiss xmm0, xmm1
-	jbe Z20XAnimClearGoalWeightP11XAnimTree_sjf:F(0,1)_60
-	jmp Z20XAnimClearGoalWeightP11XAnimTree_sjf:F(0,1)_20
-Z20XAnimClearGoalWeightP11XAnimTree_sjf:F(0,1)_50:
+	jbe Z20XAnimClearGoalWeightP11XAnimTree_sjf_F0_1_60
+	jmp Z20XAnimClearGoalWeightP11XAnimTree_sjf_F0_1_20
+Z20XAnimClearGoalWeightP11XAnimTree_sjf_F0_1_50:
 	movzx eax, ax
 	mov [esp], eax
-	call Z20SL_RemoveRefToStringj:F(0,5)
+	call Z20SL_RemoveRefToStringj_F0_5
 	mov word [ebx+0x4], 0x0
-	jmp Z20XAnimClearGoalWeightP11XAnimTree_sjf:F(0,1)_70
+	jmp Z20XAnimClearGoalWeightP11XAnimTree_sjf_F0_1_70
 
 
 ;XAnim_CalcDeltaForTime(XAnimParts_s const*, float, float*, float*)
@@ -2762,9 +2992,9 @@ _Z22XAnim_CalcDeltaForTimePK12XAnimParts_sfPfS2__50:
 	nop
 
 
-;Z16XAnimGetAbsDeltaPK7XAnim_sjPfS2_f:F(0,1)
+;Z16XAnimGetAbsDeltaPK7XAnim_sjPfS2_f_F0_1
 
-Z16XAnimGetAbsDeltaPK7XAnim_sjPfS2_f:F(0,1):
+Z16XAnimGetAbsDeltaPK7XAnim_sjPfS2_f_F0_1:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -2777,11 +3007,11 @@ Z16XAnimGetAbsDeltaPK7XAnim_sjPfS2_f:F(0,1):
 	add edx, [ebp+0x8]
 	lea eax, [edx+0xc]
 	cmp word [edx+0xc], 0x0
-	jnz Z16XAnimGetAbsDeltaPK7XAnim_sjPfS2_f:F(0,1)_10
+	jnz Z16XAnimGetAbsDeltaPK7XAnim_sjPfS2_f_F0_1_10
 	mov eax, [eax+0x4]
 	cmp byte [eax+0x3], 0x0
-	jnz Z16XAnimGetAbsDeltaPK7XAnim_sjPfS2_f:F(0,1)_20
-Z16XAnimGetAbsDeltaPK7XAnim_sjPfS2_f:F(0,1)_10:
+	jnz Z16XAnimGetAbsDeltaPK7XAnim_sjPfS2_f_F0_1_20
+Z16XAnimGetAbsDeltaPK7XAnim_sjPfS2_f_F0_1_10:
 	xor eax, eax
 	mov [esi], eax
 	mov dword [esi+0x4], 0x3f800000
@@ -2793,7 +3023,7 @@ Z16XAnimGetAbsDeltaPK7XAnim_sjPfS2_f:F(0,1)_10:
 	pop esi
 	pop ebp
 	ret
-Z16XAnimGetAbsDeltaPK7XAnim_sjPfS2_f:F(0,1)_20:
+Z16XAnimGetAbsDeltaPK7XAnim_sjPfS2_f_F0_1_20:
 	lea ecx, [ebp-0x1c]
 	lea edx, [ebp-0x10]
 	movss xmm0, dword [ebp+0x18]
@@ -2812,15 +3042,15 @@ Z16XAnimGetAbsDeltaPK7XAnim_sjPfS2_f:F(0,1)_20:
 	movss xmm5, dword [ebp-0x14]
 	addss xmm5, xmm1
 	ucomiss xmm2, xmm1
-	jnz Z16XAnimGetAbsDeltaPK7XAnim_sjPfS2_f:F(0,1)_30
-	jp Z16XAnimGetAbsDeltaPK7XAnim_sjPfS2_f:F(0,1)_30
+	jnz Z16XAnimGetAbsDeltaPK7XAnim_sjPfS2_f_F0_1_30
+	jp Z16XAnimGetAbsDeltaPK7XAnim_sjPfS2_f_F0_1_30
 	ucomiss xmm0, xmm1
-	jp Z16XAnimGetAbsDeltaPK7XAnim_sjPfS2_f:F(0,1)_30
-	jz Z16XAnimGetAbsDeltaPK7XAnim_sjPfS2_f:F(0,1)_40
-Z16XAnimGetAbsDeltaPK7XAnim_sjPfS2_f:F(0,1)_30:
+	jp Z16XAnimGetAbsDeltaPK7XAnim_sjPfS2_f_F0_1_30
+	jz Z16XAnimGetAbsDeltaPK7XAnim_sjPfS2_f_F0_1_40
+Z16XAnimGetAbsDeltaPK7XAnim_sjPfS2_f_F0_1_30:
 	movss [esi], xmm2
 	movss [esi+0x4], xmm0
-Z16XAnimGetAbsDeltaPK7XAnim_sjPfS2_f:F(0,1)_50:
+Z16XAnimGetAbsDeltaPK7XAnim_sjPfS2_f_F0_1_50:
 	movss [ebx], xmm3
 	movss [ebx+0x4], xmm4
 	movss [ebx+0x8], xmm5
@@ -2829,10 +3059,10 @@ Z16XAnimGetAbsDeltaPK7XAnim_sjPfS2_f:F(0,1)_50:
 	pop esi
 	pop ebp
 	ret
-Z16XAnimGetAbsDeltaPK7XAnim_sjPfS2_f:F(0,1)_40:
+Z16XAnimGetAbsDeltaPK7XAnim_sjPfS2_f_F0_1_40:
 	mov dword [esi], 0x0
 	mov dword [esi+0x4], 0x3f800000
-	jmp Z16XAnimGetAbsDeltaPK7XAnim_sjPfS2_f:F(0,1)_50
+	jmp Z16XAnimGetAbsDeltaPK7XAnim_sjPfS2_f_F0_1_50
 
 
 ;XAnimCalcRelDeltaParts(XAnimParts_s const*, float, float, float, XAnimSimpleRotPos*, int)
@@ -2979,9 +3209,9 @@ _Z22XAnimCalcRelDeltaPartsPK12XAnimParts_sfffP17XAnimSimpleRotPosi_30:
 	jmp _Z22XAnimCalcRelDeltaPartsPK12XAnimParts_sfffP17XAnimSimpleRotPosi_60
 
 
-;Z16XAnimGetRelDeltaPK7XAnim_sjPfS2_ff:F(0,1)
+;Z16XAnimGetRelDeltaPK7XAnim_sjPfS2_ff_F0_1
 
-Z16XAnimGetRelDeltaPK7XAnim_sjPfS2_ff:F(0,1):
+Z16XAnimGetRelDeltaPK7XAnim_sjPfS2_ff_F0_1:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -2994,11 +3224,11 @@ Z16XAnimGetRelDeltaPK7XAnim_sjPfS2_ff:F(0,1):
 	add edx, [ebp+0x8]
 	lea eax, [edx+0xc]
 	cmp word [edx+0xc], 0x0
-	jnz Z16XAnimGetRelDeltaPK7XAnim_sjPfS2_ff:F(0,1)_10
+	jnz Z16XAnimGetRelDeltaPK7XAnim_sjPfS2_ff_F0_1_10
 	mov eax, [eax+0x4]
 	cmp byte [eax+0x3], 0x0
-	jnz Z16XAnimGetRelDeltaPK7XAnim_sjPfS2_ff:F(0,1)_20
-Z16XAnimGetRelDeltaPK7XAnim_sjPfS2_ff:F(0,1)_10:
+	jnz Z16XAnimGetRelDeltaPK7XAnim_sjPfS2_ff_F0_1_20
+Z16XAnimGetRelDeltaPK7XAnim_sjPfS2_ff_F0_1_10:
 	xor eax, eax
 	mov [esi], eax
 	mov dword [esi+0x4], 0x3f800000
@@ -3010,7 +3240,7 @@ Z16XAnimGetRelDeltaPK7XAnim_sjPfS2_ff:F(0,1)_10:
 	pop esi
 	pop ebp
 	ret
-Z16XAnimGetRelDeltaPK7XAnim_sjPfS2_ff:F(0,1)_20:
+Z16XAnimGetRelDeltaPK7XAnim_sjPfS2_ff_F0_1_20:
 	pxor xmm3, xmm3
 	movss [ebp-0x20], xmm3
 	movss [ebp-0x1c], xmm3
@@ -3027,17 +3257,17 @@ Z16XAnimGetRelDeltaPK7XAnim_sjPfS2_ff:F(0,1)_20:
 	call _Z22XAnimCalcRelDeltaPartsPK12XAnimParts_sfffP17XAnimSimpleRotPosi
 	movss xmm3, dword [ebp-0x38]
 	ucomiss xmm3, [ebp-0x20]
-	jnz Z16XAnimGetRelDeltaPK7XAnim_sjPfS2_ff:F(0,1)_30
-	jp Z16XAnimGetRelDeltaPK7XAnim_sjPfS2_ff:F(0,1)_30
+	jnz Z16XAnimGetRelDeltaPK7XAnim_sjPfS2_ff_F0_1_30
+	jp Z16XAnimGetRelDeltaPK7XAnim_sjPfS2_ff_F0_1_30
 	ucomiss xmm3, [ebp-0x1c]
-	jp Z16XAnimGetRelDeltaPK7XAnim_sjPfS2_ff:F(0,1)_30
-	jz Z16XAnimGetRelDeltaPK7XAnim_sjPfS2_ff:F(0,1)_40
-Z16XAnimGetRelDeltaPK7XAnim_sjPfS2_ff:F(0,1)_30:
+	jp Z16XAnimGetRelDeltaPK7XAnim_sjPfS2_ff_F0_1_30
+	jz Z16XAnimGetRelDeltaPK7XAnim_sjPfS2_ff_F0_1_40
+Z16XAnimGetRelDeltaPK7XAnim_sjPfS2_ff_F0_1_30:
 	mov eax, [ebp-0x20]
 	mov [esi], eax
 	mov eax, [ebp-0x1c]
 	mov [esi+0x4], eax
-Z16XAnimGetRelDeltaPK7XAnim_sjPfS2_ff:F(0,1)_50:
+Z16XAnimGetRelDeltaPK7XAnim_sjPfS2_ff_F0_1_50:
 	mov eax, [ebp-0x14]
 	mov [ebx], eax
 	mov eax, [ebp-0x10]
@@ -3049,10 +3279,10 @@ Z16XAnimGetRelDeltaPK7XAnim_sjPfS2_ff:F(0,1)_50:
 	pop esi
 	pop ebp
 	ret
-Z16XAnimGetRelDeltaPK7XAnim_sjPfS2_ff:F(0,1)_40:
+Z16XAnimGetRelDeltaPK7XAnim_sjPfS2_ff_F0_1_40:
 	mov dword [esi], 0x0
 	mov dword [esi+0x4], 0x3f800000
-	jmp Z16XAnimGetRelDeltaPK7XAnim_sjPfS2_ff:F(0,1)_50
+	jmp Z16XAnimGetRelDeltaPK7XAnim_sjPfS2_ff_F0_1_50
 
 
 ;XAnimClearTreeWeights(XAnimTree_s*, unsigned int)
@@ -3290,7 +3520,7 @@ _Z21XAnimClearTreeWeightsP11XAnimTree_sj_220:
 _Z21XAnimClearTreeWeightsP11XAnimTree_sj_180:
 	movzx eax, ax
 	mov [esp], eax
-	call Z20SL_RemoveRefToStringj:F(0,5)
+	call Z20SL_RemoveRefToStringj_F0_5
 	mov word [ebx+0x4], 0x0
 	jmp _Z21XAnimClearTreeWeightsP11XAnimTree_sj_230
 _Z21XAnimClearTreeWeightsP11XAnimTree_sj_160:
@@ -3452,7 +3682,7 @@ _Z21XAnimClearTreeWeightsP11XAnimTree_sj_40:
 	jz _Z21XAnimClearTreeWeightsP11XAnimTree_sj_360
 	movzx eax, ax
 	mov [esp], eax
-	call Z20SL_RemoveRefToStringj:F(0,5)
+	call Z20SL_RemoveRefToStringj_F0_5
 	mov word [ebx+0x4], 0x0
 _Z21XAnimClearTreeWeightsP11XAnimTree_sj_360:
 	mov word [ebx+0x2], 0xffff
@@ -3481,7 +3711,7 @@ _Z21XAnimClearTreeWeightsP11XAnimTree_sj_20:
 	jz _Z21XAnimClearTreeWeightsP11XAnimTree_sj_380
 	movzx eax, ax
 	mov [esp], eax
-	call Z20SL_RemoveRefToStringj:F(0,5)
+	call Z20SL_RemoveRefToStringj_F0_5
 	mov word [ebx+0x4], 0x0
 _Z21XAnimClearTreeWeightsP11XAnimTree_sj_380:
 	mov word [ebx+0x2], 0xffff
@@ -3506,37 +3736,37 @@ _Z21XAnimClearTreeWeightsP11XAnimTree_sj_10:
 _Z21XAnimClearTreeWeightsP11XAnimTree_sj_240:
 	movzx eax, ax
 	mov [esp], eax
-	call Z20SL_RemoveRefToStringj:F(0,5)
+	call Z20SL_RemoveRefToStringj_F0_5
 	mov word [ebx+0x4], 0x0
 	jmp _Z21XAnimClearTreeWeightsP11XAnimTree_sj_390
 _Z21XAnimClearTreeWeightsP11XAnimTree_sj_260:
 	movzx eax, ax
 	mov [esp], eax
-	call Z20SL_RemoveRefToStringj:F(0,5)
+	call Z20SL_RemoveRefToStringj_F0_5
 	mov word [ebx+0x4], 0x0
 	jmp _Z21XAnimClearTreeWeightsP11XAnimTree_sj_400
 _Z21XAnimClearTreeWeightsP11XAnimTree_sj_280:
 	movzx eax, ax
 	mov [esp], eax
-	call Z20SL_RemoveRefToStringj:F(0,5)
+	call Z20SL_RemoveRefToStringj_F0_5
 	mov word [ebx+0x4], 0x0
 	jmp _Z21XAnimClearTreeWeightsP11XAnimTree_sj_410
 _Z21XAnimClearTreeWeightsP11XAnimTree_sj_300:
 	movzx eax, ax
 	mov [esp], eax
-	call Z20SL_RemoveRefToStringj:F(0,5)
+	call Z20SL_RemoveRefToStringj_F0_5
 	mov word [ebx+0x4], 0x0
 	jmp _Z21XAnimClearTreeWeightsP11XAnimTree_sj_420
 _Z21XAnimClearTreeWeightsP11XAnimTree_sj_320:
 	movzx eax, ax
 	mov [esp], eax
-	call Z20SL_RemoveRefToStringj:F(0,5)
+	call Z20SL_RemoveRefToStringj_F0_5
 	mov word [ebx+0x4], 0x0
 	jmp _Z21XAnimClearTreeWeightsP11XAnimTree_sj_430
 _Z21XAnimClearTreeWeightsP11XAnimTree_sj_340:
 	movzx eax, ax
 	mov [esp], eax
-	call Z20SL_RemoveRefToStringj:F(0,5)
+	call Z20SL_RemoveRefToStringj_F0_5
 	mov word [ebx+0x4], 0x0
 	jmp _Z21XAnimClearTreeWeightsP11XAnimTree_sj_440
 	nop
@@ -3992,9 +4222,9 @@ _Z18XAnimCalcDeltaTreePK11XAnimTree_sjfhhP17XAnimSimpleRotPos_370:
 	jmp _Z18XAnimCalcDeltaTreePK11XAnimTree_sjfhhP17XAnimSimpleRotPos_30
 
 
-;Z17XAnimCalcAbsDeltaP11XAnimTree_sjPfS1_:F(0,1)
+;Z17XAnimCalcAbsDeltaP11XAnimTree_sjPfS1__F0_1
 
-Z17XAnimCalcAbsDeltaP11XAnimTree_sjPfS1_:F(0,1):
+Z17XAnimCalcAbsDeltaP11XAnimTree_sjPfS1__F0_1:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -4014,12 +4244,12 @@ Z17XAnimCalcAbsDeltaP11XAnimTree_sjPfS1_:F(0,1):
 	call _Z18XAnimCalcDeltaTreePK11XAnimTree_sjfhhP17XAnimSimpleRotPos
 	pxor xmm0, xmm0
 	ucomiss xmm0, [ebp-0x20]
-	jnz Z17XAnimCalcAbsDeltaP11XAnimTree_sjPfS1_:F(0,1)_10
-	jp Z17XAnimCalcAbsDeltaP11XAnimTree_sjPfS1_:F(0,1)_10
+	jnz Z17XAnimCalcAbsDeltaP11XAnimTree_sjPfS1__F0_1_10
+	jp Z17XAnimCalcAbsDeltaP11XAnimTree_sjPfS1__F0_1_10
 	ucomiss xmm0, [ebp-0x1c]
-	jp Z17XAnimCalcAbsDeltaP11XAnimTree_sjPfS1_:F(0,1)_10
-	jz Z17XAnimCalcAbsDeltaP11XAnimTree_sjPfS1_:F(0,1)_20
-Z17XAnimCalcAbsDeltaP11XAnimTree_sjPfS1_:F(0,1)_10:
+	jp Z17XAnimCalcAbsDeltaP11XAnimTree_sjPfS1__F0_1_10
+	jz Z17XAnimCalcAbsDeltaP11XAnimTree_sjPfS1__F0_1_20
+Z17XAnimCalcAbsDeltaP11XAnimTree_sjPfS1__F0_1_10:
 	mov eax, [ebp-0x20]
 	mov [esi], eax
 	mov eax, [ebp-0x1c]
@@ -4035,7 +4265,7 @@ Z17XAnimCalcAbsDeltaP11XAnimTree_sjPfS1_:F(0,1)_10:
 	pop esi
 	pop ebp
 	ret
-Z17XAnimCalcAbsDeltaP11XAnimTree_sjPfS1_:F(0,1)_20:
+Z17XAnimCalcAbsDeltaP11XAnimTree_sjPfS1__F0_1_20:
 	mov dword [esi], 0x0
 	mov dword [esi+0x4], 0x3f800000
 	mov eax, [ebp-0x14]
@@ -4051,9 +4281,9 @@ Z17XAnimCalcAbsDeltaP11XAnimTree_sjPfS1_:F(0,1)_20:
 	ret
 
 
-;Z14XAnimCalcDeltaP11XAnimTree_sjPfS1_h:F(0,1)
+;Z14XAnimCalcDeltaP11XAnimTree_sjPfS1_h_F0_1
 
-Z14XAnimCalcDeltaP11XAnimTree_sjPfS1_h:F(0,1):
+Z14XAnimCalcDeltaP11XAnimTree_sjPfS1_h_F0_1:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -4074,13 +4304,13 @@ Z14XAnimCalcDeltaP11XAnimTree_sjPfS1_h:F(0,1):
 	call _Z18XAnimCalcDeltaTreePK11XAnimTree_sjfhhP17XAnimSimpleRotPos
 	pxor xmm0, xmm0
 	ucomiss xmm0, [ebp-0x20]
-	jp Z14XAnimCalcDeltaP11XAnimTree_sjPfS1_h:F(0,1)_10
-	jz Z14XAnimCalcDeltaP11XAnimTree_sjPfS1_h:F(0,1)_20
-Z14XAnimCalcDeltaP11XAnimTree_sjPfS1_h:F(0,1)_10:
+	jp Z14XAnimCalcDeltaP11XAnimTree_sjPfS1_h_F0_1_10
+	jz Z14XAnimCalcDeltaP11XAnimTree_sjPfS1_h_F0_1_20
+Z14XAnimCalcDeltaP11XAnimTree_sjPfS1_h_F0_1_10:
 	ucomiss xmm0, [ebp-0x1c]
-	jp Z14XAnimCalcDeltaP11XAnimTree_sjPfS1_h:F(0,1)_30
-	jnz Z14XAnimCalcDeltaP11XAnimTree_sjPfS1_h:F(0,1)_30
-Z14XAnimCalcDeltaP11XAnimTree_sjPfS1_h:F(0,1)_20:
+	jp Z14XAnimCalcDeltaP11XAnimTree_sjPfS1_h_F0_1_30
+	jnz Z14XAnimCalcDeltaP11XAnimTree_sjPfS1_h_F0_1_30
+Z14XAnimCalcDeltaP11XAnimTree_sjPfS1_h_F0_1_20:
 	mov dword [esi], 0x0
 	mov dword [esi+0x4], 0x3f800000
 	mov eax, [ebp-0x14]
@@ -4094,7 +4324,7 @@ Z14XAnimCalcDeltaP11XAnimTree_sjPfS1_h:F(0,1)_20:
 	pop esi
 	pop ebp
 	ret
-Z14XAnimCalcDeltaP11XAnimTree_sjPfS1_h:F(0,1)_30:
+Z14XAnimCalcDeltaP11XAnimTree_sjPfS1_h_F0_1_30:
 	mov eax, [ebp-0x20]
 	mov [esi], eax
 	mov eax, [ebp-0x1c]
@@ -4789,7 +5019,7 @@ _Z18XAnimUpdateOldTimeP11XAnimTree_sjP10XAnimStatefhPhS3__300:
 _Z18XAnimUpdateOldTimeP11XAnimTree_sjP10XAnimStatefhPhS3__70:
 	movzx eax, ax
 	mov [esp], eax
-	call Z20SL_RemoveRefToStringj:F(0,5)
+	call Z20SL_RemoveRefToStringj_F0_5
 	mov word [ebx+0x4], 0x0
 	mov eax, [ebp-0x3c]
 	jmp _Z18XAnimUpdateOldTimeP11XAnimTree_sjP10XAnimStatefhPhS3__310
@@ -4802,9 +5032,9 @@ _Z18XAnimUpdateOldTimeP11XAnimTree_sjP10XAnimStatefhPhS3__240:
 	nop
 
 
-;Z18DObjInitServerTimeP6DObj_sf:F(0,1)
+;Z18DObjInitServerTimeP6DObj_sf_F0_1
 
-Z18DObjInitServerTimeP6DObj_sf:F(0,1):
+Z18DObjInitServerTimeP6DObj_sf_F0_1:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -4812,7 +5042,7 @@ Z18DObjInitServerTimeP6DObj_sf:F(0,1):
 	mov ebx, [ebp+0x8]
 	mov eax, [ebx]
 	test eax, eax
-	jz Z18DObjInitServerTimeP6DObj_sf:F(0,1)_10
+	jz Z18DObjInitServerTimeP6DObj_sf_F0_1_10
 	mov dword [ebp-0x28], 0x0
 	mov word [ebp-0x20], 0x0
 	lea ecx, [ebp-0x28]
@@ -4825,7 +5055,7 @@ Z18DObjInitServerTimeP6DObj_sf:F(0,1):
 	xor edx, edx
 	mov eax, [ebx]
 	call _Z18XAnimUpdateOldTimeP11XAnimTree_sjP10XAnimStatefhPhS3_
-Z18DObjInitServerTimeP6DObj_sf:F(0,1)_10:
+Z18DObjInitServerTimeP6DObj_sf_F0_1_10:
 	add esp, 0x34
 	pop ebx
 	pop ebp
@@ -5024,7 +5254,7 @@ _Z26XAnimSetGoalWeightInternalP11XAnimTree_sjfffhjj_220:
 _Z26XAnimSetGoalWeightInternalP11XAnimTree_sjfffhjj_90:
 	mov edx, [ebp+0x8]
 	mov [esp], edx
-	call Z17SL_AddRefToStringj:F(0,5)
+	call Z17SL_AddRefToStringj_F0_5
 	jmp _Z26XAnimSetGoalWeightInternalP11XAnimTree_sjfffhjj_240
 _Z26XAnimSetGoalWeightInternalP11XAnimTree_sjfffhjj_80:
 	movaps xmm0, xmm1
@@ -5038,7 +5268,7 @@ _Z26XAnimSetGoalWeightInternalP11XAnimTree_sjfffhjj_160:
 	mov [esp], eax
 	movss [ebp-0x48], xmm1
 	movss [ebp-0x58], xmm0
-	call Z20SL_RemoveRefToStringj:F(0,5)
+	call Z20SL_RemoveRefToStringj_F0_5
 	mov word [ebx+0x4], 0x0
 	movss xmm4, dword [ebp-0x58]
 	movss xmm3, dword [ebp-0x48]
@@ -5056,7 +5286,7 @@ _Z26XAnimSetGoalWeightInternalP11XAnimTree_sjfffhjj_30:
 	mov dword [esp], 0x1
 	movss [ebp-0x48], xmm3
 	movss [ebp-0x58], xmm4
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	xor ebx, ebx
 	pxor xmm1, xmm1
 	movss xmm3, dword [ebp-0x48]
@@ -5067,9 +5297,9 @@ _Z26XAnimSetGoalWeightInternalP11XAnimTree_sjfffhjj_140:
 	jmp _Z26XAnimSetGoalWeightInternalP11XAnimTree_sjfffhjj_120
 
 
-;Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)
+;Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1
 
-Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1):
+Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -5093,22 +5323,22 @@ Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1):
 	call _Z26XAnimSetGoalWeightInternalP11XAnimTree_sjfffhjj
 	mov eax, [ebp+0xc]
 	test eax, eax
-	jz Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_10
+	jz Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_10
 	mov ebx, [ebp+0xc]
-Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_40:
+Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_40:
 	mov edx, [edi]
 	movzx esi, word [edx+ebx*8+0xe]
 	movzx ebx, si
 	movzx eax, word [edi+ebx*2+0x8]
 	movzx edx, ax
 	test ax, ax
-	jz Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_20
+	jz Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_20
 	lea eax, [edx+edx*4]
 	pxor xmm0, xmm0
 	ucomiss xmm0, [eax*8+g_xAnimInfo+0x1c]
-	jnz Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_30
-	jp Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_30
-Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_20:
+	jnz Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_30
+	jp Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_30
+Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_20:
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], 0x0
 	xor ecx, ecx
@@ -5118,69 +5348,69 @@ Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_20:
 	mov edx, ebx
 	mov eax, edi
 	call _Z26XAnimSetGoalWeightInternalP11XAnimTree_sjfffhjj
-Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_30:
+Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_30:
 	test si, si
-	jnz Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_40
-Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_10:
+	jnz Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_40
+Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_10:
 	mov eax, [ebp+0x24]
 	test eax, eax
-	jz Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_50
+	jz Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_50
 	mov eax, [ebp+0xc]
 	test eax, eax
-	jnz Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_60
+	jnz Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_60
 	mov edx, [edi]
-Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_110:
+Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_110:
 	mov eax, [ebp+0xc]
 	cmp word [edx+eax*8+0xc], 0x0
-	jnz Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_50
+	jnz Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_50
 	movzx eax, word [edi+eax*2+0x8]
 	lea eax, [eax+eax*4]
 	lea eax, [eax*8+g_xAnimInfo]
 	lea ecx, [eax+0xc]
 	pxor xmm0, xmm0
 	ucomiss xmm0, [eax+0xc]
-	jnz Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_70
-	jp Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_70
+	jnz Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_70
+	jp Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_70
 	cmp word [ecx+0x8], 0x0
-	jz Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_50
-Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_70:
+	jz Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_50
+Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_70:
 	mov dword [ecx], 0x0
 	mov word [ecx+0x8], 0x0
 	mov dword [ecx+0x4], 0x0
 	mov word [ecx+0xa], 0x0
 	mov word [eax+0x2], 0xffff
-Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_50:
+Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_50:
 	add esp, 0x2c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_60:
+Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_60:
 	mov edx, [edi]
 	mov ecx, [ebp+0xc]
-Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_100:
+Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_100:
 	movzx eax, word [edi+ecx*2+0x8]
 	lea eax, [eax+eax*4]
 	lea ebx, [eax*8+g_xAnimInfo]
 	lea eax, [edx+ecx*8]
 	lea esi, [eax+0xc]
 	cmp word [eax+0xc], 0x0
-	jz Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_80
+	jz Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_80
 	test byte [esi+0x4], 0x4
-	jnz Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_90
-Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_80:
+	jnz Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_90
+Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_80:
 	movzx eax, word [edx+ecx*8+0xe]
 	movzx ecx, ax
 	test ax, ax
-	jnz Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_100
-	jmp Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_110
-Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_90:
+	jnz Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_100
+	jmp Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_110
+Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_90:
 	lea eax, [ebx+0xc]
 	pxor xmm0, xmm0
 	ucomiss xmm0, [ebx+0xc]
-	jz Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_120
-Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_180:
+	jz Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_120
+Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_180:
 	mov dword [eax], 0x0
 	mov word [eax+0x8], 0x0
 	mov dword [eax+0x4], 0x0
@@ -5189,38 +5419,38 @@ Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_180:
 	movzx eax, word [esi]
 	mov [ebp-0x28], eax
 	test eax, eax
-	jle Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_50
+	jle Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_50
 	mov dword [ebp-0x24], 0x0
-	jmp Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_130
-Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_140:
+	jmp Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_130
+Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_140:
 	add dword [ebp-0x24], 0x1
 	mov edx, [ebp-0x24]
 	cmp [ebp-0x28], edx
-	jz Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_50
-Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_130:
+	jz Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_50
+Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_130:
 	movzx eax, word [esi+0x6]
 	mov ecx, [ebp-0x24]
 	add ecx, eax
 	movzx eax, word [edi+ecx*2+0x8]
 	test ax, ax
-	jz Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_140
+	jz Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_140
 	movzx eax, ax
 	lea eax, [eax+eax*4]
 	lea eax, [eax*8+g_xAnimInfo]
 	lea edx, [eax+0xc]
 	pxor xmm0, xmm0
 	ucomiss xmm0, [eax+0xc]
-	jnz Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_150
-	jp Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_150
+	jnz Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_150
+	jp Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_150
 	cmp word [edx+0x8], 0x0
-	jz Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_160
-Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_150:
+	jz Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_160
+Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_150:
 	mov dword [edx], 0x0
 	mov word [edx+0x8], 0x0
 	mov dword [edx+0x4], 0x0
 	mov word [edx+0xa], 0x0
 	mov word [eax+0x2], 0xffff
-Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_160:
+Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_160:
 	mov eax, [edi]
 	lea eax, [eax+ecx*8]
 	lea edx, [eax+0xc]
@@ -5228,9 +5458,9 @@ Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_160:
 	movzx eax, word [eax+0xc]
 	mov [ebp-0x20], eax
 	test eax, eax
-	jle Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_140
+	jle Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_140
 	xor ebx, ebx
-Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_170:
+Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_170:
 	mov eax, [ebp-0x1c]
 	movzx edx, word [eax+0x6]
 	lea edx, [ebx+edx]
@@ -5238,18 +5468,18 @@ Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_170:
 	call _Z14XAnimResetTimeP11XAnimTree_sj
 	add ebx, 0x1
 	cmp [ebp-0x20], ebx
-	jnz Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_170
-	jmp Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_140
-Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_120:
-	jp Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_180
+	jnz Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_170
+	jmp Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_140
+Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_120:
+	jp Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_180
 	cmp word [eax+0x8], 0x0
-	jz Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_50
-	jmp Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji:F(0,1)_180
+	jz Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_50
+	jmp Z26XAnimSetCompleteGoalWeightP11XAnimTree_sjfffjji_F0_1_180
 
 
-;Z18XAnimCloneAnimTreePK11XAnimTree_sPS_:F(0,1)
+;Z18XAnimCloneAnimTreePK11XAnimTree_sPS__F0_1
 
-Z18XAnimCloneAnimTreePK11XAnimTree_sPS_:F(0,1):
+Z18XAnimCloneAnimTreePK11XAnimTree_sPS__F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -5261,22 +5491,22 @@ Z18XAnimCloneAnimTreePK11XAnimTree_sPS_:F(0,1):
 	mov eax, [eax+0x4]
 	mov [ebp-0x20], eax
 	test eax, eax
-	jle Z18XAnimCloneAnimTreePK11XAnimTree_sPS_:F(0,1)_10
+	jle Z18XAnimCloneAnimTreePK11XAnimTree_sPS__F0_1_10
 	mov [ebp-0x1c], edx
 	mov edi, [ebp+0xc]
 	mov dword [ebp-0x24], 0x0
-	jmp Z18XAnimCloneAnimTreePK11XAnimTree_sPS_:F(0,1)_20
-Z18XAnimCloneAnimTreePK11XAnimTree_sPS_:F(0,1)_50:
+	jmp Z18XAnimCloneAnimTreePK11XAnimTree_sPS__F0_1_20
+Z18XAnimCloneAnimTreePK11XAnimTree_sPS__F0_1_50:
 	movzx eax, word [edi+0x8]
 	movzx esi, ax
 	test ax, ax
-	jz Z18XAnimCloneAnimTreePK11XAnimTree_sPS_:F(0,1)_30
+	jz Z18XAnimCloneAnimTreePK11XAnimTree_sPS__F0_1_30
 	lea eax, [esi+esi*4]
 	lea ebx, [eax*8+g_xAnimInfo]
 	movzx eax, word [ebx+0x4]
 	test ax, ax
-	jnz Z18XAnimCloneAnimTreePK11XAnimTree_sPS_:F(0,1)_40
-Z18XAnimCloneAnimTreePK11XAnimTree_sPS_:F(0,1)_110:
+	jnz Z18XAnimCloneAnimTreePK11XAnimTree_sPS__F0_1_40
+Z18XAnimCloneAnimTreePK11XAnimTree_sPS__F0_1_110:
 	mov word [ebx+0x2], 0xffff
 	mov word [ebx+0x8], 0x0
 	movzx eax, word [g_xAnimInfo+0xa]
@@ -5286,26 +5516,26 @@ Z18XAnimCloneAnimTreePK11XAnimTree_sPS_:F(0,1)_110:
 	mov [eax*8+g_xAnimInfo+0x8], si
 	mov [g_xAnimInfo+0xa], si
 	mov word [edi+0x8], 0x0
-Z18XAnimCloneAnimTreePK11XAnimTree_sPS_:F(0,1)_30:
+Z18XAnimCloneAnimTreePK11XAnimTree_sPS__F0_1_30:
 	add dword [ebp-0x24], 0x1
 	add dword [ebp-0x1c], 0x2
 	add edi, 0x2
 	mov eax, [ebp-0x24]
 	cmp [ebp-0x20], eax
-	jz Z18XAnimCloneAnimTreePK11XAnimTree_sPS_:F(0,1)_10
-Z18XAnimCloneAnimTreePK11XAnimTree_sPS_:F(0,1)_80:
+	jz Z18XAnimCloneAnimTreePK11XAnimTree_sPS__F0_1_10
+Z18XAnimCloneAnimTreePK11XAnimTree_sPS__F0_1_80:
 	mov edx, [ebp-0x1c]
-Z18XAnimCloneAnimTreePK11XAnimTree_sPS_:F(0,1)_20:
+Z18XAnimCloneAnimTreePK11XAnimTree_sPS__F0_1_20:
 	movzx eax, word [edx+0x8]
 	movzx esi, ax
 	test ax, ax
-	jz Z18XAnimCloneAnimTreePK11XAnimTree_sPS_:F(0,1)_50
+	jz Z18XAnimCloneAnimTreePK11XAnimTree_sPS__F0_1_50
 	movzx eax, word [edi+0x8]
 	test ax, ax
-	jnz Z18XAnimCloneAnimTreePK11XAnimTree_sPS_:F(0,1)_60
+	jnz Z18XAnimCloneAnimTreePK11XAnimTree_sPS__F0_1_60
 	movzx ecx, word [g_xAnimInfo+0xa]
 	test cx, cx
-	jz Z18XAnimCloneAnimTreePK11XAnimTree_sPS_:F(0,1)_70
+	jz Z18XAnimCloneAnimTreePK11XAnimTree_sPS__F0_1_70
 	movzx edx, cx
 	lea edx, [edx+edx*4]
 	shl edx, 0x3
@@ -5315,7 +5545,7 @@ Z18XAnimCloneAnimTreePK11XAnimTree_sPS_:F(0,1)_20:
 	mov word [eax*8+g_xAnimInfo+0x8], 0x0
 	mov [edi+0x8], cx
 	lea ebx, [edx+g_xAnimInfo]
-Z18XAnimCloneAnimTreePK11XAnimTree_sPS_:F(0,1)_100:
+Z18XAnimCloneAnimTreePK11XAnimTree_sPS__F0_1_100:
 	lea edx, [esi+esi*4]
 	shl edx, 0x3
 	mov eax, [edx+g_xAnimInfo]
@@ -5340,57 +5570,57 @@ Z18XAnimCloneAnimTreePK11XAnimTree_sPS_:F(0,1)_100:
 	mov [ebx+0x24], eax
 	movzx eax, word [ebx+0x4]
 	test ax, ax
-	jz Z18XAnimCloneAnimTreePK11XAnimTree_sPS_:F(0,1)_30
+	jz Z18XAnimCloneAnimTreePK11XAnimTree_sPS__F0_1_30
 	movzx eax, ax
 	mov [esp], eax
-	call Z17SL_AddRefToStringj:F(0,5)
+	call Z17SL_AddRefToStringj_F0_5
 	add dword [ebp-0x24], 0x1
 	add dword [ebp-0x1c], 0x2
 	add edi, 0x2
 	mov eax, [ebp-0x24]
 	cmp [ebp-0x20], eax
-	jnz Z18XAnimCloneAnimTreePK11XAnimTree_sPS_:F(0,1)_80
-Z18XAnimCloneAnimTreePK11XAnimTree_sPS_:F(0,1)_10:
+	jnz Z18XAnimCloneAnimTreePK11XAnimTree_sPS__F0_1_80
+Z18XAnimCloneAnimTreePK11XAnimTree_sPS__F0_1_10:
 	add esp, 0x2c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z18XAnimCloneAnimTreePK11XAnimTree_sPS_:F(0,1)_60:
+Z18XAnimCloneAnimTreePK11XAnimTree_sPS__F0_1_60:
 	movzx eax, ax
 	lea eax, [eax+eax*4]
 	lea ebx, [eax*8+g_xAnimInfo]
 	movzx eax, word [ebx+0x4]
 	test ax, ax
-	jnz Z18XAnimCloneAnimTreePK11XAnimTree_sPS_:F(0,1)_90
-Z18XAnimCloneAnimTreePK11XAnimTree_sPS_:F(0,1)_120:
+	jnz Z18XAnimCloneAnimTreePK11XAnimTree_sPS__F0_1_90
+Z18XAnimCloneAnimTreePK11XAnimTree_sPS__F0_1_120:
 	mov word [ebx+0x2], 0xffff
-	jmp Z18XAnimCloneAnimTreePK11XAnimTree_sPS_:F(0,1)_100
-Z18XAnimCloneAnimTreePK11XAnimTree_sPS_:F(0,1)_40:
+	jmp Z18XAnimCloneAnimTreePK11XAnimTree_sPS__F0_1_100
+Z18XAnimCloneAnimTreePK11XAnimTree_sPS__F0_1_40:
 	movzx eax, ax
 	mov [esp], eax
-	call Z20SL_RemoveRefToStringj:F(0,5)
+	call Z20SL_RemoveRefToStringj_F0_5
 	mov word [ebx+0x4], 0x0
-	jmp Z18XAnimCloneAnimTreePK11XAnimTree_sPS_:F(0,1)_110
-Z18XAnimCloneAnimTreePK11XAnimTree_sPS_:F(0,1)_90:
+	jmp Z18XAnimCloneAnimTreePK11XAnimTree_sPS__F0_1_110
+Z18XAnimCloneAnimTreePK11XAnimTree_sPS__F0_1_90:
 	movzx eax, ax
 	mov [esp], eax
-	call Z20SL_RemoveRefToStringj:F(0,5)
+	call Z20SL_RemoveRefToStringj_F0_5
 	mov word [ebx+0x4], 0x0
-	jmp Z18XAnimCloneAnimTreePK11XAnimTree_sPS_:F(0,1)_120
-Z18XAnimCloneAnimTreePK11XAnimTree_sPS_:F(0,1)_70:
+	jmp Z18XAnimCloneAnimTreePK11XAnimTree_sPS__F0_1_120
+Z18XAnimCloneAnimTreePK11XAnimTree_sPS__F0_1_70:
 	mov dword [esp+0x4], _cstring_exceeded_maximum
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	xor ebx, ebx
-	jmp Z18XAnimCloneAnimTreePK11XAnimTree_sPS_:F(0,1)_100
+	jmp Z18XAnimCloneAnimTreePK11XAnimTree_sPS__F0_1_100
 	nop
 
 
-;Z13XAnimFreeTreeP11XAnimTree_sPFvPviE:F(0,1)
+;Z13XAnimFreeTreeP11XAnimTree_sPFvPviE_F0_1
 
-Z13XAnimFreeTreeP11XAnimTree_sPFvPviE:F(0,1):
+Z13XAnimFreeTreeP11XAnimTree_sPFvPviE_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -5407,18 +5637,18 @@ Z13XAnimFreeTreeP11XAnimTree_sPFvPviE:F(0,1):
 	movzx eax, word [eax+0x8]
 	movzx edi, ax
 	test ax, ax
-	jz Z13XAnimFreeTreeP11XAnimTree_sPFvPviE:F(0,1)_10
+	jz Z13XAnimFreeTreeP11XAnimTree_sPFvPviE_F0_1_10
 	lea eax, [edx+0xc]
 	mov [ebp-0x1c], eax
 	movzx esi, word [edx+0xc]
 	test esi, esi
-	jg Z13XAnimFreeTreeP11XAnimTree_sPFvPviE:F(0,1)_20
+	jg Z13XAnimFreeTreeP11XAnimTree_sPFvPviE_F0_1_20
 	lea eax, [edi+edi*4]
 	lea ebx, [eax*8+g_xAnimInfo]
 	movzx eax, word [ebx+0x4]
 	test ax, ax
-	jnz Z13XAnimFreeTreeP11XAnimTree_sPFvPviE:F(0,1)_30
-Z13XAnimFreeTreeP11XAnimTree_sPFvPviE:F(0,1)_80:
+	jnz Z13XAnimFreeTreeP11XAnimTree_sPFvPviE_F0_1_30
+Z13XAnimFreeTreeP11XAnimTree_sPFvPviE_F0_1_80:
 	mov word [ebx+0x2], 0xffff
 	mov word [ebx+0x8], 0x0
 	movzx eax, word [g_xAnimInfo+0xa]
@@ -5430,24 +5660,24 @@ Z13XAnimFreeTreeP11XAnimTree_sPFvPviE:F(0,1)_80:
 	mov eax, [ebp-0x24]
 	mov word [eax+0x8], 0x0
 	mov edx, [eax]
-Z13XAnimFreeTreeP11XAnimTree_sPFvPviE:F(0,1)_10:
+Z13XAnimFreeTreeP11XAnimTree_sPFvPviE_F0_1_10:
 	mov edi, [edx+0x4]
 	mov edx, [ebp-0x24]
 	lea eax, [edx+edi*2+0x8]
 	test edi, edi
-	jle Z13XAnimFreeTreeP11XAnimTree_sPFvPviE:F(0,1)_40
+	jle Z13XAnimFreeTreeP11XAnimTree_sPFvPviE_F0_1_40
 	xor esi, esi
 	mov ebx, eax
-	jmp Z13XAnimFreeTreeP11XAnimTree_sPFvPviE:F(0,1)_50
-Z13XAnimFreeTreeP11XAnimTree_sPFvPviE:F(0,1)_60:
+	jmp Z13XAnimFreeTreeP11XAnimTree_sPFvPviE_F0_1_50
+Z13XAnimFreeTreeP11XAnimTree_sPFvPviE_F0_1_60:
 	add esi, 0x1
 	add ebx, 0x2
 	cmp edi, esi
-	jz Z13XAnimFreeTreeP11XAnimTree_sPFvPviE:F(0,1)_40
-Z13XAnimFreeTreeP11XAnimTree_sPFvPviE:F(0,1)_50:
+	jz Z13XAnimFreeTreeP11XAnimTree_sPFvPviE_F0_1_40
+Z13XAnimFreeTreeP11XAnimTree_sPFvPviE_F0_1_50:
 	movzx edx, word [ebx]
 	test dx, dx
-	jz Z13XAnimFreeTreeP11XAnimTree_sPFvPviE:F(0,1)_60
+	jz Z13XAnimFreeTreeP11XAnimTree_sPFvPviE_F0_1_60
 	mov ecx, [ebp-0x24]
 	mov eax, [ecx]
 	mov eax, [eax+esi*8+0x10]
@@ -5456,16 +5686,16 @@ Z13XAnimFreeTreeP11XAnimTree_sPFvPviE:F(0,1)_50:
 	mov [esp+0x4], eax
 	movzx eax, dx
 	mov [esp], eax
-	call Z25SL_RemoveRefToStringOfLenjj:F(0,5)
+	call Z25SL_RemoveRefToStringOfLenjj_F0_5
 	mov word [ebx], 0x0
 	add esi, 0x1
 	add ebx, 0x2
 	cmp edi, esi
-	jnz Z13XAnimFreeTreeP11XAnimTree_sPFvPviE:F(0,1)_50
-Z13XAnimFreeTreeP11XAnimTree_sPFvPviE:F(0,1)_40:
+	jnz Z13XAnimFreeTreeP11XAnimTree_sPFvPviE_F0_1_50
+Z13XAnimFreeTreeP11XAnimTree_sPFvPviE_F0_1_40:
 	mov eax, [ebp-0x28]
 	test eax, eax
-	jz Z13XAnimFreeTreeP11XAnimTree_sPFvPviE:F(0,1)_70
+	jz Z13XAnimFreeTreeP11XAnimTree_sPFvPviE_F0_1_70
 	mov edx, [ebp-0x20]
 	lea eax, [edx+edx*4+0x9]
 	mov [ebp+0xc], eax
@@ -5478,22 +5708,22 @@ Z13XAnimFreeTreeP11XAnimTree_sPFvPviE:F(0,1)_40:
 	pop edi
 	pop ebp
 	jmp ecx
-Z13XAnimFreeTreeP11XAnimTree_sPFvPviE:F(0,1)_70:
+Z13XAnimFreeTreeP11XAnimTree_sPFvPviE_F0_1_70:
 	add esp, 0x2c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z13XAnimFreeTreeP11XAnimTree_sPFvPviE:F(0,1)_30:
+Z13XAnimFreeTreeP11XAnimTree_sPFvPviE_F0_1_30:
 	movzx eax, ax
 	mov [esp], eax
-	call Z20SL_RemoveRefToStringj:F(0,5)
+	call Z20SL_RemoveRefToStringj_F0_5
 	mov word [ebx+0x4], 0x0
-	jmp Z13XAnimFreeTreeP11XAnimTree_sPFvPviE:F(0,1)_80
-Z13XAnimFreeTreeP11XAnimTree_sPFvPviE:F(0,1)_20:
+	jmp Z13XAnimFreeTreeP11XAnimTree_sPFvPviE_F0_1_80
+Z13XAnimFreeTreeP11XAnimTree_sPFvPviE_F0_1_20:
 	xor ebx, ebx
-Z13XAnimFreeTreeP11XAnimTree_sPFvPviE:F(0,1)_90:
+Z13XAnimFreeTreeP11XAnimTree_sPFvPviE_F0_1_90:
 	mov ecx, [ebp-0x1c]
 	movzx edx, word [ecx+0x6]
 	lea edx, [ebx+edx]
@@ -5501,18 +5731,18 @@ Z13XAnimFreeTreeP11XAnimTree_sPFvPviE:F(0,1)_90:
 	call _Z21XAnimClearTreeWeightsP11XAnimTree_sj
 	add ebx, 0x1
 	cmp esi, ebx
-	jnz Z13XAnimFreeTreeP11XAnimTree_sPFvPviE:F(0,1)_90
+	jnz Z13XAnimFreeTreeP11XAnimTree_sPFvPviE_F0_1_90
 	lea eax, [edi+edi*4]
 	lea ebx, [eax*8+g_xAnimInfo]
 	movzx eax, word [ebx+0x4]
 	test ax, ax
-	jz Z13XAnimFreeTreeP11XAnimTree_sPFvPviE:F(0,1)_80
-	jmp Z13XAnimFreeTreeP11XAnimTree_sPFvPviE:F(0,1)_30
+	jz Z13XAnimFreeTreeP11XAnimTree_sPFvPviE_F0_1_80
+	jmp Z13XAnimFreeTreeP11XAnimTree_sPFvPviE_F0_1_30
 
 
-;Z14XAnimClearTreeP11XAnimTree_s:F(0,1)
+;Z14XAnimClearTreeP11XAnimTree_s_F0_1
 
-Z14XAnimClearTreeP11XAnimTree_s:F(0,1):
+Z14XAnimClearTreeP11XAnimTree_s_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -5523,19 +5753,19 @@ Z14XAnimClearTreeP11XAnimTree_s:F(0,1):
 	movzx eax, word [edx+0x8]
 	movzx edi, ax
 	test ax, ax
-	jz Z14XAnimClearTreeP11XAnimTree_s:F(0,1)_10
+	jz Z14XAnimClearTreeP11XAnimTree_s_F0_1_10
 	mov eax, [edx]
 	lea ecx, [eax+0xc]
 	mov [ebp-0x1c], ecx
 	movzx esi, word [eax+0xc]
 	test esi, esi
-	jg Z14XAnimClearTreeP11XAnimTree_s:F(0,1)_20
+	jg Z14XAnimClearTreeP11XAnimTree_s_F0_1_20
 	lea eax, [edi+edi*4]
 	lea ebx, [eax*8+g_xAnimInfo]
 	movzx eax, word [ebx+0x4]
 	test ax, ax
-	jnz Z14XAnimClearTreeP11XAnimTree_s:F(0,1)_30
-Z14XAnimClearTreeP11XAnimTree_s:F(0,1)_80:
+	jnz Z14XAnimClearTreeP11XAnimTree_s_F0_1_30
+Z14XAnimClearTreeP11XAnimTree_s_F0_1_80:
 	mov word [ebx+0x2], 0xffff
 	mov word [ebx+0x8], 0x0
 	movzx eax, word [g_xAnimInfo+0xa]
@@ -5547,24 +5777,24 @@ Z14XAnimClearTreeP11XAnimTree_s:F(0,1)_80:
 	mov edx, [ebp+0x8]
 	mov word [edx+0x8], 0x0
 	mov ecx, [ebp+0x8]
-Z14XAnimClearTreeP11XAnimTree_s:F(0,1)_70:
+Z14XAnimClearTreeP11XAnimTree_s_F0_1_70:
 	mov eax, [ecx]
 	mov edi, [eax+0x4]
 	lea eax, [ecx+edi*2+0x8]
 	test edi, edi
-	jle Z14XAnimClearTreeP11XAnimTree_s:F(0,1)_40
+	jle Z14XAnimClearTreeP11XAnimTree_s_F0_1_40
 	xor esi, esi
 	mov ebx, eax
-	jmp Z14XAnimClearTreeP11XAnimTree_s:F(0,1)_50
-Z14XAnimClearTreeP11XAnimTree_s:F(0,1)_60:
+	jmp Z14XAnimClearTreeP11XAnimTree_s_F0_1_50
+Z14XAnimClearTreeP11XAnimTree_s_F0_1_60:
 	add esi, 0x1
 	add ebx, 0x2
 	cmp edi, esi
-	jz Z14XAnimClearTreeP11XAnimTree_s:F(0,1)_40
-Z14XAnimClearTreeP11XAnimTree_s:F(0,1)_50:
+	jz Z14XAnimClearTreeP11XAnimTree_s_F0_1_40
+Z14XAnimClearTreeP11XAnimTree_s_F0_1_50:
 	movzx edx, word [ebx]
 	test dx, dx
-	jz Z14XAnimClearTreeP11XAnimTree_s:F(0,1)_60
+	jz Z14XAnimClearTreeP11XAnimTree_s_F0_1_60
 	mov ecx, [ebp+0x8]
 	mov eax, [ecx]
 	mov eax, [eax+esi*8+0x10]
@@ -5573,31 +5803,31 @@ Z14XAnimClearTreeP11XAnimTree_s:F(0,1)_50:
 	mov [esp+0x4], eax
 	movzx eax, dx
 	mov [esp], eax
-	call Z25SL_RemoveRefToStringOfLenjj:F(0,5)
+	call Z25SL_RemoveRefToStringOfLenjj_F0_5
 	mov word [ebx], 0x0
 	add esi, 0x1
 	add ebx, 0x2
 	cmp edi, esi
-	jnz Z14XAnimClearTreeP11XAnimTree_s:F(0,1)_50
-Z14XAnimClearTreeP11XAnimTree_s:F(0,1)_40:
+	jnz Z14XAnimClearTreeP11XAnimTree_s_F0_1_50
+Z14XAnimClearTreeP11XAnimTree_s_F0_1_40:
 	add esp, 0x2c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z14XAnimClearTreeP11XAnimTree_s:F(0,1)_10:
+Z14XAnimClearTreeP11XAnimTree_s_F0_1_10:
 	mov ecx, edx
-	jmp Z14XAnimClearTreeP11XAnimTree_s:F(0,1)_70
-Z14XAnimClearTreeP11XAnimTree_s:F(0,1)_30:
+	jmp Z14XAnimClearTreeP11XAnimTree_s_F0_1_70
+Z14XAnimClearTreeP11XAnimTree_s_F0_1_30:
 	movzx eax, ax
 	mov [esp], eax
-	call Z20SL_RemoveRefToStringj:F(0,5)
+	call Z20SL_RemoveRefToStringj_F0_5
 	mov word [ebx+0x4], 0x0
-	jmp Z14XAnimClearTreeP11XAnimTree_s:F(0,1)_80
-Z14XAnimClearTreeP11XAnimTree_s:F(0,1)_20:
+	jmp Z14XAnimClearTreeP11XAnimTree_s_F0_1_80
+Z14XAnimClearTreeP11XAnimTree_s_F0_1_20:
 	xor ebx, ebx
-Z14XAnimClearTreeP11XAnimTree_s:F(0,1)_90:
+Z14XAnimClearTreeP11XAnimTree_s_F0_1_90:
 	mov eax, [ebp-0x1c]
 	movzx edx, word [eax+0x6]
 	lea edx, [ebx+edx]
@@ -5605,13 +5835,13 @@ Z14XAnimClearTreeP11XAnimTree_s:F(0,1)_90:
 	call _Z21XAnimClearTreeWeightsP11XAnimTree_sj
 	add ebx, 0x1
 	cmp esi, ebx
-	jnz Z14XAnimClearTreeP11XAnimTree_s:F(0,1)_90
+	jnz Z14XAnimClearTreeP11XAnimTree_s_F0_1_90
 	lea eax, [edi+edi*4]
 	lea ebx, [eax*8+g_xAnimInfo]
 	movzx eax, word [ebx+0x4]
 	test ax, ax
-	jz Z14XAnimClearTreeP11XAnimTree_s:F(0,1)_80
-	jmp Z14XAnimClearTreeP11XAnimTree_s:F(0,1)_30
+	jz Z14XAnimClearTreeP11XAnimTree_s_F0_1_80
+	jmp Z14XAnimClearTreeP11XAnimTree_s_F0_1_30
 
 
 ;XAnimCalc(DObj_s const*, unsigned int, float, DObjAnimMat_s*, unsigned char, unsigned char, XAnimCalcAnimInfo*, int)
@@ -5759,7 +5989,7 @@ _Z9XAnimCalcPK6DObj_sjfP13DObjAnimMat_shhP17XAnimCalcAnimInfoi_70:
 	mov dword [esp+0x4], 0x0
 	lea edx, [ebp-0xb0]
 	mov [esp], edx
-	call SL_GetStringOfLen:F(0,1)
+	call SL_GetStringOfLen_F0_1
 	mov ecx, [ebp-0xc4]
 	mov [ecx], ax
 	mov ebx, [ebp-0x16c]
@@ -5768,7 +5998,7 @@ _Z9XAnimCalcPK6DObj_sjfP13DObjAnimMat_shhP17XAnimCalcAnimInfoi_520:
 	mov edx, [ebp-0x168]
 	movzx eax, word [edx+ecx]
 	mov [esp], eax
-	call Z18SL_ConvertToStringj:F(0,2)
+	call Z18SL_ConvertToStringj_F0_2
 	mov esi, eax
 	mov edx, [ebp+0x10]
 	mov ecx, eax
@@ -6191,7 +6421,7 @@ _Z9XAnimCalcPK6DObj_sjfP13DObjAnimMat_shhP17XAnimCalcAnimInfoi_30:
 	mov ebx, [ebp-0x168]
 	movzx eax, word [ebx+eax]
 	mov [esp], eax
-	call Z25SL_RemoveRefToStringOfLenjj:F(0,5)
+	call Z25SL_RemoveRefToStringOfLenjj_F0_5
 	mov eax, [ebp-0x16c]
 	add ebx, [eax+0xc]
 	mov [ebp-0xc8], ebx
@@ -6291,7 +6521,7 @@ _Z9XAnimCalcPK6DObj_sjfP13DObjAnimMat_shhP17XAnimCalcAnimInfoi_560:
 	mov dword [esp+0x4], 0x0
 	lea edx, [ebp-0xb0]
 	mov [esp], edx
-	call SL_GetStringOfLen:F(0,1)
+	call SL_GetStringOfLen_F0_1
 	mov ecx, [ebp-0xc8]
 	mov [ecx], ax
 	mov ebx, [ebp-0x16c]
@@ -6481,7 +6711,7 @@ _Z9XAnimCalcPK6DObj_sjfP13DObjAnimMat_shhP17XAnimCalcAnimInfoi_710:
 	lea edx, [ebx+0x8]
 	cmp ecx, [ebp-0xac]
 	jl _Z9XAnimCalcPK6DObj_sjfP13DObjAnimMat_shhP17XAnimCalcAnimInfoi_760
-	cvtsi2ss xmm0, dword [ebp-0xa4]
+	cvtsi2ss xmm0, [ebp-0xa4]
 	movss xmm1, dword [ebp-0xa8]
 	subss xmm1, xmm0
 	movss [ebp-0x1c], xmm1
@@ -6605,7 +6835,7 @@ _Z9XAnimCalcPK6DObj_sjfP13DObjAnimMat_shhP17XAnimCalcAnimInfoi_740:
 	lea edx, [ebx+0x8]
 	cmp ecx, [ebp-0xac]
 	jl _Z9XAnimCalcPK6DObj_sjfP13DObjAnimMat_shhP17XAnimCalcAnimInfoi_820
-	cvtsi2ss xmm0, dword [ebp-0xa4]
+	cvtsi2ss xmm0, [ebp-0xa4]
 	movss xmm1, dword [ebp-0xa8]
 	subss xmm1, xmm0
 	movss [ebp-0x1c], xmm1
@@ -6663,7 +6893,7 @@ _Z9XAnimCalcPK6DObj_sjfP13DObjAnimMat_shhP17XAnimCalcAnimInfoi_690:
 	lea edx, [ebx+0x8]
 	cmp ecx, [ebp-0xac]
 	jl _Z9XAnimCalcPK6DObj_sjfP13DObjAnimMat_shhP17XAnimCalcAnimInfoi_830
-	cvtsi2ss xmm0, dword [ebp-0xa4]
+	cvtsi2ss xmm0, [ebp-0xa4]
 	movss xmm1, dword [ebp-0xa8]
 	subss xmm1, xmm0
 	movss [ebp-0x20], xmm1
@@ -7152,14 +7382,14 @@ _Z9XAnimCalcPK6DObj_sjfP13DObjAnimMat_shhP17XAnimCalcAnimInfoi_870:
 	jmp _Z9XAnimCalcPK6DObj_sjfP13DObjAnimMat_shhP17XAnimCalcAnimInfoi_1080
 _Z9XAnimCalcPK6DObj_sjfP13DObjAnimMat_shhP17XAnimCalcAnimInfoi_880:
 	mov dword [esp], _cstring_max_calc_anim_bu
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	jmp _Z9XAnimCalcPK6DObj_sjfP13DObjAnimMat_shhP17XAnimCalcAnimInfoi_200
 	nop
 
 
-;Z12DObjCalcAnimPK6DObj_sPi:F(0,1)
+;Z12DObjCalcAnimPK6DObj_sPi_F0_1
 
-Z12DObjCalcAnimPK6DObj_sPi:F(0,1):
+Z12DObjCalcAnimPK6DObj_sPi_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -7173,7 +7403,7 @@ Z12DObjCalcAnimPK6DObj_sPi:F(0,1):
 	mov ecx, 0x1
 	mov ebx, 0x1
 	lea esi, [ebp-0x38]
-Z12DObjCalcAnimPK6DObj_sPi:F(0,1)_10:
+Z12DObjCalcAnimPK6DObj_sPi_F0_1_10:
 	mov edi, [ebp+0xc]
 	mov eax, [edi+ebx*4-0x4]
 	not eax
@@ -7186,13 +7416,13 @@ Z12DObjCalcAnimPK6DObj_sPi:F(0,1)_10:
 	add esi, 0x4
 	add edx, 0x4
 	cmp ebx, 0x5
-	jnz Z12DObjCalcAnimPK6DObj_sPi:F(0,1)_10
+	jnz Z12DObjCalcAnimPK6DObj_sPi_F0_1_10
 	test cl, cl
-	jnz Z12DObjCalcAnimPK6DObj_sPi:F(0,1)_20
+	jnz Z12DObjCalcAnimPK6DObj_sPi_F0_1_20
 	mov edx, [ebp-0x404c]
 	mov esi, 0x1
 	mov bl, 0x4
-Z12DObjCalcAnimPK6DObj_sPi:F(0,1)_30:
+Z12DObjCalcAnimPK6DObj_sPi_F0_1_30:
 	mov eax, [edx]
 	mov ecx, [ebp+0xc]
 	or eax, [ebx+ecx-0x4]
@@ -7203,13 +7433,13 @@ Z12DObjCalcAnimPK6DObj_sPi:F(0,1)_30:
 	add ebx, 0x4
 	add edx, 0x4
 	cmp esi, 0x5
-	jnz Z12DObjCalcAnimPK6DObj_sPi:F(0,1)_30
+	jnz Z12DObjCalcAnimPK6DObj_sPi_F0_1_30
 	mov ebx, [ebp-0x404c]
 	add ebx, 0x30
 	mov edi, [ebp+0x8]
 	mov edx, [edi]
 	test edx, edx
-	jz Z12DObjCalcAnimPK6DObj_sPi:F(0,1)_40
+	jz Z12DObjCalcAnimPK6DObj_sPi_F0_1_40
 	or dword [ebp-0x1c], 0x80000000
 	mov dword [esp+0xc], 0x0
 	lea eax, [ebp-0x4038]
@@ -7222,9 +7452,9 @@ Z12DObjCalcAnimPK6DObj_sPi:F(0,1)_30:
 	mov eax, edi
 	call _Z9XAnimCalcPK6DObj_sjfP13DObjAnimMat_shhP17XAnimCalcAnimInfoi
 	mov edx, [ebp+0x8]
-Z12DObjCalcAnimPK6DObj_sPi:F(0,1)_130:
+Z12DObjCalcAnimPK6DObj_sPi_F0_1_130:
 	cmp byte [edx+0x18], 0x0
-	jz Z12DObjCalcAnimPK6DObj_sPi:F(0,1)_20
+	jz Z12DObjCalcAnimPK6DObj_sPi_F0_1_20
 	mov [ebp-0x4040], edx
 	xor ecx, ecx
 	mov dword [ebp-0x4044], 0x0
@@ -7235,20 +7465,20 @@ Z12DObjCalcAnimPK6DObj_sPi:F(0,1)_130:
 	movzx eax, word [edi+0x2]
 	movsx edx, ax
 	test ax, ax
-	jnz Z12DObjCalcAnimPK6DObj_sPi:F(0,1)_50
-Z12DObjCalcAnimPK6DObj_sPi:F(0,1)_90:
+	jnz Z12DObjCalcAnimPK6DObj_sPi_F0_1_50
+Z12DObjCalcAnimPK6DObj_sPi_F0_1_90:
 	mov esi, ecx
-Z12DObjCalcAnimPK6DObj_sPi:F(0,1)_120:
+Z12DObjCalcAnimPK6DObj_sPi_F0_1_120:
 	mov ecx, [edi+0x8]
 	movsx edx, word [edi]
 	movsx eax, word [edi+0x2]
 	sub edx, eax
 	mov [ebp-0x403c], edx
-	jz Z12DObjCalcAnimPK6DObj_sPi:F(0,1)_60
+	jz Z12DObjCalcAnimPK6DObj_sPi_F0_1_60
 	xor edi, edi
 	movaps xmm1, xmm2
 	mov edx, ecx
-Z12DObjCalcAnimPK6DObj_sPi:F(0,1)_80:
+Z12DObjCalcAnimPK6DObj_sPi_F0_1_80:
 	mov eax, esi
 	sar eax, 0x5
 	mov ecx, esi
@@ -7256,7 +7486,7 @@ Z12DObjCalcAnimPK6DObj_sPi:F(0,1)_80:
 	mov eax, [ebp+eax*4-0x38]
 	sar eax, cl
 	test al, 0x1
-	jnz Z12DObjCalcAnimPK6DObj_sPi:F(0,1)_70
+	jnz Z12DObjCalcAnimPK6DObj_sPi_F0_1_70
 	movsx eax, word [edx]
 	cvtsi2ss xmm0, eax
 	mulss xmm0, xmm1
@@ -7277,20 +7507,20 @@ Z12DObjCalcAnimPK6DObj_sPi:F(0,1)_80:
 	mov dword [ebx+0x10], 0x0
 	mov dword [eax+0x4], 0x0
 	mov dword [eax+0x8], 0x0
-Z12DObjCalcAnimPK6DObj_sPi:F(0,1)_70:
+Z12DObjCalcAnimPK6DObj_sPi_F0_1_70:
 	add ebx, 0x20
 	add esi, 0x1
 	add edi, 0x1
 	add edx, 0x8
 	cmp [ebp-0x403c], edi
-	jnz Z12DObjCalcAnimPK6DObj_sPi:F(0,1)_80
-Z12DObjCalcAnimPK6DObj_sPi:F(0,1)_60:
+	jnz Z12DObjCalcAnimPK6DObj_sPi_F0_1_80
+Z12DObjCalcAnimPK6DObj_sPi_F0_1_60:
 	add dword [ebp-0x4044], 0x1
 	add dword [ebp-0x4040], 0x4
 	mov edx, [ebp+0x8]
 	movzx eax, byte [edx+0x18]
 	cmp eax, [ebp-0x4044]
-	jle Z12DObjCalcAnimPK6DObj_sPi:F(0,1)_20
+	jle Z12DObjCalcAnimPK6DObj_sPi_F0_1_20
 	mov ecx, esi
 	mov edi, [ebp-0x4040]
 	mov eax, [edi+0x1c]
@@ -7298,11 +7528,11 @@ Z12DObjCalcAnimPK6DObj_sPi:F(0,1)_60:
 	movzx eax, word [edi+0x2]
 	movsx edx, ax
 	test ax, ax
-	jz Z12DObjCalcAnimPK6DObj_sPi:F(0,1)_90
-Z12DObjCalcAnimPK6DObj_sPi:F(0,1)_50:
+	jz Z12DObjCalcAnimPK6DObj_sPi_F0_1_90
+Z12DObjCalcAnimPK6DObj_sPi_F0_1_50:
 	mov esi, ecx
 	add edx, ecx
-Z12DObjCalcAnimPK6DObj_sPi:F(0,1)_110:
+Z12DObjCalcAnimPK6DObj_sPi_F0_1_110:
 	mov eax, esi
 	sar eax, 0x5
 	mov ecx, esi
@@ -7310,7 +7540,7 @@ Z12DObjCalcAnimPK6DObj_sPi:F(0,1)_110:
 	mov eax, [ebp+eax*4-0x38]
 	sar eax, cl
 	test al, 0x1
-	jnz Z12DObjCalcAnimPK6DObj_sPi:F(0,1)_100
+	jnz Z12DObjCalcAnimPK6DObj_sPi_F0_1_100
 	mov dword [ebx], 0x0
 	mov dword [ebx+0x4], 0x0
 	mov dword [ebx+0x8], 0x0
@@ -7319,22 +7549,22 @@ Z12DObjCalcAnimPK6DObj_sPi:F(0,1)_110:
 	mov dword [ebx+0x10], 0x0
 	mov dword [eax+0x4], 0x0
 	mov dword [eax+0x8], 0x0
-Z12DObjCalcAnimPK6DObj_sPi:F(0,1)_100:
+Z12DObjCalcAnimPK6DObj_sPi_F0_1_100:
 	add ebx, 0x20
 	add esi, 0x1
 	cmp esi, edx
-	jnz Z12DObjCalcAnimPK6DObj_sPi:F(0,1)_110
-	jmp Z12DObjCalcAnimPK6DObj_sPi:F(0,1)_120
-Z12DObjCalcAnimPK6DObj_sPi:F(0,1)_20:
+	jnz Z12DObjCalcAnimPK6DObj_sPi_F0_1_110
+	jmp Z12DObjCalcAnimPK6DObj_sPi_F0_1_120
+Z12DObjCalcAnimPK6DObj_sPi_F0_1_20:
 	add esp, 0x405c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z12DObjCalcAnimPK6DObj_sPi:F(0,1)_40:
+Z12DObjCalcAnimPK6DObj_sPi_F0_1_40:
 	mov edx, edi
-	jmp Z12DObjCalcAnimPK6DObj_sPi:F(0,1)_130
+	jmp Z12DObjCalcAnimPK6DObj_sPi_F0_1_130
 	nop
 
 
@@ -7895,7 +8125,7 @@ _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_120:
 	jz _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_50
 _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_590:
 	movss xmm0, dword [ebp-0xd0]
-	divss xmm0, dword [ebp-0xd4]
+	divss xmm0, [ebp-0xd4]
 	jmp _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_600
 _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_180:
 	movss xmm0, dword [ebp-0xb8]
@@ -7904,7 +8134,7 @@ _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_180:
 	jz _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_110
 _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_610:
 	movss xmm0, dword [ebp-0xb4]
-	divss xmm0, dword [ebp-0xb8]
+	divss xmm0, [ebp-0xb8]
 	jmp _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_620
 _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_240:
 	movss xmm0, dword [ebp-0x9c]
@@ -7913,7 +8143,7 @@ _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_240:
 	jz _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_170
 _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_630:
 	movss xmm0, dword [ebp-0x98]
-	divss xmm0, dword [ebp-0x9c]
+	divss xmm0, [ebp-0x9c]
 	jmp _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_640
 _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_300:
 	movss xmm0, dword [ebp-0x84]
@@ -7922,7 +8152,7 @@ _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_300:
 	jz _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_230
 _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_650:
 	movss xmm0, dword [ebp-0x80]
-	divss xmm0, dword [ebp-0x84]
+	divss xmm0, [ebp-0x84]
 	jmp _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_660
 _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_360:
 	movss xmm0, dword [ebp-0x6c]
@@ -7931,7 +8161,7 @@ _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_360:
 	jz _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_290
 _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_670:
 	movss xmm0, dword [ebp-0x68]
-	divss xmm0, dword [ebp-0x6c]
+	divss xmm0, [ebp-0x6c]
 	jmp _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_680
 _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_420:
 	movss xmm0, dword [ebp-0x54]
@@ -7940,7 +8170,7 @@ _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_420:
 	jz _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_350
 _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_690:
 	movss xmm0, dword [ebp-0x50]
-	divss xmm0, dword [ebp-0x54]
+	divss xmm0, [ebp-0x54]
 	jmp _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_700
 _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_480:
 	movss xmm0, dword [ebp-0x3c]
@@ -7949,7 +8179,7 @@ _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_480:
 	jz _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_410
 _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_710:
 	movss xmm0, dword [ebp-0x38]
-	divss xmm0, dword [ebp-0x3c]
+	divss xmm0, [ebp-0x3c]
 	jmp _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_720
 _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_520:
 	movss xmm0, dword [ebp-0x24]
@@ -7958,17 +8188,17 @@ _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_520:
 	jz _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_470
 _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_730:
 	movss xmm0, dword [ebp-0x20]
-	divss xmm0, dword [ebp-0x24]
+	divss xmm0, [ebp-0x24]
 	jmp _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_740
 _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_570:
 	pxor xmm4, xmm4
 	jmp _Z28XAnimGetAverageRateFrequencyPK11XAnimTree_sj_530
 
 
-;Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)
+;Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1
 
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1):
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_480:
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1:
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_480:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -7979,28 +8209,28 @@ Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_480:
 	mov edx, [ebp+0x8]
 	movzx eax, word [edx+esi*2+0x8]
 	test ax, ax
-	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_10
+	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_10
 	movzx eax, ax
 	lea eax, [eax+eax*4]
 	lea ebx, [eax*8+g_xAnimInfo]
 	lea eax, [ebx+0xc]
 	pxor xmm1, xmm1
 	ucomiss xmm1, [eax+0x10]
-	jp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_20
-	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_30
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_20:
+	jp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_20
+	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_30
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_20:
 	movss xmm0, dword [ebp+0x10]
 	movss [eax+0xc], xmm0
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_650:
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_650:
 	mov dword [eax+0x10], 0x0
 	movss xmm0, dword [ebp+0x10]
 	ucomiss xmm0, xmm1
-	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_40
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_640:
+	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_40
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_640:
 	movzx eax, word [ebx+0x4]
 	test ax, ax
-	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_50
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_660:
+	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_50
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_660:
 	mov word [ebx+0x2], 0xffff
 	mov edx, [ebp+0x8]
 	mov eax, [edx]
@@ -8010,47 +8240,47 @@ Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_660:
 	movzx eax, word [eax+0xc]
 	mov [ebp-0x78], eax
 	test eax, eax
-	jle Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_10
+	jle Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_10
 	mov dword [ebp-0x74], 0x0
 	mov esi, [ebp-0x74]
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_610:
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_610:
 	mov edx, [ebp-0x70]
 	movzx eax, word [edx+0x6]
 	add esi, eax
 	mov edx, [ebp+0x8]
 	movzx eax, word [edx+esi*2+0x8]
 	test ax, ax
-	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_60
+	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_60
 	movzx eax, ax
 	lea eax, [eax+eax*4]
 	lea ebx, [eax*8+g_xAnimInfo]
 	lea eax, [ebx+0xc]
 	pxor xmm1, xmm1
 	ucomiss xmm1, [eax+0x10]
-	jp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_70
-	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_70
+	jp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_70
+	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_70
 	movss xmm0, dword [eax+0xc]
 	ucomiss xmm0, [ebp+0x10]
-	jbe Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_80
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_70:
+	jbe Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_80
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_70:
 	movss xmm0, dword [ebp+0x10]
 	movss [eax+0xc], xmm0
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_80:
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_80:
 	mov dword [eax+0x10], 0x0
 	movss xmm0, dword [ebp+0x10]
 	ucomiss xmm0, xmm1
-	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_90
-	jp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_90
+	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_90
+	jp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_90
 	mov dword [eax+0x14], 0x0
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_90:
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_90:
 	movzx eax, word [ebx+0x4]
 	test ax, ax
-	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_100
+	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_100
 	movzx eax, ax
 	mov [esp], eax
-	call Z20SL_RemoveRefToStringj:F(0,5)
+	call Z20SL_RemoveRefToStringj_F0_5
 	mov word [ebx+0x4], 0x0
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_100:
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_100:
 	mov word [ebx+0x2], 0xffff
 	mov edx, [ebp+0x8]
 	mov eax, [edx]
@@ -8060,43 +8290,43 @@ Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_100:
 	movzx eax, word [eax+0xc]
 	mov [ebp-0x6c], eax
 	test eax, eax
-	jle Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_60
+	jle Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_60
 	mov dword [ebp-0x68], 0x0
 	mov esi, [ebp-0x68]
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_590:
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_590:
 	mov edx, [ebp-0x64]
 	movzx eax, word [edx+0x6]
 	add esi, eax
 	mov edx, [ebp+0x8]
 	movzx eax, word [edx+esi*2+0x8]
 	test ax, ax
-	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_110
+	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_110
 	movzx eax, ax
 	lea eax, [eax+eax*4]
 	lea ebx, [eax*8+g_xAnimInfo]
 	lea eax, [ebx+0xc]
 	pxor xmm1, xmm1
 	ucomiss xmm1, [eax+0x10]
-	jp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_120
-	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_120
+	jp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_120
+	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_120
 	movss xmm0, dword [eax+0xc]
 	ucomiss xmm0, [ebp+0x10]
-	jbe Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_130
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_120:
+	jbe Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_130
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_120:
 	movss xmm0, dword [ebp+0x10]
 	movss [eax+0xc], xmm0
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_130:
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_130:
 	mov dword [eax+0x10], 0x0
 	movss xmm0, dword [ebp+0x10]
 	ucomiss xmm0, xmm1
-	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_140
-	jp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_140
+	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_140
+	jp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_140
 	mov dword [eax+0x14], 0x0
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_140:
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_140:
 	movzx eax, word [ebx+0x4]
 	test ax, ax
-	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_150
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_630:
+	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_150
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_630:
 	mov word [ebx+0x2], 0xffff
 	mov edx, [ebp+0x8]
 	mov eax, [edx]
@@ -8106,43 +8336,43 @@ Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_630:
 	movzx eax, word [eax+0xc]
 	mov [ebp-0x60], eax
 	test eax, eax
-	jle Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_110
+	jle Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_110
 	mov dword [ebp-0x5c], 0x0
 	mov esi, [ebp-0x5c]
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_570:
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_570:
 	mov edx, [ebp-0x58]
 	movzx eax, word [edx+0x6]
 	add esi, eax
 	mov edx, [ebp+0x8]
 	movzx eax, word [edx+esi*2+0x8]
 	test ax, ax
-	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_160
+	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_160
 	movzx eax, ax
 	lea eax, [eax+eax*4]
 	lea ebx, [eax*8+g_xAnimInfo]
 	lea eax, [ebx+0xc]
 	pxor xmm1, xmm1
 	ucomiss xmm1, [eax+0x10]
-	jp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_170
-	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_170
+	jp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_170
+	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_170
 	movss xmm0, dword [eax+0xc]
 	ucomiss xmm0, [ebp+0x10]
-	jbe Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_180
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_170:
+	jbe Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_180
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_170:
 	movss xmm0, dword [ebp+0x10]
 	movss [eax+0xc], xmm0
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_180:
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_180:
 	mov dword [eax+0x10], 0x0
 	movss xmm0, dword [ebp+0x10]
 	ucomiss xmm0, xmm1
-	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_190
-	jp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_190
+	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_190
+	jp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_190
 	mov dword [eax+0x14], 0x0
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_190:
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_190:
 	movzx eax, word [ebx+0x4]
 	test ax, ax
-	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_200
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_620:
+	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_200
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_620:
 	mov word [ebx+0x2], 0xffff
 	mov edx, [ebp+0x8]
 	mov eax, [edx]
@@ -8152,43 +8382,43 @@ Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_620:
 	movzx eax, word [eax+0xc]
 	mov [ebp-0x54], eax
 	test eax, eax
-	jle Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_160
+	jle Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_160
 	mov dword [ebp-0x50], 0x0
 	mov esi, [ebp-0x50]
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_550:
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_550:
 	mov edx, [ebp-0x4c]
 	movzx eax, word [edx+0x6]
 	add esi, eax
 	mov edx, [ebp+0x8]
 	movzx eax, word [edx+esi*2+0x8]
 	test ax, ax
-	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_210
+	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_210
 	movzx eax, ax
 	lea eax, [eax+eax*4]
 	lea ebx, [eax*8+g_xAnimInfo]
 	lea eax, [ebx+0xc]
 	pxor xmm1, xmm1
 	ucomiss xmm1, [eax+0x10]
-	jp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_220
-	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_220
+	jp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_220
+	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_220
 	movss xmm0, dword [eax+0xc]
 	ucomiss xmm0, [ebp+0x10]
-	jbe Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_230
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_220:
+	jbe Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_230
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_220:
 	movss xmm0, dword [ebp+0x10]
 	movss [eax+0xc], xmm0
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_230:
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_230:
 	mov dword [eax+0x10], 0x0
 	movss xmm0, dword [ebp+0x10]
 	ucomiss xmm0, xmm1
-	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_240
-	jp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_240
+	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_240
+	jp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_240
 	mov dword [eax+0x14], 0x0
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_240:
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_240:
 	movzx eax, word [ebx+0x4]
 	test ax, ax
-	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_250
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_600:
+	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_250
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_600:
 	mov word [ebx+0x2], 0xffff
 	mov edx, [ebp+0x8]
 	mov eax, [edx]
@@ -8198,43 +8428,43 @@ Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_600:
 	movzx eax, word [eax+0xc]
 	mov [ebp-0x48], eax
 	test eax, eax
-	jle Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_210
+	jle Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_210
 	mov dword [ebp-0x44], 0x0
 	mov esi, [ebp-0x44]
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_530:
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_530:
 	mov edx, [ebp-0x40]
 	movzx eax, word [edx+0x6]
 	add esi, eax
 	mov edx, [ebp+0x8]
 	movzx eax, word [edx+esi*2+0x8]
 	test ax, ax
-	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_260
+	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_260
 	movzx eax, ax
 	lea eax, [eax+eax*4]
 	lea ebx, [eax*8+g_xAnimInfo]
 	lea eax, [ebx+0xc]
 	pxor xmm1, xmm1
 	ucomiss xmm1, [eax+0x10]
-	jp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_270
-	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_270
+	jp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_270
+	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_270
 	movss xmm0, dword [eax+0xc]
 	ucomiss xmm0, [ebp+0x10]
-	jbe Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_280
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_270:
+	jbe Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_280
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_270:
 	movss xmm0, dword [ebp+0x10]
 	movss [eax+0xc], xmm0
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_280:
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_280:
 	mov dword [eax+0x10], 0x0
 	movss xmm0, dword [ebp+0x10]
 	ucomiss xmm0, xmm1
-	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_290
-	jp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_290
+	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_290
+	jp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_290
 	mov dword [eax+0x14], 0x0
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_290:
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_290:
 	movzx eax, word [ebx+0x4]
 	test ax, ax
-	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_300
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_580:
+	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_300
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_580:
 	mov word [ebx+0x2], 0xffff
 	mov edx, [ebp+0x8]
 	mov eax, [edx]
@@ -8244,43 +8474,43 @@ Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_580:
 	movzx eax, word [eax+0xc]
 	mov [ebp-0x3c], eax
 	test eax, eax
-	jle Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_260
+	jle Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_260
 	mov dword [ebp-0x38], 0x0
 	mov esi, [ebp-0x38]
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_520:
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_520:
 	mov edx, [ebp-0x34]
 	movzx eax, word [edx+0x6]
 	add esi, eax
 	mov edx, [ebp+0x8]
 	movzx eax, word [edx+esi*2+0x8]
 	test ax, ax
-	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_310
+	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_310
 	movzx eax, ax
 	lea eax, [eax+eax*4]
 	lea ebx, [eax*8+g_xAnimInfo]
 	lea eax, [ebx+0xc]
 	pxor xmm1, xmm1
 	ucomiss xmm1, [eax+0x10]
-	jp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_320
-	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_320
+	jp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_320
+	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_320
 	movss xmm0, dword [eax+0xc]
 	ucomiss xmm0, [ebp+0x10]
-	jbe Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_330
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_320:
+	jbe Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_330
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_320:
 	movss xmm0, dword [ebp+0x10]
 	movss [eax+0xc], xmm0
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_330:
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_330:
 	mov dword [eax+0x10], 0x0
 	movss xmm0, dword [ebp+0x10]
 	ucomiss xmm0, xmm1
-	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_340
-	jp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_340
+	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_340
+	jp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_340
 	mov dword [eax+0x14], 0x0
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_340:
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_340:
 	movzx eax, word [ebx+0x4]
 	test ax, ax
-	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_350
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_560:
+	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_350
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_560:
 	mov word [ebx+0x2], 0xffff
 	mov edx, [ebp+0x8]
 	mov eax, [edx]
@@ -8290,43 +8520,43 @@ Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_560:
 	movzx eax, word [eax+0xc]
 	mov [ebp-0x30], eax
 	test eax, eax
-	jle Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_310
+	jle Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_310
 	mov dword [ebp-0x2c], 0x0
 	mov esi, [ebp-0x2c]
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_510:
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_510:
 	mov edx, [ebp-0x28]
 	movzx eax, word [edx+0x6]
 	add esi, eax
 	mov edx, [ebp+0x8]
 	movzx eax, word [edx+esi*2+0x8]
 	test ax, ax
-	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_360
+	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_360
 	movzx eax, ax
 	lea eax, [eax+eax*4]
 	lea ebx, [eax*8+g_xAnimInfo]
 	lea eax, [ebx+0xc]
 	pxor xmm1, xmm1
 	ucomiss xmm1, [eax+0x10]
-	jp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_370
-	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_370
+	jp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_370
+	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_370
 	movss xmm0, dword [eax+0xc]
 	ucomiss xmm0, [ebp+0x10]
-	jbe Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_380
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_370:
+	jbe Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_380
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_370:
 	movss xmm0, dword [ebp+0x10]
 	movss [eax+0xc], xmm0
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_380:
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_380:
 	mov dword [eax+0x10], 0x0
 	movss xmm0, dword [ebp+0x10]
 	ucomiss xmm0, xmm1
-	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_390
-	jp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_390
+	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_390
+	jp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_390
 	mov dword [eax+0x14], 0x0
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_390:
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_390:
 	movzx eax, word [ebx+0x4]
 	test ax, ax
-	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_400
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_540:
+	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_400
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_540:
 	mov word [ebx+0x2], 0xffff
 	mov edx, [ebp+0x8]
 	mov eax, [edx]
@@ -8336,11 +8566,11 @@ Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_540:
 	movzx eax, word [eax+0xc]
 	mov [ebp-0x24], eax
 	test eax, eax
-	jle Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_360
+	jle Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_360
 	mov dword [ebp-0x20], 0x0
 	mov esi, [ebp-0x20]
-	jmp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_410
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_470:
+	jmp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_410
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_470:
 	mov word [ebx+0x2], 0xffff
 	mov edx, [ebp+0x8]
 	mov eax, [edx]
@@ -8348,50 +8578,50 @@ Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_470:
 	lea edi, [eax+0xc]
 	movzx esi, word [eax+0xc]
 	test esi, esi
-	jg Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_420
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_430:
+	jg Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_420
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_430:
 	add dword [ebp-0x20], 0x1
 	mov edx, [ebp-0x20]
 	cmp [ebp-0x24], edx
-	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_360
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_500:
+	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_360
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_500:
 	mov esi, edx
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_410:
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_410:
 	mov edx, [ebp-0x1c]
 	movzx eax, word [edx+0x6]
 	add esi, eax
 	mov edx, [ebp+0x8]
 	movzx eax, word [edx+esi*2+0x8]
 	test ax, ax
-	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_430
+	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_430
 	movzx eax, ax
 	lea eax, [eax+eax*4]
 	lea ebx, [eax*8+g_xAnimInfo]
 	lea eax, [ebx+0xc]
 	pxor xmm1, xmm1
 	ucomiss xmm1, [eax+0x10]
-	jp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_440
-	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_440
+	jp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_440
+	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_440
 	movss xmm0, dword [eax+0xc]
 	ucomiss xmm0, [ebp+0x10]
-	jbe Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_450
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_440:
+	jbe Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_450
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_440:
 	movss xmm0, dword [ebp+0x10]
 	movss [eax+0xc], xmm0
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_450:
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_450:
 	mov dword [eax+0x10], 0x0
 	movss xmm0, dword [ebp+0x10]
 	ucomiss xmm0, xmm1
-	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_460
-	jp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_460
+	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_460
+	jp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_460
 	mov dword [eax+0x14], 0x0
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_460:
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_460:
 	movzx eax, word [ebx+0x4]
 	test ax, ax
-	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_470
+	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_470
 	movzx eax, ax
 	mov [esp], eax
-	call Z20SL_RemoveRefToStringj:F(0,5)
+	call Z20SL_RemoveRefToStringj_F0_5
 	mov word [ebx+0x4], 0x0
 	mov word [ebx+0x2], 0xffff
 	mov edx, [ebp+0x8]
@@ -8400,10 +8630,10 @@ Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_460:
 	lea edi, [eax+0xc]
 	movzx esi, word [eax+0xc]
 	test esi, esi
-	jle Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_430
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_420:
+	jle Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_430
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_420:
 	xor ebx, ebx
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_490:
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_490:
 	movss xmm0, dword [ebp+0x10]
 	movss [esp+0x8], xmm0
 	movzx eax, word [edi+0x6]
@@ -8411,126 +8641,126 @@ Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_490:
 	mov [esp+0x4], eax
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_480
+	call Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_480
 	add ebx, 0x1
 	cmp esi, ebx
-	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_490
+	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_490
 	add dword [ebp-0x20], 0x1
 	mov edx, [ebp-0x20]
 	cmp [ebp-0x24], edx
-	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_500
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_360:
+	jnz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_500
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_360:
 	add dword [ebp-0x2c], 0x1
 	mov eax, [ebp-0x2c]
 	cmp [ebp-0x30], eax
-	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_310
+	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_310
 	mov esi, eax
-	jmp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_510
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_310:
+	jmp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_510
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_310:
 	add dword [ebp-0x38], 0x1
 	mov edx, [ebp-0x38]
 	cmp [ebp-0x3c], edx
-	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_260
+	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_260
 	mov esi, edx
-	jmp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_520
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_260:
+	jmp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_520
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_260:
 	add dword [ebp-0x44], 0x1
 	mov eax, [ebp-0x44]
 	cmp [ebp-0x48], eax
-	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_210
+	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_210
 	mov esi, eax
-	jmp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_530
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_400:
+	jmp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_530
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_400:
 	movzx eax, ax
 	mov [esp], eax
-	call Z20SL_RemoveRefToStringj:F(0,5)
+	call Z20SL_RemoveRefToStringj_F0_5
 	mov word [ebx+0x4], 0x0
-	jmp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_540
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_210:
+	jmp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_540
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_210:
 	add dword [ebp-0x50], 0x1
 	mov edx, [ebp-0x50]
 	cmp [ebp-0x54], edx
-	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_160
+	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_160
 	mov esi, edx
-	jmp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_550
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_350:
+	jmp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_550
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_350:
 	movzx eax, ax
 	mov [esp], eax
-	call Z20SL_RemoveRefToStringj:F(0,5)
+	call Z20SL_RemoveRefToStringj_F0_5
 	mov word [ebx+0x4], 0x0
-	jmp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_560
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_160:
+	jmp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_560
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_160:
 	add dword [ebp-0x5c], 0x1
 	mov eax, [ebp-0x5c]
 	cmp [ebp-0x60], eax
-	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_110
+	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_110
 	mov esi, eax
-	jmp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_570
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_300:
+	jmp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_570
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_300:
 	movzx eax, ax
 	mov [esp], eax
-	call Z20SL_RemoveRefToStringj:F(0,5)
+	call Z20SL_RemoveRefToStringj_F0_5
 	mov word [ebx+0x4], 0x0
-	jmp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_580
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_110:
+	jmp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_580
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_110:
 	add dword [ebp-0x68], 0x1
 	mov edx, [ebp-0x68]
 	cmp [ebp-0x6c], edx
-	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_60
+	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_60
 	mov esi, edx
-	jmp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_590
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_250:
+	jmp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_590
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_250:
 	movzx eax, ax
 	mov [esp], eax
-	call Z20SL_RemoveRefToStringj:F(0,5)
+	call Z20SL_RemoveRefToStringj_F0_5
 	mov word [ebx+0x4], 0x0
-	jmp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_600
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_60:
+	jmp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_600
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_60:
 	add dword [ebp-0x74], 0x1
 	mov eax, [ebp-0x74]
 	cmp [ebp-0x78], eax
-	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_10
+	jz Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_10
 	mov esi, eax
-	jmp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_610
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_200:
+	jmp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_610
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_200:
 	movzx eax, ax
 	mov [esp], eax
-	call Z20SL_RemoveRefToStringj:F(0,5)
+	call Z20SL_RemoveRefToStringj_F0_5
 	mov word [ebx+0x4], 0x0
-	jmp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_620
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_150:
+	jmp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_620
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_150:
 	movzx eax, ax
 	mov [esp], eax
-	call Z20SL_RemoveRefToStringj:F(0,5)
+	call Z20SL_RemoveRefToStringj_F0_5
 	mov word [ebx+0x4], 0x0
-	jmp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_630
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_10:
+	jmp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_630
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_10:
 	add esp, 0x7c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_40:
-	jp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_640
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_40:
+	jp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_640
 	mov dword [eax+0x14], 0x0
-	jmp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_640
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_30:
+	jmp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_640
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_30:
 	movss xmm0, dword [eax+0xc]
 	ucomiss xmm0, [ebp+0x10]
-	jbe Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_650
-	jmp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_20
-Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_50:
+	jbe Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_650
+	jmp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_20
+Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_50:
 	movzx eax, ax
 	mov [esp], eax
-	call Z20SL_RemoveRefToStringj:F(0,5)
+	call Z20SL_RemoveRefToStringj_F0_5
 	mov word [ebx+0x4], 0x0
-	jmp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)_660
+	jmp Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1_660
 
 
-;Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf:F(0,1)
+;Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf_F0_1
 
-Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf:F(0,1):
+Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -8546,11 +8776,11 @@ Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf:F(0,1):
 	movzx eax, word [eax+0xc]
 	mov [ebp-0x24], eax
 	test eax, eax
-	jle Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf:F(0,1)_10
+	jle Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf_F0_1_10
 	mov dword [ebp-0x20], 0x0
 	mov esi, [ebp-0x20]
-	jmp Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf:F(0,1)_20
-Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf:F(0,1)_80:
+	jmp Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf_F0_1_20
+Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf_F0_1_80:
 	mov word [ebx+0x2], 0xffff
 	mov edx, [ebp+0x8]
 	mov eax, [edx]
@@ -8558,50 +8788,50 @@ Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf:F(0,1)_80:
 	lea edi, [eax+0xc]
 	movzx esi, word [eax+0xc]
 	test esi, esi
-	jg Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf:F(0,1)_30
-Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf:F(0,1)_40:
+	jg Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf_F0_1_30
+Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf_F0_1_40:
 	add dword [ebp-0x20], 0x1
 	mov edx, [ebp-0x20]
 	cmp [ebp-0x24], edx
-	jz Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf:F(0,1)_10
-Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf:F(0,1)_100:
+	jz Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf_F0_1_10
+Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf_F0_1_100:
 	mov esi, edx
-Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf:F(0,1)_20:
+Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf_F0_1_20:
 	mov edx, [ebp-0x1c]
 	movzx eax, word [edx+0x6]
 	add esi, eax
 	mov edx, [ebp+0x8]
 	movzx eax, word [edx+esi*2+0x8]
 	test ax, ax
-	jz Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf:F(0,1)_40
+	jz Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf_F0_1_40
 	movzx eax, ax
 	lea eax, [eax+eax*4]
 	lea ebx, [eax*8+g_xAnimInfo]
 	lea eax, [ebx+0xc]
 	pxor xmm1, xmm1
 	ucomiss xmm1, [eax+0x10]
-	jp Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf:F(0,1)_50
-	jnz Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf:F(0,1)_50
+	jp Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf_F0_1_50
+	jnz Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf_F0_1_50
 	movss xmm0, dword [eax+0xc]
 	ucomiss xmm0, [ebp+0x10]
-	jbe Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf:F(0,1)_60
-Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf:F(0,1)_50:
+	jbe Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf_F0_1_60
+Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf_F0_1_50:
 	movss xmm0, dword [ebp+0x10]
 	movss [eax+0xc], xmm0
-Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf:F(0,1)_60:
+Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf_F0_1_60:
 	mov dword [eax+0x10], 0x0
 	movss xmm0, dword [ebp+0x10]
 	ucomiss xmm0, xmm1
-	jnz Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf:F(0,1)_70
-	jp Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf:F(0,1)_70
+	jnz Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf_F0_1_70
+	jp Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf_F0_1_70
 	mov dword [eax+0x14], 0x0
-Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf:F(0,1)_70:
+Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf_F0_1_70:
 	movzx eax, word [ebx+0x4]
 	test ax, ax
-	jz Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf:F(0,1)_80
+	jz Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf_F0_1_80
 	movzx eax, ax
 	mov [esp], eax
-	call Z20SL_RemoveRefToStringj:F(0,5)
+	call Z20SL_RemoveRefToStringj_F0_5
 	mov word [ebx+0x4], 0x0
 	mov word [ebx+0x2], 0xffff
 	mov edx, [ebp+0x8]
@@ -8610,10 +8840,10 @@ Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf:F(0,1)_70:
 	lea edi, [eax+0xc]
 	movzx esi, word [eax+0xc]
 	test esi, esi
-	jle Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf:F(0,1)_40
-Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf:F(0,1)_30:
+	jle Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf_F0_1_40
+Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf_F0_1_30:
 	xor ebx, ebx
-Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf:F(0,1)_90:
+Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf_F0_1_90:
 	movss xmm0, dword [ebp+0x10]
 	movss [esp+0x8], xmm0
 	movzx eax, word [edi+0x6]
@@ -8621,15 +8851,15 @@ Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf:F(0,1)_90:
 	mov [esp+0x4], eax
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf:F(0,1)
+	call Z25XAnimClearTreeGoalWeightsP11XAnimTree_sjf_F0_1
 	add ebx, 0x1
 	cmp esi, ebx
-	jnz Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf:F(0,1)_90
+	jnz Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf_F0_1_90
 	add dword [ebp-0x20], 0x1
 	mov edx, [ebp-0x20]
 	cmp [ebp-0x24], edx
-	jnz Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf:F(0,1)_100
-Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf:F(0,1)_10:
+	jnz Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf_F0_1_100
+Z31XAnimClearTreeGoalWeightsStrictP11XAnimTree_sjf_F0_1_10:
 	add esp, 0x2c
 	pop ebx
 	pop esi
@@ -8697,7 +8927,7 @@ _Z24XAnimProcessServerNotifyPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryf_70:
 	movzx ebx, word [eax+0x4]
 	movzx eax, word [esi]
 	mov [esp], eax
-	call Z18Scr_AddConstStringj:F(0,1)
+	call Z18Scr_AddConstStringj_F0_1
 	mov dword [esp+0xc], 0x1
 	mov [esp+0x8], ebx
 	mov dword [esp+0x4], 0x0
@@ -8705,7 +8935,7 @@ _Z24XAnimProcessServerNotifyPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryf_70:
 	movzx eax, word [edx+0x4]
 	sub eax, 0x1
 	mov [esp], eax
-	call Z13Scr_NotifyNumiijj:F(0,1)
+	call Z13Scr_NotifyNumiijj_F0_1
 	add esi, 0x8
 	add edi, 0x1
 	mov ecx, [ebp-0x24]
@@ -8722,7 +8952,7 @@ _Z24XAnimProcessServerNotifyPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryf_80:
 	movzx ebx, word [eax+0x4]
 	movzx eax, word [esi]
 	mov [esp], eax
-	call Z18Scr_AddConstStringj:F(0,1)
+	call Z18Scr_AddConstStringj_F0_1
 	mov dword [esp+0xc], 0x1
 	mov [esp+0x8], ebx
 	mov dword [esp+0x4], 0x0
@@ -8730,7 +8960,7 @@ _Z24XAnimProcessServerNotifyPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryf_80:
 	movzx eax, word [edx+0x4]
 	sub eax, 0x1
 	mov [esp], eax
-	call Z13Scr_NotifyNumiijj:F(0,1)
+	call Z13Scr_NotifyNumiijj_F0_1
 	add esi, 0x8
 	movss xmm0, dword [edi]
 	add edi, 0x8
@@ -8759,7 +8989,7 @@ _Z24XAnimProcessServerNotifyPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryf_110:
 	movzx ebx, word [eax+0x4]
 	movzx eax, word [esi]
 	mov [esp], eax
-	call Z18Scr_AddConstStringj:F(0,1)
+	call Z18Scr_AddConstStringj_F0_1
 	mov dword [esp+0xc], 0x1
 	mov [esp+0x8], ebx
 	mov dword [esp+0x4], 0x0
@@ -8767,7 +8997,7 @@ _Z24XAnimProcessServerNotifyPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryf_110:
 	movzx eax, word [edx+0x4]
 	sub eax, 0x1
 	mov [esp], eax
-	call Z13Scr_NotifyNumiijj:F(0,1)
+	call Z13Scr_NotifyNumiijj_F0_1
 	add esi, 0x8
 	add edi, 0x1
 	mov ecx, [ebp-0x24]
@@ -8780,7 +9010,7 @@ _Z24XAnimProcessServerNotifyPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryf_20:
 _Z24XAnimProcessServerNotifyPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryf_180:
 	mov eax, [g_end]
 	mov [esp], eax
-	call Z18Scr_AddConstStringj:F(0,1)
+	call Z18Scr_AddConstStringj_F0_1
 	mov dword [esp+0xc], 0x1
 	mov edx, [ebp-0x2c]
 	movzx eax, word [edx+0x4]
@@ -8790,7 +9020,7 @@ _Z24XAnimProcessServerNotifyPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryf_180:
 	movzx eax, word [ecx+0x4]
 	sub eax, 0x1
 	mov [esp], eax
-	call Z13Scr_NotifyNumiijj:F(0,1)
+	call Z13Scr_NotifyNumiijj_F0_1
 	add esp, 0x3c
 	pop ebx
 	pop esi
@@ -8815,7 +9045,7 @@ _Z24XAnimProcessServerNotifyPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryf_130:
 	movzx ebx, word [eax+0x4]
 	movzx eax, word [edx-0x8]
 	mov [esp], eax
-	call Z18Scr_AddConstStringj:F(0,1)
+	call Z18Scr_AddConstStringj_F0_1
 	mov dword [esp+0xc], 0x1
 	mov [esp+0x8], ebx
 	mov dword [esp+0x4], 0x0
@@ -8823,7 +9053,7 @@ _Z24XAnimProcessServerNotifyPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryf_130:
 	movzx eax, word [ecx+0x4]
 	sub eax, 0x1
 	mov [esp], eax
-	call Z13Scr_NotifyNumiijj:F(0,1)
+	call Z13Scr_NotifyNumiijj_F0_1
 	add edi, 0x1
 	mov ebx, [ebp-0x24]
 	movzx eax, byte [ebx+0xc]
@@ -8886,7 +9116,7 @@ _Z24XAnimProcessServerNotifyPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryf_210:
 	movzx ebx, word [edx+0x4]
 	movzx eax, word [ecx-0x8]
 	mov [esp], eax
-	call Z18Scr_AddConstStringj:F(0,1)
+	call Z18Scr_AddConstStringj_F0_1
 	mov dword [esp+0xc], 0x1
 	mov [esp+0x8], ebx
 	mov dword [esp+0x4], 0x0
@@ -8894,7 +9124,7 @@ _Z24XAnimProcessServerNotifyPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryf_210:
 	movzx eax, word [ebx+0x4]
 	sub eax, 0x1
 	mov [esp], eax
-	call Z13Scr_NotifyNumiijj:F(0,1)
+	call Z13Scr_NotifyNumiijj_F0_1
 	add edi, 0x1
 	mov edx, [ebp-0x24]
 	movzx eax, byte [edx+0xc]
@@ -8929,9 +9159,9 @@ _Z24XAnimProcessServerNotifyPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryf_230:
 	add [eax], al
 
 
-;Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)
+;Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2
 
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2):
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -8948,7 +9178,7 @@ Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2):
 	movss [ebp+0x14], xmm1
 	mov eax, [ebp+0xc]
 	test eax, eax
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_10
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_10
 	mov eax, [ebp+0x8]
 	mov edx, [eax]
 	mov ecx, [ebp+0xc]
@@ -8958,7 +9188,7 @@ Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2):
 	mov [ebp-0x48], ebx
 	movzx edi, word [eax+0xc]
 	test edi, edi
-	jle Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_20
+	jle Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_20
 	movzx ebx, word [ebx+0x6]
 	mov ecx, [ebp+0x8]
 	lea edx, [ecx+ebx*2+0x8]
@@ -8966,38 +9196,38 @@ Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2):
 	movaps xmm4, xmm0
 	movaps xmm1, xmm0
 	movss xmm2, dword [vec2_origin+0x264]
-	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_30
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_60:
+	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_30
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_60:
 	movaps xmm0, xmm4
 	lea eax, [ebx+ecx]
 	cmp [ebp+0xc], eax
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_40
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_70:
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_40
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_70:
 	maxss xmm0, xmm1
 	movaps xmm1, xmm0
 	add ecx, 0x1
 	add edx, 0x2
 	cmp edi, ecx
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_50
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_30:
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_50
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_30:
 	movzx eax, word [edx]
 	test ax, ax
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_60
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_60
 	movzx eax, ax
 	lea eax, [eax+eax*4]
 	movss xmm0, dword [eax*8+g_xAnimInfo+0x20]
 	lea eax, [ebx+ecx]
 	cmp [ebp+0xc], eax
-	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_70
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_40:
+	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_70
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_40:
 	movss xmm3, dword [ebp+0x14]
 	subss xmm3, xmm0
 	movaps xmm0, xmm3
 	andps xmm0, xmm2
-	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_70
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_10:
+	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_70
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_10:
 	movaps xmm0, xmm1
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_540:
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_540:
 	mov dword [esp+0x4], 0x0
 	mov eax, [ebp+0x20]
 	mov [esp], eax
@@ -9010,60 +9240,60 @@ Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_540:
 	mov [ebp-0x4c], eax
 	mov eax, [ebp+0xc]
 	test eax, eax
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_80
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_80
 	mov ebx, [ebp+0x8]
 	mov ecx, [ebx]
 	mov eax, [ebp+0xc]
 	movzx ebx, word [ecx+eax*8+0xe]
 	mov edx, [ebp+0x8]
 	cmp word [edx+ebx*2+0x8], 0x0
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_90
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_80:
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_90
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_80:
 	mov eax, [ebp+0x24]
 	test eax, eax
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_100
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_100
 	mov esi, [ebp+0xc]
 	test esi, esi
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_110
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_110
 	mov ebx, [ebp+0x8]
 	mov ecx, [ebx]
 	mov edx, [ebp+0xc]
-	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_120
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_150:
+	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_120
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_150:
 	mov ebx, [ebp+0x8]
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_120:
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_120:
 	movzx eax, word [ebx+edx*2+0x8]
 	lea eax, [eax+eax*4]
 	lea ebx, [eax*8+g_xAnimInfo]
 	lea eax, [ecx+edx*8]
 	lea esi, [eax+0xc]
 	cmp word [eax+0xc], 0x0
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_130
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_130
 	test byte [esi+0x4], 0x4
-	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_140
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_130:
+	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_140
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_130:
 	movzx eax, word [ecx+edx*8+0xe]
 	movzx edx, ax
 	test ax, ax
-	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_150
+	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_150
 	mov eax, [ebp+0xc]
 	cmp word [ecx+eax*8+0xc], 0x0
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_160
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_100:
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_160
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_100:
 	mov eax, [ebp+0xc]
 	test eax, eax
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_170
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_640:
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_170
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_640:
 	mov eax, [ebp+0x8]
 	mov edx, [eax]
 	mov ecx, [ebp+0xc]
 	movzx eax, word [edx+ecx*8+0xe]
 	movzx edi, ax
 	cmp [ebp+0x10], edi
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_180
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_350:
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_180
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_350:
 	test ax, ax
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_190
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_190
 	movzx eax, word [edx+edi*8+0xe]
 	lea eax, [edx+eax*8]
 	lea edx, [eax+0xc]
@@ -9071,59 +9301,59 @@ Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_350:
 	movzx eax, word [eax+0xc]
 	mov [ebp-0x34], eax
 	test eax, eax
-	jg Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_200
+	jg Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_200
 	pxor xmm4, xmm4
 	movaps xmm1, xmm4
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_390:
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_390:
 	mulss xmm1, [ebp+0x18]
 	movss [ebp-0x2c], xmm1
 	mov eax, [ebp-0x34]
 	test eax, eax
-	jle Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_190
+	jle Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_190
 	ucomiss xmm1, xmm4
-	jp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_210
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_220
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_210:
+	jp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_210
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_220
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_210:
 	xor esi, esi
-	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_230
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_240:
+	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_230
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_240:
 	add esi, 0x1
 	cmp esi, [ebp-0x34]
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_190
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_230:
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_190
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_230:
 	mov edx, [ebp-0x30]
 	movzx eax, word [edx+0x6]
 	lea eax, [esi+eax]
 	cmp edi, eax
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_240
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_240
 	mov edx, [ebp+0x8]
 	movzx eax, word [edx+eax*2+0x8]
 	test ax, ax
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_240
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_240
 	movzx eax, ax
 	lea eax, [eax+eax*4]
 	lea ebx, [eax*8+g_xAnimInfo]
 	lea eax, [ebx+0xc]
 	pxor xmm2, xmm2
 	ucomiss xmm2, [eax+0x10]
-	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_250
-	jp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_250
+	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_250
+	jp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_250
 	movss xmm0, dword [eax+0xc]
 	ucomiss xmm0, [ebp-0x2c]
-	jbe Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_260
+	jbe Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_260
 	movss xmm1, dword [ebp-0x2c]
 	movss [eax+0xc], xmm1
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_260:
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_260:
 	mov dword [eax+0x10], 0x0
 	movzx eax, word [ebx+0x4]
 	test ax, ax
-	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_270
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_360:
+	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_270
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_360:
 	mov word [ebx+0x2], 0xffff
 	add esi, 0x1
 	cmp esi, [ebp-0x34]
-	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_230
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_190:
+	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_230
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_190:
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], 0x0
 	xor ecx, ecx
@@ -9135,33 +9365,33 @@ Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_190:
 	call _Z26XAnimSetGoalWeightInternalP11XAnimTree_sjfffhjj
 	mov eax, [ebp+0x24]
 	test eax, eax
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_280
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_280
 	test edi, edi
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_290
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_290
 	mov ebx, [ebp+0x8]
 	mov ecx, [ebx]
 	mov edx, edi
-	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_300
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_330:
+	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_300
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_330:
 	mov ebx, [ebp+0x8]
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_300:
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_300:
 	movzx eax, word [ebx+edx*2+0x8]
 	lea eax, [eax+eax*4]
 	lea ebx, [eax*8+g_xAnimInfo]
 	lea eax, [ecx+edx*8]
 	lea esi, [eax+0xc]
 	cmp word [eax+0xc], 0x0
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_310
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_310
 	test byte [esi+0x4], 0x4
-	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_320
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_310:
+	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_320
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_310:
 	movzx eax, word [ecx+edx*8+0xe]
 	movzx edx, ax
 	test ax, ax
-	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_330
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_420:
+	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_330
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_420:
 	cmp word [ecx+edi*8+0xc], 0x0
-	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_280
+	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_280
 	mov edx, [ebp+0x8]
 	movzx eax, word [edx+edi*2+0x8]
 	lea eax, [eax+eax*4]
@@ -9169,24 +9399,24 @@ Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_420:
 	lea eax, [edx+0xc]
 	pxor xmm4, xmm4
 	ucomiss xmm4, [edx+0xc]
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_340
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_430:
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_340
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_430:
 	mov dword [eax], 0x0
 	mov word [eax+0x8], 0x0
 	mov dword [eax+0x4], 0x0
 	mov word [eax+0xa], 0x0
 	mov word [edx+0x2], 0xffff
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_280:
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_280:
 	test edi, edi
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_170
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_440:
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_170
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_440:
 	mov ebx, [ebp+0x8]
 	mov edx, [ebx]
 	movzx eax, word [edx+edi*8+0xe]
 	movzx edi, ax
 	cmp [ebp+0x10], edi
-	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_350
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_180:
+	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_350
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_180:
 	mov eax, [ebp-0x4c]
 	add esp, 0x5c
 	pop ebx
@@ -9194,20 +9424,20 @@ Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_180:
 	pop edi
 	pop ebp
 	ret
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_250:
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_250:
 	movss xmm0, dword [ebp-0x2c]
 	movss [eax+0xc], xmm0
 	mov dword [eax+0x10], 0x0
 	movzx eax, word [ebx+0x4]
 	test ax, ax
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_360
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_270:
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_360
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_270:
 	movzx eax, ax
 	mov [esp], eax
-	call Z20SL_RemoveRefToStringj:F(0,5)
+	call Z20SL_RemoveRefToStringj_F0_5
 	mov word [ebx+0x4], 0x0
-	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_360
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_200:
+	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_360
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_200:
 	movzx ebx, word [edx+0x6]
 	mov eax, [ebp+0x8]
 	lea edx, [eax+ebx*2+0x8]
@@ -9216,46 +9446,46 @@ Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_200:
 	movaps xmm1, xmm4
 	movss xmm3, dword [_float_1_00000000]
 	movss xmm2, dword [vec2_origin+0x264]
-	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_370
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_400:
+	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_370
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_400:
 	movaps xmm0, xmm4
 	lea eax, [ebx+ecx]
 	cmp edi, eax
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_380
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_410:
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_380
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_410:
 	maxss xmm0, xmm1
 	movaps xmm1, xmm0
 	add ecx, 0x1
 	add edx, 0x2
 	cmp [ebp-0x34], ecx
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_390
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_370:
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_390
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_370:
 	movzx eax, word [edx]
 	test ax, ax
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_400
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_400
 	movzx eax, ax
 	lea eax, [eax+eax*4]
 	movss xmm0, dword [eax*8+g_xAnimInfo+0x20]
 	lea eax, [ebx+ecx]
 	cmp edi, eax
-	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_410
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_380:
+	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_410
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_380:
 	movaps xmm5, xmm3
 	subss xmm5, xmm0
 	movaps xmm0, xmm5
 	andps xmm0, xmm2
-	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_410
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_290:
+	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_410
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_290:
 	mov ebx, [ebp+0x8]
 	mov ecx, [ebx]
-	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_420
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_340:
-	jp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_430
+	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_420
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_340:
+	jp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_430
 	cmp word [eax+0x8], 0x0
-	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_430
+	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_430
 	test edi, edi
-	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_440
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_170:
+	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_440
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_170:
 	mov dword [ebp-0x4c], 0x1
 	mov eax, [ebp-0x4c]
 	add esp, 0x5c
@@ -9264,13 +9494,13 @@ Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_170:
 	pop edi
 	pop ebp
 	ret
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_110:
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_110:
 	mov ebx, [ebp+0x8]
 	mov ecx, [ebx]
 	mov eax, [ebp+0xc]
 	cmp word [ecx+eax*8+0xc], 0x0
-	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_100
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_160:
+	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_100
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_160:
 	mov ecx, [ebp+0x8]
 	movzx eax, word [ecx+eax*2+0x8]
 	lea eax, [eax+eax*4]
@@ -9278,87 +9508,87 @@ Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_160:
 	lea eax, [edx+0xc]
 	pxor xmm4, xmm4
 	ucomiss xmm4, [edx+0xc]
-	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_450
-	jp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_450
+	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_450
+	jp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_450
 	cmp word [eax+0x8], 0x0
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_100
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_450:
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_100
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_450:
 	mov dword [eax], 0x0
 	mov word [eax+0x8], 0x0
 	mov dword [eax+0x4], 0x0
 	mov word [eax+0xa], 0x0
 	mov word [edx+0x2], 0xffff
-	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_100
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_20:
+	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_100
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_20:
 	movaps xmm4, xmm0
 	movaps xmm1, xmm0
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_50:
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_50:
 	mulss xmm1, [ebp+0x18]
 	movss [ebp-0x44], xmm1
 	test edi, edi
-	jle Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_460
+	jle Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_460
 	ucomiss xmm1, xmm4
-	jp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_470
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_480
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_470:
+	jp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_470
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_480
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_470:
 	xor esi, esi
-	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_490
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_500:
+	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_490
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_500:
 	add esi, 0x1
 	cmp esi, edi
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_460
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_490:
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_460
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_490:
 	mov edx, [ebp-0x48]
 	movzx eax, word [edx+0x6]
 	lea eax, [esi+eax]
 	cmp [ebp+0xc], eax
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_500
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_500
 	mov edx, [ebp+0x8]
 	movzx eax, word [edx+eax*2+0x8]
 	test ax, ax
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_500
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_500
 	movzx eax, ax
 	lea eax, [eax+eax*4]
 	lea ebx, [eax*8+g_xAnimInfo]
 	lea eax, [ebx+0xc]
 	pxor xmm2, xmm2
 	ucomiss xmm2, [eax+0x10]
-	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_510
-	jp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_510
+	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_510
+	jp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_510
 	movss xmm0, dword [eax+0xc]
 	ucomiss xmm0, [ebp-0x44]
-	jbe Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_520
+	jbe Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_520
 	movss xmm1, dword [ebp-0x44]
 	movss [eax+0xc], xmm1
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_520:
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_520:
 	mov dword [eax+0x10], 0x0
 	movzx eax, word [ebx+0x4]
 	test ax, ax
-	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_530
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_550:
+	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_530
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_550:
 	mov word [ebx+0x2], 0xffff
 	add esi, 0x1
 	cmp esi, edi
-	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_490
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_460:
+	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_490
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_460:
 	movss xmm0, dword [ebp+0x14]
-	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_540
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_510:
+	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_540
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_510:
 	movss xmm0, dword [ebp-0x44]
 	movss [eax+0xc], xmm0
 	mov dword [eax+0x10], 0x0
 	movzx eax, word [ebx+0x4]
 	test ax, ax
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_550
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_530:
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_550
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_530:
 	movzx eax, ax
 	mov [esp], eax
-	call Z20SL_RemoveRefToStringj:F(0,5)
+	call Z20SL_RemoveRefToStringj_F0_5
 	mov word [ebx+0x4], 0x0
-	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_550
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_90:
+	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_550
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_90:
 	mov eax, [ebp+0x8]
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_560:
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_560:
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], 0x0
 	mov ecx, 0x1
@@ -9368,22 +9598,22 @@ Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_560:
 	mov edx, ebx
 	call _Z26XAnimSetGoalWeightInternalP11XAnimTree_sjfffhjj
 	test ebx, ebx
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_80
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_80
 	mov eax, [ebp+0x8]
 	mov ecx, [eax]
 	movzx ebx, word [ecx+ebx*8+0xe]
 	cmp word [eax+ebx*2+0x8], 0x0
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_560
-	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_80
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_320:
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_560
+	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_80
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_320:
 	lea eax, [ebx+0xc]
 	pxor xmm4, xmm4
 	ucomiss xmm4, [ebx+0xc]
-	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_570
-	jp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_570
+	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_570
+	jp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_570
 	cmp word [eax+0x8], 0x0
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_440
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_570:
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_440
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_570:
 	mov dword [eax], 0x0
 	mov word [eax+0x8], 0x0
 	mov dword [eax+0x4], 0x0
@@ -9392,39 +9622,39 @@ Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_570:
 	movzx eax, word [esi]
 	mov [ebp-0x28], eax
 	test eax, eax
-	jle Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_440
+	jle Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_440
 	mov dword [ebp-0x24], 0x0
-	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_580
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_590:
+	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_580
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_590:
 	add dword [ebp-0x24], 0x1
 	mov edx, [ebp-0x24]
 	cmp [ebp-0x28], edx
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_440
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_580:
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_440
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_580:
 	movzx eax, word [esi+0x6]
 	mov ecx, [ebp-0x24]
 	add ecx, eax
 	mov edx, [ebp+0x8]
 	movzx eax, word [edx+ecx*2+0x8]
 	test ax, ax
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_590
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_590
 	movzx eax, ax
 	lea eax, [eax+eax*4]
 	lea eax, [eax*8+g_xAnimInfo]
 	lea edx, [eax+0xc]
 	pxor xmm0, xmm0
 	ucomiss xmm0, [eax+0xc]
-	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_600
-	jp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_600
+	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_600
+	jp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_600
 	cmp word [edx+0x8], 0x0
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_610
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_600:
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_610
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_600:
 	mov dword [edx], 0x0
 	mov word [edx+0x8], 0x0
 	mov dword [edx+0x4], 0x0
 	mov word [edx+0xa], 0x0
 	mov word [eax+0x2], 0xffff
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_610:
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_610:
 	mov edx, [ebp+0x8]
 	mov eax, [edx]
 	lea eax, [eax+ecx*8]
@@ -9433,9 +9663,9 @@ Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_610:
 	movzx eax, word [eax+0xc]
 	mov [ebp-0x20], eax
 	test eax, eax
-	jle Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_590
+	jle Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_590
 	xor ebx, ebx
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_620:
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_620:
 	mov eax, [ebp-0x1c]
 	movzx edx, word [eax+0x6]
 	lea edx, [ebx+edx]
@@ -9443,17 +9673,17 @@ Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_620:
 	call _Z14XAnimResetTimeP11XAnimTree_sj
 	add ebx, 0x1
 	cmp [ebp-0x20], ebx
-	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_620
-	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_590
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_140:
+	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_620
+	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_590
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_140:
 	lea eax, [ebx+0xc]
 	pxor xmm4, xmm4
 	ucomiss xmm4, [ebx+0xc]
-	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_630
-	jp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_630
+	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_630
+	jp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_630
 	cmp word [eax+0x8], 0x0
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_640
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_630:
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_640
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_630:
 	mov dword [eax], 0x0
 	mov word [eax+0x8], 0x0
 	mov dword [eax+0x4], 0x0
@@ -9462,39 +9692,39 @@ Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_630:
 	movzx eax, word [esi]
 	mov [ebp-0x40], eax
 	test eax, eax
-	jle Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_640
+	jle Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_640
 	mov dword [ebp-0x3c], 0x0
-	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_650
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_660:
+	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_650
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_660:
 	add dword [ebp-0x3c], 0x1
 	mov edx, [ebp-0x3c]
 	cmp [ebp-0x40], edx
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_640
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_650:
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_640
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_650:
 	movzx eax, word [esi+0x6]
 	mov ecx, [ebp-0x3c]
 	add ecx, eax
 	mov edx, [ebp+0x8]
 	movzx eax, word [edx+ecx*2+0x8]
 	test ax, ax
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_660
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_660
 	movzx eax, ax
 	lea eax, [eax+eax*4]
 	lea eax, [eax*8+g_xAnimInfo]
 	lea edx, [eax+0xc]
 	pxor xmm0, xmm0
 	ucomiss xmm0, [eax+0xc]
-	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_670
-	jp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_670
+	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_670
+	jp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_670
 	cmp word [edx+0x8], 0x0
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_680
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_670:
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_680
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_670:
 	mov dword [edx], 0x0
 	mov word [edx+0x8], 0x0
 	mov dword [edx+0x4], 0x0
 	mov word [edx+0xa], 0x0
 	mov word [eax+0x2], 0xffff
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_680:
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_680:
 	mov edx, [ebp+0x8]
 	mov eax, [edx]
 	lea eax, [eax+ecx*8]
@@ -9502,9 +9732,9 @@ Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_680:
 	mov [ebp-0x38], ecx
 	movzx edi, word [eax+0xc]
 	test edi, edi
-	jle Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_660
+	jle Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_660
 	xor ebx, ebx
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_690:
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_690:
 	mov eax, [ebp-0x38]
 	movzx edx, word [eax+0x6]
 	lea edx, [ebx+edx]
@@ -9512,109 +9742,109 @@ Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_690:
 	call _Z14XAnimResetTimeP11XAnimTree_sj
 	add ebx, 0x1
 	cmp edi, ebx
-	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_690
-	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_660
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_480:
+	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_690
+	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_660
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_480:
 	xor esi, esi
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_740:
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_740:
 	mov edx, [ebp-0x48]
 	movzx eax, word [edx+0x6]
 	lea eax, [esi+eax]
 	cmp [ebp+0xc], eax
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_700
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_700
 	mov ecx, [ebp+0x8]
 	movzx eax, word [ecx+eax*2+0x8]
 	test ax, ax
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_700
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_700
 	movzx eax, ax
 	lea eax, [eax+eax*4]
 	lea ebx, [eax*8+g_xAnimInfo]
 	lea eax, [ebx+0xc]
 	pxor xmm0, xmm0
 	ucomiss xmm0, [eax+0x10]
-	jp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_710
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_720
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_710:
+	jp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_710
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_720
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_710:
 	movss xmm1, dword [ebp-0x44]
 	movss [eax+0xc], xmm1
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_800:
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_800:
 	mov dword [eax+0x10], 0x0
 	mov dword [eax+0x14], 0x0
 	movzx eax, word [ebx+0x4]
 	test ax, ax
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_730
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_730
 	movzx eax, ax
 	mov [esp], eax
-	call Z20SL_RemoveRefToStringj:F(0,5)
+	call Z20SL_RemoveRefToStringj_F0_5
 	mov word [ebx+0x4], 0x0
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_730:
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_730:
 	mov word [ebx+0x2], 0xffff
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_700:
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_700:
 	add esi, 0x1
 	cmp edi, esi
-	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_740
+	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_740
 	movss xmm0, dword [ebp+0x14]
-	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_540
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_220:
+	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_540
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_220:
 	xor esi, esi
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_790:
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_790:
 	mov edx, [ebp-0x30]
 	movzx eax, word [edx+0x6]
 	lea eax, [esi+eax]
 	cmp edi, eax
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_750
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_750
 	mov ecx, [ebp+0x8]
 	movzx eax, word [ecx+eax*2+0x8]
 	test ax, ax
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_750
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_750
 	movzx eax, ax
 	lea eax, [eax+eax*4]
 	lea ebx, [eax*8+g_xAnimInfo]
 	lea eax, [ebx+0xc]
 	pxor xmm0, xmm0
 	ucomiss xmm0, [eax+0x10]
-	jp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_760
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_770
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_760:
+	jp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_760
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_770
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_760:
 	movss xmm1, dword [ebp-0x2c]
 	movss [eax+0xc], xmm1
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_810:
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_810:
 	mov dword [eax+0x10], 0x0
 	mov dword [eax+0x14], 0x0
 	movzx eax, word [ebx+0x4]
 	test ax, ax
-	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_780
+	jz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_780
 	movzx eax, ax
 	mov [esp], eax
-	call Z20SL_RemoveRefToStringj:F(0,5)
+	call Z20SL_RemoveRefToStringj_F0_5
 	mov word [ebx+0x4], 0x0
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_780:
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_780:
 	mov word [ebx+0x2], 0xffff
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_750:
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_750:
 	add esi, 0x1
 	cmp [ebp-0x34], esi
-	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_790
-	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_190
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_720:
+	jnz Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_790
+	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_190
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_720:
 	movss xmm0, dword [eax+0xc]
 	ucomiss xmm0, [ebp-0x44]
-	jbe Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_800
+	jbe Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_800
 	movss xmm2, dword [ebp-0x44]
 	movss [eax+0xc], xmm2
-	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_800
-Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_770:
+	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_800
+Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_770:
 	movss xmm0, dword [eax+0xc]
 	ucomiss xmm0, [ebp-0x2c]
-	jbe Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_810
+	jbe Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_810
 	movss xmm2, dword [ebp-0x2c]
 	movss [eax+0xc], xmm2
-	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji:F(0,2)_810
+	jmp Z33XAnimSetCompleteGoalWeightKnobAllP11XAnimTree_sjjfffji_F0_2_810
 	nop
 
 
-;Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)
+;Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2
 
-Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2):
+Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -9639,41 +9869,41 @@ Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2):
 	mov [ebp-0x2c], eax
 	mov ebx, [ebp+0xc]
 	test ebx, ebx
-	jz Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_10
+	jz Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_10
 	mov ecx, [edi]
 	mov eax, [ebp+0xc]
 	movzx ebx, word [ecx+eax*8+0xe]
 	cmp word [edi+ebx*2+0x8], 0x0
-	jz Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_20
-Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_10:
+	jz Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_20
+Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_10:
 	mov ecx, [ebp+0x24]
 	test ecx, ecx
-	jz Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_30
+	jz Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_30
 	mov edx, [ebp+0xc]
 	test edx, edx
-	jnz Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_40
+	jnz Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_40
 	mov ecx, [edi]
-Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_90:
+Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_90:
 	mov eax, [ebp+0xc]
 	cmp word [ecx+eax*8+0xc], 0x0
-	jnz Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_30
+	jnz Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_30
 	movzx eax, word [edi+eax*2+0x8]
 	lea eax, [eax+eax*4]
 	lea eax, [eax*8+g_xAnimInfo]
 	lea ecx, [eax+0xc]
 	pxor xmm0, xmm0
 	ucomiss xmm0, [eax+0xc]
-	jnz Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_50
-	jp Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_50
+	jnz Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_50
+	jp Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_50
 	cmp word [ecx+0x8], 0x0
-	jz Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_30
-Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_50:
+	jz Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_30
+Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_50:
 	mov dword [ecx], 0x0
 	mov word [ecx+0x8], 0x0
 	mov dword [ecx+0x4], 0x0
 	mov word [ecx+0xa], 0x0
 	mov word [eax+0x2], 0xffff
-Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_30:
+Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_30:
 	mov eax, [ebp-0x2c]
 	add esp, 0x3c
 	pop ebx
@@ -9681,7 +9911,7 @@ Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_30:
 	pop edi
 	pop ebp
 	ret
-Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_20:
+Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_20:
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], 0x0
 	mov ecx, 0x1
@@ -9692,37 +9922,37 @@ Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_20:
 	mov eax, edi
 	call _Z26XAnimSetGoalWeightInternalP11XAnimTree_sjfffhjj
 	test ebx, ebx
-	jz Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_10
+	jz Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_10
 	mov ecx, [edi]
 	movzx ebx, word [ecx+ebx*8+0xe]
 	cmp word [edi+ebx*2+0x8], 0x0
-	jz Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_20
-	jmp Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_10
-Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_40:
+	jz Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_20
+	jmp Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_10
+Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_40:
 	mov ecx, [edi]
 	mov edx, [ebp+0xc]
-Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_80:
+Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_80:
 	movzx eax, word [edi+edx*2+0x8]
 	lea eax, [eax+eax*4]
 	lea ebx, [eax*8+g_xAnimInfo]
 	lea eax, [ecx+edx*8]
 	lea esi, [eax+0xc]
 	cmp word [eax+0xc], 0x0
-	jz Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_60
+	jz Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_60
 	test byte [esi+0x4], 0x4
-	jnz Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_70
-Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_60:
+	jnz Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_70
+Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_60:
 	movzx eax, word [ecx+edx*8+0xe]
 	movzx edx, ax
 	test ax, ax
-	jnz Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_80
-	jmp Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_90
-Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_70:
+	jnz Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_80
+	jmp Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_90
+Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_70:
 	lea eax, [ebx+0xc]
 	pxor xmm0, xmm0
 	ucomiss xmm0, [ebx+0xc]
-	jz Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_100
-Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_160:
+	jz Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_100
+Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_160:
 	mov dword [eax], 0x0
 	mov word [eax+0x8], 0x0
 	mov dword [eax+0x4], 0x0
@@ -9731,38 +9961,38 @@ Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_160:
 	movzx eax, word [esi]
 	mov [ebp-0x28], eax
 	test eax, eax
-	jle Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_30
+	jle Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_30
 	mov dword [ebp-0x24], 0x0
-	jmp Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_110
-Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_120:
+	jmp Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_110
+Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_120:
 	add dword [ebp-0x24], 0x1
 	mov edx, [ebp-0x24]
 	cmp [ebp-0x28], edx
-	jz Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_30
-Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_110:
+	jz Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_30
+Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_110:
 	movzx eax, word [esi+0x6]
 	mov ecx, [ebp-0x24]
 	add ecx, eax
 	movzx eax, word [edi+ecx*2+0x8]
 	test ax, ax
-	jz Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_120
+	jz Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_120
 	movzx eax, ax
 	lea eax, [eax+eax*4]
 	lea eax, [eax*8+g_xAnimInfo]
 	lea edx, [eax+0xc]
 	pxor xmm0, xmm0
 	ucomiss xmm0, [eax+0xc]
-	jnz Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_130
-	jp Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_130
+	jnz Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_130
+	jp Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_130
 	cmp word [edx+0x8], 0x0
-	jz Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_140
-Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_130:
+	jz Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_140
+Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_130:
 	mov dword [edx], 0x0
 	mov word [edx+0x8], 0x0
 	mov dword [edx+0x4], 0x0
 	mov word [edx+0xa], 0x0
 	mov word [eax+0x2], 0xffff
-Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_140:
+Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_140:
 	mov eax, [edi]
 	lea eax, [eax+ecx*8]
 	lea edx, [eax+0xc]
@@ -9770,9 +10000,9 @@ Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_140:
 	movzx eax, word [eax+0xc]
 	mov [ebp-0x20], eax
 	test eax, eax
-	jle Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_120
+	jle Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_120
 	xor ebx, ebx
-Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_150:
+Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_150:
 	mov eax, [ebp-0x1c]
 	movzx edx, word [eax+0x6]
 	lea edx, [ebx+edx]
@@ -9780,13 +10010,13 @@ Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_150:
 	call _Z14XAnimResetTimeP11XAnimTree_sj
 	add ebx, 0x1
 	cmp [ebp-0x20], ebx
-	jnz Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_150
-	jmp Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_120
-Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_100:
-	jp Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_160
+	jnz Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_150
+	jmp Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_120
+Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_100:
+	jp Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_160
 	cmp word [eax+0x8], 0x0
-	jz Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_30
-	jmp Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji:F(0,2)_160
+	jz Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_30
+	jmp Z18XAnimSetGoalWeightP11XAnimTree_sjfffjji_F0_2_160
 
 
 ;XAnimDisplay(XAnimTree_s const*, unsigned int, int)
@@ -9864,7 +10094,7 @@ _Z12XAnimDisplayPK11XAnimTree_sji_280:
 _Z12XAnimDisplayPK11XAnimTree_sji_270:
 	movzx eax, ax
 	mov [esp], eax
-	call Z18SL_ConvertToStringj:F(0,2)
+	call Z18SL_ConvertToStringj_F0_2
 	mov [esp+0x34], eax
 	movsd xmm0, qword [ebp-0x20]
 	movsd [esp+0x2c], xmm0
@@ -9880,7 +10110,7 @@ _Z12XAnimDisplayPK11XAnimTree_sji_270:
 	mov [esp+0x8], eax
 	mov [esp+0x4], ebx
 	mov dword [esp], _cstring_ss_weight_2f__2f
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 _Z12XAnimDisplayPK11XAnimTree_sji_10:
 	add esp, 0x7c
 	pop ebx
@@ -9925,7 +10155,7 @@ _Z12XAnimDisplayPK11XAnimTree_sji_290:
 	mov [esp+0x8], eax
 	mov [esp+0x4], ebx
 	mov dword [esp], _cstring_ss_weight_2f__2f1
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	jmp _Z12XAnimDisplayPK11XAnimTree_sji_150
 _Z12XAnimDisplayPK11XAnimTree_sji_40:
 	mov eax, [ebx+0x4]
@@ -9934,7 +10164,7 @@ _Z12XAnimDisplayPK11XAnimTree_sji_40:
 	mov ebx, [ebp-0x24]
 	mov [esp+0x4], ebx
 	mov dword [esp], _cstring_3s_missing
-	call va:F(0,3)
+	call va_F0_3
 	mov [ebp-0x24], eax
 	movss xmm3, dword [edi+0x14]
 	movss xmm2, dword [edi+0x10]
@@ -9945,7 +10175,7 @@ _Z12XAnimDisplayPK11XAnimTree_sji_20:
 	xor ebx, ebx
 _Z12XAnimDisplayPK11XAnimTree_sji_180:
 	mov dword [esp], _cstring_space
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	add ebx, 0x1
 	cmp [ebp-0x3c], ebx
 	jnz _Z12XAnimDisplayPK11XAnimTree_sji_180
@@ -9982,7 +10212,7 @@ _Z12XAnimDisplayPK11XAnimTree_sji_300:
 	jnz _Z12XAnimDisplayPK11XAnimTree_sji_240
 	movzx eax, cx
 	mov [esp], eax
-	call Z18SL_ConvertToStringj:F(0,2)
+	call Z18SL_ConvertToStringj_F0_2
 	mov [esp+0x2c], eax
 	cvtss2sd xmm0, [edi]
 	movsd [esp+0x24], xmm0
@@ -9996,7 +10226,7 @@ _Z12XAnimDisplayPK11XAnimTree_sji_300:
 	mov [esp+0x8], edx
 	mov [esp+0x4], ebx
 	mov dword [esp], _cstring_ss_weight_2f__2f2
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 _Z12XAnimDisplayPK11XAnimTree_sji_150:
 	mov esi, [ebp-0x30]
 	test esi, esi
@@ -10043,7 +10273,7 @@ _Z12XAnimDisplayPK11XAnimTree_sji_90:
 	mov [esp+0x8], eax
 	mov [esp+0x4], ebx
 	mov dword [esp], _cstring_ss_weight_2f__2f3
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	add esp, 0x7c
 	pop ebx
 	pop esi
@@ -10059,7 +10289,7 @@ _Z12XAnimDisplayPK11XAnimTree_sji_140:
 	mov [esp+0x8], edx
 	mov [esp+0x4], ebx
 	mov dword [esp], _cstring_ss_weight_2f__2f4
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	jmp _Z12XAnimDisplayPK11XAnimTree_sji_150
 _Z12XAnimDisplayPK11XAnimTree_sji_70:
 	jp _Z12XAnimDisplayPK11XAnimTree_sji_280
@@ -10068,7 +10298,7 @@ _Z12XAnimDisplayPK11XAnimTree_sji_70:
 _Z12XAnimDisplayPK11XAnimTree_sji_240:
 	movzx eax, cx
 	mov [esp], eax
-	call Z18SL_ConvertToStringj:F(0,2)
+	call Z18SL_ConvertToStringj_F0_2
 	mov [esp+0x2c], eax
 	cvtss2sd xmm0, [edi]
 	movsd [esp+0x24], xmm0
@@ -10082,12 +10312,12 @@ _Z12XAnimDisplayPK11XAnimTree_sji_240:
 	mov [esp+0x8], eax
 	mov [esp+0x4], ebx
 	mov dword [esp], _cstring_ss_weight_2f__2f2
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	jmp _Z12XAnimDisplayPK11XAnimTree_sji_150
 _Z12XAnimDisplayPK11XAnimTree_sji_230:
 	movzx eax, cx
 	mov [esp], eax
-	call Z18SL_ConvertToStringj:F(0,2)
+	call Z18SL_ConvertToStringj_F0_2
 	mov [esp+0x1c], eax
 	cvtss2sd xmm0, [edi+0x10]
 	movsd [esp+0x14], xmm0
@@ -10097,7 +10327,7 @@ _Z12XAnimDisplayPK11XAnimTree_sji_230:
 	mov [esp+0x8], edx
 	mov [esp+0x4], ebx
 	mov dword [esp], _cstring_ss_weight_2f__2f5
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	jmp _Z12XAnimDisplayPK11XAnimTree_sji_150
 _Z12XAnimDisplayPK11XAnimTree_sji_130:
 	xor eax, eax
@@ -10108,32 +10338,32 @@ _Z12XAnimDisplayPK11XAnimTree_sji_220:
 _Z12XAnimDisplayPK11XAnimTree_sji_200:
 	mov [esp+0x4], esi
 	mov dword [esp], _cstring_i
-	call va:F(0,3)
+	call va_F0_3
 	mov [ebp-0x24], eax
 	jmp _Z12XAnimDisplayPK11XAnimTree_sji_160
 	nop
 
 
-;Z15DObjDisplayAnimP6DObj_s:F(0,1)
+;Z15DObjDisplayAnimP6DObj_s_F0_1
 
-Z15DObjDisplayAnimP6DObj_s:F(0,1):
+Z15DObjDisplayAnimP6DObj_s_F0_1:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x8
 	mov eax, [ebp+0x8]
 	mov eax, [eax]
 	test eax, eax
-	jz Z15DObjDisplayAnimP6DObj_s:F(0,1)_10
+	jz Z15DObjDisplayAnimP6DObj_s_F0_1_10
 	xor ecx, ecx
 	xor edx, edx
 	call _Z12XAnimDisplayPK11XAnimTree_sji
 	mov dword [ebp+0x8], _cstring_4
 	leave
-	jmp Z10Com_PrintfPKcz:F(0,1)
-Z15DObjDisplayAnimP6DObj_s:F(0,1)_10:
+	jmp Z10Com_PrintfPKcz_F0_1
+Z15DObjDisplayAnimP6DObj_s_F0_1_10:
 	mov dword [ebp+0x8], _cstring_no_tree
 	leave
-	jmp Z10Com_PrintfPKcz:F(0,1)
+	jmp Z10Com_PrintfPKcz_F0_1
 
 
 ;XAnimFillInSyncNodes_r(XAnim_s*, unsigned int, unsigned char)
@@ -10173,7 +10403,7 @@ _Z22XAnimFillInSyncNodes_rP7XAnim_sjh_150:
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], _cstring_animation_s_in_s
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 _Z22XAnimFillInSyncNodes_rP7XAnim_sjh_20:
 	add esp, 0x3c
 	pop ebx
@@ -10207,7 +10437,7 @@ _Z22XAnimFillInSyncNodes_rP7XAnim_sjh_70:
 	jz _Z22XAnimFillInSyncNodes_rP7XAnim_sjh_90
 	mov [esp+0x4], edx
 	mov dword [esp], _cstring_3s_missing
-	call va:F(0,3)
+	call va_F0_3
 	mov edx, eax
 _Z22XAnimFillInSyncNodes_rP7XAnim_sjh_90:
 	mov [esp+0x10], edx
@@ -10216,7 +10446,7 @@ _Z22XAnimFillInSyncNodes_rP7XAnim_sjh_90:
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], _cstring_duplicate_specif
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 _Z22XAnimFillInSyncNodes_rP7XAnim_sjh_60:
 	cmp byte [ebp-0x25], 0x1
 	sbb eax, eax
@@ -10258,7 +10488,7 @@ _Z22XAnimFillInSyncNodes_rP7XAnim_sjh_160:
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], _cstring_animation_s_in_s1
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	add esp, 0x3c
 	pop ebx
 	pop esi
@@ -10268,17 +10498,17 @@ _Z22XAnimFillInSyncNodes_rP7XAnim_sjh_160:
 _Z22XAnimFillInSyncNodes_rP7XAnim_sjh_30:
 	mov dword [esp+0x4], _Z23Hunk_AllocXAnimPrecachei
 	mov dword [esp], _cstring_void_loop
-	call Z13XAnimPrecachePKcPFPviE:F(0,3)
+	call Z13XAnimPrecachePKcPFPviE_F0_3
 	mov dword [esp+0x4], _cstring_void_loop
 	mov dword [esp], 0x5
-	call Hunk_FindDataForFile:F(0,2)
+	call Hunk_FindDataForFile_F0_2
 	mov [esi+0x4], eax
 	test eax, eax
 	jnz _Z22XAnimFillInSyncNodes_rP7XAnim_sjh_20
 	mov dword [esp+0x8], _cstring_void_loop
 	mov dword [esp+0x4], _cstring_cannot_find_xani2
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	jmp _Z22XAnimFillInSyncNodes_rP7XAnim_sjh_20
 _Z22XAnimFillInSyncNodes_rP7XAnim_sjh_80:
 	cmp word [ecx+0xc], 0x0
@@ -10296,7 +10526,7 @@ _Z22XAnimFillInSyncNodes_rP7XAnim_sjh_130:
 _Z22XAnimFillInSyncNodes_rP7XAnim_sjh_140:
 	mov [esp+0x4], edx
 	mov dword [esp], _cstring_i
-	call va:F(0,3)
+	call va_F0_3
 	mov edx, eax
 	jmp _Z22XAnimFillInSyncNodes_rP7XAnim_sjh_90
 	nop
@@ -10694,44 +10924,44 @@ _Z21XAnimSetupSyncNodes_rP7XAnim_sj_440:
 _Z21XAnimSetupSyncNodes_rP7XAnim_sj_290:
 	mov dword [esp+0x4], _cstring_animation_cannot
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	jmp _Z21XAnimSetupSyncNodes_rP7XAnim_sj_450
 _Z21XAnimSetupSyncNodes_rP7XAnim_sj_240:
 	mov dword [esp+0x4], _cstring_animation_cannot
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	jmp _Z21XAnimSetupSyncNodes_rP7XAnim_sj_460
 _Z21XAnimSetupSyncNodes_rP7XAnim_sj_190:
 	mov dword [esp+0x4], _cstring_animation_cannot
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	jmp _Z21XAnimSetupSyncNodes_rP7XAnim_sj_470
 _Z21XAnimSetupSyncNodes_rP7XAnim_sj_140:
 	mov dword [esp+0x4], _cstring_animation_cannot
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	jmp _Z21XAnimSetupSyncNodes_rP7XAnim_sj_480
 _Z21XAnimSetupSyncNodes_rP7XAnim_sj_90:
 	mov dword [esp+0x4], _cstring_animation_cannot
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	jmp _Z21XAnimSetupSyncNodes_rP7XAnim_sj_490
 _Z21XAnimSetupSyncNodes_rP7XAnim_sj_40:
 	mov dword [esp+0x4], _cstring_animation_cannot
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	jmp _Z21XAnimSetupSyncNodes_rP7XAnim_sj_500
 _Z21XAnimSetupSyncNodes_rP7XAnim_sj_350:
 	mov dword [esp+0x4], _cstring_animation_cannot
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	jmp _Z21XAnimSetupSyncNodes_rP7XAnim_sj_510
 	nop
 
 
-;Z19XAnimSetupSyncNodesP7XAnim_s:F(0,1)
+;Z19XAnimSetupSyncNodesP7XAnim_s_F0_1
 
-Z19XAnimSetupSyncNodesP7XAnim_s:F(0,1):
+Z19XAnimSetupSyncNodesP7XAnim_s_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -10744,71 +10974,71 @@ Z19XAnimSetupSyncNodesP7XAnim_s:F(0,1):
 	movzx eax, word [edx+0xc]
 	movzx edi, ax
 	test ax, ax
-	jz Z19XAnimSetupSyncNodesP7XAnim_s:F(0,1)_10
+	jz Z19XAnimSetupSyncNodesP7XAnim_s_F0_1_10
 	movzx eax, word [esi+0x4]
 	mov ebx, eax
 	and ebx, 0x3
-	jz Z19XAnimSetupSyncNodesP7XAnim_s:F(0,1)_20
+	jz Z19XAnimSetupSyncNodesP7XAnim_s_F0_1_20
 	cmp ebx, 0x3
-	jz Z19XAnimSetupSyncNodesP7XAnim_s:F(0,1)_30
-Z19XAnimSetupSyncNodesP7XAnim_s:F(0,1)_80:
+	jz Z19XAnimSetupSyncNodesP7XAnim_s_F0_1_30
+Z19XAnimSetupSyncNodesP7XAnim_s_F0_1_80:
 	or word [esi+0x4], 0x4
 	sub ebx, 0x1
 	setz al
 	test edi, edi
-	jg Z19XAnimSetupSyncNodesP7XAnim_s:F(0,1)_40
-Z19XAnimSetupSyncNodesP7XAnim_s:F(0,1)_10:
+	jg Z19XAnimSetupSyncNodesP7XAnim_s_F0_1_40
+Z19XAnimSetupSyncNodesP7XAnim_s_F0_1_10:
 	add esp, 0x2c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z19XAnimSetupSyncNodesP7XAnim_s:F(0,1)_20:
+Z19XAnimSetupSyncNodesP7XAnim_s_F0_1_20:
 	test edi, edi
-	jle Z19XAnimSetupSyncNodesP7XAnim_s:F(0,1)_10
+	jle Z19XAnimSetupSyncNodesP7XAnim_s_F0_1_10
 	xor ebx, ebx
-Z19XAnimSetupSyncNodesP7XAnim_s:F(0,1)_50:
+Z19XAnimSetupSyncNodesP7XAnim_s_F0_1_50:
 	movzx edx, word [esi+0x6]
 	lea edx, [ebx+edx]
 	mov eax, [ebp+0x8]
 	call _Z21XAnimSetupSyncNodes_rP7XAnim_sj
 	add ebx, 0x1
 	cmp edi, ebx
-	jnz Z19XAnimSetupSyncNodesP7XAnim_s:F(0,1)_50
+	jnz Z19XAnimSetupSyncNodesP7XAnim_s_F0_1_50
 	add esp, 0x2c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z19XAnimSetupSyncNodesP7XAnim_s:F(0,1)_40:
+Z19XAnimSetupSyncNodesP7XAnim_s_F0_1_40:
 	movzx eax, al
 	mov [ebp-0x1c], eax
 	xor ebx, ebx
 	mov ecx, eax
-	jmp Z19XAnimSetupSyncNodesP7XAnim_s:F(0,1)_60
-Z19XAnimSetupSyncNodesP7XAnim_s:F(0,1)_70:
+	jmp Z19XAnimSetupSyncNodesP7XAnim_s_F0_1_60
+Z19XAnimSetupSyncNodesP7XAnim_s_F0_1_70:
 	mov ecx, [ebp-0x1c]
-Z19XAnimSetupSyncNodesP7XAnim_s:F(0,1)_60:
+Z19XAnimSetupSyncNodesP7XAnim_s_F0_1_60:
 	movzx edx, word [esi+0x6]
 	lea edx, [ebx+edx]
 	mov eax, [ebp+0x8]
 	call _Z22XAnimFillInSyncNodes_rP7XAnim_sjh
 	add ebx, 0x1
 	cmp edi, ebx
-	jnz Z19XAnimSetupSyncNodesP7XAnim_s:F(0,1)_70
+	jnz Z19XAnimSetupSyncNodesP7XAnim_s_F0_1_70
 	add esp, 0x2c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z19XAnimSetupSyncNodesP7XAnim_s:F(0,1)_30:
+Z19XAnimSetupSyncNodesP7XAnim_s_F0_1_30:
 	mov dword [esp+0x4], _cstring_animation_cannot
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
-	jmp Z19XAnimSetupSyncNodesP7XAnim_s:F(0,1)_80
+	call Com_Error_F0_1
+	jmp Z19XAnimSetupSyncNodesP7XAnim_s_F0_1_80
 
 
 ;XAnimProcessClientNotify(XAnimInfo*, XAnimEntry const*, float)
@@ -10886,7 +11116,7 @@ _Z24XAnimProcessClientNotifyP9XAnimInfoPK10XAnimEntryf_80:
 	lea esi, [ebx+g_notifyList]
 	mov [esp], edi
 	movss [ebp-0x88], xmm0
-	call Z18SL_ConvertToStringj:F(0,2)
+	call Z18SL_ConvertToStringj_F0_2
 	mov [ebx+g_notifyList], eax
 	movss xmm0, dword [ebp-0x88]
 	movss [esi+0x8], xmm0
@@ -10952,7 +11182,7 @@ _Z24XAnimProcessClientNotifyP9XAnimInfoPK10XAnimEntryf_140:
 	lea esi, [ebx+g_notifyList]
 	mov [esp], edi
 	movss [ebp-0x88], xmm0
-	call Z18SL_ConvertToStringj:F(0,2)
+	call Z18SL_ConvertToStringj_F0_2
 	mov [ebx+g_notifyList], eax
 	movss xmm0, dword [ebp-0x88]
 	movss [esi+0x8], xmm0
@@ -11034,7 +11264,7 @@ _Z24XAnimProcessClientNotifyP9XAnimInfoPK10XAnimEntryf_210:
 	mov [esp], ecx
 	movss [ebp-0x88], xmm0
 	movss [ebp-0x98], xmm4
-	call Z18SL_ConvertToStringj:F(0,2)
+	call Z18SL_ConvertToStringj_F0_2
 	mov [ebx+g_notifyList], eax
 	movss xmm0, dword [ebp-0x88]
 	movss [esi+0x8], xmm0
@@ -11138,7 +11368,7 @@ _Z24XAnimProcessClientNotifyP9XAnimInfoPK10XAnimEntryf_330:
 	mov [esp], eax
 	movss [ebp-0x88], xmm0
 	movss [ebp-0x98], xmm4
-	call Z18SL_ConvertToStringj:F(0,2)
+	call Z18SL_ConvertToStringj_F0_2
 	mov [ebx+g_notifyList], eax
 	movss xmm0, dword [ebp-0x88]
 	movss [esi+0x8], xmm0
@@ -11253,7 +11483,7 @@ _Z24XAnimProcessClientNotifyP9XAnimInfoPK10XAnimEntryf_460:
 	mov [esp], eax
 	movss [ebp-0x88], xmm0
 	movss [ebp-0x98], xmm4
-	call Z18SL_ConvertToStringj:F(0,2)
+	call Z18SL_ConvertToStringj_F0_2
 	mov [ebx+g_notifyList], eax
 	movss xmm0, dword [ebp-0x88]
 	movss [esi+0x8], xmm0
@@ -11335,7 +11565,7 @@ _Z24XAnimProcessClientNotifyP9XAnimInfoPK10XAnimEntryf_550:
 	mov [esp], eax
 	movss [ebp-0x88], xmm0
 	movss [ebp-0x98], xmm4
-	call Z18SL_ConvertToStringj:F(0,2)
+	call Z18SL_ConvertToStringj_F0_2
 	mov [ebx+g_notifyList], eax
 	movss xmm0, dword [ebp-0x88]
 	movss [esi+0x8], xmm0
@@ -11542,7 +11772,7 @@ _Z24XAnimProcessClientNotifyP9XAnimInfoPK10XAnimEntryf_740:
 	movss [ebp-0x88], xmm0
 	movss [ebp-0x98], xmm4
 	movss [ebp-0xa8], xmm5
-	call Z18SL_ConvertToStringj:F(0,2)
+	call Z18SL_ConvertToStringj_F0_2
 	mov [ebx+g_notifyList], eax
 	movss xmm0, dword [ebp-0x88]
 	movss [esi+0x8], xmm0
@@ -12561,9 +12791,9 @@ _Z23XAnimUpdateInfoInternalPK11XAnimTree_sjfh_320:
 	nop
 
 
-;Z20DObjUpdateClientInfoP6DObj_sf:F(0,1)
+;Z20DObjUpdateClientInfoP6DObj_sf_F0_1
 
-Z20DObjUpdateClientInfoP6DObj_sf:F(0,1):
+Z20DObjUpdateClientInfoP6DObj_sf_F0_1:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -12572,7 +12802,7 @@ Z20DObjUpdateClientInfoP6DObj_sf:F(0,1):
 	mov dword [g_notifyListSize], 0x0
 	mov eax, [ebx]
 	test eax, eax
-	jz Z20DObjUpdateClientInfoP6DObj_sf:F(0,1)_10
+	jz Z20DObjUpdateClientInfoP6DObj_sf_F0_1_10
 	mov dword [ebp-0x28], 0x0
 	mov word [ebp-0x20], 0x0
 	lea ecx, [ebp-0x28]
@@ -12590,7 +12820,7 @@ Z20DObjUpdateClientInfoP6DObj_sf:F(0,1):
 	xor edx, edx
 	mov eax, [ebx]
 	call _Z23XAnimUpdateInfoInternalPK11XAnimTree_sjfh
-Z20DObjUpdateClientInfoP6DObj_sf:F(0,1)_10:
+Z20DObjUpdateClientInfoP6DObj_sf_F0_1_10:
 	add esp, 0x34
 	pop ebx
 	pop ebp
@@ -12949,7 +13179,7 @@ _Z33XAnimGetServerNotifyFracSyncTotalPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryPK1
 	jl _Z33XAnimGetServerNotifyFracSyncTotalPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryPK10XAnimStateS9_f_180
 	movss xmm0, dword [ebp-0x28]
 _Z33XAnimGetServerNotifyFracSyncTotalPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryPK10XAnimStateS9_f_130:
-	minss xmm0, dword [ebp-0x30]
+	minss xmm0, [ebp-0x30]
 	movss [ebp-0x30], xmm0
 	mov edx, [ebp-0x6c]
 	jmp _Z33XAnimGetServerNotifyFracSyncTotalPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryPK10XAnimStateS9_f_70
@@ -12998,7 +13228,7 @@ _Z33XAnimGetServerNotifyFracSyncTotalPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryPK1
 	jl _Z33XAnimGetServerNotifyFracSyncTotalPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryPK10XAnimStateS9_f_240
 	movss xmm0, dword [ebp-0x24]
 _Z33XAnimGetServerNotifyFracSyncTotalPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryPK10XAnimStateS9_f_190:
-	minss xmm0, dword [ebp-0x28]
+	minss xmm0, [ebp-0x28]
 	movss [ebp-0x28], xmm0
 	mov edx, [ebp-0x64]
 	jmp _Z33XAnimGetServerNotifyFracSyncTotalPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryPK10XAnimStateS9_f_140
@@ -13047,7 +13277,7 @@ _Z33XAnimGetServerNotifyFracSyncTotalPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryPK1
 	jl _Z33XAnimGetServerNotifyFracSyncTotalPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryPK10XAnimStateS9_f_300
 	movss xmm0, dword [ebp-0x20]
 _Z33XAnimGetServerNotifyFracSyncTotalPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryPK10XAnimStateS9_f_250:
-	minss xmm0, dword [ebp-0x24]
+	minss xmm0, [ebp-0x24]
 	movss [ebp-0x24], xmm0
 	mov edx, [ebp-0x5c]
 	jmp _Z33XAnimGetServerNotifyFracSyncTotalPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryPK10XAnimStateS9_f_200
@@ -13096,7 +13326,7 @@ _Z33XAnimGetServerNotifyFracSyncTotalPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryPK1
 	jg _Z33XAnimGetServerNotifyFracSyncTotalPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryPK10XAnimStateS9_f_360
 	movss xmm0, dword [ebp-0x2c]
 _Z33XAnimGetServerNotifyFracSyncTotalPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryPK10XAnimStateS9_f_310:
-	minss xmm0, dword [ebp-0x20]
+	minss xmm0, [ebp-0x20]
 	movss [ebp-0x20], xmm0
 	mov edx, [ebp-0x54]
 	jmp _Z33XAnimGetServerNotifyFracSyncTotalPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryPK10XAnimStateS9_f_260
@@ -13145,7 +13375,7 @@ _Z33XAnimGetServerNotifyFracSyncTotalPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryPK1
 	jg _Z33XAnimGetServerNotifyFracSyncTotalPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryPK10XAnimStateS9_f_420
 _Z33XAnimGetServerNotifyFracSyncTotalPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryPK10XAnimStateS9_f_370:
 	movss xmm0, dword [ebp-0x70]
-	minss xmm0, dword [ebp-0x2c]
+	minss xmm0, [ebp-0x2c]
 	movss [ebp-0x2c], xmm0
 	mov edx, [ebp-0x4c]
 	jmp _Z33XAnimGetServerNotifyFracSyncTotalPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryPK10XAnimStateS9_f_320
@@ -13193,7 +13423,7 @@ _Z33XAnimGetServerNotifyFracSyncTotalPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryPK1
 	jg _Z33XAnimGetServerNotifyFracSyncTotalPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryPK10XAnimStateS9_f_470
 _Z33XAnimGetServerNotifyFracSyncTotalPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryPK10XAnimStateS9_f_430:
 	movss xmm0, dword [ebp-0x1c]
-	minss xmm0, dword [ebp-0x70]
+	minss xmm0, [ebp-0x70]
 	movss [ebp-0x70], xmm0
 	mov edx, [ebp-0x44]
 	jmp _Z33XAnimGetServerNotifyFracSyncTotalPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryPK10XAnimStateS9_f_380
@@ -13256,7 +13486,7 @@ _Z33XAnimGetServerNotifyFracSyncTotalPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryPK1
 	movaps xmm1, xmm0
 	jmp _Z33XAnimGetServerNotifyFracSyncTotalPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryPK10XAnimStateS9_f_510
 _Z33XAnimGetServerNotifyFracSyncTotalPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryPK10XAnimStateS9_f_480:
-	minss xmm1, dword [ebp-0x1c]
+	minss xmm1, [ebp-0x1c]
 	movss [ebp-0x1c], xmm1
 	jmp _Z33XAnimGetServerNotifyFracSyncTotalPK11XAnimTree_sP9XAnimInfoPK10XAnimEntryPK10XAnimStateS9_f_440
 
@@ -13575,9 +13805,9 @@ _Z24XAnimFindServerNoteTrackPK11XAnimTree_sjf_210:
 	jmp _Z24XAnimFindServerNoteTrackPK11XAnimTree_sjf_180
 
 
-;Z20DObjUpdateServerInfoP6DObj_sfi:F(0,2)
+;Z20DObjUpdateServerInfoP6DObj_sfi_F0_2
 
-Z20DObjUpdateServerInfoP6DObj_sfi:F(0,2):
+Z20DObjUpdateServerInfoP6DObj_sfi_F0_2:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -13586,36 +13816,36 @@ Z20DObjUpdateServerInfoP6DObj_sfi:F(0,2):
 	movss xmm1, dword [ebp+0xc]
 	mov eax, [ebx]
 	test eax, eax
-	jz Z20DObjUpdateServerInfoP6DObj_sfi:F(0,2)_10
+	jz Z20DObjUpdateServerInfoP6DObj_sfi_F0_2_10
 	mov edx, [ebp+0x10]
 	test edx, edx
-	jz Z20DObjUpdateServerInfoP6DObj_sfi:F(0,2)_20
+	jz Z20DObjUpdateServerInfoP6DObj_sfi_F0_2_20
 	movaps xmm0, xmm1
 	xor edx, edx
 	movss [ebp-0x18], xmm1
 	call _Z24XAnimFindServerNoteTrackPK11XAnimTree_sjf
 	movss xmm1, dword [ebp-0x18]
 	ucomiss xmm0, [_float_1_00000000]
-	jp Z20DObjUpdateServerInfoP6DObj_sfi:F(0,2)_30
-	jz Z20DObjUpdateServerInfoP6DObj_sfi:F(0,2)_40
-Z20DObjUpdateServerInfoP6DObj_sfi:F(0,2)_30:
+	jp Z20DObjUpdateServerInfoP6DObj_sfi_F0_2_30
+	jz Z20DObjUpdateServerInfoP6DObj_sfi_F0_2_40
+Z20DObjUpdateServerInfoP6DObj_sfi_F0_2_30:
 	mulss xmm0, xmm1
 	addss xmm0, [_float_0_00100000]
 	ucomiss xmm1, xmm0
-	jae Z20DObjUpdateServerInfoP6DObj_sfi:F(0,2)_50
-Z20DObjUpdateServerInfoP6DObj_sfi:F(0,2)_40:
+	jae Z20DObjUpdateServerInfoP6DObj_sfi_F0_2_50
+Z20DObjUpdateServerInfoP6DObj_sfi_F0_2_40:
 	mov ecx, 0x1
 	movaps xmm0, xmm1
 	xor edx, edx
 	mov eax, [ebx]
 	call _Z23XAnimUpdateInfoInternalPK11XAnimTree_sjfh
 	xor eax, eax
-Z20DObjUpdateServerInfoP6DObj_sfi:F(0,2)_10:
+Z20DObjUpdateServerInfoP6DObj_sfi_F0_2_10:
 	add esp, 0x14
 	pop ebx
 	pop ebp
 	ret
-Z20DObjUpdateServerInfoP6DObj_sfi:F(0,2)_20:
+Z20DObjUpdateServerInfoP6DObj_sfi_F0_2_20:
 	xor ecx, ecx
 	movaps xmm0, xmm1
 	xor edx, edx
@@ -13625,19 +13855,19 @@ Z20DObjUpdateServerInfoP6DObj_sfi:F(0,2)_20:
 	pop ebx
 	pop ebp
 	ret
-Z20DObjUpdateServerInfoP6DObj_sfi:F(0,2)_50:
+Z20DObjUpdateServerInfoP6DObj_sfi_F0_2_50:
 	mov ecx, 0x1
 	xor edx, edx
 	mov eax, [ebx]
 	call _Z23XAnimUpdateInfoInternalPK11XAnimTree_sjfh
 	mov eax, 0x1
-	jmp Z20DObjUpdateServerInfoP6DObj_sfi:F(0,2)_10
+	jmp Z20DObjUpdateServerInfoP6DObj_sfi_F0_2_10
 	add [eax], al
 
 
-;Z20SL_ConvertFromStringPKc:F(0,1)
+;Z20SL_ConvertFromStringPKc_F0_1
 
-Z9XModelBadPK6XModel:F(0,1):
+Z9XModelBadPK6XModel_F0_1:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -13648,9 +13878,9 @@ Z9XModelBadPK6XModel:F(0,1):
 	add [eax], al
 
 
-;Z15XModelPartsFreeP13XModelParts_s:F(0,20)
+;Z15XModelPartsFreeP13XModelParts_s_F0_20
 
-Z15XModelPartsFreeP13XModelParts_s:F(0,20):
+Z15XModelPartsFreeP13XModelParts_s_F0_20:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -13662,22 +13892,22 @@ Z15XModelPartsFreeP13XModelParts_s:F(0,20):
 	mov edi, [eax]
 	movsx esi, word [edx]
 	test esi, esi
-	jg Z15XModelPartsFreeP13XModelParts_s:F(0,20)_10
+	jg Z15XModelPartsFreeP13XModelParts_s_F0_20_10
 	add esp, 0x1c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z15XModelPartsFreeP13XModelParts_s:F(0,20)_10:
+Z15XModelPartsFreeP13XModelParts_s_F0_20_10:
 	xor ebx, ebx
-Z15XModelPartsFreeP13XModelParts_s:F(0,20)_20:
+Z15XModelPartsFreeP13XModelParts_s_F0_20_20:
 	movzx eax, word [edi+ebx*2]
 	mov [esp], eax
-	call Z20SL_RemoveRefToStringj:F(0,5)
+	call Z20SL_RemoveRefToStringj_F0_5
 	add ebx, 0x1
 	cmp esi, ebx
-	jnz Z15XModelPartsFreeP13XModelParts_s:F(0,20)_20
+	jnz Z15XModelPartsFreeP13XModelParts_s_F0_20_20
 	add esp, 0x1c
 	pop ebx
 	pop esi
@@ -13687,24 +13917,24 @@ Z15XModelPartsFreeP13XModelParts_s:F(0,20)_20:
 	nop
 
 
-;Z19XModelPartsFindDataPKc:F(0,5)
+;Z19XModelPartsFindDataPKc_F0_5
 
-Z19XModelPartsFindDataPKc:F(0,5):
+Z19XModelPartsFindDataPKc_F0_5:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
 	mov eax, [ebp+0x8]
 	mov [esp+0x4], eax
 	mov dword [esp], 0x3
-	call Hunk_FindDataForFile:F(0,2)
+	call Hunk_FindDataForFile_F0_2
 	leave
 	ret
 	nop
 
 
-;Z18XModelPartsSetDataPKcP13XModelParts_sPFPviE:F(0,20)
+;Z18XModelPartsSetDataPKcP13XModelParts_sPFPviE_F0_20
 
-Z18XModelPartsSetDataPKcP13XModelParts_sPFPviE:F(0,20):
+Z18XModelPartsSetDataPKcP13XModelParts_sPFPviE_F0_20:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -13715,30 +13945,30 @@ Z18XModelPartsSetDataPKcP13XModelParts_sPFPviE:F(0,20):
 	mov eax, [ebp+0x8]
 	mov [esp+0x4], eax
 	mov dword [esp], 0x3
-	call Hunk_SetDataForFile:F(0,4)
+	call Hunk_SetDataForFile_F0_4
 	leave
 	ret
 	nop
 
 
-;Z19XModelSurfsFindDataPKc:F(0,32)
+;Z19XModelSurfsFindDataPKc_F0_32
 
-Z19XModelSurfsFindDataPKc:F(0,32):
+Z19XModelSurfsFindDataPKc_F0_32:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
 	mov eax, [ebp+0x8]
 	mov [esp+0x4], eax
 	mov dword [esp], 0x2
-	call Hunk_FindDataForFile:F(0,2)
+	call Hunk_FindDataForFile_F0_2
 	leave
 	ret
 	nop
 
 
-;Z18XModelSurfsSetDataPKcP13XModelSurfs_sPFPviE:F(0,20)
+;Z18XModelSurfsSetDataPKcP13XModelSurfs_sPFPviE_F0_20
 
-Z18XModelSurfsSetDataPKcP13XModelSurfs_sPFPviE:F(0,20):
+Z18XModelSurfsSetDataPKcP13XModelSurfs_sPFPviE_F0_20:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -13749,15 +13979,15 @@ Z18XModelSurfsSetDataPKcP13XModelSurfs_sPFPviE:F(0,20):
 	mov eax, [ebp+0x8]
 	mov [esp+0x4], eax
 	mov dword [esp], 0x2
-	call Hunk_SetDataForFile:F(0,4)
+	call Hunk_SetDataForFile_F0_4
 	leave
 	ret
 	nop
 
 
-;Z14XModelPrecachePKcPFPviES3_:F(0,18)
+;Z14XModelPrecachePKcPFPviES3__F0_18
 
-Z14XModelPrecachePKcPFPviES3_:F(0,18):
+Z14XModelPrecachePKcPFPviES3__F0_18:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -13766,33 +13996,33 @@ Z14XModelPrecachePKcPFPviES3_:F(0,18):
 	mov esi, [ebp+0x8]
 	mov [esp+0x4], esi
 	mov dword [esp], 0x4
-	call Hunk_FindDataForFile:F(0,2)
+	call Hunk_FindDataForFile_F0_2
 	mov ebx, eax
 	test eax, eax
-	jz Z14XModelPrecachePKcPFPviES3_:F(0,18)_10
-Z14XModelPrecachePKcPFPviES3_:F(0,18)_40:
+	jz Z14XModelPrecachePKcPFPviES3__F0_18_10
+Z14XModelPrecachePKcPFPviES3__F0_18_40:
 	mov eax, ebx
 	add esp, 0x10
 	pop ebx
 	pop esi
 	pop ebp
 	ret
-Z14XModelPrecachePKcPFPviES3_:F(0,18)_10:
+Z14XModelPrecachePKcPFPviES3__F0_18_10:
 	mov eax, [ebp+0x10]
 	mov [esp+0x8], eax
 	mov eax, [ebp+0xc]
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call Z10XModelLoadPKcPFPviES3_:F(0,59)
+	call Z10XModelLoadPKcPFPviES3__F0_59
 	mov ebx, eax
 	test eax, eax
-	jz Z14XModelPrecachePKcPFPviES3_:F(0,18)_20
+	jz Z14XModelPrecachePKcPFPviES3__F0_18_20
 	mov eax, [ebp+0xc]
 	mov [esp+0xc], eax
 	mov [esp+0x8], ebx
 	mov [esp+0x4], esi
 	mov dword [esp], 0x4
-	call Hunk_SetDataForFile:F(0,4)
+	call Hunk_SetDataForFile_F0_4
 	mov [ebx+0x88], eax
 	mov eax, ebx
 	add esp, 0x10
@@ -13800,10 +14030,10 @@ Z14XModelPrecachePKcPFPviES3_:F(0,18)_10:
 	pop esi
 	pop ebp
 	ret
-Z14XModelPrecachePKcPFPviES3_:F(0,18)_20:
+Z14XModelPrecachePKcPFPviES3__F0_18_20:
 	mov [esp+0x4], esi
 	mov dword [esp], _cstring_1error_cannot_fi
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov dword [esp], 0x90
 	call dword [ebp+0xc]
 	mov ebx, eax
@@ -13819,7 +14049,7 @@ Z14XModelPrecachePKcPFPviES3_:F(0,18)_20:
 	mov word [g_default], 0x0
 	mov dword [eax], g_default+0xc
 	mov edx, 0x4
-Z14XModelPrecachePKcPFPviES3_:F(0,18)_30:
+Z14XModelPrecachePKcPFPviES3__F0_18_30:
 	mov dword [eax+0x14], 0x0
 	mov dword [eax+0x8], _cstring_null
 	mov dword [eax+0x4], 0x0
@@ -13828,7 +14058,7 @@ Z14XModelPrecachePKcPFPviES3_:F(0,18)_30:
 	mov word [g_default+0xae], 0x0
 	add eax, 0x14
 	sub edx, 0x1
-	jnz Z14XModelPrecachePKcPFPviES3_:F(0,18)_30
+	jnz Z14XModelPrecachePKcPFPviES3__F0_18_30
 	mov dword [g_default+0x70], 0x0
 	mov dword [ebx+0x14], g_default+0x70
 	mov word [ebx+0x7c], 0x1
@@ -13848,14 +14078,14 @@ Z14XModelPrecachePKcPFPviES3_:F(0,18)_30:
 	mov [esp+0x8], ebx
 	mov [esp+0x4], esi
 	mov dword [esp], 0x4
-	call Hunk_SetDataForFile:F(0,4)
-	jmp Z14XModelPrecachePKcPFPviES3_:F(0,18)_40
+	call Hunk_SetDataForFile_F0_4
+	jmp Z14XModelPrecachePKcPFPviES3__F0_18_40
 	nop
 
 
-;Z15XModelBoneNamesP6XModel:F(0,31)
+;Z15XModelBoneNamesP6XModel_F0_31
 
-Z15XModelBoneNamesP6XModel:F(0,31):
+Z15XModelBoneNamesP6XModel_F0_31:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -13867,9 +14097,9 @@ Z15XModelBoneNamesP6XModel:F(0,31):
 	nop
 
 
-;Z18XModelGetBoneIndexPK6XModelj:F(0,1)
+;Z18XModelGetBoneIndexPK6XModelj_F0_1
 
-Z18XModelGetBoneIndexPK6XModelj:F(0,1):
+Z18XModelGetBoneIndexPK6XModelj_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -13883,23 +14113,23 @@ Z18XModelGetBoneIndexPK6XModelj:F(0,1):
 	movsx eax, word [edx]
 	mov ebx, eax
 	sub ebx, 0x1
-	js Z18XModelGetBoneIndexPK6XModelj:F(0,1)_10
+	js Z18XModelGetBoneIndexPK6XModelj_F0_1_10
 	mov esi, ebx
 	movzx eax, word [ecx+ebx*2]
 	cmp edi, eax
-	jz Z18XModelGetBoneIndexPK6XModelj:F(0,1)_10
+	jz Z18XModelGetBoneIndexPK6XModelj_F0_1_10
 	lea ecx, [ecx+ebx*2]
 	xor edx, edx
-Z18XModelGetBoneIndexPK6XModelj:F(0,1)_20:
+Z18XModelGetBoneIndexPK6XModelj_F0_1_20:
 	sub ebx, 0x1
 	cmp edx, esi
-	jz Z18XModelGetBoneIndexPK6XModelj:F(0,1)_10
+	jz Z18XModelGetBoneIndexPK6XModelj_F0_1_10
 	movzx eax, word [ecx-0x2]
 	add edx, 0x1
 	sub ecx, 0x2
 	cmp edi, eax
-	jnz Z18XModelGetBoneIndexPK6XModelj:F(0,1)_20
-Z18XModelGetBoneIndexPK6XModelj:F(0,1)_10:
+	jnz Z18XModelGetBoneIndexPK6XModelj_F0_1_20
+Z18XModelGetBoneIndexPK6XModelj_F0_1_10:
 	mov eax, ebx
 	pop ebx
 	pop esi
@@ -13908,9 +14138,9 @@ Z18XModelGetBoneIndexPK6XModelj:F(0,1)_10:
 	ret
 
 
-;Z16XModelGetLodNamePK6XModeli:F(0,13)
+;Z16XModelGetLodNamePK6XModeli_F0_13
 
-Z16XModelGetLodNamePK6XModeli:F(0,13):
+Z16XModelGetLodNamePK6XModeli_F0_13:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0xc]
@@ -13922,9 +14152,9 @@ Z16XModelGetLodNamePK6XModeli:F(0,13):
 	ret
 
 
-;Z17XModelGetContentsPK6XModel:F(0,1)
+;Z17XModelGetContentsPK6XModel_F0_1
 
-Z17XModelGetContentsPK6XModel:F(0,1):
+Z17XModelGetContentsPK6XModel_F0_1:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -13934,9 +14164,9 @@ Z17XModelGetContentsPK6XModel:F(0,1):
 	nop
 
 
-;Z14XModelGetSkinsPK6XModel:F(0,74)
+;Z14XModelGetSkinsPK6XModel_F0_74
 
-Z14XModelGetSkinsPK6XModel:F(0,74):
+Z14XModelGetSkinsPK6XModel_F0_74:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -13945,9 +14175,9 @@ Z14XModelGetSkinsPK6XModel:F(0,74):
 	ret
 
 
-;Z17XModelGetMemUsagePK6XModel:F(0,1)
+;Z17XModelGetMemUsagePK6XModel_F0_1
 
-Z17XModelGetMemUsagePK6XModel:F(0,1):
+Z17XModelGetMemUsagePK6XModel_F0_1:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -13956,9 +14186,9 @@ Z17XModelGetMemUsagePK6XModel:F(0,1):
 	ret
 
 
-;Z19Com_ValidXModelNamePKc:F(0,15)
+;Z19Com_ValidXModelNamePKc_F0_15
 
-Z15XModelGetBoundsPK6XModelPfS2_:F(0,20):
+Z15XModelGetBoundsPK6XModelPfS2__F0_20:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -13986,9 +14216,9 @@ Z15XModelGetBoundsPK6XModelPfS2_:F(0,20):
 	ret
 
 
-;Z10XModelFreeP6XModel:F(0,20)
+;Z10XModelFreeP6XModel_F0_20
 
-Z10XModelFreeP6XModel:F(0,20):
+Z10XModelFreeP6XModel_F0_20:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -13997,50 +14227,50 @@ Z10XModelFreeP6XModel:F(0,20):
 	sub esp, 0x2c
 	mov eax, [ebp+0x8]
 	cmp byte [eax+0x8d], 0x0
-	jnz Z10XModelFreeP6XModel:F(0,20)_10
+	jnz Z10XModelFreeP6XModel_F0_20_10
 	mov esi, eax
 	mov dword [ebp-0x20], 0x4
-Z10XModelFreeP6XModel:F(0,20)_40:
+Z10XModelFreeP6XModel_F0_20_40:
 	lea eax, [esi+0x10]
 	mov [ebp-0x1c], eax
 	mov eax, [esi+0x10]
 	test eax, eax
-	jz Z10XModelFreeP6XModel:F(0,20)_20
+	jz Z10XModelFreeP6XModel_F0_20_20
 	lea edi, [esi+0xc]
 	cmp word [esi+0xc], 0x0
-	jg Z10XModelFreeP6XModel:F(0,20)_30
-Z10XModelFreeP6XModel:F(0,20)_60:
+	jg Z10XModelFreeP6XModel_F0_20_30
+Z10XModelFreeP6XModel_F0_20_60:
 	mov eax, [ebp-0x1c]
 	mov dword [eax], 0x0
-Z10XModelFreeP6XModel:F(0,20)_20:
+Z10XModelFreeP6XModel_F0_20_20:
 	add esi, 0x14
 	sub dword [ebp-0x20], 0x1
-	jnz Z10XModelFreeP6XModel:F(0,20)_40
-Z10XModelFreeP6XModel:F(0,20)_10:
+	jnz Z10XModelFreeP6XModel_F0_20_40
+Z10XModelFreeP6XModel_F0_20_10:
 	add esp, 0x2c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z10XModelFreeP6XModel:F(0,20)_30:
+Z10XModelFreeP6XModel_F0_20_30:
 	xor ebx, ebx
-Z10XModelFreeP6XModel:F(0,20)_50:
+Z10XModelFreeP6XModel_F0_20_50:
 	mov edx, [ebp-0x1c]
 	mov eax, [edx]
 	movzx eax, word [eax+ebx*2]
 	mov [esp], eax
-	call Z20SL_RemoveRefToStringj:F(0,5)
+	call Z20SL_RemoveRefToStringj_F0_5
 	add ebx, 0x1
 	movsx eax, word [edi]
 	cmp eax, ebx
-	jg Z10XModelFreeP6XModel:F(0,20)_50
-	jmp Z10XModelFreeP6XModel:F(0,20)_60
+	jg Z10XModelFreeP6XModel_F0_20_50
+	jmp Z10XModelFreeP6XModel_F0_20_60
 
 
-;Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)
+;Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i_F0_1
 
-Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1):
+Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -14049,11 +14279,11 @@ Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1):
 	sub esp, 0xdc
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z14XModelNumBonesPK6XModel:F(0,10)
+	call Z14XModelNumBonesPK6XModel_F0_10
 	mov edx, [ebp+0x8]
 	mov ebx, [edx+0x58]
 	test ebx, ebx
-	jle Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)_10
+	jle Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i_F0_1_10
 	mov dword [ebp-0xa8], 0x0
 	mov dword [ebp-0xac], 0xffffffff
 	xor edi, edi
@@ -14061,19 +14291,19 @@ Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1):
 	add ecx, 0x4
 	mov [ebp-0xc8], ecx
 	mov eax, [ebp+0x8]
-	jmp Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)_20
-Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)_40:
+	jmp Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i_F0_1_20
+Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i_F0_1_40:
 	add dword [ebp-0xa8], 0x1
 	add edi, 0x2c
 	mov edx, [ebp-0xa8]
 	cmp [eax+0x58], edx
-	jle Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)_30
-Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)_20:
+	jle Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i_F0_1_30
+Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i_F0_1_20:
 	mov ebx, edi
 	add ebx, [eax+0x54]
 	mov edx, [ebp+0x1c]
 	test [ebx+0x24], edx
-	jz Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)_40
+	jz Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i_F0_1_40
 	mov ecx, [ebx+0x20]
 	mov [ebp-0xb0], ecx
 	mov eax, ecx
@@ -14207,7 +14437,7 @@ Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)_20:
 	movss [ebp-0x28], xmm0
 	lea eax, [ebp-0x3c]
 	mov [esp], eax
-	call Z19CM_CalcTraceEntentsP12TraceExtents:F(0,1)
+	call Z19CM_CalcTraceEntentsP12TraceExtents_F0_1
 	mov edx, [ebp+0xc]
 	mov eax, [edx]
 	mov [esp+0xc], eax
@@ -14217,9 +14447,9 @@ Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)_20:
 	mov [esp+0x4], eax
 	lea ecx, [ebp-0x3c]
 	mov [esp], ecx
-	call Z11CM_TraceBoxPK12TraceExtentsPKfS3_f:F(0,10)
+	call Z11CM_TraceBoxPK12TraceExtentsPKfS3_f_F0_10
 	test eax, eax
-	jnz Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)_50
+	jnz Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i_F0_1_50
 	movss xmm0, dword [ebp-0x30]
 	movss [ebp-0xb8], xmm0
 	subss xmm0, [ebp-0x3c]
@@ -14234,7 +14464,7 @@ Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)_20:
 	movss [ebp-0x64], xmm2
 	mov ecx, [ebx+0x4]
 	test ecx, ecx
-	jle Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)_50
+	jle Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i_F0_1_50
 	xor esi, esi
 	mov dword [ebp-0xcc], 0x0
 	pxor xmm6, xmm6
@@ -14244,13 +14474,13 @@ Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)_20:
 	movss [ebp-0xc0], xmm4
 	movss xmm0, dword [ebp-0x34]
 	movss [ebp-0xc4], xmm0
-	jmp Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)_60
-Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)_70:
+	jmp Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i_F0_1_60
+Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i_F0_1_70:
 	add esi, 0x1
 	add dword [ebp-0xcc], 0x30
 	cmp [ebx+0x4], esi
-	jle Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)_50
-Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)_60:
+	jle Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i_F0_1_50
+Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i_F0_1_60:
 	mov edx, [ebp-0xcc]
 	add edx, [ebx]
 	movss xmm2, dword [edx+0x4]
@@ -14266,7 +14496,7 @@ Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)_60:
 	addss xmm1, xmm0
 	subss xmm1, xmm4
 	ucomiss xmm1, xmm6
-	jae Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)_70
+	jae Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i_F0_1_70
 	movss xmm0, dword [ebp-0xbc]
 	mulss xmm0, [edx]
 	mulss xmm2, [ebp-0xc0]
@@ -14275,7 +14505,7 @@ Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)_60:
 	addss xmm0, xmm3
 	subss xmm0, xmm4
 	ucomiss xmm6, xmm0
-	jae Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)_70
+	jae Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i_F0_1_70
 	movaps xmm2, xmm0
 	subss xmm2, xmm1
 	movaps xmm1, xmm2
@@ -14287,7 +14517,7 @@ Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)_60:
 	movaps xmm2, xmm3
 	mov eax, [ebp+0xc]
 	ucomiss xmm3, [eax]
-	jae Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)_70
+	jae Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i_F0_1_70
 	divss xmm0, xmm1
 	movss xmm5, dword [ebp-0x5c]
 	mulss xmm5, xmm0
@@ -14310,9 +14540,9 @@ Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)_60:
 	subss xmm1, [edx+0x1c]
 	movss xmm0, dword [_float__0_00100000]
 	ucomiss xmm0, xmm1
-	ja Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)_70
+	ja Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i_F0_1_70
 	ucomiss xmm1, [_float_1_00100005]
-	ja Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)_70
+	ja Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i_F0_1_70
 	lea eax, [edx+0x20]
 	movaps xmm0, xmm5
 	mulss xmm0, [edx+0x20]
@@ -14323,10 +14553,10 @@ Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)_60:
 	subss xmm0, [edx+0x2c]
 	movss xmm3, dword [_float__0_00100000]
 	ucomiss xmm3, xmm0
-	ja Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)_70
+	ja Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i_F0_1_70
 	addss xmm1, xmm0
 	ucomiss xmm1, [_float_1_00100005]
-	ja Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)_70
+	ja Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i_F0_1_70
 	mov eax, [ebp+0xc]
 	mov byte [eax+0x23], 0x0
 	mov byte [eax+0x22], 0x0
@@ -14345,18 +14575,18 @@ Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)_60:
 	mov [edx+0x8], eax
 	mov ecx, [ebp-0xb0]
 	mov [ebp-0xac], ecx
-	jmp Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)_70
-Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)_50:
+	jmp Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i_F0_1_70
+Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i_F0_1_50:
 	mov eax, [ebp+0x8]
 	add dword [ebp-0xa8], 0x1
 	add edi, 0x2c
 	mov edx, [ebp-0xa8]
 	cmp [eax+0x58], edx
-	jg Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)_20
-Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)_30:
+	jg Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i_F0_1_20
+Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i_F0_1_30:
 	mov edx, [ebp-0xac]
 	test edx, edx
-	js Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)_10
+	js Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i_F0_1_10
 	mov eax, [ebp-0xac]
 	shl eax, 0x5
 	add eax, [ebp+0x10]
@@ -14441,7 +14671,7 @@ Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)_30:
 	pop edi
 	pop ebp
 	ret
-Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)_10:
+Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i_F0_1_10:
 	mov dword [ebp-0xac], 0xffffffff
 	mov eax, [ebp-0xac]
 	add esp, 0xdc
@@ -14453,9 +14683,9 @@ Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)_10:
 	nop
 
 
-;Z20FS_SV_FOpenFileWritePKc:F(0,33)
+;Z20FS_SV_FOpenFileWritePKc_F0_33
 
-Z8DObjInitv:F(0,1):
+Z8DObjInitv_F0_1:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x38
@@ -14469,37 +14699,37 @@ Z8DObjInitv:F(0,1):
 	mov dword [esp+0x8], 0x11
 	mov dword [esp+0x4], 0x0
 	mov [esp], eax
-	call SL_GetStringOfLen:F(0,1)
+	call SL_GetStringOfLen_F0_1
 	mov [g_empty], eax
 	leave
 	ret
 	nop
 
 
-;Z12DObjShutdownv:F(0,1)
+;Z12DObjShutdownv_F0_1
 
-Z12DObjShutdownv:F(0,1):
+Z12DObjShutdownv_F0_1:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
 	mov eax, [g_empty]
 	test eax, eax
-	jnz Z12DObjShutdownv:F(0,1)_10
+	jnz Z12DObjShutdownv_F0_1_10
 	leave
 	ret
-Z12DObjShutdownv:F(0,1)_10:
+Z12DObjShutdownv_F0_1_10:
 	mov dword [esp+0x4], 0x11
 	mov [esp], eax
-	call Z25SL_RemoveRefToStringOfLenjj:F(0,5)
+	call Z25SL_RemoveRefToStringOfLenjj_F0_5
 	mov dword [g_empty], 0x0
 	leave
 	ret
 	nop
 
 
-;Z9DObjAbortv:F(0,1)
+;Z9DObjAbortv_F0_1
 
-Z9DObjAbortv:F(0,1):
+Z9DObjAbortv_F0_1:
 	push ebp
 	mov ebp, esp
 	mov dword [g_empty], 0x0
@@ -14509,9 +14739,9 @@ Z9DObjAbortv:F(0,1):
 	add [eax], al
 
 
-;Z19DObjIgnoreCollisionPK6DObj_si:F(0,37)
+;Z19DObjIgnoreCollisionPK6DObj_si_F0_37
 
-Z19DObjIgnoreCollisionPK6DObj_si:F(0,37):
+Z19DObjIgnoreCollisionPK6DObj_si_F0_37:
 	push ebp
 	mov ebp, esp
 	mov ecx, [ebp+0xc]
@@ -14523,9 +14753,9 @@ Z19DObjIgnoreCollisionPK6DObj_si:F(0,37):
 	ret
 
 
-;Z22DObjSkelIsBoneUpToDateP6DObj_si:F(0,4)
+;Z22DObjSkelIsBoneUpToDateP6DObj_si_F0_4
 
-Z22DObjSkelIsBoneUpToDateP6DObj_si:F(0,4):
+Z22DObjSkelIsBoneUpToDateP6DObj_si_F0_4:
 	push ebp
 	mov ebp, esp
 	mov ecx, [ebp+0xc]
@@ -14542,9 +14772,9 @@ Z22DObjSkelIsBoneUpToDateP6DObj_si:F(0,4):
 	nop
 
 
-;Z24DObjSkelAreBonesUpToDatePK6DObj_sPi:F(0,4)
+;Z24DObjSkelAreBonesUpToDatePK6DObj_sPi_F0_4
 
-Z24DObjSkelAreBonesUpToDatePK6DObj_sPi:F(0,4):
+Z24DObjSkelAreBonesUpToDatePK6DObj_sPi_F0_4:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -14552,20 +14782,20 @@ Z24DObjSkelAreBonesUpToDatePK6DObj_sPi:F(0,4):
 	mov eax, [ebp+0x8]
 	mov edx, [eax+0x4]
 	mov ecx, 0x1
-Z24DObjSkelAreBonesUpToDatePK6DObj_sPi:F(0,4)_20:
+Z24DObjSkelAreBonesUpToDatePK6DObj_sPi_F0_4_20:
 	mov eax, [edx+0x20]
 	not eax
 	test [ebx+ecx*4-0x4], eax
-	jnz Z24DObjSkelAreBonesUpToDatePK6DObj_sPi:F(0,4)_10
+	jnz Z24DObjSkelAreBonesUpToDatePK6DObj_sPi_F0_4_10
 	add ecx, 0x1
 	add edx, 0x4
 	cmp ecx, 0x5
-	jnz Z24DObjSkelAreBonesUpToDatePK6DObj_sPi:F(0,4)_20
+	jnz Z24DObjSkelAreBonesUpToDatePK6DObj_sPi_F0_4_20
 	mov eax, 0x1
 	pop ebx
 	pop ebp
 	ret
-Z24DObjSkelAreBonesUpToDatePK6DObj_sPi:F(0,4)_10:
+Z24DObjSkelAreBonesUpToDatePK6DObj_sPi_F0_4_10:
 	xor eax, eax
 	pop ebx
 	pop ebp
@@ -14574,9 +14804,9 @@ Z24DObjSkelAreBonesUpToDatePK6DObj_sPi:F(0,4)_10:
 	add [eax], al
 
 
-;Z8DObjFreeP6DObj_s:F(0,1)
+;Z8DObjFreeP6DObj_s_F0_1
 
-Z8DObjFreeP6DObj_s:F(0,1):
+Z8DObjFreeP6DObj_s_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -14585,18 +14815,18 @@ Z8DObjFreeP6DObj_s:F(0,1):
 	mov ebx, [ebp+0x8]
 	mov eax, [ebx]
 	test eax, eax
-	jz Z8DObjFreeP6DObj_s:F(0,1)_10
+	jz Z8DObjFreeP6DObj_s_F0_1_10
 	mov dword [ebx+0xc], 0x0
 	mov dword [ebx], 0x0
-Z8DObjFreeP6DObj_s:F(0,1)_10:
+Z8DObjFreeP6DObj_s_F0_1_10:
 	movzx eax, word [ebx+0x10]
 	test ax, ax
-	jz Z8DObjFreeP6DObj_s:F(0,1)_20
+	jz Z8DObjFreeP6DObj_s_F0_1_20
 	movzx eax, ax
 	cmp eax, [g_empty]
-	jz Z8DObjFreeP6DObj_s:F(0,1)_30
+	jz Z8DObjFreeP6DObj_s_F0_1_30
 	mov [esp], eax
-	call Z18SL_ConvertToStringj:F(0,2)
+	call Z18SL_ConvertToStringj_F0_2
 	lea edi, [eax+0x10]
 	cld
 	mov ecx, 0xffffffff
@@ -14607,10 +14837,10 @@ Z8DObjFreeP6DObj_s:F(0,1)_10:
 	mov [esp+0x4], ecx
 	movzx eax, word [ebx+0x10]
 	mov [esp], eax
-	call Z25SL_RemoveRefToStringOfLenjj:F(0,5)
-Z8DObjFreeP6DObj_s:F(0,1)_30:
+	call Z25SL_RemoveRefToStringOfLenjj_F0_5
+Z8DObjFreeP6DObj_s_F0_1_30:
 	mov word [ebx+0x10], 0x0
-Z8DObjFreeP6DObj_s:F(0,1)_20:
+Z8DObjFreeP6DObj_s_F0_1_20:
 	add esp, 0x10
 	pop ebx
 	pop edi
@@ -14620,9 +14850,9 @@ Z8DObjFreeP6DObj_s:F(0,1)_20:
 	add [eax], al
 
 
-;Z20DObjGetAllocSkelSizePK6DObj_s:F(0,4)
+;Z20DObjGetAllocSkelSizePK6DObj_s_F0_4
 
-Z20DObjGetAllocSkelSizePK6DObj_s:F(0,4):
+Z20DObjGetAllocSkelSizePK6DObj_s_F0_4:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -14633,20 +14863,20 @@ Z20DObjGetAllocSkelSizePK6DObj_s:F(0,4):
 	ret
 
 
-;Z14DObjSkelExistsPK6DObj_si:F(0,97)
+;Z14DObjSkelExistsPK6DObj_si_F0_97
 
-Z14DObjSkelExistsPK6DObj_si:F(0,97):
+Z14DObjSkelExistsPK6DObj_si_F0_97:
 	push ebp
 	mov ebp, esp
 	mov edx, [ebp+0x8]
 	mov eax, [ebp+0xc]
 	cmp [edx+0x8], eax
-	jz Z14DObjSkelExistsPK6DObj_si:F(0,97)_10
+	jz Z14DObjSkelExistsPK6DObj_si_F0_97_10
 	mov dword [edx+0x4], 0x0
 	xor eax, eax
 	pop ebp
 	ret
-Z14DObjSkelExistsPK6DObj_si:F(0,97)_10:
+Z14DObjSkelExistsPK6DObj_si_F0_97_10:
 	xor eax, eax
 	cmp dword [edx+0x4], 0x0
 	setnz al
@@ -14654,9 +14884,9 @@ Z14DObjSkelExistsPK6DObj_si:F(0,97)_10:
 	ret
 
 
-;Z13DObjSkelClearPK6DObj_s:F(0,1)
+;Z13DObjSkelClearPK6DObj_s_F0_1
 
-Z13DObjSkelClearPK6DObj_s:F(0,1):
+Z13DObjSkelClearPK6DObj_s_F0_1:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -14666,9 +14896,9 @@ Z13DObjSkelClearPK6DObj_s:F(0,1):
 	ret
 
 
-;Z14DObjCreateSkelPK6DObj_sPci:F(0,1)
+;Z14DObjCreateSkelPK6DObj_sPci_F0_1
 
-Z14DObjCreateSkelPK6DObj_sPci:F(0,1):
+Z14DObjCreateSkelPK6DObj_sPci_F0_1:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -14678,21 +14908,21 @@ Z14DObjCreateSkelPK6DObj_sPci:F(0,1):
 	mov [eax+0x8], edx
 	mov eax, ecx
 	mov edx, 0x4
-Z14DObjCreateSkelPK6DObj_sPci:F(0,1)_10:
+Z14DObjCreateSkelPK6DObj_sPci_F0_1_10:
 	mov dword [eax], 0x0
 	mov dword [eax+0x10], 0x0
 	mov dword [eax+0x20], 0x0
 	add eax, 0x4
 	sub edx, 0x1
-	jnz Z14DObjCreateSkelPK6DObj_sPci:F(0,1)_10
+	jnz Z14DObjCreateSkelPK6DObj_sPci_F0_1_10
 	pop ebp
 	ret
 	nop
 
 
-;Z16DObjGetNumModelsPK6DObj_s:F(0,4)
+;Z16DObjGetNumModelsPK6DObj_s_F0_4
 
-Z16DObjGetNumModelsPK6DObj_s:F(0,4):
+Z16DObjGetNumModelsPK6DObj_s_F0_4:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -14701,9 +14931,9 @@ Z16DObjGetNumModelsPK6DObj_s:F(0,4):
 	ret
 
 
-;Z12DObjGetModelPK6DObj_si:F(0,28)
+;Z12DObjGetModelPK6DObj_si_F0_28
 
-Z12DObjGetModelPK6DObj_si:F(0,28):
+Z12DObjGetModelPK6DObj_si_F0_28:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0xc]
@@ -14714,24 +14944,24 @@ Z12DObjGetModelPK6DObj_si:F(0,28):
 	nop
 
 
-;Z20DObjGetRotTransArrayPK6DObj_s:F(0,101)
+;Z20DObjGetRotTransArrayPK6DObj_s_F0_101
 
-Z20DObjGetRotTransArrayPK6DObj_s:F(0,101):
+Z20DObjGetRotTransArrayPK6DObj_s_F0_101:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
 	mov eax, [eax+0x4]
 	test eax, eax
-	jz Z20DObjGetRotTransArrayPK6DObj_s:F(0,101)_10
+	jz Z20DObjGetRotTransArrayPK6DObj_s_F0_101_10
 	add eax, 0x30
-Z20DObjGetRotTransArrayPK6DObj_s:F(0,101)_10:
+Z20DObjGetRotTransArrayPK6DObj_s_F0_101_10:
 	pop ebp
 	ret
 
 
-;Z16DObjGetMatOffsetPK6DObj_si:F(0,4)
+;Z16DObjGetMatOffsetPK6DObj_si_F0_4
 
-Z16DObjGetMatOffsetPK6DObj_si:F(0,4):
+Z16DObjGetMatOffsetPK6DObj_si_F0_4:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0xc]
@@ -14741,9 +14971,9 @@ Z16DObjGetMatOffsetPK6DObj_si:F(0,4):
 	ret
 
 
-;Z15DObjGetBoneInfoPK6DObj_sPP11XBoneInfo_s:F(0,1)
+;Z15DObjGetBoneInfoPK6DObj_sPP11XBoneInfo_s_F0_1
 
-Z15DObjGetBoneInfoPK6DObj_sPP11XBoneInfo_s:F(0,1):
+Z15DObjGetBoneInfoPK6DObj_sPP11XBoneInfo_s_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -14753,19 +14983,19 @@ Z15DObjGetBoneInfoPK6DObj_sPP11XBoneInfo_s:F(0,1):
 	mov ebx, [ebp+0xc]
 	mov eax, [ebp+0x8]
 	cmp byte [eax+0x18], 0x0
-	jz Z15DObjGetBoneInfoPK6DObj_sPP11XBoneInfo_s:F(0,1)_10
+	jz Z15DObjGetBoneInfoPK6DObj_sPP11XBoneInfo_s_F0_1_10
 	mov [ebp-0x10], eax
 	mov dword [ebp-0x14], 0x0
 	mov edx, eax
-Z15DObjGetBoneInfoPK6DObj_sPP11XBoneInfo_s:F(0,1)_40:
+Z15DObjGetBoneInfoPK6DObj_sPP11XBoneInfo_s_F0_1_40:
 	mov edi, [edx+0x1c]
 	mov eax, [edi]
 	movsx esi, word [eax]
 	test esi, esi
-	jle Z15DObjGetBoneInfoPK6DObj_sPP11XBoneInfo_s:F(0,1)_20
+	jle Z15DObjGetBoneInfoPK6DObj_sPP11XBoneInfo_s_F0_1_20
 	xor ecx, ecx
 	xor edx, edx
-Z15DObjGetBoneInfoPK6DObj_sPP11XBoneInfo_s:F(0,1)_30:
+Z15DObjGetBoneInfoPK6DObj_sPP11XBoneInfo_s_F0_1_30:
 	mov eax, edx
 	add eax, [edi+0x60]
 	mov [ebx], eax
@@ -14773,17 +15003,17 @@ Z15DObjGetBoneInfoPK6DObj_sPP11XBoneInfo_s:F(0,1)_30:
 	add ebx, 0x4
 	add edx, 0x28
 	cmp esi, ecx
-	jnz Z15DObjGetBoneInfoPK6DObj_sPP11XBoneInfo_s:F(0,1)_30
-Z15DObjGetBoneInfoPK6DObj_sPP11XBoneInfo_s:F(0,1)_20:
+	jnz Z15DObjGetBoneInfoPK6DObj_sPP11XBoneInfo_s_F0_1_30
+Z15DObjGetBoneInfoPK6DObj_sPP11XBoneInfo_s_F0_1_20:
 	add dword [ebp-0x14], 0x1
 	add dword [ebp-0x10], 0x4
 	mov edx, [ebp+0x8]
 	movzx eax, byte [edx+0x18]
 	cmp [ebp-0x14], eax
-	jge Z15DObjGetBoneInfoPK6DObj_sPP11XBoneInfo_s:F(0,1)_10
+	jge Z15DObjGetBoneInfoPK6DObj_sPP11XBoneInfo_s_F0_1_10
 	mov edx, [ebp-0x10]
-	jmp Z15DObjGetBoneInfoPK6DObj_sPP11XBoneInfo_s:F(0,1)_40
-Z15DObjGetBoneInfoPK6DObj_sPP11XBoneInfo_s:F(0,1)_10:
+	jmp Z15DObjGetBoneInfoPK6DObj_sPP11XBoneInfo_s_F0_1_40
+Z15DObjGetBoneInfoPK6DObj_sPP11XBoneInfo_s_F0_1_10:
 	add esp, 0x8
 	pop ebx
 	pop esi
@@ -14792,9 +15022,9 @@ Z15DObjGetBoneInfoPK6DObj_sPP11XBoneInfo_s:F(0,1)_10:
 	ret
 
 
-;Z18DObjGetNumSurfacesPK6DObj_sPc:F(0,4)
+;Z18DObjGetNumSurfacesPK6DObj_sPc_F0_4
 
-Z18DObjGetNumSurfacesPK6DObj_sPc:F(0,4):
+Z18DObjGetNumSurfacesPK6DObj_sPc_F0_4:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -14804,7 +15034,7 @@ Z18DObjGetNumSurfacesPK6DObj_sPc:F(0,4):
 	mov edx, [ebp+0x8]
 	movzx eax, byte [edx+0x18]
 	sub eax, 0x1
-	js Z18DObjGetNumSurfacesPK6DObj_sPc:F(0,4)_10
+	js Z18DObjGetNumSurfacesPK6DObj_sPc_F0_4_10
 	lea ebx, [edx+eax*4+0x1c]
 	mov dword [ebp-0x10], 0x0
 	xor esi, esi
@@ -14812,25 +15042,25 @@ Z18DObjGetNumSurfacesPK6DObj_sPc:F(0,4):
 	not edi
 	mov ecx, [ebp+0xc]
 	add ecx, eax
-Z18DObjGetNumSurfacesPK6DObj_sPc:F(0,4)_30:
+Z18DObjGetNumSurfacesPK6DObj_sPc_F0_4_30:
 	movzx eax, byte [ecx]
 	test al, al
-	js Z18DObjGetNumSurfacesPK6DObj_sPc:F(0,4)_20
+	js Z18DObjGetNumSurfacesPK6DObj_sPc_F0_4_20
 	movzx eax, al
 	lea eax, [eax+eax*4]
 	mov edx, [ebx]
 	lea eax, [edx+eax*4+0x4]
 	mov edx, [eax+0x10]
 	test edx, edx
-	jz Z18DObjGetNumSurfacesPK6DObj_sPc:F(0,4)_20
+	jz Z18DObjGetNumSurfacesPK6DObj_sPc_F0_4_20
 	movsx eax, word [eax+0x8]
 	add [ebp-0x10], eax
-Z18DObjGetNumSurfacesPK6DObj_sPc:F(0,4)_20:
+Z18DObjGetNumSurfacesPK6DObj_sPc_F0_4_20:
 	sub esi, 0x1
 	sub ecx, 0x1
 	sub ebx, 0x4
 	cmp esi, edi
-	jnz Z18DObjGetNumSurfacesPK6DObj_sPc:F(0,4)_30
+	jnz Z18DObjGetNumSurfacesPK6DObj_sPc_F0_4_30
 	mov eax, [ebp-0x10]
 	add esp, 0x4
 	pop ebx
@@ -14838,7 +15068,7 @@ Z18DObjGetNumSurfacesPK6DObj_sPc:F(0,4)_20:
 	pop edi
 	pop ebp
 	ret
-Z18DObjGetNumSurfacesPK6DObj_sPc:F(0,4)_10:
+Z18DObjGetNumSurfacesPK6DObj_sPc_F0_4_10:
 	mov dword [ebp-0x10], 0x0
 	mov eax, [ebp-0x10]
 	add esp, 0x4
@@ -14849,9 +15079,9 @@ Z18DObjGetNumSurfacesPK6DObj_sPc:F(0,4)_10:
 	ret
 
 
-;Z14DObjGetSurfacePK6DObj_siii:F(0,85)
+;Z14DObjGetSurfacePK6DObj_siii_F0_85
 
-Z14DObjGetSurfacePK6DObj_siii:F(0,85):
+Z14DObjGetSurfacePK6DObj_siii_F0_85:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x14]
@@ -14869,9 +15099,9 @@ Z14DObjGetSurfacePK6DObj_siii:F(0,85):
 	nop
 
 
-;Z18DObjGetSurfaceNameP6DObj_siii:F(0,5)
+;Z18DObjGetSurfaceNameP6DObj_siii_F0_5
 
-Z18DObjGetSurfaceNameP6DObj_siii:F(0,5):
+Z18DObjGetSurfaceNameP6DObj_siii_F0_5:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x14]
@@ -14884,20 +15114,20 @@ Z18DObjGetSurfaceNameP6DObj_siii:F(0,5):
 	mov eax, [ebp+0x10]
 	movzx eax, word [edx+eax*2]
 	test ax, ax
-	jnz Z18DObjGetSurfaceNameP6DObj_siii:F(0,5)_10
+	jnz Z18DObjGetSurfaceNameP6DObj_siii_F0_5_10
 	mov eax, _cstring_default
 	pop ebp
 	ret
-Z18DObjGetSurfaceNameP6DObj_siii:F(0,5)_10:
+Z18DObjGetSurfaceNameP6DObj_siii_F0_5_10:
 	movzx eax, ax
 	mov [ebp+0x8], eax
 	pop ebp
-	jmp Z18SL_ConvertToStringj:F(0,2)
+	jmp Z18SL_ConvertToStringj_F0_2
 
 
-;Z16DObjGetBoneIndexPK6DObj_sj:F(0,4)
+;Z16DObjGetBoneIndexPK6DObj_sj_F0_4
 
-Z16DObjGetBoneIndexPK6DObj_sj:F(0,4):
+Z16DObjGetBoneIndexPK6DObj_sj_F0_4:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -14908,45 +15138,45 @@ Z16DObjGetBoneIndexPK6DObj_sj:F(0,4):
 	movzx edx, byte [eax+0x18]
 	mov [ebp-0x20], edx
 	test edx, edx
-	jg Z16DObjGetBoneIndexPK6DObj_sj:F(0,4)_10
-Z16DObjGetBoneIndexPK6DObj_sj:F(0,4)_40:
+	jg Z16DObjGetBoneIndexPK6DObj_sj_F0_4_10
+Z16DObjGetBoneIndexPK6DObj_sj_F0_4_40:
 	mov eax, 0xffffffff
-Z16DObjGetBoneIndexPK6DObj_sj:F(0,4)_50:
+Z16DObjGetBoneIndexPK6DObj_sj_F0_4_50:
 	add esp, 0x2c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z16DObjGetBoneIndexPK6DObj_sj:F(0,4)_10:
+Z16DObjGetBoneIndexPK6DObj_sj_F0_4_10:
 	mov esi, eax
 	xor edi, edi
 	mov dword [ebp-0x1c], 0x0
-Z16DObjGetBoneIndexPK6DObj_sj:F(0,4)_30:
+Z16DObjGetBoneIndexPK6DObj_sj_F0_4_30:
 	mov ebx, [esi+0x1c]
 	mov eax, [ebp+0xc]
 	mov [esp+0x4], eax
 	mov [esp], ebx
-	call Z18XModelGetBoneIndexPK6XModelj:F(0,1)
+	call Z18XModelGetBoneIndexPK6XModelj_F0_1
 	test eax, eax
-	jns Z16DObjGetBoneIndexPK6DObj_sj:F(0,4)_20
+	jns Z16DObjGetBoneIndexPK6DObj_sj_F0_4_20
 	mov eax, [ebx]
 	movsx eax, word [eax]
 	add [ebp-0x1c], eax
 	add edi, 0x1
 	add esi, 0x4
 	cmp [ebp-0x20], edi
-	jnz Z16DObjGetBoneIndexPK6DObj_sj:F(0,4)_30
-	jmp Z16DObjGetBoneIndexPK6DObj_sj:F(0,4)_40
-Z16DObjGetBoneIndexPK6DObj_sj:F(0,4)_20:
+	jnz Z16DObjGetBoneIndexPK6DObj_sj_F0_4_30
+	jmp Z16DObjGetBoneIndexPK6DObj_sj_F0_4_40
+Z16DObjGetBoneIndexPK6DObj_sj_F0_4_20:
 	add eax, [ebp-0x1c]
-	jmp Z16DObjGetBoneIndexPK6DObj_sj:F(0,4)_50
+	jmp Z16DObjGetBoneIndexPK6DObj_sj_F0_4_50
 	nop
 
 
-;Z11DObjGetTreePK6DObj_s:F(0,12)
+;Z11DObjGetTreePK6DObj_s_F0_12
 
-Z11DObjGetTreePK6DObj_s:F(0,12):
+Z11DObjGetTreePK6DObj_s_F0_12:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -14955,9 +15185,9 @@ Z11DObjGetTreePK6DObj_s:F(0,12):
 	ret
 
 
-;Z7DObjBadPK6DObj_s:F(0,4)
+;Z7DObjBadPK6DObj_s_F0_4
 
-Z7DObjBadPK6DObj_s:F(0,4):
+Z7DObjBadPK6DObj_s_F0_4:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -14968,21 +15198,21 @@ Z7DObjBadPK6DObj_s:F(0,4):
 	movzx edx, byte [ecx+0x18]
 	mov eax, edx
 	sub eax, 0x1
-	js Z7DObjBadPK6DObj_s:F(0,4)_10
+	js Z7DObjBadPK6DObj_s_F0_4_10
 	lea ebx, [ecx+eax*4+0x1c]
 	xor esi, esi
 	mov edi, edx
-Z7DObjBadPK6DObj_s:F(0,4)_30:
+Z7DObjBadPK6DObj_s_F0_4_30:
 	mov eax, [ebx]
 	mov [esp], eax
-	call Z9XModelBadPK6XModel:F(0,1)
+	call Z9XModelBadPK6XModel_F0_1
 	test eax, eax
-	jnz Z7DObjBadPK6DObj_s:F(0,4)_20
+	jnz Z7DObjBadPK6DObj_s_F0_4_20
 	add esi, 0x1
 	sub ebx, 0x4
 	cmp esi, edi
-	jnz Z7DObjBadPK6DObj_s:F(0,4)_30
-Z7DObjBadPK6DObj_s:F(0,4)_10:
+	jnz Z7DObjBadPK6DObj_s_F0_4_30
+Z7DObjBadPK6DObj_s_F0_4_10:
 	xor eax, eax
 	add esp, 0x1c
 	pop ebx
@@ -14990,7 +15220,7 @@ Z7DObjBadPK6DObj_s:F(0,4)_10:
 	pop edi
 	pop ebp
 	ret
-Z7DObjBadPK6DObj_s:F(0,4)_20:
+Z7DObjBadPK6DObj_s_F0_4_20:
 	mov eax, 0x1
 	add esp, 0x1c
 	pop ebx
@@ -15000,9 +15230,9 @@ Z7DObjBadPK6DObj_s:F(0,4)_20:
 	ret
 
 
-;Z12DObjNumBonesPK6DObj_s:F(0,4)
+;Z12DObjNumBonesPK6DObj_s_F0_4
 
-Z12DObjNumBonesPK6DObj_s:F(0,4):
+Z12DObjNumBonesPK6DObj_s_F0_4:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -15011,9 +15241,9 @@ Z12DObjNumBonesPK6DObj_s:F(0,4):
 	ret
 
 
-;Z17DObjGetLodForDistPK6DObj_sif:F(0,4)
+;Z17DObjGetLodForDistPK6DObj_sif_F0_4
 
-Z17DObjGetLodForDistPK6DObj_sif:F(0,4):
+Z17DObjGetLodForDistPK6DObj_sif_F0_4:
 	push ebp
 	mov ebp, esp
 	mov edx, [ebp+0xc]
@@ -15023,12 +15253,12 @@ Z17DObjGetLodForDistPK6DObj_sif:F(0,4):
 	mov eax, [eax+edx*4+0x1c]
 	mov [ebp+0x8], eax
 	pop ebp
-	jmp Z19XModelGetLodForDistPK6XModelf:F(0,10)
+	jmp Z19XModelGetLodForDistPK6XModelf_F0_10
 
 
-;Z17DObjGetLodOutDistPK6DObj_s:F(0,35)
+;Z17DObjGetLodOutDistPK6DObj_s_F0_35
 
-Z17DObjGetLodOutDistPK6DObj_s:F(0,35):
+Z17DObjGetLodOutDistPK6DObj_s_F0_35:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -15038,7 +15268,7 @@ Z17DObjGetLodOutDistPK6DObj_s:F(0,35):
 	mov edi, [ebp+0x8]
 	pxor xmm0, xmm0
 	cmp byte [edi+0x18], 0x0
-	jnz Z17DObjGetLodOutDistPK6DObj_s:F(0,35)_10
+	jnz Z17DObjGetLodOutDistPK6DObj_s_F0_35_10
 	movss [ebp-0x3c], xmm0
 	fld dword [ebp-0x3c]
 	add esp, 0x4c
@@ -15047,15 +15277,15 @@ Z17DObjGetLodOutDistPK6DObj_s:F(0,35):
 	pop edi
 	pop ebp
 	ret
-Z17DObjGetLodOutDistPK6DObj_s:F(0,35)_10:
+Z17DObjGetLodOutDistPK6DObj_s_F0_35_10:
 	mov ebx, edi
 	xor esi, esi
 	pxor xmm0, xmm0
-Z17DObjGetLodOutDistPK6DObj_s:F(0,35)_20:
+Z17DObjGetLodOutDistPK6DObj_s_F0_35_20:
 	mov eax, [ebx+0x1c]
 	mov [esp], eax
 	movss [ebp-0x38], xmm0
-	call Z19XModelGetLodOutDistPK6XModel:F(0,26)
+	call Z19XModelGetLodOutDistPK6XModel_F0_26
 	fstp dword [ebp-0x1c]
 	movss xmm0, dword [ebp-0x38]
 	movss xmm1, dword [ebp-0x1c]
@@ -15065,7 +15295,7 @@ Z17DObjGetLodOutDistPK6DObj_s:F(0,35)_20:
 	add ebx, 0x4
 	movzx eax, byte [edi+0x18]
 	cmp eax, esi
-	jg Z17DObjGetLodOutDistPK6DObj_s:F(0,35)_20
+	jg Z17DObjGetLodOutDistPK6DObj_s_F0_35_20
 	movss [ebp-0x3c], xmm0
 	fld dword [ebp-0x3c]
 	add esp, 0x4c
@@ -15076,9 +15306,9 @@ Z17DObjGetLodOutDistPK6DObj_s:F(0,35)_20:
 	ret
 
 
-;Z15DObjHasContentsP6DObj_si:F(0,4)
+;Z15DObjHasContentsP6DObj_si_F0_4
 
-Z15DObjHasContentsP6DObj_si:F(0,4):
+Z15DObjHasContentsP6DObj_si_F0_4:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -15087,40 +15317,40 @@ Z15DObjHasContentsP6DObj_si:F(0,4):
 	sub esp, 0x1c
 	mov edi, [ebp+0x8]
 	cmp byte [edi+0x18], 0x0
-	jnz Z15DObjHasContentsP6DObj_si:F(0,4)_10
-Z15DObjHasContentsP6DObj_si:F(0,4)_40:
+	jnz Z15DObjHasContentsP6DObj_si_F0_4_10
+Z15DObjHasContentsP6DObj_si_F0_4_40:
 	xor eax, eax
-Z15DObjHasContentsP6DObj_si:F(0,4)_50:
+Z15DObjHasContentsP6DObj_si_F0_4_50:
 	add esp, 0x1c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z15DObjHasContentsP6DObj_si:F(0,4)_10:
+Z15DObjHasContentsP6DObj_si_F0_4_10:
 	mov ebx, edi
 	xor esi, esi
-Z15DObjHasContentsP6DObj_si:F(0,4)_30:
+Z15DObjHasContentsP6DObj_si_F0_4_30:
 	mov eax, [ebx+0x1c]
 	mov [esp], eax
-	call Z17XModelGetContentsPK6XModel:F(0,1)
+	call Z17XModelGetContentsPK6XModel_F0_1
 	test [ebp+0xc], eax
-	jnz Z15DObjHasContentsP6DObj_si:F(0,4)_20
+	jnz Z15DObjHasContentsP6DObj_si_F0_4_20
 	add esi, 0x1
 	add ebx, 0x4
 	movzx eax, byte [edi+0x18]
 	cmp eax, esi
-	jg Z15DObjHasContentsP6DObj_si:F(0,4)_30
-	jmp Z15DObjHasContentsP6DObj_si:F(0,4)_40
-Z15DObjHasContentsP6DObj_si:F(0,4)_20:
+	jg Z15DObjHasContentsP6DObj_si_F0_4_30
+	jmp Z15DObjHasContentsP6DObj_si_F0_4_40
+Z15DObjHasContentsP6DObj_si_F0_4_20:
 	mov eax, 0x1
-	jmp Z15DObjHasContentsP6DObj_si:F(0,4)_50
+	jmp Z15DObjHasContentsP6DObj_si_F0_4_50
 	nop
 
 
-;Z12DObjSetModelP6DObj_sPK6XModel:F(0,1)
+;Z12DObjSetModelP6DObj_sPK6XModel_F0_1
 
-Z12DObjSetModelP6DObj_sPK6XModel:F(0,1):
+Z12DObjSetModelP6DObj_sPK6XModel_F0_1:
 	push ebp
 	mov ebp, esp
 	mov ecx, [ebp+0x8]
@@ -15136,9 +15366,9 @@ Z12DObjSetModelP6DObj_sPK6XModel:F(0,1):
 	ret
 
 
-;Z13DObjGetBoundsPK6DObj_sPfS2_:F(0,1)
+;Z13DObjGetBoundsPK6DObj_sPfS2__F0_1
 
-Z13DObjGetBoundsPK6DObj_sPfS2_:F(0,1):
+Z13DObjGetBoundsPK6DObj_sPfS2__F0_1:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -15166,9 +15396,9 @@ Z13DObjGetBoundsPK6DObj_sPfS2_:F(0,1):
 	ret
 
 
-;Z17DObjGeomTracelineP6DObj_sPfS1_iP11DObjTrace_s:F(0,1)
+;Z17DObjGeomTracelineP6DObj_sPfS1_iP11DObjTrace_s_F0_1
 
-Z17DObjGeomTracelineP6DObj_sPfS1_iP11DObjTrace_s:F(0,1):
+Z17DObjGeomTracelineP6DObj_sPfS1_iP11DObjTrace_s_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -15189,16 +15419,16 @@ Z17DObjGeomTracelineP6DObj_sPfS1_iP11DObjTrace_s:F(0,1):
 	mov ecx, [ebp+0x8]
 	mov eax, [ecx+0x4]
 	test eax, eax
-	jz Z17DObjGeomTracelineP6DObj_sPfS1_iP11DObjTrace_s:F(0,1)_10
+	jz Z17DObjGeomTracelineP6DObj_sPfS1_iP11DObjTrace_s_F0_1_10
 	mov edi, eax
 	add edi, 0x30
-	jz Z17DObjGeomTracelineP6DObj_sPfS1_iP11DObjTrace_s:F(0,1)_20
+	jz Z17DObjGeomTracelineP6DObj_sPfS1_iP11DObjTrace_s_F0_1_20
 	mov eax, [ebp+0x8]
 	cmp byte [eax+0x18], 0x0
-	jnz Z17DObjGeomTracelineP6DObj_sPfS1_iP11DObjTrace_s:F(0,1)_30
-Z17DObjGeomTracelineP6DObj_sPfS1_iP11DObjTrace_s:F(0,1)_20:
+	jnz Z17DObjGeomTracelineP6DObj_sPfS1_iP11DObjTrace_s_F0_1_30
+Z17DObjGeomTracelineP6DObj_sPfS1_iP11DObjTrace_s_F0_1_20:
 	mov edx, [ebp+0x18]
-Z17DObjGeomTracelineP6DObj_sPfS1_iP11DObjTrace_s:F(0,1)_10:
+Z17DObjGeomTracelineP6DObj_sPfS1_iP11DObjTrace_s_F0_1_10:
 	mov eax, [ebp-0x3c]
 	mov [edx], eax
 	mov eax, [ebp-0x2c]
@@ -15218,10 +15448,10 @@ Z17DObjGeomTracelineP6DObj_sPfS1_iP11DObjTrace_s:F(0,1)_10:
 	pop edi
 	pop ebp
 	ret
-Z17DObjGeomTracelineP6DObj_sPfS1_iP11DObjTrace_s:F(0,1)_30:
+Z17DObjGeomTracelineP6DObj_sPfS1_iP11DObjTrace_s_F0_1_30:
 	mov esi, eax
 	xor ebx, ebx
-Z17DObjGeomTracelineP6DObj_sPfS1_iP11DObjTrace_s:F(0,1)_50:
+Z17DObjGeomTracelineP6DObj_sPfS1_iP11DObjTrace_s_F0_1_50:
 	mov edx, [esi+0x1c]
 	mov eax, [edx]
 	mov [ebp-0x50], eax
@@ -15238,14 +15468,14 @@ Z17DObjGeomTracelineP6DObj_sPfS1_iP11DObjTrace_s:F(0,1)_50:
 	lea ecx, [ebp-0x3c]
 	mov [esp+0x4], ecx
 	mov [esp], edx
-	call Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i:F(0,1)
+	call Z15XModelTraceLinePK6XModelP7trace_tPK13DObjAnimMat_sPfS7_i_F0_1
 	test eax, eax
-	js Z17DObjGeomTracelineP6DObj_sPfS1_iP11DObjTrace_s:F(0,1)_40
+	js Z17DObjGeomTracelineP6DObj_sPfS1_iP11DObjTrace_s_F0_1_40
 	mov edx, [ebp-0x4c]
 	movzx eax, word [edx+eax*2]
 	mov ecx, [ebp+0x18]
 	mov [ecx+0x14], ax
-Z17DObjGeomTracelineP6DObj_sPfS1_iP11DObjTrace_s:F(0,1)_40:
+Z17DObjGeomTracelineP6DObj_sPfS1_iP11DObjTrace_s_F0_1_40:
 	mov edx, [ebp-0x50]
 	movsx eax, word [edx]
 	shl eax, 0x5
@@ -15255,13 +15485,13 @@ Z17DObjGeomTracelineP6DObj_sPfS1_iP11DObjTrace_s:F(0,1)_40:
 	mov ecx, [ebp+0x8]
 	movzx eax, byte [ecx+0x18]
 	cmp eax, ebx
-	jg Z17DObjGeomTracelineP6DObj_sPfS1_iP11DObjTrace_s:F(0,1)_50
-	jmp Z17DObjGeomTracelineP6DObj_sPfS1_iP11DObjTrace_s:F(0,1)_20
+	jg Z17DObjGeomTracelineP6DObj_sPfS1_iP11DObjTrace_s_F0_1_50
+	jmp Z17DObjGeomTracelineP6DObj_sPfS1_iP11DObjTrace_s_F0_1_20
 
 
-;Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)
+;Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc_F0_4
 
-Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4):
+Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc_F0_4:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -15277,18 +15507,18 @@ Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4):
 	movzx edx, byte [edx+0x18]
 	mov [ebp-0x54], edx
 	test edx, edx
-	jle Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_10
+	jle Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc_F0_4_10
 	mov byte [ebp-0x4d], 0x0
 	mov dword [ebp-0x58], 0x0
 	mov dword [ebp-0x34], 0x0
 	mov ecx, [ebp+0xc]
 	mov [ebp-0x5c], ecx
-Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_80:
+Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc_F0_4_80:
 	movzx eax, byte [ebp-0x4d]
 	mov ebx, [ebp+0x14]
 	movzx eax, byte [eax+ebx]
 	test al, al
-	js Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_20
+	js Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc_F0_4_20
 	mov ecx, [ebp-0x58]
 	mov ebx, [ebp+0x8]
 	mov edx, [ebx+ecx*4+0x1c]
@@ -15298,7 +15528,7 @@ Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_80:
 	mov eax, [ecx+0x10]
 	mov [ebp-0x48], eax
 	test eax, eax
-	jz Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_20
+	jz Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc_F0_4_20
 	mov eax, [edx]
 	movsx eax, word [eax]
 	sub eax, 0x1
@@ -15309,16 +15539,16 @@ Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_80:
 	mov eax, ecx
 	add eax, [ebp-0x34]
 	cmp eax, 0x40
-	jg Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_30
-Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_120:
+	jg Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc_F0_4_30
+Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc_F0_4_120:
 	mov esi, [ebp-0x4c]
 	test esi, esi
-	jle Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_40
+	jle Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc_F0_4_40
 	movzx cx, byte [ebp-0x4d]
 	mov eax, [ebp-0x5c]
 	add eax, 0x2
 	xor edx, edx
-Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_50:
+Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc_F0_4_50:
 	mov [eax], dx
 	mov [eax-0x2], cx
 	add edx, 0x1
@@ -15326,8 +15556,8 @@ Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_50:
 	add dword [ebp-0x5c], 0x4
 	add eax, 0x4
 	cmp [ebp-0x4c], edx
-	jnz Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_50
-Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_40:
+	jnz Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc_F0_4_50
+Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc_F0_4_40:
 	mov edx, [ebp-0x58]
 	mov ecx, [ebp+0x8]
 	movzx eax, byte [edx+ecx+0x44]
@@ -15338,7 +15568,7 @@ Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_40:
 	sar edx, 0x5
 	mov edi, eax
 	and edi, 0x1f
-	jz Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_60
+	jz Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc_F0_4_60
 	mov dword [ebp-0x38], 0x20
 	sub [ebp-0x38], edi
 	mov ecx, [ebp-0x48]
@@ -15351,9 +15581,9 @@ Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_40:
 	mov [ebp-0x3c], edx
 	mov ebx, [ebp-0x40]
 	test ebx, ebx
-	jg Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_70
+	jg Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc_F0_4_70
 	xor eax, eax
-Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_150:
+Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc_F0_4_150:
 	mov ebx, [ebp-0x44]
 	mov eax, [ebx+eax*4]
 	movzx ecx, byte [ebp-0x38]
@@ -15361,12 +15591,12 @@ Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_150:
 	mov ebx, [ebp-0x3c]
 	mov edx, [ebp+0x10]
 	or [edx+ebx*4], eax
-Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_20:
+Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc_F0_4_20:
 	add byte [ebp-0x4d], 0x1
 	movzx eax, byte [ebp-0x4d]
 	mov [ebp-0x58], eax
 	cmp [ebp-0x54], eax
-	jg Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_80
+	jg Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc_F0_4_80
 	mov eax, [ebp-0x34]
 	add esp, 0x7c
 	pop ebx
@@ -15374,14 +15604,14 @@ Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_20:
 	pop edi
 	pop ebp
 	ret
-Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_60:
+Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc_F0_4_60:
 	mov ecx, [ebp-0x40]
 	test ecx, ecx
-	js Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_20
+	js Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc_F0_4_20
 	mov eax, [ebp+0x10]
 	lea edx, [eax+edx*4]
 	xor ecx, ecx
-Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_90:
+Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc_F0_4_90:
 	mov eax, [edx]
 	mov ebx, [ebp-0x44]
 	or eax, [ebx+ecx*4]
@@ -15389,19 +15619,19 @@ Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_90:
 	add ecx, 0x1
 	add edx, 0x4
 	cmp [ebp-0x40], ecx
-	jge Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_90
-	jmp Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_20
-Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_30:
+	jge Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc_F0_4_90
+	jmp Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc_F0_4_20
+Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc_F0_4_30:
 	mov dword [esp+0x4], 0x40
 	mov dword [esp], _cstring_error_models_wit
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov [ebp-0x2c], ebx
 	mov dword [ebp-0x30], 0x0
 	mov edx, ebx
-	jmp Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_100
-Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_110:
+	jmp Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc_F0_4_100
+Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc_F0_4_110:
 	mov edx, [ebp-0x2c]
-Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_100:
+Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc_F0_4_100:
 	mov edi, [edx+0x1c]
 	mov esi, [ebp+0x14]
 	add esi, [ebp-0x30]
@@ -15412,36 +15642,36 @@ Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_100:
 	lea ebx, [ebp-0x1c]
 	mov [esp+0x4], ebx
 	mov [esp], edi
-	call Z17XModelGetSurfacesPK6XModelPPP10XSurface_siPPi:F(0,10)
+	call Z17XModelGetSurfacesPK6XModelPPP10XSurface_siPPi_F0_10
 	mov ebx, eax
 	movsx esi, byte [esi]
 	mov [esp], edi
-	call Z13XModelGetNamePK6XModel:F(0,1)
+	call Z13XModelGetNamePK6XModel_F0_1
 	mov [esp+0xc], ebx
 	mov [esp+0x8], esi
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring___model_s_lod_i_
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	add dword [ebp-0x30], 0x1
 	add dword [ebp-0x2c], 0x4
 	mov eax, [ebp-0x30]
 	cmp [ebp-0x54], eax
-	jnz Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_110
+	jnz Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc_F0_4_110
 	mov dword [esp+0x4], _cstring_max_surfs_exceed
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
-	jmp Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_120
-Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_70:
+	call Com_Error_F0_1
+	jmp Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc_F0_4_120
+Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc_F0_4_70:
 	mov ecx, [ebp+0x10]
 	lea ebx, [ecx+edx*4]
 	xor esi, esi
 	mov eax, [ebp-0x44]
 	mov [ebp-0x6c], eax
 	mov ecx, eax
-	jmp Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_130
-Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_140:
+	jmp Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc_F0_4_130
+Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc_F0_4_140:
 	mov ecx, [ebp-0x6c]
-Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_130:
+Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc_F0_4_130:
 	mov edx, [ecx]
 	movzx ecx, byte [ebp-0x38]
 	shr edx, cl
@@ -15455,11 +15685,11 @@ Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_130:
 	add dword [ebp-0x6c], 0x4
 	add ebx, 0x4
 	cmp [ebp-0x40], esi
-	jnz Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_140
+	jnz Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc_F0_4_140
 	mov eax, [ebp-0x40]
 	add [ebp-0x3c], eax
-	jmp Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_150
-Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc:F(0,4)_10:
+	jmp Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc_F0_4_150
+Z15DObjGetSurfacesPK6DObj_sP10DSurface_sPiPc_F0_4_10:
 	mov dword [ebp-0x34], 0x0
 	mov eax, [ebp-0x34]
 	add esp, 0x7c
@@ -15590,7 +15820,7 @@ _Z24DObjCreateDuplicatePartsPK6DObj_s_60:
 	mov edx, [ebp-0x484]
 	mov [esp+0x4], edx
 	mov [esp], ebx
-	call Z18XModelGetBoneIndexPK6XModelj:F(0,1)
+	call Z18XModelGetBoneIndexPK6XModelj_F0_1
 	test eax, eax
 	jns _Z24DObjCreateDuplicatePartsPK6DObj_s_100
 _Z24DObjCreateDuplicatePartsPK6DObj_s_110:
@@ -15605,7 +15835,7 @@ _Z24DObjCreateDuplicatePartsPK6DObj_s_110:
 	mov edx, [ebp-0x484]
 	mov [esp+0x4], edx
 	mov [esp], ebx
-	call Z18XModelGetBoneIndexPK6XModelj:F(0,1)
+	call Z18XModelGetBoneIndexPK6XModelj_F0_1
 	test eax, eax
 	js _Z24DObjCreateDuplicatePartsPK6DObj_s_110
 _Z24DObjCreateDuplicatePartsPK6DObj_s_100:
@@ -15624,12 +15854,12 @@ _Z24DObjCreateDuplicatePartsPK6DObj_s_50:
 	mov edx, [ebp-0x48c]
 	movzx eax, word [edx]
 	mov [esp], eax
-	call Z18SL_ConvertToStringj:F(0,2)
+	call Z18SL_ConvertToStringj_F0_2
 	mov [esp+0xc], ebx
 	mov [esp+0x8], esi
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_warning_attempti
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov edx, [ebp-0x498]
 	jmp _Z24DObjCreateDuplicatePartsPK6DObj_s_140
 _Z24DObjCreateDuplicatePartsPK6DObj_s_30:
@@ -15659,7 +15889,7 @@ _Z24DObjCreateDuplicatePartsPK6DObj_s_150:
 	mov [esp+0x8], edx
 	mov dword [esp+0x4], 0x0
 	mov [esp], eax
-	call SL_GetStringOfLen:F(0,1)
+	call SL_GetStringOfLen_F0_1
 	mov edx, [ebp-0x4a4]
 	mov [edx+0x10], ax
 	add esp, 0x4ac
@@ -15671,9 +15901,9 @@ _Z24DObjCreateDuplicatePartsPK6DObj_s_150:
 	nop
 
 
-;Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)
+;Z25DObjCompleteHierarchyBitsPK6DObj_sPi_F0_1
 
-Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1):
+Z25DObjCompleteHierarchyBitsPK6DObj_sPi_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -15684,12 +15914,12 @@ Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1):
 	movzx eax, byte [edx+0x19]
 	lea ebx, [eax-0x1]
 	cmp word [edx+0x10], 0x0
-	jz Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)_10
+	jz Z25DObjCompleteHierarchyBitsPK6DObj_sPi_F0_1_10
 	mov ecx, edx
-Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)_160:
+Z25DObjCompleteHierarchyBitsPK6DObj_sPi_F0_1_160:
 	movzx eax, word [ecx+0x10]
 	mov [esp], eax
-	call Z18SL_ConvertToStringj:F(0,2)
+	call Z18SL_ConvertToStringj_F0_2
 	mov [ebp-0x3c], eax
 	add eax, 0x10
 	mov [ebp-0x44], eax
@@ -15700,11 +15930,11 @@ Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)_160:
 	mov [ebp-0x48], eax
 	movsx edx, word [eax]
 	cmp ebx, edx
-	jl Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)_20
+	jl Z25DObjCompleteHierarchyBitsPK6DObj_sPi_F0_1_20
 	mov ecx, esi
 	mov dword [ebp-0x4c], 0x0
 	lea esi, [ebp-0x38]
-Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)_30:
+Z25DObjCompleteHierarchyBitsPK6DObj_sPi_F0_1_30:
 	add dword [ebp-0x4c], 0x1
 	add esi, 0x4
 	mov [esi], edx
@@ -15715,20 +15945,20 @@ Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)_30:
 	add edx, eax
 	add ecx, 0x4
 	cmp ebx, edx
-	jge Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)_30
-Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)_150:
+	jge Z25DObjCompleteHierarchyBitsPK6DObj_sPi_F0_1_30
+Z25DObjCompleteHierarchyBitsPK6DObj_sPi_F0_1_150:
 	mov eax, [ebp-0x48]
 	mov edx, [eax+0x4]
 	add edx, 0x4
 	mov [ebp-0x40], edx
 	mov ecx, [ebp-0x4c]
 	mov edi, [ebp+ecx*4-0x38]
-Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)_100:
+Z25DObjCompleteHierarchyBitsPK6DObj_sPi_F0_1_100:
 	mov esi, ebx
 	sub esi, edi
 	mov [ebp-0x5c], esi
-	js Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)_40
-Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)_80:
+	js Z25DObjCompleteHierarchyBitsPK6DObj_sPi_F0_1_40
+Z25DObjCompleteHierarchyBitsPK6DObj_sPi_F0_1_80:
 	mov eax, ebx
 	sar eax, 0x5
 	lea edx, [eax*4]
@@ -15738,22 +15968,22 @@ Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)_80:
 	mov eax, [edx+esi]
 	sar eax, cl
 	test al, 0x1
-	jz Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)_50
+	jz Z25DObjCompleteHierarchyBitsPK6DObj_sPi_F0_1_50
 	mov esi, [ebp-0x3c]
 	mov eax, [esi+edx]
 	sar eax, cl
 	test al, 0x1
-	jnz Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)_60
+	jnz Z25DObjCompleteHierarchyBitsPK6DObj_sPi_F0_1_60
 	mov edx, [ebp-0x48]
 	movsx eax, word [edx+0x2]
 	mov ecx, [ebp-0x5c]
 	sub ecx, eax
-	js Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)_70
+	js Z25DObjCompleteHierarchyBitsPK6DObj_sPi_F0_1_70
 	mov esi, [ebp-0x40]
 	movzx eax, byte [esi+ecx]
 	mov ecx, ebx
 	sub ecx, eax
-Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)_130:
+Z25DObjCompleteHierarchyBitsPK6DObj_sPi_F0_1_130:
 	mov edx, ecx
 	sar edx, 0x5
 	and ecx, 0x1f
@@ -15761,16 +15991,16 @@ Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)_130:
 	shl eax, cl
 	mov esi, [ebp+0xc]
 	or [esi+edx*4], eax
-Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)_50:
+Z25DObjCompleteHierarchyBitsPK6DObj_sPi_F0_1_50:
 	sub ebx, 0x1
-Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)_140:
+Z25DObjCompleteHierarchyBitsPK6DObj_sPi_F0_1_140:
 	mov esi, ebx
 	sub esi, edi
 	mov [ebp-0x5c], esi
-	jns Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)_80
-Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)_40:
+	jns Z25DObjCompleteHierarchyBitsPK6DObj_sPi_F0_1_80
+Z25DObjCompleteHierarchyBitsPK6DObj_sPi_F0_1_40:
 	sub dword [ebp-0x4c], 0x1
-	js Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)_90
+	js Z25DObjCompleteHierarchyBitsPK6DObj_sPi_F0_1_90
 	mov edi, [ebp-0x4c]
 	mov edx, [ebp+0x8]
 	mov eax, [edx+edi*4+0x1c]
@@ -15780,52 +16010,52 @@ Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)_40:
 	add ecx, 0x4
 	mov [ebp-0x40], ecx
 	mov edi, [ebp+edi*4-0x38]
-	jmp Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)_100
-Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)_60:
+	jmp Z25DObjCompleteHierarchyBitsPK6DObj_sPi_F0_1_100
+Z25DObjCompleteHierarchyBitsPK6DObj_sPi_F0_1_60:
 	mov edx, [ebp-0x44]
 	movzx eax, byte [edx]
 	sub eax, 0x1
 	cmp ebx, eax
-	jz Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)_110
-Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)_120:
+	jz Z25DObjCompleteHierarchyBitsPK6DObj_sPi_F0_1_110
+Z25DObjCompleteHierarchyBitsPK6DObj_sPi_F0_1_120:
 	add edx, 0x2
 	movzx eax, byte [edx]
 	sub eax, 0x1
 	cmp ebx, eax
-	jnz Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)_120
-Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)_110:
+	jnz Z25DObjCompleteHierarchyBitsPK6DObj_sPi_F0_1_120
+Z25DObjCompleteHierarchyBitsPK6DObj_sPi_F0_1_110:
 	movzx eax, byte [edx+0x1]
 	lea ecx, [eax-0x1]
-	jmp Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)_130
-Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)_70:
+	jmp Z25DObjCompleteHierarchyBitsPK6DObj_sPi_F0_1_130
+Z25DObjCompleteHierarchyBitsPK6DObj_sPi_F0_1_70:
 	mov edx, [ebp-0x4c]
 	mov ecx, [ebp+0x8]
 	movzx eax, byte [edx+ecx+0x3c]
 	movzx ecx, al
 	add al, 0x1
-	jnz Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)_130
+	jnz Z25DObjCompleteHierarchyBitsPK6DObj_sPi_F0_1_130
 	sub ebx, 0x1
-	jmp Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)_140
-Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)_90:
+	jmp Z25DObjCompleteHierarchyBitsPK6DObj_sPi_F0_1_140
+Z25DObjCompleteHierarchyBitsPK6DObj_sPi_F0_1_90:
 	add esp, 0x6c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)_20:
+Z25DObjCompleteHierarchyBitsPK6DObj_sPi_F0_1_20:
 	mov dword [ebp-0x4c], 0x0
-	jmp Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)_150
-Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)_10:
+	jmp Z25DObjCompleteHierarchyBitsPK6DObj_sPi_F0_1_150
+Z25DObjCompleteHierarchyBitsPK6DObj_sPi_F0_1_10:
 	mov eax, edx
 	call _Z24DObjCreateDuplicatePartsPK6DObj_s
 	mov ecx, [ebp+0x8]
-	jmp Z25DObjCompleteHierarchyBitsPK6DObj_sPi:F(0,1)_160
+	jmp Z25DObjCompleteHierarchyBitsPK6DObj_sPi_F0_1_160
 
 
-;Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1)
+;Z20DObjGetHierarchyBitsP6DObj_siPi_F0_1
 
-Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1):
+Z20DObjGetHierarchyBitsP6DObj_siPi_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -15834,23 +16064,23 @@ Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1):
 	sub esp, 0x7c
 	mov esi, [ebp+0xc]
 	xor eax, eax
-Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1)_10:
+Z20DObjGetHierarchyBitsP6DObj_siPi_F0_1_10:
 	mov edx, [ebp+0x10]
 	mov dword [edx+eax*4], 0x0
 	add eax, 0x1
 	cmp eax, 0x4
-	jnz Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1)_10
+	jnz Z20DObjGetHierarchyBitsP6DObj_siPi_F0_1_10
 	mov ecx, [ebp+0x8]
 	movzx ebx, byte [ecx+0x18]
 	movzx edi, bl
 	mov [ebp-0x4c], edi
 	cmp word [ecx+0x10], 0x0
-	jz Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1)_20
+	jz Z20DObjGetHierarchyBitsP6DObj_siPi_F0_1_20
 	mov edx, ecx
-Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1)_160:
+Z20DObjGetHierarchyBitsP6DObj_siPi_F0_1_160:
 	movzx eax, word [edx+0x10]
 	mov [esp], eax
-	call Z18SL_ConvertToStringj:F(0,2)
+	call Z18SL_ConvertToStringj_F0_2
 	mov [ebp-0x40], eax
 	add eax, 0x10
 	mov [ebp-0x48], eax
@@ -15861,18 +16091,18 @@ Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1)_160:
 	mov [ebp-0x6c], eax
 	movsx edx, word [eax]
 	cmp edx, esi
-	jle Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1)_30
+	jle Z20DObjGetHierarchyBitsP6DObj_siPi_F0_1_30
 	mov dword [ebp-0x3c], 0x0
-Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1)_140:
+Z20DObjGetHierarchyBitsP6DObj_siPi_F0_1_140:
 	mov eax, [ebp-0x6c]
 	mov edx, [eax+0x4]
 	add edx, 0x4
 	mov [ebp-0x44], edx
-Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1)_130:
+Z20DObjGetHierarchyBitsP6DObj_siPi_F0_1_130:
 	mov ebx, esi
 	mov ecx, [ebp-0x3c]
 	sub ebx, [ebp+ecx*4-0x38]
-Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1)_80:
+Z20DObjGetHierarchyBitsP6DObj_siPi_F0_1_80:
 	mov eax, esi
 	sar eax, 0x5
 	shl eax, 0x2
@@ -15886,28 +16116,28 @@ Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1)_80:
 	mov eax, [edi+eax]
 	sar eax, cl
 	test al, 0x1
-	jnz Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1)_40
+	jnz Z20DObjGetHierarchyBitsP6DObj_siPi_F0_1_40
 	mov edx, [ebp-0x6c]
 	movsx eax, word [edx+0x2]
 	sub ebx, eax
-	jns Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1)_50
+	jns Z20DObjGetHierarchyBitsP6DObj_siPi_F0_1_50
 	mov edi, [ebp-0x3c]
 	mov edx, [ebp+0x8]
 	movzx eax, byte [edi+edx+0x3c]
 	movzx esi, al
 	add al, 0x1
-	jz Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1)_60
+	jz Z20DObjGetHierarchyBitsP6DObj_siPi_F0_1_60
 	mov edx, edi
-Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1)_110:
+Z20DObjGetHierarchyBitsP6DObj_siPi_F0_1_110:
 	lea eax, [ebp+edx*4-0x38]
 	mov ecx, 0xfffffffc
-Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1)_70:
+Z20DObjGetHierarchyBitsP6DObj_siPi_F0_1_70:
 	sub edx, 0x1
 	mov ebx, esi
 	sub ebx, [ecx+eax]
 	sub eax, 0x4
 	test ebx, ebx
-	js Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1)_70
+	js Z20DObjGetHierarchyBitsP6DObj_siPi_F0_1_70
 	mov edi, [ebp+0x8]
 	mov eax, [edi+edx*4+0x1c]
 	mov eax, [eax]
@@ -15916,50 +16146,50 @@ Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1)_70:
 	add ecx, 0x4
 	mov [ebp-0x44], ecx
 	mov [ebp-0x3c], edx
-	jmp Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1)_80
-Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1)_40:
+	jmp Z20DObjGetHierarchyBitsP6DObj_siPi_F0_1_80
+Z20DObjGetHierarchyBitsP6DObj_siPi_F0_1_40:
 	mov ecx, [ebp-0x48]
 	movzx eax, byte [ecx]
 	sub eax, 0x1
 	cmp esi, eax
-	jz Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1)_90
+	jz Z20DObjGetHierarchyBitsP6DObj_siPi_F0_1_90
 	mov edx, ecx
-Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1)_100:
+Z20DObjGetHierarchyBitsP6DObj_siPi_F0_1_100:
 	add edx, 0x2
 	movzx eax, byte [edx]
 	sub eax, 0x1
 	cmp esi, eax
-	jnz Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1)_100
+	jnz Z20DObjGetHierarchyBitsP6DObj_siPi_F0_1_100
 	movzx eax, byte [edx+0x1]
 	lea esi, [eax-0x1]
 	mov edx, [ebp-0x3c]
-	jmp Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1)_110
-Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1)_90:
+	jmp Z20DObjGetHierarchyBitsP6DObj_siPi_F0_1_110
+Z20DObjGetHierarchyBitsP6DObj_siPi_F0_1_90:
 	mov edx, ecx
 	movzx eax, byte [edx+0x1]
 	lea esi, [eax-0x1]
 	mov edx, [ebp-0x3c]
-	jmp Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1)_110
-Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1)_30:
+	jmp Z20DObjGetHierarchyBitsP6DObj_siPi_F0_1_110
+Z20DObjGetHierarchyBitsP6DObj_siPi_F0_1_30:
 	sub bl, 0x1
-	jnz Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1)_120
-Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1)_60:
+	jnz Z20DObjGetHierarchyBitsP6DObj_siPi_F0_1_120
+Z20DObjGetHierarchyBitsP6DObj_siPi_F0_1_60:
 	add esp, 0x7c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1)_50:
+Z20DObjGetHierarchyBitsP6DObj_siPi_F0_1_50:
 	mov ecx, [ebp-0x44]
 	movzx eax, byte [ebx+ecx]
 	sub esi, eax
-	jmp Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1)_130
-Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1)_120:
+	jmp Z20DObjGetHierarchyBitsP6DObj_siPi_F0_1_130
+Z20DObjGetHierarchyBitsP6DObj_siPi_F0_1_120:
 	mov ecx, [ebp+0x8]
 	mov dword [ebp-0x3c], 0x1
 	lea ebx, [ebp-0x38]
-Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1)_150:
+Z20DObjGetHierarchyBitsP6DObj_siPi_F0_1_150:
 	mov eax, [ebp-0x3c]
 	mov [ebx+eax*4], edx
 	mov eax, [ecx+0x20]
@@ -15968,28 +16198,28 @@ Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1)_150:
 	movsx eax, word [eax]
 	add edx, eax
 	cmp esi, edx
-	jl Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1)_140
+	jl Z20DObjGetHierarchyBitsP6DObj_siPi_F0_1_140
 	add dword [ebp-0x3c], 0x1
 	add ecx, 0x4
 	mov edi, [ebp-0x4c]
 	cmp [ebp-0x3c], edi
-	jnz Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1)_150
+	jnz Z20DObjGetHierarchyBitsP6DObj_siPi_F0_1_150
 	add esp, 0x7c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1)_20:
+Z20DObjGetHierarchyBitsP6DObj_siPi_F0_1_20:
 	mov eax, ecx
 	call _Z24DObjCreateDuplicatePartsPK6DObj_s
 	mov edx, [ebp+0x8]
-	jmp Z20DObjGetHierarchyBitsP6DObj_siPi:F(0,1)_160
+	jmp Z20DObjGetHierarchyBitsP6DObj_siPi_F0_1_160
 
 
-;Z23DObjSetLocalTagInternalPK6DObj_sPKfS3_i:F(0,1)
+;Z23DObjSetLocalTagInternalPK6DObj_sPKfS3_i_F0_1
 
-Z23DObjSetLocalTagInternalPK6DObj_sPKfS3_i:F(0,1):
+Z23DObjSetLocalTagInternalPK6DObj_sPKfS3_i_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -16002,13 +16232,13 @@ Z23DObjSetLocalTagInternalPK6DObj_sPKfS3_i:F(0,1):
 	mov eax, [ebp+0x8]
 	mov eax, [eax+0x4]
 	test eax, eax
-	jz Z23DObjSetLocalTagInternalPK6DObj_sPKfS3_i:F(0,1)_10
+	jz Z23DObjSetLocalTagInternalPK6DObj_sPKfS3_i_F0_1_10
 	add eax, 0x30
-	jz Z23DObjSetLocalTagInternalPK6DObj_sPKfS3_i:F(0,1)_10
+	jz Z23DObjSetLocalTagInternalPK6DObj_sPKfS3_i_F0_1_10
 	shl edx, 0x5
 	lea ebx, [edx+eax]
 	test esi, esi
-	jz Z23DObjSetLocalTagInternalPK6DObj_sPKfS3_i:F(0,1)_20
+	jz Z23DObjSetLocalTagInternalPK6DObj_sPKfS3_i_F0_1_20
 	cvtss2sd xmm0, [esi+0x4]
 	mulsd xmm0, [_double_0_00872665]
 	cvtsd2ss xmm0, xmm0
@@ -16075,7 +16305,7 @@ Z23DObjSetLocalTagInternalPK6DObj_sPKfS3_i:F(0,1):
 	mulss xmm2, xmm4
 	subss xmm6, xmm2
 	movss [ebx+0xc], xmm6
-Z23DObjSetLocalTagInternalPK6DObj_sPKfS3_i:F(0,1)_30:
+Z23DObjSetLocalTagInternalPK6DObj_sPKfS3_i_F0_1_30:
 	mov dword [ebx+0x1c], 0x0
 	lea edx, [ebx+0x10]
 	mov eax, [edi]
@@ -16084,27 +16314,27 @@ Z23DObjSetLocalTagInternalPK6DObj_sPKfS3_i:F(0,1)_30:
 	mov [edx+0x4], eax
 	mov eax, [edi+0x8]
 	mov [edx+0x8], eax
-Z23DObjSetLocalTagInternalPK6DObj_sPKfS3_i:F(0,1)_10:
+Z23DObjSetLocalTagInternalPK6DObj_sPKfS3_i_F0_1_10:
 	add esp, 0x5c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z23DObjSetLocalTagInternalPK6DObj_sPKfS3_i:F(0,1)_20:
+Z23DObjSetLocalTagInternalPK6DObj_sPKfS3_i_F0_1_20:
 	xor eax, eax
 	mov [ebx], eax
 	mov [ebx+0x4], eax
 	mov [ebx+0x8], eax
 	mov dword [ebx+0xc], 0x3f800000
-	jmp Z23DObjSetLocalTagInternalPK6DObj_sPKfS3_i:F(0,1)_30
+	jmp Z23DObjSetLocalTagInternalPK6DObj_sPKfS3_i_F0_1_30
 	nop
 	add [eax], al
 
 
-;Z15DObjSetLocalTagPK6DObj_sPijPKfS4_:F(0,97)
+;Z15DObjSetLocalTagPK6DObj_sPijPKfS4__F0_97
 
-Z15DObjSetLocalTagPK6DObj_sPijPKfS4_:F(0,97):
+Z15DObjSetLocalTagPK6DObj_sPijPKfS4__F0_97:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -16115,40 +16345,40 @@ Z15DObjSetLocalTagPK6DObj_sPijPKfS4_:F(0,97):
 	movzx eax, byte [eax+0x18]
 	mov [ebp-0x20], eax
 	test eax, eax
-	jg Z15DObjSetLocalTagPK6DObj_sPijPKfS4_:F(0,97)_10
-Z15DObjSetLocalTagPK6DObj_sPijPKfS4_:F(0,97)_40:
+	jg Z15DObjSetLocalTagPK6DObj_sPijPKfS4__F0_97_10
+Z15DObjSetLocalTagPK6DObj_sPijPKfS4__F0_97_40:
 	xor eax, eax
-Z15DObjSetLocalTagPK6DObj_sPijPKfS4_:F(0,97)_50:
+Z15DObjSetLocalTagPK6DObj_sPijPKfS4__F0_97_50:
 	add esp, 0x2c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z15DObjSetLocalTagPK6DObj_sPijPKfS4_:F(0,97)_10:
+Z15DObjSetLocalTagPK6DObj_sPijPKfS4__F0_97_10:
 	mov esi, [ebp+0x8]
 	xor edi, edi
 	mov dword [ebp-0x1c], 0x0
-Z15DObjSetLocalTagPK6DObj_sPijPKfS4_:F(0,97)_30:
+Z15DObjSetLocalTagPK6DObj_sPijPKfS4__F0_97_30:
 	mov ebx, [esi+0x1c]
 	mov ecx, [ebp+0x10]
 	mov [esp+0x4], ecx
 	mov [esp], ebx
-	call Z18XModelGetBoneIndexPK6XModelj:F(0,1)
+	call Z18XModelGetBoneIndexPK6XModelj_F0_1
 	test eax, eax
-	jns Z15DObjSetLocalTagPK6DObj_sPijPKfS4_:F(0,97)_20
+	jns Z15DObjSetLocalTagPK6DObj_sPijPKfS4__F0_97_20
 	mov eax, [ebx]
 	movsx eax, word [eax]
 	add [ebp-0x1c], eax
 	add edi, 0x1
 	add esi, 0x4
 	cmp [ebp-0x20], edi
-	jnz Z15DObjSetLocalTagPK6DObj_sPijPKfS4_:F(0,97)_30
-	jmp Z15DObjSetLocalTagPK6DObj_sPijPKfS4_:F(0,97)_40
-Z15DObjSetLocalTagPK6DObj_sPijPKfS4_:F(0,97)_20:
+	jnz Z15DObjSetLocalTagPK6DObj_sPijPKfS4__F0_97_30
+	jmp Z15DObjSetLocalTagPK6DObj_sPijPKfS4__F0_97_40
+Z15DObjSetLocalTagPK6DObj_sPijPKfS4__F0_97_20:
 	mov esi, [ebp-0x1c]
 	add esi, eax
-	js Z15DObjSetLocalTagPK6DObj_sPijPKfS4_:F(0,97)_40
+	js Z15DObjSetLocalTagPK6DObj_sPijPKfS4__F0_97_40
 	mov edx, esi
 	sar edx, 0x5
 	mov ecx, esi
@@ -16157,11 +16387,11 @@ Z15DObjSetLocalTagPK6DObj_sPijPKfS4_:F(0,97)_20:
 	shl ebx, cl
 	mov eax, [ebp+0xc]
 	test [eax+edx*4], ebx
-	jz Z15DObjSetLocalTagPK6DObj_sPijPKfS4_:F(0,97)_40
+	jz Z15DObjSetLocalTagPK6DObj_sPijPKfS4__F0_97_40
 	mov ecx, [ebp+0x8]
 	mov eax, [ecx+0x4]
 	test [eax+edx*4+0x20], ebx
-	jnz Z15DObjSetLocalTagPK6DObj_sPijPKfS4_:F(0,97)_40
+	jnz Z15DObjSetLocalTagPK6DObj_sPijPKfS4__F0_97_40
 	or [eax+edx*4], ebx
 	mov [esp+0xc], esi
 	mov eax, [ebp+0x18]
@@ -16170,14 +16400,14 @@ Z15DObjSetLocalTagPK6DObj_sPijPKfS4_:F(0,97)_20:
 	mov [esp+0x4], ecx
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z23DObjSetLocalTagInternalPK6DObj_sPKfS3_i:F(0,1)
+	call Z23DObjSetLocalTagInternalPK6DObj_sPKfS3_i_F0_1
 	mov eax, 0x1
-	jmp Z15DObjSetLocalTagPK6DObj_sPijPKfS4_:F(0,97)_50
+	jmp Z15DObjSetLocalTagPK6DObj_sPijPKfS4__F0_97_50
 
 
-;Z23DObjSetControlTagAnglesPK6DObj_sPijPf:F(0,97)
+;Z23DObjSetControlTagAnglesPK6DObj_sPijPf_F0_97
 
-Z23DObjSetControlTagAnglesPK6DObj_sPijPf:F(0,97):
+Z23DObjSetControlTagAnglesPK6DObj_sPijPf_F0_97:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -16188,40 +16418,40 @@ Z23DObjSetControlTagAnglesPK6DObj_sPijPf:F(0,97):
 	movzx eax, byte [eax+0x18]
 	mov [ebp-0x20], eax
 	test eax, eax
-	jg Z23DObjSetControlTagAnglesPK6DObj_sPijPf:F(0,97)_10
-Z23DObjSetControlTagAnglesPK6DObj_sPijPf:F(0,97)_40:
+	jg Z23DObjSetControlTagAnglesPK6DObj_sPijPf_F0_97_10
+Z23DObjSetControlTagAnglesPK6DObj_sPijPf_F0_97_40:
 	xor eax, eax
-Z23DObjSetControlTagAnglesPK6DObj_sPijPf:F(0,97)_50:
+Z23DObjSetControlTagAnglesPK6DObj_sPijPf_F0_97_50:
 	add esp, 0x2c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z23DObjSetControlTagAnglesPK6DObj_sPijPf:F(0,97)_10:
+Z23DObjSetControlTagAnglesPK6DObj_sPijPf_F0_97_10:
 	mov esi, [ebp+0x8]
 	xor edi, edi
 	mov dword [ebp-0x1c], 0x0
-Z23DObjSetControlTagAnglesPK6DObj_sPijPf:F(0,97)_30:
+Z23DObjSetControlTagAnglesPK6DObj_sPijPf_F0_97_30:
 	mov ebx, [esi+0x1c]
 	mov ecx, [ebp+0x10]
 	mov [esp+0x4], ecx
 	mov [esp], ebx
-	call Z18XModelGetBoneIndexPK6XModelj:F(0,1)
+	call Z18XModelGetBoneIndexPK6XModelj_F0_1
 	test eax, eax
-	jns Z23DObjSetControlTagAnglesPK6DObj_sPijPf:F(0,97)_20
+	jns Z23DObjSetControlTagAnglesPK6DObj_sPijPf_F0_97_20
 	mov eax, [ebx]
 	movsx eax, word [eax]
 	add [ebp-0x1c], eax
 	add edi, 0x1
 	add esi, 0x4
 	cmp [ebp-0x20], edi
-	jnz Z23DObjSetControlTagAnglesPK6DObj_sPijPf:F(0,97)_30
-	jmp Z23DObjSetControlTagAnglesPK6DObj_sPijPf:F(0,97)_40
-Z23DObjSetControlTagAnglesPK6DObj_sPijPf:F(0,97)_20:
+	jnz Z23DObjSetControlTagAnglesPK6DObj_sPijPf_F0_97_30
+	jmp Z23DObjSetControlTagAnglesPK6DObj_sPijPf_F0_97_40
+Z23DObjSetControlTagAnglesPK6DObj_sPijPf_F0_97_20:
 	mov esi, [ebp-0x1c]
 	add esi, eax
-	js Z23DObjSetControlTagAnglesPK6DObj_sPijPf:F(0,97)_40
+	js Z23DObjSetControlTagAnglesPK6DObj_sPijPf_F0_97_40
 	mov edx, esi
 	sar edx, 0x5
 	mov ecx, esi
@@ -16230,11 +16460,11 @@ Z23DObjSetControlTagAnglesPK6DObj_sPijPf:F(0,97)_20:
 	shl ebx, cl
 	mov eax, [ebp+0xc]
 	test [eax+edx*4], ebx
-	jz Z23DObjSetControlTagAnglesPK6DObj_sPijPf:F(0,97)_40
+	jz Z23DObjSetControlTagAnglesPK6DObj_sPijPf_F0_97_40
 	mov ecx, [ebp+0x8]
 	mov eax, [ecx+0x4]
 	test [eax+edx*4+0x20], ebx
-	jnz Z23DObjSetControlTagAnglesPK6DObj_sPijPf:F(0,97)_40
+	jnz Z23DObjSetControlTagAnglesPK6DObj_sPijPf_F0_97_40
 	or [eax+edx*4+0x10], ebx
 	or [eax+edx*4], ebx
 	mov [esp+0xc], esi
@@ -16243,15 +16473,15 @@ Z23DObjSetControlTagAnglesPK6DObj_sPijPf:F(0,97)_20:
 	mov eax, [0x1accdb5]
 	mov [esp+0x4], eax
 	mov [esp], ecx
-	call Z23DObjSetLocalTagInternalPK6DObj_sPKfS3_i:F(0,1)
+	call Z23DObjSetLocalTagInternalPK6DObj_sPKfS3_i_F0_1
 	mov eax, 0x1
-	jmp Z23DObjSetControlTagAnglesPK6DObj_sPijPf:F(0,97)_50
+	jmp Z23DObjSetControlTagAnglesPK6DObj_sPijPf_F0_97_50
 	nop
 
 
-;Z12DObjDumpInfoPK6DObj_s:F(0,1)
+;Z12DObjDumpInfoPK6DObj_s_F0_1
 
-Z12DObjDumpInfoPK6DObj_s:F(0,1):
+Z12DObjDumpInfoPK6DObj_s_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -16261,29 +16491,29 @@ Z12DObjDumpInfoPK6DObj_s:F(0,1):
 	mov eax, [ebp+0x8]
 	mov [ebp-0x48], eax
 	test eax, eax
-	jz Z12DObjDumpInfoPK6DObj_s:F(0,1)_10
+	jz Z12DObjDumpInfoPK6DObj_s_F0_1_10
 	mov dword [esp], _cstring_models1
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov edx, [ebp-0x48]
 	movzx edx, byte [edx+0x18]
 	mov [ebp-0x38], edx
 	test edx, edx
-	jg Z12DObjDumpInfoPK6DObj_s:F(0,1)_20
-Z12DObjDumpInfoPK6DObj_s:F(0,1)_240:
+	jg Z12DObjDumpInfoPK6DObj_s_F0_1_20
+Z12DObjDumpInfoPK6DObj_s_F0_1_240:
 	mov dword [esp], _cstring_bones
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov edx, [ebp-0x48]
 	movzx edx, byte [edx+0x19]
 	mov [ebp-0x3c], edx
 	test edx, edx
-	jle Z12DObjDumpInfoPK6DObj_s:F(0,1)_30
+	jle Z12DObjDumpInfoPK6DObj_s_F0_1_30
 	mov dword [ebp-0x40], 0x0
-Z12DObjDumpInfoPK6DObj_s:F(0,1)_70:
+Z12DObjDumpInfoPK6DObj_s_F0_1_70:
 	mov eax, [ebp-0x48]
 	movzx eax, byte [eax+0x18]
 	mov [ebp-0x30], eax
 	test eax, eax
-	jle Z12DObjDumpInfoPK6DObj_s:F(0,1)_40
+	jle Z12DObjDumpInfoPK6DObj_s_F0_1_40
 	mov edx, [ebp-0x48]
 	mov eax, [edx+0x1c]
 	mov edx, [eax]
@@ -16291,15 +16521,15 @@ Z12DObjDumpInfoPK6DObj_s:F(0,1)_70:
 	mov eax, [eax]
 	movsx ecx, word [edx]
 	cmp [ebp-0x40], ecx
-	jl Z12DObjDumpInfoPK6DObj_s:F(0,1)_50
+	jl Z12DObjDumpInfoPK6DObj_s_F0_1_50
 	mov ebx, [ebp-0x48]
 	xor edi, edi
 	xor esi, esi
-Z12DObjDumpInfoPK6DObj_s:F(0,1)_60:
+Z12DObjDumpInfoPK6DObj_s_F0_1_60:
 	add edi, ecx
 	add esi, 0x1
 	cmp [ebp-0x30], esi
-	jz Z12DObjDumpInfoPK6DObj_s:F(0,1)_40
+	jz Z12DObjDumpInfoPK6DObj_s_F0_1_40
 	mov eax, [ebx+0x20]
 	mov edx, [eax]
 	mov eax, [edx+0x4]
@@ -16309,34 +16539,34 @@ Z12DObjDumpInfoPK6DObj_s:F(0,1)_60:
 	sub edx, edi
 	add ebx, 0x4
 	cmp edx, ecx
-	jge Z12DObjDumpInfoPK6DObj_s:F(0,1)_60
-Z12DObjDumpInfoPK6DObj_s:F(0,1)_200:
+	jge Z12DObjDumpInfoPK6DObj_s_F0_1_60
+Z12DObjDumpInfoPK6DObj_s_F0_1_200:
 	movzx eax, word [eax+edx*2]
 	mov [esp], eax
-	call Z18SL_ConvertToStringj:F(0,2)
-Z12DObjDumpInfoPK6DObj_s:F(0,1)_190:
+	call Z18SL_ConvertToStringj_F0_2
+Z12DObjDumpInfoPK6DObj_s_F0_1_190:
 	mov [esp+0x8], eax
 	mov eax, [ebp-0x40]
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_bone_d_s
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	add dword [ebp-0x40], 0x1
 	mov edx, [ebp-0x40]
 	cmp [ebp-0x3c], edx
-	jnz Z12DObjDumpInfoPK6DObj_s:F(0,1)_70
-Z12DObjDumpInfoPK6DObj_s:F(0,1)_30:
+	jnz Z12DObjDumpInfoPK6DObj_s_F0_1_70
+Z12DObjDumpInfoPK6DObj_s_F0_1_30:
 	mov eax, [ebp-0x48]
 	cmp word [eax+0x10], 0x0
-	jz Z12DObjDumpInfoPK6DObj_s:F(0,1)_80
+	jz Z12DObjDumpInfoPK6DObj_s_F0_1_80
 	mov dword [esp], _cstring_part_duplicates
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov edx, [ebp-0x48]
 	movzx eax, word [edx+0x10]
 	mov [esp], eax
-	call Z18SL_ConvertToStringj:F(0,2)
+	call Z18SL_ConvertToStringj_F0_2
 	lea edx, [eax+0x10]
 	cmp byte [eax+0x10], 0x0
-	jz Z12DObjDumpInfoPK6DObj_s:F(0,1)_90
+	jz Z12DObjDumpInfoPK6DObj_s_F0_1_90
 	mov [ebp-0x4c], edx
 	movzx eax, byte [edx+0x1]
 	sub eax, 0x1
@@ -16345,8 +16575,8 @@ Z12DObjDumpInfoPK6DObj_s:F(0,1)_30:
 	movzx eax, byte [eax+0x18]
 	mov [ebp-0x28], eax
 	test eax, eax
-	jle Z12DObjDumpInfoPK6DObj_s:F(0,1)_100
-Z12DObjDumpInfoPK6DObj_s:F(0,1)_160:
+	jle Z12DObjDumpInfoPK6DObj_s_F0_1_100
+Z12DObjDumpInfoPK6DObj_s_F0_1_160:
 	mov edx, [ebp-0x48]
 	mov eax, [edx+0x1c]
 	mov edx, [eax]
@@ -16354,15 +16584,15 @@ Z12DObjDumpInfoPK6DObj_s:F(0,1)_160:
 	mov eax, [eax]
 	movsx ecx, word [edx]
 	cmp [ebp-0x24], ecx
-	jl Z12DObjDumpInfoPK6DObj_s:F(0,1)_110
+	jl Z12DObjDumpInfoPK6DObj_s_F0_1_110
 	mov ebx, [ebp-0x48]
 	xor edi, edi
 	xor esi, esi
-Z12DObjDumpInfoPK6DObj_s:F(0,1)_120:
+Z12DObjDumpInfoPK6DObj_s_F0_1_120:
 	add edi, ecx
 	add esi, 0x1
 	cmp [ebp-0x28], esi
-	jz Z12DObjDumpInfoPK6DObj_s:F(0,1)_100
+	jz Z12DObjDumpInfoPK6DObj_s_F0_1_100
 	mov eax, [ebx+0x20]
 	mov edx, [eax]
 	mov eax, [edx+0x4]
@@ -16372,11 +16602,11 @@ Z12DObjDumpInfoPK6DObj_s:F(0,1)_120:
 	sub edx, edi
 	add ebx, 0x4
 	cmp edx, ecx
-	jge Z12DObjDumpInfoPK6DObj_s:F(0,1)_120
-Z12DObjDumpInfoPK6DObj_s:F(0,1)_210:
+	jge Z12DObjDumpInfoPK6DObj_s_F0_1_120
+Z12DObjDumpInfoPK6DObj_s_F0_1_210:
 	movzx eax, word [eax+edx*2]
 	mov [esp], eax
-	call Z18SL_ConvertToStringj:F(0,2)
+	call Z18SL_ConvertToStringj_F0_2
 	mov [ebp-0x2c], eax
 	mov edx, [ebp-0x4c]
 	movzx eax, byte [edx+0x1]
@@ -16389,8 +16619,8 @@ Z12DObjDumpInfoPK6DObj_s:F(0,1)_210:
 	movzx eax, byte [eax+0x18]
 	mov [ebp-0x20], eax
 	test eax, eax
-	jle Z12DObjDumpInfoPK6DObj_s:F(0,1)_130
-Z12DObjDumpInfoPK6DObj_s:F(0,1)_170:
+	jle Z12DObjDumpInfoPK6DObj_s_F0_1_130
+Z12DObjDumpInfoPK6DObj_s_F0_1_170:
 	mov edx, [ebp-0x48]
 	mov eax, [edx+0x1c]
 	mov edx, [eax]
@@ -16398,15 +16628,15 @@ Z12DObjDumpInfoPK6DObj_s:F(0,1)_170:
 	mov eax, [eax]
 	movsx edx, word [edx]
 	cmp [ebp-0x1c], edx
-	jl Z12DObjDumpInfoPK6DObj_s:F(0,1)_140
+	jl Z12DObjDumpInfoPK6DObj_s_F0_1_140
 	mov ebx, [ebp-0x48]
 	xor edi, edi
 	xor esi, esi
-Z12DObjDumpInfoPK6DObj_s:F(0,1)_150:
+Z12DObjDumpInfoPK6DObj_s_F0_1_150:
 	add edi, edx
 	add esi, 0x1
 	cmp [ebp-0x20], esi
-	jz Z12DObjDumpInfoPK6DObj_s:F(0,1)_130
+	jz Z12DObjDumpInfoPK6DObj_s_F0_1_130
 	mov eax, [ebx+0x20]
 	mov edx, [eax]
 	mov eax, [edx+0x4]
@@ -16416,14 +16646,14 @@ Z12DObjDumpInfoPK6DObj_s:F(0,1)_150:
 	sub ecx, edi
 	add ebx, 0x4
 	cmp ecx, edx
-	jge Z12DObjDumpInfoPK6DObj_s:F(0,1)_150
+	jge Z12DObjDumpInfoPK6DObj_s_F0_1_150
 	mov [ebp-0x1c], ecx
 	mov edx, ecx
-Z12DObjDumpInfoPK6DObj_s:F(0,1)_220:
+Z12DObjDumpInfoPK6DObj_s_F0_1_220:
 	movzx eax, word [eax+edx*2]
 	mov [esp], eax
-	call Z18SL_ConvertToStringj:F(0,2)
-Z12DObjDumpInfoPK6DObj_s:F(0,1)_180:
+	call Z18SL_ConvertToStringj_F0_2
+Z12DObjDumpInfoPK6DObj_s_F0_1_180:
 	mov edx, [ebp-0x2c]
 	mov [esp+0x10], edx
 	mov edx, [ebp-0x44]
@@ -16434,11 +16664,11 @@ Z12DObjDumpInfoPK6DObj_s:F(0,1)_180:
 	sub eax, 0x1
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_d_s__d_s
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	add dword [ebp-0x4c], 0x2
 	mov eax, [ebp-0x4c]
 	cmp byte [eax], 0x0
-	jz Z12DObjDumpInfoPK6DObj_s:F(0,1)_90
+	jz Z12DObjDumpInfoPK6DObj_s_F0_1_90
 	mov edx, [ebp-0x4c]
 	movzx eax, byte [edx+0x1]
 	sub eax, 0x1
@@ -16447,8 +16677,8 @@ Z12DObjDumpInfoPK6DObj_s:F(0,1)_180:
 	movzx eax, byte [eax+0x18]
 	mov [ebp-0x28], eax
 	test eax, eax
-	jg Z12DObjDumpInfoPK6DObj_s:F(0,1)_160
-Z12DObjDumpInfoPK6DObj_s:F(0,1)_100:
+	jg Z12DObjDumpInfoPK6DObj_s_F0_1_160
+Z12DObjDumpInfoPK6DObj_s_F0_1_100:
 	mov dword [ebp-0x2c], 0x0
 	mov edx, [ebp-0x4c]
 	movzx eax, byte [edx+0x1]
@@ -16461,66 +16691,66 @@ Z12DObjDumpInfoPK6DObj_s:F(0,1)_100:
 	movzx eax, byte [eax+0x18]
 	mov [ebp-0x20], eax
 	test eax, eax
-	jg Z12DObjDumpInfoPK6DObj_s:F(0,1)_170
-Z12DObjDumpInfoPK6DObj_s:F(0,1)_130:
+	jg Z12DObjDumpInfoPK6DObj_s_F0_1_170
+Z12DObjDumpInfoPK6DObj_s_F0_1_130:
 	xor eax, eax
-	jmp Z12DObjDumpInfoPK6DObj_s:F(0,1)_180
-Z12DObjDumpInfoPK6DObj_s:F(0,1)_80:
+	jmp Z12DObjDumpInfoPK6DObj_s_F0_1_180
+Z12DObjDumpInfoPK6DObj_s_F0_1_80:
 	mov dword [esp], _cstring_no_part_duplicat
-	call Z10Com_PrintfPKcz:F(0,1)
-Z12DObjDumpInfoPK6DObj_s:F(0,1)_90:
+	call Z10Com_PrintfPKcz_F0_1
+Z12DObjDumpInfoPK6DObj_s_F0_1_90:
 	mov dword [ebp+0x8], _cstring_4
 	add esp, 0x6c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
-	jmp Z10Com_PrintfPKcz:F(0,1)
-Z12DObjDumpInfoPK6DObj_s:F(0,1)_40:
+	jmp Z10Com_PrintfPKcz_F0_1
+Z12DObjDumpInfoPK6DObj_s_F0_1_40:
 	xor eax, eax
-	jmp Z12DObjDumpInfoPK6DObj_s:F(0,1)_190
-Z12DObjDumpInfoPK6DObj_s:F(0,1)_50:
+	jmp Z12DObjDumpInfoPK6DObj_s_F0_1_190
+Z12DObjDumpInfoPK6DObj_s_F0_1_50:
 	mov edx, [ebp-0x40]
-	jmp Z12DObjDumpInfoPK6DObj_s:F(0,1)_200
-Z12DObjDumpInfoPK6DObj_s:F(0,1)_110:
+	jmp Z12DObjDumpInfoPK6DObj_s_F0_1_200
+Z12DObjDumpInfoPK6DObj_s_F0_1_110:
 	mov edx, [ebp-0x24]
-	jmp Z12DObjDumpInfoPK6DObj_s:F(0,1)_210
-Z12DObjDumpInfoPK6DObj_s:F(0,1)_140:
+	jmp Z12DObjDumpInfoPK6DObj_s_F0_1_210
+Z12DObjDumpInfoPK6DObj_s_F0_1_140:
 	mov edx, [ebp-0x1c]
-	jmp Z12DObjDumpInfoPK6DObj_s:F(0,1)_220
-Z12DObjDumpInfoPK6DObj_s:F(0,1)_20:
+	jmp Z12DObjDumpInfoPK6DObj_s_F0_1_220
+Z12DObjDumpInfoPK6DObj_s_F0_1_20:
 	mov esi, [ebp-0x48]
 	mov dword [ebp-0x34], 0x0
 	xor edi, edi
-Z12DObjDumpInfoPK6DObj_s:F(0,1)_230:
+Z12DObjDumpInfoPK6DObj_s_F0_1_230:
 	mov ebx, [esi+0x1c]
 	mov eax, [ebx+0x88]
 	mov [esp+0x8], eax
 	mov eax, [ebp-0x34]
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_d_s
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov eax, [ebx]
 	movsx eax, word [eax]
 	add [ebp-0x34], eax
 	add edi, 0x1
 	add esi, 0x4
 	cmp [ebp-0x38], edi
-	jnz Z12DObjDumpInfoPK6DObj_s:F(0,1)_230
-	jmp Z12DObjDumpInfoPK6DObj_s:F(0,1)_240
-Z12DObjDumpInfoPK6DObj_s:F(0,1)_10:
+	jnz Z12DObjDumpInfoPK6DObj_s_F0_1_230
+	jmp Z12DObjDumpInfoPK6DObj_s_F0_1_240
+Z12DObjDumpInfoPK6DObj_s_F0_1_10:
 	mov dword [ebp+0x8], _cstring_no_dobj
 	add esp, 0x6c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
-	jmp Z10Com_PrintfPKcz:F(0,1)
+	jmp Z10Com_PrintfPKcz_F0_1
 
 
-;Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)
+;Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1
 
-Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1):
+Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -16535,7 +16765,7 @@ Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1):
 	mov byte [eax+0x1a], 0x0
 	mov [eax], esi
 	test esi, esi
-	jz Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_10
+	jz Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_10
 	mov eax, [esi]
 	mov ecx, [eax+0x4]
 	lea edx, [ecx+ecx]
@@ -16545,32 +16775,32 @@ Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1):
 	lea ebx, [eax+edx]
 	movzx eax, byte [ebx]
 	add al, 0x1
-	jz Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_20
-Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_170:
+	jz Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_20
+Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_170:
 	mov [ebx], al
 	mov eax, [ebp+0x18]
 	mov [esi+0x4], ax
-Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_180:
+Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_180:
 	mov eax, [ebp+0xc]
 	test eax, eax
-	jnz Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_30
+	jnz Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_30
 	xor eax, eax
 	mov byte [ebp-0x45], 0x0
-Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_160:
+Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_160:
 	mov edx, [ebp+0x14]
 	mov [edx+0x18], al
 	movzx ecx, byte [ebp-0x45]
 	mov [edx+0x19], cl
 	movzx edi, al
 	test edi, edi
-	jg Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_40
+	jg Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_40
 	pxor xmm0, xmm0
 	movaps xmm5, xmm0
 	movaps xmm3, xmm0
 	movaps xmm1, xmm0
 	movaps xmm4, xmm0
 	movaps xmm2, xmm0
-Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_150:
+Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_150:
 	mov eax, [ebp+0x14]
 	add eax, 0x4c
 	mov ebx, [ebp+0x14]
@@ -16588,7 +16818,7 @@ Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_150:
 	pop edi
 	pop ebp
 	ret
-Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_30:
+Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_30:
 	mov edx, [ebp+0x14]
 	mov [ebp-0x40], edx
 	mov esi, edx
@@ -16596,27 +16826,27 @@ Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_30:
 	mov dword [ebp-0x4c], 0x0
 	mov dword [ebp-0x58], 0x0
 	mov ecx, edx
-	jmp Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_50
-Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_100:
+	jmp Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_50
+Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_100:
 	test ebx, ebx
-	jz Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_60
+	jz Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_60
 	mov eax, [ebx]
 	movsx eax, word [eax]
 	add eax, [ebp-0x58]
 	cmp eax, 0x7f
-	jg Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_70
+	jg Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_70
 	mov [ebp-0x45], al
 	mov [ebp-0x58], eax
-Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_60:
+Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_60:
 	add dword [ebp-0x4c], 0x1
 	add edi, 0xc
 	add dword [ebp-0x40], 0x4
 	add esi, 0x1
 	mov ebx, [ebp-0x4c]
 	cmp [ebp+0xc], ebx
-	jz Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_80
+	jz Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_80
 	mov ecx, [ebp-0x40]
-Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_50:
+Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_50:
 	mov ebx, [edi]
 	mov [ecx+0x1c], ebx
 	lea eax, [esi+0x3c]
@@ -16627,31 +16857,31 @@ Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_50:
 	mov [esi+0x44], dl
 	mov eax, [edi+0x8]
 	test eax, eax
-	jz Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_90
+	jz Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_90
 	mov eax, 0x1
 	movzx ecx, byte [ebp-0x4c]
 	shl eax, cl
 	mov edx, [ebp+0x14]
 	or [edx+0x1a], al
-Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_90:
+Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_90:
 	mov eax, [ebp-0x4c]
 	test eax, eax
-	jz Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_100
+	jz Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_100
 	mov ecx, [edi+0x4]
 	mov [ebp-0x54], ecx
 	test ecx, ecx
-	jz Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_100
+	jz Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_100
 	cmp byte [ecx], 0x0
-	jz Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_100
+	jz Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_100
 	mov [esp], ecx
-	call Z13SL_FindStringPKc:F(0,1)
+	call Z13SL_FindStringPKc_F0_1
 	mov [ebp-0x50], eax
 	test eax, eax
-	jz Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_110
+	jz Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_110
 	mov eax, [ebp-0x4c]
 	test eax, eax
-	jg Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_120
-Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_110:
+	jg Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_120
+Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_110:
 	mov edx, [ebp+0x14]
 	mov eax, [edx+0x1c]
 	mov eax, [eax+0x88]
@@ -16659,9 +16889,9 @@ Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_110:
 	mov ecx, [ebp-0x54]
 	mov [esp+0x4], ecx
 	mov dword [esp], _cstring_warning_part_s_n
-	call Z10Com_PrintfPKcz:F(0,1)
-	jmp Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_100
-Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_40:
+	call Z10Com_PrintfPKcz_F0_1
+	jmp Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_100
+Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_40:
 	mov ebx, [ebp+0x14]
 	xor esi, esi
 	pxor xmm0, xmm0
@@ -16670,10 +16900,10 @@ Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_40:
 	movaps xmm1, xmm0
 	movaps xmm4, xmm0
 	movaps xmm2, xmm0
-Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_140:
+Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_140:
 	mov eax, [ebx+0x1c]
 	test eax, eax
-	jz Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_130
+	jz Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_130
 	lea edx, [ebp-0x30]
 	mov [esp+0x8], edx
 	lea ecx, [ebp-0x24]
@@ -16685,7 +16915,7 @@ Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_140:
 	movss [ebp-0xa8], xmm3
 	movss [ebp-0xb8], xmm4
 	movss [ebp-0xc8], xmm5
-	call Z15XModelGetBoundsPK6XModelPfS2_:F(0,20)
+	call Z15XModelGetBoundsPK6XModelPfS2__F0_20
 	movss xmm3, dword [ebp-0xa8]
 	addss xmm3, [ebp-0x24]
 	movss xmm5, dword [ebp-0xc8]
@@ -16698,27 +16928,27 @@ Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_140:
 	addss xmm4, [ebp-0x2c]
 	movss xmm1, dword [ebp-0x88]
 	addss xmm1, [ebp-0x28]
-Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_130:
+Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_130:
 	add esi, 0x1
 	add ebx, 0x4
 	cmp edi, esi
-	jnz Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_140
-	jmp Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_150
-Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_80:
+	jnz Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_140
+	jmp Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_150
+Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_80:
 	mov eax, ebx
-	jmp Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_160
-Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_20:
+	jmp Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_160
+Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_20:
 	lea eax, [ebx+0x1]
 	mov [esp+0x8], ecx
 	mov dword [esp+0x4], 0x0
 	mov [esp], eax
 	call memset
 	mov eax, 0x1
-	jmp Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_170
-Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_10:
+	jmp Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_170
+Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_10:
 	mov dword [eax+0xc], 0x0
-	jmp Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_180
-Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_70:
+	jmp Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_180
+Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_70:
 	mov dword [esp+0xc], 0x7f
 	mov ecx, [ebp+0x14]
 	mov eax, [ecx+0x1c]
@@ -16726,42 +16956,42 @@ Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_70:
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], _cstring_dobj_for_xmodel_
 	mov dword [esp], 0x1
-	call Com_Error:F(0,1)
+	call Com_Error_F0_1
 	movzx eax, byte [ebp-0x4c]
-	jmp Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_160
-Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_120:
+	jmp Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_160
+Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_120:
 	mov eax, [ebp+0x14]
 	mov [ebp-0x44], eax
 	mov dword [ebp-0x5c], 0x0
 	mov ecx, eax
-	jmp Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_190
-Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_200:
+	jmp Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_190
+Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_200:
 	add dword [ebp-0x5c], 0x1
 	add dword [ebp-0x44], 0x4
 	mov eax, [ebp-0x5c]
 	cmp [ebp-0x4c], eax
-	jz Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_110
+	jz Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_110
 	mov ecx, [ebp-0x44]
-Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_190:
+Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_190:
 	mov edx, [ebp-0x50]
 	mov [esp+0x4], edx
 	mov eax, [ecx+0x1c]
 	mov [esp], eax
-	call Z18XModelGetBoneIndexPK6XModelj:F(0,1)
+	call Z18XModelGetBoneIndexPK6XModelj_F0_1
 	test eax, eax
-	js Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_200
+	js Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_200
 	mov edx, [ebp-0x5c]
 	mov ecx, [ebp+0x14]
 	add al, [edx+ecx+0x44]
 	mov edx, [ebp-0x3c]
 	mov [edx], al
-	jmp Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj:F(0,1)_100
+	jmp Z10DObjCreateP11DObjModel_sjP11XAnimTree_sPcj_F0_1_100
 	nop
 
 
-;Z12DObjCalcSkelPK6DObj_sPi:F(0,1)
+;Z12DObjCalcSkelPK6DObj_sPi_F0_1
 
-Z12DObjCalcSkelPK6DObj_sPi:F(0,1):
+Z12DObjCalcSkelPK6DObj_sPi_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -16774,7 +17004,7 @@ Z12DObjCalcSkelPK6DObj_sPi:F(0,1):
 	mov edx, eax
 	mov ebx, 0x1
 	mov ecx, 0x1
-Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_10:
+Z12DObjCalcSkelPK6DObj_sPi_F0_1_10:
 	mov esi, [ebp+0xc]
 	mov eax, [esi+ecx*4-0x4]
 	not eax
@@ -16786,24 +17016,24 @@ Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_10:
 	add ecx, 0x1
 	add edx, 0x4
 	cmp ecx, 0x5
-	jnz Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_10
+	jnz Z12DObjCalcSkelPK6DObj_sPi_F0_1_10
 	test bl, bl
-	jnz Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_20
+	jnz Z12DObjCalcSkelPK6DObj_sPi_F0_1_20
 	mov eax, [ebp+0x8]
 	cmp word [eax+0x10], 0x0
-	jz Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_30
+	jz Z12DObjCalcSkelPK6DObj_sPi_F0_1_30
 	mov edx, eax
-Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_150:
+Z12DObjCalcSkelPK6DObj_sPi_F0_1_150:
 	movzx eax, word [edx+0x10]
 	mov [esp], eax
-	call Z18SL_ConvertToStringj:F(0,2)
+	call Z18SL_ConvertToStringj_F0_2
 	mov [ebp-0x7c], eax
 	add eax, 0x10
 	mov [ebp-0x84], eax
 	mov ebx, [ebp-0x80]
 	mov esi, 0x1
 	lea edi, [ebp-0x28]
-Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_40:
+Z12DObjCalcSkelPK6DObj_sPi_F0_1_40:
 	mov eax, [ebx+0x20]
 	mov ecx, [ebp+0xc]
 	or eax, [ecx+esi*4-0x4]
@@ -16821,23 +17051,23 @@ Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_40:
 	add esi, 0x1
 	add ebx, 0x4
 	cmp esi, 0x5
-	jnz Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_40
+	jnz Z12DObjCalcSkelPK6DObj_sPi_F0_1_40
 	mov ecx, 0x1
-Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_50:
+Z12DObjCalcSkelPK6DObj_sPi_F0_1_50:
 	lea edx, [ecx*4]
 	mov eax, [ebp+edx-0x4c]
 	not eax
 	or [edi+edx-0x4], eax
 	add ecx, 0x1
 	cmp ecx, 0x5
-	jnz Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_50
+	jnz Z12DObjCalcSkelPK6DObj_sPi_F0_1_50
 	mov edx, [ebp+0x8]
 	movzx eax, byte [edx+0x18]
 	mov ecx, [ebp-0x80]
 	add ecx, 0x30
 	mov [ebp-0x90], ecx
 	test eax, eax
-	jle Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_20
+	jle Z12DObjCalcSkelPK6DObj_sPi_F0_1_20
 	mov [ebp-0x50], edx
 	mov [ebp-0x54], edx
 	mov edi, ecx
@@ -16852,8 +17082,8 @@ Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_50:
 	mov ecx, [ebp-0x50]
 	movzx eax, byte [ecx+0x3c]
 	cmp al, 0xff
-	jz Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_60
-Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_240:
+	jz Z12DObjCalcSkelPK6DObj_sPi_F0_1_60
+Z12DObjCalcSkelPK6DObj_sPi_F0_1_240:
 	movzx eax, al
 	shl eax, 0x5
 	mov esi, [ebp-0x90]
@@ -16862,12 +17092,12 @@ Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_240:
 	movzx eax, word [edx+0x2]
 	movsx edx, ax
 	test ax, ax
-	jz Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_70
+	jz Z12DObjCalcSkelPK6DObj_sPi_F0_1_70
 	mov eax, [ebp-0x4c]
 	lea edx, [eax+edx]
 	mov [ebp-0xac], edx
-	jmp Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_80
-Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_130:
+	jmp Z12DObjCalcSkelPK6DObj_sPi_F0_1_80
+Z12DObjCalcSkelPK6DObj_sPi_F0_1_130:
 	movss xmm0, dword [edi]
 	movaps xmm7, xmm0
 	movss xmm5, dword [esi+0xc]
@@ -16948,7 +17178,7 @@ Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_130:
 	addss xmm1, xmm0
 	movss [ebp-0xbc], xmm1
 	movss [edi+0x8], xmm1
-Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_140:
+Z12DObjCalcSkelPK6DObj_sPi_F0_1_140:
 	movss xmm3, dword [ebp-0xc0]
 	mulss xmm3, xmm3
 	movss xmm0, dword [ebp-0xb8]
@@ -16962,14 +17192,14 @@ Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_140:
 	addss xmm3, xmm0
 	pxor xmm6, xmm6
 	ucomiss xmm3, xmm6
-	jp Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_90
-	jz Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_100
-Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_90:
+	jp Z12DObjCalcSkelPK6DObj_sPi_F0_1_90
+	jz Z12DObjCalcSkelPK6DObj_sPi_F0_1_100
+Z12DObjCalcSkelPK6DObj_sPi_F0_1_90:
 	movss xmm0, dword [_float_2_00000000]
 	divss xmm0, xmm3
 	movss [edi+0x1c], xmm0
 	mov dword [ebp-0xb0], 0x3f800000
-Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_160:
+Z12DObjCalcSkelPK6DObj_sPi_F0_1_160:
 	movss xmm2, dword [esi+0x1c]
 	movaps xmm5, xmm2
 	mulss xmm5, [esi]
@@ -17038,12 +17268,12 @@ Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_160:
 	movss [edi+0x18], xmm3
 	movss [edi+0x10], xmm1
 	movss [edi+0x14], xmm4
-Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_120:
+Z12DObjCalcSkelPK6DObj_sPi_F0_1_120:
 	add edi, 0x20
 	add eax, 0x1
 	cmp [ebp-0xac], eax
-	jz Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_110
-Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_80:
+	jz Z12DObjCalcSkelPK6DObj_sPi_F0_1_110
+Z12DObjCalcSkelPK6DObj_sPi_F0_1_80:
 	mov ebx, eax
 	sar ebx, 0x5
 	mov ecx, eax
@@ -17051,9 +17281,9 @@ Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_80:
 	mov edx, 0x1
 	shl edx, cl
 	test [ebp+ebx*4-0x28], edx
-	jz Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_120
+	jz Z12DObjCalcSkelPK6DObj_sPi_F0_1_120
 	test [ebp+ebx*4-0x48], edx
-	jz Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_130
+	jz Z12DObjCalcSkelPK6DObj_sPi_F0_1_130
 	movss xmm3, dword [esi]
 	movss xmm0, dword [edi+0xc]
 	movaps xmm1, xmm0
@@ -17133,30 +17363,30 @@ Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_80:
 	addss xmm1, xmm7
 	movss [ebp-0xbc], xmm1
 	movss [edi+0x8], xmm1
-	jmp Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_140
-Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_20:
+	jmp Z12DObjCalcSkelPK6DObj_sPi_F0_1_140
+Z12DObjCalcSkelPK6DObj_sPi_F0_1_20:
 	add esp, 0xdc
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_30:
+Z12DObjCalcSkelPK6DObj_sPi_F0_1_30:
 	call _Z24DObjCreateDuplicatePartsPK6DObj_s
 	mov edx, [ebp+0x8]
-	jmp Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_150
-Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_100:
+	jmp Z12DObjCalcSkelPK6DObj_sPi_F0_1_150
+Z12DObjCalcSkelPK6DObj_sPi_F0_1_100:
 	mov dword [ebp-0xb0], 0x3f800000
 	movss xmm0, dword [ebp-0xb0]
 	movss [edi+0xc], xmm0
 	mov dword [edi+0x1c], 0x40000000
-	jmp Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_160
-Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_110:
+	jmp Z12DObjCalcSkelPK6DObj_sPi_F0_1_160
+Z12DObjCalcSkelPK6DObj_sPi_F0_1_110:
 	mov eax, [ebp-0xac]
 	mov [ebp-0x4c], eax
 	mov edx, [ebp-0x98]
 	mov ecx, [ebp-0x98]
-Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_320:
+Z12DObjCalcSkelPK6DObj_sPi_F0_1_320:
 	mov edx, [edx+0xc]
 	mov [ebp-0x8c], edx
 	mov esi, [ecx+0x4]
@@ -17166,13 +17396,13 @@ Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_320:
 	movsx eax, word [ecx+0x2]
 	sub edx, eax
 	mov [ebp-0x9c], edx
-	jz Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_170
+	jz Z12DObjCalcSkelPK6DObj_sPi_F0_1_170
 	mov dword [ebp-0x58], 0x0
 	lea esi, [edi+0x10]
-	jmp Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_180
-Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_220:
+	jmp Z12DObjCalcSkelPK6DObj_sPi_F0_1_180
+Z12DObjCalcSkelPK6DObj_sPi_F0_1_220:
 	test [ebp+edx*4-0x48], ebx
-	jnz Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_190
+	jnz Z12DObjCalcSkelPK6DObj_sPi_F0_1_190
 	mov edx, [ebp-0x94]
 	mov ecx, [ebp-0x58]
 	movzx eax, byte [edx+ecx]
@@ -17259,7 +17489,7 @@ Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_220:
 	addss xmm1, xmm0
 	movss [ebp-0xbc], xmm1
 	movss [esi-0x8], xmm1
-Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_330:
+Z12DObjCalcSkelPK6DObj_sPi_F0_1_330:
 	movss xmm3, dword [ebp-0xc0]
 	mulss xmm3, xmm3
 	movss xmm0, dword [ebp-0xb8]
@@ -17273,14 +17503,14 @@ Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_330:
 	addss xmm3, xmm0
 	pxor xmm6, xmm6
 	ucomiss xmm3, xmm6
-	jp Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_200
-	jz Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_210
-Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_200:
+	jp Z12DObjCalcSkelPK6DObj_sPi_F0_1_200
+	jz Z12DObjCalcSkelPK6DObj_sPi_F0_1_210
+Z12DObjCalcSkelPK6DObj_sPi_F0_1_200:
 	movss xmm0, dword [_float_2_00000000]
 	divss xmm0, xmm3
 	movss [esi+0xc], xmm0
 	mov dword [ebp-0xb0], 0x3f800000
-Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_340:
+Z12DObjCalcSkelPK6DObj_sPi_F0_1_340:
 	movss xmm6, dword [esi]
 	movss [ebp-0xa0], xmm6
 	mov eax, [ebp-0x8c]
@@ -17371,7 +17601,7 @@ Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_340:
 	movss [esi+0x8], xmm3
 	movss [esi], xmm2
 	movss [esi+0x4], xmm4
-Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_230:
+Z12DObjCalcSkelPK6DObj_sPi_F0_1_230:
 	add edi, 0x20
 	add esi, 0x20
 	add dword [ebp-0x8c], 0xc
@@ -17379,8 +17609,8 @@ Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_230:
 	add dword [ebp-0x58], 0x1
 	mov eax, [ebp-0x58]
 	cmp [ebp-0x9c], eax
-	jz Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_170
-Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_180:
+	jz Z12DObjCalcSkelPK6DObj_sPi_F0_1_170
+Z12DObjCalcSkelPK6DObj_sPi_F0_1_180:
 	mov edx, [ebp-0x4c]
 	sar edx, 0x5
 	mov ecx, [ebp-0x4c]
@@ -17388,16 +17618,16 @@ Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_180:
 	mov ebx, 0x1
 	shl ebx, cl
 	test [ebp+edx*4-0x28], ebx
-	jnz Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_220
+	jnz Z12DObjCalcSkelPK6DObj_sPi_F0_1_220
 	mov ecx, [ebp-0x88]
 	movzx eax, byte [ecx]
 	sub eax, 0x1
 	cmp eax, [ebp-0x4c]
-	jnz Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_230
+	jnz Z12DObjCalcSkelPK6DObj_sPi_F0_1_230
 	add ecx, 0x2
 	mov [ebp-0x88], ecx
 	test [ebp+edx*4-0x38], ebx
-	jnz Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_230
+	jnz Z12DObjCalcSkelPK6DObj_sPi_F0_1_230
 	movzx eax, byte [ecx-0x1]
 	sub eax, 0x1
 	shl eax, 0x5
@@ -17425,13 +17655,13 @@ Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_180:
 	add dword [ebp-0x58], 0x1
 	mov eax, [ebp-0x58]
 	cmp [ebp-0x9c], eax
-	jnz Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_180
-Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_170:
+	jnz Z12DObjCalcSkelPK6DObj_sPi_F0_1_180
+Z12DObjCalcSkelPK6DObj_sPi_F0_1_170:
 	add dword [ebp-0x54], 0x4
 	add dword [ebp-0x50], 0x1
 	mov edx, [ebp-0x50]
 	cmp [ebp-0xb4], edx
-	jz Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_20
+	jz Z12DObjCalcSkelPK6DObj_sPi_F0_1_20
 	mov edx, [ebp-0x54]
 	mov eax, [edx+0x1c]
 	mov eax, [eax]
@@ -17439,19 +17669,19 @@ Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_170:
 	mov ecx, [ebp-0x50]
 	movzx eax, byte [ecx+0x3c]
 	cmp al, 0xff
-	jnz Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_240
-Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_60:
+	jnz Z12DObjCalcSkelPK6DObj_sPi_F0_1_240
+Z12DObjCalcSkelPK6DObj_sPi_F0_1_60:
 	mov esi, [ebp-0x98]
 	movzx eax, word [esi+0x2]
 	movsx edx, ax
 	test ax, ax
-	jz Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_250
+	jz Z12DObjCalcSkelPK6DObj_sPi_F0_1_250
 	mov ebx, [ebp-0x4c]
 	add edx, ebx
 	mov [ebp-0xa8], edx
 	movss xmm4, dword [_float_2_00000000]
-	jmp Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_260
-Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_300:
+	jmp Z12DObjCalcSkelPK6DObj_sPi_F0_1_260
+Z12DObjCalcSkelPK6DObj_sPi_F0_1_300:
 	movss xmm3, dword [edi]
 	movss xmm0, dword [edi+0x4]
 	movss xmm1, dword [edi+0x8]
@@ -17465,18 +17695,18 @@ Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_300:
 	addss xmm3, xmm2
 	pxor xmm0, xmm0
 	ucomiss xmm3, xmm0
-	jp Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_270
-	jz Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_280
-Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_270:
+	jp Z12DObjCalcSkelPK6DObj_sPi_F0_1_270
+	jz Z12DObjCalcSkelPK6DObj_sPi_F0_1_280
+Z12DObjCalcSkelPK6DObj_sPi_F0_1_270:
 	movaps xmm0, xmm4
 	divss xmm0, xmm3
 	movss [edi+0x1c], xmm0
-Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_310:
+Z12DObjCalcSkelPK6DObj_sPi_F0_1_310:
 	add edi, 0x20
 	add ebx, 0x1
 	cmp [ebp-0xa8], ebx
-	jz Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_290
-Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_260:
+	jz Z12DObjCalcSkelPK6DObj_sPi_F0_1_290
+Z12DObjCalcSkelPK6DObj_sPi_F0_1_260:
 	mov esi, ebx
 	sar esi, 0x5
 	mov ecx, ebx
@@ -17484,16 +17714,16 @@ Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_260:
 	mov edx, 0x1
 	shl edx, cl
 	test [ebp+esi*4-0x28], edx
-	jnz Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_300
+	jnz Z12DObjCalcSkelPK6DObj_sPi_F0_1_300
 	mov ecx, [ebp-0x88]
 	movzx eax, byte [ecx]
 	sub eax, 0x1
 	cmp ebx, eax
-	jnz Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_310
+	jnz Z12DObjCalcSkelPK6DObj_sPi_F0_1_310
 	add ecx, 0x2
 	mov [ebp-0x88], ecx
 	test [ebp+esi*4-0x38], edx
-	jnz Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_310
+	jnz Z12DObjCalcSkelPK6DObj_sPi_F0_1_310
 	movzx eax, byte [ecx-0x1]
 	sub eax, 0x1
 	shl eax, 0x5
@@ -17517,14 +17747,14 @@ Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_260:
 	add edi, 0x20
 	add ebx, 0x1
 	cmp [ebp-0xa8], ebx
-	jnz Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_260
-Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_290:
+	jnz Z12DObjCalcSkelPK6DObj_sPi_F0_1_260
+Z12DObjCalcSkelPK6DObj_sPi_F0_1_290:
 	mov eax, [ebp-0xa8]
 	mov [ebp-0x4c], eax
 	mov edx, [ebp-0x98]
 	mov ecx, [ebp-0x98]
-	jmp Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_320
-Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_190:
+	jmp Z12DObjCalcSkelPK6DObj_sPi_F0_1_320
+Z12DObjCalcSkelPK6DObj_sPi_F0_1_190:
 	mov edx, [ebp-0x58]
 	mov ecx, [ebp-0x94]
 	movzx eax, byte [edx+ecx]
@@ -17610,30 +17840,30 @@ Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_190:
 	addss xmm1, xmm7
 	movss [ebp-0xbc], xmm1
 	movss [esi-0x8], xmm1
-	jmp Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_330
-Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_210:
+	jmp Z12DObjCalcSkelPK6DObj_sPi_F0_1_330
+Z12DObjCalcSkelPK6DObj_sPi_F0_1_210:
 	mov dword [ebp-0xb0], 0x3f800000
 	movss xmm0, dword [ebp-0xb0]
 	movss [esi-0x4], xmm0
 	mov dword [esi+0xc], 0x40000000
-	jmp Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_340
-Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_70:
+	jmp Z12DObjCalcSkelPK6DObj_sPi_F0_1_340
+Z12DObjCalcSkelPK6DObj_sPi_F0_1_70:
 	mov edx, [ebp-0x98]
 	mov ecx, [ebp-0x98]
-	jmp Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_320
-Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_280:
+	jmp Z12DObjCalcSkelPK6DObj_sPi_F0_1_320
+Z12DObjCalcSkelPK6DObj_sPi_F0_1_280:
 	mov dword [edi+0xc], 0x3f800000
 	mov dword [edi+0x1c], 0x40000000
-	jmp Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_310
-Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_250:
+	jmp Z12DObjCalcSkelPK6DObj_sPi_F0_1_310
+Z12DObjCalcSkelPK6DObj_sPi_F0_1_250:
 	mov edx, esi
 	mov ecx, esi
-	jmp Z12DObjCalcSkelPK6DObj_sPi:F(0,1)_320
+	jmp Z12DObjCalcSkelPK6DObj_sPi_F0_1_320
 
 
-;Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)
+;Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1
 
-Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1):
+Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -17693,23 +17923,23 @@ Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1):
 	mulss xmm0, xmm0
 	addss xmm1, xmm0
 	ucomiss xmm1, xmm2
-	jp Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_10
-	jz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_20
-Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_10:
+	jp Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_10
+	jz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_20
+Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_10:
 	mov edx, [ebp+0x8]
 	mov eax, [edx+0x4]
 	test eax, eax
-	jz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_20
+	jz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_20
 	add eax, 0x30
 	mov [ebp-0x238], eax
-	jz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_20
+	jz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_20
 	movss xmm0, dword [_float_1_00000000]
 	divss xmm0, xmm1
 	movss [ebp-0x248], xmm0
 	movzx eax, word [edx+0x10]
 	mov [esp], eax
 	movss [ebp-0x268], xmm2
-	call Z18SL_ConvertToStringj:F(0,2)
+	call Z18SL_ConvertToStringj_F0_2
 	add eax, 0x10
 	mov [ebp-0x204], eax
 	movss xmm1, dword [esi]
@@ -17717,7 +17947,7 @@ Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_10:
 	mov eax, [ebp+0x8]
 	cmp byte [eax+0x18], 0x0
 	movss xmm2, dword [ebp-0x268]
-	jz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_20
+	jz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_20
 	mov [ebp-0x160], eax
 	mov [ebp-0x15c], eax
 	mov dword [ebp-0x210], 0x2
@@ -17728,7 +17958,7 @@ Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_10:
 	movss [ebp-0x224], xmm2
 	mov dword [ebp-0x234], 0x0
 	mov edx, eax
-Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_270:
+Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_270:
 	mov edx, [edx+0x1c]
 	mov [ebp-0x244], edx
 	mov ecx, [edx]
@@ -17747,14 +17977,14 @@ Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_270:
 	shl eax, cl
 	and [ebp-0x200], eax
 	test edx, edx
-	jle Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_30
+	jle Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_30
 	mov dword [ebp-0x228], 0x0
 	mov dword [ebp-0x16c], 0x0
 	mov ecx, [ebp-0x218]
 	mov ebx, [ebp-0x238]
 	add ebx, 0x10
 	mov edx, [ebp-0x228]
-Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_220:
+Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_220:
 	mov esi, [ebp-0x240]
 	mov eax, [esi+0x10]
 	movzx di, byte [eax+edx]
@@ -17767,14 +17997,14 @@ Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_220:
 	movzx eax, byte [esi]
 	sub eax, 0x1
 	cmp eax, ecx
-	jz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_40
+	jz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_40
 	sub dl, 0x1
-	jz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_50
-Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_250:
+	jz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_50
+Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_250:
 	mov [ebp+ecx*2-0x154], di
 	mov edx, [ebp-0x200]
 	test edx, edx
-	jnz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_60
+	jnz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_60
 	mov edx, [ebp-0x16c]
 	mov ecx, [ebp-0x244]
 	add edx, [ecx+0x60]
@@ -17782,12 +18012,12 @@ Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_250:
 	movss [ebp-0x24c], xmm0
 	pxor xmm1, xmm1
 	ucomiss xmm0, xmm1
-	jp Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_70
-	jz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_60
-Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_70:
+	jp Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_70
+	jz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_60
+Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_70:
 	mov eax, [ebp-0x210]
 	cmp [ebp-0x20c], eax
-	jb Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_60
+	jb Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_60
 	lea eax, [edx+0x18]
 	mov ecx, [ebp-0x238]
 	add ecx, 0x1c
@@ -17903,7 +18133,7 @@ Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_70:
 	mulss xmm3, [ebp-0x248]
 	movss xmm2, dword [_float_1_00000000]
 	ucomiss xmm2, xmm3
-	ja Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_80
+	ja Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_80
 	mov eax, [ebp+0x10]
 	movss xmm2, dword [eax]
 	subss xmm2, [ebp-0x180]
@@ -17918,16 +18148,16 @@ Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_70:
 	addss xmm2, xmm0
 	mulss xmm1, xmm1
 	addss xmm2, xmm1
-Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_330:
+Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_330:
 	movss xmm0, dword [ebp-0x24c]
 	subss xmm0, xmm2
 	pxor xmm1, xmm1
 	ucomiss xmm1, xmm0
-	jae Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_60
+	jae Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_60
 	mov eax, [ebp-0x210]
 	cmp [ebp-0x20c], eax
-	jz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_90
-Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_340:
+	jz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_90
+Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_340:
 	subss xmm6, [ebx]
 	movss xmm0, dword [ebp-0x1c8]
 	subss xmm0, [ebx+0x4]
@@ -18090,9 +18320,9 @@ Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_340:
 	movss [ebp-0x28], xmm4
 	mov eax, [ebp-0x210]
 	cmp [ebp-0x20c], eax
-	jz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_100
+	jz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_100
 	movss xmm5, dword [ebp-0x230]
-Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_310:
+Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_310:
 	mov ecx, edx
 	pxor xmm4, xmm4
 	mov esi, 0x1
@@ -18100,9 +18330,9 @@ Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_310:
 	movss xmm7, dword [_float__1_00000000]
 	movaps xmm3, xmm7
 	pxor xmm6, xmm6
-Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_160:
+Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_160:
 	xor edx, edx
-Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_130:
+Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_130:
 	movss xmm0, dword [ecx+edx*4]
 	lea eax, [edx*4]
 	movss xmm2, dword [ebp+eax-0x24]
@@ -18113,40 +18343,40 @@ Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_130:
 	mulss xmm1, xmm3
 	pxor xmm0, xmm0
 	ucomiss xmm2, xmm0
-	jbe Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_110
+	jbe Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_110
 	ucomiss xmm1, xmm0
-	ja Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_60
+	ja Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_60
 	movaps xmm0, xmm2
 	subss xmm0, xmm1
 	movaps xmm1, xmm0
 	mulss xmm0, xmm4
 	ucomiss xmm2, xmm0
-	jbe Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_120
+	jbe Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_120
 	movaps xmm4, xmm2
 	divss xmm4, xmm1
 	ucomiss xmm4, xmm5
-	jae Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_60
+	jae Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_60
 	mov [ebp-0x220], edx
 	movss [ebp-0x224], xmm3
-Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_120:
+Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_120:
 	xor esi, esi
-Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_230:
+Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_230:
 	add edx, 0x1
 	cmp edx, 0x3
-	jnz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_130
+	jnz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_130
 	ucomiss xmm3, [_float_1_00000000]
-	jp Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_140
-	jz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_150
-Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_140:
+	jp Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_140
+	jz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_150
+Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_140:
 	add ecx, 0xc
 	movss xmm3, dword [_float_1_00000000]
-	jmp Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_160
-Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_150:
+	jmp Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_160
+Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_150:
 	mov eax, esi
 	test al, al
-	jz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_170
+	jz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_170
 	cmp byte [ebp-0x229], 0x0
-	jz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_60
+	jz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_60
 	movss xmm0, dword [ebp-0x188]
 	mov edx, [ebp+0xc]
 	mulss xmm0, [edx]
@@ -18155,7 +18385,7 @@ Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_150:
 	addss xmm0, xmm1
 	pxor xmm2, xmm2
 	ucomiss xmm0, xmm2
-	ja Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_60
+	ja Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_60
 	mov eax, [ebp+0x18]
 	mov dword [eax], 0x0
 	mov edx, [ebp-0x228]
@@ -18166,13 +18396,13 @@ Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_150:
 	mov [esi+0x16], di
 	movss xmm0, dword [ebp-0x188]
 	ucomiss xmm0, xmm2
-	jnz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_180
-	jp Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_180
+	jnz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_180
+	jp Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_180
 	movss xmm1, dword [ebp-0x18c]
 	ucomiss xmm1, xmm2
-	jp Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_180
-	jz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_190
-Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_180:
+	jp Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_180
+	jz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_190
+Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_180:
 	mov edx, [ebp+0xc]
 	mov eax, [edx]
 	mov ecx, [ebp-0x1f8]
@@ -18182,21 +18412,21 @@ Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_180:
 	mov edx, [ebp-0x1f4]
 	mov [edx], eax
 	mov [esp], ecx
-	call Vec2Normalize:F(0,7)
+	call Vec2Normalize_F0_7
 	fstp st0
-Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_20:
+Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_20:
 	add esp, 0x27c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_170:
+Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_170:
 	mov edx, [ebp-0x210]
 	cmp [ebp-0x20c], edx
-	jz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_200
+	jz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_200
 	mov esi, [ebp+0x18]
-Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_360:
+Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_360:
 	movss [esi], xmm4
 	mov edx, [ebp-0x228]
 	mov ecx, [ebp-0x208]
@@ -18209,7 +18439,7 @@ Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_360:
 	mov [ebp-0x21c], eax
 	mov edx, [ebp-0x238]
 	mov [ebp-0x234], edx
-Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_60:
+Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_60:
 	add dword [ebp-0x228], 0x1
 	add dword [ebp-0x238], 0x20
 	add ebx, 0x20
@@ -18218,67 +18448,67 @@ Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_60:
 	add dword [ebp-0x16c], 0x28
 	mov esi, [ebp-0x228]
 	cmp [ebp-0x23c], esi
-	jz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_210
+	jz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_210
 	mov edx, esi
-	jmp Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_220
-Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_110:
+	jmp Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_220
+Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_110:
 	ucomiss xmm1, xmm6
-	jbe Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_230
+	jbe Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_230
 	movaps xmm0, xmm2
 	subss xmm0, xmm1
 	movaps xmm1, xmm0
 	mulss xmm0, xmm5
 	ucomiss xmm2, xmm0
-	jbe Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_240
+	jbe Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_240
 	movaps xmm5, xmm2
 	divss xmm5, xmm1
 	ucomiss xmm4, xmm5
-	jae Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_60
-Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_240:
+	jae Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_60
+Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_240:
 	mov byte [ebp-0x229], 0x0
-	jmp Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_230
-Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_40:
+	jmp Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_230
+Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_40:
 	add esi, 0x2
 	mov [ebp-0x204], esi
 	sub dl, 0x1
-	jnz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_250
+	jnz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_250
 	movzx eax, byte [esi-0x1]
 	movzx edi, word [ebp+eax*2-0x156]
 	movzx eax, di
 	mov edx, [ebp+0x14]
 	movzx eax, byte [edx+eax]
 	mov [ebp-0x20c], eax
-	jmp Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_250
-Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_210:
+	jmp Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_250
+Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_210:
 	mov [ebp-0x218], ecx
-Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_30:
+Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_30:
 	add dword [ebp-0x214], 0x1
 	add dword [ebp-0x160], 0x4
 	add dword [ebp-0x15c], 0x1
 	mov edx, [ebp+0x8]
 	movzx eax, byte [edx+0x18]
 	cmp eax, [ebp-0x214]
-	jle Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_260
+	jle Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_260
 	mov edx, [ebp-0x160]
-	jmp Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_270
-Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_50:
+	jmp Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_270
+Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_50:
 	mov esi, [ebp-0x240]
 	movsx eax, word [esi+0x2]
 	cmp [ebp-0x228], eax
-	jge Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_280
+	jge Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_280
 	mov edx, [ebp-0x15c]
 	movzx eax, byte [edx+0x3c]
 	cmp al, 0xff
-	jz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_290
+	jz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_290
 	movzx eax, al
 	movzx edi, word [ebp+eax*2-0x154]
 	movzx eax, di
-Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_300:
+Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_300:
 	mov edx, [ebp+0x14]
 	movzx eax, byte [edx+eax]
 	mov [ebp-0x20c], eax
-	jmp Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_250
-Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_280:
+	jmp Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_250
+Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_280:
 	mov esi, [ebp-0x228]
 	sub esi, eax
 	mov edx, [ebp-0x1fc]
@@ -18287,19 +18517,19 @@ Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_280:
 	sub esi, eax
 	movzx edi, word [ebp+esi*2-0x154]
 	movzx eax, di
-	jmp Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_300
-Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_290:
+	jmp Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_300
+Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_290:
 	xor edi, edi
 	xor eax, eax
-	jmp Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_300
-Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_100:
+	jmp Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_300
+Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_100:
 	mov ecx, [ebp+0x18]
 	movss xmm5, dword [ecx]
-	jmp Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_310
-Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_80:
+	jmp Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_310
+Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_80:
 	pxor xmm5, xmm5
 	ucomiss xmm3, xmm5
-	jbe Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_320
+	jbe Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_320
 	movss xmm2, dword [ebp-0x188]
 	mulss xmm2, xmm3
 	addss xmm2, xmm7
@@ -18314,11 +18544,11 @@ Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_80:
 	addss xmm2, xmm1
 	mulss xmm4, xmm4
 	addss xmm2, xmm4
-	jmp Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_330
-Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_260:
+	jmp Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_330
+Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_260:
 	mov eax, [ebp-0x234]
 	test eax, eax
-	jz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_20
+	jz Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_20
 	mov ecx, [ebp-0x234]
 	movss xmm1, dword [ecx+0x1c]
 	movaps xmm4, xmm1
@@ -18397,32 +18627,32 @@ Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_260:
 	pop edi
 	pop ebp
 	ret
-Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_90:
+Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_90:
 	mulss xmm0, [ebp-0x248]
 	sqrtss xmm0, xmm0
 	subss xmm3, xmm0
 	mov eax, [ebp+0x18]
 	ucomiss xmm3, [eax]
-	jb Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_340
-Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_350:
+	jb Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_340
+Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_350:
 	mov ecx, [ebp-0x20c]
 	mov [ebp-0x210], ecx
-	jmp Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_60
-Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_320:
+	jmp Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_60
+Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_320:
 	movaps xmm2, xmm7
 	mulss xmm2, xmm7
 	mulss xmm1, xmm1
 	addss xmm2, xmm1
 	mulss xmm4, xmm4
 	addss xmm2, xmm4
-	jmp Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_330
-Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_200:
+	jmp Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_330
+Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_200:
 	mov ecx, [ebp+0x18]
 	ucomiss xmm4, [ecx]
-	jae Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_350
+	jae Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_350
 	mov esi, ecx
-	jmp Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_360
-Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_190:
+	jmp Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_360
+Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_190:
 	movss xmm0, dword [ebp-0x190]
 	movss xmm2, dword [_float_1_00000000]
 	pxor xmm3, xmm3
@@ -18433,7 +18663,7 @@ Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_190:
 	orps xmm0, xmm1
 	mov eax, [ebp+0x18]
 	movss [eax+0x10], xmm0
-	jmp Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s:F(0,1)_20
+	jmp Z13DObjTracelineP6DObj_sPfS1_PhP11DObjTrace_s_F0_1_20
 	add [eax], al
 
 
@@ -18460,14 +18690,14 @@ _Z21AnimTreeParseInternaljjhhh_270:
 	mov byte [ebp-0x2d], 0x0
 _Z21AnimTreeParseInternaljjhhh_210:
 	mov dword [esp], scrAnimGlob+0x4
-	call Com_Parse:F(0,5)
+	call Com_Parse_F0_5
 	mov esi, eax
 	mov ebx, [scrAnimGlob+0x4]
 	test ebx, ebx
 	jz _Z21AnimTreeParseInternaljjhhh_10
 _Z21AnimTreeParseInternaljjhhh_70:
 	mov [esp], eax
-	call Z16Scr_IsIdentifierPKc:F(0,5)
+	call Z16Scr_IsIdentifierPKc_F0_5
 	test al, al
 	jz _Z21AnimTreeParseInternaljjhhh_20
 	cmp byte [ebp-0x2d], 0x0
@@ -18476,12 +18706,12 @@ _Z21AnimTreeParseInternaljjhhh_330:
 	mov dword [esp+0x8], 0x4
 	mov dword [esp+0x4], 0x2
 	mov [esp], esi
-	call Z22SL_GetLowercaseString_PKcji:F(0,1)
+	call Z22SL_GetLowercaseString_PKcji_F0_1
 	mov [ebp-0x2c], eax
 	mov [esp+0x4], eax
 	mov eax, [ebp-0x3c]
 	mov [esp], eax
-	call Z12FindVariablejj:F(0,22)
+	call Z12FindVariablejj_F0_22
 	test eax, eax
 	jnz _Z21AnimTreeParseInternaljjhhh_40
 _Z21AnimTreeParseInternaljjhhh_320:
@@ -18489,21 +18719,21 @@ _Z21AnimTreeParseInternaljjhhh_320:
 	mov [esp+0x4], eax
 	mov eax, [ebp-0x3c]
 	mov [esp], eax
-	call Z11GetVariablejj:F(0,22)
+	call Z11GetVariablejj_F0_22
 	mov [ebp-0x38], eax
 	cmp byte [ebp-0x43], 0x0
 	jz _Z21AnimTreeParseInternaljjhhh_50
 _Z21AnimTreeParseInternaljjhhh_100:
 	mov byte [ebp-0x2d], 0x0
 	mov dword [esp], scrAnimGlob+0x4
-	call Com_ParseOnLine:F(0,5)
+	call Com_ParseOnLine_F0_5
 	mov esi, eax
 	cmp byte [eax], 0x0
 	jnz _Z21AnimTreeParseInternaljjhhh_60
 _Z21AnimTreeParseInternaljjhhh_110:
 	mov dword [ebp-0x34], 0x0
 	mov dword [esp], scrAnimGlob+0x4
-	call Com_Parse:F(0,5)
+	call Com_Parse_F0_5
 	mov esi, eax
 	mov ebx, [scrAnimGlob+0x4]
 	test ebx, ebx
@@ -18529,7 +18759,7 @@ _Z21AnimTreeParseInternaljjhhh_50:
 	mov [esp+0x4], eax
 	mov eax, [ebp-0x40]
 	mov [esp], eax
-	call Z12FindVariablejj:F(0,22)
+	call Z12FindVariablejj_F0_22
 	test eax, eax
 	jnz _Z21AnimTreeParseInternaljjhhh_100
 	mov ecx, [scrAnimGlob+0x208]
@@ -18537,13 +18767,13 @@ _Z21AnimTreeParseInternaljjhhh_50:
 	jnz _Z21AnimTreeParseInternaljjhhh_100
 	mov byte [ebp-0x2d], 0x1
 	mov dword [esp], scrAnimGlob+0x4
-	call Com_ParseOnLine:F(0,5)
+	call Com_ParseOnLine_F0_5
 	mov esi, eax
 	cmp byte [eax], 0x0
 	jz _Z21AnimTreeParseInternaljjhhh_110
 _Z21AnimTreeParseInternaljjhhh_60:
 	mov [esp], eax
-	call Z16Scr_IsIdentifierPKc:F(0,5)
+	call Z16Scr_IsIdentifierPKc_F0_5
 	test al, al
 	jnz _Z21AnimTreeParseInternaljjhhh_120
 _Z21AnimTreeParseInternaljjhhh_420:
@@ -18555,7 +18785,7 @@ _Z21AnimTreeParseInternaljjhhh_340:
 	mov dword [ebp-0x34], 0x0
 _Z21AnimTreeParseInternaljjhhh_380:
 	mov dword [esp], scrAnimGlob+0x4
-	call Com_ParseOnLine:F(0,5)
+	call Com_ParseOnLine_F0_5
 	mov edi, eax
 	cmp byte [eax], 0x0
 	jz _Z21AnimTreeParseInternaljjhhh_140
@@ -18566,7 +18796,7 @@ _Z21AnimTreeParseInternaljjhhh_160:
 	mov eax, [ebx]
 	mov [esp+0x4], eax
 	mov [esp], edi
-	call Z7stricmpPKcS0_:F(0,1)
+	call Z7stricmpPKcS0__F0_1
 	test eax, eax
 	jz _Z21AnimTreeParseInternaljjhhh_150
 	add esi, 0x1
@@ -18574,22 +18804,22 @@ _Z21AnimTreeParseInternaljjhhh_160:
 	cmp esi, 0x3
 	jnz _Z21AnimTreeParseInternaljjhhh_160
 _Z21AnimTreeParseInternaljjhhh_370:
-	call Z19Com_GetLastTokenPosv:F(0,5)
+	call Z19Com_GetLastTokenPosv_F0_5
 	mov ebx, eax
-	call Com_EndParseSession:F(0,4)
+	call Com_EndParseSession_F0_4
 	mov dword [esp+0x8], _cstring_unknown_anim_pro
 	mov dword [esp+0x4], _cstring_s1
 	sub ebx, [scrAnimGlob]
 	mov [esp], ebx
-	call CompileError:F(0,1)
+	call CompileError_F0_1
 	mov dword [esp], scrAnimGlob+0x4
-	call Com_ParseOnLine:F(0,5)
+	call Com_ParseOnLine_F0_5
 	mov edi, eax
 	cmp byte [eax], 0x0
 	jnz _Z21AnimTreeParseInternaljjhhh_170
 _Z21AnimTreeParseInternaljjhhh_140:
 	mov dword [esp], scrAnimGlob+0x4
-	call Com_Parse:F(0,5)
+	call Com_Parse_F0_5
 	mov esi, eax
 	cmp byte [eax], 0x7b
 	jnz _Z21AnimTreeParseInternaljjhhh_180
@@ -18601,21 +18831,21 @@ _Z21AnimTreeParseInternaljjhhh_20:
 	jz _Z21AnimTreeParseInternaljjhhh_190
 	cmp al, 0x7d
 	jz _Z21AnimTreeParseInternaljjhhh_200
-	call Z19Com_GetLastTokenPosv:F(0,5)
+	call Z19Com_GetLastTokenPosv_F0_5
 	mov ebx, eax
-	call Com_EndParseSession:F(0,4)
+	call Com_EndParseSession_F0_4
 	mov dword [esp+0x8], _cstring_bad_token
 	mov dword [esp+0x4], _cstring_s1
 	sub ebx, [scrAnimGlob]
 	mov [esp], ebx
-	call CompileError:F(0,1)
+	call CompileError_F0_1
 	jmp _Z21AnimTreeParseInternaljjhhh_210
 _Z21AnimTreeParseInternaljjhhh_190:
 	cmp byte [esi+0x1], 0x0
 	jnz _Z21AnimTreeParseInternaljjhhh_220
 _Z21AnimTreeParseInternaljjhhh_410:
 	mov dword [esp], scrAnimGlob+0x4
-	call Com_ParseOnLine:F(0,5)
+	call Com_ParseOnLine_F0_5
 	cmp byte [eax], 0x0
 	jnz _Z21AnimTreeParseInternaljjhhh_230
 _Z21AnimTreeParseInternaljjhhh_400:
@@ -18625,7 +18855,7 @@ _Z21AnimTreeParseInternaljjhhh_400:
 _Z21AnimTreeParseInternaljjhhh_390:
 	mov eax, [ebp-0x38]
 	mov [esp], eax
-	call Z8GetArrayj:F(0,22)
+	call Z8GetArrayj_F0_22
 	mov esi, eax
 	cmp byte [ebp-0x43], 0x0
 	jnz _Z21AnimTreeParseInternaljjhhh_250
@@ -18648,7 +18878,7 @@ _Z21AnimTreeParseInternaljjhhh_250:
 	jnz _Z21AnimTreeParseInternaljjhhh_280
 _Z21AnimTreeParseInternaljjhhh_300:
 	mov [esp], esi
-	call Z12GetArraySizej:F(0,22)
+	call Z12GetArraySizej_F0_22
 	test eax, eax
 	jz _Z21AnimTreeParseInternaljjhhh_290
 _Z21AnimTreeParseInternaljjhhh_310:
@@ -18656,11 +18886,11 @@ _Z21AnimTreeParseInternaljjhhh_310:
 	mov [ebp-0x20], eax
 	mov dword [esp+0x4], 0x0
 	mov [esp], esi
-	call Z16GetArrayVariablejj:F(0,22)
+	call Z16GetArrayVariablejj_F0_22
 	lea edx, [ebp-0x20]
 	mov [esp+0x4], edx
 	mov [esp], eax
-	call Z16SetVariableValuejP15VariableValue_s:F(0,15)
+	call Z16SetVariableValuejP15VariableValue_s_F0_15
 	mov dword [ebp-0x38], 0x0
 	mov byte [ebp-0x2d], 0x0
 	jmp _Z21AnimTreeParseInternaljjhhh_210
@@ -18678,16 +18908,16 @@ _Z21AnimTreeParseInternaljjhhh_260:
 	test al, al
 	jz _Z21AnimTreeParseInternaljjhhh_300
 _Z21AnimTreeParseInternaljjhhh_280:
-	call Z19Com_GetLastTokenPosv:F(0,5)
+	call Z19Com_GetLastTokenPosv_F0_5
 	mov ebx, eax
-	call Com_EndParseSession:F(0,4)
+	call Com_EndParseSession_F0_4
 	mov dword [esp+0x8], _cstring_unexpected_end_o
 	mov dword [esp+0x4], _cstring_s1
 	sub ebx, [scrAnimGlob]
 	mov [esp], ebx
-	call CompileError:F(0,1)
+	call CompileError_F0_1
 	mov [esp], esi
-	call Z12GetArraySizej:F(0,22)
+	call Z12GetArraySizej_F0_22
 	test eax, eax
 	jnz _Z21AnimTreeParseInternaljjhhh_310
 _Z21AnimTreeParseInternaljjhhh_290:
@@ -18695,36 +18925,36 @@ _Z21AnimTreeParseInternaljjhhh_290:
 	mov [esp+0x4], eax
 	mov eax, [ebp-0x3c]
 	mov [esp], eax
-	call Z14RemoveVariablejj:F(0,15)
+	call Z14RemoveVariablejj_F0_15
 	mov dword [ebp-0x38], 0x0
 	mov byte [ebp-0x2d], 0x0
 	jmp _Z21AnimTreeParseInternaljjhhh_210
 _Z21AnimTreeParseInternaljjhhh_40:
-	call Z19Com_GetLastTokenPosv:F(0,5)
+	call Z19Com_GetLastTokenPosv_F0_5
 	mov ebx, eax
-	call Com_EndParseSession:F(0,4)
+	call Com_EndParseSession_F0_4
 	mov dword [esp+0x8], _cstring_duplicate_animat1
 	mov dword [esp+0x4], _cstring_s1
 	sub ebx, [scrAnimGlob]
 	mov [esp], ebx
-	call CompileError:F(0,1)
+	call CompileError_F0_1
 	jmp _Z21AnimTreeParseInternaljjhhh_320
 _Z21AnimTreeParseInternaljjhhh_30:
 	mov eax, [ebp-0x2c]
 	mov [esp+0x4], eax
 	mov eax, [ebp-0x3c]
 	mov [esp], eax
-	call Z14RemoveVariablejj:F(0,15)
+	call Z14RemoveVariablejj_F0_15
 	jmp _Z21AnimTreeParseInternaljjhhh_330
 _Z21AnimTreeParseInternaljjhhh_130:
-	call Z19Com_GetLastTokenPosv:F(0,5)
+	call Z19Com_GetLastTokenPosv_F0_5
 	mov ebx, eax
-	call Com_EndParseSession:F(0,4)
+	call Com_EndParseSession_F0_4
 	mov dword [esp+0x8], _cstring_bad_token
 	mov dword [esp+0x4], _cstring_s1
 	sub ebx, [scrAnimGlob]
 	mov [esp], ebx
-	call CompileError:F(0,1)
+	call CompileError_F0_1
 	jmp _Z21AnimTreeParseInternaljjhhh_340
 _Z21AnimTreeParseInternaljjhhh_150:
 	cmp esi, 0x1
@@ -18736,57 +18966,57 @@ _Z21AnimTreeParseInternaljjhhh_150:
 	or dword [ebp-0x34], 0x1
 	jmp _Z21AnimTreeParseInternaljjhhh_380
 _Z21AnimTreeParseInternaljjhhh_180:
-	call Z19Com_GetLastTokenPosv:F(0,5)
+	call Z19Com_GetLastTokenPosv_F0_5
 	mov ebx, eax
-	call Com_EndParseSession:F(0,4)
+	call Com_EndParseSession_F0_4
 	mov dword [esp+0x8], _cstring_properties_canno
 	mov dword [esp+0x4], _cstring_s1
 	sub ebx, [scrAnimGlob]
 	mov [esp], ebx
-	call CompileError:F(0,1)
+	call CompileError_F0_1
 	jmp _Z21AnimTreeParseInternaljjhhh_20
 _Z21AnimTreeParseInternaljjhhh_240:
-	call Z19Com_GetLastTokenPosv:F(0,5)
+	call Z19Com_GetLastTokenPosv_F0_5
 	mov ebx, eax
-	call Com_EndParseSession:F(0,4)
+	call Com_EndParseSession_F0_4
 	mov dword [esp+0x8], _cstring_no_animation_spe
 	mov dword [esp+0x4], _cstring_s1
 	sub ebx, [scrAnimGlob]
 	mov [esp], ebx
-	call CompileError:F(0,1)
+	call CompileError_F0_1
 	jmp _Z21AnimTreeParseInternaljjhhh_390
 _Z21AnimTreeParseInternaljjhhh_230:
-	call Z19Com_GetLastTokenPosv:F(0,5)
+	call Z19Com_GetLastTokenPosv_F0_5
 	mov ebx, eax
-	call Com_EndParseSession:F(0,4)
+	call Com_EndParseSession_F0_4
 	mov dword [esp+0x8], _cstring_token_not_allowe
 	mov dword [esp+0x4], _cstring_s1
 	sub ebx, [scrAnimGlob]
 	mov [esp], ebx
-	call CompileError:F(0,1)
+	call CompileError_F0_1
 	jmp _Z21AnimTreeParseInternaljjhhh_400
 _Z21AnimTreeParseInternaljjhhh_220:
-	call Z19Com_GetLastTokenPosv:F(0,5)
+	call Z19Com_GetLastTokenPosv_F0_5
 	mov ebx, eax
-	call Com_EndParseSession:F(0,4)
+	call Com_EndParseSession_F0_4
 	mov dword [esp+0x8], _cstring_bad_token
 	mov dword [esp+0x4], _cstring_s1
 	sub ebx, [scrAnimGlob]
 	mov [esp], ebx
-	call CompileError:F(0,1)
+	call CompileError_F0_1
 	jmp _Z21AnimTreeParseInternaljjhhh_410
 _Z21AnimTreeParseInternaljjhhh_350:
 	or dword [ebp-0x34], 0x2
 	jmp _Z21AnimTreeParseInternaljjhhh_380
 _Z21AnimTreeParseInternaljjhhh_120:
-	call Z19Com_GetLastTokenPosv:F(0,5)
+	call Z19Com_GetLastTokenPosv_F0_5
 	mov ebx, eax
-	call Com_EndParseSession:F(0,4)
+	call Com_EndParseSession_F0_4
 	mov dword [esp+0x8], _cstring_fixme_aliases_no
 	mov dword [esp+0x4], _cstring_s1
 	sub ebx, [scrAnimGlob]
 	mov [esp], ebx
-	call CompileError:F(0,1)
+	call CompileError_F0_1
 	jmp _Z21AnimTreeParseInternaljjhhh_420
 _Z21AnimTreeParseInternaljjhhh_360:
 	or dword [ebp-0x34], 0x8
@@ -18794,7 +19024,7 @@ _Z21AnimTreeParseInternaljjhhh_360:
 _Z21AnimTreeParseInternaljjhhh_90:
 	mov eax, [ebp-0x3c]
 	mov [esp], eax
-	call Z12GetArraySizej:F(0,22)
+	call Z12GetArraySizej_F0_22
 	test eax, eax
 	jnz _Z21AnimTreeParseInternaljjhhh_430
 	cmp byte [ebp-0x42], 0x0
@@ -18804,14 +19034,14 @@ _Z21AnimTreeParseInternaljjhhh_480:
 	mov dword [esp+0x8], 0x4
 	mov dword [esp+0x4], 0x0
 	mov [esp], eax
-	call SL_GetString_:F(0,1)
+	call SL_GetString__F0_1
 	mov ebx, eax
 	mov [esp+0x4], eax
 	mov eax, [ebp-0x3c]
 	mov [esp], eax
-	call Z11GetVariablejj:F(0,22)
+	call Z11GetVariablejj_F0_22
 	mov [esp], ebx
-	call Z20SL_RemoveRefToStringj:F(0,5)
+	call Z20SL_RemoveRefToStringj_F0_5
 	mov eax, esi
 	add esp, 0x4c
 	pop ebx
@@ -18824,7 +19054,7 @@ _Z21AnimTreeParseInternaljjhhh_200:
 	jnz _Z21AnimTreeParseInternaljjhhh_450
 _Z21AnimTreeParseInternaljjhhh_500:
 	mov dword [esp], scrAnimGlob+0x4
-	call Com_ParseOnLine:F(0,5)
+	call Com_ParseOnLine_F0_5
 	cmp byte [eax], 0x0
 	jnz _Z21AnimTreeParseInternaljjhhh_460
 	xor esi, esi
@@ -18835,37 +19065,37 @@ _Z21AnimTreeParseInternaljjhhh_80:
 	mov [esp+0x4], eax
 	mov eax, [ebp-0x3c]
 	mov [esp], eax
-	call Z14RemoveVariablejj:F(0,15)
+	call Z14RemoveVariablejj_F0_15
 	jmp _Z21AnimTreeParseInternaljjhhh_470
 _Z21AnimTreeParseInternaljjhhh_440:
 	mov eax, _cstring_void
 	jmp _Z21AnimTreeParseInternaljjhhh_480
 _Z21AnimTreeParseInternaljjhhh_460:
-	call Z19Com_GetLastTokenPosv:F(0,5)
+	call Z19Com_GetLastTokenPosv_F0_5
 	mov ebx, eax
-	call Com_EndParseSession:F(0,4)
+	call Com_EndParseSession_F0_4
 	mov dword [esp+0x8], _cstring_token_not_allowe1
 	mov dword [esp+0x4], _cstring_s1
 	sub ebx, [scrAnimGlob]
 	mov [esp], ebx
-	call CompileError:F(0,1)
+	call CompileError_F0_1
 	xor esi, esi
 	jmp _Z21AnimTreeParseInternaljjhhh_490
 _Z21AnimTreeParseInternaljjhhh_450:
-	call Z19Com_GetLastTokenPosv:F(0,5)
+	call Z19Com_GetLastTokenPosv_F0_5
 	mov ebx, eax
-	call Com_EndParseSession:F(0,4)
+	call Com_EndParseSession_F0_4
 	mov dword [esp+0x8], _cstring_bad_token
 	mov dword [esp+0x4], _cstring_s1
 	sub ebx, [scrAnimGlob]
 	mov [esp], ebx
-	call CompileError:F(0,1)
+	call CompileError_F0_1
 	jmp _Z21AnimTreeParseInternaljjhhh_500
 
 
-;Z23Scr_LoadAnimTreeAtIndexiPFPviEi:F(0,1)
+;Z23Scr_LoadAnimTreeAtIndexiPFPviEi_F0_1
 
-Z13XModelGetNamePK6XModel:F(0,1):
+Z13XModelGetNamePK6XModel_F0_1:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -18874,9 +19104,9 @@ Z13XModelGetNamePK6XModel:F(0,1):
 	ret
 
 
-;Z14XModelGetFlagsPK6XModel:F(0,16)
+;Z14XModelGetFlagsPK6XModel_F0_16
 
-Z14XModelGetFlagsPK6XModel:F(0,16):
+Z14XModelGetFlagsPK6XModel_F0_16:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -18886,9 +19116,9 @@ Z14XModelGetFlagsPK6XModel:F(0,16):
 	nop
 
 
-;Z20XModelGetSurfaceNamePK6XModelii:F(0,1)
+;Z20XModelGetSurfaceNamePK6XModelii_F0_1
 
-Z20XModelGetSurfaceNamePK6XModelii:F(0,1):
+Z20XModelGetSurfaceNamePK6XModelii_F0_1:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x10]
@@ -18899,21 +19129,21 @@ Z20XModelGetSurfaceNamePK6XModelii:F(0,1):
 	mov eax, [ebp+0xc]
 	movzx eax, word [edx+eax*2]
 	test ax, ax
-	jnz Z20XModelGetSurfaceNamePK6XModelii:F(0,1)_10
+	jnz Z20XModelGetSurfaceNamePK6XModelii_F0_1_10
 	mov eax, _cstring_default
 	pop ebp
 	ret
-Z20XModelGetSurfaceNamePK6XModelii:F(0,1)_10:
+Z20XModelGetSurfaceNamePK6XModelii_F0_1_10:
 	movzx eax, ax
 	mov [ebp+0x8], eax
 	pop ebp
-	jmp Z18SL_ConvertToStringj:F(0,2)
+	jmp Z18SL_ConvertToStringj_F0_2
 	nop
 
 
-;Z17XModelGetSurfacesPK6XModelPPP10XSurface_siPPi:F(0,10)
+;Z17XModelGetSurfacesPK6XModelPPP10XSurface_siPPi_F0_10
 
-Z17XModelGetSurfacesPK6XModelPPP10XSurface_siPPi:F(0,10):
+Z17XModelGetSurfacesPK6XModelPPP10XSurface_siPPi_F0_10:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x10]
@@ -18935,9 +19165,9 @@ Z17XModelGetSurfacesPK6XModelPPP10XSurface_siPPi:F(0,10):
 	nop
 
 
-;Z16XModelGetNumLodsPK6XModel:F(0,10)
+;Z16XModelGetNumLodsPK6XModel_F0_10
 
-Z16XModelGetNumLodsPK6XModel:F(0,10):
+Z16XModelGetNumLodsPK6XModel_F0_10:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -18946,9 +19176,9 @@ Z16XModelGetNumLodsPK6XModel:F(0,10):
 	ret
 
 
-;Z14XModelNumBonesPK6XModel:F(0,10)
+;Z14XModelNumBonesPK6XModel_F0_10
 
-Z14XModelNumBonesPK6XModel:F(0,10):
+Z14XModelNumBonesPK6XModel_F0_10:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -18959,9 +19189,9 @@ Z14XModelNumBonesPK6XModel:F(0,10):
 	nop
 
 
-;Z17XModelGetBasePosePK6XModel:F(0,62)
+;Z17XModelGetBasePosePK6XModel_F0_62
 
-Z17XModelGetBasePosePK6XModel:F(0,62):
+Z17XModelGetBasePosePK6XModel_F0_62:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -18972,9 +19202,9 @@ Z17XModelGetBasePosePK6XModel:F(0,62):
 	nop
 
 
-;Z21XModelGetBasePoseBonePK6XModeli:F(0,62)
+;Z21XModelGetBasePoseBonePK6XModeli_F0_62
 
-Z21XModelGetBasePoseBonePK6XModeli:F(0,62):
+Z21XModelGetBasePoseBonePK6XModeli_F0_62:
 	push ebp
 	mov ebp, esp
 	mov edx, [ebp+0xc]
@@ -18987,9 +19217,9 @@ Z21XModelGetBasePoseBonePK6XModeli:F(0,62):
 	ret
 
 
-;Z17XModelSetTestLodsif:F(0,64)
+;Z17XModelSetTestLodsif_F0_64
 
-Z17XModelSetTestLodsif:F(0,64):
+Z17XModelSetTestLodsif_F0_64:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -19003,30 +19233,30 @@ Z17XModelSetTestLodsif:F(0,64):
 	nop
 
 
-;Z19XModelGetLodOutDistPK6XModel:F(0,26)
+;Z19XModelGetLodOutDistPK6XModel_F0_26
 
-Z19XModelGetLodOutDistPK6XModel:F(0,26):
+Z19XModelGetLodOutDistPK6XModel_F0_26:
 	push ebp
 	mov ebp, esp
 	mov edx, [ebp+0x8]
 	movsx eax, word [edx+0x7c]
 	sub eax, 0x1
 	cmp byte [eax*8+g_testLods], 0x0
-	jnz Z19XModelGetLodOutDistPK6XModel:F(0,26)_10
+	jnz Z19XModelGetLodOutDistPK6XModel_F0_26_10
 	lea eax, [eax+eax*4]
 	fld dword [edx+eax*4+0x4]
 	pop ebp
 	ret
-Z19XModelGetLodOutDistPK6XModel:F(0,26)_10:
+Z19XModelGetLodOutDistPK6XModel_F0_26_10:
 	fld dword [eax*8+g_testLods+0x4]
 	pop ebp
 	ret
 	nop
 
 
-;Z19XModelGetLodForDistPK6XModelf:F(0,10)
+;Z19XModelGetLodForDistPK6XModelf_F0_10
 
-Z19XModelGetLodForDistPK6XModelf:F(0,10):
+Z19XModelGetLodForDistPK6XModelf_F0_10:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -19035,40 +19265,40 @@ Z19XModelGetLodForDistPK6XModelf:F(0,10):
 	movsx ebx, word [eax+0x7c]
 	add eax, 0x4
 	test ebx, ebx
-	jle Z19XModelGetLodForDistPK6XModelf:F(0,10)_10
+	jle Z19XModelGetLodForDistPK6XModelf_F0_10_10
 	xor ecx, ecx
 	mov edx, g_testLods
 	pxor xmm1, xmm1
-	jmp Z19XModelGetLodForDistPK6XModelf:F(0,10)_20
-Z19XModelGetLodForDistPK6XModelf:F(0,10)_50:
+	jmp Z19XModelGetLodForDistPK6XModelf_F0_10_20
+Z19XModelGetLodForDistPK6XModelf_F0_10_50:
 	movss xmm0, dword [eax]
-Z19XModelGetLodForDistPK6XModelf:F(0,10)_60:
+Z19XModelGetLodForDistPK6XModelf_F0_10_60:
 	ucomiss xmm0, xmm1
-	jp Z19XModelGetLodForDistPK6XModelf:F(0,10)_30
-	jz Z19XModelGetLodForDistPK6XModelf:F(0,10)_40
-Z19XModelGetLodForDistPK6XModelf:F(0,10)_30:
+	jp Z19XModelGetLodForDistPK6XModelf_F0_10_30
+	jz Z19XModelGetLodForDistPK6XModelf_F0_10_40
+Z19XModelGetLodForDistPK6XModelf_F0_10_30:
 	ucomiss xmm0, xmm2
-	ja Z19XModelGetLodForDistPK6XModelf:F(0,10)_40
+	ja Z19XModelGetLodForDistPK6XModelf_F0_10_40
 	add ecx, 0x1
 	add edx, 0x8
 	add eax, 0x14
 	cmp ebx, ecx
-	jz Z19XModelGetLodForDistPK6XModelf:F(0,10)_10
-Z19XModelGetLodForDistPK6XModelf:F(0,10)_20:
+	jz Z19XModelGetLodForDistPK6XModelf_F0_10_10
+Z19XModelGetLodForDistPK6XModelf_F0_10_20:
 	cmp byte [edx], 0x0
-	jz Z19XModelGetLodForDistPK6XModelf:F(0,10)_50
+	jz Z19XModelGetLodForDistPK6XModelf_F0_10_50
 	movss xmm0, dword [edx+0x4]
-	jmp Z19XModelGetLodForDistPK6XModelf:F(0,10)_60
-Z19XModelGetLodForDistPK6XModelf:F(0,10)_10:
+	jmp Z19XModelGetLodForDistPK6XModelf_F0_10_60
+Z19XModelGetLodForDistPK6XModelf_F0_10_10:
 	mov ecx, 0xffffffff
-Z19XModelGetLodForDistPK6XModelf:F(0,10)_40:
+Z19XModelGetLodForDistPK6XModelf_F0_10_40:
 	mov eax, ecx
 	pop ebx
 	pop ebp
 	ret
 
 
-;Z18Com_InitSoundAliasv:F(0,1)
+;Z18Com_InitSoundAliasv_F0_1
 
 _Z11ConsumeQuatPPKhPs:
 	push ebp
@@ -19131,9 +19361,9 @@ _Z11ConsumeQuatPPKhPs_10:
 	nop
 
 
-;Z13XAnimLoadFilePKcPFPviE:F(0,13)
+;Z13XAnimLoadFilePKcPFPviE_F0_13
 
-Z13XAnimLoadFilePKcPFPviE:F(0,13):
+Z13XAnimLoadFilePKcPFPviE_F0_13:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -19146,16 +19376,16 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13):
 	mov dword [esp+0x4], 0x40
 	lea ebx, [ebp-0x6c]
 	mov [esp], ebx
-	call Z11Com_sprintfPciPKcz:F(0,2)
+	call Z11Com_sprintfPciPKcz_F0_2
 	test eax, eax
-	js Z13XAnimLoadFilePKcPFPviE:F(0,13)_10
+	js Z13XAnimLoadFilePKcPFPviE_F0_13_10
 	lea eax, [ebp-0x20]
 	mov [esp+0x4], eax
 	mov [esp], ebx
-	call FS_ReadFile:F(0,2)
+	call FS_ReadFile_F0_2
 	cmp eax, 0x0
-	jl Z13XAnimLoadFilePKcPFPviE:F(0,13)_20
-	jz Z13XAnimLoadFilePKcPFPviE:F(0,13)_30
+	jl Z13XAnimLoadFilePKcPFPviE_F0_13_20
+	jz Z13XAnimLoadFilePKcPFPviE_F0_13_30
 	mov eax, [ebp-0x20]
 	mov [ebp-0xe8], eax
 	mov edx, eax
@@ -19167,7 +19397,7 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13):
 	mov [ebp-0x1c], ecx
 	movsx ebx, ax
 	cmp ax, 0xe
-	jnz Z13XAnimLoadFilePKcPFPviE:F(0,13)_40
+	jnz Z13XAnimLoadFilePKcPFPviE_F0_13_40
 	movzx ebx, word [edx+0x2]
 	mov [ebp-0xc8], bx
 	mov [ebp-0x24], bx
@@ -19181,9 +19411,9 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13):
 	movsx edx, ax
 	mov [ebp-0xec], edx
 	test ax, ax
-	jnz Z13XAnimLoadFilePKcPFPviE:F(0,13)_50
+	jnz Z13XAnimLoadFilePKcPFPviE_F0_13_50
 	mov dword [ebp-0xc0], 0x0
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_120:
+Z13XAnimLoadFilePKcPFPviE_F0_13_120:
 	mov eax, [ebp-0x1c]
 	movzx ebx, byte [eax]
 	lea ecx, [eax+0x1]
@@ -19213,32 +19443,32 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_120:
 	mov [eax+0x2], cl
 	mov [eax+0x3], bl
 	cmp byte [ebp-0xc6], 0x0
-	jnz Z13XAnimLoadFilePKcPFPviE:F(0,13)_60
+	jnz Z13XAnimLoadFilePKcPFPviE_F0_13_60
 	mov ebx, [ebp-0xc8]
 	mov [ebp-0xb6], bx
 	mov eax, ebx
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_220:
+Z13XAnimLoadFilePKcPFPviE_F0_13_220:
 	cmp word [ebp-0xb6], 0x100
 	setbe byte [ebp-0xa5]
 	sub eax, 0x1
 	mov edx, [ebp-0xbc]
 	mov [edx], ax
 	test ax, ax
-	jnz Z13XAnimLoadFilePKcPFPviE:F(0,13)_70
+	jnz Z13XAnimLoadFilePKcPFPviE_F0_13_70
 	pxor xmm1, xmm1
 	mov ebx, [ebp-0xbc]
 	movss [ebx+0x8], xmm1
 	cmp byte [ebp-0xc5], 0x0
-	jnz Z13XAnimLoadFilePKcPFPviE:F(0,13)_80
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_130:
+	jnz Z13XAnimLoadFilePKcPFPviE_F0_13_80
+Z13XAnimLoadFilePKcPFPviE_F0_13_130:
 	cmp word [ebp-0xca], 0x0
-	jnz Z13XAnimLoadFilePKcPFPviE:F(0,13)_90
+	jnz Z13XAnimLoadFilePKcPFPviE_F0_13_90
 	mov dword [ebp-0xac], 0x0
 	mov dword [ebp-0xa0], 0x0
 	mov edx, [ebp-0xec]
 	test edx, edx
-	jg Z13XAnimLoadFilePKcPFPviE:F(0,13)_100
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_260:
+	jg Z13XAnimLoadFilePKcPFPviE_F0_13_100
+Z13XAnimLoadFilePKcPFPviE_F0_13_260:
 	mov eax, [ebp-0x1c]
 	movzx esi, byte [eax]
 	add eax, 0x1
@@ -19254,18 +19484,18 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_260:
 	mov ecx, [ebp-0xbc]
 	mov [ecx+0x1c], eax
 	test esi, esi
-	jg Z13XAnimLoadFilePKcPFPviE:F(0,13)_110
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_250:
+	jg Z13XAnimLoadFilePKcPFPviE_F0_13_110
+Z13XAnimLoadFilePKcPFPviE_F0_13_250:
 	mov dword [esp+0x8], 0x3
 	mov dword [esp+0x4], 0x0
 	mov dword [esp], _cstring_end
-	call SL_GetString_:F(0,1)
+	call SL_GetString__F0_1
 	mov [ebx], ax
 	mov dword [ebx+0x4], 0x3f800000
 	mov eax, [ebp-0x20]
 	mov [esp], eax
-	call FS_FreeFile:F(0,3)
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_730:
+	call FS_FreeFile_F0_3
+Z13XAnimLoadFilePKcPFPviE_F0_13_730:
 	mov eax, [ebp-0xbc]
 	add esp, 0x10c
 	pop ebx
@@ -19273,14 +19503,14 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_730:
 	pop edi
 	pop ebp
 	ret
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_50:
+Z13XAnimLoadFilePKcPFPviE_F0_13_50:
 	mov eax, edx
 	add eax, eax
 	mov [esp], eax
 	call dword [ebp+0xc]
 	mov [ebp-0xc0], eax
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_120
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_70:
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_120
+Z13XAnimLoadFilePKcPFPviE_F0_13_70:
 	movzx eax, ax
 	cvtsi2ss xmm0, eax
 	mov ecx, [ebp-0xbc]
@@ -19289,8 +19519,8 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_70:
 	mov ebx, ecx
 	movss [ebx+0x8], xmm1
 	cmp byte [ebp-0xc5], 0x0
-	jz Z13XAnimLoadFilePKcPFPviE:F(0,13)_130
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_80:
+	jz Z13XAnimLoadFilePKcPFPviE_F0_13_130
+Z13XAnimLoadFilePKcPFPviE_F0_13_80:
 	mov dword [esp], 0x8
 	call dword [ebp+0xc]
 	mov [ebp-0xb0], eax
@@ -19302,13 +19532,13 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_80:
 	mov [ebp-0x1c], edi
 	mov esi, eax
 	test ax, ax
-	jz Z13XAnimLoadFilePKcPFPviE:F(0,13)_140
+	jz Z13XAnimLoadFilePKcPFPviE_F0_13_140
 	cmp ax, 0x1
-	jz Z13XAnimLoadFilePKcPFPviE:F(0,13)_150
+	jz Z13XAnimLoadFilePKcPFPviE_F0_13_150
 	cmp [ebp-0xb6], ax
-	jbe Z13XAnimLoadFilePKcPFPviE:F(0,13)_160
+	jbe Z13XAnimLoadFilePKcPFPviE_F0_13_160
 	cmp byte [ebp-0xa5], 0x0
-	jz Z13XAnimLoadFilePKcPFPviE:F(0,13)_170
+	jz Z13XAnimLoadFilePKcPFPviE_F0_13_170
 	movzx edi, ax
 	lea eax, [edi+edi+0xa]
 	mov [esp], eax
@@ -19324,7 +19554,7 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_80:
 	call memcpy
 	mov ecx, [ebp-0x8c]
 	add [ebp-0x1c], ecx
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_760:
+Z13XAnimLoadFilePKcPFPviE_F0_13_760:
 	mov eax, [ebp-0xb0]
 	mov edx, [eax+0x4]
 	lea eax, [esi-0x1]
@@ -19337,20 +19567,20 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_760:
 	mov [ebx+0x4], eax
 	mov ebx, [ebp-0x8c]
 	test ebx, ebx
-	jg Z13XAnimLoadFilePKcPFPviE:F(0,13)_180
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_780:
+	jg Z13XAnimLoadFilePKcPFPviE_F0_13_180
+Z13XAnimLoadFilePKcPFPviE_F0_13_780:
 	cmp dword [ebp-0x8c], 0x1
-	jle Z13XAnimLoadFilePKcPFPviE:F(0,13)_190
+	jle Z13XAnimLoadFilePKcPFPviE_F0_13_190
 	mov dword [ebp-0x84], 0x1
 	mov edi, 0x4
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_200
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_210:
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_200
+Z13XAnimLoadFilePKcPFPviE_F0_13_210:
 	add dword [ebp-0x84], 0x1
 	add edi, 0x4
 	mov ecx, [ebp-0x8c]
 	cmp [ebp-0x84], ecx
-	jz Z13XAnimLoadFilePKcPFPviE:F(0,13)_190
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_200:
+	jz Z13XAnimLoadFilePKcPFPviE_F0_13_190
+Z13XAnimLoadFilePKcPFPviE_F0_13_200:
 	mov edx, [ebp-0xb0]
 	mov eax, [edx+0x4]
 	mov ebx, edi
@@ -19363,25 +19593,25 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_200:
 	movsx edx, word [ebx-0x2]
 	imul eax, edx
 	add ecx, eax
-	jns Z13XAnimLoadFilePKcPFPviE:F(0,13)_210
+	jns Z13XAnimLoadFilePKcPFPviE_F0_13_210
 	neg esi
 	mov [ebx], si
 	neg word [ebx+0x2]
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_210
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_60:
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_210
+Z13XAnimLoadFilePKcPFPviE_F0_13_60:
 	mov edi, [ebp-0xc8]
 	add edi, 0x1
 	mov [ebp-0xb6], di
 	mov eax, edi
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_220
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_110:
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_220
+Z13XAnimLoadFilePKcPFPviE_F0_13_110:
 	mov dword [ebp-0x9c], 0x0
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_240:
+Z13XAnimLoadFilePKcPFPviE_F0_13_240:
 	mov dword [esp+0x8], 0x3
 	mov dword [esp+0x4], 0x0
 	mov eax, [ebp-0x1c]
 	mov [esp], eax
-	call SL_GetString_:F(0,1)
+	call SL_GetString__F0_1
 	mov [ebx], ax
 	mov edx, [ebp-0x1c]
 	cld
@@ -19402,19 +19632,19 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_240:
 	movzx eax, word [ecx]
 	pxor xmm1, xmm1
 	test ax, ax
-	jz Z13XAnimLoadFilePKcPFPviE:F(0,13)_230
+	jz Z13XAnimLoadFilePKcPFPviE_F0_13_230
 	cvtsi2ss xmm1, edx
 	movzx eax, ax
 	cvtsi2ss xmm0, eax
 	divss xmm1, xmm0
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_230:
+Z13XAnimLoadFilePKcPFPviE_F0_13_230:
 	movss [ebx+0x4], xmm1
 	add dword [ebp-0x9c], 0x1
 	add ebx, 0x8
 	cmp esi, [ebp-0x9c]
-	jnz Z13XAnimLoadFilePKcPFPviE:F(0,13)_240
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_250
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_90:
+	jnz Z13XAnimLoadFilePKcPFPviE_F0_13_240
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_250
+Z13XAnimLoadFilePKcPFPviE_F0_13_90:
 	mov ebx, [ebp-0xec]
 	sub ebx, 0x1
 	sar ebx, 0x3
@@ -19444,16 +19674,16 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_90:
 	mov [edi+0x18], eax
 	mov edx, [ebp-0xec]
 	test edx, edx
-	jle Z13XAnimLoadFilePKcPFPviE:F(0,13)_260
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_100:
+	jle Z13XAnimLoadFilePKcPFPviE_F0_13_260
+Z13XAnimLoadFilePKcPFPviE_F0_13_100:
 	xor esi, esi
 	mov eax, [ebp-0x1c]
 	mov [ebp-0xe8], eax
 	mov edi, eax
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_270
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_280:
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_270
+Z13XAnimLoadFilePKcPFPviE_F0_13_280:
 	mov edi, ebx
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_270:
+Z13XAnimLoadFilePKcPFPviE_F0_13_270:
 	cld
 	mov ecx, 0xffffffff
 	xor eax, eax
@@ -19465,7 +19695,7 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_270:
 	mov dword [esp+0x4], 0x0
 	mov edi, [ebp-0xe8]
 	mov [esp], edi
-	call SL_GetStringOfLen:F(0,1)
+	call SL_GetStringOfLen_F0_1
 	mov edx, [ebp-0xc0]
 	mov [edx+esi*2], ax
 	add ebx, [ebp-0x1c]
@@ -19473,9 +19703,9 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_270:
 	mov [ebp-0x1c], ebx
 	add esi, 0x1
 	cmp [ebp-0xec], esi
-	jnz Z13XAnimLoadFilePKcPFPviE:F(0,13)_280
+	jnz Z13XAnimLoadFilePKcPFPviE_F0_13_280
 	mov dword [ebp-0x88], 0x0
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_390:
+Z13XAnimLoadFilePKcPFPviE_F0_13_390:
 	mov edx, [ebp-0x88]
 	sar edx, 0x3
 	mov ecx, [ebp-0x88]
@@ -19503,14 +19733,14 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_390:
 	mov [ebp-0x1c], ebx
 	mov [ebp-0xa8], ax
 	test ax, ax
-	jz Z13XAnimLoadFilePKcPFPviE:F(0,13)_290
+	jz Z13XAnimLoadFilePKcPFPviE_F0_13_290
 	cmp word [ebp-0xa8], 0x1
-	jz Z13XAnimLoadFilePKcPFPviE:F(0,13)_300
+	jz Z13XAnimLoadFilePKcPFPviE_F0_13_300
 	mov ebx, [ebp-0xa8]
 	cmp [ebp-0xb6], bx
-	jbe Z13XAnimLoadFilePKcPFPviE:F(0,13)_310
+	jbe Z13XAnimLoadFilePKcPFPviE_F0_13_310
 	cmp byte [ebp-0xa5], 0x0
-	jz Z13XAnimLoadFilePKcPFPviE:F(0,13)_320
+	jz Z13XAnimLoadFilePKcPFPviE_F0_13_320
 	movzx esi, bx
 	lea eax, [esi+esi+0xa]
 	mov [esp], eax
@@ -19527,10 +19757,10 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_390:
 	call memcpy
 	mov ebx, [ebp-0x90]
 	add [ebp-0x1c], ebx
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_520:
+Z13XAnimLoadFilePKcPFPviE_F0_13_520:
 	mov eax, edi
 	test al, al
-	jz Z13XAnimLoadFilePKcPFPviE:F(0,13)_330
+	jz Z13XAnimLoadFilePKcPFPviE_F0_13_330
 	mov edx, [ebp-0xb4]
 	mov ebx, [edx+0x4]
 	lea eax, [esi*4]
@@ -19548,7 +19778,7 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_520:
 	mov edx, 0x3fff0001
 	sub edx, eax
 	test edx, edx
-	jle Z13XAnimLoadFilePKcPFPviE:F(0,13)_340
+	jle Z13XAnimLoadFilePKcPFPviE_F0_13_340
 	cvtsi2ss xmm0, edx
 	sqrtss xmm0, xmm0
 	addss xmm0, [_float_0_50000000]
@@ -19556,16 +19786,16 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_520:
 	call floorf
 	fstp dword [ebp-0xdc]
 	cvttss2si eax, [ebp-0xdc]
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_580:
+Z13XAnimLoadFilePKcPFPviE_F0_13_580:
 	mov [ebp-0x2a], ax
 	cmp byte [ebp-0xc1], 0x0
-	jz Z13XAnimLoadFilePKcPFPviE:F(0,13)_350
+	jz Z13XAnimLoadFilePKcPFPviE_F0_13_350
 	mov edx, [ebp-0x2c]
 	neg edx
 	mov [ebp-0x2c], dx
 	neg eax
 	mov [ebp-0x2a], ax
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_540:
+Z13XAnimLoadFilePKcPFPviE_F0_13_540:
 	mov ecx, [ebp-0xb4]
 	mov eax, [ecx+0x4]
 	mov eax, [eax+0x4]
@@ -19575,16 +19805,16 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_540:
 	movzx eax, word [ebp-0x2a]
 	mov [edx+0x2], ax
 	cmp dword [ebp-0x90], 0x1
-	jg Z13XAnimLoadFilePKcPFPviE:F(0,13)_360
+	jg Z13XAnimLoadFilePKcPFPviE_F0_13_360
 	mov edi, [ebp-0xb4]
 	mov edi, [edi+0x4]
 	mov [ebp-0xe4], edi
 	mov edx, edi
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_370
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_290:
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_370
+Z13XAnimLoadFilePKcPFPviE_F0_13_290:
 	mov edi, [ebp-0xb4]
 	mov dword [edi+0x4], 0x0
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_470:
+Z13XAnimLoadFilePKcPFPviE_F0_13_470:
 	mov edx, [ebp-0x1c]
 	movzx eax, word [edx]
 	mov [ebp-0x24], ax
@@ -19592,24 +19822,24 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_470:
 	mov [ebp-0x1c], ecx
 	mov esi, eax
 	test ax, ax
-	jnz Z13XAnimLoadFilePKcPFPviE:F(0,13)_380
+	jnz Z13XAnimLoadFilePKcPFPviE_F0_13_380
 	mov ebx, [ebp-0xb4]
 	mov dword [ebx], 0x0
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_430:
+Z13XAnimLoadFilePKcPFPviE_F0_13_430:
 	add dword [ebp-0x88], 0x1
 	mov eax, [ebp-0x88]
 	cmp [ebp-0xec], eax
-	jz Z13XAnimLoadFilePKcPFPviE:F(0,13)_260
+	jz Z13XAnimLoadFilePKcPFPviE_F0_13_260
 	mov ecx, [ebp-0x1c]
 	mov [ebp-0xe8], ecx
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_390
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_380:
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_390
+Z13XAnimLoadFilePKcPFPviE_F0_13_380:
 	cmp ax, 0x1
-	jz Z13XAnimLoadFilePKcPFPviE:F(0,13)_400
+	jz Z13XAnimLoadFilePKcPFPviE_F0_13_400
 	cmp [ebp-0xb6], ax
-	jbe Z13XAnimLoadFilePKcPFPviE:F(0,13)_410
+	jbe Z13XAnimLoadFilePKcPFPviE_F0_13_410
 	cmp byte [ebp-0xa5], 0x0
-	jz Z13XAnimLoadFilePKcPFPviE:F(0,13)_420
+	jz Z13XAnimLoadFilePKcPFPviE_F0_13_420
 	movzx edi, ax
 	lea eax, [edi+edi+0xe]
 	mov [esp], eax
@@ -19624,7 +19854,7 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_380:
 	mov [esp], eax
 	call memcpy
 	add [ebp-0x1c], edi
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_480:
+Z13XAnimLoadFilePKcPFPviE_F0_13_480:
 	mov eax, [ebp-0xb4]
 	mov edx, [eax]
 	lea eax, [esi-0x1]
@@ -19638,10 +19868,10 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_480:
 	mov [ebx+0x4], eax
 	mov eax, [ebp-0x94]
 	test eax, eax
-	jle Z13XAnimLoadFilePKcPFPviE:F(0,13)_430
+	jle Z13XAnimLoadFilePKcPFPviE_F0_13_430
 	xor esi, esi
 	xor ebx, ebx
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_440:
+Z13XAnimLoadFilePKcPFPviE_F0_13_440:
 	mov ecx, [ebp-0xb4]
 	mov eax, [ecx]
 	mov ecx, ebx
@@ -19677,9 +19907,9 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_440:
 	add esi, 0x1
 	add ebx, 0xc
 	cmp esi, [ebp-0x94]
-	jnz Z13XAnimLoadFilePKcPFPviE:F(0,13)_440
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_430
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_330:
+	jnz Z13XAnimLoadFilePKcPFPviE_F0_13_440
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_430
+Z13XAnimLoadFilePKcPFPviE_F0_13_330:
 	mov edi, [ebp-0xb4]
 	mov ebx, [edi+0x4]
 	lea eax, [esi*8]
@@ -19692,14 +19922,14 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_330:
 	mov eax, esi
 	call _Z11ConsumeQuatPPKhPs
 	cmp byte [ebp-0xc1], 0x0
-	jz Z13XAnimLoadFilePKcPFPviE:F(0,13)_450
+	jz Z13XAnimLoadFilePKcPFPviE_F0_13_450
 	mov edx, [ebp-0x2c]
 	neg edx
 	mov [ebp-0x2c], dx
 	neg word [ebp-0x2a]
 	neg word [ebp-0x28]
 	neg word [ebp-0x26]
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_530:
+Z13XAnimLoadFilePKcPFPviE_F0_13_530:
 	mov ecx, [ebp-0xb4]
 	mov eax, [ecx+0x4]
 	mov eax, [eax+0x4]
@@ -19717,17 +19947,17 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_530:
 	movzx eax, word [ebp-0x26]
 	mov [edx+0x6], ax
 	cmp dword [ebp-0x90], 0x1
-	jg Z13XAnimLoadFilePKcPFPviE:F(0,13)_460
+	jg Z13XAnimLoadFilePKcPFPviE_F0_13_460
 	mov eax, [ebp-0xb4]
 	mov eax, [eax+0x4]
 	mov [ebp-0xe4], eax
 	mov edx, eax
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_370:
+Z13XAnimLoadFilePKcPFPviE_F0_13_370:
 	mov eax, [ebp-0xa8]
 	sub eax, 0x1
 	mov [edx], ax
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_470
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_420:
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_470
+Z13XAnimLoadFilePKcPFPviE_F0_13_420:
 	movzx edi, ax
 	lea ebx, [edi+edi]
 	lea eax, [ebx+0xe]
@@ -19743,11 +19973,11 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_420:
 	call memcpy
 	add [ebp-0x1c], ebx
 	mov [ebp-0x94], edi
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_480
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_300:
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_480
+Z13XAnimLoadFilePKcPFPviE_F0_13_300:
 	mov eax, edi
 	test al, al
-	jz Z13XAnimLoadFilePKcPFPviE:F(0,13)_490
+	jz Z13XAnimLoadFilePKcPFPviE_F0_13_490
 	movzx edx, word [ecx+0x2]
 	mov [ebp-0x24], dx
 	add ecx, 0x4
@@ -19758,7 +19988,7 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_300:
 	mov edx, 0x3fff0001
 	sub edx, eax
 	test edx, edx
-	jle Z13XAnimLoadFilePKcPFPviE:F(0,13)_500
+	jle Z13XAnimLoadFilePKcPFPviE_F0_13_500
 	cvtsi2ss xmm0, edx
 	sqrtss xmm0, xmm0
 	addss xmm0, [_float_0_50000000]
@@ -19766,14 +19996,14 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_300:
 	call floorf
 	fstp dword [ebp-0xd8]
 	cvttss2si eax, [ebp-0xd8]
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_740:
+Z13XAnimLoadFilePKcPFPviE_F0_13_740:
 	mov [ebp-0x2a], ax
 	cmp byte [ebp-0xc1], 0x0
-	jz Z13XAnimLoadFilePKcPFPviE:F(0,13)_510
+	jz Z13XAnimLoadFilePKcPFPviE_F0_13_510
 	neg word [ebp-0x2c]
 	neg eax
 	mov [ebp-0x2a], ax
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_510:
+Z13XAnimLoadFilePKcPFPviE_F0_13_510:
 	mov dword [esp], 0x8
 	call dword [ebp+0xc]
 	mov [ebp-0xe4], eax
@@ -19786,12 +20016,12 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_510:
 	mov edx, [ebx+0x4]
 	movzx eax, word [ebp-0x2a]
 	mov [edx+0x6], ax
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_560:
+Z13XAnimLoadFilePKcPFPviE_F0_13_560:
 	mov ecx, [ebp-0xb4]
 	mov eax, [ecx+0x4]
 	mov word [eax], 0x0
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_470
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_410:
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_470
+Z13XAnimLoadFilePKcPFPviE_F0_13_410:
 	mov dword [esp], 0x8
 	call dword [ebp+0xc]
 	mov ecx, [ebp-0xb4]
@@ -19799,8 +20029,8 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_410:
 	movzx ebx, si
 	mov [ebp-0x94], ebx
 	mov edi, ebx
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_480
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_320:
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_480
+Z13XAnimLoadFilePKcPFPviE_F0_13_320:
 	movzx esi, word [ebp-0xa8]
 	lea ebx, [esi+esi]
 	lea eax, [ebx+0xa]
@@ -19817,24 +20047,24 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_320:
 	call memcpy
 	add [ebp-0x1c], ebx
 	mov [ebp-0x90], esi
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_520
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_450:
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_520
+Z13XAnimLoadFilePKcPFPviE_F0_13_450:
 	mov edx, [ebp-0x2c]
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_530
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_350:
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_530
+Z13XAnimLoadFilePKcPFPviE_F0_13_350:
 	mov edx, [ebp-0x2c]
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_540
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_490:
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_540
+Z13XAnimLoadFilePKcPFPviE_F0_13_490:
 	lea edx, [ebp-0x2c]
 	lea eax, [ebp-0x1c]
 	call _Z11ConsumeQuatPPKhPs
 	cmp byte [ebp-0xc1], 0x0
-	jz Z13XAnimLoadFilePKcPFPviE:F(0,13)_550
+	jz Z13XAnimLoadFilePKcPFPviE_F0_13_550
 	neg word [ebp-0x2c]
 	neg word [ebp-0x2a]
 	neg word [ebp-0x28]
 	neg word [ebp-0x26]
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_550:
+Z13XAnimLoadFilePKcPFPviE_F0_13_550:
 	mov dword [esp], 0xc
 	call dword [ebp+0xc]
 	mov [ebp-0xe4], eax
@@ -19852,11 +20082,11 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_550:
 	mov edx, [edi+0x4]
 	movzx eax, word [ebp-0x26]
 	mov [edx+0xa], ax
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_560
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_140:
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_560
+Z13XAnimLoadFilePKcPFPviE_F0_13_140:
 	mov eax, [ebp-0xb0]
 	mov dword [eax+0x4], 0x0
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_190:
+Z13XAnimLoadFilePKcPFPviE_F0_13_190:
 	mov edx, [ebp-0x1c]
 	movzx eax, word [edx]
 	mov [ebp-0x24], ax
@@ -19864,11 +20094,11 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_190:
 	mov [ebp-0x1c], ebx
 	mov esi, eax
 	test ax, ax
-	jnz Z13XAnimLoadFilePKcPFPviE:F(0,13)_570
+	jnz Z13XAnimLoadFilePKcPFPviE_F0_13_570
 	mov edi, [ebp-0xb0]
 	mov dword [edi], 0x0
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_130
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_310:
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_130
+Z13XAnimLoadFilePKcPFPviE_F0_13_310:
 	mov dword [esp], 0x8
 	call dword [ebp+0xc]
 	mov ecx, [ebp-0xb4]
@@ -19876,15 +20106,15 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_310:
 	movzx ebx, word [ebp-0xa8]
 	mov [ebp-0x90], ebx
 	mov esi, ebx
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_520
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_40:
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_520
+Z13XAnimLoadFilePKcPFPviE_F0_13_40:
 	mov [esp], edx
-	call FS_FreeFile:F(0,3)
+	call FS_FreeFile_F0_3
 	mov dword [esp+0xc], 0xe
 	mov [esp+0x8], ebx
 	mov [esp+0x4], esi
 	mov dword [esp], _cstring_1error_xanim_s_o
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov dword [ebp-0xbc], 0x0
 	mov eax, [ebp-0xbc]
 	add esp, 0x10c
@@ -19893,7 +20123,7 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_40:
 	pop edi
 	pop ebp
 	ret
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_400:
+Z13XAnimLoadFilePKcPFPviE_F0_13_400:
 	mov eax, [edx+0x2]
 	mov [ebp-0x24], eax
 	lea edi, [edx+0x6]
@@ -19919,17 +20149,17 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_400:
 	mov [eax+0x4], edi
 	mov [edx+0x4], esi
 	mov [edx+0x8], ebx
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_430
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_340:
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_430
+Z13XAnimLoadFilePKcPFPviE_F0_13_340:
 	xor eax, eax
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_580
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_570:
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_580
+Z13XAnimLoadFilePKcPFPviE_F0_13_570:
 	cmp ax, 0x1
-	jz Z13XAnimLoadFilePKcPFPviE:F(0,13)_590
+	jz Z13XAnimLoadFilePKcPFPviE_F0_13_590
 	cmp [ebp-0xb6], ax
-	jbe Z13XAnimLoadFilePKcPFPviE:F(0,13)_600
+	jbe Z13XAnimLoadFilePKcPFPviE_F0_13_600
 	cmp byte [ebp-0xa5], 0x0
-	jz Z13XAnimLoadFilePKcPFPviE:F(0,13)_610
+	jz Z13XAnimLoadFilePKcPFPviE_F0_13_610
 	movzx edi, ax
 	lea eax, [edi+edi+0xe]
 	mov [esp], eax
@@ -19944,7 +20174,7 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_570:
 	mov [esp], eax
 	call memcpy
 	add [ebp-0x1c], edi
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_750:
+Z13XAnimLoadFilePKcPFPviE_F0_13_750:
 	mov eax, [ebp-0xb0]
 	mov edx, [eax]
 	lea eax, [esi-0x1]
@@ -19958,10 +20188,10 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_750:
 	mov [ebx+0x4], eax
 	mov ecx, [ebp-0xa4]
 	test ecx, ecx
-	jle Z13XAnimLoadFilePKcPFPviE:F(0,13)_130
+	jle Z13XAnimLoadFilePKcPFPviE_F0_13_130
 	xor esi, esi
 	xor ebx, ebx
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_620:
+Z13XAnimLoadFilePKcPFPviE_F0_13_620:
 	mov ecx, [ebp-0xb0]
 	mov eax, [ecx]
 	mov ecx, ebx
@@ -19997,11 +20227,11 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_620:
 	add esi, 0x1
 	add ebx, 0xc
 	cmp [ebp-0xa4], esi
-	jnz Z13XAnimLoadFilePKcPFPviE:F(0,13)_620
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_130
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_460:
+	jnz Z13XAnimLoadFilePKcPFPviE_F0_13_620
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_130
+Z13XAnimLoadFilePKcPFPviE_F0_13_460:
 	mov ebx, 0x1
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_630:
+Z13XAnimLoadFilePKcPFPviE_F0_13_630:
 	mov edx, edi
 	mov eax, esi
 	call _Z11ConsumeQuatPPKhPs
@@ -20028,22 +20258,22 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_630:
 	mov [ecx+edx+0x6], ax
 	add ebx, 0x1
 	cmp ebx, [ebp-0x90]
-	jnz Z13XAnimLoadFilePKcPFPviE:F(0,13)_630
+	jnz Z13XAnimLoadFilePKcPFPviE_F0_13_630
 	mov dword [ebp-0x7c], 0x1
 	mov dword [ebp-0x98], 0x8
 	mov ecx, [ebp-0xb4]
 	mov ecx, [ecx+0x4]
 	mov [ebp-0xe4], ecx
 	mov ebx, ecx
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_640
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_660:
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_640
+Z13XAnimLoadFilePKcPFPviE_F0_13_660:
 	add dword [ebp-0x7c], 0x1
 	add dword [ebp-0x98], 0x8
 	mov ebx, [ebp-0x90]
 	cmp [ebp-0x7c], ebx
-	jz Z13XAnimLoadFilePKcPFPviE:F(0,13)_650
+	jz Z13XAnimLoadFilePKcPFPviE_F0_13_650
 	mov ebx, [ebp-0xe4]
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_640:
+Z13XAnimLoadFilePKcPFPviE_F0_13_640:
 	mov edi, [ebp-0x98]
 	add edi, [ebx+0x4]
 	lea esi, [edi-0x8]
@@ -20064,7 +20294,7 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_640:
 	imul eax, edx
 	add ecx, eax
 	add ebx, ecx
-	jns Z13XAnimLoadFilePKcPFPviE:F(0,13)_660
+	jns Z13XAnimLoadFilePKcPFPviE_F0_13_660
 	neg word [ebp-0xc4]
 	mov edx, [ebp-0xc4]
 	mov [edi], dx
@@ -20074,14 +20304,14 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_640:
 	mov ecx, [ebp-0xb4]
 	mov ecx, [ecx+0x4]
 	mov [ebp-0xe4], ecx
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_660
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_650:
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_660
+Z13XAnimLoadFilePKcPFPviE_F0_13_650:
 	mov edx, [ebp-0xe4]
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_370
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_360:
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_370
+Z13XAnimLoadFilePKcPFPviE_F0_13_360:
 	mov ebx, 0x1
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_670
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_690:
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_670
+Z13XAnimLoadFilePKcPFPviE_F0_13_690:
 	cvtsi2ss xmm0, edx
 	sqrtss xmm0, xmm0
 	addss xmm0, [_float_0_50000000]
@@ -20089,7 +20319,7 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_690:
 	call floorf
 	fstp dword [ebp-0xe0]
 	cvttss2si eax, [ebp-0xe0]
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_700:
+Z13XAnimLoadFilePKcPFPviE_F0_13_700:
 	mov [ebp-0x2a], ax
 	lea ecx, [ebx*4]
 	mov edi, [ebp-0xb4]
@@ -20103,8 +20333,8 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_700:
 	mov [ecx+edx+0x2], ax
 	add ebx, 0x1
 	cmp ebx, [ebp-0x90]
-	jz Z13XAnimLoadFilePKcPFPviE:F(0,13)_680
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_670:
+	jz Z13XAnimLoadFilePKcPFPviE_F0_13_680
+Z13XAnimLoadFilePKcPFPviE_F0_13_670:
 	mov eax, [ebp-0x1c]
 	movzx edx, word [eax]
 	mov [ebp-0x24], dx
@@ -20116,25 +20346,25 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_670:
 	mov edx, 0x3fff0001
 	sub edx, eax
 	test edx, edx
-	jg Z13XAnimLoadFilePKcPFPviE:F(0,13)_690
+	jg Z13XAnimLoadFilePKcPFPviE_F0_13_690
 	xor eax, eax
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_700
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_680:
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_700
+Z13XAnimLoadFilePKcPFPviE_F0_13_680:
 	mov dword [ebp-0x80], 0x1
 	mov edi, 0x4
 	mov eax, [ebp-0xb4]
 	mov eax, [eax+0x4]
 	mov [ebp-0xe4], eax
 	mov edx, eax
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_710
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_720:
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_710
+Z13XAnimLoadFilePKcPFPviE_F0_13_720:
 	add dword [ebp-0x80], 0x1
 	add edi, 0x4
 	mov ebx, [ebp-0x90]
 	cmp [ebp-0x80], ebx
-	jz Z13XAnimLoadFilePKcPFPviE:F(0,13)_650
+	jz Z13XAnimLoadFilePKcPFPviE_F0_13_650
 	mov edx, [ebp-0xe4]
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_710:
+Z13XAnimLoadFilePKcPFPviE_F0_13_710:
 	mov ebx, edi
 	add ebx, [edx+0x4]
 	movzx esi, word [ebx]
@@ -20145,27 +20375,27 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_710:
 	movsx edx, word [ebx-0x2]
 	imul eax, edx
 	add ecx, eax
-	jns Z13XAnimLoadFilePKcPFPviE:F(0,13)_720
+	jns Z13XAnimLoadFilePKcPFPviE_F0_13_720
 	neg esi
 	mov [ebx], si
 	neg word [ebx+0x2]
 	mov ecx, [ebp-0xb4]
 	mov ecx, [ecx+0x4]
 	mov [ebp-0xe4], ecx
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_720
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_30:
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_720
+Z13XAnimLoadFilePKcPFPviE_F0_13_30:
 	mov [esp+0x4], esi
 	mov dword [esp], _cstring_1error_xanim_s_h
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov eax, [ebp-0x20]
 	mov [esp], eax
-	call FS_FreeFile:F(0,3)
+	call FS_FreeFile_F0_3
 	mov dword [ebp-0xbc], 0x0
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_730
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_500:
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_730
+Z13XAnimLoadFilePKcPFPviE_F0_13_500:
 	xor eax, eax
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_740
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_610:
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_740
+Z13XAnimLoadFilePKcPFPviE_F0_13_610:
 	movzx edi, ax
 	lea ebx, [edi+edi]
 	lea eax, [ebx+0xe]
@@ -20181,8 +20411,8 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_610:
 	call memcpy
 	add [ebp-0x1c], ebx
 	mov [ebp-0xa4], edi
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_750
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_170:
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_750
+Z13XAnimLoadFilePKcPFPviE_F0_13_170:
 	movzx edi, ax
 	lea ebx, [edi+edi]
 	lea eax, [ebx+0xa]
@@ -20198,14 +20428,14 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_170:
 	call memcpy
 	add [ebp-0x1c], ebx
 	mov [ebp-0x8c], edi
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_760
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_10:
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_760
+Z13XAnimLoadFilePKcPFPviE_F0_13_10:
 	mov [esp+0x4], ebx
 	mov dword [esp], _cstring_1error_filename_
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov dword [ebp-0xbc], 0x0
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_730
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_600:
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_730
+Z13XAnimLoadFilePKcPFPviE_F0_13_600:
 	mov dword [esp], 0x8
 	call dword [ebp+0xc]
 	mov ecx, [ebp-0xb0]
@@ -20213,11 +20443,11 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_600:
 	movzx ebx, si
 	mov [ebp-0xa4], ebx
 	mov edi, ebx
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_750
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_180:
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_750
+Z13XAnimLoadFilePKcPFPviE_F0_13_180:
 	xor ebx, ebx
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_770
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_790:
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_770
+Z13XAnimLoadFilePKcPFPviE_F0_13_790:
 	cvtsi2ss xmm0, edx
 	sqrtss xmm0, xmm0
 	addss xmm0, [_float_0_50000000]
@@ -20225,7 +20455,7 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_790:
 	call floorf
 	fstp dword [ebp-0xd4]
 	cvttss2si eax, [ebp-0xd4]
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_800:
+Z13XAnimLoadFilePKcPFPviE_F0_13_800:
 	mov [ebp-0x2a], ax
 	lea ecx, [ebx*4]
 	mov edi, [ebp-0xb0]
@@ -20239,8 +20469,8 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_800:
 	mov [ecx+edx+0x2], ax
 	add ebx, 0x1
 	cmp ebx, [ebp-0x8c]
-	jz Z13XAnimLoadFilePKcPFPviE:F(0,13)_780
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_770:
+	jz Z13XAnimLoadFilePKcPFPviE_F0_13_780
+Z13XAnimLoadFilePKcPFPviE_F0_13_770:
 	mov eax, [ebp-0x1c]
 	movzx edx, word [eax]
 	mov [ebp-0x24], dx
@@ -20252,10 +20482,10 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_770:
 	mov edx, 0x3fff0001
 	sub edx, eax
 	test edx, edx
-	jg Z13XAnimLoadFilePKcPFPviE:F(0,13)_790
+	jg Z13XAnimLoadFilePKcPFPviE_F0_13_790
 	xor eax, eax
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_800
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_160:
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_800
+Z13XAnimLoadFilePKcPFPviE_F0_13_160:
 	mov dword [esp], 0x8
 	call dword [ebp+0xc]
 	mov ecx, [ebp-0xb0]
@@ -20263,8 +20493,8 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_160:
 	movzx ebx, si
 	mov [ebp-0x8c], ebx
 	mov edi, ebx
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_760
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_150:
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_760
+Z13XAnimLoadFilePKcPFPviE_F0_13_150:
 	movzx edx, word [ecx+0x2]
 	mov [ebp-0x24], dx
 	add ecx, 0x4
@@ -20275,7 +20505,7 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_150:
 	mov edx, 0x3fff0001
 	sub edx, eax
 	test edx, edx
-	jle Z13XAnimLoadFilePKcPFPviE:F(0,13)_810
+	jle Z13XAnimLoadFilePKcPFPviE_F0_13_810
 	cvtsi2ss xmm0, edx
 	sqrtss xmm0, xmm0
 	addss xmm0, [_float_0_50000000]
@@ -20283,7 +20513,7 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_150:
 	call floorf
 	fstp dword [ebp-0xd0]
 	cvttss2si eax, [ebp-0xd0]
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_820:
+Z13XAnimLoadFilePKcPFPviE_F0_13_820:
 	mov [ebp-0x2a], ax
 	mov dword [esp], 0x8
 	call dword [ebp+0xc]
@@ -20297,8 +20527,8 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_820:
 	mov edx, [ecx+0x4]
 	movzx eax, word [ebp-0x2a]
 	mov [edx+0x6], ax
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_190
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_590:
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_190
+Z13XAnimLoadFilePKcPFPviE_F0_13_590:
 	mov eax, [edx+0x2]
 	mov [ebp-0x24], eax
 	lea eax, [edx+0x6]
@@ -20324,22 +20554,22 @@ Z13XAnimLoadFilePKcPFPviE:F(0,13)_590:
 	mov [eax+0x4], edi
 	mov [edx+0x4], esi
 	mov [edx+0x8], ebx
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_130
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_20:
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_130
+Z13XAnimLoadFilePKcPFPviE_F0_13_20:
 	mov [esp+0x4], esi
 	mov dword [esp], _cstring_1error_xanim_s_n
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov dword [ebp-0xbc], 0x0
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_730
-Z13XAnimLoadFilePKcPFPviE:F(0,13)_810:
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_730
+Z13XAnimLoadFilePKcPFPviE_F0_13_810:
 	xor eax, eax
-	jmp Z13XAnimLoadFilePKcPFPviE:F(0,13)_820
+	jmp Z13XAnimLoadFilePKcPFPviE_F0_13_820
 	add [eax], al
 
 
-;Z19CM_CalcTraceEntentsP12TraceExtents:F(0,1)
+;Z19CM_CalcTraceEntentsP12TraceExtents_F0_1
 
-Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4_:F(0,3):
+Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4__F0_3:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -20349,7 +20579,7 @@ Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4_:F(0,3):
 	mov eax, [ebp+0x8]
 	mov edx, [eax+0x58]
 	test edx, edx
-	jz Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4_:F(0,3)_10
+	jz Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4__F0_3_10
 	mov eax, 0x7f7fffff
 	mov edx, [ebp+0x10]
 	mov [edx], eax
@@ -20363,29 +20593,29 @@ Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4_:F(0,3):
 	mov eax, [ebp+0x8]
 	mov eax, [eax+0x58]
 	test eax, eax
-	jle Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4_:F(0,3)_20
+	jle Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4__F0_3_20
 	mov dword [ebp-0x40], 0x0
 	mov dword [ebp-0x3c], 0x0
-Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4_:F(0,3)_100:
+Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4__F0_3_100:
 	mov esi, [ebp-0x3c]
 	mov edx, [ebp+0x8]
 	add esi, [edx+0x54]
 	xor edi, edi
-Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4_:F(0,3)_90:
+Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4__F0_3_90:
 	test edi, 0x1
-	jz Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4_:F(0,3)_30
+	jz Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4__F0_3_30
 	mov eax, [esi+0x8]
-Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4_:F(0,3)_130:
+Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4__F0_3_130:
 	mov [ebp-0x24], eax
 	test edi, 0x2
-	jz Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4_:F(0,3)_40
+	jz Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4__F0_3_40
 	mov eax, [esi+0xc]
-Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4_:F(0,3)_120:
+Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4__F0_3_120:
 	mov [ebp-0x20], eax
 	test edi, 0x4
-	jz Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4_:F(0,3)_50
+	jz Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4__F0_3_50
 	mov eax, [esi+0x10]
-Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4_:F(0,3)_110:
+Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4__F0_3_110:
 	mov [ebp-0x1c], eax
 	lea eax, [ebp-0x30]
 	mov [esp+0x8], eax
@@ -20393,9 +20623,9 @@ Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4_:F(0,3)_110:
 	mov [esp+0x4], edx
 	lea eax, [ebp-0x24]
 	mov [esp], eax
-	call MatrixTransformVector:F(0,18)
+	call MatrixTransformVector_F0_18
 	mov ebx, 0x1
-Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4_:F(0,3)_80:
+Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4__F0_3_80:
 	lea eax, [ebx*4]
 	mov edx, [ebp+0x10]
 	add edx, eax
@@ -20404,28 +20634,28 @@ Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4_:F(0,3)_80:
 	movss xmm1, dword [ecx-0x4]
 	movss xmm0, dword [edx-0x4]
 	ucomiss xmm0, xmm1
-	jbe Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4_:F(0,3)_60
+	jbe Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4__F0_3_60
 	movss [edx-0x4], xmm1
 	movss xmm1, dword [ecx-0x4]
-Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4_:F(0,3)_60:
+Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4__F0_3_60:
 	add eax, [ebp+0x14]
 	ucomiss xmm1, [eax-0x4]
-	jbe Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4_:F(0,3)_70
+	jbe Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4__F0_3_70
 	movss [eax-0x4], xmm1
-Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4_:F(0,3)_70:
+Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4__F0_3_70:
 	add ebx, 0x1
 	cmp ebx, 0x4
-	jnz Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4_:F(0,3)_80
+	jnz Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4__F0_3_80
 	add edi, 0x1
 	cmp edi, 0x8
-	jnz Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4_:F(0,3)_90
+	jnz Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4__F0_3_90
 	add dword [ebp-0x40], 0x1
 	add dword [ebp-0x3c], 0x2c
 	mov eax, [ebp-0x40]
 	mov edx, [ebp+0x8]
 	cmp eax, [edx+0x58]
-	jl Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4_:F(0,3)_100
-Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4_:F(0,3)_20:
+	jl Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4__F0_3_100
+Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4__F0_3_20:
 	mov eax, 0x1
 	add esp, 0x4c
 	pop ebx
@@ -20433,16 +20663,16 @@ Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4_:F(0,3)_20:
 	pop edi
 	pop ebp
 	ret
-Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4_:F(0,3)_50:
+Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4__F0_3_50:
 	mov eax, [esi+0x1c]
-	jmp Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4_:F(0,3)_110
-Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4_:F(0,3)_40:
+	jmp Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4__F0_3_110
+Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4__F0_3_40:
 	mov eax, [esi+0x18]
-	jmp Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4_:F(0,3)_120
-Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4_:F(0,3)_30:
+	jmp Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4__F0_3_120
+Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4__F0_3_30:
 	mov eax, [esi+0x14]
-	jmp Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4_:F(0,3)_130
-Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4_:F(0,3)_10:
+	jmp Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4__F0_3_130
+Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4__F0_3_10:
 	xor eax, eax
 	add esp, 0x4c
 	pop ebx
@@ -20452,9 +20682,9 @@ Z21XModelGetStaticBoundsPK6XModelPA3_fPfS4_:F(0,3)_10:
 	ret
 
 
-;Z10XModelLoadPKcPFPviES3_:F(0,59)
+;Z10XModelLoadPKcPFPviES3__F0_59
 
-Z10XModelLoadPKcPFPviES3_:F(0,59):
+Z10XModelLoadPKcPFPviES3__F0_59:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -20467,34 +20697,34 @@ Z10XModelLoadPKcPFPviES3_:F(0,59):
 	mov dword [esp+0x4], 0x40
 	lea eax, [ebp-0xc0]
 	mov [esp], eax
-	call Z11Com_sprintfPciPKcz:F(0,2)
+	call Z11Com_sprintfPciPKcz_F0_2
 	test eax, eax
-	js Z10XModelLoadPKcPFPviES3_:F(0,59)_10
+	js Z10XModelLoadPKcPFPviES3__F0_59_10
 	lea ecx, [ebp-0x1c]
 	mov [esp+0x4], ecx
 	lea edi, [ebp-0xc0]
 	mov [esp], edi
-	call FS_ReadFile:F(0,2)
+	call FS_ReadFile_F0_2
 	cmp eax, 0x0
-	jl Z10XModelLoadPKcPFPviES3_:F(0,59)_20
-	jz Z10XModelLoadPKcPFPviES3_:F(0,59)_30
+	jl Z10XModelLoadPKcPFPviES3__F0_59_20
+	jz Z10XModelLoadPKcPFPviES3__F0_59_30
 	mov edx, [ebp-0x1c]
 	movzx eax, word [edx]
 	mov [ebp-0x30], ax
 	movsx ecx, ax
 	cmp ax, 0x14
-	jz Z10XModelLoadPKcPFPviES3_:F(0,59)_40
+	jz Z10XModelLoadPKcPFPviES3__F0_59_40
 	mov dword [esp+0xc], 0x14
 	mov [esp+0x8], ecx
 	mov [esp+0x4], ebx
 	mov dword [esp], _cstring_1error_xmodel_s_
-Z10XModelLoadPKcPFPviES3_:F(0,59)_280:
-	call Z10Com_PrintfPKcz:F(0,1)
+Z10XModelLoadPKcPFPviES3__F0_59_280:
+	call Z10Com_PrintfPKcz_F0_1
 	mov eax, [ebp-0x1c]
 	mov [esp], eax
-	call FS_FreeFile:F(0,3)
+	call FS_FreeFile_F0_3
 	mov dword [ebp-0x1170], 0x0
-Z10XModelLoadPKcPFPviES3_:F(0,59)_170:
+Z10XModelLoadPKcPFPviES3__F0_59_170:
 	mov eax, [ebp-0x1170]
 	add esp, 0x11bc
 	pop ebx
@@ -20502,7 +20732,7 @@ Z10XModelLoadPKcPFPviES3_:F(0,59)_170:
 	pop edi
 	pop ebp
 	ret
-Z10XModelLoadPKcPFPviES3_:F(0,59)_40:
+Z10XModelLoadPKcPFPviES3__F0_59_40:
 	movzx eax, byte [edx+0x2]
 	mov [ebp-0xc4], al
 	mov eax, [edx+0x3]
@@ -20533,7 +20763,7 @@ Z10XModelLoadPKcPFPviES3_:F(0,59)_40:
 	mov dword [ebp-0x1164], 0x0
 	lea esi, [ebp-0x10f0]
 	mov ebx, esi
-Z10XModelLoadPKcPFPviES3_:F(0,59)_50:
+Z10XModelLoadPKcPFPviES3__F0_59_50:
 	mov eax, [ecx]
 	mov [ebp-0x30], eax
 	add ecx, 0x4
@@ -20556,7 +20786,7 @@ Z10XModelLoadPKcPFPviES3_:F(0,59)_50:
 	add ebx, 0x404
 	add esi, 0x404
 	cmp dword [ebp-0x1164], 0x4
-	jnz Z10XModelLoadPKcPFPviES3_:F(0,59)_50
+	jnz Z10XModelLoadPKcPFPviES3__F0_59_50
 	mov eax, [edx+0x1]
 	mov [ebp-0x30], eax
 	add edx, 0x5
@@ -20577,8 +20807,8 @@ Z10XModelLoadPKcPFPviES3_:F(0,59)_50:
 	add edx, 0x1
 	add dword [ebp-0x11b0], 0x404
 	cmp edx, 0x4
-	jz Z10XModelLoadPKcPFPviES3_:F(0,59)_60
-Z10XModelLoadPKcPFPviES3_:F(0,59)_70:
+	jz Z10XModelLoadPKcPFPviES3__F0_59_60
+Z10XModelLoadPKcPFPviES3__F0_59_70:
 	mov edi, [ebp-0x11b0]
 	mov ecx, 0xffffffff
 	mov eax, esi
@@ -20589,8 +20819,8 @@ Z10XModelLoadPKcPFPviES3_:F(0,59)_70:
 	add edx, 0x1
 	add dword [ebp-0x11b0], 0x404
 	cmp edx, 0x4
-	jnz Z10XModelLoadPKcPFPviES3_:F(0,59)_70
-Z10XModelLoadPKcPFPviES3_:F(0,59)_60:
+	jnz Z10XModelLoadPKcPFPviES3__F0_59_70
+Z10XModelLoadPKcPFPviES3__F0_59_60:
 	add ebx, 0x90
 	mov [esp], ebx
 	call dword [ebp+0xc]
@@ -20603,8 +20833,8 @@ Z10XModelLoadPKcPFPviES3_:F(0,59)_60:
 	mov [ebp-0x1108], ecx
 	mov [eax+0x58], edx
 	test edx, edx
-	jnz Z10XModelLoadPKcPFPviES3_:F(0,59)_80
-Z10XModelLoadPKcPFPviES3_:F(0,59)_220:
+	jnz Z10XModelLoadPKcPFPviES3__F0_59_80
+Z10XModelLoadPKcPFPviES3__F0_59_220:
 	mov eax, [ebp-0x1170]
 	add eax, 0x90
 	mov [ebp-0x116c], eax
@@ -20624,10 +20854,10 @@ Z10XModelLoadPKcPFPviES3_:F(0,59)_220:
 	mov edx, [ebp-0x116c]
 	mov [esi+0x8], edx
 	cmp byte [edx], 0x0
-	jnz Z10XModelLoadPKcPFPviES3_:F(0,59)_90
-Z10XModelLoadPKcPFPviES3_:F(0,59)_110:
+	jnz Z10XModelLoadPKcPFPviES3__F0_59_90
+Z10XModelLoadPKcPFPviES3__F0_59_110:
 	mov dword [esi+0x10], 0x0
-Z10XModelLoadPKcPFPviES3_:F(0,59)_120:
+Z10XModelLoadPKcPFPviES3__F0_59_120:
 	mov ecx, [ebp-0x1118]
 	mov eax, [ecx+0x400]
 	mov [esi+0x4], eax
@@ -20641,7 +20871,7 @@ Z10XModelLoadPKcPFPviES3_:F(0,59)_120:
 	add ecx, 0x404
 	mov [ebp-0x1118], ecx
 	cmp dword [ebp-0x10fc], 0x4
-	jz Z10XModelLoadPKcPFPviES3_:F(0,59)_100
+	jz Z10XModelLoadPKcPFPviES3__F0_59_100
 	mov edi, [ebp-0x1190]
 	mov [esp+0x4], edi
 	mov eax, [ebp-0x116c]
@@ -20650,8 +20880,8 @@ Z10XModelLoadPKcPFPviES3_:F(0,59)_120:
 	mov edx, [ebp-0x116c]
 	mov [esi+0x8], edx
 	cmp byte [edx], 0x0
-	jz Z10XModelLoadPKcPFPviES3_:F(0,59)_110
-Z10XModelLoadPKcPFPviES3_:F(0,59)_90:
+	jz Z10XModelLoadPKcPFPviES3__F0_59_110
+Z10XModelLoadPKcPFPviES3__F0_59_90:
 	mov ecx, [ebp-0x1170]
 	add word [ecx+0x7c], 0x1
 	mov edi, [ebp-0x1108]
@@ -20671,9 +20901,9 @@ Z10XModelLoadPKcPFPviES3_:F(0,59)_90:
 	mov ecx, [ebp-0x1170]
 	add [ecx+0x84], ebx
 	cmp word [esi+0xc], 0x0
-	jle Z10XModelLoadPKcPFPviES3_:F(0,59)_120
+	jle Z10XModelLoadPKcPFPviES3__F0_59_120
 	mov dword [ebp-0x1168], 0x0
-Z10XModelLoadPKcPFPviES3_:F(0,59)_130:
+Z10XModelLoadPKcPFPviES3__F0_59_130:
 	mov edx, [ebp-0x1108]
 	cld
 	mov ecx, 0xffffffff
@@ -20689,30 +20919,30 @@ Z10XModelLoadPKcPFPviES3_:F(0,59)_130:
 	mov dword [esp+0x8], 0x8
 	mov dword [esp+0x4], 0x0
 	mov [esp], edx
-	call SL_GetString_:F(0,1)
+	call SL_GetString__F0_1
 	mov [ebx], ax
 	add edi, 0x1
 	mov [ebp-0x1168], edi
 	mov edx, [ebp-0x1114]
 	movsx eax, word [edx]
 	cmp eax, edi
-	jg Z10XModelLoadPKcPFPviES3_:F(0,59)_130
-	jmp Z10XModelLoadPKcPFPviES3_:F(0,59)_120
-Z10XModelLoadPKcPFPviES3_:F(0,59)_100:
+	jg Z10XModelLoadPKcPFPviES3__F0_59_130
+	jmp Z10XModelLoadPKcPFPviES3__F0_59_120
+Z10XModelLoadPKcPFPviES3__F0_59_100:
 	mov eax, [ebp-0x1170]
 	mov eax, [eax+0x8]
 	mov [ebp-0x1158], eax
 	mov [esp], eax
-	call Z19XModelPartsFindDataPKc:F(0,5)
+	call Z19XModelPartsFindDataPKc_F0_5
 	mov [ebp-0x115c], eax
 	test eax, eax
-	jz Z10XModelLoadPKcPFPviES3_:F(0,59)_140
+	jz Z10XModelLoadPKcPFPviES3__F0_59_140
 	mov ecx, eax
-Z10XModelLoadPKcPFPviES3_:F(0,59)_360:
+Z10XModelLoadPKcPFPviES3__F0_59_360:
 	mov edx, [ebp-0x1170]
 	mov [edx], ecx
 	test ecx, ecx
-	jz Z10XModelLoadPKcPFPviES3_:F(0,59)_150
+	jz Z10XModelLoadPKcPFPviES3__F0_59_150
 	mov edx, [ebp-0x115c]
 	movsx esi, word [edx]
 	lea ebx, [esi+esi*4]
@@ -20723,14 +20953,14 @@ Z10XModelLoadPKcPFPviES3_:F(0,59)_360:
 	mov ecx, [ebp-0x1170]
 	add [ecx+0x84], ebx
 	test esi, esi
-	jg Z10XModelLoadPKcPFPviES3_:F(0,59)_160
-Z10XModelLoadPKcPFPviES3_:F(0,59)_270:
+	jg Z10XModelLoadPKcPFPviES3__F0_59_160
+Z10XModelLoadPKcPFPviES3__F0_59_270:
 	mov edx, [ebp-0x11ac]
 	mov eax, [ebp-0x1170]
 	mov [eax+0x60], edx
 	mov eax, [ebp-0x1c]
 	mov [esp], eax
-	call FS_FreeFile:F(0,3)
+	call FS_FreeFile_F0_3
 	mov edx, [ebp-0x1170]
 	add edx, 0x64
 	mov eax, [ebp-0xe0]
@@ -20754,15 +20984,15 @@ Z10XModelLoadPKcPFPviES3_:F(0,59)_270:
 	mov [ecx+0x8c], al
 	mov eax, [0x1accd0d]
 	cmp byte [eax+0x144], 0x0
-	jz Z10XModelLoadPKcPFPviES3_:F(0,59)_170
+	jz Z10XModelLoadPKcPFPviES3__F0_59_170
 	mov dword [ebp-0x1128], 0x0
 	add ecx, 0x4
 	mov [ebp-0x1188], ecx
 	mov eax, ecx
 	mov edi, [eax+0x4]
 	cmp byte [edi], 0x0
-	jz Z10XModelLoadPKcPFPviES3_:F(0,59)_180
-Z10XModelLoadPKcPFPviES3_:F(0,59)_210:
+	jz Z10XModelLoadPKcPFPviES3__F0_59_180
+Z10XModelLoadPKcPFPviES3__F0_59_210:
 	mov edx, [ebp-0x1170]
 	mov edx, [edx+0x88]
 	mov [ebp-0x1124], edx
@@ -20770,28 +21000,28 @@ Z10XModelLoadPKcPFPviES3_:F(0,59)_210:
 	movsx ecx, bx
 	mov [ebp-0x112c], ecx
 	mov [esp], edi
-	call Z19XModelSurfsFindDataPKc:F(0,32)
+	call Z19XModelSurfsFindDataPKc_F0_32
 	mov esi, eax
 	test eax, eax
-	jz Z10XModelLoadPKcPFPviES3_:F(0,59)_190
-Z10XModelLoadPKcPFPviES3_:F(0,59)_320:
+	jz Z10XModelLoadPKcPFPviES3__F0_59_190
+Z10XModelLoadPKcPFPviES3__F0_59_320:
 	mov edi, [ebp-0x1188]
 	mov [edi+0x10], esi
 	test esi, esi
-	jz Z10XModelLoadPKcPFPviES3_:F(0,59)_200
+	jz Z10XModelLoadPKcPFPviES3__F0_59_200
 	add dword [ebp-0x1128], 0x1
 	add edi, 0x14
 	mov [ebp-0x1188], edi
 	cmp dword [ebp-0x1128], 0x4
-	jz Z10XModelLoadPKcPFPviES3_:F(0,59)_180
+	jz Z10XModelLoadPKcPFPviES3__F0_59_180
 	mov eax, edi
 	mov edi, [eax+0x4]
 	cmp byte [edi], 0x0
-	jnz Z10XModelLoadPKcPFPviES3_:F(0,59)_210
-Z10XModelLoadPKcPFPviES3_:F(0,59)_180:
+	jnz Z10XModelLoadPKcPFPviES3__F0_59_210
+Z10XModelLoadPKcPFPviES3__F0_59_180:
 	mov eax, [ebp-0x1170]
 	mov [esp], eax
-	call Z12R_LoadXSkinsP6XModel:F(0,1)
+	call Z12R_LoadXSkinsP6XModel_F0_1
 	mov edx, [ebp-0x1170]
 	mov [edx+0x80], eax
 	mov eax, [ebp-0x1170]
@@ -20801,7 +21031,7 @@ Z10XModelLoadPKcPFPviES3_:F(0,59)_180:
 	pop edi
 	pop ebp
 	ret
-Z10XModelLoadPKcPFPviES3_:F(0,59)_80:
+Z10XModelLoadPKcPFPviES3__F0_59_80:
 	lea eax, [edx+edx*4]
 	lea eax, [edx+eax*2]
 	shl eax, 0x2
@@ -20811,12 +21041,12 @@ Z10XModelLoadPKcPFPviES3_:F(0,59)_80:
 	mov [edi+0x54], eax
 	mov eax, [edi+0x58]
 	test eax, eax
-	jle Z10XModelLoadPKcPFPviES3_:F(0,59)_220
+	jle Z10XModelLoadPKcPFPviES3__F0_59_220
 	mov dword [ebp-0x1160], 0x0
 	mov dword [ebp-0x110c], 0x0
 	movss xmm1, dword [_float_0_00100000]
-	jmp Z10XModelLoadPKcPFPviES3_:F(0,59)_230
-Z10XModelLoadPKcPFPviES3_:F(0,59)_240:
+	jmp Z10XModelLoadPKcPFPviES3__F0_59_230
+Z10XModelLoadPKcPFPviES3__F0_59_240:
 	mov eax, [ebx]
 	mov [ebp-0x30], eax
 	movss xmm0, dword [ebp-0x30]
@@ -20867,8 +21097,8 @@ Z10XModelLoadPKcPFPviES3_:F(0,59)_240:
 	add dword [ebp-0x110c], 0x2c
 	mov edi, [ebp-0x1160]
 	cmp edi, [ecx+0x58]
-	jge Z10XModelLoadPKcPFPviES3_:F(0,59)_220
-Z10XModelLoadPKcPFPviES3_:F(0,59)_230:
+	jge Z10XModelLoadPKcPFPviES3__F0_59_220
+Z10XModelLoadPKcPFPviES3__F0_59_230:
 	mov esi, [ebp-0x110c]
 	mov eax, [ebp-0x1170]
 	add esi, [eax+0x54]
@@ -20887,10 +21117,10 @@ Z10XModelLoadPKcPFPviES3_:F(0,59)_230:
 	mov edi, [esi+0x4]
 	test edi, edi
 	movss xmm1, dword [ebp-0x11a8]
-	jle Z10XModelLoadPKcPFPviES3_:F(0,59)_240
+	jle Z10XModelLoadPKcPFPviES3__F0_59_240
 	xor edi, edi
 	xor ecx, ecx
-Z10XModelLoadPKcPFPviES3_:F(0,59)_250:
+Z10XModelLoadPKcPFPviES3__F0_59_250:
 	mov edx, ecx
 	add edx, [esi]
 	mov eax, [ebx]
@@ -20945,13 +21175,13 @@ Z10XModelLoadPKcPFPviES3_:F(0,59)_250:
 	add edi, 0x1
 	add ecx, 0x30
 	cmp edi, [esi+0x4]
-	jl Z10XModelLoadPKcPFPviES3_:F(0,59)_250
-	jmp Z10XModelLoadPKcPFPviES3_:F(0,59)_240
-Z10XModelLoadPKcPFPviES3_:F(0,59)_160:
+	jl Z10XModelLoadPKcPFPviES3__F0_59_250
+	jmp Z10XModelLoadPKcPFPviES3__F0_59_240
+Z10XModelLoadPKcPFPviES3__F0_59_160:
 	mov ecx, eax
 	xor ebx, ebx
 	movss xmm3, dword [_float_0_50000000]
-Z10XModelLoadPKcPFPviES3_:F(0,59)_260:
+Z10XModelLoadPKcPFPviES3__F0_59_260:
 	mov edi, [ebp-0x1108]
 	mov eax, [edi]
 	mov [ebp-0x30], eax
@@ -21008,87 +21238,87 @@ Z10XModelLoadPKcPFPviES3_:F(0,59)_260:
 	add ebx, 0x1
 	add ecx, 0x28
 	cmp esi, ebx
-	jnz Z10XModelLoadPKcPFPviES3_:F(0,59)_260
-	jmp Z10XModelLoadPKcPFPviES3_:F(0,59)_270
-Z10XModelLoadPKcPFPviES3_:F(0,59)_30:
+	jnz Z10XModelLoadPKcPFPviES3__F0_59_260
+	jmp Z10XModelLoadPKcPFPviES3__F0_59_270
+Z10XModelLoadPKcPFPviES3__F0_59_30:
 	mov [esp+0x4], ebx
 	mov dword [esp], _cstring_1error_xmodel_s_1
-	jmp Z10XModelLoadPKcPFPviES3_:F(0,59)_280
-Z10XModelLoadPKcPFPviES3_:F(0,59)_190:
+	jmp Z10XModelLoadPKcPFPviES3__F0_59_280
+Z10XModelLoadPKcPFPviES3__F0_59_190:
 	mov [esp+0xc], edi
 	mov dword [esp+0x8], _cstring_xmodelsurfss
 	mov dword [esp+0x4], 0x40
 	lea eax, [ebp-0xc0]
 	mov [esp], eax
-	call Z11Com_sprintfPciPKcz:F(0,2)
+	call Z11Com_sprintfPciPKcz_F0_2
 	test eax, eax
-	js Z10XModelLoadPKcPFPviES3_:F(0,59)_290
+	js Z10XModelLoadPKcPFPviES3__F0_59_290
 	lea ecx, [ebp-0x1c]
 	mov [esp+0x4], ecx
 	lea eax, [ebp-0xc0]
 	mov [esp], eax
-	call FS_ReadFile:F(0,2)
+	call FS_ReadFile_F0_2
 	cmp eax, 0x0
-	jl Z10XModelLoadPKcPFPviES3_:F(0,59)_300
-	jnz Z10XModelLoadPKcPFPviES3_:F(0,59)_310
+	jl Z10XModelLoadPKcPFPviES3__F0_59_300
+	jnz Z10XModelLoadPKcPFPviES3__F0_59_310
 	mov [esp+0x4], edi
 	mov dword [esp], _cstring_1error_xmodelsur
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov eax, [ebp-0x1c]
 	mov [esp], eax
-	call FS_FreeFile:F(0,3)
-Z10XModelLoadPKcPFPviES3_:F(0,59)_380:
+	call FS_FreeFile_F0_3
+Z10XModelLoadPKcPFPviES3__F0_59_380:
 	mov [esp+0x4], edi
 	mov dword [esp], _cstring_1error_cannot_fi1
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	xor esi, esi
-	jmp Z10XModelLoadPKcPFPviES3_:F(0,59)_320
-Z10XModelLoadPKcPFPviES3_:F(0,59)_10:
+	jmp Z10XModelLoadPKcPFPviES3__F0_59_320
+Z10XModelLoadPKcPFPviES3__F0_59_10:
 	lea edx, [ebp-0xc0]
 	mov [esp+0x4], edx
 	mov dword [esp], _cstring_1error_filename_
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov dword [ebp-0x1170], 0x0
-	jmp Z10XModelLoadPKcPFPviES3_:F(0,59)_170
-Z10XModelLoadPKcPFPviES3_:F(0,59)_140:
+	jmp Z10XModelLoadPKcPFPviES3__F0_59_170
+Z10XModelLoadPKcPFPviES3__F0_59_140:
 	mov edx, [ebp-0x1158]
 	mov [esp+0xc], edx
 	mov dword [esp+0x8], _cstring_xmodelpartss
 	mov dword [esp+0x4], 0x40
 	lea ebx, [ebp-0x80]
 	mov [esp], ebx
-	call Z11Com_sprintfPciPKcz:F(0,2)
+	call Z11Com_sprintfPciPKcz_F0_2
 	test eax, eax
-	js Z10XModelLoadPKcPFPviES3_:F(0,59)_330
+	js Z10XModelLoadPKcPFPviES3__F0_59_330
 	lea eax, [ebp-0x20]
 	mov [esp+0x4], eax
 	mov [esp], ebx
-	call FS_ReadFile:F(0,2)
+	call FS_ReadFile_F0_2
 	cmp eax, 0x0
-	jl Z10XModelLoadPKcPFPviES3_:F(0,59)_340
-	jnz Z10XModelLoadPKcPFPviES3_:F(0,59)_350
+	jl Z10XModelLoadPKcPFPviES3__F0_59_340
+	jnz Z10XModelLoadPKcPFPviES3__F0_59_350
 	mov edi, [ebp-0x1158]
 	mov [esp+0x4], edi
 	mov dword [esp], _cstring_1error_xmodelpar
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov eax, [ebp-0x20]
 	mov [esp], eax
-	call FS_FreeFile:F(0,3)
-Z10XModelLoadPKcPFPviES3_:F(0,59)_400:
+	call FS_FreeFile_F0_3
+Z10XModelLoadPKcPFPviES3__F0_59_400:
 	mov eax, [ebp-0x1158]
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_1error_cannot_fi2
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov dword [ebp-0x115c], 0x0
 	mov ecx, [ebp-0x115c]
-	jmp Z10XModelLoadPKcPFPviES3_:F(0,59)_360
-Z10XModelLoadPKcPFPviES3_:F(0,59)_200:
+	jmp Z10XModelLoadPKcPFPviES3__F0_59_360
+Z10XModelLoadPKcPFPviES3__F0_59_200:
 	mov eax, [ebp-0x1170]
 	mov [esp], eax
-	call Z10XModelFreeP6XModel:F(0,20)
+	call Z10XModelFreeP6XModel_F0_20
 	mov dword [ebp-0x1170], 0x0
-	jmp Z10XModelLoadPKcPFPviES3_:F(0,59)_170
-Z10XModelLoadPKcPFPviES3_:F(0,59)_310:
+	jmp Z10XModelLoadPKcPFPviES3__F0_59_170
+Z10XModelLoadPKcPFPviES3__F0_59_310:
 	mov ecx, [ebp-0x1c]
 	mov [ebp-0x20], ecx
 	movzx edx, word [ecx]
@@ -21097,78 +21327,78 @@ Z10XModelLoadPKcPFPviES3_:F(0,59)_310:
 	mov [ebp-0x20], eax
 	movsx esi, dx
 	cmp dx, 0x14
-	jz Z10XModelLoadPKcPFPviES3_:F(0,59)_370
+	jz Z10XModelLoadPKcPFPviES3__F0_59_370
 	mov [esp], ecx
-	call FS_FreeFile:F(0,3)
+	call FS_FreeFile_F0_3
 	mov dword [esp+0xc], 0x14
 	mov [esp+0x8], esi
 	mov [esp+0x4], edi
 	mov dword [esp], _cstring_1error_xmodelsur1
-	call Z10Com_PrintfPKcz:F(0,1)
-	jmp Z10XModelLoadPKcPFPviES3_:F(0,59)_380
-Z10XModelLoadPKcPFPviES3_:F(0,59)_20:
+	call Z10Com_PrintfPKcz_F0_1
+	jmp Z10XModelLoadPKcPFPviES3__F0_59_380
+Z10XModelLoadPKcPFPviES3__F0_59_20:
 	mov [esp+0x4], ebx
 	mov dword [esp], _cstring_1error_xmodel_s_2
-	call Z10Com_PrintfPKcz:F(0,1)
+	call Z10Com_PrintfPKcz_F0_1
 	mov dword [ebp-0x1170], 0x0
-	jmp Z10XModelLoadPKcPFPviES3_:F(0,59)_170
-Z10XModelLoadPKcPFPviES3_:F(0,59)_290:
+	jmp Z10XModelLoadPKcPFPviES3__F0_59_170
+Z10XModelLoadPKcPFPviES3__F0_59_290:
 	lea edx, [ebp-0xc0]
 	mov [esp+0x4], edx
 	mov dword [esp], _cstring_1error_filename_
-	call Z10Com_PrintfPKcz:F(0,1)
-	jmp Z10XModelLoadPKcPFPviES3_:F(0,59)_380
-Z10XModelLoadPKcPFPviES3_:F(0,59)_350:
+	call Z10Com_PrintfPKcz_F0_1
+	jmp Z10XModelLoadPKcPFPviES3__F0_59_380
+Z10XModelLoadPKcPFPviES3__F0_59_350:
 	mov edx, [ebp-0x20]
 	movzx eax, word [edx]
 	mov [ebp-0x30], ax
 	movsx ebx, ax
 	cmp ax, 0x14
-	jz Z10XModelLoadPKcPFPviES3_:F(0,59)_390
+	jz Z10XModelLoadPKcPFPviES3__F0_59_390
 	mov [esp], edx
-	call FS_FreeFile:F(0,3)
+	call FS_FreeFile_F0_3
 	mov dword [esp+0xc], 0x14
 	mov [esp+0x8], ebx
 	mov eax, [ebp-0x1158]
 	mov [esp+0x4], eax
 	mov dword [esp], _cstring_1error_xmodelpar1
-	call Z10Com_PrintfPKcz:F(0,1)
-	jmp Z10XModelLoadPKcPFPviES3_:F(0,59)_400
-Z10XModelLoadPKcPFPviES3_:F(0,59)_150:
+	call Z10Com_PrintfPKcz_F0_1
+	jmp Z10XModelLoadPKcPFPviES3__F0_59_400
+Z10XModelLoadPKcPFPviES3__F0_59_150:
 	mov eax, [ebp-0x1c]
 	mov [esp], eax
-	call FS_FreeFile:F(0,3)
+	call FS_FreeFile_F0_3
 	mov edi, [ebp-0x1170]
 	mov [esp], edi
-	call Z10XModelFreeP6XModel:F(0,20)
+	call Z10XModelFreeP6XModel_F0_20
 	mov dword [ebp-0x1170], 0x0
-	jmp Z10XModelLoadPKcPFPviES3_:F(0,59)_170
-Z10XModelLoadPKcPFPviES3_:F(0,59)_370:
+	jmp Z10XModelLoadPKcPFPviES3__F0_59_170
+Z10XModelLoadPKcPFPviES3__F0_59_370:
 	movzx eax, word [ecx+0x2]
 	mov [ebp-0x30], ax
 	lea eax, [ecx+0x4]
 	mov [ebp-0x20], eax
 	cmp bx, [ebp-0x30]
-	jz Z10XModelLoadPKcPFPviES3_:F(0,59)_410
+	jz Z10XModelLoadPKcPFPviES3__F0_59_410
 	mov [esp], ecx
-	call FS_FreeFile:F(0,3)
+	call FS_FreeFile_F0_3
 	mov edx, [ebp-0x1124]
 	mov [esp+0x8], edx
 	mov [esp+0x4], edi
 	mov dword [esp], _cstring_1error_file_conf
-	call Z10Com_PrintfPKcz:F(0,1)
-	jmp Z10XModelLoadPKcPFPviES3_:F(0,59)_380
-Z10XModelLoadPKcPFPviES3_:F(0,59)_330:
+	call Z10Com_PrintfPKcz_F0_1
+	jmp Z10XModelLoadPKcPFPviES3__F0_59_380
+Z10XModelLoadPKcPFPviES3__F0_59_330:
 	mov [esp+0x4], ebx
 	mov dword [esp], _cstring_1error_filename_
-	call Z10Com_PrintfPKcz:F(0,1)
-	jmp Z10XModelLoadPKcPFPviES3_:F(0,59)_400
-Z10XModelLoadPKcPFPviES3_:F(0,59)_300:
+	call Z10Com_PrintfPKcz_F0_1
+	jmp Z10XModelLoadPKcPFPviES3__F0_59_400
+Z10XModelLoadPKcPFPviES3__F0_59_300:
 	mov [esp+0x4], edi
 	mov dword [esp], _cstring_1error_xmodelsur2
-	call Z10Com_PrintfPKcz:F(0,1)
-	jmp Z10XModelLoadPKcPFPviES3_:F(0,59)_380
-Z10XModelLoadPKcPFPviES3_:F(0,59)_390:
+	call Z10Com_PrintfPKcz_F0_1
+	jmp Z10XModelLoadPKcPFPviES3__F0_59_380
+Z10XModelLoadPKcPFPviES3__F0_59_390:
 	movzx edi, word [edx+0x2]
 	mov [ebp-0x30], di
 	movzx ecx, word [edx+0x4]
@@ -21190,23 +21420,23 @@ Z10XModelLoadPKcPFPviES3_:F(0,59)_390:
 	mov ecx, [ebp-0x1170]
 	add [ecx+0x84], ebx
 	cmp word [ebp-0x1142], 0x7f
-	jle Z10XModelLoadPKcPFPviES3_:F(0,59)_420
+	jle Z10XModelLoadPKcPFPviES3__F0_59_420
 	mov eax, [ebp-0x20]
 	mov [esp], eax
-	call FS_FreeFile:F(0,3)
+	call FS_FreeFile_F0_3
 	mov dword [esp+0x8], 0x7f
 	mov edi, [ebp-0x1158]
 	mov [esp+0x4], edi
 	mov dword [esp], _cstring_1error_xmodel_s_3
-	call Z10Com_PrintfPKcz:F(0,1)
-	jmp Z10XModelLoadPKcPFPviES3_:F(0,59)_400
-Z10XModelLoadPKcPFPviES3_:F(0,59)_340:
+	call Z10Com_PrintfPKcz_F0_1
+	jmp Z10XModelLoadPKcPFPviES3__F0_59_400
+Z10XModelLoadPKcPFPviES3__F0_59_340:
 	mov ecx, [ebp-0x1158]
 	mov [esp+0x4], ecx
 	mov dword [esp], _cstring_1error_xmodelpar2
-	call Z10Com_PrintfPKcz:F(0,1)
-	jmp Z10XModelLoadPKcPFPviES3_:F(0,59)_400
-Z10XModelLoadPKcPFPviES3_:F(0,59)_410:
+	call Z10Com_PrintfPKcz_F0_1
+	jmp Z10XModelLoadPKcPFPviES3__F0_59_400
+Z10XModelLoadPKcPFPviES3__F0_59_410:
 	mov ecx, [ebp-0x112c]
 	lea ebx, [ecx*4+0x14]
 	mov [esp], ebx
@@ -21221,18 +21451,18 @@ Z10XModelLoadPKcPFPviES3_:F(0,59)_410:
 	mov [ebp-0x111c], ecx
 	mov ecx, [ebp-0x112c]
 	test ecx, ecx
-	jg Z10XModelLoadPKcPFPviES3_:F(0,59)_430
-Z10XModelLoadPKcPFPviES3_:F(0,59)_540:
+	jg Z10XModelLoadPKcPFPviES3__F0_59_430
+Z10XModelLoadPKcPFPviES3__F0_59_540:
 	mov eax, [ebp-0x1c]
 	mov [esp], eax
-	call FS_FreeFile:F(0,3)
+	call FS_FreeFile_F0_3
 	mov ecx, [ebp+0xc]
 	mov [esp+0x8], ecx
 	mov [esp+0x4], esi
 	mov [esp], edi
-	call Z18XModelSurfsSetDataPKcP13XModelSurfs_sPFPviE:F(0,20)
-	jmp Z10XModelLoadPKcPFPviES3_:F(0,59)_320
-Z10XModelLoadPKcPFPviES3_:F(0,59)_420:
+	call Z18XModelSurfsSetDataPKcP13XModelSurfs_sPFPviE_F0_20
+	jmp Z10XModelLoadPKcPFPviES3__F0_59_320
+Z10XModelLoadPKcPFPviES3__F0_59_420:
 	movsx eax, di
 	mov [ebp-0x1150], eax
 	mov ebx, eax
@@ -21256,11 +21486,11 @@ Z10XModelLoadPKcPFPviES3_:F(0,59)_420:
 	add [edx+0x84], ebx
 	mov [eax+0x4], esi
 	test di, di
-	jnz Z10XModelLoadPKcPFPviES3_:F(0,59)_440
+	jnz Z10XModelLoadPKcPFPviES3__F0_59_440
 	mov ecx, [ebp-0x115c]
 	mov dword [ecx+0x8], 0x0
 	mov dword [ecx+0xc], 0x0
-Z10XModelLoadPKcPFPviES3_:F(0,59)_520:
+Z10XModelLoadPKcPFPviES3__F0_59_520:
 	mov edi, [ebp-0x1154]
 	mov [esp], edi
 	call dword [ebp+0xc]
@@ -21276,13 +21506,13 @@ Z10XModelLoadPKcPFPviES3_:F(0,59)_520:
 	mov esi, [edx+0xc]
 	mov edx, [ebp-0x1154]
 	cmp [ebp-0x1174], edx
-	jl Z10XModelLoadPKcPFPviES3_:F(0,59)_450
-Z10XModelLoadPKcPFPviES3_:F(0,59)_560:
+	jl Z10XModelLoadPKcPFPviES3__F0_59_450
+Z10XModelLoadPKcPFPviES3__F0_59_560:
 	mov ebx, [ebp-0x1154]
 	test ebx, ebx
-	jg Z10XModelLoadPKcPFPviES3_:F(0,59)_460
+	jg Z10XModelLoadPKcPFPviES3__F0_59_460
 	mov edx, [ebp-0x1100]
-Z10XModelLoadPKcPFPviES3_:F(0,59)_510:
+Z10XModelLoadPKcPFPviES3__F0_59_510:
 	mov ecx, [ebp-0x115c]
 	mov eax, [ecx+0x10]
 	mov edi, [ebp-0x1154]
@@ -21292,7 +21522,7 @@ Z10XModelLoadPKcPFPviES3_:F(0,59)_510:
 	call memcpy
 	mov eax, [ebp-0x20]
 	mov [esp], eax
-	call FS_FreeFile:F(0,3)
+	call FS_FreeFile_F0_3
 	mov ecx, [ebp-0x115c]
 	mov edi, [ecx+0x4]
 	add edi, 0x4
@@ -21306,9 +21536,9 @@ Z10XModelLoadPKcPFPviES3_:F(0,59)_510:
 	movzx eax, word [ecx+0x2]
 	movsx ecx, ax
 	test ax, ax
-	jz Z10XModelLoadPKcPFPviES3_:F(0,59)_470
+	jz Z10XModelLoadPKcPFPviES3__F0_59_470
 	xor edx, edx
-Z10XModelLoadPKcPFPviES3_:F(0,59)_480:
+Z10XModelLoadPKcPFPviES3__F0_59_480:
 	mov dword [ebx], 0x0
 	mov dword [ebx+0x4], 0x0
 	mov dword [ebx+0x8], 0x0
@@ -21321,16 +21551,16 @@ Z10XModelLoadPKcPFPviES3_:F(0,59)_480:
 	add ebx, 0x20
 	add edx, 0x1
 	cmp edx, ecx
-	jnz Z10XModelLoadPKcPFPviES3_:F(0,59)_480
-Z10XModelLoadPKcPFPviES3_:F(0,59)_470:
+	jnz Z10XModelLoadPKcPFPviES3__F0_59_480
+Z10XModelLoadPKcPFPviES3__F0_59_470:
 	mov ecx, [ebp-0x115c]
 	movsx eax, word [ecx+0x2]
 	sub esi, eax
 	mov eax, esi
-	jnz Z10XModelLoadPKcPFPviES3_:F(0,59)_490
+	jnz Z10XModelLoadPKcPFPviES3__F0_59_490
 	mov eax, ecx
 	mov edx, ecx
-Z10XModelLoadPKcPFPviES3_:F(0,59)_640:
+Z10XModelLoadPKcPFPviES3__F0_59_640:
 	add eax, 0x14
 	mov dword [edx+0x14], 0xffffffff
 	mov dword [eax+0x4], 0xffffffff
@@ -21347,13 +21577,13 @@ Z10XModelLoadPKcPFPviES3_:F(0,59)_640:
 	mov [esp+0x4], edx
 	mov edi, [ebp-0x1158]
 	mov [esp], edi
-	call Z18XModelPartsSetDataPKcP13XModelParts_sPFPviE:F(0,20)
+	call Z18XModelPartsSetDataPKcP13XModelParts_sPFPviE_F0_20
 	mov ecx, [ebp-0x115c]
-	jmp Z10XModelLoadPKcPFPviES3_:F(0,59)_360
-Z10XModelLoadPKcPFPviES3_:F(0,59)_460:
+	jmp Z10XModelLoadPKcPFPviES3__F0_59_360
+Z10XModelLoadPKcPFPviES3__F0_59_460:
 	xor esi, esi
 	mov edi, [ebp-0x1100]
-Z10XModelLoadPKcPFPviES3_:F(0,59)_500:
+Z10XModelLoadPKcPFPviES3__F0_59_500:
 	cld
 	mov ecx, 0xffffffff
 	xor eax, eax
@@ -21365,17 +21595,17 @@ Z10XModelLoadPKcPFPviES3_:F(0,59)_500:
 	mov dword [esp+0x4], 0x0
 	mov edi, [ebp-0x1100]
 	mov [esp], edi
-	call SL_GetStringOfLen:F(0,1)
+	call SL_GetStringOfLen_F0_1
 	mov edx, [ebp-0x114c]
 	mov [edx+esi*2], ax
 	add edi, ebx
 	mov [ebp-0x1100], edi
 	add esi, 0x1
 	cmp [ebp-0x1154], esi
-	jnz Z10XModelLoadPKcPFPviES3_:F(0,59)_500
+	jnz Z10XModelLoadPKcPFPviES3__F0_59_500
 	mov edx, edi
-	jmp Z10XModelLoadPKcPFPviES3_:F(0,59)_510
-Z10XModelLoadPKcPFPviES3_:F(0,59)_440:
+	jmp Z10XModelLoadPKcPFPviES3__F0_59_510
+Z10XModelLoadPKcPFPviES3__F0_59_440:
 	mov ebx, [ebp-0x1150]
 	shl ebx, 0x3
 	mov [esp], ebx
@@ -21391,10 +21621,10 @@ Z10XModelLoadPKcPFPviES3_:F(0,59)_440:
 	mov edx, [ebp-0x115c]
 	mov [edx+0xc], eax
 	add [edi+0x84], ebx
-	jmp Z10XModelLoadPKcPFPviES3_:F(0,59)_520
-Z10XModelLoadPKcPFPviES3_:F(0,59)_430:
+	jmp Z10XModelLoadPKcPFPviES3__F0_59_520
+Z10XModelLoadPKcPFPviES3__F0_59_430:
 	xor ebx, ebx
-Z10XModelLoadPKcPFPviES3_:F(0,59)_530:
+Z10XModelLoadPKcPFPviES3__F0_59_530:
 	mov eax, [ebp+0xc]
 	mov [esp+0xc], eax
 	lea edx, [ebp-0x20]
@@ -21403,18 +21633,18 @@ Z10XModelLoadPKcPFPviES3_:F(0,59)_530:
 	mov [esp+0x4], ecx
 	mov eax, [ebp-0x1170]
 	mov [esp], eax
-	call Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)
+	call Z17XModelReadSurfaceP6XModelPiPPKhPFPviE_F0_1
 	mov edx, [ebp-0x1120]
 	mov [edx+ebx*4], eax
 	add ebx, 0x1
 	cmp [ebp-0x112c], ebx
-	jnz Z10XModelLoadPKcPFPviES3_:F(0,59)_530
-	jmp Z10XModelLoadPKcPFPviES3_:F(0,59)_540
-Z10XModelLoadPKcPFPviES3_:F(0,59)_450:
+	jnz Z10XModelLoadPKcPFPviES3__F0_59_530
+	jmp Z10XModelLoadPKcPFPviES3__F0_59_540
+Z10XModelLoadPKcPFPviES3__F0_59_450:
 	xor edi, edi
 	mov ebx, eax
-	jmp Z10XModelLoadPKcPFPviES3_:F(0,59)_550
-Z10XModelLoadPKcPFPviES3_:F(0,59)_570:
+	jmp Z10XModelLoadPKcPFPviES3__F0_59_550
+Z10XModelLoadPKcPFPviES3__F0_59_570:
 	cvtsi2ss xmm0, edx
 	sqrtss xmm0, xmm0
 	addss xmm0, [_float_0_50000000]
@@ -21422,7 +21652,7 @@ Z10XModelLoadPKcPFPviES3_:F(0,59)_570:
 	call floorf
 	fstp dword [ebp-0x117c]
 	cvttss2si eax, [ebp-0x117c]
-Z10XModelLoadPKcPFPviES3_:F(0,59)_580:
+Z10XModelLoadPKcPFPviES3__F0_59_580:
 	mov [ebx+0x6], ax
 	add esi, 0xc
 	add edi, 0x1
@@ -21430,8 +21660,8 @@ Z10XModelLoadPKcPFPviES3_:F(0,59)_580:
 	mov eax, [ebp-0x1154]
 	sub eax, [ebp-0x1174]
 	cmp eax, edi
-	jz Z10XModelLoadPKcPFPviES3_:F(0,59)_560
-Z10XModelLoadPKcPFPviES3_:F(0,59)_550:
+	jz Z10XModelLoadPKcPFPviES3__F0_59_560
+Z10XModelLoadPKcPFPviES3__F0_59_550:
 	movzx ecx, byte [ebp-0x1174]
 	lea eax, [edi+ecx]
 	mov edx, [ebp-0x1100]
@@ -21472,21 +21702,21 @@ Z10XModelLoadPKcPFPviES3_:F(0,59)_550:
 	mov edx, 0x3fff0001
 	sub edx, eax
 	test edx, edx
-	jg Z10XModelLoadPKcPFPviES3_:F(0,59)_570
+	jg Z10XModelLoadPKcPFPviES3__F0_59_570
 	xor eax, eax
-	jmp Z10XModelLoadPKcPFPviES3_:F(0,59)_580
-Z10XModelLoadPKcPFPviES3_:F(0,59)_490:
+	jmp Z10XModelLoadPKcPFPviES3__F0_59_580
+Z10XModelLoadPKcPFPviES3__F0_59_490:
 	mov esi, [ebp-0x113c]
 	add esi, 0xc
 	lea eax, [edi+eax]
 	mov [ebp-0x1180], eax
-	jmp Z10XModelLoadPKcPFPviES3_:F(0,59)_590
-Z10XModelLoadPKcPFPviES3_:F(0,59)_620:
+	jmp Z10XModelLoadPKcPFPviES3__F0_59_590
+Z10XModelLoadPKcPFPviES3__F0_59_620:
 	movss xmm6, dword [_float_1_00000000]
 	movss [ebp-0x1184], xmm6
 	movss [ebx+0xc], xmm6
 	mov dword [ebx+0x1c], 0x40000000
-Z10XModelLoadPKcPFPviES3_:F(0,59)_630:
+Z10XModelLoadPKcPFPviES3__F0_59_630:
 	lea edx, [ebx+0x10]
 	movzx eax, byte [edi]
 	shl eax, 0x5
@@ -21565,8 +21795,8 @@ Z10XModelLoadPKcPFPviES3_:F(0,59)_630:
 	add edi, 0x1
 	add esi, 0xc
 	cmp [ebp-0x1180], edi
-	jz Z10XModelLoadPKcPFPviES3_:F(0,59)_600
-Z10XModelLoadPKcPFPviES3_:F(0,59)_590:
+	jz Z10XModelLoadPKcPFPviES3__F0_59_600
+Z10XModelLoadPKcPFPviES3__F0_59_590:
 	mov edx, [ebp-0x1140]
 	movsx eax, word [edx]
 	cvtsi2ss xmm0, eax
@@ -21592,7 +21822,7 @@ Z10XModelLoadPKcPFPviES3_:F(0,59)_590:
 	mov [esp+0x4], ecx
 	lea eax, [ebp-0x30]
 	mov [esp], eax
-	call Z12QuatMultiplyPKfS0_Pf:F(0,18)
+	call Z12QuatMultiplyPKfS0_Pf_F0_18
 	movss xmm3, dword [ebx]
 	movss xmm0, dword [ebx+0x4]
 	movss xmm1, dword [ebx+0x8]
@@ -21605,25 +21835,25 @@ Z10XModelLoadPKcPFPviES3_:F(0,59)_590:
 	mulss xmm2, xmm2
 	addss xmm3, xmm2
 	ucomiss xmm3, [_float_0_00000000]
-	jp Z10XModelLoadPKcPFPviES3_:F(0,59)_610
-	jz Z10XModelLoadPKcPFPviES3_:F(0,59)_620
-Z10XModelLoadPKcPFPviES3_:F(0,59)_610:
+	jp Z10XModelLoadPKcPFPviES3__F0_59_610
+	jz Z10XModelLoadPKcPFPviES3__F0_59_620
+Z10XModelLoadPKcPFPviES3__F0_59_610:
 	movss xmm0, dword [_float_2_00000000]
 	divss xmm0, xmm3
 	movss [ebx+0x1c], xmm0
 	movss xmm0, dword [_float_1_00000000]
 	movss [ebp-0x1184], xmm0
-	jmp Z10XModelLoadPKcPFPviES3_:F(0,59)_630
-Z10XModelLoadPKcPFPviES3_:F(0,59)_600:
+	jmp Z10XModelLoadPKcPFPviES3__F0_59_630
+Z10XModelLoadPKcPFPviES3__F0_59_600:
 	mov eax, [ebp-0x115c]
 	mov edx, [ebp-0x115c]
-	jmp Z10XModelLoadPKcPFPviES3_:F(0,59)_640
+	jmp Z10XModelLoadPKcPFPviES3__F0_59_640
 	add [eax], al
 
 
-;Z15SE_LoadFileDataPKc:F(0,1)
+;Z15SE_LoadFileDataPKc_F0_1
 
-Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1):
+Z17XModelReadSurfaceP6XModelPiPPKhPFPviE_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -21664,7 +21894,7 @@ Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1):
 	mov [edi], ecx
 	movsx ecx, word [ebp-0x3e]
 	cmp word [ebp-0x3e], 0xffff
-	jz Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)_10
+	jz Z17XModelReadSurfaceP6XModelPiPPKhPFPviE_F0_1_10
 	mov eax, ecx
 	shl eax, 0x6
 	mov edx, [ebp-0x38]
@@ -21684,12 +21914,12 @@ Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1):
 	add [esi+0x84], ebx
 	mov edx, [ebp-0x38]
 	mov [edx+0xc], eax
-Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)_140:
+Z17XModelReadSurfaceP6XModelPiPPKhPFPviE_F0_1_140:
 	mov esi, eax
 	mov ecx, [ebp-0x38]
 	cmp word [ecx+0x2], 0x0
-	jg Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)_20
-Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)_70:
+	jg Z17XModelReadSurfaceP6XModelPiPPKhPFPviE_F0_1_20
+Z17XModelReadSurfaceP6XModelPiPPKhPFPviE_F0_1_70:
 	movsx eax, word [ecx+0x4]
 	lea esi, [eax+0x1]
 	and esi, 0xfffffffe
@@ -21703,11 +21933,11 @@ Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)_70:
 	movsx edx, word [ecx+0x4]
 	lea eax, [edx+edx*2]
 	test eax, eax
-	jg Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)_30
+	jg Z17XModelReadSurfaceP6XModelPiPPKhPFPviE_F0_1_30
 	xor ebx, ebx
-Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)_130:
+Z17XModelReadSurfaceP6XModelPiPPKhPFPviE_F0_1_130:
 	cmp esi, edx
-	jz Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)_40
+	jz Z17XModelReadSurfaceP6XModelPiPPKhPFPviE_F0_1_40
 	mov eax, [ebp-0x38]
 	mov ecx, [eax+0x8]
 	lea eax, [ebx+ebx]
@@ -21723,7 +21953,7 @@ Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)_130:
 	movzx edx, word [eax-0x2]
 	mov [eax+0x4], dx
 	add word [ecx+0x4], 0x1
-Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)_40:
+Z17XModelReadSurfaceP6XModelPiPPKhPFPviE_F0_1_40:
 	mov eax, [ebp-0x38]
 	add esp, 0x4c
 	pop ebx
@@ -21731,9 +21961,9 @@ Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)_40:
 	pop edi
 	pop ebp
 	ret
-Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)_20:
+Z17XModelReadSurfaceP6XModelPiPPKhPFPviE_F0_1_20:
 	mov dword [ebp-0x30], 0x0
-Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)_60:
+Z17XModelReadSurfaceP6XModelPiPPKhPFPviE_F0_1_60:
 	mov edx, [edi]
 	mov eax, [edx]
 	mov [ebp-0x1c], eax
@@ -21826,7 +22056,7 @@ Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)_60:
 	mov eax, [ebp-0x1c]
 	mov [esi+0x28], eax
 	cmp word [ebp-0x3e], 0xffff
-	jz Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)_50
+	jz Z17XModelReadSurfaceP6XModelPiPPKhPFPviE_F0_1_50
 	mov edx, [edi]
 	mov eax, [edx]
 	mov [ebp-0x1c], eax
@@ -21848,17 +22078,17 @@ Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)_60:
 	mov [edi], ecx
 	mov eax, [ebp-0x1c]
 	mov [esi+0x38], eax
-Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)_80:
+Z17XModelReadSurfaceP6XModelPiPPKhPFPviE_F0_1_80:
 	add esi, 0x40
-Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)_90:
+Z17XModelReadSurfaceP6XModelPiPPKhPFPviE_F0_1_90:
 	add dword [ebp-0x30], 0x1
 	mov edx, [ebp-0x38]
 	movsx eax, word [edx+0x2]
 	cmp eax, [ebp-0x30]
-	jg Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)_60
+	jg Z17XModelReadSurfaceP6XModelPiPPKhPFPviE_F0_1_60
 	mov ecx, edx
-	jmp Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)_70
-Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)_50:
+	jmp Z17XModelReadSurfaceP6XModelPiPPKhPFPviE_F0_1_70
+Z17XModelReadSurfaceP6XModelPiPPKhPFPviE_F0_1_50:
 	mov eax, [edi]
 	movzx edx, byte [eax]
 	mov [ebp-0x29], dl
@@ -21902,7 +22132,7 @@ Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)_50:
 	mov eax, [ebp-0x1c]
 	mov [esi+0x38], eax
 	cmp byte [ebp-0x29], 0x0
-	jz Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)_80
+	jz Z17XModelReadSurfaceP6XModelPiPPKhPFPviE_F0_1_80
 	mov eax, [edi]
 	movzx eax, byte [eax]
 	mov [esi+0x3d], al
@@ -21913,12 +22143,12 @@ Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)_50:
 	movzx eax, byte [ebp-0x29]
 	mov [ebp-0x3c], eax
 	test eax, eax
-	jle Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)_90
+	jle Z17XModelReadSurfaceP6XModelPiPPKhPFPviE_F0_1_90
 	mov dword [ebp-0x34], 0x0
-	jmp Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)_100
-Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)_110:
+	jmp Z17XModelReadSurfaceP6XModelPiPPKhPFPviE_F0_1_100
+Z17XModelReadSurfaceP6XModelPiPPKhPFPviE_F0_1_110:
 	mov ecx, [edi]
-Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)_100:
+Z17XModelReadSurfaceP6XModelPiPPKhPFPviE_F0_1_100:
 	movsx edx, word [ecx]
 	mov [ebp-0x1c], dx
 	add ecx, 0x2
@@ -21964,11 +22194,11 @@ Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)_100:
 	add dword [ebp-0x34], 0x1
 	mov eax, [ebp-0x34]
 	cmp [ebp-0x3c], eax
-	jnz Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)_110
-	jmp Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)_90
-Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)_30:
+	jnz Z17XModelReadSurfaceP6XModelPiPPKhPFPviE_F0_1_110
+	jmp Z17XModelReadSurfaceP6XModelPiPPKhPFPviE_F0_1_90
+Z17XModelReadSurfaceP6XModelPiPPKhPFPviE_F0_1_30:
 	xor ebx, ebx
-Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)_120:
+Z17XModelReadSurfaceP6XModelPiPPKhPFPviE_F0_1_120:
 	mov eax, [ebp-0x38]
 	mov ecx, [eax+0x8]
 	mov eax, [edi]
@@ -21982,9 +22212,9 @@ Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)_120:
 	movsx edx, word [ecx+0x4]
 	lea eax, [edx+edx*2]
 	cmp eax, ebx
-	jg Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)_120
-	jmp Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)_130
-Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)_10:
+	jg Z17XModelReadSurfaceP6XModelPiPPKhPFPviE_F0_1_120
+	jmp Z17XModelReadSurfaceP6XModelPiPPKhPFPviE_F0_1_130
+Z17XModelReadSurfaceP6XModelPiPPKhPFPviE_F0_1_10:
 	movsx eax, word [edx+0x2]
 	mov [ebp-0x1c], ax
 	lea ecx, [edx+0x4]
@@ -21999,12 +22229,12 @@ Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)_10:
 	add [esi+0x84], ebx
 	mov ecx, [ebp-0x38]
 	mov [ecx+0xc], eax
-	jmp Z17XModelReadSurfaceP6XModelPiPPKhPFPviE:F(0,1)_140
+	jmp Z17XModelReadSurfaceP6XModelPiPPKhPFPviE_F0_1_140
 
 
-;Z21R_ShutdownBackendDatav:F(0,1)
+;Z21R_ShutdownBackendDatav_F0_1
 
-Z14XModelOptimizeP6XModel:F(0,1):
+Z14XModelOptimizeP6XModel_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -22017,18 +22247,18 @@ Z14XModelOptimizeP6XModel:F(0,1):
 	call dword [ebx+0x178]
 	mov [ebp-0x34], eax
 	test eax, eax
-	jg Z14XModelOptimizeP6XModel:F(0,1)_10
+	jg Z14XModelOptimizeP6XModel_F0_1_10
 	add esp, 0x4c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z14XModelOptimizeP6XModel:F(0,1)_10:
+Z14XModelOptimizeP6XModel_F0_1_10:
 	mov dword [ebp-0x38], 0x0
 	mov [ebp-0x3c], ebx
 	mov eax, [ebp-0x38]
-Z14XModelOptimizeP6XModel:F(0,1)_60:
+Z14XModelOptimizeP6XModel_F0_1_60:
 	lea edx, [ebp-0x20]
 	mov [esp+0xc], edx
 	mov [esp+0x8], eax
@@ -22040,32 +22270,32 @@ Z14XModelOptimizeP6XModel:F(0,1)_60:
 	call dword [edx+0x16c]
 	mov [ebp-0x2c], eax
 	test eax, eax
-	jle Z14XModelOptimizeP6XModel:F(0,1)_20
+	jle Z14XModelOptimizeP6XModel_F0_1_20
 	mov dword [ebp-0x30], 0x0
 	mov edx, [ebp-0x30]
-	jmp Z14XModelOptimizeP6XModel:F(0,1)_30
-Z14XModelOptimizeP6XModel:F(0,1)_50:
+	jmp Z14XModelOptimizeP6XModel_F0_1_30
+Z14XModelOptimizeP6XModel_F0_1_50:
 	mov [esp], ebx
-	call Z21XSurfaceGetBoneOffsetPK10XSurface_s:F(0,1)
+	call Z21XSurfaceGetBoneOffsetPK10XSurface_s_F0_1
 	add eax, 0x1
-	jz Z14XModelOptimizeP6XModel:F(0,1)_40
+	jz Z14XModelOptimizeP6XModel_F0_1_40
 	mov eax, [ebx+0xc]
 	mov [esp+0x8], eax
 	mov [esp+0x4], ebx
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z21XSurfaceOptimizeRigidP6XModelP10XSurface_sP13XVertexBuffer:F(0,1)
-Z14XModelOptimizeP6XModel:F(0,1)_40:
+	call Z21XSurfaceOptimizeRigidP6XModelP10XSurface_sP13XVertexBuffer_F0_1
+Z14XModelOptimizeP6XModel_F0_1_40:
 	add dword [ebp-0x30], 0x1
 	mov edx, [ebp-0x30]
 	cmp [ebp-0x2c], edx
-	jz Z14XModelOptimizeP6XModel:F(0,1)_20
-Z14XModelOptimizeP6XModel:F(0,1)_30:
+	jz Z14XModelOptimizeP6XModel_F0_1_20
+Z14XModelOptimizeP6XModel_F0_1_30:
 	mov eax, [ebp-0x1c]
 	mov ebx, [eax+edx*4]
 	mov edx, [ebx+0x14]
 	test edx, edx
-	jnz Z14XModelOptimizeP6XModel:F(0,1)_50
+	jnz Z14XModelOptimizeP6XModel_F0_1_50
 	movsx eax, word [ebx+0x4]
 	lea eax, [eax+eax*2]
 	add eax, eax
@@ -22076,16 +22306,16 @@ Z14XModelOptimizeP6XModel:F(0,1)_30:
 	mov [esp+0x4], edi
 	lea eax, [ebx+0x14]
 	mov [esp], eax
-	call Z24R_AllocStaticIndexBufferPP21IDirect3DIndexBuffer9i:F(0,1)
+	call Z24R_AllocStaticIndexBufferPP21IDirect3DIndexBuffer9i_F0_1
 	mov esi, eax
 	test eax, eax
-	jz Z14XModelOptimizeP6XModel:F(0,1)_40
+	jz Z14XModelOptimizeP6XModel_F0_1_40
 	mov eax, [ebp-0x40]
 	mov [esp+0x8], eax
 	mov eax, [ebx+0x8]
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call Com_Memcpy:F(0,12)
+	call Com_Memcpy_F0_12
 	sub edi, [ebp-0x40]
 	mov edx, [ebp-0x40]
 	lea eax, [esi+edx]
@@ -22095,13 +22325,13 @@ Z14XModelOptimizeP6XModel:F(0,1)_30:
 	call memset
 	mov eax, [ebx+0x14]
 	mov [esp], eax
-	call Z25R_FinishStaticIndexBufferP21IDirect3DIndexBuffer9:F(0,4)
-	jmp Z14XModelOptimizeP6XModel:F(0,1)_50
-Z14XModelOptimizeP6XModel:F(0,1)_20:
+	call Z25R_FinishStaticIndexBufferP21IDirect3DIndexBuffer9_F0_4
+	jmp Z14XModelOptimizeP6XModel_F0_1_50
+Z14XModelOptimizeP6XModel_F0_1_20:
 	add dword [ebp-0x38], 0x1
 	mov eax, [ebp-0x38]
 	cmp [ebp-0x34], eax
-	jnz Z14XModelOptimizeP6XModel:F(0,1)_60
+	jnz Z14XModelOptimizeP6XModel_F0_1_60
 	add esp, 0x4c
 	pop ebx
 	pop esi
@@ -22111,9 +22341,9 @@ Z14XModelOptimizeP6XModel:F(0,1)_20:
 	nop
 
 
-;Z16XModelUnoptimizeP6XModel:F(0,1)
+;Z16XModelUnoptimizeP6XModel_F0_1
 
-Z16XModelUnoptimizeP6XModel:F(0,1):
+Z16XModelUnoptimizeP6XModel_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -22126,19 +22356,19 @@ Z16XModelUnoptimizeP6XModel:F(0,1):
 	call dword [ebx+0x178]
 	mov [ebp-0x30], eax
 	test eax, eax
-	jg Z16XModelUnoptimizeP6XModel:F(0,1)_10
+	jg Z16XModelUnoptimizeP6XModel_F0_1_10
 	add esp, 0x3c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-Z16XModelUnoptimizeP6XModel:F(0,1)_10:
+Z16XModelUnoptimizeP6XModel_F0_1_10:
 	mov dword [ebp-0x34], 0x0
 	mov [ebp-0x38], ebx
 	mov edi, [0x1acd141]
 	mov eax, [ebp-0x34]
-Z16XModelUnoptimizeP6XModel:F(0,1)_70:
+Z16XModelUnoptimizeP6XModel_F0_1_70:
 	lea edx, [ebp-0x20]
 	mov [esp+0xc], edx
 	mov [esp+0x8], eax
@@ -22150,22 +22380,22 @@ Z16XModelUnoptimizeP6XModel:F(0,1)_70:
 	call dword [edx+0x16c]
 	mov [ebp-0x2c], eax
 	test eax, eax
-	jle Z16XModelUnoptimizeP6XModel:F(0,1)_20
+	jle Z16XModelUnoptimizeP6XModel_F0_1_20
 	xor esi, esi
-Z16XModelUnoptimizeP6XModel:F(0,1)_60:
+Z16XModelUnoptimizeP6XModel_F0_1_60:
 	mov eax, [ebp-0x1c]
 	mov ebx, [eax+esi*4]
 	mov eax, [ebx+0x14]
 	test eax, eax
-	jz Z16XModelUnoptimizeP6XModel:F(0,1)_30
+	jz Z16XModelUnoptimizeP6XModel_F0_1_30
 	mov [esp], eax
-	call Z23R_FreeStaticIndexBufferP21IDirect3DIndexBuffer9:F(0,4)
+	call Z23R_FreeStaticIndexBufferP21IDirect3DIndexBuffer9_F0_4
 	mov dword [ebx+0x14], 0x0
-Z16XModelUnoptimizeP6XModel:F(0,1)_30:
+Z16XModelUnoptimizeP6XModel_F0_1_30:
 	mov eax, [ebx+0x10]
 	test eax, eax
-	jz Z16XModelUnoptimizeP6XModel:F(0,1)_40
-Z16XModelUnoptimizeP6XModel:F(0,1)_50:
+	jz Z16XModelUnoptimizeP6XModel_F0_1_40
+Z16XModelUnoptimizeP6XModel_F0_1_50:
 	mov eax, [ebx+0x10]
 	mov edx, [eax]
 	mov [esp], eax
@@ -22173,16 +22403,16 @@ Z16XModelUnoptimizeP6XModel:F(0,1)_50:
 	mov dword [ebx+0x10], 0x0
 	mov ecx, [edi]
 	test ecx, ecx
-	jnz Z16XModelUnoptimizeP6XModel:F(0,1)_50
-Z16XModelUnoptimizeP6XModel:F(0,1)_40:
+	jnz Z16XModelUnoptimizeP6XModel_F0_1_50
+Z16XModelUnoptimizeP6XModel_F0_1_40:
 	add esi, 0x1
 	cmp [ebp-0x2c], esi
-	jnz Z16XModelUnoptimizeP6XModel:F(0,1)_60
-Z16XModelUnoptimizeP6XModel:F(0,1)_20:
+	jnz Z16XModelUnoptimizeP6XModel_F0_1_60
+Z16XModelUnoptimizeP6XModel_F0_1_20:
 	add dword [ebp-0x34], 0x1
 	mov eax, [ebp-0x34]
 	cmp [ebp-0x30], eax
-	jnz Z16XModelUnoptimizeP6XModel:F(0,1)_70
+	jnz Z16XModelUnoptimizeP6XModel_F0_1_70
 	add esp, 0x3c
 	pop ebx
 	pop esi
@@ -22191,5 +22421,5 @@ Z16XModelUnoptimizeP6XModel:F(0,1)_20:
 	ret
 
 
-;Z28R_InitStaticModelDynamicDatai:F(0,40)
+;Z28R_InitStaticModelDynamicDatai_F0_40
 

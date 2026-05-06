@@ -2,663 +2,681 @@
 ;Symbols in this file: 18
 ;
 ;Imports (over-declared, NASM-safe):
-	extern __keymgr_dwarf2_register_sections
-	extern atexit
-	extern exit
-	extern AEDisposeDesc
-	extern AECreateDesc
-	extern __cxa_allocate_exception
-	extern __cxa_throw
-	extern _Unwind_Resume
 	extern AECoerceDesc
+	extern AECreateAppleEvent
+	extern AECreateDesc
+	extern AEDisposeDesc
 	extern AEGetDescData
 	extern AEGetDescDataSize
-	extern CreateObjSpecifier
-	extern AEPutParamDesc
-	extern AECreateAppleEvent
-	extern AESend
-	extern AEPutParamPtr
-	extern AEGetParamPtr
 	extern AEGetParamDesc
-	extern GetControlBounds
-	extern PtInRect
-	extern GetEventKind
-	extern GetEventClass
-	extern GetEventParameter
-	extern GetControlOwner
-	extern AdvanceKeyboardFocus
-	extern SetWRefCon
-	extern QuitAppModalLoopForWindow
-	extern HIViewGetRoot
-	extern HIViewGetViewForMouseEvent
-	extern GetControlKind
-	extern SetThemeCursor
-	extern CFBundleGetMainBundle
-	extern CreateNibReferenceWithCFBundle
-	extern CreateWindowFromNib
-	extern DisposeNibReference
-	extern GetWindowEventTarget
-	extern InstallEventHandler
-	extern GetWindowResizeLimits
-	extern SetWindowResizeLimits
-	extern InitCursor
-	extern ShowWindow
-	extern RunAppModalLoopForWindow
-	extern HideWindow
-	extern GetWRefCon
-	extern DisposeWindow
-	extern GetControlByID
-	extern GetControlMaximum
-	extern GetControlDataSize
-	extern SetControlData
-	extern HandleControlKey
-	extern GetControlReference
-	extern GetControlData
-	extern AlertSoundPlay
-	extern HITextViewGetTXNObject
-	extern TXNSetTypeAttributes
-	extern HideControl
-	extern ShowControl
-	extern DisableControl
-	extern EnableControl
-	extern SetControlFontStyle
-	extern SetKeyboardFocus
-	extern NewControlUserPaneDrawUPP
-	extern NewControlUserPaneHitTestUPP
-	extern NewControlUserPaneTrackingUPP
-	extern SetControlReference
-	extern SetControlMaximum
-	extern NewControlKeyFilterUPP
-	extern NewControlEditTextValidationUPP
-	extern GetWindowPort
-	extern CGDisplayBounds
-	extern DMGetFirstScreenDevice
-	extern EqualRect
-	extern DMGetNextScreenDevice
-	extern GetMainDevice
-	extern GetWindowPortBounds
-	extern CGDisplayFade
-	extern CGReleaseDisplayFadeReservation
-	extern CGAcquireDisplayFadeReservation
-	extern CGDisplayPixelsWide
-	extern CGDisplayPixelsHigh
-	extern CGDisplayBitsPerPixel
-	extern aglSwapBuffers
-	extern EndMediaEdits
-	extern GetMediaDuration
-	extern InsertMediaIntoTrack
-	extern AddMovieResource
-	extern CloseMovieFile
-	extern MoveWindow
-	extern GetAvailableWindowPositioningBounds
-	extern CreateNewWindow
-	extern SetPortWindowPort
-	extern SetWindowContentColor
-	extern SetWindowTitleWithCFString
-	extern gluCheckExtension
-	extern _Znam
-	extern CGSetDisplayTransferByTable
-	extern _ZdaPv
-	extern CGGetDisplayTransferByTable
-	extern QDLocalToGlobalPoint
-	extern QDGlobalToLocalPoint
-	extern _Znwm
-	extern _ZdlPv
-	extern _ZSt17__throw_bad_allocv
-	extern _ZSt20__throw_length_errorPKc
-	extern NormalizeThemeDrawingState
-	extern ForeColor
-	extern FrameRoundRect
-	extern RGBForeColor
-	extern PaintRoundRect
-	extern NewRgn
-	extern OpenRgn
-	extern CloseRgn
-	extern SetClip
-	extern DisposeRgn
-	extern ClipRect
-	extern DrawThemeMenuBarBackground
-	extern InsetRect
-	extern DrawThemeFocusRect
-	extern GetIconRefFromFileInfo
-	extern PlotIconRef
-	extern ReleaseIconRef
-	extern CGRectIsEmpty
-	extern CGRectUnion
-	extern CGRectGetWidth
-	extern CGRectGetHeight
-	extern OffsetRect
-	extern MapRect
-	extern glFinish
-	extern aglSetCurrentContext
-	extern aglSetDrawable
-	extern aglDestroyContext
-	extern ShowMenuBar
-	extern SetSystemUIMode
-	extern aglChoosePixelFormat
-	extern aglCreateContext
-	extern aglSetFullScreen
-	extern CGDisplayCurrentMode
-	extern aglSetInteger
-	extern HideMenuBar
-	extern aglDescribePixelFormat
-	extern aglDestroyPixelFormat
-	extern glEnable
-	extern glHint
-	extern aglGetDrawable
-	extern glDisable
-	extern IsWindowVisible
-	extern SizeWindow
-	extern PaintRect
-	extern _ZNSs6assignERKSs
-	extern CGDisplayIDToOpenGLDisplayMask
-	extern CGLQueryRendererInfo
-	extern CGLDescribeRenderer
-	extern CGLDestroyRendererInfo
-	extern CGDisplayAvailableModes
-	extern CFArrayGetCount
-	extern CGDisplayIOServicePort
-	extern CGLGetCurrentContext
-	extern CGLChoosePixelFormat
-	extern CGLCreateContext
-	extern CGLDestroyPixelFormat
-	extern CGLSetCurrentContext
-	extern glGetString
-	extern _ZNSs6assignEPKcm
-	extern glGetIntegerv
-	extern CGLDestroyContext
-	extern _ZNSsC1ERKSs
-	extern strstr
-	extern _ZNSsD1Ev
-	extern CFArrayGetValueAtIndex
-	extern IOObjectConformsTo
-	extern IORegistryEntryGetParentEntry
-	extern glGetFloatv
-	extern _ZN9__gnu_cxx18__exchange_and_addEPVii
-	extern _ZNSs4_Rep10_M_destroyERKSaIcE
-	extern __cxa_begin_catch
-	extern __cxa_rethrow
-	extern __cxa_end_catch
-	extern CGGetActiveDisplayList
-	extern NewMenu
-	extern InsertMenu
-	extern InvalMenuBar
-	extern GetCurrentKeyModifiers
-	extern CGRectEqualToRect
-	extern Gestalt
-	extern sysctl
-	extern FSOpenIterator
-	extern FSGetCatalogInfoBulk
-	extern FSCloseIterator
-	extern FSDeleteObject
-	extern FSSetCatalogInfo
-	extern FSPathMakeRef
-	extern access
-	extern CFBundleCopyExecutableURL
-	extern CFURLGetFSRef
-	extern CFRelease
-	extern FSGetCatalogInfo
-	extern GetCurrentProcess
-	extern strcat
-	extern GetProcessBundleLocation
-	extern FSRefMakePath
-	extern PBGetCatInfoSync
-	extern FSMakeFSSpec
-	extern FSpMakeFSRef
-	extern memcpy
-	extern CFStringCreateWithCString
-	extern CFPreferencesCopyAppValue
-	extern CFGetTypeID
-	extern CFStringGetTypeID
-	extern strcpy
-	extern CFStringGetCString
-	extern CFPreferencesSetAppValue
-	extern atoi
-	extern sprintf
-	extern CFPreferencesAppSynchronize
-	extern atof
-	extern CFBundleCopyLocalizedString
-	extern CFStringGetPascalString
-	extern StringToNum
-	extern CFStringCreateWithFormat
-	extern GetPort
-	extern SetPort
-	extern CFStringCreateWithCharacters
-	extern GetCursor
-	extern SetCursor
-	extern CGAssociateMouseAndMouseCursorPosition
-	extern CGWarpMouseCursorPosition
-	extern HideCursor
-	extern GetGlobalMouse
-	extern UpTime
+	extern AEGetParamPtr
+	extern AEInstallEventHandler
+	extern AEPutParamDesc
+	extern AEPutParamPtr
+	extern AESend
+	extern AUGraphConnectNodeInput
+	extern AUGraphGetCPULoad
+	extern AUGraphGetNodeInfo
+	extern AUGraphInitialize
+	extern AUGraphNewNode
+	extern AUGraphOpen
+	extern AUGraphStart
+	extern AUGraphStop
+	extern AUGraphUpdate
 	extern AddDurationToAbsolute
-	extern MPDelayUntil
-	extern GetNextProcess
-	extern GetProcessInformation
-	extern CFDictionaryGetValue
-	extern CFNumberGetValue
-	extern lround
-	extern IORegistryEntryCreateCFProperty
+	extern AddMovieResource
+	extern AdvanceKeyboardFocus
+	extern AlertSoundPlay
+	extern AppendMenuItemTextWithCFString
+	extern AudioConverterDispose
+	extern AudioConverterFillBuffer
+	extern AudioConverterFillComplexBuffer
+	extern AudioConverterNew
+	extern AudioConverterReset
+	extern AudioDeviceGetProperty
+	extern AudioDeviceGetPropertyInfo
+	extern AudioDeviceSetProperty
+	extern AudioHardwareGetProperty
+	extern AudioOutputUnitStart
+	extern AudioOutputUnitStop
+	extern AudioUnitAddRenderNotify
+	extern AudioUnitGetProperty
+	extern AudioUnitInitialize
+	extern AudioUnitRemoveRenderNotify
+	extern AudioUnitRender
+	extern AudioUnitSetParameter
+	extern AudioUnitSetProperty
+	extern AudioUnitUninitialize
+	extern CFArrayGetCount
+	extern CFArrayGetValueAtIndex
+	extern CFBundleCopyExecutableURL
+	extern CFBundleCopyLocalizedString
+	extern CFBundleGetMainBundle
 	extern CFDataGetBytePtr
-	extern CreateEvent
-	extern SetEventParameter
-	extern GetMainEventQueue
-	extern PostEventToQueue
-	extern ReleaseEvent
-	extern pthread_main_np
-	extern GetStandardAlertDefaultParams
-	extern CreateStandardAlert
-	extern RunStandardAlert
-	extern LSCopyItemInfoForRef
-	extern pthread_self
-	extern OTAtomicAdd32
-	extern OTCompareAndSwap32
-	extern calloc
-	extern free
-	extern strrchr
-	extern Microseconds
-	extern __udivdi3
-	extern memset
-	extern strncpy
-	extern getcwd
-	extern NewGWorld
-	extern GetGWorldPixMap
-	extern LockPixels
-	extern GetPixRowBytes
-	extern QDRegisterNamedPixMapCursor
-	extern DisposeGWorld
-	extern TickCount
-	extern QDSetNamedPixMapCursor
-	extern GetMainEventLoop
-	extern InstallEventLoopTimer
-	extern GetQDGlobalsArrow
-	extern ShowCursor
-	extern fopen
-	extern fseek
-	extern fclose
-	extern ftell
-	extern rewind
-	extern malloc
-	extern fread
-	extern _ZNKSs7compareEPKc
-	extern glStencilMask
-	extern glDepthMask
-	extern glFlushVertexArrayRangeAPPLE
-	extern glTexParameterfv
-	extern glLightfv
-	extern glColor4f
-	extern glMatrixMode
-	extern glLoadMatrixf
-	extern glTexParameteri
-	extern glGenTextures
-	extern _ZNSt15_List_node_base4hookEPS_
-	extern glTexParameterf
-	extern glTexEnvf
-	extern glPushMatrix
-	extern glLoadIdentity
-	extern glTexCoord2f
-	extern glPopMatrix
-	extern glTexEnvfv
-	extern glPointSize
-	extern glDrawRangeElements
-	extern memmove
-	extern glBindTexture
-	extern glColorMask
-	extern glActiveTextureARB
-	extern glDepthFunc
-	extern glShadeModel
-	extern glViewport
-	extern glDepthRange
-	extern glAlphaFunc
-	extern glClearDepth
-	extern glScissor
-	extern glClear
-	extern glClearColor
-	extern glClearStencil
-	extern glMaterialfv
-	extern glMaterialf
-	extern glPixelStorei
-	extern glCopyTexSubImage2D
-	extern gluOrtho2D
-	extern glTexEnvi
-	extern glBlendFuncSeparateEXT
-	extern glBlendFunc
-	extern glBegin
-	extern glVertex3f
-	extern glEnd
-	extern cos
-	extern log
-	extern cosf
-	extern glPolygonMode
-	extern glFogf
-	extern glLightModelfv
-	extern glBlendEquationEXT
-	extern glPolygonOffset
-	extern glFogfv
-	extern glPointParameterfvARB
-	extern glStencilFunc
-	extern glPointParameterfARB
-	extern glStencilOp
-	extern glFrontFace
-	extern glColorMaterial
-	extern glPushAttrib
-	extern glPushClientAttrib
-	extern glDrawBuffer
-	extern glReadBuffer
-	extern __dynamic_cast
-	extern glScalef
-	extern glVertex2f
-	extern glPopClientAttrib
-	extern glPopAttrib
-	extern glProgramEnvParameter4fvARB
-	extern glTexGenfv
-	extern _ZNSsC1EPKcRKSaIcE
-	extern _ZNKSs4findEPKcmm
-	extern _ZNSsC1ERKSsmm
-	extern _ZSt20__throw_out_of_rangePKc
-	extern glCombinerParameterfvNV
-	extern glCombinerStageParameterfvNV
-	extern glBindProgramARB
-	extern glDeleteProgramsARB
-	extern glGetProgramivARB
-	extern glGenProgramsARB
-	extern glProgramStringARB
-	extern _ZNSs6appendEPKcm
-	extern _ZNSs6appendERKSs
-	extern glTexImage2D
-	extern glCompressedTexImage2DARB
-	extern glTexSubImage2D
-	extern glCompressedTexSubImage2D
-	extern _ZNSt15_List_node_base6unhookEv
-	extern ceilf
-	extern glFinishFenceAPPLE
-	extern glSetFenceAPPLE
-	extern glGenFencesAPPLE
-	extern glDeleteFencesAPPLE
-	extern glVertexArrayRangeAPPLE
-	extern glDisableVertexAttribArrayARB
-	extern glVertexAttribPointerARB
-	extern glEnableVertexAttribArrayARB
-	extern glTexGeni
-	extern glBindVertexArrayAPPLE
-	extern glLightf
-	extern glClientActiveTextureARB
-	extern glDeleteTextures
-	extern glDeleteVertexArraysAPPLE
-	extern glDisableClientState
-	extern glFogi
-	extern glLightModeli
-	extern glClipPlane
-	extern glEnableClientState
-	extern glVertexArrayParameteriAPPLE
-	extern strcasecmp
-	extern strncasecmp
-	extern tolower
-	extern toupper
-	extern RemoveEventHandler
-	extern FlushEventQueue
-	extern SendEventToEventTarget
-	extern ReceiveNextEvent
+	extern CFDictionaryGetValue
+	extern CFGetTypeID
+	extern CFNumberGetValue
+	extern CFPreferencesAppSynchronize
+	extern CFPreferencesCopyAppValue
+	extern CFPreferencesSetAppValue
+	extern CFRelease
+	extern CFStringCreateWithCString
+	extern CFStringCreateWithCharacters
+	extern CFStringCreateWithFormat
+	extern CFStringGetCString
+	extern CFStringGetPascalString
+	extern CFStringGetTypeID
 	extern CFURLCreateFromFSRef
-	extern CGDataProviderCreateWithURL
-	extern CGImageCreateWithPNGDataProvider
-	extern QDBeginCGContext
-	extern CGImageRelease
-	extern CGDataProviderRelease
+	extern CFURLCreateWithBytes
+	extern CFURLGetFSRef
+	extern CGAcquireDisplayFadeReservation
+	extern CGAssociateMouseAndMouseCursorPosition
 	extern CGContextClearRect
 	extern CGContextDrawImage
 	extern CGContextFlush
-	extern QDEndCGContext
-	extern EventAvail
-	extern strcmp
-	extern getrlimit
-	extern setrlimit
-	extern EnterMovies
-	extern FSGetVolumeInfo
-	extern GetCompressionInfo
-	extern RunApplicationEventLoop
-	extern GetEventDispatcherTarget
-	extern GetApplicationEventTarget
-	extern GetMenuHandle
-	extern AppendMenuItemTextWithCFString
-	extern SetItemCmd
-	extern GetIndMenuItemWithCommandID
-	extern GetMenuEventTarget
-	extern AEInstallEventHandler
-	extern chdir
-	extern QuitApplicationEventLoop
+	extern CGDataProviderCreateWithURL
+	extern CGDataProviderRelease
+	extern CGDisplayAvailableModes
+	extern CGDisplayBitsPerPixel
+	extern CGDisplayBounds
+	extern CGDisplayCurrentMode
+	extern CGDisplayFade
+	extern CGDisplayIDToOpenGLDisplayMask
+	extern CGDisplayIOServicePort
+	extern CGDisplayPixelsHigh
+	extern CGDisplayPixelsWide
+	extern CGGetActiveDisplayList
+	extern CGGetDisplayTransferByTable
+	extern CGImageCreateWithPNGDataProvider
+	extern CGImageRelease
+	extern CGLChoosePixelFormat
+	extern CGLCreateContext
+	extern CGLDescribeRenderer
+	extern CGLDestroyContext
+	extern CGLDestroyPixelFormat
+	extern CGLDestroyRendererInfo
+	extern CGLGetCurrentContext
+	extern CGLQueryRendererInfo
+	extern CGLSetCurrentContext
+	extern CGRectEqualToRect
+	extern CGRectGetHeight
+	extern CGRectGetWidth
+	extern CGRectIsEmpty
+	extern CGRectUnion
+	extern CGReleaseDisplayFadeReservation
+	extern CGSetDisplayTransferByTable
+	extern CGWarpMouseCursorPosition
+	extern ClipRect
+	extern CloseComponent
+	extern CloseMovieFile
+	extern CloseRgn
+	extern CollapseWindow
+	extern CreateEvent
+	extern CreateNewWindow
+	extern CreateNibReferenceWithCFBundle
+	extern CreateObjSpecifier
+	extern CreateStandardAlert
+	extern CreateWindowFromNib
+	extern DMGetFirstScreenDevice
+	extern DMGetNextScreenDevice
+	extern DisableControl
 	extern DisableMenuItem
-	extern close
-	extern ioctl
-	extern __error
-	extern vsnprintf
-	extern strchr
-	extern rand
-	extern acosf
-	extern atan2
-	extern tan
-	extern sinf
-	extern time
-	extern localtime
-	extern asctime
-	extern longjmp
-	extern __maskrune
-	extern snprintf
-	extern floorf
-	extern setjmp
-	extern remove
-	extern fflush
-	extern qsort
-	extern fwrite
-	extern rename
-	extern isspace
-	extern _ZNSs9_M_mutateEmmm
+	extern DisposeAUGraph
+	extern DisposeGWorld
+	extern DisposeHandle
+	extern DisposeMovie
+	extern DisposeNibReference
+	extern DisposeRgn
+	extern DisposeWindow
+	extern DrawThemeFocusRect
+	extern DrawThemeMenuBarBackground
+	extern EnableControl
+	extern EndMediaEdits
+	extern EnterMovies
+	extern EqualRect
+	extern EventAvail
+	extern FSCloseIterator
+	extern FSDeleteObject
+	extern FSGetCatalogInfo
+	extern FSGetCatalogInfoBulk
+	extern FSGetVolumeInfo
+	extern FSMakeFSSpec
+	extern FSOpenIterator
+	extern FSPathMakeRef
+	extern FSRefMakePath
+	extern FSSetCatalogInfo
+	extern FSpMakeFSRef
+	extern FindNextComponent
+	extern FlushEventQueue
+	extern ForeColor
+	extern FrameRoundRect
+	extern Gestalt
+	extern GetApplicationEventTarget
+	extern GetAvailableWindowPositioningBounds
+	extern GetComponentVersion
+	extern GetCompressionInfo
+	extern GetControlBounds
+	extern GetControlByID
+	extern GetControlData
+	extern GetControlDataSize
+	extern GetControlKind
+	extern GetControlMaximum
+	extern GetControlOwner
+	extern GetControlReference
+	extern GetCurrentEventTime
+	extern GetCurrentKeyModifiers
+	extern GetCurrentProcess
+	extern GetCursor
+	extern GetEventClass
+	extern GetEventDispatcherTarget
+	extern GetEventKind
+	extern GetEventParameter
+	extern GetGWorldPixMap
+	extern GetGlobalMouse
+	extern GetHandleSize
+	extern GetIconRefFromFileInfo
+	extern GetIndMenuItemWithCommandID
+	extern GetMainDevice
+	extern GetMainEventLoop
+	extern GetMainEventQueue
+	extern GetMediaDuration
+	extern GetMediaHandler
+	extern GetMediaSampleDescription
+	extern GetMenuEventTarget
+	extern GetMenuHandle
+	extern GetMovieDuration
+	extern GetMovieIndTrackType
+	extern GetMoviePreferredRate
+	extern GetMovieTime
+	extern GetMovieTimeScale
+	extern GetNextProcess
+	extern GetPixRowBytes
+	extern GetPort
+	extern GetProcessBundleLocation
+	extern GetProcessInformation
+	extern GetQDGlobalsArrow
+	extern GetStandardAlertDefaultParams
+	extern GetTrackMedia
+	extern GetWRefCon
+	extern GetWindowEventTarget
+	extern GetWindowPort
+	extern GetWindowPortBounds
+	extern GetWindowResizeLimits
+	extern GoToBeginningOfMovie
+	extern HITextViewGetTXNObject
+	extern HIViewGetRoot
+	extern HIViewGetViewForMouseEvent
+	extern HandleControlKey
+	extern HideControl
+	extern HideCursor
+	extern HideMenuBar
+	extern HideWindow
+	extern IOObjectConformsTo
+	extern IORegistryEntryCreateCFProperty
+	extern IORegistryEntryGetParentEntry
+	extern InitCursor
+	extern InsertMediaIntoTrack
+	extern InsertMenu
+	extern InsetRect
+	extern InstallEventHandler
+	extern InstallEventLoopTimer
+	extern InvalMenuBar
+	extern IsMovieDone
+	extern IsWindowVisible
+	extern LSCopyItemInfoForRef
+	extern LSOpenCFURLRef
+	extern LSOpenFSRef
+	extern LockPixels
+	extern MPDelayUntil
+	extern MapRect
+	extern MediaSetSoundBalance
+	extern Microseconds
+	extern MoveWindow
+	extern MoviesTask
+	extern NewAUGraph
+	extern NewControlEditTextValidationUPP
+	extern NewControlKeyFilterUPP
+	extern NewControlUserPaneDrawUPP
+	extern NewControlUserPaneHitTestUPP
+	extern NewControlUserPaneTrackingUPP
+	extern NewGWorld
+	extern NewHandle
+	extern NewMenu
+	extern NewMovieFromFile
+	extern NewRgn
+	extern NormalizeThemeDrawingState
+	extern OTAtomicAdd32
+	extern OTCompareAndSwap32
+	extern OffsetRect
+	extern OpenAComponent
+	extern OpenComponent
+	extern OpenMovieFile
+	extern OpenRgn
+	extern PBGetCatInfoSync
+	extern PaintRect
+	extern PaintRoundRect
+	extern PlotIconRef
+	extern PostEventToQueue
+	extern PrerollMovie
+	extern PtInRect
+	extern PtrAndHand
+	extern QDBeginCGContext
+	extern QDEndCGContext
+	extern QDGlobalToLocalPoint
+	extern QDLocalToGlobalPoint
+	extern QDRegisterNamedPixMapCursor
+	extern QDSetNamedPixMapCursor
+	extern QuitAppModalLoopForWindow
+	extern QuitApplicationEventLoop
+	extern RGBForeColor
+	extern ReceiveNextEvent
+	extern ReleaseEvent
+	extern ReleaseIconRef
+	extern RemoveEventHandler
+	extern RemoveEventLoopTimer
+	extern RunAppModalLoopForWindow
+	extern RunApplicationEventLoop
+	extern RunStandardAlert
+	extern SECTION
+	extern SendEventToEventTarget
+	extern SetClip
+	extern SetControlData
+	extern SetControlFontStyle
+	extern SetControlMaximum
+	extern SetControlReference
+	extern SetCursor
+	extern SetEventParameter
+	extern SetFrontProcess
+	extern SetItemCmd
+	extern SetKeyboardFocus
+	extern SetMovieRate
+	extern SetMovieTimeValue
+	extern SetPort
+	extern SetPortWindowPort
+	extern SetSystemUIMode
+	extern SetThemeCursor
+	extern SetTrackVolume
+	extern SetWRefCon
+	extern SetWindowContentColor
+	extern SetWindowResizeLimits
+	extern SetWindowTitleWithCFString
+	extern ShowControl
+	extern ShowCursor
+	extern ShowMenuBar
+	extern ShowWindow
+	extern SizeWindow
+	extern StartMovie
+	extern StopMovie
+	extern StringToNum
+	extern TXNSetData
+	extern TXNSetSelection
+	extern TXNSetTypeAttributes
+	extern TXNShowSelection
+	extern TickCount
+	extern UpTime
+	extern UpdateSystemActivity
+	extern _Unwind_Resume
+	extern _ZN9__gnu_cxx18__exchange_and_addEPVii
+	extern _ZNKSs4findEPKcmm
+	extern _ZNKSs7compareEPKc
 	extern _ZNSs12_M_leak_hardEv
-	extern _ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_
+	extern _ZNSs4_Rep10_M_destroyERKSaIcE
+	extern _ZNSs6appendEPKcm
+	extern _ZNSs6appendERKSs
+	extern _ZNSs6assignEPKcm
+	extern _ZNSs6assignERKSs
+	extern _ZNSs7replaceEmmPKcm
+	extern _ZNSs7reserveEm
+	extern _ZNSs9_M_mutateEmmm
+	extern _ZNSsC1EPKcRKSaIcE
+	extern _ZNSsC1ERKSs
+	extern _ZNSsC1ERKSsmm
+	extern _ZNSsD1Ev
+	extern _ZNSt15_List_node_base4hookEPS_
+	extern _ZNSt15_List_node_base6unhookEv
+	extern _ZSt17__throw_bad_allocv
 	extern _ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base
 	extern _ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base
-	extern sscanf
-	extern sin
-	extern acos
-	extern vsprintf
-	extern _ZNSs7reserveEm
-	extern strncat
-	extern ctime
-	extern strncmp
-	extern LSOpenFSRef
-	extern CFURLCreateWithBytes
-	extern LSOpenCFURLRef
-	extern UpdateSystemActivity
-	extern GetHandleSize
-	extern TXNSetData
-	extern NewHandle
-	extern DisposeHandle
-	extern RemoveEventLoopTimer
-	extern CollapseWindow
-	extern TXNSetSelection
-	extern TXNShowSelection
-	extern PtrAndHand
-	extern mkdir
-	extern opendir
-	extern readdir
-	extern stat
-	extern closedir
-	extern pow
-	extern glTestFenceAPPLE
-	extern glReadPixels
-	extern glGetError
-	extern asin
-	extern printf
-	extern _ZNSs7replaceEmmPKcm
-	extern expf
-	extern exp
-	extern isprint
-	extern fileno
-	extern isatty
-	extern fprintf
-	extern realloc
+	extern _ZSt20__throw_length_errorPKc
+	extern _ZSt20__throw_out_of_rangePKc
+	extern _ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_
+	extern _ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_
+	extern _ZdaPv
+	extern _ZdlPv
+	extern _Znam
+	extern _Znwm
+	extern __cxa_allocate_exception
+	extern __cxa_begin_catch
+	extern __cxa_end_catch
+	extern __cxa_guard_abort
 	extern __cxa_guard_acquire
 	extern __cxa_guard_release
-	extern __cxa_guard_abort
-	extern GetCurrentEventTime
-	extern SetFrontProcess
-	extern glGenVertexArraysAPPLE
-	extern glColorPointer
-	extern glNormalPointer
-	extern glVertexPointer
-	extern glTexCoordPointer
-	extern _ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_
-	extern AudioConverterReset
-	extern AudioUnitGetProperty
-	extern AudioConverterDispose
-	extern AudioConverterNew
-	extern log10f
-	extern AudioUnitSetParameter
-	extern AudioConverterFillComplexBuffer
-	extern AudioUnitSetProperty
-	extern AudioUnitAddRenderNotify
-	extern AudioUnitRemoveRenderNotify
-	extern usleep
-	extern AUGraphGetCPULoad
-	extern strdup
-	extern AUGraphStop
-	extern DisposeAUGraph
-	extern AudioDeviceGetPropertyInfo
-	extern AudioDeviceGetProperty
-	extern FindNextComponent
-	extern OpenComponent
-	extern GetComponentVersion
-	extern CloseComponent
-	extern NewAUGraph
-	extern AUGraphNewNode
-	extern AUGraphOpen
-	extern AUGraphGetNodeInfo
-	extern AUGraphUpdate
-	extern AUGraphConnectNodeInput
-	extern AUGraphInitialize
-	extern AUGraphStart
-	extern pthread_mutex_destroy
-	extern pthread_create
-	extern pthread_mutexattr_init
-	extern pthread_mutexattr_settype
-	extern pthread_mutex_init
-	extern pthread_mutexattr_destroy
-	extern pthread_mutex_unlock
-	extern pthread_mutex_lock
-	extern glTexImage3D
-	extern glCompressedTexImage3DARB
-	extern glTexSubImage3D
-	extern glCompressedTexSubImage3D
-	extern strtok
-	extern StopMovie
-	extern GoToBeginningOfMovie
-	extern GetMovieTimeScale
-	extern GetMovieDuration
-	extern GetMovieTime
-	extern SetMovieTimeValue
-	extern SetTrackVolume
-	extern GetMediaHandler
-	extern MediaSetSoundBalance
-	extern MoviesTask
-	extern IsMovieDone
-	extern StartMovie
-	extern DisposeMovie
-	extern SetMovieRate
-	extern OpenMovieFile
-	extern NewMovieFromFile
-	extern GetMoviePreferredRate
-	extern PrerollMovie
-	extern GetMovieIndTrackType
-	extern GetTrackMedia
-	extern GetMediaSampleDescription
-	extern srand
-	extern putenv
-	extern getenv
-	extern puts
-	extern asinf
-	extern atanf
-	extern tanf
-	extern select
-	extern inet_addr
-	extern gethostbyname
-	extern recvfrom
-	extern strerror
-	extern sendto
-	extern setsockopt
-	extern bind
-	extern socket
-	extern connect
-	extern send
-	extern recv
+	extern __cxa_rethrow
+	extern __cxa_throw
+	extern __dynamic_cast
+	extern __error
 	extern __isnanf
-	extern floor
-	extern logf
-	extern AudioOutputUnitStart
-	extern AudioOutputUnitStop
-	extern AudioDeviceSetProperty
-	extern AudioConverterFillBuffer
-	extern AudioUnitRender
-	extern AudioUnitUninitialize
-	extern OpenAComponent
-	extern AudioHardwareGetProperty
-	extern AudioUnitInitialize
+	extern __keymgr_dwarf2_register_sections
+	extern __maskrune
+	extern __udivdi3
+	extern abort
+	extern accept
+	extern access
+	extern acos
+	extern acosf
+	extern add
+	extern aglChoosePixelFormat
+	extern aglCreateContext
+	extern aglDescribePixelFormat
+	extern aglDestroyContext
+	extern aglDestroyPixelFormat
+	extern aglGetDrawable
+	extern aglSetCurrentContext
+	extern aglSetDrawable
+	extern aglSetFullScreen
+	extern aglSetInteger
+	extern aglSwapBuffers
+	extern asctime
+	extern asin
+	extern asinf
+	extern atan2
+	extern atanf
+	extern atexit
+	extern atof
+	extern atoi
+	extern atol
+	extern bind
+	extern call
+	extern calloc
+	extern ceilf
+	extern chdir
+	extern close
+	extern closedir
+	extern cmovge
+	extern cmp
+	extern connect
+	extern cos
+	extern cosf
+	extern ctime
 	extern dlclose
 	extern dlopen
 	extern dlsym
-	extern abort
-	extern vfprintf
-	extern getsockname
-	extern read
-	extern atol
-	extern strtol
-	extern getpid
-	extern tmpnam
-	extern strftime
-	extern gmtime
-	extern mktime
+	extern exit
+	extern exp
+	extern expf
+	extern fclose
 	extern fcntl
-	extern accept
-	extern listen
-	extern gethostname
-	extern getdomainname
-	extern getlogin
-	extern getuid
-	extern getpwuid
+	extern fflush
 	extern fgets
-	extern gettimeofday
-	extern regcomp
-	extern regerror
-	extern regfree
-	extern regexec
-	extern getpass
-	extern getsockopt
-	extern write
-	extern unlink
+	extern fileno
+	extern floor
+	extern floorf
+	extern fopen
+	extern fprintf
 	extern fputc
 	extern fputs
+	extern fread
+	extern free
+	extern fseek
+	extern ftell
+	extern fwrite
+	extern getcwd
+	extern getdomainname
+	extern getenv
+	extern gethostbyname
+	extern gethostname
+	extern getlogin
+	extern getpass
+	extern getpid
+	extern getpwuid
+	extern getrlimit
+	extern getsockname
+	extern getsockopt
+	extern gettimeofday
+	extern getuid
+	extern glActiveTextureARB
+	extern glAlphaFunc
+	extern glBegin
+	extern glBindProgramARB
+	extern glBindTexture
+	extern glBindVertexArrayAPPLE
+	extern glBlendEquationEXT
+	extern glBlendFunc
+	extern glBlendFuncSeparateEXT
+	extern glClear
+	extern glClearColor
+	extern glClearDepth
+	extern glClearStencil
+	extern glClientActiveTextureARB
+	extern glClipPlane
+	extern glColor4f
+	extern glColorMask
+	extern glColorMaterial
+	extern glColorPointer
+	extern glCombinerParameterfvNV
+	extern glCombinerStageParameterfvNV
+	extern glCompressedTexImage2DARB
+	extern glCompressedTexImage3DARB
+	extern glCompressedTexSubImage2D
+	extern glCompressedTexSubImage3D
+	extern glCopyTexSubImage2D
+	extern glDeleteFencesAPPLE
+	extern glDeleteProgramsARB
+	extern glDeleteTextures
+	extern glDeleteVertexArraysAPPLE
+	extern glDepthFunc
+	extern glDepthMask
+	extern glDepthRange
+	extern glDisable
+	extern glDisableClientState
+	extern glDisableVertexAttribArrayARB
+	extern glDrawBuffer
+	extern glDrawRangeElements
+	extern glEnable
+	extern glEnableClientState
+	extern glEnableVertexAttribArrayARB
+	extern glEnd
+	extern glFinish
+	extern glFinishFenceAPPLE
+	extern glFlushVertexArrayRangeAPPLE
+	extern glFogf
+	extern glFogfv
+	extern glFogi
+	extern glFrontFace
+	extern glGenFencesAPPLE
+	extern glGenProgramsARB
+	extern glGenTextures
+	extern glGenVertexArraysAPPLE
+	extern glGetError
+	extern glGetFloatv
+	extern glGetIntegerv
+	extern glGetProgramivARB
+	extern glGetString
+	extern glHint
+	extern glLightModelfv
+	extern glLightModeli
+	extern glLightf
+	extern glLightfv
+	extern glLoadIdentity
+	extern glLoadMatrixf
+	extern glMaterialf
+	extern glMaterialfv
+	extern glMatrixMode
+	extern glNormalPointer
+	extern glPixelStorei
+	extern glPointParameterfARB
+	extern glPointParameterfvARB
+	extern glPointSize
+	extern glPolygonMode
+	extern glPolygonOffset
+	extern glPopAttrib
+	extern glPopClientAttrib
+	extern glPopMatrix
+	extern glProgramEnvParameter4fvARB
+	extern glProgramStringARB
+	extern glPushAttrib
+	extern glPushClientAttrib
+	extern glPushMatrix
+	extern glReadBuffer
+	extern glReadPixels
+	extern glScalef
+	extern glScissor
+	extern glSetFenceAPPLE
+	extern glShadeModel
+	extern glStencilFunc
+	extern glStencilMask
+	extern glStencilOp
+	extern glTestFenceAPPLE
+	extern glTexCoord2f
+	extern glTexCoordPointer
+	extern glTexEnvf
+	extern glTexEnvfv
+	extern glTexEnvi
+	extern glTexGenfv
+	extern glTexGeni
+	extern glTexImage2D
+	extern glTexImage3D
+	extern glTexParameterf
+	extern glTexParameterfv
+	extern glTexParameteri
+	extern glTexSubImage2D
+	extern glTexSubImage3D
+	extern glVertex2f
+	extern glVertex3f
+	extern glVertexArrayParameteriAPPLE
+	extern glVertexArrayRangeAPPLE
+	extern glVertexAttribPointerARB
+	extern glVertexPointer
+	extern glViewport
+	extern gluCheckExtension
+	extern gluOrtho2D
+	extern gmtime
+	extern inet_addr
+	extern ioctl
+	extern isatty
+	extern isprint
+	extern isspace
+	extern jmp
+	extern jnz
+	extern jz
+	extern lea
+	extern listen
+	extern localtime
+	extern log
+	extern log10f
+	extern logf
+	extern longjmp
+	extern lround
+	extern malloc
+	extern memcpy
+	extern memmove
+	extern memset
+	extern mkdir
+	extern mktime
+	extern mov
+	extern movsx
+	extern nop
+	extern opendir
+	extern pop
+	extern pow
+	extern printf
+	extern pthread_create
+	extern pthread_main_np
+	extern pthread_mutex_destroy
+	extern pthread_mutex_init
+	extern pthread_mutex_lock
+	extern pthread_mutex_unlock
+	extern pthread_mutexattr_destroy
+	extern pthread_mutexattr_init
+	extern pthread_mutexattr_settype
+	extern pthread_self
+	extern push
+	extern putenv
+	extern puts
+	extern qsort
+	extern rand
+	extern read
+	extern readdir
+	extern realloc
+	extern recv
+	extern recvfrom
+	extern regcomp
+	extern regerror
+	extern regexec
+	extern regfree
+	extern remove
+	extern rename
+	extern ret
+	extern rewind
+	extern select
+	extern send
+	extern sendto
+	extern setjmp
+	extern setrlimit
+	extern setsockopt
+	extern sin
+	extern sinf
+	extern snprintf
+	extern socket
+	extern sprintf
+	extern srand
+	extern sscanf
+	extern stat
+	extern strcasecmp
+	extern strcat
+	extern strchr
+	extern strcmp
+	extern strcpy
+	extern strdup
+	extern strerror
+	extern strftime
+	extern strncasecmp
+	extern strncat
+	extern strncmp
+	extern strncpy
+	extern strrchr
+	extern strstr
+	extern strtok
+	extern strtol
+	extern sub
+	extern sysctl
+	extern tan
+	extern tanf
+	extern test
+	extern text
+	extern time
+	extern tmpnam
+	extern tolower
+	extern toupper
+	extern unlink
+	extern usleep
+	extern vfprintf
+	extern vsnprintf
+	extern vsprintf
+	extern write
 
 ;Exports defined in this file:
-	global ZN8CAEEventD1Ev:F(0,19)
-	global ZN9CAETargetD1Ev:F(0,19)
-	global ZN9CAETargetC1ERK19ProcessSerialNumber:F(0,19)
-	global ZN7CAEDesc7GetDataEmPvl:F(0,19)
-	global ZN7CAEDesc7GetDataEPh:F(0,19)
-	global ZN7CAEDesc7PutDataEmPKvl:F(0,19)
-	global ZN9CAEObjectC2EmRK6AEDescmS2_:F(0,19)
-	global ZN9CAEObjectC1EmRK6AEDescmS2_:F(0,19)
-	global ZN9CAERecord8PutParamEmRK6AEDesc:F(0,19)
-	global ZN8CAEEvent6CreateER9CAETargetmm:F(0,19)
-	global ZN9CAETargetC2Emm:F(0,19)
-	global ZN9CAETargetC1Emm:F(0,19)
-	global ZN9CAETargetC2ERK19ProcessSerialNumber:F(0,19)
-	global ZN8CAEEventC1Ev:F(0,19)
-	global ZN8CAEEvent4SendEv:F(0,19)
-	global ZN9CAETarget15SetPropertyDataERK6AEDescmS2_:F(0,19)
-	global ZN9CAETarget13CountElementsERK6AEDescmRl:F(0,19)
-	global ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0_:F(0,19)
+	global ZN8CAEEventD1Ev_F0_19
+	global ZN9CAETargetD1Ev_F0_19
+	global ZN9CAETargetC1ERK19ProcessSerialNumber_F0_19
+	global ZN7CAEDesc7GetDataEmPvl_F0_19
+	global ZN7CAEDesc7GetDataEPh_F0_19
+	global ZN7CAEDesc7PutDataEmPKvl_F0_19
+	global ZN9CAEObjectC2EmRK6AEDescmS2__F0_19
+	global ZN9CAEObjectC1EmRK6AEDescmS2__F0_19
+	global ZN9CAERecord8PutParamEmRK6AEDesc_F0_19
+	global ZN8CAEEvent6CreateER9CAETargetmm_F0_19
+	global ZN9CAETargetC2Emm_F0_19
+	global ZN9CAETargetC1Emm_F0_19
+	global ZN9CAETargetC2ERK19ProcessSerialNumber_F0_19
+	global ZN8CAEEventC1Ev_F0_19
+	global ZN8CAEEvent4SendEv_F0_19
+	global ZN9CAETarget15SetPropertyDataERK6AEDescmS2__F0_19
+	global ZN9CAETarget13CountElementsERK6AEDescmRl_F0_19
+	global ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0__F0_19
 
 SECTION .text
-ZN8CAEEventD1Ev:F(0,19):
+ZN8CAEEventD1Ev_F0_19:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -666,10 +684,10 @@ ZN8CAEEventD1Ev:F(0,19):
 	mov ebx, [ebp+0x8]
 	mov edx, [ebx+0x4]
 	test edx, edx
-	jz ZN8CAEEventD1Ev:F(0,19)_10
+	jz ZN8CAEEventD1Ev_F0_19_10
 	mov [esp], ebx
 	call AEDisposeDesc
-ZN8CAEEventD1Ev:F(0,19)_10:
+ZN8CAEEventD1Ev_F0_19_10:
 	mov dword [ebx], 0x6e756c6c
 	mov dword [ebx+0x4], 0x0
 	add esp, 0x14
@@ -678,9 +696,9 @@ ZN8CAEEventD1Ev:F(0,19)_10:
 	ret
 
 
-;ZN9CAETargetD1Ev:F(0,19)
+;ZN9CAETargetD1Ev_F0_19
 
-ZN9CAETargetD1Ev:F(0,19):
+ZN9CAETargetD1Ev_F0_19:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -688,10 +706,10 @@ ZN9CAETargetD1Ev:F(0,19):
 	mov ebx, [ebp+0x8]
 	mov eax, [ebx+0x4]
 	test eax, eax
-	jz ZN9CAETargetD1Ev:F(0,19)_10
+	jz ZN9CAETargetD1Ev_F0_19_10
 	mov [esp], ebx
 	call AEDisposeDesc
-ZN9CAETargetD1Ev:F(0,19)_10:
+ZN9CAETargetD1Ev_F0_19_10:
 	mov dword [ebx], 0x6e756c6c
 	mov dword [ebx+0x4], 0x0
 	add esp, 0x14
@@ -700,9 +718,9 @@ ZN9CAETargetD1Ev:F(0,19)_10:
 	ret
 
 
-;ZN9CAETargetC1ERK19ProcessSerialNumber:F(0,19)
+;ZN9CAETargetC1ERK19ProcessSerialNumber_F0_19
 
-ZN9CAETargetC1ERK19ProcessSerialNumber:F(0,19):
+ZN9CAETargetC1ERK19ProcessSerialNumber_F0_19:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -719,13 +737,13 @@ ZN9CAETargetC1ERK19ProcessSerialNumber:F(0,19):
 	call AECreateDesc
 	movsx esi, ax
 	test ax, ax
-	jnz ZN9CAETargetC1ERK19ProcessSerialNumber:F(0,19)_10
+	jnz ZN9CAETargetC1ERK19ProcessSerialNumber_F0_19_10
 	add esp, 0x10
 	pop ebx
 	pop esi
 	pop ebp
 	ret
-ZN9CAETargetC1ERK19ProcessSerialNumber:F(0,19)_10:
+ZN9CAETargetC1ERK19ProcessSerialNumber_F0_19_10:
 	mov dword [esp], 0x4
 	call __cxa_allocate_exception
 	mov [eax], esi
@@ -737,10 +755,10 @@ ZN9CAETargetC1ERK19ProcessSerialNumber:F(0,19)_10:
 	mov esi, eax
 	mov eax, [ebx+0x4]
 	test eax, eax
-	jz ZN9CAETargetC1ERK19ProcessSerialNumber:F(0,19)_20
+	jz ZN9CAETargetC1ERK19ProcessSerialNumber_F0_19_20
 	mov [esp], ebx
 	call AEDisposeDesc
-ZN9CAETargetC1ERK19ProcessSerialNumber:F(0,19)_20:
+ZN9CAETargetC1ERK19ProcessSerialNumber_F0_19_20:
 	mov dword [ebx], 0x6e756c6c
 	mov dword [ebx+0x4], 0x0
 	mov [esp], esi
@@ -748,9 +766,9 @@ ZN9CAETargetC1ERK19ProcessSerialNumber:F(0,19)_20:
 	add [eax], al
 
 
-;ZN7CAEDesc7GetDataEmPvl:F(0,19)
+;ZN7CAEDesc7GetDataEmPvl_F0_19
 
-ZN7CAEDesc7GetDataEmPvl:F(0,19):
+ZN7CAEDesc7GetDataEmPvl_F0_19:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -759,7 +777,7 @@ ZN7CAEDesc7GetDataEmPvl:F(0,19):
 	mov eax, [ebp+0x8]
 	mov edx, [ebp+0xc]
 	cmp [eax], edx
-	jz ZN7CAEDesc7GetDataEmPvl:F(0,19)_10
+	jz ZN7CAEDesc7GetDataEmPvl_F0_19_10
 	mov dword [ebp-0x10], 0x6e756c6c
 	mov dword [ebp-0xc], 0x0
 	lea esi, [ebp-0x10]
@@ -769,7 +787,7 @@ ZN7CAEDesc7GetDataEmPvl:F(0,19):
 	call AECoerceDesc
 	movsx ebx, ax
 	test ax, ax
-	jnz ZN7CAEDesc7GetDataEmPvl:F(0,19)_20
+	jnz ZN7CAEDesc7GetDataEmPvl_F0_19_20
 	mov eax, [ebp+0x14]
 	mov [esp+0x8], eax
 	mov edx, [ebp+0x10]
@@ -778,19 +796,19 @@ ZN7CAEDesc7GetDataEmPvl:F(0,19):
 	call AEGetDescData
 	movsx ebx, ax
 	test ax, ax
-	jnz ZN7CAEDesc7GetDataEmPvl:F(0,19)_20
+	jnz ZN7CAEDesc7GetDataEmPvl_F0_19_20
 	mov eax, [ebp-0xc]
 	test eax, eax
-	jz ZN7CAEDesc7GetDataEmPvl:F(0,19)_30
+	jz ZN7CAEDesc7GetDataEmPvl_F0_19_30
 	mov [esp], esi
 	call AEDisposeDesc
-ZN7CAEDesc7GetDataEmPvl:F(0,19)_30:
+ZN7CAEDesc7GetDataEmPvl_F0_19_30:
 	add esp, 0x20
 	pop ebx
 	pop esi
 	pop ebp
 	ret
-ZN7CAEDesc7GetDataEmPvl:F(0,19)_10:
+ZN7CAEDesc7GetDataEmPvl_F0_19_10:
 	mov edx, [ebp+0x14]
 	mov [esp+0x8], edx
 	mov ecx, [ebp+0x10]
@@ -799,7 +817,7 @@ ZN7CAEDesc7GetDataEmPvl:F(0,19)_10:
 	call AEGetDescData
 	movsx ebx, ax
 	test ax, ax
-	jz ZN7CAEDesc7GetDataEmPvl:F(0,19)_30
+	jz ZN7CAEDesc7GetDataEmPvl_F0_19_30
 	mov dword [esp], 0x4
 	call __cxa_allocate_exception
 	mov [eax], ebx
@@ -808,7 +826,7 @@ ZN7CAEDesc7GetDataEmPvl:F(0,19)_10:
 	mov [esp+0x4], edx
 	mov [esp], eax
 	call __cxa_throw
-ZN7CAEDesc7GetDataEmPvl:F(0,19)_20:
+ZN7CAEDesc7GetDataEmPvl_F0_19_20:
 	mov dword [esp], 0x4
 	call __cxa_allocate_exception
 	mov [eax], ebx
@@ -820,18 +838,18 @@ ZN7CAEDesc7GetDataEmPvl:F(0,19)_20:
 	mov ebx, eax
 	mov eax, [ebp-0xc]
 	test eax, eax
-	jz ZN7CAEDesc7GetDataEmPvl:F(0,19)_40
+	jz ZN7CAEDesc7GetDataEmPvl_F0_19_40
 	mov [esp], esi
 	call AEDisposeDesc
-ZN7CAEDesc7GetDataEmPvl:F(0,19)_40:
+ZN7CAEDesc7GetDataEmPvl_F0_19_40:
 	mov [esp], ebx
 	call _Unwind_Resume
 
 
-;ZN7CAEDesc7GetDataEPh:F(0,19)
+;ZN7CAEDesc7GetDataEPh_F0_19
 
-ZN7CAEDesc7GetDataEPh:F(0,19):
-ZN7CAEDesc7GetDataEPh:F(0,19)_30:
+ZN7CAEDesc7GetDataEPh_F0_19:
+ZN7CAEDesc7GetDataEPh_F0_19_30:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -840,7 +858,7 @@ ZN7CAEDesc7GetDataEPh:F(0,19)_30:
 	sub esp, 0x2c
 	mov esi, [ebp+0x8]
 	cmp dword [esi], 0x54455854
-	jz ZN7CAEDesc7GetDataEPh:F(0,19)_10
+	jz ZN7CAEDesc7GetDataEPh_F0_19_10
 	mov dword [ebp-0x20], 0x6e756c6c
 	mov dword [ebp-0x1c], 0x0
 	lea edi, [ebp-0x20]
@@ -850,24 +868,24 @@ ZN7CAEDesc7GetDataEPh:F(0,19)_30:
 	call AECoerceDesc
 	movsx ebx, ax
 	test ax, ax
-	jnz ZN7CAEDesc7GetDataEPh:F(0,19)_20
+	jnz ZN7CAEDesc7GetDataEPh_F0_19_20
 	mov eax, [ebp+0xc]
 	mov [esp+0x4], eax
 	mov [esp], edi
-	call ZN7CAEDesc7GetDataEPh:F(0,19)_30
+	call ZN7CAEDesc7GetDataEPh_F0_19_30
 	mov eax, [ebp-0x1c]
 	test eax, eax
-	jz ZN7CAEDesc7GetDataEPh:F(0,19)_40
+	jz ZN7CAEDesc7GetDataEPh_F0_19_40
 	mov [esp], edi
 	call AEDisposeDesc
-ZN7CAEDesc7GetDataEPh:F(0,19)_40:
+ZN7CAEDesc7GetDataEPh_F0_19_40:
 	add esp, 0x2c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-ZN7CAEDesc7GetDataEPh:F(0,19)_10:
+ZN7CAEDesc7GetDataEPh_F0_19_10:
 	mov [esp], esi
 	call AEGetDescDataSize
 	mov ebx, eax
@@ -882,7 +900,7 @@ ZN7CAEDesc7GetDataEPh:F(0,19)_10:
 	call AEGetDescData
 	movsx esi, ax
 	test ax, ax
-	jnz ZN7CAEDesc7GetDataEPh:F(0,19)_50
+	jnz ZN7CAEDesc7GetDataEPh_F0_19_50
 	mov eax, [ebp+0xc]
 	mov [eax], bl
 	add esp, 0x2c
@@ -891,7 +909,7 @@ ZN7CAEDesc7GetDataEPh:F(0,19)_10:
 	pop edi
 	pop ebp
 	ret
-ZN7CAEDesc7GetDataEPh:F(0,19)_20:
+ZN7CAEDesc7GetDataEPh_F0_19_20:
 	mov dword [esp], 0x4
 	call __cxa_allocate_exception
 	mov [eax], ebx
@@ -900,7 +918,7 @@ ZN7CAEDesc7GetDataEPh:F(0,19)_20:
 	mov [esp+0x4], edx
 	mov [esp], eax
 	call __cxa_throw
-ZN7CAEDesc7GetDataEPh:F(0,19)_50:
+ZN7CAEDesc7GetDataEPh_F0_19_50:
 	mov dword [esp], 0x4
 	call __cxa_allocate_exception
 	mov [eax], esi
@@ -912,17 +930,17 @@ ZN7CAEDesc7GetDataEPh:F(0,19)_50:
 	mov ebx, eax
 	mov eax, [ebp-0x1c]
 	test eax, eax
-	jz ZN7CAEDesc7GetDataEPh:F(0,19)_60
+	jz ZN7CAEDesc7GetDataEPh_F0_19_60
 	mov [esp], edi
 	call AEDisposeDesc
-ZN7CAEDesc7GetDataEPh:F(0,19)_60:
+ZN7CAEDesc7GetDataEPh_F0_19_60:
 	mov [esp], ebx
 	call _Unwind_Resume
 
 
-;ZN7CAEDesc7PutDataEmPKvl:F(0,19)
+;ZN7CAEDesc7PutDataEmPKvl_F0_19
 
-ZN7CAEDesc7PutDataEmPKvl:F(0,19):
+ZN7CAEDesc7PutDataEmPKvl_F0_19:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -930,10 +948,10 @@ ZN7CAEDesc7PutDataEmPKvl:F(0,19):
 	mov ebx, [ebp+0x8]
 	mov eax, [ebx+0x4]
 	test eax, eax
-	jz ZN7CAEDesc7PutDataEmPKvl:F(0,19)_10
+	jz ZN7CAEDesc7PutDataEmPKvl_F0_19_10
 	mov [esp], ebx
 	call AEDisposeDesc
-ZN7CAEDesc7PutDataEmPKvl:F(0,19)_10:
+ZN7CAEDesc7PutDataEmPKvl_F0_19_10:
 	mov dword [ebx], 0x6e756c6c
 	mov dword [ebx+0x4], 0x0
 	mov [esp+0xc], ebx
@@ -946,12 +964,12 @@ ZN7CAEDesc7PutDataEmPKvl:F(0,19)_10:
 	call AECreateDesc
 	movsx ebx, ax
 	test ax, ax
-	jnz ZN7CAEDesc7PutDataEmPKvl:F(0,19)_20
+	jnz ZN7CAEDesc7PutDataEmPKvl_F0_19_20
 	add esp, 0x14
 	pop ebx
 	pop ebp
 	ret
-ZN7CAEDesc7PutDataEmPKvl:F(0,19)_20:
+ZN7CAEDesc7PutDataEmPKvl_F0_19_20:
 	mov dword [esp], 0x4
 	call __cxa_allocate_exception
 	mov [eax], ebx
@@ -963,9 +981,9 @@ ZN7CAEDesc7PutDataEmPKvl:F(0,19)_20:
 	nop
 
 
-;ZN9CAEObjectC2EmRK6AEDescmS2_:F(0,19)
+;ZN9CAEObjectC2EmRK6AEDescmS2__F0_19
 
-ZN9CAEObjectC2EmRK6AEDescmS2_:F(0,19):
+ZN9CAEObjectC2EmRK6AEDescmS2__F0_19:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -987,13 +1005,13 @@ ZN9CAEObjectC2EmRK6AEDescmS2_:F(0,19):
 	call CreateObjSpecifier
 	movsx esi, ax
 	test ax, ax
-	jnz ZN9CAEObjectC2EmRK6AEDescmS2_:F(0,19)_10
+	jnz ZN9CAEObjectC2EmRK6AEDescmS2__F0_19_10
 	add esp, 0x20
 	pop ebx
 	pop esi
 	pop ebp
 	ret
-ZN9CAEObjectC2EmRK6AEDescmS2_:F(0,19)_10:
+ZN9CAEObjectC2EmRK6AEDescmS2__F0_19_10:
 	mov dword [esp], 0x4
 	call __cxa_allocate_exception
 	mov [eax], esi
@@ -1005,10 +1023,10 @@ ZN9CAEObjectC2EmRK6AEDescmS2_:F(0,19)_10:
 	mov esi, eax
 	mov edx, [ebx+0x4]
 	test edx, edx
-	jz ZN9CAEObjectC2EmRK6AEDescmS2_:F(0,19)_20
+	jz ZN9CAEObjectC2EmRK6AEDescmS2__F0_19_20
 	mov [esp], ebx
 	call AEDisposeDesc
-ZN9CAEObjectC2EmRK6AEDescmS2_:F(0,19)_20:
+ZN9CAEObjectC2EmRK6AEDescmS2__F0_19_20:
 	mov dword [ebx], 0x6e756c6c
 	mov dword [ebx+0x4], 0x0
 	mov [esp], esi
@@ -1016,9 +1034,9 @@ ZN9CAEObjectC2EmRK6AEDescmS2_:F(0,19)_20:
 	nop
 
 
-;ZN9CAEObjectC1EmRK6AEDescmS2_:F(0,19)
+;ZN9CAEObjectC1EmRK6AEDescmS2__F0_19
 
-ZN9CAEObjectC1EmRK6AEDescmS2_:F(0,19):
+ZN9CAEObjectC1EmRK6AEDescmS2__F0_19:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -1040,13 +1058,13 @@ ZN9CAEObjectC1EmRK6AEDescmS2_:F(0,19):
 	call CreateObjSpecifier
 	movsx esi, ax
 	test ax, ax
-	jnz ZN9CAEObjectC1EmRK6AEDescmS2_:F(0,19)_10
+	jnz ZN9CAEObjectC1EmRK6AEDescmS2__F0_19_10
 	add esp, 0x20
 	pop ebx
 	pop esi
 	pop ebp
 	ret
-ZN9CAEObjectC1EmRK6AEDescmS2_:F(0,19)_10:
+ZN9CAEObjectC1EmRK6AEDescmS2__F0_19_10:
 	mov dword [esp], 0x4
 	call __cxa_allocate_exception
 	mov [eax], esi
@@ -1058,10 +1076,10 @@ ZN9CAEObjectC1EmRK6AEDescmS2_:F(0,19)_10:
 	mov esi, eax
 	mov ecx, [ebx+0x4]
 	test ecx, ecx
-	jz ZN9CAEObjectC1EmRK6AEDescmS2_:F(0,19)_20
+	jz ZN9CAEObjectC1EmRK6AEDescmS2__F0_19_20
 	mov [esp], ebx
 	call AEDisposeDesc
-ZN9CAEObjectC1EmRK6AEDescmS2_:F(0,19)_20:
+ZN9CAEObjectC1EmRK6AEDescmS2__F0_19_20:
 	mov dword [ebx], 0x6e756c6c
 	mov dword [ebx+0x4], 0x0
 	mov [esp], esi
@@ -1069,9 +1087,9 @@ ZN9CAEObjectC1EmRK6AEDescmS2_:F(0,19)_20:
 	nop
 
 
-;ZN9CAERecord8PutParamEmRK6AEDesc:F(0,19)
+;ZN9CAERecord8PutParamEmRK6AEDesc_F0_19
 
-ZN9CAERecord8PutParamEmRK6AEDesc:F(0,19):
+ZN9CAERecord8PutParamEmRK6AEDesc_F0_19:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -1085,12 +1103,12 @@ ZN9CAERecord8PutParamEmRK6AEDesc:F(0,19):
 	call AEPutParamDesc
 	movsx ebx, ax
 	test ax, ax
-	jnz ZN9CAERecord8PutParamEmRK6AEDesc:F(0,19)_10
+	jnz ZN9CAERecord8PutParamEmRK6AEDesc_F0_19_10
 	add esp, 0x14
 	pop ebx
 	pop ebp
 	ret
-ZN9CAERecord8PutParamEmRK6AEDesc:F(0,19)_10:
+ZN9CAERecord8PutParamEmRK6AEDesc_F0_19_10:
 	mov dword [esp], 0x4
 	call __cxa_allocate_exception
 	mov [eax], ebx
@@ -1101,9 +1119,9 @@ ZN9CAERecord8PutParamEmRK6AEDesc:F(0,19)_10:
 	call __cxa_throw
 
 
-;ZN8CAEEvent6CreateER9CAETargetmm:F(0,19)
+;ZN8CAEEvent6CreateER9CAETargetmm_F0_19
 
-ZN8CAEEvent6CreateER9CAETargetmm:F(0,19):
+ZN8CAEEvent6CreateER9CAETargetmm_F0_19:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -1111,10 +1129,10 @@ ZN8CAEEvent6CreateER9CAETargetmm:F(0,19):
 	mov ebx, [ebp+0x8]
 	mov eax, [ebx+0x4]
 	test eax, eax
-	jz ZN8CAEEvent6CreateER9CAETargetmm:F(0,19)_10
+	jz ZN8CAEEvent6CreateER9CAETargetmm_F0_19_10
 	mov [esp], ebx
 	call AEDisposeDesc
-ZN8CAEEvent6CreateER9CAETargetmm:F(0,19)_10:
+ZN8CAEEvent6CreateER9CAETargetmm_F0_19_10:
 	mov dword [ebx], 0x6e756c6c
 	mov dword [ebx+0x4], 0x0
 	mov [esp+0x14], ebx
@@ -1129,12 +1147,12 @@ ZN8CAEEvent6CreateER9CAETargetmm:F(0,19)_10:
 	call AECreateAppleEvent
 	movsx ebx, ax
 	test ax, ax
-	jnz ZN8CAEEvent6CreateER9CAETargetmm:F(0,19)_20
+	jnz ZN8CAEEvent6CreateER9CAETargetmm_F0_19_20
 	add esp, 0x24
 	pop ebx
 	pop ebp
 	ret
-ZN8CAEEvent6CreateER9CAETargetmm:F(0,19)_20:
+ZN8CAEEvent6CreateER9CAETargetmm_F0_19_20:
 	mov dword [esp], 0x4
 	call __cxa_allocate_exception
 	mov [eax], ebx
@@ -1146,9 +1164,9 @@ ZN8CAEEvent6CreateER9CAETargetmm:F(0,19)_20:
 	nop
 
 
-;ZN9CAETargetC2Emm:F(0,19)
+;ZN9CAETargetC2Emm_F0_19
 
-ZN9CAETargetC2Emm:F(0,19):
+ZN9CAETargetC2Emm_F0_19:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -1165,13 +1183,13 @@ ZN9CAETargetC2Emm:F(0,19):
 	call AECreateDesc
 	movsx esi, ax
 	test ax, ax
-	jnz ZN9CAETargetC2Emm:F(0,19)_10
+	jnz ZN9CAETargetC2Emm_F0_19_10
 	add esp, 0x10
 	pop ebx
 	pop esi
 	pop ebp
 	ret
-ZN9CAETargetC2Emm:F(0,19)_10:
+ZN9CAETargetC2Emm_F0_19_10:
 	mov dword [esp], 0x4
 	call __cxa_allocate_exception
 	mov [eax], esi
@@ -1183,19 +1201,19 @@ ZN9CAETargetC2Emm:F(0,19)_10:
 	mov esi, eax
 	mov eax, [ebx+0x4]
 	test eax, eax
-	jz ZN9CAETargetC2Emm:F(0,19)_20
+	jz ZN9CAETargetC2Emm_F0_19_20
 	mov [esp], ebx
 	call AEDisposeDesc
-ZN9CAETargetC2Emm:F(0,19)_20:
+ZN9CAETargetC2Emm_F0_19_20:
 	mov dword [ebx], 0x6e756c6c
 	mov dword [ebx+0x4], 0x0
 	mov [esp], esi
 	call _Unwind_Resume
 
 
-;ZN9CAETargetC1Emm:F(0,19)
+;ZN9CAETargetC1Emm_F0_19
 
-ZN9CAETargetC1Emm:F(0,19):
+ZN9CAETargetC1Emm_F0_19:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -1212,13 +1230,13 @@ ZN9CAETargetC1Emm:F(0,19):
 	call AECreateDesc
 	movsx esi, ax
 	test ax, ax
-	jnz ZN9CAETargetC1Emm:F(0,19)_10
+	jnz ZN9CAETargetC1Emm_F0_19_10
 	add esp, 0x10
 	pop ebx
 	pop esi
 	pop ebp
 	ret
-ZN9CAETargetC1Emm:F(0,19)_10:
+ZN9CAETargetC1Emm_F0_19_10:
 	mov dword [esp], 0x4
 	call __cxa_allocate_exception
 	mov [eax], esi
@@ -1230,19 +1248,19 @@ ZN9CAETargetC1Emm:F(0,19)_10:
 	mov esi, eax
 	mov eax, [ebx+0x4]
 	test eax, eax
-	jz ZN9CAETargetC1Emm:F(0,19)_20
+	jz ZN9CAETargetC1Emm_F0_19_20
 	mov [esp], ebx
 	call AEDisposeDesc
-ZN9CAETargetC1Emm:F(0,19)_20:
+ZN9CAETargetC1Emm_F0_19_20:
 	mov dword [ebx], 0x6e756c6c
 	mov dword [ebx+0x4], 0x0
 	mov [esp], esi
 	call _Unwind_Resume
 
 
-;ZN9CAETargetC2ERK19ProcessSerialNumber:F(0,19)
+;ZN9CAETargetC2ERK19ProcessSerialNumber_F0_19
 
-ZN9CAETargetC2ERK19ProcessSerialNumber:F(0,19):
+ZN9CAETargetC2ERK19ProcessSerialNumber_F0_19:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -1259,13 +1277,13 @@ ZN9CAETargetC2ERK19ProcessSerialNumber:F(0,19):
 	call AECreateDesc
 	movsx esi, ax
 	test ax, ax
-	jnz ZN9CAETargetC2ERK19ProcessSerialNumber:F(0,19)_10
+	jnz ZN9CAETargetC2ERK19ProcessSerialNumber_F0_19_10
 	add esp, 0x10
 	pop ebx
 	pop esi
 	pop ebp
 	ret
-ZN9CAETargetC2ERK19ProcessSerialNumber:F(0,19)_10:
+ZN9CAETargetC2ERK19ProcessSerialNumber_F0_19_10:
 	mov dword [esp], 0x4
 	call __cxa_allocate_exception
 	mov [eax], esi
@@ -1277,10 +1295,10 @@ ZN9CAETargetC2ERK19ProcessSerialNumber:F(0,19)_10:
 	mov esi, eax
 	mov eax, [ebx+0x4]
 	test eax, eax
-	jz ZN9CAETargetC2ERK19ProcessSerialNumber:F(0,19)_20
+	jz ZN9CAETargetC2ERK19ProcessSerialNumber_F0_19_20
 	mov [esp], ebx
 	call AEDisposeDesc
-ZN9CAETargetC2ERK19ProcessSerialNumber:F(0,19)_20:
+ZN9CAETargetC2ERK19ProcessSerialNumber_F0_19_20:
 	mov dword [ebx], 0x6e756c6c
 	mov dword [ebx+0x4], 0x0
 	mov [esp], esi
@@ -1288,9 +1306,9 @@ ZN9CAETargetC2ERK19ProcessSerialNumber:F(0,19)_20:
 	add [eax], al
 
 
-;ZN8CAEEventC1Ev:F(0,19)
+;ZN8CAEEventC1Ev_F0_19
 
-ZN8CAEEventC1Ev:F(0,19):
+ZN8CAEEventC1Ev_F0_19:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x8]
@@ -1301,9 +1319,9 @@ ZN8CAEEventC1Ev:F(0,19):
 	nop
 
 
-;ZN8CAEEvent4SendEv:F(0,19)
+;ZN8CAEEvent4SendEv_F0_19
 
-ZN8CAEEvent4SendEv:F(0,19):
+ZN8CAEEvent4SendEv_F0_19:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -1311,7 +1329,7 @@ ZN8CAEEvent4SendEv:F(0,19):
 	sub esp, 0x30
 	lea esi, [ebp-0x10]
 	mov [esp], esi
-	call ZN8CAEEventC1Ev:F(0,19)
+	call ZN8CAEEventC1Ev_F0_19
 	mov dword [esp+0x18], 0x0
 	mov dword [esp+0x14], 0x0
 	mov dword [esp+0x10], 0xffffffff
@@ -1323,19 +1341,19 @@ ZN8CAEEvent4SendEv:F(0,19):
 	call AESend
 	movsx ebx, ax
 	test ax, ax
-	jnz ZN8CAEEvent4SendEv:F(0,19)_10
+	jnz ZN8CAEEvent4SendEv_F0_19_10
 	mov eax, [ebp-0xc]
 	test eax, eax
-	jz ZN8CAEEvent4SendEv:F(0,19)_20
+	jz ZN8CAEEvent4SendEv_F0_19_20
 	mov [esp], esi
 	call AEDisposeDesc
-ZN8CAEEvent4SendEv:F(0,19)_20:
+ZN8CAEEvent4SendEv_F0_19_20:
 	add esp, 0x30
 	pop ebx
 	pop esi
 	pop ebp
 	ret
-ZN8CAEEvent4SendEv:F(0,19)_10:
+ZN8CAEEvent4SendEv_F0_19_10:
 	mov dword [esp], 0x4
 	call __cxa_allocate_exception
 	mov [eax], ebx
@@ -1347,10 +1365,10 @@ ZN8CAEEvent4SendEv:F(0,19)_10:
 	mov ebx, eax
 	mov edx, [ebp-0xc]
 	test edx, edx
-	jz ZN8CAEEvent4SendEv:F(0,19)_30
+	jz ZN8CAEEvent4SendEv_F0_19_30
 	mov [esp], esi
 	call AEDisposeDesc
-ZN8CAEEvent4SendEv:F(0,19)_30:
+ZN8CAEEvent4SendEv_F0_19_30:
 	mov dword [ebp-0x10], 0x6e756c6c
 	mov dword [ebp-0xc], 0x0
 	mov [esp], ebx
@@ -1358,9 +1376,9 @@ ZN8CAEEvent4SendEv:F(0,19)_30:
 	nop
 
 
-;ZN9CAETarget15SetPropertyDataERK6AEDescmS2_:F(0,19)
+;ZN9CAETarget15SetPropertyDataERK6AEDescmS2__F0_19
 
-ZN9CAETarget15SetPropertyDataERK6AEDescmS2_:F(0,19):
+ZN9CAETarget15SetPropertyDataERK6AEDescmS2__F0_19:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1369,13 +1387,13 @@ ZN9CAETarget15SetPropertyDataERK6AEDescmS2_:F(0,19):
 	sub esp, 0x5c
 	lea esi, [ebp-0x24]
 	mov [esp], esi
-	call ZN8CAEEventC1Ev:F(0,19)
+	call ZN8CAEEventC1Ev_F0_19
 	mov dword [esp+0xc], 0x73657464
 	mov dword [esp+0x8], 0x636f7265
 	mov eax, [ebp+0x8]
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call ZN8CAEEvent6CreateER9CAETargetmm:F(0,19)
+	call ZN8CAEEvent6CreateER9CAETargetmm_F0_19
 	mov dword [ebp-0x2c], 0x6e756c6c
 	mov dword [ebp-0x28], 0x0
 	mov eax, [ebp+0x10]
@@ -1386,7 +1404,7 @@ ZN9CAETarget15SetPropertyDataERK6AEDescmS2_:F(0,19):
 	mov dword [esp+0x4], 0x74797065
 	lea edi, [ebp-0x2c]
 	mov [esp], edi
-	call ZN7CAEDesc7PutDataEmPKvl:F(0,19)
+	call ZN7CAEDesc7PutDataEmPKvl_F0_19
 	mov [esp+0x10], edi
 	mov dword [esp+0xc], 0x70726f70
 	mov eax, [ebp+0xc]
@@ -1394,40 +1412,40 @@ ZN9CAETarget15SetPropertyDataERK6AEDescmS2_:F(0,19):
 	mov dword [esp+0x4], 0x70726f70
 	lea ebx, [ebp-0x34]
 	mov [esp], ebx
-	call ZN9CAEObjectC1EmRK6AEDescmS2_:F(0,19)
+	call ZN9CAEObjectC1EmRK6AEDescmS2__F0_19
 	mov [esp+0x8], ebx
 	mov dword [esp+0x4], 0x2d2d2d2d
 	mov [esp], esi
-	call ZN9CAERecord8PutParamEmRK6AEDesc:F(0,19)
+	call ZN9CAERecord8PutParamEmRK6AEDesc_F0_19
 	mov eax, [ebp+0x14]
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], 0x64617461
 	mov [esp], esi
-	call ZN9CAERecord8PutParamEmRK6AEDesc:F(0,19)
+	call ZN9CAERecord8PutParamEmRK6AEDesc_F0_19
 	mov [esp], esi
-	call ZN8CAEEvent4SendEv:F(0,19)
+	call ZN8CAEEvent4SendEv_F0_19
 	mov eax, [ebp-0x30]
 	test eax, eax
-	jz ZN9CAETarget15SetPropertyDataERK6AEDescmS2_:F(0,19)_10
+	jz ZN9CAETarget15SetPropertyDataERK6AEDescmS2__F0_19_10
 	mov [esp], ebx
 	call AEDisposeDesc
-ZN9CAETarget15SetPropertyDataERK6AEDescmS2_:F(0,19)_10:
+ZN9CAETarget15SetPropertyDataERK6AEDescmS2__F0_19_10:
 	mov dword [ebp-0x34], 0x6e756c6c
 	mov dword [ebp-0x30], 0x0
 	mov eax, [ebp-0x28]
 	test eax, eax
-	jz ZN9CAETarget15SetPropertyDataERK6AEDescmS2_:F(0,19)_20
+	jz ZN9CAETarget15SetPropertyDataERK6AEDescmS2__F0_19_20
 	mov [esp], edi
 	call AEDisposeDesc
-ZN9CAETarget15SetPropertyDataERK6AEDescmS2_:F(0,19)_20:
+ZN9CAETarget15SetPropertyDataERK6AEDescmS2__F0_19_20:
 	mov dword [ebp-0x2c], 0x6e756c6c
 	mov dword [ebp-0x28], 0x0
 	mov ebx, [ebp-0x20]
 	test ebx, ebx
-	jz ZN9CAETarget15SetPropertyDataERK6AEDescmS2_:F(0,19)_30
+	jz ZN9CAETarget15SetPropertyDataERK6AEDescmS2__F0_19_30
 	mov [esp], esi
 	call AEDisposeDesc
-ZN9CAETarget15SetPropertyDataERK6AEDescmS2_:F(0,19)_30:
+ZN9CAETarget15SetPropertyDataERK6AEDescmS2__F0_19_30:
 	add esp, 0x5c
 	pop ebx
 	pop esi
@@ -1435,13 +1453,13 @@ ZN9CAETarget15SetPropertyDataERK6AEDescmS2_:F(0,19)_30:
 	pop ebp
 	ret
 	mov [ebp-0x3c], eax
-ZN9CAETarget15SetPropertyDataERK6AEDescmS2_:F(0,19)_70:
+ZN9CAETarget15SetPropertyDataERK6AEDescmS2__F0_19_70:
 	mov ecx, [ebp-0x20]
 	test ecx, ecx
-	jz ZN9CAETarget15SetPropertyDataERK6AEDescmS2_:F(0,19)_40
+	jz ZN9CAETarget15SetPropertyDataERK6AEDescmS2__F0_19_40
 	mov [esp], esi
 	call AEDisposeDesc
-ZN9CAETarget15SetPropertyDataERK6AEDescmS2_:F(0,19)_40:
+ZN9CAETarget15SetPropertyDataERK6AEDescmS2__F0_19_40:
 	mov dword [ebp-0x24], 0x6e756c6c
 	mov dword [ebp-0x20], 0x0
 	mov eax, [ebp-0x3c]
@@ -1450,29 +1468,29 @@ ZN9CAETarget15SetPropertyDataERK6AEDescmS2_:F(0,19)_40:
 	mov [ebp-0x3c], eax
 	mov eax, [ebp-0x30]
 	test eax, eax
-	jz ZN9CAETarget15SetPropertyDataERK6AEDescmS2_:F(0,19)_50
+	jz ZN9CAETarget15SetPropertyDataERK6AEDescmS2__F0_19_50
 	mov [esp], ebx
 	call AEDisposeDesc
-ZN9CAETarget15SetPropertyDataERK6AEDescmS2_:F(0,19)_50:
+ZN9CAETarget15SetPropertyDataERK6AEDescmS2__F0_19_50:
 	mov dword [ebp-0x34], 0x6e756c6c
 	mov dword [ebp-0x30], 0x0
-ZN9CAETarget15SetPropertyDataERK6AEDescmS2_:F(0,19)_80:
+ZN9CAETarget15SetPropertyDataERK6AEDescmS2__F0_19_80:
 	mov eax, [ebp-0x28]
 	test eax, eax
-	jz ZN9CAETarget15SetPropertyDataERK6AEDescmS2_:F(0,19)_60
+	jz ZN9CAETarget15SetPropertyDataERK6AEDescmS2__F0_19_60
 	mov [esp], edi
 	call AEDisposeDesc
-ZN9CAETarget15SetPropertyDataERK6AEDescmS2_:F(0,19)_60:
+ZN9CAETarget15SetPropertyDataERK6AEDescmS2__F0_19_60:
 	mov dword [ebp-0x2c], 0x6e756c6c
 	mov dword [ebp-0x28], 0x0
-	jmp ZN9CAETarget15SetPropertyDataERK6AEDescmS2_:F(0,19)_70
+	jmp ZN9CAETarget15SetPropertyDataERK6AEDescmS2__F0_19_70
 	mov [ebp-0x3c], eax
-	jmp ZN9CAETarget15SetPropertyDataERK6AEDescmS2_:F(0,19)_80
+	jmp ZN9CAETarget15SetPropertyDataERK6AEDescmS2__F0_19_80
 
 
-;ZN9CAETarget13CountElementsERK6AEDescmRl:F(0,19)
+;ZN9CAETarget13CountElementsERK6AEDescmRl_F0_19
 
-ZN9CAETarget13CountElementsERK6AEDescmRl:F(0,19):
+ZN9CAETarget13CountElementsERK6AEDescmRl_F0_19:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1481,18 +1499,18 @@ ZN9CAETarget13CountElementsERK6AEDescmRl:F(0,19):
 	sub esp, 0x4c
 	lea esi, [ebp-0x28]
 	mov [esp], esi
-	call ZN8CAEEventC1Ev:F(0,19)
+	call ZN8CAEEventC1Ev_F0_19
 	mov dword [esp+0xc], 0x636e7465
 	mov dword [esp+0x8], 0x636f7265
 	mov eax, [ebp+0x8]
 	mov [esp+0x4], eax
 	mov [esp], esi
-	call ZN8CAEEvent6CreateER9CAETargetmm:F(0,19)
+	call ZN8CAEEvent6CreateER9CAETargetmm_F0_19
 	mov eax, [ebp+0xc]
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], 0x2d2d2d2d
 	mov [esp], esi
-	call ZN9CAERecord8PutParamEmRK6AEDesc:F(0,19)
+	call ZN9CAERecord8PutParamEmRK6AEDesc_F0_19
 	mov eax, [ebp+0x10]
 	mov [ebp-0x1c], eax
 	mov dword [esp+0x10], 0x4
@@ -1504,10 +1522,10 @@ ZN9CAETarget13CountElementsERK6AEDescmRl:F(0,19):
 	call AEPutParamPtr
 	movsx ebx, ax
 	test ax, ax
-	jnz ZN9CAETarget13CountElementsERK6AEDescmRl:F(0,19)_10
+	jnz ZN9CAETarget13CountElementsERK6AEDescmRl_F0_19_10
 	lea edi, [ebp-0x30]
 	mov [esp], edi
-	call ZN8CAEEventC1Ev:F(0,19)
+	call ZN8CAEEventC1Ev_F0_19
 	mov dword [esp+0x18], 0x0
 	mov dword [esp+0x14], 0x0
 	mov dword [esp+0x10], 0xffffffff
@@ -1518,7 +1536,7 @@ ZN9CAETarget13CountElementsERK6AEDescmRl:F(0,19):
 	call AESend
 	movsx ebx, ax
 	test ax, ax
-	jnz ZN9CAETarget13CountElementsERK6AEDescmRl:F(0,19)_20
+	jnz ZN9CAETarget13CountElementsERK6AEDescmRl_F0_19_20
 	lea eax, [ebp-0x20]
 	mov [esp+0x18], eax
 	mov dword [esp+0x14], 0x4
@@ -1532,28 +1550,28 @@ ZN9CAETarget13CountElementsERK6AEDescmRl:F(0,19):
 	call AEGetParamPtr
 	movsx ebx, ax
 	test ax, ax
-	jnz ZN9CAETarget13CountElementsERK6AEDescmRl:F(0,19)_20
+	jnz ZN9CAETarget13CountElementsERK6AEDescmRl_F0_19_20
 	mov edx, [ebp-0x2c]
 	test edx, edx
-	jz ZN9CAETarget13CountElementsERK6AEDescmRl:F(0,19)_30
+	jz ZN9CAETarget13CountElementsERK6AEDescmRl_F0_19_30
 	mov [esp], edi
 	call AEDisposeDesc
-ZN9CAETarget13CountElementsERK6AEDescmRl:F(0,19)_30:
+ZN9CAETarget13CountElementsERK6AEDescmRl_F0_19_30:
 	mov dword [ebp-0x30], 0x6e756c6c
 	mov dword [ebp-0x2c], 0x0
 	mov eax, [ebp-0x24]
 	test eax, eax
-	jz ZN9CAETarget13CountElementsERK6AEDescmRl:F(0,19)_40
+	jz ZN9CAETarget13CountElementsERK6AEDescmRl_F0_19_40
 	mov [esp], esi
 	call AEDisposeDesc
-ZN9CAETarget13CountElementsERK6AEDescmRl:F(0,19)_40:
+ZN9CAETarget13CountElementsERK6AEDescmRl_F0_19_40:
 	add esp, 0x4c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-ZN9CAETarget13CountElementsERK6AEDescmRl:F(0,19)_20:
+ZN9CAETarget13CountElementsERK6AEDescmRl_F0_19_20:
 	mov dword [esp], 0x4
 	call __cxa_allocate_exception
 	mov [eax], ebx
@@ -1562,7 +1580,7 @@ ZN9CAETarget13CountElementsERK6AEDescmRl:F(0,19)_20:
 	mov [esp+0x4], edx
 	mov [esp], eax
 	call __cxa_throw
-ZN9CAETarget13CountElementsERK6AEDescmRl:F(0,19)_10:
+ZN9CAETarget13CountElementsERK6AEDescmRl_F0_19_10:
 	mov dword [esp], 0x4
 	call __cxa_allocate_exception
 	mov [eax], ebx
@@ -1574,31 +1592,31 @@ ZN9CAETarget13CountElementsERK6AEDescmRl:F(0,19)_10:
 	mov ebx, eax
 	mov ecx, [ebp-0x2c]
 	test ecx, ecx
-	jz ZN9CAETarget13CountElementsERK6AEDescmRl:F(0,19)_50
+	jz ZN9CAETarget13CountElementsERK6AEDescmRl_F0_19_50
 	mov [esp], edi
 	call AEDisposeDesc
-ZN9CAETarget13CountElementsERK6AEDescmRl:F(0,19)_50:
+ZN9CAETarget13CountElementsERK6AEDescmRl_F0_19_50:
 	mov dword [ebp-0x30], 0x6e756c6c
 	mov dword [ebp-0x2c], 0x0
-ZN9CAETarget13CountElementsERK6AEDescmRl:F(0,19)_70:
+ZN9CAETarget13CountElementsERK6AEDescmRl_F0_19_70:
 	mov eax, [ebp-0x24]
 	test eax, eax
-	jz ZN9CAETarget13CountElementsERK6AEDescmRl:F(0,19)_60
+	jz ZN9CAETarget13CountElementsERK6AEDescmRl_F0_19_60
 	mov [esp], esi
 	call AEDisposeDesc
-ZN9CAETarget13CountElementsERK6AEDescmRl:F(0,19)_60:
+ZN9CAETarget13CountElementsERK6AEDescmRl_F0_19_60:
 	mov dword [ebp-0x28], 0x6e756c6c
 	mov dword [ebp-0x24], 0x0
 	mov [esp], ebx
 	call _Unwind_Resume
 	mov ebx, eax
-	jmp ZN9CAETarget13CountElementsERK6AEDescmRl:F(0,19)_70
+	jmp ZN9CAETarget13CountElementsERK6AEDescmRl_F0_19_70
 	nop
 
 
-;ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0_:F(0,19)
+;ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0__F0_19
 
-ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0_:F(0,19):
+ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0__F0_19:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1608,13 +1626,13 @@ ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0_:F(0,19):
 	mov esi, [ebp+0x14]
 	lea edi, [ebp-0x24]
 	mov [esp], edi
-	call ZN8CAEEventC1Ev:F(0,19)
+	call ZN8CAEEventC1Ev_F0_19
 	mov dword [esp+0xc], 0x67657464
 	mov dword [esp+0x8], 0x636f7265
 	mov eax, [ebp+0x8]
 	mov [esp+0x4], eax
 	mov [esp], edi
-	call ZN8CAEEvent6CreateER9CAETargetmm:F(0,19)
+	call ZN8CAEEvent6CreateER9CAETargetmm_F0_19
 	mov dword [ebp-0x2c], 0x6e756c6c
 	mov dword [ebp-0x28], 0x0
 	mov eax, [ebp+0x10]
@@ -1625,7 +1643,7 @@ ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0_:F(0,19):
 	mov dword [esp+0x4], 0x74797065
 	lea eax, [ebp-0x2c]
 	mov [esp], eax
-	call ZN7CAEDesc7PutDataEmPKvl:F(0,19)
+	call ZN7CAEDesc7PutDataEmPKvl_F0_19
 	lea eax, [ebp-0x2c]
 	mov [esp+0x10], eax
 	mov dword [esp+0xc], 0x70726f70
@@ -1634,30 +1652,30 @@ ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0_:F(0,19):
 	mov dword [esp+0x4], 0x70726f70
 	lea eax, [ebp-0x34]
 	mov [esp], eax
-	call ZN9CAEObjectC1EmRK6AEDescmS2_:F(0,19)
+	call ZN9CAEObjectC1EmRK6AEDescmS2__F0_19
 	lea eax, [ebp-0x34]
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], 0x2d2d2d2d
 	mov [esp], edi
-	call ZN9CAERecord8PutParamEmRK6AEDesc:F(0,19)
+	call ZN9CAERecord8PutParamEmRK6AEDesc_F0_19
 	test esi, esi
-	jz ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0_:F(0,19)_10
+	jz ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0__F0_19_10
 	mov [ebp-0x1c], esi
 	mov dword [esp+0xc], 0x4
 	mov [esp+0x8], ebx
 	mov dword [esp+0x4], 0x74797065
 	lea eax, [ebp-0x2c]
 	mov [esp], eax
-	call ZN7CAEDesc7PutDataEmPKvl:F(0,19)
+	call ZN7CAEDesc7PutDataEmPKvl_F0_19
 	lea eax, [ebp-0x2c]
 	mov [esp+0x8], eax
 	mov dword [esp+0x4], 0x72747970
 	mov [esp], edi
-	call ZN9CAERecord8PutParamEmRK6AEDesc:F(0,19)
-ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0_:F(0,19)_10:
+	call ZN9CAERecord8PutParamEmRK6AEDesc_F0_19
+ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0__F0_19_10:
 	lea esi, [ebp-0x3c]
 	mov [esp], esi
-	call ZN8CAEEventC1Ev:F(0,19)
+	call ZN8CAEEventC1Ev_F0_19
 	mov dword [esp+0x18], 0x0
 	mov dword [esp+0x14], 0x0
 	mov dword [esp+0x10], 0xffffffff
@@ -1668,7 +1686,7 @@ ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0_:F(0,19)_10:
 	call AESend
 	movsx ebx, ax
 	test ax, ax
-	jnz ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0_:F(0,19)_20
+	jnz ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0__F0_19_20
 	mov eax, [ebp+0x18]
 	mov [esp+0xc], eax
 	mov dword [esp+0x8], 0x2a2a2a2a
@@ -1677,46 +1695,46 @@ ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0_:F(0,19)_10:
 	call AEGetParamDesc
 	movsx ebx, ax
 	test ax, ax
-	jnz ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0_:F(0,19)_20
+	jnz ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0__F0_19_20
 	mov eax, [ebp-0x38]
 	test eax, eax
-	jz ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0_:F(0,19)_30
+	jz ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0__F0_19_30
 	mov [esp], esi
 	call AEDisposeDesc
-ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0_:F(0,19)_30:
+ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0__F0_19_30:
 	mov dword [ebp-0x3c], 0x6e756c6c
 	mov dword [ebp-0x38], 0x0
 	mov eax, [ebp-0x30]
 	test eax, eax
-	jz ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0_:F(0,19)_40
+	jz ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0__F0_19_40
 	lea eax, [ebp-0x34]
 	mov [esp], eax
 	call AEDisposeDesc
-ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0_:F(0,19)_40:
+ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0__F0_19_40:
 	mov dword [ebp-0x34], 0x6e756c6c
 	mov dword [ebp-0x30], 0x0
 	mov eax, [ebp-0x28]
 	test eax, eax
-	jz ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0_:F(0,19)_50
+	jz ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0__F0_19_50
 	lea eax, [ebp-0x2c]
 	mov [esp], eax
 	call AEDisposeDesc
-ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0_:F(0,19)_50:
+ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0__F0_19_50:
 	mov dword [ebp-0x2c], 0x6e756c6c
 	mov dword [ebp-0x28], 0x0
 	mov eax, [ebp-0x20]
 	test eax, eax
-	jz ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0_:F(0,19)_60
+	jz ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0__F0_19_60
 	mov [esp], edi
 	call AEDisposeDesc
-ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0_:F(0,19)_60:
+ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0__F0_19_60:
 	add esp, 0x5c
 	pop ebx
 	pop esi
 	pop edi
 	pop ebp
 	ret
-ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0_:F(0,19)_20:
+ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0__F0_19_20:
 	mov dword [esp], 0x4
 	call __cxa_allocate_exception
 	mov [eax], ebx
@@ -1728,51 +1746,51 @@ ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0_:F(0,19)_20:
 	mov ebx, eax
 	mov edx, [ebp-0x38]
 	test edx, edx
-	jz ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0_:F(0,19)_70
+	jz ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0__F0_19_70
 	mov [esp], esi
 	call AEDisposeDesc
-ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0_:F(0,19)_70:
+ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0__F0_19_70:
 	mov dword [ebp-0x3c], 0x6e756c6c
 	mov dword [ebp-0x38], 0x0
-ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0_:F(0,19)_110:
+ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0__F0_19_110:
 	mov eax, [ebp-0x30]
 	test eax, eax
-	jz ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0_:F(0,19)_80
+	jz ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0__F0_19_80
 	lea eax, [ebp-0x34]
 	mov [esp], eax
 	call AEDisposeDesc
-ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0_:F(0,19)_80:
+ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0__F0_19_80:
 	mov dword [ebp-0x34], 0x6e756c6c
 	mov dword [ebp-0x30], 0x0
-ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0_:F(0,19)_120:
+ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0__F0_19_120:
 	mov eax, [ebp-0x28]
 	test eax, eax
-	jz ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0_:F(0,19)_90
+	jz ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0__F0_19_90
 	lea eax, [ebp-0x2c]
 	mov [esp], eax
 	call AEDisposeDesc
-ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0_:F(0,19)_90:
+ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0__F0_19_90:
 	mov dword [ebp-0x2c], 0x6e756c6c
 	mov dword [ebp-0x28], 0x0
-ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0_:F(0,19)_130:
+ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0__F0_19_130:
 	mov esi, [ebp-0x20]
 	test esi, esi
-	jz ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0_:F(0,19)_100
+	jz ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0__F0_19_100
 	mov [esp], edi
 	call AEDisposeDesc
-ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0_:F(0,19)_100:
+ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0__F0_19_100:
 	mov dword [ebp-0x24], 0x6e756c6c
 	mov dword [ebp-0x20], 0x0
 	mov [esp], ebx
 	call _Unwind_Resume
 	mov ebx, eax
-	jmp ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0_:F(0,19)_110
+	jmp ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0__F0_19_110
 	mov ebx, eax
-	jmp ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0_:F(0,19)_120
+	jmp ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0__F0_19_120
 	mov ebx, eax
-	jmp ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0_:F(0,19)_130
+	jmp ZN9CAETarget15GetPropertyDataERK6AEDescmmRS0__F0_19_130
 	nop
 
 
-;Z19UserPaneHitTestProcP16OpaqueControlRef5Point:F(0,1)
+;Z19UserPaneHitTestProcP16OpaqueControlRef5Point_F0_1
 

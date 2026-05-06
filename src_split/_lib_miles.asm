@@ -2,640 +2,747 @@
 ;Symbols in this file: 82
 ;
 ;Imports (over-declared, NASM-safe):
-	extern __keymgr_dwarf2_register_sections
-	extern atexit
-	extern exit
-	extern AEDisposeDesc
-	extern AECreateDesc
-	extern __cxa_allocate_exception
-	extern __cxa_throw
-	extern _Unwind_Resume
 	extern AECoerceDesc
+	extern AECreateAppleEvent
+	extern AECreateDesc
+	extern AEDisposeDesc
 	extern AEGetDescData
 	extern AEGetDescDataSize
-	extern CreateObjSpecifier
-	extern AEPutParamDesc
-	extern AECreateAppleEvent
-	extern AESend
-	extern AEPutParamPtr
-	extern AEGetParamPtr
 	extern AEGetParamDesc
-	extern GetControlBounds
-	extern PtInRect
-	extern GetEventKind
-	extern GetEventClass
-	extern GetEventParameter
-	extern GetControlOwner
-	extern AdvanceKeyboardFocus
-	extern SetWRefCon
-	extern QuitAppModalLoopForWindow
-	extern HIViewGetRoot
-	extern HIViewGetViewForMouseEvent
-	extern GetControlKind
-	extern SetThemeCursor
-	extern CFBundleGetMainBundle
-	extern CreateNibReferenceWithCFBundle
-	extern CreateWindowFromNib
-	extern DisposeNibReference
-	extern GetWindowEventTarget
-	extern InstallEventHandler
-	extern GetWindowResizeLimits
-	extern SetWindowResizeLimits
-	extern InitCursor
-	extern ShowWindow
-	extern RunAppModalLoopForWindow
-	extern HideWindow
-	extern GetWRefCon
-	extern DisposeWindow
-	extern GetControlByID
-	extern GetControlMaximum
-	extern GetControlDataSize
-	extern SetControlData
-	extern HandleControlKey
-	extern GetControlReference
-	extern GetControlData
-	extern AlertSoundPlay
-	extern HITextViewGetTXNObject
-	extern TXNSetTypeAttributes
-	extern HideControl
-	extern ShowControl
-	extern DisableControl
-	extern EnableControl
-	extern SetControlFontStyle
-	extern SetKeyboardFocus
-	extern NewControlUserPaneDrawUPP
-	extern NewControlUserPaneHitTestUPP
-	extern NewControlUserPaneTrackingUPP
-	extern SetControlReference
-	extern SetControlMaximum
-	extern NewControlKeyFilterUPP
-	extern NewControlEditTextValidationUPP
-	extern GetWindowPort
-	extern CGDisplayBounds
-	extern DMGetFirstScreenDevice
-	extern EqualRect
-	extern DMGetNextScreenDevice
-	extern GetMainDevice
-	extern GetWindowPortBounds
-	extern CGDisplayFade
-	extern CGReleaseDisplayFadeReservation
-	extern CGAcquireDisplayFadeReservation
-	extern CGDisplayPixelsWide
-	extern CGDisplayPixelsHigh
-	extern CGDisplayBitsPerPixel
-	extern aglSwapBuffers
-	extern EndMediaEdits
-	extern GetMediaDuration
-	extern InsertMediaIntoTrack
-	extern AddMovieResource
-	extern CloseMovieFile
-	extern MoveWindow
-	extern GetAvailableWindowPositioningBounds
-	extern CreateNewWindow
-	extern SetPortWindowPort
-	extern SetWindowContentColor
-	extern SetWindowTitleWithCFString
-	extern gluCheckExtension
-	extern _Znam
-	extern CGSetDisplayTransferByTable
-	extern _ZdaPv
-	extern CGGetDisplayTransferByTable
-	extern QDLocalToGlobalPoint
-	extern QDGlobalToLocalPoint
-	extern _Znwm
-	extern _ZdlPv
-	extern _ZSt17__throw_bad_allocv
-	extern _ZSt20__throw_length_errorPKc
-	extern NormalizeThemeDrawingState
-	extern ForeColor
-	extern FrameRoundRect
-	extern RGBForeColor
-	extern PaintRoundRect
-	extern NewRgn
-	extern OpenRgn
-	extern CloseRgn
-	extern SetClip
-	extern DisposeRgn
-	extern ClipRect
-	extern DrawThemeMenuBarBackground
-	extern InsetRect
-	extern DrawThemeFocusRect
-	extern GetIconRefFromFileInfo
-	extern PlotIconRef
-	extern ReleaseIconRef
-	extern CGRectIsEmpty
-	extern CGRectUnion
-	extern CGRectGetWidth
-	extern CGRectGetHeight
-	extern OffsetRect
-	extern MapRect
-	extern glFinish
-	extern aglSetCurrentContext
-	extern aglSetDrawable
-	extern aglDestroyContext
-	extern ShowMenuBar
-	extern SetSystemUIMode
-	extern aglChoosePixelFormat
-	extern aglCreateContext
-	extern aglSetFullScreen
-	extern CGDisplayCurrentMode
-	extern aglSetInteger
-	extern HideMenuBar
-	extern aglDescribePixelFormat
-	extern aglDestroyPixelFormat
-	extern glEnable
-	extern glHint
-	extern aglGetDrawable
-	extern glDisable
-	extern IsWindowVisible
-	extern SizeWindow
-	extern PaintRect
-	extern _ZNSs6assignERKSs
-	extern CGDisplayIDToOpenGLDisplayMask
-	extern CGLQueryRendererInfo
-	extern CGLDescribeRenderer
-	extern CGLDestroyRendererInfo
-	extern CGDisplayAvailableModes
-	extern CFArrayGetCount
-	extern CGDisplayIOServicePort
-	extern CGLGetCurrentContext
-	extern CGLChoosePixelFormat
-	extern CGLCreateContext
-	extern CGLDestroyPixelFormat
-	extern CGLSetCurrentContext
-	extern glGetString
-	extern _ZNSs6assignEPKcm
-	extern glGetIntegerv
-	extern CGLDestroyContext
-	extern _ZNSsC1ERKSs
-	extern strstr
-	extern _ZNSsD1Ev
-	extern CFArrayGetValueAtIndex
-	extern IOObjectConformsTo
-	extern IORegistryEntryGetParentEntry
-	extern glGetFloatv
-	extern _ZN9__gnu_cxx18__exchange_and_addEPVii
-	extern _ZNSs4_Rep10_M_destroyERKSaIcE
-	extern __cxa_begin_catch
-	extern __cxa_rethrow
-	extern __cxa_end_catch
-	extern CGGetActiveDisplayList
-	extern NewMenu
-	extern InsertMenu
-	extern InvalMenuBar
-	extern GetCurrentKeyModifiers
-	extern CGRectEqualToRect
-	extern Gestalt
-	extern sysctl
-	extern FSOpenIterator
-	extern FSGetCatalogInfoBulk
-	extern FSCloseIterator
-	extern FSDeleteObject
-	extern FSSetCatalogInfo
-	extern FSPathMakeRef
-	extern access
-	extern CFBundleCopyExecutableURL
-	extern CFURLGetFSRef
-	extern CFRelease
-	extern FSGetCatalogInfo
-	extern GetCurrentProcess
-	extern strcat
-	extern GetProcessBundleLocation
-	extern FSRefMakePath
-	extern PBGetCatInfoSync
-	extern FSMakeFSSpec
-	extern FSpMakeFSRef
-	extern memcpy
-	extern CFStringCreateWithCString
-	extern CFPreferencesCopyAppValue
-	extern CFGetTypeID
-	extern CFStringGetTypeID
-	extern strcpy
-	extern CFStringGetCString
-	extern CFPreferencesSetAppValue
-	extern atoi
-	extern sprintf
-	extern CFPreferencesAppSynchronize
-	extern atof
-	extern CFBundleCopyLocalizedString
-	extern CFStringGetPascalString
-	extern StringToNum
-	extern CFStringCreateWithFormat
-	extern GetPort
-	extern SetPort
-	extern CFStringCreateWithCharacters
-	extern GetCursor
-	extern SetCursor
-	extern CGAssociateMouseAndMouseCursorPosition
-	extern CGWarpMouseCursorPosition
-	extern HideCursor
-	extern GetGlobalMouse
-	extern UpTime
+	extern AEGetParamPtr
+	extern AEInstallEventHandler
+	extern AEPutParamDesc
+	extern AEPutParamPtr
+	extern AESend
+	extern AUGraphConnectNodeInput
+	extern AUGraphGetCPULoad
+	extern AUGraphGetNodeInfo
+	extern AUGraphInitialize
+	extern AUGraphNewNode
+	extern AUGraphOpen
+	extern AUGraphStart
+	extern AUGraphStop
+	extern AUGraphUpdate
 	extern AddDurationToAbsolute
-	extern MPDelayUntil
-	extern GetNextProcess
-	extern GetProcessInformation
-	extern CFDictionaryGetValue
-	extern CFNumberGetValue
-	extern lround
-	extern IORegistryEntryCreateCFProperty
+	extern AddMovieResource
+	extern AdvanceKeyboardFocus
+	extern AlertSoundPlay
+	extern AppendMenuItemTextWithCFString
+	extern AudioConverterDispose
+	extern AudioConverterFillBuffer
+	extern AudioConverterFillComplexBuffer
+	extern AudioConverterNew
+	extern AudioConverterReset
+	extern AudioDeviceGetProperty
+	extern AudioDeviceGetPropertyInfo
+	extern AudioDeviceSetProperty
+	extern AudioHardwareGetProperty
+	extern AudioOutputUnitStart
+	extern AudioOutputUnitStop
+	extern AudioUnitAddRenderNotify
+	extern AudioUnitGetProperty
+	extern AudioUnitInitialize
+	extern AudioUnitRemoveRenderNotify
+	extern AudioUnitRender
+	extern AudioUnitSetParameter
+	extern AudioUnitSetProperty
+	extern AudioUnitUninitialize
+	extern CFArrayGetCount
+	extern CFArrayGetValueAtIndex
+	extern CFBundleCopyExecutableURL
+	extern CFBundleCopyLocalizedString
+	extern CFBundleGetMainBundle
 	extern CFDataGetBytePtr
-	extern CreateEvent
-	extern SetEventParameter
-	extern GetMainEventQueue
-	extern PostEventToQueue
-	extern ReleaseEvent
-	extern pthread_main_np
-	extern GetStandardAlertDefaultParams
-	extern CreateStandardAlert
-	extern RunStandardAlert
-	extern LSCopyItemInfoForRef
-	extern pthread_self
-	extern OTAtomicAdd32
-	extern OTCompareAndSwap32
-	extern calloc
-	extern free
-	extern strrchr
-	extern Microseconds
-	extern __udivdi3
-	extern memset
-	extern strncpy
-	extern getcwd
-	extern NewGWorld
-	extern GetGWorldPixMap
-	extern LockPixels
-	extern GetPixRowBytes
-	extern QDRegisterNamedPixMapCursor
-	extern DisposeGWorld
-	extern TickCount
-	extern QDSetNamedPixMapCursor
-	extern GetMainEventLoop
-	extern InstallEventLoopTimer
-	extern GetQDGlobalsArrow
-	extern ShowCursor
-	extern fopen
-	extern fseek
-	extern fclose
-	extern ftell
-	extern rewind
-	extern malloc
-	extern fread
-	extern _ZNKSs7compareEPKc
-	extern glStencilMask
-	extern glDepthMask
-	extern glFlushVertexArrayRangeAPPLE
-	extern glTexParameterfv
-	extern glLightfv
-	extern glColor4f
-	extern glMatrixMode
-	extern glLoadMatrixf
-	extern glTexParameteri
-	extern glGenTextures
-	extern _ZNSt15_List_node_base4hookEPS_
-	extern glTexParameterf
-	extern glTexEnvf
-	extern glPushMatrix
-	extern glLoadIdentity
-	extern glTexCoord2f
-	extern glPopMatrix
-	extern glTexEnvfv
-	extern glPointSize
-	extern glDrawRangeElements
-	extern memmove
-	extern glBindTexture
-	extern glColorMask
-	extern glActiveTextureARB
-	extern glDepthFunc
-	extern glShadeModel
-	extern glViewport
-	extern glDepthRange
-	extern glAlphaFunc
-	extern glClearDepth
-	extern glScissor
-	extern glClear
-	extern glClearColor
-	extern glClearStencil
-	extern glMaterialfv
-	extern glMaterialf
-	extern glPixelStorei
-	extern glCopyTexSubImage2D
-	extern gluOrtho2D
-	extern glTexEnvi
-	extern glBlendFuncSeparateEXT
-	extern glBlendFunc
-	extern glBegin
-	extern glVertex3f
-	extern glEnd
-	extern cos
-	extern log
-	extern cosf
-	extern glPolygonMode
-	extern glFogf
-	extern glLightModelfv
-	extern glBlendEquationEXT
-	extern glPolygonOffset
-	extern glFogfv
-	extern glPointParameterfvARB
-	extern glStencilFunc
-	extern glPointParameterfARB
-	extern glStencilOp
-	extern glFrontFace
-	extern glColorMaterial
-	extern glPushAttrib
-	extern glPushClientAttrib
-	extern glDrawBuffer
-	extern glReadBuffer
-	extern __dynamic_cast
-	extern glScalef
-	extern glVertex2f
-	extern glPopClientAttrib
-	extern glPopAttrib
-	extern glProgramEnvParameter4fvARB
-	extern glTexGenfv
-	extern _ZNSsC1EPKcRKSaIcE
-	extern _ZNKSs4findEPKcmm
-	extern _ZNSsC1ERKSsmm
-	extern _ZSt20__throw_out_of_rangePKc
-	extern glCombinerParameterfvNV
-	extern glCombinerStageParameterfvNV
-	extern glBindProgramARB
-	extern glDeleteProgramsARB
-	extern glGetProgramivARB
-	extern glGenProgramsARB
-	extern glProgramStringARB
-	extern _ZNSs6appendEPKcm
-	extern _ZNSs6appendERKSs
-	extern glTexImage2D
-	extern glCompressedTexImage2DARB
-	extern glTexSubImage2D
-	extern glCompressedTexSubImage2D
-	extern _ZNSt15_List_node_base6unhookEv
-	extern ceilf
-	extern glFinishFenceAPPLE
-	extern glSetFenceAPPLE
-	extern glGenFencesAPPLE
-	extern glDeleteFencesAPPLE
-	extern glVertexArrayRangeAPPLE
-	extern glDisableVertexAttribArrayARB
-	extern glVertexAttribPointerARB
-	extern glEnableVertexAttribArrayARB
-	extern glTexGeni
-	extern glBindVertexArrayAPPLE
-	extern glLightf
-	extern glClientActiveTextureARB
-	extern glDeleteTextures
-	extern glDeleteVertexArraysAPPLE
-	extern glDisableClientState
-	extern glFogi
-	extern glLightModeli
-	extern glClipPlane
-	extern glEnableClientState
-	extern glVertexArrayParameteriAPPLE
-	extern strcasecmp
-	extern strncasecmp
-	extern tolower
-	extern toupper
-	extern RemoveEventHandler
-	extern FlushEventQueue
-	extern SendEventToEventTarget
-	extern ReceiveNextEvent
+	extern CFDictionaryGetValue
+	extern CFGetTypeID
+	extern CFNumberGetValue
+	extern CFPreferencesAppSynchronize
+	extern CFPreferencesCopyAppValue
+	extern CFPreferencesSetAppValue
+	extern CFRelease
+	extern CFStringCreateWithCString
+	extern CFStringCreateWithCharacters
+	extern CFStringCreateWithFormat
+	extern CFStringGetCString
+	extern CFStringGetPascalString
+	extern CFStringGetTypeID
 	extern CFURLCreateFromFSRef
-	extern CGDataProviderCreateWithURL
-	extern CGImageCreateWithPNGDataProvider
-	extern QDBeginCGContext
-	extern CGImageRelease
-	extern CGDataProviderRelease
+	extern CFURLCreateWithBytes
+	extern CFURLGetFSRef
+	extern CGAcquireDisplayFadeReservation
+	extern CGAssociateMouseAndMouseCursorPosition
 	extern CGContextClearRect
 	extern CGContextDrawImage
 	extern CGContextFlush
-	extern QDEndCGContext
-	extern EventAvail
-	extern strcmp
-	extern getrlimit
-	extern setrlimit
-	extern EnterMovies
-	extern FSGetVolumeInfo
-	extern GetCompressionInfo
-	extern RunApplicationEventLoop
-	extern GetEventDispatcherTarget
-	extern GetApplicationEventTarget
-	extern GetMenuHandle
-	extern AppendMenuItemTextWithCFString
-	extern SetItemCmd
-	extern GetIndMenuItemWithCommandID
-	extern GetMenuEventTarget
-	extern AEInstallEventHandler
-	extern chdir
-	extern QuitApplicationEventLoop
+	extern CGDataProviderCreateWithURL
+	extern CGDataProviderRelease
+	extern CGDisplayAvailableModes
+	extern CGDisplayBitsPerPixel
+	extern CGDisplayBounds
+	extern CGDisplayCurrentMode
+	extern CGDisplayFade
+	extern CGDisplayIDToOpenGLDisplayMask
+	extern CGDisplayIOServicePort
+	extern CGDisplayPixelsHigh
+	extern CGDisplayPixelsWide
+	extern CGGetActiveDisplayList
+	extern CGGetDisplayTransferByTable
+	extern CGImageCreateWithPNGDataProvider
+	extern CGImageRelease
+	extern CGLChoosePixelFormat
+	extern CGLCreateContext
+	extern CGLDescribeRenderer
+	extern CGLDestroyContext
+	extern CGLDestroyPixelFormat
+	extern CGLDestroyRendererInfo
+	extern CGLGetCurrentContext
+	extern CGLQueryRendererInfo
+	extern CGLSetCurrentContext
+	extern CGRectEqualToRect
+	extern CGRectGetHeight
+	extern CGRectGetWidth
+	extern CGRectIsEmpty
+	extern CGRectUnion
+	extern CGReleaseDisplayFadeReservation
+	extern CGSetDisplayTransferByTable
+	extern CGWarpMouseCursorPosition
+	extern ClipRect
+	extern CloseComponent
+	extern CloseMovieFile
+	extern CloseRgn
+	extern CollapseWindow
+	extern CreateEvent
+	extern CreateNewWindow
+	extern CreateNibReferenceWithCFBundle
+	extern CreateObjSpecifier
+	extern CreateStandardAlert
+	extern CreateWindowFromNib
+	extern DMGetFirstScreenDevice
+	extern DMGetNextScreenDevice
+	extern DisableControl
 	extern DisableMenuItem
-	extern close
-	extern ioctl
-	extern __error
-	extern vsnprintf
-	extern strchr
-	extern rand
-	extern acosf
-	extern atan2
-	extern tan
-	extern sinf
-	extern time
-	extern localtime
-	extern asctime
-	extern longjmp
-	extern __maskrune
-	extern snprintf
-	extern floorf
-	extern setjmp
-	extern remove
-	extern fflush
-	extern qsort
-	extern fwrite
-	extern rename
-	extern isspace
-	extern _ZNSs9_M_mutateEmmm
+	extern DisposeAUGraph
+	extern DisposeGWorld
+	extern DisposeHandle
+	extern DisposeMovie
+	extern DisposeNibReference
+	extern DisposeRgn
+	extern DisposeWindow
+	extern DrawThemeFocusRect
+	extern DrawThemeMenuBarBackground
+	extern EnableControl
+	extern EndMediaEdits
+	extern EnterMovies
+	extern EqualRect
+	extern EventAvail
+	extern FSCloseIterator
+	extern FSDeleteObject
+	extern FSGetCatalogInfo
+	extern FSGetCatalogInfoBulk
+	extern FSGetVolumeInfo
+	extern FSMakeFSSpec
+	extern FSOpenIterator
+	extern FSPathMakeRef
+	extern FSRefMakePath
+	extern FSSetCatalogInfo
+	extern FSpMakeFSRef
+	extern FindNextComponent
+	extern FlushEventQueue
+	extern ForeColor
+	extern FrameRoundRect
+	extern Gestalt
+	extern GetApplicationEventTarget
+	extern GetAvailableWindowPositioningBounds
+	extern GetComponentVersion
+	extern GetCompressionInfo
+	extern GetControlBounds
+	extern GetControlByID
+	extern GetControlData
+	extern GetControlDataSize
+	extern GetControlKind
+	extern GetControlMaximum
+	extern GetControlOwner
+	extern GetControlReference
+	extern GetCurrentEventTime
+	extern GetCurrentKeyModifiers
+	extern GetCurrentProcess
+	extern GetCursor
+	extern GetEventClass
+	extern GetEventDispatcherTarget
+	extern GetEventKind
+	extern GetEventParameter
+	extern GetGWorldPixMap
+	extern GetGlobalMouse
+	extern GetHandleSize
+	extern GetIconRefFromFileInfo
+	extern GetIndMenuItemWithCommandID
+	extern GetMainDevice
+	extern GetMainEventLoop
+	extern GetMainEventQueue
+	extern GetMediaDuration
+	extern GetMediaHandler
+	extern GetMediaSampleDescription
+	extern GetMenuEventTarget
+	extern GetMenuHandle
+	extern GetMovieDuration
+	extern GetMovieIndTrackType
+	extern GetMoviePreferredRate
+	extern GetMovieTime
+	extern GetMovieTimeScale
+	extern GetNextProcess
+	extern GetPixRowBytes
+	extern GetPort
+	extern GetProcessBundleLocation
+	extern GetProcessInformation
+	extern GetQDGlobalsArrow
+	extern GetStandardAlertDefaultParams
+	extern GetTrackMedia
+	extern GetWRefCon
+	extern GetWindowEventTarget
+	extern GetWindowPort
+	extern GetWindowPortBounds
+	extern GetWindowResizeLimits
+	extern GoToBeginningOfMovie
+	extern HITextViewGetTXNObject
+	extern HIViewGetRoot
+	extern HIViewGetViewForMouseEvent
+	extern HandleControlKey
+	extern HideControl
+	extern HideCursor
+	extern HideMenuBar
+	extern HideWindow
+	extern IOObjectConformsTo
+	extern IORegistryEntryCreateCFProperty
+	extern IORegistryEntryGetParentEntry
+	extern InitCursor
+	extern InsertMediaIntoTrack
+	extern InsertMenu
+	extern InsetRect
+	extern InstallEventHandler
+	extern InstallEventLoopTimer
+	extern InvalMenuBar
+	extern IsMovieDone
+	extern IsWindowVisible
+	extern LSCopyItemInfoForRef
+	extern LSOpenCFURLRef
+	extern LSOpenFSRef
+	extern LockPixels
+	extern MPDelayUntil
+	extern MapRect
+	extern MediaSetSoundBalance
+	extern Microseconds
+	extern MoveWindow
+	extern MoviesTask
+	extern NewAUGraph
+	extern NewControlEditTextValidationUPP
+	extern NewControlKeyFilterUPP
+	extern NewControlUserPaneDrawUPP
+	extern NewControlUserPaneHitTestUPP
+	extern NewControlUserPaneTrackingUPP
+	extern NewGWorld
+	extern NewHandle
+	extern NewMenu
+	extern NewMovieFromFile
+	extern NewRgn
+	extern NormalizeThemeDrawingState
+	extern OTAtomicAdd32
+	extern OTCompareAndSwap32
+	extern OffsetRect
+	extern OpenAComponent
+	extern OpenComponent
+	extern OpenMovieFile
+	extern OpenRgn
+	extern PBGetCatInfoSync
+	extern PaintRect
+	extern PaintRoundRect
+	extern PlotIconRef
+	extern PostEventToQueue
+	extern PrerollMovie
+	extern PtInRect
+	extern PtrAndHand
+	extern QDBeginCGContext
+	extern QDEndCGContext
+	extern QDGlobalToLocalPoint
+	extern QDLocalToGlobalPoint
+	extern QDRegisterNamedPixMapCursor
+	extern QDSetNamedPixMapCursor
+	extern QuitAppModalLoopForWindow
+	extern QuitApplicationEventLoop
+	extern RGBForeColor
+	extern ReceiveNextEvent
+	extern ReleaseEvent
+	extern ReleaseIconRef
+	extern RemoveEventHandler
+	extern RemoveEventLoopTimer
+	extern RunAppModalLoopForWindow
+	extern RunApplicationEventLoop
+	extern RunStandardAlert
+	extern SECTION
+	extern SendEventToEventTarget
+	extern SetClip
+	extern SetControlData
+	extern SetControlFontStyle
+	extern SetControlMaximum
+	extern SetControlReference
+	extern SetCursor
+	extern SetEventParameter
+	extern SetFrontProcess
+	extern SetItemCmd
+	extern SetKeyboardFocus
+	extern SetMovieRate
+	extern SetMovieTimeValue
+	extern SetPort
+	extern SetPortWindowPort
+	extern SetSystemUIMode
+	extern SetThemeCursor
+	extern SetTrackVolume
+	extern SetWRefCon
+	extern SetWindowContentColor
+	extern SetWindowResizeLimits
+	extern SetWindowTitleWithCFString
+	extern ShowControl
+	extern ShowCursor
+	extern ShowMenuBar
+	extern ShowWindow
+	extern SizeWindow
+	extern StartMovie
+	extern StopMovie
+	extern StringToNum
+	extern TXNSetData
+	extern TXNSetSelection
+	extern TXNSetTypeAttributes
+	extern TXNShowSelection
+	extern TickCount
+	extern UpTime
+	extern UpdateSystemActivity
+	extern Vec3Normalize_F0_7
+	extern Z13FS_FCloseFilei_F0_3
+	extern Z13SND_AttenuateP8SndCurvefff_F0_13
+	extern Z22FS_FOpenFileReadStreamPKcPii_F0_2
+	extern Z35SND_GetListenerIndexNearestToOriginPKf_F0_5
+	extern Z7FS_ReadPvii_F0_2
+	extern Z7FS_Seekili_F0_2
+	extern Z8FS_FTelli_F0_2
+	extern ZN12CSoundEngine11device_nameEv_F0_38
+	extern ZN12CSoundEngine11mixer_countEv_F0_1
+	extern ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE_F0_45
+	extern ZN12CSoundEngine14GetStreamSoundEP7_STREAM_F0_45
+	extern ZN12CSoundEngine14NewSampleSoundEv_F0_45
+	extern ZN12CSoundEngine14NewStreamSoundEv_F0_45
+	extern ZN12CSoundEngine14mixer_count_3DEv_F0_1
+	extern ZN12CSoundEngine15UpdateAllSoundsEv_F0_25
+	extern ZN12CSoundEngine15get_3D_positionEPfS0_S0__F0_25
+	extern ZN12CSoundEngine15get_cpu_percentEv_F0_1
+	extern ZN12CSoundEngine15set_3D_positionEfff_F0_25
+	extern ZN12CSoundEngine16GetSampleSound3DEPv_F0_45
+	extern ZN12CSoundEngine16NewSampleSound3DEv_F0_45
+	extern ZN12CSoundEngine16set_3D_room_typeEl_F0_25
+	extern ZN12CSoundEngine21process_digital_audioEPvlmmPK11_AILMIXINFO_F0_1
+	extern ZN12CSoundEngine21set_3D_rolloff_factorEf_F0_25
+	extern ZN12CSoundEngine22set_3D_distance_factorEf_F0_25
+	extern ZN12CSoundEngine26minimum_sample_buffer_sizeEll_F0_1
+	extern ZN12CSoundEngine28set_digital_master_room_typeEl_F0_25
+	extern ZN12CSoundEngine28size_processed_digital_audioEmmPK11_AILMIXINFO_F0_1
+	extern ZN12CSoundEngine32set_digital_master_reverb_levelsEff_F0_25
+	extern ZN12CSoundEngineC1Emh_F0_25
+	extern ZN12CSoundObject11init_sampleEv_F0_1
+	extern ZN12CSoundObject15get_3D_positionEPfS0_S0__F0_1
+	extern ZN12CSoundObject15get_stream_infoEPlS0_S0_S0__F0_1
+	extern ZN12CSoundObject15set_3D_positionEfff_F0_1
+	extern ZN12CSoundObject15set_sample_infoEPK13_AILSOUNDINFO_F0_14
+	extern ZN12CSoundObject15set_sample_typeElm_F0_1
+	extern ZN12CSoundObject17get_sample_lengthEv_F0_8
+	extern ZN12CSoundObject17get_sample_statusEv_F0_8
+	extern ZN12CSoundObject17get_sample_volumeEv_F0_13
+	extern ZN12CSoundObject17set_sample_volumeEf_F0_1
+	extern ZN12CSoundObject18load_sample_bufferEmPKvm_F0_1
+	extern ZN12CSoundObject18set_file_callbacksEPFmPKcPmEPFvmEPFlmlmEPFmmPvmE_F0_1
+	extern ZN12CSoundObject18set_sample_addressEPKvm_F0_1
+	extern ZN12CSoundObject19get_sample_positionEv_F0_8
+	extern ZN12CSoundObject19sample_buffer_readyEv_F0_14
+	extern ZN12CSoundObject19set_sample_positionEm_F0_1
+	extern ZN12CSoundObject21get_sample_volume_panEPfS0__F0_1
+	extern ZN12CSoundObject21set_sample_loop_countEm_F0_1
+	extern ZN12CSoundObject24get_sample_playback_rateEv_F0_14
+	extern ZN12CSoundObject24get_sample_volume_levelsEPfS0__F0_1
+	extern ZN12CSoundObject24set_sample_reverb_levelsEff_F0_1
+	extern ZN12CSoundObject24set_sample_volume_levelsEff_F0_1
+	extern ZN12CSoundObject27set_3D_sample_effects_levelEf_F0_1
+	extern ZN12CSoundObject27set_sample_adpcm_block_sizeEm_F0_1
+	extern ZN12CSoundObject7ReleaseEv_F0_1
+	extern ZN12CSoundObject9Is3DSoundEv_F0_9
+	extern ZN14MacPreferences10GetBooleanEPKcb_F0_1
+	extern ZN14MacPreferences10PutBooleanEPKcb_F0_11
+	extern _Unwind_Resume
+	extern _ZN9__gnu_cxx18__exchange_and_addEPVii
+	extern _ZNKSs4findEPKcmm
+	extern _ZNKSs7compareEPKc
 	extern _ZNSs12_M_leak_hardEv
-	extern _ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_
+	extern _ZNSs4_Rep10_M_destroyERKSaIcE
+	extern _ZNSs6appendEPKcm
+	extern _ZNSs6appendERKSs
+	extern _ZNSs6assignEPKcm
+	extern _ZNSs6assignERKSs
+	extern _ZNSs7replaceEmmPKcm
+	extern _ZNSs7reserveEm
+	extern _ZNSs9_M_mutateEmmm
+	extern _ZNSsC1EPKcRKSaIcE
+	extern _ZNSsC1ERKSs
+	extern _ZNSsC1ERKSsmm
+	extern _ZNSsD1Ev
+	extern _ZNSt15_List_node_base4hookEPS_
+	extern _ZNSt15_List_node_base6unhookEv
+	extern _ZSt17__throw_bad_allocv
 	extern _ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base
 	extern _ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base
-	extern sscanf
-	extern sin
-	extern acos
-	extern vsprintf
-	extern _ZNSs7reserveEm
-	extern strncat
-	extern ctime
-	extern strncmp
-	extern LSOpenFSRef
-	extern CFURLCreateWithBytes
-	extern LSOpenCFURLRef
-	extern UpdateSystemActivity
-	extern GetHandleSize
-	extern TXNSetData
-	extern NewHandle
-	extern DisposeHandle
-	extern RemoveEventLoopTimer
-	extern CollapseWindow
-	extern TXNSetSelection
-	extern TXNShowSelection
-	extern PtrAndHand
-	extern mkdir
-	extern opendir
-	extern readdir
-	extern stat
-	extern closedir
-	extern pow
-	extern glTestFenceAPPLE
-	extern glReadPixels
-	extern glGetError
-	extern asin
-	extern printf
-	extern _ZNSs7replaceEmmPKcm
-	extern expf
-	extern exp
-	extern isprint
-	extern fileno
-	extern isatty
-	extern fprintf
-	extern realloc
+	extern _ZSt20__throw_length_errorPKc
+	extern _ZSt20__throw_out_of_rangePKc
+	extern _ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_
+	extern _ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_
+	extern _ZdaPv
+	extern _ZdlPv
+	extern _Znam
+	extern _Znwm
+	extern __cxa_allocate_exception
+	extern __cxa_begin_catch
+	extern __cxa_end_catch
+	extern __cxa_guard_abort
 	extern __cxa_guard_acquire
 	extern __cxa_guard_release
-	extern __cxa_guard_abort
-	extern GetCurrentEventTime
-	extern SetFrontProcess
-	extern glGenVertexArraysAPPLE
-	extern glColorPointer
-	extern glNormalPointer
-	extern glVertexPointer
-	extern glTexCoordPointer
-	extern _ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_
-	extern AudioConverterReset
-	extern AudioUnitGetProperty
-	extern AudioConverterDispose
-	extern AudioConverterNew
-	extern log10f
-	extern AudioUnitSetParameter
-	extern AudioConverterFillComplexBuffer
-	extern AudioUnitSetProperty
-	extern AudioUnitAddRenderNotify
-	extern AudioUnitRemoveRenderNotify
-	extern usleep
-	extern AUGraphGetCPULoad
-	extern strdup
-	extern AUGraphStop
-	extern DisposeAUGraph
-	extern AudioDeviceGetPropertyInfo
-	extern AudioDeviceGetProperty
-	extern FindNextComponent
-	extern OpenComponent
-	extern GetComponentVersion
-	extern CloseComponent
-	extern NewAUGraph
-	extern AUGraphNewNode
-	extern AUGraphOpen
-	extern AUGraphGetNodeInfo
-	extern AUGraphUpdate
-	extern AUGraphConnectNodeInput
-	extern AUGraphInitialize
-	extern AUGraphStart
-	extern pthread_mutex_destroy
-	extern pthread_create
-	extern pthread_mutexattr_init
-	extern pthread_mutexattr_settype
-	extern pthread_mutex_init
-	extern pthread_mutexattr_destroy
-	extern pthread_mutex_unlock
-	extern pthread_mutex_lock
-	extern glTexImage3D
-	extern glCompressedTexImage3DARB
-	extern glTexSubImage3D
-	extern glCompressedTexSubImage3D
-	extern strtok
-	extern StopMovie
-	extern GoToBeginningOfMovie
-	extern GetMovieTimeScale
-	extern GetMovieDuration
-	extern GetMovieTime
-	extern SetMovieTimeValue
-	extern SetTrackVolume
-	extern GetMediaHandler
-	extern MediaSetSoundBalance
-	extern MoviesTask
-	extern IsMovieDone
-	extern StartMovie
-	extern DisposeMovie
-	extern SetMovieRate
-	extern OpenMovieFile
-	extern NewMovieFromFile
-	extern GetMoviePreferredRate
-	extern PrerollMovie
-	extern GetMovieIndTrackType
-	extern GetTrackMedia
-	extern GetMediaSampleDescription
-	extern srand
-	extern putenv
-	extern getenv
-	extern puts
-	extern asinf
-	extern atanf
-	extern tanf
-	extern select
-	extern inet_addr
-	extern gethostbyname
-	extern recvfrom
-	extern strerror
-	extern sendto
-	extern setsockopt
-	extern bind
-	extern socket
-	extern connect
-	extern send
-	extern recv
+	extern __cxa_rethrow
+	extern __cxa_throw
+	extern __dynamic_cast
+	extern __error
 	extern __isnanf
-	extern floor
-	extern logf
-	extern AudioOutputUnitStart
-	extern AudioOutputUnitStop
-	extern AudioDeviceSetProperty
-	extern AudioConverterFillBuffer
-	extern AudioUnitRender
-	extern AudioUnitUninitialize
-	extern OpenAComponent
-	extern AudioHardwareGetProperty
-	extern AudioUnitInitialize
+	extern __keymgr_dwarf2_register_sections
+	extern __maskrune
+	extern __udivdi3
+	extern _cstring_audio_error_1
+	extern _cstring_mp3
+	extern _cstring_null
+	extern _cstring_wav
+	extern _float_0_50000000
+	extern _float_1_00000000
+	extern abort
+	extern accept
+	extern access
+	extern acos
+	extern acosf
+	extern add
+	extern addss
+	extern aglChoosePixelFormat
+	extern aglCreateContext
+	extern aglDescribePixelFormat
+	extern aglDestroyContext
+	extern aglDestroyPixelFormat
+	extern aglGetDrawable
+	extern aglSetCurrentContext
+	extern aglSetDrawable
+	extern aglSetFullScreen
+	extern aglSetInteger
+	extern aglSwapBuffers
+	extern and
+	extern asctime
+	extern asin
+	extern asinf
+	extern atan2
+	extern atanf
+	extern atexit
+	extern atof
+	extern atoi
+	extern atol
+	extern bind
+	extern bswap
+	extern call
+	extern calloc
+	extern ceilf
+	extern chdir
+	extern cld
+	extern close
+	extern closedir
+	extern cmovle
+	extern cmp
+	extern connect
+	extern cos
+	extern cosf
+	extern ctime
+	extern div
 	extern dlclose
 	extern dlopen
 	extern dlsym
-	extern abort
-	extern vfprintf
-	extern getsockname
-	extern read
-	extern atol
-	extern strtol
-	extern getpid
-	extern tmpnam
-	extern strftime
-	extern gmtime
-	extern mktime
+	extern exit
+	extern exp
+	extern expf
+	extern fclose
 	extern fcntl
-	extern accept
-	extern listen
-	extern gethostname
-	extern getdomainname
-	extern getlogin
-	extern getuid
-	extern getpwuid
+	extern fflush
 	extern fgets
-	extern gettimeofday
-	extern regcomp
-	extern regerror
-	extern regfree
-	extern regexec
-	extern getpass
-	extern getsockopt
-	extern write
-	extern unlink
+	extern fileno
+	extern fldz
+	extern floor
+	extern floorf
+	extern fopen
+	extern fprintf
 	extern fputc
 	extern fputs
+	extern fread
+	extern free
+	extern fseek
+	extern fstp
+	extern ftell
+	extern fwrite
+	extern getcwd
+	extern getdomainname
+	extern getenv
+	extern gethostbyname
+	extern gethostname
+	extern getlogin
+	extern getpass
+	extern getpid
+	extern getpwuid
+	extern getrlimit
+	extern getsockname
+	extern getsockopt
+	extern gettimeofday
+	extern getuid
+	extern glActiveTextureARB
+	extern glAlphaFunc
+	extern glBegin
+	extern glBindProgramARB
+	extern glBindTexture
+	extern glBindVertexArrayAPPLE
+	extern glBlendEquationEXT
+	extern glBlendFunc
+	extern glBlendFuncSeparateEXT
+	extern glClear
+	extern glClearColor
+	extern glClearDepth
+	extern glClearStencil
+	extern glClientActiveTextureARB
+	extern glClipPlane
+	extern glColor4f
+	extern glColorMask
+	extern glColorMaterial
+	extern glColorPointer
+	extern glCombinerParameterfvNV
+	extern glCombinerStageParameterfvNV
+	extern glCompressedTexImage2DARB
+	extern glCompressedTexImage3DARB
+	extern glCompressedTexSubImage2D
+	extern glCompressedTexSubImage3D
+	extern glCopyTexSubImage2D
+	extern glDeleteFencesAPPLE
+	extern glDeleteProgramsARB
+	extern glDeleteTextures
+	extern glDeleteVertexArraysAPPLE
+	extern glDepthFunc
+	extern glDepthMask
+	extern glDepthRange
+	extern glDisable
+	extern glDisableClientState
+	extern glDisableVertexAttribArrayARB
+	extern glDrawBuffer
+	extern glDrawRangeElements
+	extern glEnable
+	extern glEnableClientState
+	extern glEnableVertexAttribArrayARB
+	extern glEnd
+	extern glFinish
+	extern glFinishFenceAPPLE
+	extern glFlushVertexArrayRangeAPPLE
+	extern glFogf
+	extern glFogfv
+	extern glFogi
+	extern glFrontFace
+	extern glGenFencesAPPLE
+	extern glGenProgramsARB
+	extern glGenTextures
+	extern glGenVertexArraysAPPLE
+	extern glGetError
+	extern glGetFloatv
+	extern glGetIntegerv
+	extern glGetProgramivARB
+	extern glGetString
+	extern glHint
+	extern glLightModelfv
+	extern glLightModeli
+	extern glLightf
+	extern glLightfv
+	extern glLoadIdentity
+	extern glLoadMatrixf
+	extern glMaterialf
+	extern glMaterialfv
+	extern glMatrixMode
+	extern glNormalPointer
+	extern glPixelStorei
+	extern glPointParameterfARB
+	extern glPointParameterfvARB
+	extern glPointSize
+	extern glPolygonMode
+	extern glPolygonOffset
+	extern glPopAttrib
+	extern glPopClientAttrib
+	extern glPopMatrix
+	extern glProgramEnvParameter4fvARB
+	extern glProgramStringARB
+	extern glPushAttrib
+	extern glPushClientAttrib
+	extern glPushMatrix
+	extern glReadBuffer
+	extern glReadPixels
+	extern glScalef
+	extern glScissor
+	extern glSetFenceAPPLE
+	extern glShadeModel
+	extern glStencilFunc
+	extern glStencilMask
+	extern glStencilOp
+	extern glTestFenceAPPLE
+	extern glTexCoord2f
+	extern glTexCoordPointer
+	extern glTexEnvf
+	extern glTexEnvfv
+	extern glTexEnvi
+	extern glTexGenfv
+	extern glTexGeni
+	extern glTexImage2D
+	extern glTexImage3D
+	extern glTexParameterf
+	extern glTexParameterfv
+	extern glTexParameteri
+	extern glTexSubImage2D
+	extern glTexSubImage3D
+	extern glVertex2f
+	extern glVertex3f
+	extern glVertexArrayParameteriAPPLE
+	extern glVertexArrayRangeAPPLE
+	extern glVertexAttribPointerARB
+	extern glVertexPointer
+	extern glViewport
+	extern gluCheckExtension
+	extern gluOrtho2D
+	extern gmtime
+	extern inet_addr
+	extern ioctl
+	extern isatty
+	extern isprint
+	extern isspace
+	extern ja
+	extern jae
+	extern jbe
+	extern jmp
+	extern jnz
+	extern jz
+	extern kHighQualityKey
+	extern lea
+	extern leave
+	extern listen
+	extern localtime
+	extern log
+	extern log10f
+	extern logf
+	extern longjmp
+	extern lround
+	extern malloc
+	extern memcpy
+	extern memmove
+	extern memset
+	extern mkdir
+	extern mktime
+	extern mov
+	extern movaps
+	extern movss
+	extern movzx
+	extern mulss
+	extern nop
+	extern opendir
+	extern pop
+	extern pow
+	extern printf
+	extern pthread_create
+	extern pthread_main_np
+	extern pthread_mutex_destroy
+	extern pthread_mutex_init
+	extern pthread_mutex_lock
+	extern pthread_mutex_unlock
+	extern pthread_mutexattr_destroy
+	extern pthread_mutexattr_init
+	extern pthread_mutexattr_settype
+	extern pthread_self
+	extern push
+	extern putenv
+	extern puts
+	extern qsort
+	extern rand
+	extern read
+	extern readdir
+	extern realloc
+	extern recv
+	extern recvfrom
+	extern regcomp
+	extern regerror
+	extern regexec
+	extern regfree
+	extern remove
+	extern rename
+	extern rep
+	extern ret
+	extern rewind
+	extern sHighQualityEngine
+	extern sSoundEngine
+	extern sar
+	extern select
+	extern send
+	extern sendto
+	extern setjmp
+	extern setnz
+	extern setrlimit
+	extern setsockopt
+	extern shl
+	extern shr
+	extern sin
+	extern sinf
+	extern snprintf
+	extern socket
+	extern sprintf
+	extern srand
+	extern sscanf
+	extern stat
+	extern stosd
+	extern strcasecmp
+	extern strcat
+	extern strchr
+	extern strcmp
+	extern strcpy
+	extern strdup
+	extern strerror
+	extern strftime
+	extern strncasecmp
+	extern strncat
+	extern strncmp
+	extern strncpy
+	extern strrchr
+	extern strstr
+	extern strtok
+	extern strtol
+	extern sub
+	extern subss
+	extern sysctl
+	extern tan
+	extern tanf
+	extern test
+	extern text
+	extern time
+	extern tmpnam
+	extern tolower
+	extern toupper
+	extern unlink
+	extern usleep
+	extern vfprintf
+	extern vsnprintf
+	extern vsprintf
+	extern write
+	extern xor
 
 ;Exports defined in this file:
 	global _Z20MSS_FileOpenCallbackPKcPm
@@ -643,83 +750,83 @@
 	global _Z20MSS_FileSeekCallbackmlm
 	global _Z20MSS_FileReadCallbackmPvm
 	global _Z20MSS_SpatializeStreamiPfS_
-	global Z11AIL_startupm:F(0,1)
-	global Z12AIL_shutdownv:F(0,3)
-	global Z18AIL_set_preferenceml:F(0,1)
-	global Z14AIL_last_errorv:F(0,4)
-	global Z23AIL_open_digital_drivermllm:F(0,6)
-	global Z24AIL_set_redist_directoryPKc:F(0,4)
-	global Z23AIL_digital_CPU_percentm:F(0,1)
-	global Z26AIL_allocate_sample_handlem:F(0,10)
-	global Z25AIL_release_sample_handleP7_SAMPLE:F(0,3)
-	global Z15AIL_init_sampleP7_SAMPLE:F(0,3)
-	global Z31AIL_set_sample_adpcm_block_sizeP7_SAMPLEm:F(0,3)
-	global Z22AIL_set_sample_addressP7_SAMPLEPKvm:F(0,3)
-	global Z19AIL_set_sample_typeP7_SAMPLElm:F(0,3)
-	global Z15AIL_stop_sampleP7_SAMPLE:F(0,3)
-	global Z17AIL_resume_sampleP7_SAMPLE:F(0,3)
-	global Z14AIL_end_sampleP7_SAMPLE:F(0,3)
-	global Z28AIL_set_sample_playback_rateP7_SAMPLEl:F(0,3)
-	global Z28AIL_set_sample_volume_levelsP7_SAMPLEff:F(0,3)
-	global Z28AIL_set_sample_reverb_levelsP7_SAMPLEff:F(0,3)
-	global Z25AIL_set_sample_loop_countP7_SAMPLEl:F(0,3)
-	global Z17AIL_sample_statusP7_SAMPLE:F(0,2)
-	global Z24AIL_sample_playback_rateP7_SAMPLE:F(0,1)
-	global Z21AIL_sample_volume_panP7_SAMPLEPfS1_:F(0,3)
-	global Z24AIL_sample_volume_levelsP7_SAMPLEPfS1_:F(0,3)
-	global Z32AIL_set_digital_master_room_typeml:F(0,3)
-	global Z36AIL_set_digital_master_reverb_levelsmff:F(0,3)
-	global Z30AIL_minimum_sample_buffer_sizemll:F(0,1)
-	global Z23AIL_sample_buffer_readyP7_SAMPLE:F(0,1)
-	global Z22AIL_load_sample_bufferP7_SAMPLEmPKvm:F(0,3)
-	global Z19AIL_sample_positionP7_SAMPLE:F(0,2)
-	global Z26AIL_set_sample_ms_positionP7_SAMPLEl:F(0,3)
-	global Z22AIL_sample_ms_positionP7_SAMPLEPlS1_:F(0,3)
-	global Z15AIL_open_streammPKcl:F(0,152)
-	global Z16AIL_close_streamP7_STREAM:F(0,3)
-	global Z16AIL_pause_streamP7_STREAMl:F(0,3)
-	global Z28AIL_set_stream_volume_levelsP7_STREAMff:F(0,3)
-	global Z28AIL_set_stream_reverb_levelsP7_STREAMff:F(0,3)
-	global Z21AIL_stream_volume_panP7_STREAMPfS1_:F(0,3)
-	global Z24AIL_stream_volume_levelsP7_STREAMPfS1_:F(0,3)
-	global Z28AIL_set_stream_playback_rateP7_STREAMl:F(0,3)
-	global Z24AIL_stream_playback_rateP7_STREAM:F(0,1)
-	global Z25AIL_set_stream_loop_countP7_STREAMl:F(0,3)
-	global Z17AIL_stream_statusP7_STREAM:F(0,1)
-	global Z15AIL_stream_infoP7_STREAMPlS1_S1_S1_:F(0,3)
-	global Z26AIL_set_stream_ms_positionP7_STREAMl:F(0,3)
-	global Z22AIL_stream_ms_positionP7_STREAMPlS1_:F(0,3)
-	global Z16AIL_is_3D_streamP7_STREAM:F(0,1)
-	global Z26AIL_set_3D_stream_positionP7_STREAMfff:F(0,3)
-	global Z22AIL_set_file_callbacksPFmPKcPmEPFvmEPFlmlmEPFmmPvmE:F(0,3)
-	global Z32AIL_size_processed_digital_audiommlPK11_AILMIXINFO:F(0,1)
-	global Z25AIL_process_digital_audioPvlmmlP11_AILMIXINFO:F(0,1)
-	global Z26AIL_enumerate_3D_providersPmS_PPc:F(0,1)
-	global Z20AIL_open_3D_providerm:F(0,307)
-	global Z21AIL_close_3D_providerm:F(0,3)
-	global Z25AIL_3D_provider_attributemPKcPv:F(0,3)
-	global Z29AIL_allocate_3D_sample_handlem:F(0,149)
-	global Z18AIL_stop_3D_samplePv:F(0,3)
-	global Z20AIL_resume_3D_samplePv:F(0,3)
-	global Z17AIL_end_3D_samplePv:F(0,3)
-	global Z22AIL_set_3D_sample_infoPvPK13_AILSOUNDINFO:F(0,1)
-	global Z24AIL_set_3D_sample_volumePvf:F(0,3)
-	global Z24AIL_set_3D_sample_offsetPvm:F(0,3)
-	global Z31AIL_set_3D_sample_playback_ratePvl:F(0,3)
-	global Z28AIL_set_3D_sample_loop_countPvm:F(0,3)
-	global Z20AIL_3D_sample_statusPv:F(0,2)
-	global Z20AIL_3D_sample_volumePv:F(0,21)
-	global Z20AIL_3D_sample_offsetPv:F(0,2)
-	global Z27AIL_3D_sample_playback_ratePv:F(0,1)
-	global Z20AIL_3D_sample_lengthPv:F(0,2)
-	global Z20AIL_set_3D_room_typeml:F(0,3)
-	global Z25AIL_set_3D_rolloff_factormf:F(0,3)
-	global Z26AIL_set_3D_distance_factormf:F(0,3)
-	global Z27AIL_set_3D_sample_distancesPvff:F(0,3)
-	global Z31AIL_set_3D_sample_effects_levelPvf:F(0,3)
-	global Z19AIL_set_3D_positionPvfff:F(0,3)
-	global Z15AIL_3D_positionPvPfS0_S0_:F(0,3)
-	global Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)
+	global Z11AIL_startupm_F0_1
+	global Z12AIL_shutdownv_F0_3
+	global Z18AIL_set_preferenceml_F0_1
+	global Z14AIL_last_errorv_F0_4
+	global Z23AIL_open_digital_drivermllm_F0_6
+	global Z24AIL_set_redist_directoryPKc_F0_4
+	global Z23AIL_digital_CPU_percentm_F0_1
+	global Z26AIL_allocate_sample_handlem_F0_10
+	global Z25AIL_release_sample_handleP7_SAMPLE_F0_3
+	global Z15AIL_init_sampleP7_SAMPLE_F0_3
+	global Z31AIL_set_sample_adpcm_block_sizeP7_SAMPLEm_F0_3
+	global Z22AIL_set_sample_addressP7_SAMPLEPKvm_F0_3
+	global Z19AIL_set_sample_typeP7_SAMPLElm_F0_3
+	global Z15AIL_stop_sampleP7_SAMPLE_F0_3
+	global Z17AIL_resume_sampleP7_SAMPLE_F0_3
+	global Z14AIL_end_sampleP7_SAMPLE_F0_3
+	global Z28AIL_set_sample_playback_rateP7_SAMPLEl_F0_3
+	global Z28AIL_set_sample_volume_levelsP7_SAMPLEff_F0_3
+	global Z28AIL_set_sample_reverb_levelsP7_SAMPLEff_F0_3
+	global Z25AIL_set_sample_loop_countP7_SAMPLEl_F0_3
+	global Z17AIL_sample_statusP7_SAMPLE_F0_2
+	global Z24AIL_sample_playback_rateP7_SAMPLE_F0_1
+	global Z21AIL_sample_volume_panP7_SAMPLEPfS1__F0_3
+	global Z24AIL_sample_volume_levelsP7_SAMPLEPfS1__F0_3
+	global Z32AIL_set_digital_master_room_typeml_F0_3
+	global Z36AIL_set_digital_master_reverb_levelsmff_F0_3
+	global Z30AIL_minimum_sample_buffer_sizemll_F0_1
+	global Z23AIL_sample_buffer_readyP7_SAMPLE_F0_1
+	global Z22AIL_load_sample_bufferP7_SAMPLEmPKvm_F0_3
+	global Z19AIL_sample_positionP7_SAMPLE_F0_2
+	global Z26AIL_set_sample_ms_positionP7_SAMPLEl_F0_3
+	global Z22AIL_sample_ms_positionP7_SAMPLEPlS1__F0_3
+	global Z15AIL_open_streammPKcl_F0_152
+	global Z16AIL_close_streamP7_STREAM_F0_3
+	global Z16AIL_pause_streamP7_STREAMl_F0_3
+	global Z28AIL_set_stream_volume_levelsP7_STREAMff_F0_3
+	global Z28AIL_set_stream_reverb_levelsP7_STREAMff_F0_3
+	global Z21AIL_stream_volume_panP7_STREAMPfS1__F0_3
+	global Z24AIL_stream_volume_levelsP7_STREAMPfS1__F0_3
+	global Z28AIL_set_stream_playback_rateP7_STREAMl_F0_3
+	global Z24AIL_stream_playback_rateP7_STREAM_F0_1
+	global Z25AIL_set_stream_loop_countP7_STREAMl_F0_3
+	global Z17AIL_stream_statusP7_STREAM_F0_1
+	global Z15AIL_stream_infoP7_STREAMPlS1_S1_S1__F0_3
+	global Z26AIL_set_stream_ms_positionP7_STREAMl_F0_3
+	global Z22AIL_stream_ms_positionP7_STREAMPlS1__F0_3
+	global Z16AIL_is_3D_streamP7_STREAM_F0_1
+	global Z26AIL_set_3D_stream_positionP7_STREAMfff_F0_3
+	global Z22AIL_set_file_callbacksPFmPKcPmEPFvmEPFlmlmEPFmmPvmE_F0_3
+	global Z32AIL_size_processed_digital_audiommlPK11_AILMIXINFO_F0_1
+	global Z25AIL_process_digital_audioPvlmmlP11_AILMIXINFO_F0_1
+	global Z26AIL_enumerate_3D_providersPmS_PPc_F0_1
+	global Z20AIL_open_3D_providerm_F0_307
+	global Z21AIL_close_3D_providerm_F0_3
+	global Z25AIL_3D_provider_attributemPKcPv_F0_3
+	global Z29AIL_allocate_3D_sample_handlem_F0_149
+	global Z18AIL_stop_3D_samplePv_F0_3
+	global Z20AIL_resume_3D_samplePv_F0_3
+	global Z17AIL_end_3D_samplePv_F0_3
+	global Z22AIL_set_3D_sample_infoPvPK13_AILSOUNDINFO_F0_1
+	global Z24AIL_set_3D_sample_volumePvf_F0_3
+	global Z24AIL_set_3D_sample_offsetPvm_F0_3
+	global Z31AIL_set_3D_sample_playback_ratePvl_F0_3
+	global Z28AIL_set_3D_sample_loop_countPvm_F0_3
+	global Z20AIL_3D_sample_statusPv_F0_2
+	global Z20AIL_3D_sample_volumePv_F0_21
+	global Z20AIL_3D_sample_offsetPv_F0_2
+	global Z27AIL_3D_sample_playback_ratePv_F0_1
+	global Z20AIL_3D_sample_lengthPv_F0_2
+	global Z20AIL_set_3D_room_typeml_F0_3
+	global Z25AIL_set_3D_rolloff_factormf_F0_3
+	global Z26AIL_set_3D_distance_factormf_F0_3
+	global Z27AIL_set_3D_sample_distancesPvff_F0_3
+	global Z31AIL_set_3D_sample_effects_levelPvf_F0_3
+	global Z19AIL_set_3D_positionPvfff_F0_3
+	global Z15AIL_3D_positionPvPfS0_S0__F0_3
+	global Z12AIL_WAV_infoPKvP13_AILSOUNDINFO_F0_1
 
 SECTION .text
 _Z20MSS_FileOpenCallbackPKcPm:
@@ -731,7 +838,7 @@ _Z20MSS_FileOpenCallbackPKcPm:
 	mov [esp+0x4], eax
 	mov eax, [ebp+0x8]
 	mov [esp], eax
-	call Z22FS_FOpenFileReadStreamPKcPii:F(0,2)
+	call Z22FS_FOpenFileReadStreamPKcPii_F0_2
 	shr eax, 0x1f
 	xor eax, 0x1
 	leave
@@ -744,7 +851,7 @@ _Z21MSS_FileCloseCallbackm:
 	push ebp
 	mov ebp, esp
 	pop ebp
-	jmp Z13FS_FCloseFilei:F(0,3)
+	jmp Z13FS_FCloseFilei_F0_3
 	nop
 
 
@@ -765,12 +872,12 @@ _Z20MSS_FileSeekCallbackmlm:
 	mov [esp+0x8], eax
 	mov [esp+0x4], edx
 	mov [esp], ebx
-	call Z7FS_Seekili:F(0,2)
+	call Z7FS_Seekili_F0_2
 	mov [ebp+0x8], ebx
 	add esp, 0x14
 	pop ebx
 	pop ebp
-	jmp Z8FS_FTelli:F(0,2)
+	jmp Z8FS_FTelli_F0_2
 _Z20MSS_FileSeekCallbackmlm_20:
 	cmp eax, 0x2
 	jz _Z20MSS_FileSeekCallbackmlm_30
@@ -784,23 +891,23 @@ _Z20MSS_FileSeekCallbackmlm_10:
 	mov [esp+0x8], eax
 	mov [esp+0x4], edx
 	mov [esp], ebx
-	call Z7FS_Seekili:F(0,2)
+	call Z7FS_Seekili_F0_2
 	mov [ebp+0x8], ebx
 	add esp, 0x14
 	pop ebx
 	pop ebp
-	jmp Z8FS_FTelli:F(0,2)
+	jmp Z8FS_FTelli_F0_2
 _Z20MSS_FileSeekCallbackmlm_30:
 	mov eax, 0x1
 	mov [esp+0x8], eax
 	mov [esp+0x4], edx
 	mov [esp], ebx
-	call Z7FS_Seekili:F(0,2)
+	call Z7FS_Seekili_F0_2
 	mov [ebp+0x8], ebx
 	add esp, 0x14
 	pop ebx
 	pop ebp
-	jmp Z8FS_FTelli:F(0,2)
+	jmp Z8FS_FTelli_F0_2
 	nop
 
 
@@ -816,11 +923,11 @@ _Z20MSS_FileReadCallbackmPvm:
 	mov [ebp+0xc], edx
 	mov [ebp+0x8], ecx
 	pop ebp
-	jmp Z7FS_ReadPvii:F(0,2)
+	jmp Z7FS_ReadPvii_F0_2
 	nop
 
 
-;Z18SND_ShutdownDriverv:F(0,7)
+;Z18SND_ShutdownDriverv_F0_7
 
 _Z20MSS_SpatializeStreamiPfS_:
 	push ebp
@@ -845,7 +952,7 @@ _Z20MSS_SpatializeStreamiPfS_:
 	lea esi, [eax+edx+0x360]
 	lea ebx, [esi+0x4]
 	mov [esp], ebx
-	call Z35SND_GetListenerIndexNearestToOriginPKf:F(0,5)
+	call Z35SND_GetListenerIndexNearestToOriginPKf_F0_5
 	mov edx, eax
 	lea eax, [eax*8]
 	mov edi, edx
@@ -865,7 +972,7 @@ _Z20MSS_SpatializeStreamiPfS_:
 	movss [ebp-0x1c], xmm0
 	lea eax, [ebp-0x24]
 	mov [esp], eax
-	call Vec3Normalize:F(0,7)
+	call Vec3Normalize_F0_7
 	mov eax, [0x1accd9d]
 	lea edx, [edi+eax+0x2fc]
 	lea eax, [edx+0x10]
@@ -902,7 +1009,7 @@ _Z20MSS_SpatializeStreamiPfS_:
 	mov [esp], eax
 	movss [ebp-0x58], xmm3
 	movss [ebp-0x68], xmm5
-	call Z13SND_AttenuateP8SndCurvefff:F(0,13)
+	call Z13SND_AttenuateP8SndCurvefff_F0_13
 	fstp dword [ebp-0x34]
 	movss xmm0, dword [ebp-0x38]
 	mulss xmm0, [ebp-0x34]
@@ -922,9 +1029,9 @@ _Z20MSS_SpatializeStreamiPfS_:
 	ret
 
 
-;Z23SND_UpdateStreamChannelii:F(0,7)
+;Z23SND_UpdateStreamChannelii_F0_7
 
-Z11AIL_startupm:F(0,1):
+Z11AIL_startupm_F0_1:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -936,7 +1043,7 @@ Z11AIL_startupm:F(0,1):
 	mov [esp+0x4], eax
 	mov eax, [kHighQualityKey]
 	mov [esp], eax
-	call ZN14MacPreferences10GetBooleanEPKcb:F(0,1)
+	call ZN14MacPreferences10GetBooleanEPKcb_F0_1
 	mov [sHighQualityEngine], al
 	mov dword [esp], 0x1d8
 	call _Znwm
@@ -946,9 +1053,9 @@ Z11AIL_startupm:F(0,1):
 	mov eax, [ebp+0x8]
 	mov [esp+0x4], eax
 	mov [esp], ebx
-	call ZN12CSoundEngineC1Emh:F(0,25)
+	call ZN12CSoundEngineC1Emh_F0_25
 	mov [sSoundEngine], ebx
-Z11AIL_startupm:F(0,1)_10:
+Z11AIL_startupm_F0_1_10:
 	xor eax, eax
 	cmp dword [sSoundEngine], 0x0
 	setnz al
@@ -958,63 +1065,63 @@ Z11AIL_startupm:F(0,1)_10:
 	pop ebp
 	ret
 	mov esi, eax
-Z11AIL_startupm:F(0,1)_20:
+Z11AIL_startupm_F0_1_20:
 	mov [esp], esi
 	call __cxa_begin_catch
 	mov dword [sSoundEngine], 0x0
 	call __cxa_end_catch
-	jmp Z11AIL_startupm:F(0,1)_10
+	jmp Z11AIL_startupm_F0_1_10
 	mov esi, eax
 	mov [esp], ebx
 	call _ZdlPv
-	jmp Z11AIL_startupm:F(0,1)_20
+	jmp Z11AIL_startupm_F0_1_20
 	nop
 
 
-;Z12AIL_shutdownv:F(0,3)
+;Z12AIL_shutdownv_F0_3
 
-Z12AIL_shutdownv:F(0,3):
+Z12AIL_shutdownv_F0_3:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
 	mov eax, [sSoundEngine]
 	test eax, eax
-	jz Z12AIL_shutdownv:F(0,3)_10
+	jz Z12AIL_shutdownv_F0_3_10
 	xor eax, eax
 	cmp byte [sHighQualityEngine], 0x0
 	setnz al
 	mov [esp+0x4], eax
 	mov eax, [kHighQualityKey]
 	mov [esp], eax
-	call ZN14MacPreferences10PutBooleanEPKcb:F(0,11)
+	call ZN14MacPreferences10PutBooleanEPKcb_F0_11
 	mov edx, [sSoundEngine]
 	test edx, edx
-	jz Z12AIL_shutdownv:F(0,3)_20
+	jz Z12AIL_shutdownv_F0_3_20
 	mov eax, [edx]
 	mov [esp], edx
 	call dword [eax+0x4]
-Z12AIL_shutdownv:F(0,3)_20:
+Z12AIL_shutdownv_F0_3_20:
 	mov dword [sSoundEngine], 0x0
-Z12AIL_shutdownv:F(0,3)_10:
+Z12AIL_shutdownv_F0_3_10:
 	leave
 	ret
 
 
-;Z18AIL_set_preferenceml:F(0,1)
+;Z18AIL_set_preferenceml_F0_1
 
-Z18AIL_set_preferenceml:F(0,1):
+Z18AIL_set_preferenceml_F0_1:
 	push ebp
 	mov ebp, esp
 	mov eax, [sSoundEngine]
 	mov [ebp+0x8], eax
 	pop ebp
-	jmp ZN12CSoundEngine11mixer_countEv:F(0,1)
+	jmp ZN12CSoundEngine11mixer_countEv_F0_1
 	nop
 
 
-;Z14AIL_last_errorv:F(0,4)
+;Z14AIL_last_errorv_F0_4
 
-Z14AIL_last_errorv:F(0,4):
+Z14AIL_last_errorv_F0_4:
 	push ebp
 	mov ebp, esp
 	mov eax, _cstring_audio_error_1
@@ -1022,9 +1129,9 @@ Z14AIL_last_errorv:F(0,4):
 	ret
 
 
-;Z23AIL_open_digital_drivermllm:F(0,6)
+;Z23AIL_open_digital_drivermllm_F0_6
 
-Z23AIL_open_digital_drivermllm:F(0,6):
+Z23AIL_open_digital_drivermllm_F0_6:
 	push ebp
 	mov ebp, esp
 	mov eax, 0x4d444449
@@ -1032,9 +1139,9 @@ Z23AIL_open_digital_drivermllm:F(0,6):
 	ret
 
 
-;Z24AIL_set_redist_directoryPKc:F(0,4)
+;Z24AIL_set_redist_directoryPKc_F0_4
 
-Z24AIL_set_redist_directoryPKc:F(0,4):
+Z24AIL_set_redist_directoryPKc_F0_4:
 	push ebp
 	mov ebp, esp
 	mov eax, _cstring_null
@@ -1042,37 +1149,37 @@ Z24AIL_set_redist_directoryPKc:F(0,4):
 	ret
 
 
-;Z23AIL_digital_CPU_percentm:F(0,1)
+;Z23AIL_digital_CPU_percentm_F0_1
 
-Z23AIL_digital_CPU_percentm:F(0,1):
+Z23AIL_digital_CPU_percentm_F0_1:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine15UpdateAllSoundsEv:F(0,25)
+	call ZN12CSoundEngine15UpdateAllSoundsEv_F0_25
 	mov eax, [sSoundEngine]
 	mov [ebp+0x8], eax
 	leave
-	jmp ZN12CSoundEngine15get_cpu_percentEv:F(0,1)
+	jmp ZN12CSoundEngine15get_cpu_percentEv_F0_1
 	nop
 
 
-;Z26AIL_allocate_sample_handlem:F(0,10)
+;Z26AIL_allocate_sample_handlem_F0_10
 
-Z26AIL_allocate_sample_handlem:F(0,10):
+Z26AIL_allocate_sample_handlem_F0_10:
 	push ebp
 	mov ebp, esp
 	mov eax, [sSoundEngine]
 	mov [ebp+0x8], eax
 	pop ebp
-	jmp ZN12CSoundEngine14NewSampleSoundEv:F(0,45)
+	jmp ZN12CSoundEngine14NewSampleSoundEv_F0_45
 	nop
 
 
-;Z25AIL_release_sample_handleP7_SAMPLE:F(0,3)
+;Z25AIL_release_sample_handleP7_SAMPLE_F0_3
 
-Z25AIL_release_sample_handleP7_SAMPLE:F(0,3):
+Z25AIL_release_sample_handleP7_SAMPLE_F0_3:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -1080,21 +1187,21 @@ Z25AIL_release_sample_handleP7_SAMPLE:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE:F(0,45)
+	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE_F0_45
 	test eax, eax
-	jz Z25AIL_release_sample_handleP7_SAMPLE:F(0,3)_10
+	jz Z25AIL_release_sample_handleP7_SAMPLE_F0_3_10
 	mov [ebp+0x8], eax
 	leave
-	jmp ZN12CSoundObject7ReleaseEv:F(0,1)
-Z25AIL_release_sample_handleP7_SAMPLE:F(0,3)_10:
+	jmp ZN12CSoundObject7ReleaseEv_F0_1
+Z25AIL_release_sample_handleP7_SAMPLE_F0_3_10:
 	leave
 	ret
 	nop
 
 
-;Z15AIL_init_sampleP7_SAMPLE:F(0,3)
+;Z15AIL_init_sampleP7_SAMPLE_F0_3
 
-Z15AIL_init_sampleP7_SAMPLE:F(0,3):
+Z15AIL_init_sampleP7_SAMPLE_F0_3:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -1102,21 +1209,21 @@ Z15AIL_init_sampleP7_SAMPLE:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE:F(0,45)
+	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE_F0_45
 	test eax, eax
-	jz Z15AIL_init_sampleP7_SAMPLE:F(0,3)_10
+	jz Z15AIL_init_sampleP7_SAMPLE_F0_3_10
 	mov [ebp+0x8], eax
 	leave
-	jmp ZN12CSoundObject11init_sampleEv:F(0,1)
-Z15AIL_init_sampleP7_SAMPLE:F(0,3)_10:
+	jmp ZN12CSoundObject11init_sampleEv_F0_1
+Z15AIL_init_sampleP7_SAMPLE_F0_3_10:
 	leave
 	ret
 	nop
 
 
-;Z31AIL_set_sample_adpcm_block_sizeP7_SAMPLEm:F(0,3)
+;Z31AIL_set_sample_adpcm_block_sizeP7_SAMPLEm_F0_3
 
-Z31AIL_set_sample_adpcm_block_sizeP7_SAMPLEm:F(0,3):
+Z31AIL_set_sample_adpcm_block_sizeP7_SAMPLEm_F0_3:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -1126,25 +1233,25 @@ Z31AIL_set_sample_adpcm_block_sizeP7_SAMPLEm:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE:F(0,45)
+	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE_F0_45
 	test eax, eax
-	jz Z31AIL_set_sample_adpcm_block_sizeP7_SAMPLEm:F(0,3)_10
+	jz Z31AIL_set_sample_adpcm_block_sizeP7_SAMPLEm_F0_3_10
 	mov [ebp+0xc], ebx
 	mov [ebp+0x8], eax
 	add esp, 0x14
 	pop ebx
 	pop ebp
-	jmp ZN12CSoundObject27set_sample_adpcm_block_sizeEm:F(0,1)
-Z31AIL_set_sample_adpcm_block_sizeP7_SAMPLEm:F(0,3)_10:
+	jmp ZN12CSoundObject27set_sample_adpcm_block_sizeEm_F0_1
+Z31AIL_set_sample_adpcm_block_sizeP7_SAMPLEm_F0_3_10:
 	add esp, 0x14
 	pop ebx
 	pop ebp
 	ret
 
 
-;Z22AIL_set_sample_addressP7_SAMPLEPKvm:F(0,3)
+;Z22AIL_set_sample_addressP7_SAMPLEPKvm_F0_3
 
-Z22AIL_set_sample_addressP7_SAMPLEPKvm:F(0,3):
+Z22AIL_set_sample_addressP7_SAMPLEPKvm_F0_3:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -1156,9 +1263,9 @@ Z22AIL_set_sample_addressP7_SAMPLEPKvm:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE:F(0,45)
+	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE_F0_45
 	test eax, eax
-	jz Z22AIL_set_sample_addressP7_SAMPLEPKvm:F(0,3)_10
+	jz Z22AIL_set_sample_addressP7_SAMPLEPKvm_F0_3_10
 	mov [ebp+0x10], ebx
 	mov [ebp+0xc], esi
 	mov [ebp+0x8], eax
@@ -1166,8 +1273,8 @@ Z22AIL_set_sample_addressP7_SAMPLEPKvm:F(0,3):
 	pop ebx
 	pop esi
 	pop ebp
-	jmp ZN12CSoundObject18set_sample_addressEPKvm:F(0,1)
-Z22AIL_set_sample_addressP7_SAMPLEPKvm:F(0,3)_10:
+	jmp ZN12CSoundObject18set_sample_addressEPKvm_F0_1
+Z22AIL_set_sample_addressP7_SAMPLEPKvm_F0_3_10:
 	add esp, 0x10
 	pop ebx
 	pop esi
@@ -1176,9 +1283,9 @@ Z22AIL_set_sample_addressP7_SAMPLEPKvm:F(0,3)_10:
 	nop
 
 
-;Z19AIL_set_sample_typeP7_SAMPLElm:F(0,3)
+;Z19AIL_set_sample_typeP7_SAMPLElm_F0_3
 
-Z19AIL_set_sample_typeP7_SAMPLElm:F(0,3):
+Z19AIL_set_sample_typeP7_SAMPLElm_F0_3:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -1190,9 +1297,9 @@ Z19AIL_set_sample_typeP7_SAMPLElm:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE:F(0,45)
+	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE_F0_45
 	test eax, eax
-	jz Z19AIL_set_sample_typeP7_SAMPLElm:F(0,3)_10
+	jz Z19AIL_set_sample_typeP7_SAMPLElm_F0_3_10
 	mov [ebp+0x10], ebx
 	mov [ebp+0xc], esi
 	mov [ebp+0x8], eax
@@ -1200,8 +1307,8 @@ Z19AIL_set_sample_typeP7_SAMPLElm:F(0,3):
 	pop ebx
 	pop esi
 	pop ebp
-	jmp ZN12CSoundObject15set_sample_typeElm:F(0,1)
-Z19AIL_set_sample_typeP7_SAMPLElm:F(0,3)_10:
+	jmp ZN12CSoundObject15set_sample_typeElm_F0_1
+Z19AIL_set_sample_typeP7_SAMPLElm_F0_3_10:
 	add esp, 0x10
 	pop ebx
 	pop esi
@@ -1210,9 +1317,9 @@ Z19AIL_set_sample_typeP7_SAMPLElm:F(0,3)_10:
 	nop
 
 
-;Z15AIL_stop_sampleP7_SAMPLE:F(0,3)
+;Z15AIL_stop_sampleP7_SAMPLE_F0_3
 
-Z15AIL_stop_sampleP7_SAMPLE:F(0,3):
+Z15AIL_stop_sampleP7_SAMPLE_F0_3:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -1220,24 +1327,24 @@ Z15AIL_stop_sampleP7_SAMPLE:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE:F(0,45)
+	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE_F0_45
 	mov edx, eax
 	test eax, eax
-	jz Z15AIL_stop_sampleP7_SAMPLE:F(0,3)_10
+	jz Z15AIL_stop_sampleP7_SAMPLE_F0_3_10
 	mov eax, [eax]
 	mov [ebp+0x8], edx
 	mov ecx, [eax+0xc]
 	leave
 	jmp ecx
-Z15AIL_stop_sampleP7_SAMPLE:F(0,3)_10:
+Z15AIL_stop_sampleP7_SAMPLE_F0_3_10:
 	leave
 	ret
 	nop
 
 
-;Z17AIL_resume_sampleP7_SAMPLE:F(0,3)
+;Z17AIL_resume_sampleP7_SAMPLE_F0_3
 
-Z17AIL_resume_sampleP7_SAMPLE:F(0,3):
+Z17AIL_resume_sampleP7_SAMPLE_F0_3:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -1245,24 +1352,24 @@ Z17AIL_resume_sampleP7_SAMPLE:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE:F(0,45)
+	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE_F0_45
 	mov edx, eax
 	test eax, eax
-	jz Z17AIL_resume_sampleP7_SAMPLE:F(0,3)_10
+	jz Z17AIL_resume_sampleP7_SAMPLE_F0_3_10
 	mov eax, [eax]
 	mov [ebp+0x8], edx
 	mov ecx, [eax+0x10]
 	leave
 	jmp ecx
-Z17AIL_resume_sampleP7_SAMPLE:F(0,3)_10:
+Z17AIL_resume_sampleP7_SAMPLE_F0_3_10:
 	leave
 	ret
 	nop
 
 
-;Z14AIL_end_sampleP7_SAMPLE:F(0,3)
+;Z14AIL_end_sampleP7_SAMPLE_F0_3
 
-Z14AIL_end_sampleP7_SAMPLE:F(0,3):
+Z14AIL_end_sampleP7_SAMPLE_F0_3:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -1270,24 +1377,24 @@ Z14AIL_end_sampleP7_SAMPLE:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE:F(0,45)
+	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE_F0_45
 	mov edx, eax
 	test eax, eax
-	jz Z14AIL_end_sampleP7_SAMPLE:F(0,3)_10
+	jz Z14AIL_end_sampleP7_SAMPLE_F0_3_10
 	mov eax, [eax]
 	mov [ebp+0x8], edx
 	mov ecx, [eax+0x14]
 	leave
 	jmp ecx
-Z14AIL_end_sampleP7_SAMPLE:F(0,3)_10:
+Z14AIL_end_sampleP7_SAMPLE_F0_3_10:
 	leave
 	ret
 	nop
 
 
-;Z28AIL_set_sample_playback_rateP7_SAMPLEl:F(0,3)
+;Z28AIL_set_sample_playback_rateP7_SAMPLEl_F0_3
 
-Z28AIL_set_sample_playback_rateP7_SAMPLEl:F(0,3):
+Z28AIL_set_sample_playback_rateP7_SAMPLEl_F0_3:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -1297,10 +1404,10 @@ Z28AIL_set_sample_playback_rateP7_SAMPLEl:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE:F(0,45)
+	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE_F0_45
 	mov edx, eax
 	test eax, eax
-	jz Z28AIL_set_sample_playback_rateP7_SAMPLEl:F(0,3)_10
+	jz Z28AIL_set_sample_playback_rateP7_SAMPLEl_F0_3_10
 	mov eax, [eax]
 	mov [ebp+0xc], ebx
 	mov [ebp+0x8], edx
@@ -1309,16 +1416,16 @@ Z28AIL_set_sample_playback_rateP7_SAMPLEl:F(0,3):
 	pop ebx
 	pop ebp
 	jmp ecx
-Z28AIL_set_sample_playback_rateP7_SAMPLEl:F(0,3)_10:
+Z28AIL_set_sample_playback_rateP7_SAMPLEl_F0_3_10:
 	add esp, 0x14
 	pop ebx
 	pop ebp
 	ret
 
 
-;Z28AIL_set_sample_volume_levelsP7_SAMPLEff:F(0,3)
+;Z28AIL_set_sample_volume_levelsP7_SAMPLEff_F0_3
 
-Z28AIL_set_sample_volume_levelsP7_SAMPLEff:F(0,3):
+Z28AIL_set_sample_volume_levelsP7_SAMPLEff_F0_3:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -1330,9 +1437,9 @@ Z28AIL_set_sample_volume_levelsP7_SAMPLEff:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE:F(0,45)
+	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE_F0_45
 	test eax, eax
-	jz Z28AIL_set_sample_volume_levelsP7_SAMPLEff:F(0,3)_10
+	jz Z28AIL_set_sample_volume_levelsP7_SAMPLEff_F0_3_10
 	mov [ebp+0x10], ebx
 	mov [ebp+0xc], esi
 	mov [ebp+0x8], eax
@@ -1340,8 +1447,8 @@ Z28AIL_set_sample_volume_levelsP7_SAMPLEff:F(0,3):
 	pop ebx
 	pop esi
 	pop ebp
-	jmp ZN12CSoundObject24set_sample_volume_levelsEff:F(0,1)
-Z28AIL_set_sample_volume_levelsP7_SAMPLEff:F(0,3)_10:
+	jmp ZN12CSoundObject24set_sample_volume_levelsEff_F0_1
+Z28AIL_set_sample_volume_levelsP7_SAMPLEff_F0_3_10:
 	add esp, 0x10
 	pop ebx
 	pop esi
@@ -1350,9 +1457,9 @@ Z28AIL_set_sample_volume_levelsP7_SAMPLEff:F(0,3)_10:
 	nop
 
 
-;Z28AIL_set_sample_reverb_levelsP7_SAMPLEff:F(0,3)
+;Z28AIL_set_sample_reverb_levelsP7_SAMPLEff_F0_3
 
-Z28AIL_set_sample_reverb_levelsP7_SAMPLEff:F(0,3):
+Z28AIL_set_sample_reverb_levelsP7_SAMPLEff_F0_3:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -1364,9 +1471,9 @@ Z28AIL_set_sample_reverb_levelsP7_SAMPLEff:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE:F(0,45)
+	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE_F0_45
 	test eax, eax
-	jz Z28AIL_set_sample_reverb_levelsP7_SAMPLEff:F(0,3)_10
+	jz Z28AIL_set_sample_reverb_levelsP7_SAMPLEff_F0_3_10
 	mov [ebp+0x10], ebx
 	mov [ebp+0xc], esi
 	mov [ebp+0x8], eax
@@ -1374,8 +1481,8 @@ Z28AIL_set_sample_reverb_levelsP7_SAMPLEff:F(0,3):
 	pop ebx
 	pop esi
 	pop ebp
-	jmp ZN12CSoundObject24set_sample_reverb_levelsEff:F(0,1)
-Z28AIL_set_sample_reverb_levelsP7_SAMPLEff:F(0,3)_10:
+	jmp ZN12CSoundObject24set_sample_reverb_levelsEff_F0_1
+Z28AIL_set_sample_reverb_levelsP7_SAMPLEff_F0_3_10:
 	add esp, 0x10
 	pop ebx
 	pop esi
@@ -1384,9 +1491,9 @@ Z28AIL_set_sample_reverb_levelsP7_SAMPLEff:F(0,3)_10:
 	nop
 
 
-;Z25AIL_set_sample_loop_countP7_SAMPLEl:F(0,3)
+;Z25AIL_set_sample_loop_countP7_SAMPLEl_F0_3
 
-Z25AIL_set_sample_loop_countP7_SAMPLEl:F(0,3):
+Z25AIL_set_sample_loop_countP7_SAMPLEl_F0_3:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -1396,25 +1503,25 @@ Z25AIL_set_sample_loop_countP7_SAMPLEl:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE:F(0,45)
+	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE_F0_45
 	test eax, eax
-	jz Z25AIL_set_sample_loop_countP7_SAMPLEl:F(0,3)_10
+	jz Z25AIL_set_sample_loop_countP7_SAMPLEl_F0_3_10
 	mov [ebp+0xc], ebx
 	mov [ebp+0x8], eax
 	add esp, 0x14
 	pop ebx
 	pop ebp
-	jmp ZN12CSoundObject21set_sample_loop_countEm:F(0,1)
-Z25AIL_set_sample_loop_countP7_SAMPLEl:F(0,3)_10:
+	jmp ZN12CSoundObject21set_sample_loop_countEm_F0_1
+Z25AIL_set_sample_loop_countP7_SAMPLEl_F0_3_10:
 	add esp, 0x14
 	pop ebx
 	pop ebp
 	ret
 
 
-;Z17AIL_sample_statusP7_SAMPLE:F(0,2)
+;Z17AIL_sample_statusP7_SAMPLE_F0_2
 
-Z17AIL_sample_statusP7_SAMPLE:F(0,2):
+Z17AIL_sample_statusP7_SAMPLE_F0_2:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -1422,21 +1529,21 @@ Z17AIL_sample_statusP7_SAMPLE:F(0,2):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE:F(0,45)
+	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE_F0_45
 	test eax, eax
-	jz Z17AIL_sample_statusP7_SAMPLE:F(0,2)_10
+	jz Z17AIL_sample_statusP7_SAMPLE_F0_2_10
 	mov [ebp+0x8], eax
 	leave
-	jmp ZN12CSoundObject17get_sample_statusEv:F(0,8)
-Z17AIL_sample_statusP7_SAMPLE:F(0,2)_10:
+	jmp ZN12CSoundObject17get_sample_statusEv_F0_8
+Z17AIL_sample_statusP7_SAMPLE_F0_2_10:
 	mov eax, 0x1
 	leave
 	ret
 
 
-;Z24AIL_sample_playback_rateP7_SAMPLE:F(0,1)
+;Z24AIL_sample_playback_rateP7_SAMPLE_F0_1
 
-Z24AIL_sample_playback_rateP7_SAMPLE:F(0,1):
+Z24AIL_sample_playback_rateP7_SAMPLE_F0_1:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -1444,22 +1551,22 @@ Z24AIL_sample_playback_rateP7_SAMPLE:F(0,1):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE:F(0,45)
+	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE_F0_45
 	test eax, eax
-	jz Z24AIL_sample_playback_rateP7_SAMPLE:F(0,1)_10
+	jz Z24AIL_sample_playback_rateP7_SAMPLE_F0_1_10
 	mov [ebp+0x8], eax
 	leave
-	jmp ZN12CSoundObject24get_sample_playback_rateEv:F(0,14)
-Z24AIL_sample_playback_rateP7_SAMPLE:F(0,1)_10:
+	jmp ZN12CSoundObject24get_sample_playback_rateEv_F0_14
+Z24AIL_sample_playback_rateP7_SAMPLE_F0_1_10:
 	xor eax, eax
 	leave
 	ret
 	nop
 
 
-;Z21AIL_sample_volume_panP7_SAMPLEPfS1_:F(0,3)
+;Z21AIL_sample_volume_panP7_SAMPLEPfS1__F0_3
 
-Z21AIL_sample_volume_panP7_SAMPLEPfS1_:F(0,3):
+Z21AIL_sample_volume_panP7_SAMPLEPfS1__F0_3:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -1471,9 +1578,9 @@ Z21AIL_sample_volume_panP7_SAMPLEPfS1_:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE:F(0,45)
+	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE_F0_45
 	test eax, eax
-	jz Z21AIL_sample_volume_panP7_SAMPLEPfS1_:F(0,3)_10
+	jz Z21AIL_sample_volume_panP7_SAMPLEPfS1__F0_3_10
 	mov [ebp+0x10], ebx
 	mov [ebp+0xc], esi
 	mov [ebp+0x8], eax
@@ -1481,8 +1588,8 @@ Z21AIL_sample_volume_panP7_SAMPLEPfS1_:F(0,3):
 	pop ebx
 	pop esi
 	pop ebp
-	jmp ZN12CSoundObject21get_sample_volume_panEPfS0_:F(0,1)
-Z21AIL_sample_volume_panP7_SAMPLEPfS1_:F(0,3)_10:
+	jmp ZN12CSoundObject21get_sample_volume_panEPfS0__F0_1
+Z21AIL_sample_volume_panP7_SAMPLEPfS1__F0_3_10:
 	add esp, 0x10
 	pop ebx
 	pop esi
@@ -1491,9 +1598,9 @@ Z21AIL_sample_volume_panP7_SAMPLEPfS1_:F(0,3)_10:
 	nop
 
 
-;Z24AIL_sample_volume_levelsP7_SAMPLEPfS1_:F(0,3)
+;Z24AIL_sample_volume_levelsP7_SAMPLEPfS1__F0_3
 
-Z24AIL_sample_volume_levelsP7_SAMPLEPfS1_:F(0,3):
+Z24AIL_sample_volume_levelsP7_SAMPLEPfS1__F0_3:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -1505,9 +1612,9 @@ Z24AIL_sample_volume_levelsP7_SAMPLEPfS1_:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE:F(0,45)
+	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE_F0_45
 	test eax, eax
-	jz Z24AIL_sample_volume_levelsP7_SAMPLEPfS1_:F(0,3)_10
+	jz Z24AIL_sample_volume_levelsP7_SAMPLEPfS1__F0_3_10
 	mov [ebp+0x10], ebx
 	mov [ebp+0xc], esi
 	mov [ebp+0x8], eax
@@ -1515,8 +1622,8 @@ Z24AIL_sample_volume_levelsP7_SAMPLEPfS1_:F(0,3):
 	pop ebx
 	pop esi
 	pop ebp
-	jmp ZN12CSoundObject24get_sample_volume_levelsEPfS0_:F(0,1)
-Z24AIL_sample_volume_levelsP7_SAMPLEPfS1_:F(0,3)_10:
+	jmp ZN12CSoundObject24get_sample_volume_levelsEPfS0__F0_1
+Z24AIL_sample_volume_levelsP7_SAMPLEPfS1__F0_3_10:
 	add esp, 0x10
 	pop ebx
 	pop esi
@@ -1525,45 +1632,45 @@ Z24AIL_sample_volume_levelsP7_SAMPLEPfS1_:F(0,3)_10:
 	nop
 
 
-;Z32AIL_set_digital_master_room_typeml:F(0,3)
+;Z32AIL_set_digital_master_room_typeml_F0_3
 
-Z32AIL_set_digital_master_room_typeml:F(0,3):
+Z32AIL_set_digital_master_room_typeml_F0_3:
 	push ebp
 	mov ebp, esp
 	mov eax, [sSoundEngine]
 	mov [ebp+0x8], eax
 	pop ebp
-	jmp ZN12CSoundEngine28set_digital_master_room_typeEl:F(0,25)
+	jmp ZN12CSoundEngine28set_digital_master_room_typeEl_F0_25
 	nop
 
 
-;Z36AIL_set_digital_master_reverb_levelsmff:F(0,3)
+;Z36AIL_set_digital_master_reverb_levelsmff_F0_3
 
-Z36AIL_set_digital_master_reverb_levelsmff:F(0,3):
+Z36AIL_set_digital_master_reverb_levelsmff_F0_3:
 	push ebp
 	mov ebp, esp
 	mov eax, [sSoundEngine]
 	mov [ebp+0x8], eax
 	pop ebp
-	jmp ZN12CSoundEngine32set_digital_master_reverb_levelsEff:F(0,25)
+	jmp ZN12CSoundEngine32set_digital_master_reverb_levelsEff_F0_25
 	nop
 
 
-;Z30AIL_minimum_sample_buffer_sizemll:F(0,1)
+;Z30AIL_minimum_sample_buffer_sizemll_F0_1
 
-Z30AIL_minimum_sample_buffer_sizemll:F(0,1):
+Z30AIL_minimum_sample_buffer_sizemll_F0_1:
 	push ebp
 	mov ebp, esp
 	mov eax, [sSoundEngine]
 	mov [ebp+0x8], eax
 	pop ebp
-	jmp ZN12CSoundEngine26minimum_sample_buffer_sizeEll:F(0,1)
+	jmp ZN12CSoundEngine26minimum_sample_buffer_sizeEll_F0_1
 	nop
 
 
-;Z23AIL_sample_buffer_readyP7_SAMPLE:F(0,1)
+;Z23AIL_sample_buffer_readyP7_SAMPLE_F0_1
 
-Z23AIL_sample_buffer_readyP7_SAMPLE:F(0,1):
+Z23AIL_sample_buffer_readyP7_SAMPLE_F0_1:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -1571,21 +1678,21 @@ Z23AIL_sample_buffer_readyP7_SAMPLE:F(0,1):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE:F(0,45)
+	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE_F0_45
 	test eax, eax
-	jz Z23AIL_sample_buffer_readyP7_SAMPLE:F(0,1)_10
+	jz Z23AIL_sample_buffer_readyP7_SAMPLE_F0_1_10
 	mov [ebp+0x8], eax
 	leave
-	jmp ZN12CSoundObject19sample_buffer_readyEv:F(0,14)
-Z23AIL_sample_buffer_readyP7_SAMPLE:F(0,1)_10:
+	jmp ZN12CSoundObject19sample_buffer_readyEv_F0_14
+Z23AIL_sample_buffer_readyP7_SAMPLE_F0_1_10:
 	mov eax, 0xffffffff
 	leave
 	ret
 
 
-;Z22AIL_load_sample_bufferP7_SAMPLEmPKvm:F(0,3)
+;Z22AIL_load_sample_bufferP7_SAMPLEmPKvm_F0_3
 
-Z22AIL_load_sample_bufferP7_SAMPLEmPKvm:F(0,3):
+Z22AIL_load_sample_bufferP7_SAMPLEmPKvm_F0_3:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -1599,9 +1706,9 @@ Z22AIL_load_sample_bufferP7_SAMPLEmPKvm:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE:F(0,45)
+	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE_F0_45
 	test eax, eax
-	jz Z22AIL_load_sample_bufferP7_SAMPLEmPKvm:F(0,3)_10
+	jz Z22AIL_load_sample_bufferP7_SAMPLEmPKvm_F0_3_10
 	mov [ebp+0x14], ebx
 	mov [ebp+0x10], esi
 	mov [ebp+0xc], edi
@@ -1611,8 +1718,8 @@ Z22AIL_load_sample_bufferP7_SAMPLEmPKvm:F(0,3):
 	pop esi
 	pop edi
 	pop ebp
-	jmp ZN12CSoundObject18load_sample_bufferEmPKvm:F(0,1)
-Z22AIL_load_sample_bufferP7_SAMPLEmPKvm:F(0,3)_10:
+	jmp ZN12CSoundObject18load_sample_bufferEmPKvm_F0_1
+Z22AIL_load_sample_bufferP7_SAMPLEmPKvm_F0_3_10:
 	add esp, 0x1c
 	pop ebx
 	pop esi
@@ -1621,9 +1728,9 @@ Z22AIL_load_sample_bufferP7_SAMPLEmPKvm:F(0,3)_10:
 	ret
 
 
-;Z19AIL_sample_positionP7_SAMPLE:F(0,2)
+;Z19AIL_sample_positionP7_SAMPLE_F0_2
 
-Z19AIL_sample_positionP7_SAMPLE:F(0,2):
+Z19AIL_sample_positionP7_SAMPLE_F0_2:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -1631,22 +1738,22 @@ Z19AIL_sample_positionP7_SAMPLE:F(0,2):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE:F(0,45)
+	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE_F0_45
 	test eax, eax
-	jz Z19AIL_sample_positionP7_SAMPLE:F(0,2)_10
+	jz Z19AIL_sample_positionP7_SAMPLE_F0_2_10
 	mov [ebp+0x8], eax
 	leave
-	jmp ZN12CSoundObject19get_sample_positionEv:F(0,8)
-Z19AIL_sample_positionP7_SAMPLE:F(0,2)_10:
+	jmp ZN12CSoundObject19get_sample_positionEv_F0_8
+Z19AIL_sample_positionP7_SAMPLE_F0_2_10:
 	xor eax, eax
 	leave
 	ret
 	nop
 
 
-;Z26AIL_set_sample_ms_positionP7_SAMPLEl:F(0,3)
+;Z26AIL_set_sample_ms_positionP7_SAMPLEl_F0_3
 
-Z26AIL_set_sample_ms_positionP7_SAMPLEl:F(0,3):
+Z26AIL_set_sample_ms_positionP7_SAMPLEl_F0_3:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -1656,10 +1763,10 @@ Z26AIL_set_sample_ms_positionP7_SAMPLEl:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE:F(0,45)
+	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE_F0_45
 	mov edx, eax
 	test eax, eax
-	jz Z26AIL_set_sample_ms_positionP7_SAMPLEl:F(0,3)_10
+	jz Z26AIL_set_sample_ms_positionP7_SAMPLEl_F0_3_10
 	mov eax, [eax]
 	mov [ebp+0xc], ebx
 	mov [ebp+0x8], edx
@@ -1668,16 +1775,16 @@ Z26AIL_set_sample_ms_positionP7_SAMPLEl:F(0,3):
 	pop ebx
 	pop ebp
 	jmp ecx
-Z26AIL_set_sample_ms_positionP7_SAMPLEl:F(0,3)_10:
+Z26AIL_set_sample_ms_positionP7_SAMPLEl_F0_3_10:
 	add esp, 0x14
 	pop ebx
 	pop ebp
 	ret
 
 
-;Z22AIL_sample_ms_positionP7_SAMPLEPlS1_:F(0,3)
+;Z22AIL_sample_ms_positionP7_SAMPLEPlS1__F0_3
 
-Z22AIL_sample_ms_positionP7_SAMPLEPlS1_:F(0,3):
+Z22AIL_sample_ms_positionP7_SAMPLEPlS1__F0_3:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -1689,10 +1796,10 @@ Z22AIL_sample_ms_positionP7_SAMPLEPlS1_:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE:F(0,45)
+	call ZN12CSoundEngine14GetSampleSoundEP7_SAMPLE_F0_45
 	mov edx, eax
 	test eax, eax
-	jz Z22AIL_sample_ms_positionP7_SAMPLEPlS1_:F(0,3)_10
+	jz Z22AIL_sample_ms_positionP7_SAMPLEPlS1__F0_3_10
 	mov eax, [eax]
 	mov [ebp+0x10], ebx
 	mov [ebp+0xc], esi
@@ -1703,7 +1810,7 @@ Z22AIL_sample_ms_positionP7_SAMPLEPlS1_:F(0,3):
 	pop esi
 	pop ebp
 	jmp ecx
-Z22AIL_sample_ms_positionP7_SAMPLEPlS1_:F(0,3)_10:
+Z22AIL_sample_ms_positionP7_SAMPLEPlS1__F0_3_10:
 	add esp, 0x10
 	pop ebx
 	pop esi
@@ -1712,9 +1819,9 @@ Z22AIL_sample_ms_positionP7_SAMPLEPlS1_:F(0,3)_10:
 	nop
 
 
-;Z15AIL_open_streammPKcl:F(0,152)
+;Z15AIL_open_streammPKcl_F0_152
 
-Z15AIL_open_streammPKcl:F(0,152):
+Z15AIL_open_streammPKcl_F0_152:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -1722,67 +1829,67 @@ Z15AIL_open_streammPKcl:F(0,152):
 	sub esp, 0x10
 	mov esi, [ebp+0xc]
 	test esi, esi
-	jz Z15AIL_open_streammPKcl:F(0,152)_10
+	jz Z15AIL_open_streammPKcl_F0_152_10
 	mov dword [esp+0x4], _cstring_mp3
 	mov [esp], esi
 	call strstr
 	test eax, eax
-	jz Z15AIL_open_streammPKcl:F(0,152)_20
+	jz Z15AIL_open_streammPKcl_F0_152_20
 	mov dword [esp+0x4], 0x4
 	mov [esp], esi
 	call access
 	test eax, eax
-	jz Z15AIL_open_streammPKcl:F(0,152)_30
-Z15AIL_open_streammPKcl:F(0,152)_10:
+	jz Z15AIL_open_streammPKcl_F0_152_30
+Z15AIL_open_streammPKcl_F0_152_10:
 	xor eax, eax
-Z15AIL_open_streammPKcl:F(0,152)_60:
+Z15AIL_open_streammPKcl_F0_152_60:
 	add esp, 0x10
 	pop ebx
 	pop esi
 	pop ebp
 	ret
-Z15AIL_open_streammPKcl:F(0,152)_30:
+Z15AIL_open_streammPKcl_F0_152_30:
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine14NewStreamSoundEv:F(0,45)
+	call ZN12CSoundEngine14NewStreamSoundEv_F0_45
 	mov ebx, eax
-Z15AIL_open_streammPKcl:F(0,152)_50:
+Z15AIL_open_streammPKcl_F0_152_50:
 	test ebx, ebx
-	jz Z15AIL_open_streammPKcl:F(0,152)_10
+	jz Z15AIL_open_streammPKcl_F0_152_10
 	mov eax, [ebx]
 	mov [esp+0x4], esi
 	mov [esp], ebx
 	call dword [eax+0x28]
 	test al, al
-	jz Z15AIL_open_streammPKcl:F(0,152)_40
+	jz Z15AIL_open_streammPKcl_F0_152_40
 	mov eax, ebx
 	add esp, 0x10
 	pop ebx
 	pop esi
 	pop ebp
 	ret
-Z15AIL_open_streammPKcl:F(0,152)_20:
+Z15AIL_open_streammPKcl_F0_152_20:
 	mov dword [esp+0x4], _cstring_wav
 	mov [esp], esi
 	call strstr
 	test eax, eax
-	jz Z15AIL_open_streammPKcl:F(0,152)_10
+	jz Z15AIL_open_streammPKcl_F0_152_10
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine16NewSampleSound3DEv:F(0,45)
+	call ZN12CSoundEngine16NewSampleSound3DEv_F0_45
 	mov ebx, eax
-	jmp Z15AIL_open_streammPKcl:F(0,152)_50
-Z15AIL_open_streammPKcl:F(0,152)_40:
+	jmp Z15AIL_open_streammPKcl_F0_152_50
+Z15AIL_open_streammPKcl_F0_152_40:
 	mov [esp], ebx
-	call ZN12CSoundObject7ReleaseEv:F(0,1)
+	call ZN12CSoundObject7ReleaseEv_F0_1
 	xor eax, eax
-	jmp Z15AIL_open_streammPKcl:F(0,152)_60
+	jmp Z15AIL_open_streammPKcl_F0_152_60
 	nop
 
 
-;Z16AIL_close_streamP7_STREAM:F(0,3)
+;Z16AIL_close_streamP7_STREAM_F0_3
 
-Z16AIL_close_streamP7_STREAM:F(0,3):
+Z16AIL_close_streamP7_STREAM_F0_3:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -1790,21 +1897,21 @@ Z16AIL_close_streamP7_STREAM:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine14GetStreamSoundEP7_STREAM:F(0,45)
+	call ZN12CSoundEngine14GetStreamSoundEP7_STREAM_F0_45
 	test eax, eax
-	jz Z16AIL_close_streamP7_STREAM:F(0,3)_10
+	jz Z16AIL_close_streamP7_STREAM_F0_3_10
 	mov [ebp+0x8], eax
 	leave
-	jmp ZN12CSoundObject7ReleaseEv:F(0,1)
-Z16AIL_close_streamP7_STREAM:F(0,3)_10:
+	jmp ZN12CSoundObject7ReleaseEv_F0_1
+Z16AIL_close_streamP7_STREAM_F0_3_10:
 	leave
 	ret
 	nop
 
 
-;Z16AIL_pause_streamP7_STREAMl:F(0,3)
+;Z16AIL_pause_streamP7_STREAMl_F0_3
 
-Z16AIL_pause_streamP7_STREAMl:F(0,3):
+Z16AIL_pause_streamP7_STREAMl_F0_3:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -1814,12 +1921,12 @@ Z16AIL_pause_streamP7_STREAMl:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine14GetStreamSoundEP7_STREAM:F(0,45)
+	call ZN12CSoundEngine14GetStreamSoundEP7_STREAM_F0_45
 	mov edx, eax
 	test eax, eax
-	jz Z16AIL_pause_streamP7_STREAMl:F(0,3)_10
+	jz Z16AIL_pause_streamP7_STREAMl_F0_3_10
 	test ebx, ebx
-	jz Z16AIL_pause_streamP7_STREAMl:F(0,3)_20
+	jz Z16AIL_pause_streamP7_STREAMl_F0_3_20
 	mov eax, [eax]
 	mov [ebp+0x8], edx
 	mov ecx, [eax+0xc]
@@ -1827,7 +1934,7 @@ Z16AIL_pause_streamP7_STREAMl:F(0,3):
 	pop ebx
 	pop ebp
 	jmp ecx
-Z16AIL_pause_streamP7_STREAMl:F(0,3)_20:
+Z16AIL_pause_streamP7_STREAMl_F0_3_20:
 	mov eax, [eax]
 	mov [ebp+0x8], edx
 	mov ecx, [eax+0x10]
@@ -1835,16 +1942,16 @@ Z16AIL_pause_streamP7_STREAMl:F(0,3)_20:
 	pop ebx
 	pop ebp
 	jmp ecx
-Z16AIL_pause_streamP7_STREAMl:F(0,3)_10:
+Z16AIL_pause_streamP7_STREAMl_F0_3_10:
 	add esp, 0x14
 	pop ebx
 	pop ebp
 	ret
 
 
-;Z28AIL_set_stream_volume_levelsP7_STREAMff:F(0,3)
+;Z28AIL_set_stream_volume_levelsP7_STREAMff_F0_3
 
-Z28AIL_set_stream_volume_levelsP7_STREAMff:F(0,3):
+Z28AIL_set_stream_volume_levelsP7_STREAMff_F0_3:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -1856,9 +1963,9 @@ Z28AIL_set_stream_volume_levelsP7_STREAMff:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine14GetStreamSoundEP7_STREAM:F(0,45)
+	call ZN12CSoundEngine14GetStreamSoundEP7_STREAM_F0_45
 	test eax, eax
-	jz Z28AIL_set_stream_volume_levelsP7_STREAMff:F(0,3)_10
+	jz Z28AIL_set_stream_volume_levelsP7_STREAMff_F0_3_10
 	mov [ebp+0x10], ebx
 	mov [ebp+0xc], esi
 	mov [ebp+0x8], eax
@@ -1866,8 +1973,8 @@ Z28AIL_set_stream_volume_levelsP7_STREAMff:F(0,3):
 	pop ebx
 	pop esi
 	pop ebp
-	jmp ZN12CSoundObject24set_sample_volume_levelsEff:F(0,1)
-Z28AIL_set_stream_volume_levelsP7_STREAMff:F(0,3)_10:
+	jmp ZN12CSoundObject24set_sample_volume_levelsEff_F0_1
+Z28AIL_set_stream_volume_levelsP7_STREAMff_F0_3_10:
 	add esp, 0x10
 	pop ebx
 	pop esi
@@ -1876,9 +1983,9 @@ Z28AIL_set_stream_volume_levelsP7_STREAMff:F(0,3)_10:
 	nop
 
 
-;Z28AIL_set_stream_reverb_levelsP7_STREAMff:F(0,3)
+;Z28AIL_set_stream_reverb_levelsP7_STREAMff_F0_3
 
-Z28AIL_set_stream_reverb_levelsP7_STREAMff:F(0,3):
+Z28AIL_set_stream_reverb_levelsP7_STREAMff_F0_3:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -1890,9 +1997,9 @@ Z28AIL_set_stream_reverb_levelsP7_STREAMff:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine14GetStreamSoundEP7_STREAM:F(0,45)
+	call ZN12CSoundEngine14GetStreamSoundEP7_STREAM_F0_45
 	test eax, eax
-	jz Z28AIL_set_stream_reverb_levelsP7_STREAMff:F(0,3)_10
+	jz Z28AIL_set_stream_reverb_levelsP7_STREAMff_F0_3_10
 	mov [ebp+0x10], ebx
 	mov [ebp+0xc], esi
 	mov [ebp+0x8], eax
@@ -1900,8 +2007,8 @@ Z28AIL_set_stream_reverb_levelsP7_STREAMff:F(0,3):
 	pop ebx
 	pop esi
 	pop ebp
-	jmp ZN12CSoundObject24set_sample_reverb_levelsEff:F(0,1)
-Z28AIL_set_stream_reverb_levelsP7_STREAMff:F(0,3)_10:
+	jmp ZN12CSoundObject24set_sample_reverb_levelsEff_F0_1
+Z28AIL_set_stream_reverb_levelsP7_STREAMff_F0_3_10:
 	add esp, 0x10
 	pop ebx
 	pop esi
@@ -1910,9 +2017,9 @@ Z28AIL_set_stream_reverb_levelsP7_STREAMff:F(0,3)_10:
 	nop
 
 
-;Z21AIL_stream_volume_panP7_STREAMPfS1_:F(0,3)
+;Z21AIL_stream_volume_panP7_STREAMPfS1__F0_3
 
-Z21AIL_stream_volume_panP7_STREAMPfS1_:F(0,3):
+Z21AIL_stream_volume_panP7_STREAMPfS1__F0_3:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -1924,9 +2031,9 @@ Z21AIL_stream_volume_panP7_STREAMPfS1_:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine14GetStreamSoundEP7_STREAM:F(0,45)
+	call ZN12CSoundEngine14GetStreamSoundEP7_STREAM_F0_45
 	test eax, eax
-	jz Z21AIL_stream_volume_panP7_STREAMPfS1_:F(0,3)_10
+	jz Z21AIL_stream_volume_panP7_STREAMPfS1__F0_3_10
 	mov [ebp+0x10], ebx
 	mov [ebp+0xc], esi
 	mov [ebp+0x8], eax
@@ -1934,8 +2041,8 @@ Z21AIL_stream_volume_panP7_STREAMPfS1_:F(0,3):
 	pop ebx
 	pop esi
 	pop ebp
-	jmp ZN12CSoundObject21get_sample_volume_panEPfS0_:F(0,1)
-Z21AIL_stream_volume_panP7_STREAMPfS1_:F(0,3)_10:
+	jmp ZN12CSoundObject21get_sample_volume_panEPfS0__F0_1
+Z21AIL_stream_volume_panP7_STREAMPfS1__F0_3_10:
 	add esp, 0x10
 	pop ebx
 	pop esi
@@ -1944,9 +2051,9 @@ Z21AIL_stream_volume_panP7_STREAMPfS1_:F(0,3)_10:
 	nop
 
 
-;Z24AIL_stream_volume_levelsP7_STREAMPfS1_:F(0,3)
+;Z24AIL_stream_volume_levelsP7_STREAMPfS1__F0_3
 
-Z24AIL_stream_volume_levelsP7_STREAMPfS1_:F(0,3):
+Z24AIL_stream_volume_levelsP7_STREAMPfS1__F0_3:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -1958,9 +2065,9 @@ Z24AIL_stream_volume_levelsP7_STREAMPfS1_:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine14GetStreamSoundEP7_STREAM:F(0,45)
+	call ZN12CSoundEngine14GetStreamSoundEP7_STREAM_F0_45
 	test eax, eax
-	jz Z24AIL_stream_volume_levelsP7_STREAMPfS1_:F(0,3)_10
+	jz Z24AIL_stream_volume_levelsP7_STREAMPfS1__F0_3_10
 	mov [ebp+0x10], ebx
 	mov [ebp+0xc], esi
 	mov [ebp+0x8], eax
@@ -1968,8 +2075,8 @@ Z24AIL_stream_volume_levelsP7_STREAMPfS1_:F(0,3):
 	pop ebx
 	pop esi
 	pop ebp
-	jmp ZN12CSoundObject24get_sample_volume_levelsEPfS0_:F(0,1)
-Z24AIL_stream_volume_levelsP7_STREAMPfS1_:F(0,3)_10:
+	jmp ZN12CSoundObject24get_sample_volume_levelsEPfS0__F0_1
+Z24AIL_stream_volume_levelsP7_STREAMPfS1__F0_3_10:
 	add esp, 0x10
 	pop ebx
 	pop esi
@@ -1978,9 +2085,9 @@ Z24AIL_stream_volume_levelsP7_STREAMPfS1_:F(0,3)_10:
 	nop
 
 
-;Z28AIL_set_stream_playback_rateP7_STREAMl:F(0,3)
+;Z28AIL_set_stream_playback_rateP7_STREAMl_F0_3
 
-Z28AIL_set_stream_playback_rateP7_STREAMl:F(0,3):
+Z28AIL_set_stream_playback_rateP7_STREAMl_F0_3:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -1990,10 +2097,10 @@ Z28AIL_set_stream_playback_rateP7_STREAMl:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine14GetStreamSoundEP7_STREAM:F(0,45)
+	call ZN12CSoundEngine14GetStreamSoundEP7_STREAM_F0_45
 	mov edx, eax
 	test eax, eax
-	jz Z28AIL_set_stream_playback_rateP7_STREAMl:F(0,3)_10
+	jz Z28AIL_set_stream_playback_rateP7_STREAMl_F0_3_10
 	mov eax, [eax]
 	mov [ebp+0xc], ebx
 	mov [ebp+0x8], edx
@@ -2002,16 +2109,16 @@ Z28AIL_set_stream_playback_rateP7_STREAMl:F(0,3):
 	pop ebx
 	pop ebp
 	jmp ecx
-Z28AIL_set_stream_playback_rateP7_STREAMl:F(0,3)_10:
+Z28AIL_set_stream_playback_rateP7_STREAMl_F0_3_10:
 	add esp, 0x14
 	pop ebx
 	pop ebp
 	ret
 
 
-;Z24AIL_stream_playback_rateP7_STREAM:F(0,1)
+;Z24AIL_stream_playback_rateP7_STREAM_F0_1
 
-Z24AIL_stream_playback_rateP7_STREAM:F(0,1):
+Z24AIL_stream_playback_rateP7_STREAM_F0_1:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -2019,22 +2126,22 @@ Z24AIL_stream_playback_rateP7_STREAM:F(0,1):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine14GetStreamSoundEP7_STREAM:F(0,45)
+	call ZN12CSoundEngine14GetStreamSoundEP7_STREAM_F0_45
 	test eax, eax
-	jz Z24AIL_stream_playback_rateP7_STREAM:F(0,1)_10
+	jz Z24AIL_stream_playback_rateP7_STREAM_F0_1_10
 	mov [ebp+0x8], eax
 	leave
-	jmp ZN12CSoundObject24get_sample_playback_rateEv:F(0,14)
-Z24AIL_stream_playback_rateP7_STREAM:F(0,1)_10:
+	jmp ZN12CSoundObject24get_sample_playback_rateEv_F0_14
+Z24AIL_stream_playback_rateP7_STREAM_F0_1_10:
 	xor eax, eax
 	leave
 	ret
 	nop
 
 
-;Z25AIL_set_stream_loop_countP7_STREAMl:F(0,3)
+;Z25AIL_set_stream_loop_countP7_STREAMl_F0_3
 
-Z25AIL_set_stream_loop_countP7_STREAMl:F(0,3):
+Z25AIL_set_stream_loop_countP7_STREAMl_F0_3:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -2044,25 +2151,25 @@ Z25AIL_set_stream_loop_countP7_STREAMl:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine14GetStreamSoundEP7_STREAM:F(0,45)
+	call ZN12CSoundEngine14GetStreamSoundEP7_STREAM_F0_45
 	test eax, eax
-	jz Z25AIL_set_stream_loop_countP7_STREAMl:F(0,3)_10
+	jz Z25AIL_set_stream_loop_countP7_STREAMl_F0_3_10
 	mov [ebp+0xc], ebx
 	mov [ebp+0x8], eax
 	add esp, 0x14
 	pop ebx
 	pop ebp
-	jmp ZN12CSoundObject21set_sample_loop_countEm:F(0,1)
-Z25AIL_set_stream_loop_countP7_STREAMl:F(0,3)_10:
+	jmp ZN12CSoundObject21set_sample_loop_countEm_F0_1
+Z25AIL_set_stream_loop_countP7_STREAMl_F0_3_10:
 	add esp, 0x14
 	pop ebx
 	pop ebp
 	ret
 
 
-;Z17AIL_stream_statusP7_STREAM:F(0,1)
+;Z17AIL_stream_statusP7_STREAM_F0_1
 
-Z17AIL_stream_statusP7_STREAM:F(0,1):
+Z17AIL_stream_statusP7_STREAM_F0_1:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -2070,21 +2177,21 @@ Z17AIL_stream_statusP7_STREAM:F(0,1):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine14GetStreamSoundEP7_STREAM:F(0,45)
+	call ZN12CSoundEngine14GetStreamSoundEP7_STREAM_F0_45
 	test eax, eax
-	jz Z17AIL_stream_statusP7_STREAM:F(0,1)_10
+	jz Z17AIL_stream_statusP7_STREAM_F0_1_10
 	mov [ebp+0x8], eax
 	leave
-	jmp ZN12CSoundObject17get_sample_statusEv:F(0,8)
-Z17AIL_stream_statusP7_STREAM:F(0,1)_10:
+	jmp ZN12CSoundObject17get_sample_statusEv_F0_8
+Z17AIL_stream_statusP7_STREAM_F0_1_10:
 	mov eax, 0x1
 	leave
 	ret
 
 
-;Z15AIL_stream_infoP7_STREAMPlS1_S1_S1_:F(0,3)
+;Z15AIL_stream_infoP7_STREAMPlS1_S1_S1__F0_3
 
-Z15AIL_stream_infoP7_STREAMPlS1_S1_S1_:F(0,3):
+Z15AIL_stream_infoP7_STREAMPlS1_S1_S1__F0_3:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -2100,9 +2207,9 @@ Z15AIL_stream_infoP7_STREAMPlS1_S1_S1_:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine14GetStreamSoundEP7_STREAM:F(0,45)
+	call ZN12CSoundEngine14GetStreamSoundEP7_STREAM_F0_45
 	test eax, eax
-	jz Z15AIL_stream_infoP7_STREAMPlS1_S1_S1_:F(0,3)_10
+	jz Z15AIL_stream_infoP7_STREAMPlS1_S1_S1__F0_3_10
 	mov edx, [ebp-0x1c]
 	mov [ebp+0x18], edx
 	mov [ebp+0x14], edi
@@ -2114,26 +2221,26 @@ Z15AIL_stream_infoP7_STREAMPlS1_S1_S1_:F(0,3):
 	pop esi
 	pop edi
 	pop ebp
-	jmp ZN12CSoundObject15get_stream_infoEPlS0_S0_S0_:F(0,1)
-Z15AIL_stream_infoP7_STREAMPlS1_S1_S1_:F(0,3)_10:
+	jmp ZN12CSoundObject15get_stream_infoEPlS0_S0_S0__F0_1
+Z15AIL_stream_infoP7_STREAMPlS1_S1_S1__F0_3_10:
 	test ebx, ebx
-	jz Z15AIL_stream_infoP7_STREAMPlS1_S1_S1_:F(0,3)_20
+	jz Z15AIL_stream_infoP7_STREAMPlS1_S1_S1__F0_3_20
 	mov dword [ebx], 0x0
-Z15AIL_stream_infoP7_STREAMPlS1_S1_S1_:F(0,3)_20:
+Z15AIL_stream_infoP7_STREAMPlS1_S1_S1__F0_3_20:
 	test esi, esi
-	jz Z15AIL_stream_infoP7_STREAMPlS1_S1_S1_:F(0,3)_30
+	jz Z15AIL_stream_infoP7_STREAMPlS1_S1_S1__F0_3_30
 	mov dword [esi], 0x0
-Z15AIL_stream_infoP7_STREAMPlS1_S1_S1_:F(0,3)_30:
+Z15AIL_stream_infoP7_STREAMPlS1_S1_S1__F0_3_30:
 	test edi, edi
-	jz Z15AIL_stream_infoP7_STREAMPlS1_S1_S1_:F(0,3)_40
+	jz Z15AIL_stream_infoP7_STREAMPlS1_S1_S1__F0_3_40
 	mov dword [edi], 0x0
-Z15AIL_stream_infoP7_STREAMPlS1_S1_S1_:F(0,3)_40:
+Z15AIL_stream_infoP7_STREAMPlS1_S1_S1__F0_3_40:
 	mov edx, [ebp-0x1c]
 	test edx, edx
-	jz Z15AIL_stream_infoP7_STREAMPlS1_S1_S1_:F(0,3)_50
+	jz Z15AIL_stream_infoP7_STREAMPlS1_S1_S1__F0_3_50
 	mov eax, [ebp-0x1c]
 	mov dword [eax], 0x0
-Z15AIL_stream_infoP7_STREAMPlS1_S1_S1_:F(0,3)_50:
+Z15AIL_stream_infoP7_STREAMPlS1_S1_S1__F0_3_50:
 	add esp, 0x2c
 	pop ebx
 	pop esi
@@ -2142,9 +2249,9 @@ Z15AIL_stream_infoP7_STREAMPlS1_S1_S1_:F(0,3)_50:
 	ret
 
 
-;Z26AIL_set_stream_ms_positionP7_STREAMl:F(0,3)
+;Z26AIL_set_stream_ms_positionP7_STREAMl_F0_3
 
-Z26AIL_set_stream_ms_positionP7_STREAMl:F(0,3):
+Z26AIL_set_stream_ms_positionP7_STREAMl_F0_3:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -2154,10 +2261,10 @@ Z26AIL_set_stream_ms_positionP7_STREAMl:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine14GetStreamSoundEP7_STREAM:F(0,45)
+	call ZN12CSoundEngine14GetStreamSoundEP7_STREAM_F0_45
 	mov edx, eax
 	test eax, eax
-	jz Z26AIL_set_stream_ms_positionP7_STREAMl:F(0,3)_10
+	jz Z26AIL_set_stream_ms_positionP7_STREAMl_F0_3_10
 	mov eax, [eax]
 	mov [ebp+0xc], ebx
 	mov [ebp+0x8], edx
@@ -2166,16 +2273,16 @@ Z26AIL_set_stream_ms_positionP7_STREAMl:F(0,3):
 	pop ebx
 	pop ebp
 	jmp ecx
-Z26AIL_set_stream_ms_positionP7_STREAMl:F(0,3)_10:
+Z26AIL_set_stream_ms_positionP7_STREAMl_F0_3_10:
 	add esp, 0x14
 	pop ebx
 	pop ebp
 	ret
 
 
-;Z22AIL_stream_ms_positionP7_STREAMPlS1_:F(0,3)
+;Z22AIL_stream_ms_positionP7_STREAMPlS1__F0_3
 
-Z22AIL_stream_ms_positionP7_STREAMPlS1_:F(0,3):
+Z22AIL_stream_ms_positionP7_STREAMPlS1__F0_3:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -2187,10 +2294,10 @@ Z22AIL_stream_ms_positionP7_STREAMPlS1_:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine14GetStreamSoundEP7_STREAM:F(0,45)
+	call ZN12CSoundEngine14GetStreamSoundEP7_STREAM_F0_45
 	mov edx, eax
 	test eax, eax
-	jz Z22AIL_stream_ms_positionP7_STREAMPlS1_:F(0,3)_10
+	jz Z22AIL_stream_ms_positionP7_STREAMPlS1__F0_3_10
 	mov eax, [eax]
 	mov [ebp+0x10], ebx
 	mov [ebp+0xc], esi
@@ -2201,7 +2308,7 @@ Z22AIL_stream_ms_positionP7_STREAMPlS1_:F(0,3):
 	pop esi
 	pop ebp
 	jmp ecx
-Z22AIL_stream_ms_positionP7_STREAMPlS1_:F(0,3)_10:
+Z22AIL_stream_ms_positionP7_STREAMPlS1__F0_3_10:
 	add esp, 0x10
 	pop ebx
 	pop esi
@@ -2210,9 +2317,9 @@ Z22AIL_stream_ms_positionP7_STREAMPlS1_:F(0,3)_10:
 	nop
 
 
-;Z16AIL_is_3D_streamP7_STREAM:F(0,1)
+;Z16AIL_is_3D_streamP7_STREAM_F0_1
 
-Z16AIL_is_3D_streamP7_STREAM:F(0,1):
+Z16AIL_is_3D_streamP7_STREAM_F0_1:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -2220,21 +2327,21 @@ Z16AIL_is_3D_streamP7_STREAM:F(0,1):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine14GetStreamSoundEP7_STREAM:F(0,45)
+	call ZN12CSoundEngine14GetStreamSoundEP7_STREAM_F0_45
 	test eax, eax
-	jz Z16AIL_is_3D_streamP7_STREAM:F(0,1)_10
+	jz Z16AIL_is_3D_streamP7_STREAM_F0_1_10
 	mov [esp], eax
-	call ZN12CSoundObject9Is3DSoundEv:F(0,9)
+	call ZN12CSoundObject9Is3DSoundEv_F0_9
 	movzx eax, al
-Z16AIL_is_3D_streamP7_STREAM:F(0,1)_10:
+Z16AIL_is_3D_streamP7_STREAM_F0_1_10:
 	leave
 	ret
 	nop
 
 
-;Z26AIL_set_3D_stream_positionP7_STREAMfff:F(0,3)
+;Z26AIL_set_3D_stream_positionP7_STREAMfff_F0_3
 
-Z26AIL_set_3D_stream_positionP7_STREAMfff:F(0,3):
+Z26AIL_set_3D_stream_positionP7_STREAMfff_F0_3:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -2248,9 +2355,9 @@ Z26AIL_set_3D_stream_positionP7_STREAMfff:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine14GetStreamSoundEP7_STREAM:F(0,45)
+	call ZN12CSoundEngine14GetStreamSoundEP7_STREAM_F0_45
 	test eax, eax
-	jz Z26AIL_set_3D_stream_positionP7_STREAMfff:F(0,3)_10
+	jz Z26AIL_set_3D_stream_positionP7_STREAMfff_F0_3_10
 	mov [ebp+0x14], ebx
 	mov [ebp+0x10], esi
 	mov [ebp+0xc], edi
@@ -2260,8 +2367,8 @@ Z26AIL_set_3D_stream_positionP7_STREAMfff:F(0,3):
 	pop esi
 	pop edi
 	pop ebp
-	jmp ZN12CSoundObject15set_3D_positionEfff:F(0,1)
-Z26AIL_set_3D_stream_positionP7_STREAMfff:F(0,3)_10:
+	jmp ZN12CSoundObject15set_3D_positionEfff_F0_1
+Z26AIL_set_3D_stream_positionP7_STREAMfff_F0_3_10:
 	add esp, 0x1c
 	pop ebx
 	pop esi
@@ -2270,19 +2377,19 @@ Z26AIL_set_3D_stream_positionP7_STREAMfff:F(0,3)_10:
 	ret
 
 
-;Z22AIL_set_file_callbacksPFmPKcPmEPFvmEPFlmlmEPFmmPvmE:F(0,3)
+;Z22AIL_set_file_callbacksPFmPKcPmEPFvmEPFlmlmEPFmmPvmE_F0_3
 
-Z22AIL_set_file_callbacksPFmPKcPmEPFvmEPFlmlmEPFmmPvmE:F(0,3):
+Z22AIL_set_file_callbacksPFmPKcPmEPFvmEPFlmlmEPFmmPvmE_F0_3:
 	push ebp
 	mov ebp, esp
 	pop ebp
-	jmp ZN12CSoundObject18set_file_callbacksEPFmPKcPmEPFvmEPFlmlmEPFmmPvmE:F(0,1)
+	jmp ZN12CSoundObject18set_file_callbacksEPFmPKcPmEPFvmEPFlmlmEPFmmPvmE_F0_1
 	nop
 
 
-;Z32AIL_size_processed_digital_audiommlPK11_AILMIXINFO:F(0,1)
+;Z32AIL_size_processed_digital_audiommlPK11_AILMIXINFO_F0_1
 
-Z32AIL_size_processed_digital_audiommlPK11_AILMIXINFO:F(0,1):
+Z32AIL_size_processed_digital_audiommlPK11_AILMIXINFO_F0_1:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0xc]
@@ -2292,13 +2399,13 @@ Z32AIL_size_processed_digital_audiommlPK11_AILMIXINFO:F(0,1):
 	mov eax, [sSoundEngine]
 	mov [ebp+0x8], eax
 	pop ebp
-	jmp ZN12CSoundEngine28size_processed_digital_audioEmmPK11_AILMIXINFO:F(0,1)
+	jmp ZN12CSoundEngine28size_processed_digital_audioEmmPK11_AILMIXINFO_F0_1
 	nop
 
 
-;Z25AIL_process_digital_audioPvlmmlP11_AILMIXINFO:F(0,1)
+;Z25AIL_process_digital_audioPvlmmlP11_AILMIXINFO_F0_1
 
-Z25AIL_process_digital_audioPvlmmlP11_AILMIXINFO:F(0,1):
+Z25AIL_process_digital_audioPvlmmlP11_AILMIXINFO_F0_1:
 	push ebp
 	mov ebp, esp
 	mov eax, [ebp+0x14]
@@ -2312,30 +2419,30 @@ Z25AIL_process_digital_audioPvlmmlP11_AILMIXINFO:F(0,1):
 	mov eax, [sSoundEngine]
 	mov [ebp+0x8], eax
 	pop ebp
-	jmp ZN12CSoundEngine21process_digital_audioEPvlmmPK11_AILMIXINFO:F(0,1)
+	jmp ZN12CSoundEngine21process_digital_audioEPvlmmPK11_AILMIXINFO_F0_1
 	nop
 
 
-;Z26AIL_enumerate_3D_providersPmS_PPc:F(0,1)
+;Z26AIL_enumerate_3D_providersPmS_PPc_F0_1
 
-Z26AIL_enumerate_3D_providersPmS_PPc:F(0,1):
+Z26AIL_enumerate_3D_providersPmS_PPc_F0_1:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
 	mov eax, [ebp+0x8]
 	mov ecx, [eax]
 	test ecx, ecx
-	jz Z26AIL_enumerate_3D_providersPmS_PPc:F(0,1)_10
+	jz Z26AIL_enumerate_3D_providersPmS_PPc_F0_1_10
 	xor eax, eax
 	leave
 	ret
-Z26AIL_enumerate_3D_providersPmS_PPc:F(0,1)_10:
+Z26AIL_enumerate_3D_providersPmS_PPc_F0_1_10:
 	mov dword [eax], 0x1
 	mov eax, [ebp+0xc]
 	mov dword [eax], 0x4d504944
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine11device_nameEv:F(0,38)
+	call ZN12CSoundEngine11device_nameEv_F0_38
 	mov edx, [ebp+0x10]
 	mov [edx], eax
 	mov eax, 0x1
@@ -2344,9 +2451,9 @@ Z26AIL_enumerate_3D_providersPmS_PPc:F(0,1)_10:
 	nop
 
 
-;Z20AIL_open_3D_providerm:F(0,307)
+;Z20AIL_open_3D_providerm_F0_307
 
-Z20AIL_open_3D_providerm:F(0,307):
+Z20AIL_open_3D_providerm_F0_307:
 	push ebp
 	mov ebp, esp
 	xor eax, eax
@@ -2355,9 +2462,9 @@ Z20AIL_open_3D_providerm:F(0,307):
 	nop
 
 
-;Z21AIL_close_3D_providerm:F(0,3)
+;Z21AIL_close_3D_providerm_F0_3
 
-Z21AIL_close_3D_providerm:F(0,3):
+Z21AIL_close_3D_providerm_F0_3:
 	push ebp
 	mov ebp, esp
 	pop ebp
@@ -2365,36 +2472,36 @@ Z21AIL_close_3D_providerm:F(0,3):
 	nop
 
 
-;Z25AIL_3D_provider_attributemPKcPv:F(0,3)
+;Z25AIL_3D_provider_attributemPKcPv_F0_3
 
-Z25AIL_3D_provider_attributemPKcPv:F(0,3):
+Z25AIL_3D_provider_attributemPKcPv_F0_3:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine14mixer_count_3DEv:F(0,1)
+	call ZN12CSoundEngine14mixer_count_3DEv_F0_1
 	mov edx, [ebp+0x10]
 	mov [edx], eax
 	leave
 	ret
 
 
-;Z29AIL_allocate_3D_sample_handlem:F(0,149)
+;Z29AIL_allocate_3D_sample_handlem_F0_149
 
-Z29AIL_allocate_3D_sample_handlem:F(0,149):
+Z29AIL_allocate_3D_sample_handlem_F0_149:
 	push ebp
 	mov ebp, esp
 	mov eax, [sSoundEngine]
 	mov [ebp+0x8], eax
 	pop ebp
-	jmp ZN12CSoundEngine16NewSampleSound3DEv:F(0,45)
+	jmp ZN12CSoundEngine16NewSampleSound3DEv_F0_45
 	nop
 
 
-;Z18AIL_stop_3D_samplePv:F(0,3)
+;Z18AIL_stop_3D_samplePv_F0_3
 
-Z18AIL_stop_3D_samplePv:F(0,3):
+Z18AIL_stop_3D_samplePv_F0_3:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -2402,24 +2509,24 @@ Z18AIL_stop_3D_samplePv:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine16GetSampleSound3DEPv:F(0,45)
+	call ZN12CSoundEngine16GetSampleSound3DEPv_F0_45
 	mov edx, eax
 	test eax, eax
-	jz Z18AIL_stop_3D_samplePv:F(0,3)_10
+	jz Z18AIL_stop_3D_samplePv_F0_3_10
 	mov eax, [eax]
 	mov [ebp+0x8], edx
 	mov ecx, [eax+0xc]
 	leave
 	jmp ecx
-Z18AIL_stop_3D_samplePv:F(0,3)_10:
+Z18AIL_stop_3D_samplePv_F0_3_10:
 	leave
 	ret
 	nop
 
 
-;Z20AIL_resume_3D_samplePv:F(0,3)
+;Z20AIL_resume_3D_samplePv_F0_3
 
-Z20AIL_resume_3D_samplePv:F(0,3):
+Z20AIL_resume_3D_samplePv_F0_3:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -2427,24 +2534,24 @@ Z20AIL_resume_3D_samplePv:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine16GetSampleSound3DEPv:F(0,45)
+	call ZN12CSoundEngine16GetSampleSound3DEPv_F0_45
 	mov edx, eax
 	test eax, eax
-	jz Z20AIL_resume_3D_samplePv:F(0,3)_10
+	jz Z20AIL_resume_3D_samplePv_F0_3_10
 	mov eax, [eax]
 	mov [ebp+0x8], edx
 	mov ecx, [eax+0x10]
 	leave
 	jmp ecx
-Z20AIL_resume_3D_samplePv:F(0,3)_10:
+Z20AIL_resume_3D_samplePv_F0_3_10:
 	leave
 	ret
 	nop
 
 
-;Z17AIL_end_3D_samplePv:F(0,3)
+;Z17AIL_end_3D_samplePv_F0_3
 
-Z17AIL_end_3D_samplePv:F(0,3):
+Z17AIL_end_3D_samplePv_F0_3:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -2452,24 +2559,24 @@ Z17AIL_end_3D_samplePv:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine16GetSampleSound3DEPv:F(0,45)
+	call ZN12CSoundEngine16GetSampleSound3DEPv_F0_45
 	mov edx, eax
 	test eax, eax
-	jz Z17AIL_end_3D_samplePv:F(0,3)_10
+	jz Z17AIL_end_3D_samplePv_F0_3_10
 	mov eax, [eax]
 	mov [ebp+0x8], edx
 	mov ecx, [eax+0x14]
 	leave
 	jmp ecx
-Z17AIL_end_3D_samplePv:F(0,3)_10:
+Z17AIL_end_3D_samplePv_F0_3_10:
 	leave
 	ret
 	nop
 
 
-;Z22AIL_set_3D_sample_infoPvPK13_AILSOUNDINFO:F(0,1)
+;Z22AIL_set_3D_sample_infoPvPK13_AILSOUNDINFO_F0_1
 
-Z22AIL_set_3D_sample_infoPvPK13_AILSOUNDINFO:F(0,1):
+Z22AIL_set_3D_sample_infoPvPK13_AILSOUNDINFO_F0_1:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -2480,20 +2587,20 @@ Z22AIL_set_3D_sample_infoPvPK13_AILSOUNDINFO:F(0,1):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine16GetSampleSound3DEPv:F(0,45)
+	call ZN12CSoundEngine16GetSampleSound3DEPv_F0_45
 	mov ebx, eax
 	test eax, eax
-	jz Z22AIL_set_3D_sample_infoPvPK13_AILSOUNDINFO:F(0,1)_10
+	jz Z22AIL_set_3D_sample_infoPvPK13_AILSOUNDINFO_F0_1_10
 	mov [esp], eax
-	call ZN12CSoundObject11init_sampleEv:F(0,1)
+	call ZN12CSoundObject11init_sampleEv_F0_1
 	mov [ebp+0xc], esi
 	mov [ebp+0x8], ebx
 	add esp, 0x10
 	pop ebx
 	pop esi
 	pop ebp
-	jmp ZN12CSoundObject15set_sample_infoEPK13_AILSOUNDINFO:F(0,14)
-Z22AIL_set_3D_sample_infoPvPK13_AILSOUNDINFO:F(0,1)_10:
+	jmp ZN12CSoundObject15set_sample_infoEPK13_AILSOUNDINFO_F0_14
+Z22AIL_set_3D_sample_infoPvPK13_AILSOUNDINFO_F0_1_10:
 	xor eax, eax
 	add esp, 0x10
 	pop ebx
@@ -2503,9 +2610,9 @@ Z22AIL_set_3D_sample_infoPvPK13_AILSOUNDINFO:F(0,1)_10:
 	nop
 
 
-;Z24AIL_set_3D_sample_volumePvf:F(0,3)
+;Z24AIL_set_3D_sample_volumePvf_F0_3
 
-Z24AIL_set_3D_sample_volumePvf:F(0,3):
+Z24AIL_set_3D_sample_volumePvf_F0_3:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -2515,25 +2622,25 @@ Z24AIL_set_3D_sample_volumePvf:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine16GetSampleSound3DEPv:F(0,45)
+	call ZN12CSoundEngine16GetSampleSound3DEPv_F0_45
 	test eax, eax
-	jz Z24AIL_set_3D_sample_volumePvf:F(0,3)_10
+	jz Z24AIL_set_3D_sample_volumePvf_F0_3_10
 	mov [ebp+0xc], ebx
 	mov [ebp+0x8], eax
 	add esp, 0x14
 	pop ebx
 	pop ebp
-	jmp ZN12CSoundObject17set_sample_volumeEf:F(0,1)
-Z24AIL_set_3D_sample_volumePvf:F(0,3)_10:
+	jmp ZN12CSoundObject17set_sample_volumeEf_F0_1
+Z24AIL_set_3D_sample_volumePvf_F0_3_10:
 	add esp, 0x14
 	pop ebx
 	pop ebp
 	ret
 
 
-;Z24AIL_set_3D_sample_offsetPvm:F(0,3)
+;Z24AIL_set_3D_sample_offsetPvm_F0_3
 
-Z24AIL_set_3D_sample_offsetPvm:F(0,3):
+Z24AIL_set_3D_sample_offsetPvm_F0_3:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -2543,25 +2650,25 @@ Z24AIL_set_3D_sample_offsetPvm:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine16GetSampleSound3DEPv:F(0,45)
+	call ZN12CSoundEngine16GetSampleSound3DEPv_F0_45
 	test eax, eax
-	jz Z24AIL_set_3D_sample_offsetPvm:F(0,3)_10
+	jz Z24AIL_set_3D_sample_offsetPvm_F0_3_10
 	mov [ebp+0xc], ebx
 	mov [ebp+0x8], eax
 	add esp, 0x14
 	pop ebx
 	pop ebp
-	jmp ZN12CSoundObject19set_sample_positionEm:F(0,1)
-Z24AIL_set_3D_sample_offsetPvm:F(0,3)_10:
+	jmp ZN12CSoundObject19set_sample_positionEm_F0_1
+Z24AIL_set_3D_sample_offsetPvm_F0_3_10:
 	add esp, 0x14
 	pop ebx
 	pop ebp
 	ret
 
 
-;Z31AIL_set_3D_sample_playback_ratePvl:F(0,3)
+;Z31AIL_set_3D_sample_playback_ratePvl_F0_3
 
-Z31AIL_set_3D_sample_playback_ratePvl:F(0,3):
+Z31AIL_set_3D_sample_playback_ratePvl_F0_3:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -2571,10 +2678,10 @@ Z31AIL_set_3D_sample_playback_ratePvl:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine16GetSampleSound3DEPv:F(0,45)
+	call ZN12CSoundEngine16GetSampleSound3DEPv_F0_45
 	mov edx, eax
 	test eax, eax
-	jz Z31AIL_set_3D_sample_playback_ratePvl:F(0,3)_10
+	jz Z31AIL_set_3D_sample_playback_ratePvl_F0_3_10
 	mov eax, [eax]
 	mov [ebp+0xc], ebx
 	mov [ebp+0x8], edx
@@ -2583,16 +2690,16 @@ Z31AIL_set_3D_sample_playback_ratePvl:F(0,3):
 	pop ebx
 	pop ebp
 	jmp ecx
-Z31AIL_set_3D_sample_playback_ratePvl:F(0,3)_10:
+Z31AIL_set_3D_sample_playback_ratePvl_F0_3_10:
 	add esp, 0x14
 	pop ebx
 	pop ebp
 	ret
 
 
-;Z28AIL_set_3D_sample_loop_countPvm:F(0,3)
+;Z28AIL_set_3D_sample_loop_countPvm_F0_3
 
-Z28AIL_set_3D_sample_loop_countPvm:F(0,3):
+Z28AIL_set_3D_sample_loop_countPvm_F0_3:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -2602,25 +2709,25 @@ Z28AIL_set_3D_sample_loop_countPvm:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine16GetSampleSound3DEPv:F(0,45)
+	call ZN12CSoundEngine16GetSampleSound3DEPv_F0_45
 	test eax, eax
-	jz Z28AIL_set_3D_sample_loop_countPvm:F(0,3)_10
+	jz Z28AIL_set_3D_sample_loop_countPvm_F0_3_10
 	mov [ebp+0xc], ebx
 	mov [ebp+0x8], eax
 	add esp, 0x14
 	pop ebx
 	pop ebp
-	jmp ZN12CSoundObject21set_sample_loop_countEm:F(0,1)
-Z28AIL_set_3D_sample_loop_countPvm:F(0,3)_10:
+	jmp ZN12CSoundObject21set_sample_loop_countEm_F0_1
+Z28AIL_set_3D_sample_loop_countPvm_F0_3_10:
 	add esp, 0x14
 	pop ebx
 	pop ebp
 	ret
 
 
-;Z20AIL_3D_sample_statusPv:F(0,2)
+;Z20AIL_3D_sample_statusPv_F0_2
 
-Z20AIL_3D_sample_statusPv:F(0,2):
+Z20AIL_3D_sample_statusPv_F0_2:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -2628,21 +2735,21 @@ Z20AIL_3D_sample_statusPv:F(0,2):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine16GetSampleSound3DEPv:F(0,45)
+	call ZN12CSoundEngine16GetSampleSound3DEPv_F0_45
 	test eax, eax
-	jz Z20AIL_3D_sample_statusPv:F(0,2)_10
+	jz Z20AIL_3D_sample_statusPv_F0_2_10
 	mov [ebp+0x8], eax
 	leave
-	jmp ZN12CSoundObject17get_sample_statusEv:F(0,8)
-Z20AIL_3D_sample_statusPv:F(0,2)_10:
+	jmp ZN12CSoundObject17get_sample_statusEv_F0_8
+Z20AIL_3D_sample_statusPv_F0_2_10:
 	mov eax, 0x1
 	leave
 	ret
 
 
-;Z20AIL_3D_sample_volumePv:F(0,21)
+;Z20AIL_3D_sample_volumePv_F0_21
 
-Z20AIL_3D_sample_volumePv:F(0,21):
+Z20AIL_3D_sample_volumePv_F0_21:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -2650,22 +2757,22 @@ Z20AIL_3D_sample_volumePv:F(0,21):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine16GetSampleSound3DEPv:F(0,45)
+	call ZN12CSoundEngine16GetSampleSound3DEPv_F0_45
 	test eax, eax
-	jz Z20AIL_3D_sample_volumePv:F(0,21)_10
+	jz Z20AIL_3D_sample_volumePv_F0_21_10
 	mov [ebp+0x8], eax
 	leave
-	jmp ZN12CSoundObject17get_sample_volumeEv:F(0,13)
-Z20AIL_3D_sample_volumePv:F(0,21)_10:
+	jmp ZN12CSoundObject17get_sample_volumeEv_F0_13
+Z20AIL_3D_sample_volumePv_F0_21_10:
 	fldz
 	leave
 	ret
 	nop
 
 
-;Z20AIL_3D_sample_offsetPv:F(0,2)
+;Z20AIL_3D_sample_offsetPv_F0_2
 
-Z20AIL_3D_sample_offsetPv:F(0,2):
+Z20AIL_3D_sample_offsetPv_F0_2:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -2673,22 +2780,22 @@ Z20AIL_3D_sample_offsetPv:F(0,2):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine16GetSampleSound3DEPv:F(0,45)
+	call ZN12CSoundEngine16GetSampleSound3DEPv_F0_45
 	test eax, eax
-	jz Z20AIL_3D_sample_offsetPv:F(0,2)_10
+	jz Z20AIL_3D_sample_offsetPv_F0_2_10
 	mov [ebp+0x8], eax
 	leave
-	jmp ZN12CSoundObject19get_sample_positionEv:F(0,8)
-Z20AIL_3D_sample_offsetPv:F(0,2)_10:
+	jmp ZN12CSoundObject19get_sample_positionEv_F0_8
+Z20AIL_3D_sample_offsetPv_F0_2_10:
 	xor eax, eax
 	leave
 	ret
 	nop
 
 
-;Z27AIL_3D_sample_playback_ratePv:F(0,1)
+;Z27AIL_3D_sample_playback_ratePv_F0_1
 
-Z27AIL_3D_sample_playback_ratePv:F(0,1):
+Z27AIL_3D_sample_playback_ratePv_F0_1:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -2696,22 +2803,22 @@ Z27AIL_3D_sample_playback_ratePv:F(0,1):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine16GetSampleSound3DEPv:F(0,45)
+	call ZN12CSoundEngine16GetSampleSound3DEPv_F0_45
 	test eax, eax
-	jz Z27AIL_3D_sample_playback_ratePv:F(0,1)_10
+	jz Z27AIL_3D_sample_playback_ratePv_F0_1_10
 	mov [ebp+0x8], eax
 	leave
-	jmp ZN12CSoundObject24get_sample_playback_rateEv:F(0,14)
-Z27AIL_3D_sample_playback_ratePv:F(0,1)_10:
+	jmp ZN12CSoundObject24get_sample_playback_rateEv_F0_14
+Z27AIL_3D_sample_playback_ratePv_F0_1_10:
 	xor eax, eax
 	leave
 	ret
 	nop
 
 
-;Z20AIL_3D_sample_lengthPv:F(0,2)
+;Z20AIL_3D_sample_lengthPv_F0_2
 
-Z20AIL_3D_sample_lengthPv:F(0,2):
+Z20AIL_3D_sample_lengthPv_F0_2:
 	push ebp
 	mov ebp, esp
 	sub esp, 0x18
@@ -2719,58 +2826,58 @@ Z20AIL_3D_sample_lengthPv:F(0,2):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine16GetSampleSound3DEPv:F(0,45)
+	call ZN12CSoundEngine16GetSampleSound3DEPv_F0_45
 	test eax, eax
-	jz Z20AIL_3D_sample_lengthPv:F(0,2)_10
+	jz Z20AIL_3D_sample_lengthPv_F0_2_10
 	mov [ebp+0x8], eax
 	leave
-	jmp ZN12CSoundObject17get_sample_lengthEv:F(0,8)
-Z20AIL_3D_sample_lengthPv:F(0,2)_10:
+	jmp ZN12CSoundObject17get_sample_lengthEv_F0_8
+Z20AIL_3D_sample_lengthPv_F0_2_10:
 	xor eax, eax
 	leave
 	ret
 	nop
 
 
-;Z20AIL_set_3D_room_typeml:F(0,3)
+;Z20AIL_set_3D_room_typeml_F0_3
 
-Z20AIL_set_3D_room_typeml:F(0,3):
+Z20AIL_set_3D_room_typeml_F0_3:
 	push ebp
 	mov ebp, esp
 	mov eax, [sSoundEngine]
 	mov [ebp+0x8], eax
 	pop ebp
-	jmp ZN12CSoundEngine16set_3D_room_typeEl:F(0,25)
+	jmp ZN12CSoundEngine16set_3D_room_typeEl_F0_25
 	nop
 
 
-;Z25AIL_set_3D_rolloff_factormf:F(0,3)
+;Z25AIL_set_3D_rolloff_factormf_F0_3
 
-Z25AIL_set_3D_rolloff_factormf:F(0,3):
+Z25AIL_set_3D_rolloff_factormf_F0_3:
 	push ebp
 	mov ebp, esp
 	mov eax, [sSoundEngine]
 	mov [ebp+0x8], eax
 	pop ebp
-	jmp ZN12CSoundEngine21set_3D_rolloff_factorEf:F(0,25)
+	jmp ZN12CSoundEngine21set_3D_rolloff_factorEf_F0_25
 	nop
 
 
-;Z26AIL_set_3D_distance_factormf:F(0,3)
+;Z26AIL_set_3D_distance_factormf_F0_3
 
-Z26AIL_set_3D_distance_factormf:F(0,3):
+Z26AIL_set_3D_distance_factormf_F0_3:
 	push ebp
 	mov ebp, esp
 	mov eax, [sSoundEngine]
 	mov [ebp+0x8], eax
 	pop ebp
-	jmp ZN12CSoundEngine22set_3D_distance_factorEf:F(0,25)
+	jmp ZN12CSoundEngine22set_3D_distance_factorEf_F0_25
 	nop
 
 
-;Z27AIL_set_3D_sample_distancesPvff:F(0,3)
+;Z27AIL_set_3D_sample_distancesPvff_F0_3
 
-Z27AIL_set_3D_sample_distancesPvff:F(0,3):
+Z27AIL_set_3D_sample_distancesPvff_F0_3:
 	push ebp
 	mov ebp, esp
 	push esi
@@ -2782,10 +2889,10 @@ Z27AIL_set_3D_sample_distancesPvff:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine16GetSampleSound3DEPv:F(0,45)
+	call ZN12CSoundEngine16GetSampleSound3DEPv_F0_45
 	mov edx, eax
 	test eax, eax
-	jz Z27AIL_set_3D_sample_distancesPvff:F(0,3)_10
+	jz Z27AIL_set_3D_sample_distancesPvff_F0_3_10
 	mov eax, [eax]
 	mov [ebp+0x10], ebx
 	mov [ebp+0xc], esi
@@ -2796,7 +2903,7 @@ Z27AIL_set_3D_sample_distancesPvff:F(0,3):
 	pop esi
 	pop ebp
 	jmp ecx
-Z27AIL_set_3D_sample_distancesPvff:F(0,3)_10:
+Z27AIL_set_3D_sample_distancesPvff_F0_3_10:
 	add esp, 0x10
 	pop ebx
 	pop esi
@@ -2805,9 +2912,9 @@ Z27AIL_set_3D_sample_distancesPvff:F(0,3)_10:
 	nop
 
 
-;Z31AIL_set_3D_sample_effects_levelPvf:F(0,3)
+;Z31AIL_set_3D_sample_effects_levelPvf_F0_3
 
-Z31AIL_set_3D_sample_effects_levelPvf:F(0,3):
+Z31AIL_set_3D_sample_effects_levelPvf_F0_3:
 	push ebp
 	mov ebp, esp
 	push ebx
@@ -2817,25 +2924,25 @@ Z31AIL_set_3D_sample_effects_levelPvf:F(0,3):
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine16GetSampleSound3DEPv:F(0,45)
+	call ZN12CSoundEngine16GetSampleSound3DEPv_F0_45
 	test eax, eax
-	jz Z31AIL_set_3D_sample_effects_levelPvf:F(0,3)_10
+	jz Z31AIL_set_3D_sample_effects_levelPvf_F0_3_10
 	mov [ebp+0xc], ebx
 	mov [ebp+0x8], eax
 	add esp, 0x14
 	pop ebx
 	pop ebp
-	jmp ZN12CSoundObject27set_3D_sample_effects_levelEf:F(0,1)
-Z31AIL_set_3D_sample_effects_levelPvf:F(0,3)_10:
+	jmp ZN12CSoundObject27set_3D_sample_effects_levelEf_F0_1
+Z31AIL_set_3D_sample_effects_levelPvf_F0_3_10:
 	add esp, 0x14
 	pop ebx
 	pop ebp
 	ret
 
 
-;Z19AIL_set_3D_positionPvfff:F(0,3)
+;Z19AIL_set_3D_positionPvfff_F0_3
 
-Z19AIL_set_3D_positionPvfff:F(0,3):
+Z19AIL_set_3D_positionPvfff_F0_3:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -2847,13 +2954,13 @@ Z19AIL_set_3D_positionPvfff:F(0,3):
 	mov esi, [ebp+0x10]
 	mov ebx, [ebp+0x14]
 	cmp eax, 0xffffffff
-	jz Z19AIL_set_3D_positionPvfff:F(0,3)_10
+	jz Z19AIL_set_3D_positionPvfff_F0_3_10
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine16GetSampleSound3DEPv:F(0,45)
+	call ZN12CSoundEngine16GetSampleSound3DEPv_F0_45
 	test eax, eax
-	jz Z19AIL_set_3D_positionPvfff:F(0,3)_20
+	jz Z19AIL_set_3D_positionPvfff_F0_3_20
 	mov [ebp+0x14], ebx
 	mov [ebp+0x10], esi
 	mov [ebp+0xc], edi
@@ -2863,8 +2970,8 @@ Z19AIL_set_3D_positionPvfff:F(0,3):
 	pop esi
 	pop edi
 	pop ebp
-	jmp ZN12CSoundObject15set_3D_positionEfff:F(0,1)
-Z19AIL_set_3D_positionPvfff:F(0,3)_10:
+	jmp ZN12CSoundObject15set_3D_positionEfff_F0_1
+Z19AIL_set_3D_positionPvfff_F0_3_10:
 	mov eax, [sSoundEngine]
 	mov [ebp+0x8], eax
 	add esp, 0x1c
@@ -2872,8 +2979,8 @@ Z19AIL_set_3D_positionPvfff:F(0,3)_10:
 	pop esi
 	pop edi
 	pop ebp
-	jmp ZN12CSoundEngine15set_3D_positionEfff:F(0,25)
-Z19AIL_set_3D_positionPvfff:F(0,3)_20:
+	jmp ZN12CSoundEngine15set_3D_positionEfff_F0_25
+Z19AIL_set_3D_positionPvfff_F0_3_20:
 	add esp, 0x1c
 	pop ebx
 	pop esi
@@ -2883,9 +2990,9 @@ Z19AIL_set_3D_positionPvfff:F(0,3)_20:
 	nop
 
 
-;Z15AIL_3D_positionPvPfS0_S0_:F(0,3)
+;Z15AIL_3D_positionPvPfS0_S0__F0_3
 
-Z15AIL_3D_positionPvPfS0_S0_:F(0,3):
+Z15AIL_3D_positionPvPfS0_S0__F0_3:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -2897,13 +3004,13 @@ Z15AIL_3D_positionPvPfS0_S0_:F(0,3):
 	mov esi, [ebp+0x10]
 	mov ebx, [ebp+0x14]
 	cmp eax, 0xffffffff
-	jz Z15AIL_3D_positionPvPfS0_S0_:F(0,3)_10
+	jz Z15AIL_3D_positionPvPfS0_S0__F0_3_10
 	mov [esp+0x4], eax
 	mov eax, [sSoundEngine]
 	mov [esp], eax
-	call ZN12CSoundEngine16GetSampleSound3DEPv:F(0,45)
+	call ZN12CSoundEngine16GetSampleSound3DEPv_F0_45
 	test eax, eax
-	jz Z15AIL_3D_positionPvPfS0_S0_:F(0,3)_20
+	jz Z15AIL_3D_positionPvPfS0_S0__F0_3_20
 	mov [ebp+0x14], ebx
 	mov [ebp+0x10], esi
 	mov [ebp+0xc], edi
@@ -2913,8 +3020,8 @@ Z15AIL_3D_positionPvPfS0_S0_:F(0,3):
 	pop esi
 	pop edi
 	pop ebp
-	jmp ZN12CSoundObject15get_3D_positionEPfS0_S0_:F(0,1)
-Z15AIL_3D_positionPvPfS0_S0_:F(0,3)_10:
+	jmp ZN12CSoundObject15get_3D_positionEPfS0_S0__F0_1
+Z15AIL_3D_positionPvPfS0_S0__F0_3_10:
 	mov eax, [sSoundEngine]
 	mov [ebp+0x8], eax
 	add esp, 0x1c
@@ -2922,8 +3029,8 @@ Z15AIL_3D_positionPvPfS0_S0_:F(0,3)_10:
 	pop esi
 	pop edi
 	pop ebp
-	jmp ZN12CSoundEngine15get_3D_positionEPfS0_S0_:F(0,25)
-Z15AIL_3D_positionPvPfS0_S0_:F(0,3)_20:
+	jmp ZN12CSoundEngine15get_3D_positionEPfS0_S0__F0_25
+Z15AIL_3D_positionPvPfS0_S0__F0_3_20:
 	add esp, 0x1c
 	pop ebx
 	pop esi
@@ -2933,9 +3040,9 @@ Z15AIL_3D_positionPvPfS0_S0_:F(0,3)_20:
 	nop
 
 
-;Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)
+;Z12AIL_WAV_infoPKvP13_AILSOUNDINFO_F0_1
 
-Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1):
+Z12AIL_WAV_infoPKvP13_AILSOUNDINFO_F0_1:
 	push ebp
 	mov ebp, esp
 	push edi
@@ -2949,23 +3056,23 @@ Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1):
 	mov edi, esi
 	rep stosd
 	mov edx, [ebp+0x8]
-Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)_80:
+Z12AIL_WAV_infoPKvP13_AILSOUNDINFO_F0_1_80:
 	mov eax, [edx]
 	bswap eax
 	mov ebx, [edx+0x4]
 	lea edi, [edx+0x8]
 	cmp eax, 0x52494646
-	jz Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)_10
-	ja Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)_20
+	jz Z12AIL_WAV_infoPKvP13_AILSOUNDINFO_F0_1_10
+	ja Z12AIL_WAV_infoPKvP13_AILSOUNDINFO_F0_1_20
 	cmp eax, 0x4c495354
-	jz Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)_30
+	jz Z12AIL_WAV_infoPKvP13_AILSOUNDINFO_F0_1_30
 	cmp eax, 0x50414420
-	jz Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)_40
+	jz Z12AIL_WAV_infoPKvP13_AILSOUNDINFO_F0_1_40
 	cmp eax, 0x4a554e4b
-	jz Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)_30
-Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)_60:
+	jz Z12AIL_WAV_infoPKvP13_AILSOUNDINFO_F0_1_30
+Z12AIL_WAV_infoPKvP13_AILSOUNDINFO_F0_1_60:
 	xor eax, eax
-Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)_70:
+Z12AIL_WAV_infoPKvP13_AILSOUNDINFO_F0_1_70:
 	and eax, 0x1
 	add esp, 0xc
 	pop ebx
@@ -2973,20 +3080,20 @@ Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)_70:
 	pop edi
 	pop ebp
 	ret
-Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)_20:
+Z12AIL_WAV_infoPKvP13_AILSOUNDINFO_F0_1_20:
 	cmp eax, 0x66616374
-	jz Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)_30
+	jz Z12AIL_WAV_infoPKvP13_AILSOUNDINFO_F0_1_30
 	cmp eax, 0x666d7420
-	jz Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)_50
+	jz Z12AIL_WAV_infoPKvP13_AILSOUNDINFO_F0_1_50
 	cmp eax, 0x64617461
-	jnz Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)_60
+	jnz Z12AIL_WAV_infoPKvP13_AILSOUNDINFO_F0_1_60
 	mov eax, [esi+0x14]
 	mov [ebp-0x18], eax
 	test eax, eax
-	jz Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)_60
+	jz Z12AIL_WAV_infoPKvP13_AILSOUNDINFO_F0_1_60
 	mov ecx, [esi+0x10]
 	test ecx, ecx
-	jz Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)_60
+	jz Z12AIL_WAV_infoPKvP13_AILSOUNDINFO_F0_1_60
 	mov [esi+0x4], edi
 	mov [esi+0x8], ebx
 	mov eax, ebx
@@ -3002,39 +3109,39 @@ Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)_20:
 	mov [esi+0x18], eax
 	mov dword [esi+0x20], 0x0
 	mov eax, 0x1
-	jmp Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)_70
-Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)_30:
+	jmp Z12AIL_WAV_infoPKvP13_AILSOUNDINFO_F0_1_70
+Z12AIL_WAV_infoPKvP13_AILSOUNDINFO_F0_1_30:
 	lea edx, [edi+ebx]
-	jmp Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)_80
-Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)_10:
+	jmp Z12AIL_WAV_infoPKvP13_AILSOUNDINFO_F0_1_80
+Z12AIL_WAV_infoPKvP13_AILSOUNDINFO_F0_1_10:
 	mov eax, [edx+0x8]
 	bswap eax
 	add edx, 0xc
 	cmp eax, 0x57415645
-	jnz Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)_60
-	jmp Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)_80
-Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)_50:
+	jnz Z12AIL_WAV_infoPKvP13_AILSOUNDINFO_F0_1_60
+	jmp Z12AIL_WAV_infoPKvP13_AILSOUNDINFO_F0_1_80
+Z12AIL_WAV_infoPKvP13_AILSOUNDINFO_F0_1_50:
 	cmp ebx, 0xf
-	jbe Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)_60
+	jbe Z12AIL_WAV_infoPKvP13_AILSOUNDINFO_F0_1_60
 	movzx eax, word [edx+0x8]
 	cmp ax, 0x1
-	jz Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)_90
+	jz Z12AIL_WAV_infoPKvP13_AILSOUNDINFO_F0_1_90
 	cmp ax, 0x11
-	jz Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)_100
+	jz Z12AIL_WAV_infoPKvP13_AILSOUNDINFO_F0_1_100
 	mov eax, 0x1
-Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)_110:
+Z12AIL_WAV_infoPKvP13_AILSOUNDINFO_F0_1_110:
 	lea edx, [edi+ebx]
 	test al, al
-	jnz Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)_60
-	jmp Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)_80
-Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)_40:
+	jnz Z12AIL_WAV_infoPKvP13_AILSOUNDINFO_F0_1_60
+	jmp Z12AIL_WAV_infoPKvP13_AILSOUNDINFO_F0_1_80
+Z12AIL_WAV_infoPKvP13_AILSOUNDINFO_F0_1_40:
 	lea edx, [edi+ebx]
 	mov ebx, [esi+0x4]
 	test ebx, ebx
-	jnz Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)_80
+	jnz Z12AIL_WAV_infoPKvP13_AILSOUNDINFO_F0_1_80
 	mov dword [esi+0x4], 0xffffffff
-	jmp Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)_80
-Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)_90:
+	jmp Z12AIL_WAV_infoPKvP13_AILSOUNDINFO_F0_1_80
+Z12AIL_WAV_infoPKvP13_AILSOUNDINFO_F0_1_90:
 	movzx eax, word [edi+0xc]
 	mov [ebp-0x14], eax
 	movzx edx, word [edi+0x2]
@@ -3047,8 +3154,8 @@ Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)_90:
 	mov eax, [ebp-0x14]
 	mov [esi+0x1c], eax
 	xor eax, eax
-	jmp Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)_110
-Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)_100:
+	jmp Z12AIL_WAV_infoPKvP13_AILSOUNDINFO_F0_1_110
+Z12AIL_WAV_infoPKvP13_AILSOUNDINFO_F0_1_100:
 	movzx edx, word [edi+0xc]
 	mov [ebp-0x10], edx
 	movzx edx, word [edi+0x2]
@@ -3061,7 +3168,7 @@ Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)_100:
 	mov eax, [ebp-0x10]
 	mov [esi+0x1c], eax
 	xor eax, eax
-	jmp Z12AIL_WAV_infoPKvP13_AILSOUNDINFO:F(0,1)_110
+	jmp Z12AIL_WAV_infoPKvP13_AILSOUNDINFO_F0_1_110
 
 
 ;RB_CompareTouchImages(void const*, void const*)
